@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		
+		<author>Joshua Davidson (it0uchpods/411)</author>
+		<status>beta</status>
+
+		<model>
+			<pushback>
+				<kp type="double">1000</kp>
+				<ki type="double">0</ki>
+				<kd type="double">0</kd>
+				<position-norm type="double">0</position-norm>
+			</pushback>
+		</model>
+
+		<startup>
+			<splash-texture>Aircraft/A320Family/splash.png</splash-texture>
+		</startup>
+
+		<systems>
+			<!-- Disable the generic electrical system and use the Nasal system -->
+			<electrical>
+				<path></path>
+			</electrical>
+			<autopilot>
+				<name>Autopilot</name>
+				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Autothrust</name>
+				<path>Aircraft/A320Family/Systems/it-autothrust.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Autobrake</name>
+				<path>Aircraft/A320Family/Systems/a320-autobrake.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Spoilers</name>
+				<path>Aircraft/A320Family/Systems/a320-spoilers.xml</path>
+			</autopilot>
+			<property-rule n="101">
+				<path>Systems/fl2070_sound.xml</path>
+			</property-rule>
+		</systems>
+
+		<chase-distance-m>-85</chase-distance-m>
+
+		
+
+		<instrumentation>
+			<path>Aircraft/A320Family/Systems/instrumentation.xml</path>
+		</instrumentation>
+
+		<alarms>
+			<master-caution type="bool">false</master-caution>
+		</alarms>
+
+		<menubar>
+			<default>
+				<menu n="3">
+					<item>
+						<name>autopilot</name>
+						<label>Autopilot Settings</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
+							 autopilot.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+				<menu n="100">
+					<enabled type="bool">true</enabled>
+					<item>
+						<name>autostart</name>
+						<label>Autostart</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/start-idling</property>
+						</binding>
+					</item>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft.livery.dialog.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>pushback</name>
+						<label>Pushback</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+		<!-- Multiplayer properties -->
+		<multiplay>
+			<generic>
+				<float n="0" alias="/controls/lighting/dome-norm" />
+				<float n="1" alias="/controls/lighting/interior" />
+				<int n="2" alias="/controls/lighting/landing-lights[0]" />
+				<int n="3" alias="/controls/lighting/landing-lights[1]" />
+				<int n="4" alias="/controls/lighting/landing-lights[2]" />
+				<int n="5" alias="/sim/model/lights/nav-lights" />
+				<int n="6" alias="/sim/model/lights/logo-lights" />
+				<int n="7" alias="/sim/model/lights/strobe/state" />
+				<int n="8" alias="/controls/lighting/wing-lights" />
+				<int n="9" alias="/sim/model/lights/beacon/state" />
+				<int n="10" alias="/engines/engine[0]/contrail" />
+				<int n="11" alias="/engines/engine[1]/contrail" />
+			</generic>
+		</multiplay>
+	</sim>
+
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>LH Vent</name>
+			</tank>
+			<tank n="1">
+				<name>LH Outer</name>
+			</tank>
+			<tank n="2">
+				<name>LH Inner</name>
+			</tank>
+			<tank n="3">
+				<name>Center</name>
+			</tank>
+			<tank n="4">
+				<name>RH Inner</name>
+			</tank>
+			<tank n="5">
+				<name>RH Outer</name>
+			</tank>
+			<tank n="6">
+				<name>RH Vent</name>
+			</tank>
+		</fuel>
+	</consumables>
+	
+<it-autoflight>
+	<settings>
+		<no-generics>1</no-generics>
+		<roll>
+			<umin>-0.07</umin>
+			<umax>0.07</umax>
+			<kp>0.05</kp>
+			<kp-vorloc>0.10</kp-vorloc>
+		</roll>
+		<pitch>
+			<umin>-0.20</umin>
+			<umax>0.20</umax>
+			<kp>-0.05</kp>
+		</pitch>
+		<flch>
+			<umin>-0.20</umin>
+			<umax>0.20</umax>
+			<kp>-0.05</kp>
+		</flch>
+		<gs>
+			<kp>0.10</kp>
+		</gs>
+	</settings>
+</it-autoflight>
+
+	<payload>
+		<weight n="0">
+			<name>Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<min-lb type="double">120</min-lb>
+			<max-lb type="double">600</max-lb>
+		</weight>
+		<weight n="1">
+			<name>PAX</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+		</weight>
+	</payload>
+
+	<controls>
+		<APU>
+			<fire-switch type="bool">false</fire-switch>
+			<master-switch type="bool">false</master-switch>
+			<starter type="bool">false</starter>
+		</APU>
+		<electric>
+			<avionics-switch type="bool">true</avionics-switch>
+		</electric>
+		<engines>
+			<engine-start-switch type="int">1</engine-start-switch>
+			<engine n="0">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+			</engine>
+			<engine n="1">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+			</engine>
+		</engines>
+		<flight>
+			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
+			<speedbrake-lever type="double">0</speedbrake-lever>
+		</flight>
+		<gear>
+			<brake-parking type="bool">true</brake-parking>
+            <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-enabled type="bool">false</tiller-enabled>
+		</gear>
+		<lighting>
+			<beacon type="bool">false</beacon>
+			<interior type="double">0</interior>
+			<cones type="bool">true</cones>
+			<dome-norm type="double">0</dome-norm>
+			<landing-lights n="0" type="bool">false</landing-lights>
+			<landing-lights n="1" type="bool">false</landing-lights>
+			<landing-lights n="2" type="bool">false</landing-lights>
+			<nav-lights-switch type="int">0</nav-lights-switch>
+			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
+			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
+			<wing-lights type="bool">false</wing-lights>
+			<strobe type="bool">false</strobe>
+		</lighting>
+		<switches>
+			<!-- Smoking is bad :P -->
+			<no-smoking-sign type="bool">true</no-smoking-sign>
+			<seatbelt-sign type="bool">false</seatbelt-sign>
+		</switches>
+	</controls>
+	
+	<engines>
+		<apu>
+			<rpm type="double">0</rpm>
+			<on-fire type="bool">false</on-fire>
+			<running type="bool">false</running>
+			<serviceable type="bool">true</serviceable>
+		</apu>
+		<engine n="0">
+			<contrail type="bool">false</contrail>
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+		</engine>
+		<engine n="1">
+			<contrail type="bool">false</contrail>
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+		</engine>
+	</engines>
+
+	<gear>
+		<gear n="0">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="1">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="2">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+	</gear>
+
+	<input>
+		<keyboard>
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle thrust reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 A320.engine1.reverse_thrust();
+					 A320.engine2.reverse_thrust();
+					</script>
+				</binding>
+			</key>
+			<key n="2">
+				<name>Ctrl-b</name>
+				<desc>Cycle speedbrake setting</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake-lever</property>
+					<value>0</value>
+					<value>0.5</value>
+					<value>1</value>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
+
+	<aircraft>
+		<door n="0">
+			<x-m>16.582</x-m>
+			<y-m>9.702</y-m>
+			<z-m>3.642</z-m>
+		</door>
+		<jetway-hood-deg type="double">3</jetway-hood-deg>
+	</aircraft>
+
+</PropertyList>

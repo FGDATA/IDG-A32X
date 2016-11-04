@@ -1,0 +1,24 @@
+AC3Db
+MATERIAL "transparent" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 50  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "Light"
+data 9
+Plane.296
+texture "lights.png"
+crease 30.000000
+numvert 4
+1 1 0
+1 -1 0
+-1 -1 0
+-1 1 0
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 0.5375 0.5375
+3 0.9625 0.5375
+2 0.9625 0.9625
+1 0.5375 0.9625
+kids 0

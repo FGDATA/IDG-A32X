@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/strobe.ac</path>
+
+	<!-- ANIMATIONS -->
+	<!-- On/off -->
+	<animation>
+		<name>On/off</name>
+		<type>select</type>
+		<object-name>strobe</object-name>
+		<condition>
+			<property>systems/electrical/outputs/strobe</property>
+		</condition>
+	</animation>
+
+	<!-- Billboard animation -->
+	<animation>
+		<name>Billboard</name>
+		<type>billboard</type>
+		<object-name>strobe</object-name>
+	</animation>
+
+</PropertyList>

@@ -1,0 +1,133 @@
+<PropertyList>
+  <fx>
+	<apu>
+		<name>apu_in</name>
+		<mode>looped</mode>
+		<path>Sounds/misc/a320_apu.wav</path>
+		<condition>
+			<property>sim/current-view/internal</property>
+		</condition>
+		<volume>
+			<property>engines/apu/rpm</property>
+			<factor>0.01</factor>
+			<min>0</min>
+		</volume>
+		<pitch>
+			<property>engines/apu/rpm</property>
+			<factor>0.01</factor>
+			<offset>0</offset>
+		</pitch>
+	</apu>
+	
+	<apu>
+		<name>apu_out</name>
+		<mode>looped</mode>
+		<path>Sounds/misc/a320_apu_x.wav</path>
+		<condition>
+			<not><property>sim/current-view/internal</property></not>
+		</condition>
+		<volume>
+			<property>engines/apu/rpm</property>
+			<factor>0.01</factor>
+			<min>0</min>
+		</volume>
+		<pitch>
+			<property>engines/apu/rpm</property>
+			<factor>0.01</factor>
+			<offset>0</offset>
+		</pitch>
+	</apu>
+	
+	
+	
+	
+	<avn>
+		<name>no_ap</name>
+			<path>FL2070/320apoff.wav</path>
+		<mode>once</mode>
+		<type>avionics</type>
+		<condition>
+			<property>/sim/sound/warnings/ap_disc</property>
+		</condition>
+		<volume>
+			<property>sim/sound/effects/volume</property>
+		</volume>
+		<reference-dist>10</reference-dist>
+		<max-dist>100</max-dist>
+	</avn>
+	
+	<gear>
+		<name>gear0</name>
+		<mode>in-transit</mode>
+		<path>FL2070/320gear</path>
+		<property>gear/gear[0]/position-norm</property>
+		<volume>
+			<property>sim/sound/other/gear</property>
+		</volume>
+	</gear>
+	
+	<gear>
+		<name>gear1</name>
+		<mode>in-transit</mode>
+		<path>FL2070/320gear</path>
+		<property>gear/gear[1]/position-norm</property>
+		<volume>
+			<property>sim/sound/other/gear</property>
+		</volume>
+	</gear>
+	
+	<gear>
+		<name>gear2</name>
+		<mode>in-transit</mode>
+		<path>FL2070/320gear</path>
+		<property>gear/gear[2]/position-norm</property>
+		<volume>
+			<property>sim/sound/other/gear</property>
+		</volume>
+	</gear>
+	
+	<wind>
+		<path>FL2070/320wind.wav</path>
+		<mode>looped</mode>
+		<name>wind</name>
+		<condition>
+			<property>sim/current-view/internal</property>
+		</condition>
+		<volume>
+			<property>sim/sound/other/wind</property>
+			<offset>0</offset>
+		</volume>
+		<pitch>
+			<property>sim/sound/other/windp</property>
+			<offset>0</offset>
+		</pitch>
+	</wind>
+	
+	<wow>
+		<mode>once</mode>
+		<name>wow0</name>
+		<path>FL2070/320touch.wav</path>
+		<condition>
+			<property>gear/gear[0]/wow</property>
+		</condition>
+	</wow>
+	
+	<wow>
+		<mode>once</mode>
+		<name>wow1</name>
+		<path>FL2070/320touch.wav</path>
+		<condition>
+			<property>gear/gear[1]/wow</property>
+		</condition>
+	</wow>
+	
+	<wow>
+		<mode>once</mode>
+		<name>wow2</name>
+		<path>FL2070/320touch.wav</path>
+		<condition>
+			<property>gear/gear[2]/wow</property>
+		</condition>
+	</wow>
+  </fx>
+</PropertyList>

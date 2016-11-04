@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<path>../Models/cfm56.ac</path>
+	<offsets>
+		<x-m>0.941</x-m>
+	</offsets>
+	<!--texture-path>../Textures/Livery/House</texture-path-->
+	
+</PropertyList>
