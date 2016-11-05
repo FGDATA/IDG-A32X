@@ -43,7 +43,6 @@
 		<object-name>LdgElevKnb</object-name>
 		<object-name>LeftRainTest</object-name>
 		<object-name>LeftWiperKnb</object-name>
-		<object-name>Markings</object-name>
 		<object-name>NavLogoLtSwtch</object-name>
 		<object-name>NoSmokingSwtch</object-name>
 		<object-name>NoseLtSwtch</object-name>
@@ -134,35 +133,6 @@
 						<property>controls/lighting/overhead-panel-norm</property>
 						<value>0.5</value>
 					</greater-than>
-				</and>
-			</or>
-		</condition>
-	</animation>
-	<animation>
-		<name>Panel no lighting select</name>
-		<type>select</type>
-		<object-name>Markings</object-name>
-		<condition>
-			<or>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>0.5</value>
-					</equals>
-					<less-than-equals>
-						<property>controls/lighting/overhead-panel-norm</property>
-						<value>0.25</value>
-					</less-than-equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>controls/lighting/overhead-panel-norm</property>
-						<value>0.5</value>
-					</less-than-equals>
 				</and>
 			</or>
 		</condition>

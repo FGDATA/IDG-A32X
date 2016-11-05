@@ -36,22 +36,6 @@
 			<blue>0</blue>
 		</diffuse>
 	</animation>
-
-	<animation>
-		<type>material</type>
-		<object-name>cyan</object-name>
-		<emission>
-			<red>0</red>
-			<green>0.4823</green>
-			<blue>0.5372</blue>
-			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
-		</emission>
-		<diffuse>
-			<red>0</red>
-			<green>0.4823</green>
-			<blue>0.5372</blue>
-		</diffuse>
-	</animation>
 	
 	<!-- Select Animations -->
 

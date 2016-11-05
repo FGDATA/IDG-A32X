@@ -26,13 +26,19 @@
 				<path></path>
 			</electrical>
 			<autopilot>
-				<name>Autopilot</name>
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
 			</autopilot>
-			<autopilot>
-				<name>Autothrust</name>
-				<path>Aircraft/A320Family/Systems/it-autothrust.xml</path>
-			</autopilot>
+			<!-- Uses slightly modified IT-AUTOFLIGHT Thrust controller. -->
+            <autopilot>
+                <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
+            </autopilot>
+            <autopilot>
+                <path>Aircraft/A320Family/Systems/thrust.xml</path>
+            </autopilot>
+            <autopilot>
+                <name>Custom engine values system</name>
+                <path>Aircraft/A320Family/Systems/engine-timing.xml</path>
+            </autopilot>
 			<autopilot>
 				<name>Autobrake</name>
 				<path>Aircraft/A320Family/Systems/a320-autobrake.xml</path>
@@ -43,6 +49,9 @@
 			</autopilot>
 			<property-rule n="101">
 				<path>Systems/fl2070_sound.xml</path>
+			</property-rule>
+			<property-rule n="102">
+				<path>Systems/pfd.xml</path>
 			</property-rule>
 		</systems>
 
@@ -126,47 +135,54 @@
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>LH Vent</name>
+				<name>Left Wing Vent</name>
 			</tank>
 			<tank n="1">
-				<name>LH Outer</name>
+				<name>Left Wing Outer</name>
 			</tank>
 			<tank n="2">
-				<name>LH Inner</name>
+				<name>Left Wing Inner</name>
 			</tank>
 			<tank n="3">
 				<name>Center</name>
 			</tank>
 			<tank n="4">
-				<name>RH Inner</name>
+				<name>Right Wing Inner</name>
 			</tank>
 			<tank n="5">
-				<name>RH Outer</name>
+				<name>Right Wing Outer</name>
 			</tank>
 			<tank n="6">
-				<name>RH Vent</name>
+				<name>Right Wing Vent</name>
+			</tank>
+			<tank n="7">
+				<name>Left Pipes</name>
+			</tank>
+			<tank n="8">
+				<name>Right Pipes</name>
 			</tank>
 		</fuel>
 	</consumables>
 	
 <it-autoflight>
 	<settings>
+		<altitude-dial-mode>0</altitude-dial-mode>
 		<no-generics>1</no-generics>
 		<roll>
-			<umin>-0.07</umin>
-			<umax>0.07</umax>
-			<kp>0.05</kp>
+			<umin>-0.5</umin>
+			<umax>0.5</umax>
+			<kp>0.10</kp>
 			<kp-vorloc>0.10</kp-vorloc>
 		</roll>
 		<pitch>
-			<umin>-0.20</umin>
-			<umax>0.20</umax>
-			<kp>-0.05</kp>
+			<umin>-0.30</umin>
+			<umax>0.30</umax>
+			<kp>-0.10</kp>
 		</pitch>
 		<flch>
-			<umin>-0.20</umin>
-			<umax>0.20</umax>
-			<kp>-0.05</kp>
+			<umin>-0.30</umin>
+			<umax>0.30</umax>
+			<kp>-0.09</kp>
 		</flch>
 		<gs>
 			<kp>0.10</kp>
@@ -187,6 +203,16 @@
 		</weight>
 	</payload>
 
+	<autopilot>
+		<autobrake>
+			<config>
+				<idle-throttle type="double">0.1</idle-throttle>
+				<pilot-input type="double">0</pilot-input>
+			</config>
+			<step type="int">0</step>
+		</autobrake>
+	</autopilot>
+
 	<controls>
 		<APU>
 			<fire-switch type="bool">false</fire-switch>
@@ -203,13 +229,24 @@
 				<cutoff-switch type="bool">true</cutoff-switch>
 				<starter type="bool">false</starter>
 				<starter-switch type="bool">false</starter-switch>
+				<max-athr-thrust type="float">0.94</max-athr-thrust>
 			</engine>
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
 				<starter type="bool">false</starter>
 				<starter-switch type="bool">false</starter-switch>
+				<max-athr-thrust type="float">0.94</max-athr-thrust>
 			</engine>
+			<detents>
+				<current type="string">none</current>
+				<throttle type="float">0</throttle>
+				<rev type="float">-0.59</rev>
+				<idle type="float">0</idle>
+				<clb type="float">0.72</clb>
+				<flex type="float">0.98</flex>
+				<toga type="float">1</toga>
+			</detents>
 		</engines>
 		<flight>
 			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
@@ -223,6 +260,7 @@
 		<lighting>
 			<beacon type="bool">false</beacon>
 			<interior type="double">0</interior>
+			<cockpit type="bool">false</cockpit>
 			<cones type="bool">true</cones>
 			<dome-norm type="double">0</dome-norm>
 			<landing-lights n="0" type="bool">false</landing-lights>
@@ -231,7 +269,6 @@
 			<nav-lights-switch type="int">0</nav-lights-switch>
 			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
 			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
-			<wing-lights type="bool">false</wing-lights>
 			<strobe type="bool">false</strobe>
 		</lighting>
 		<switches>
@@ -249,13 +286,11 @@
 			<serviceable type="bool">true</serviceable>
 		</apu>
 		<engine n="0">
-			<contrail type="bool">false</contrail>
 			<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
 		</engine>
 		<engine n="1">
-			<contrail type="bool">false</contrail>
 			<on-fire type="bool">false</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">false</running>
@@ -282,6 +317,112 @@
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
 	</gear>
+
+	<instrumentation>
+	
+		<efis n="0">
+
+			<ecam>
+					<display-mode type="string">FCTL</display-mode>
+			</ecam>
+			
+		</efis>
+	
+		<efis n="1">
+
+			<ecam>
+					<display-mode type="string">FCTL</display-mode>
+			</ecam>
+
+		</efis>
+		
+		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
+			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->
+			<inputs>
+				<mode type="int">3</mode><!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+			</inputs>
+			<voice>
+				<file-prefix type="string">Sounds/tcas/female/</file-prefix>
+				<!-- sound file path and prefix -->
+			</voice>
+			<speaker><!-- Speaker Configuration -->
+				<max-dist> 2 </max-dist><!-- Max. distance where speaker is heard -->
+				<reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
+				<volume> 0.8 </volume> <!-- Volume at reference distance -->
+			</speaker>
+		</tcas>
+		<nav-compass>
+			<nav-display n="0" type="int">0</nav-display>
+			<nav-display n="1" type="int">0</nav-display>
+		</nav-compass>
+
+		<!-- See http://wiki.flightgear.org/index.php/GPWS -->
+		<mk-viii>
+			<serviceable type="bool">true</serviceable>
+			<configuration-module>
+				<category-1 type="int">255</category-1>
+				<category-3 type="int">2</category-3>
+				<category-4 type="int">13</category-4>
+				<category-5 type="int">0</category-5>
+				<category-6 type="int">1</category-6>
+				<category-7 type="int">124</category-7>
+				<category-8 type="int">2</category-8>
+				<category-9 type="int">3</category-9> 
+				<category-10 type="int">6</category-10>
+				<category-13 type="int">7</category-13>
+				<category-14 type="int">0</category-14>
+			</configuration-module>
+			<inputs>
+				<arinc429>
+					<decision-height-ncd type="bool">false</decision-height-ncd>
+					<decision-height type="double">250</decision-height>
+				</arinc429>
+			</inputs>
+			<speaker>
+				<max-dist type="double">2</max-dist>
+				<reference-dist type="double">1</reference-dist>
+				<volume type="double">0.2</volume>
+			</speaker>
+			<voice>
+				<file-prefix>Aircraft/A320Family/Sounds/GPWS</file-prefix>
+			</voice>
+		</mk-viii>
+		
+		<groundradar>
+			<range type="double">1.0</range>
+		</groundradar>
+		
+		<chrono n="0">
+			<started type="bool">false</started>
+			<paused type="bool">false</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+
+		<chrono n="1">
+			<started type="bool">false</started>
+			<paused type="bool">false</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+		
+	</instrumentation>
+	
+	<modes>
+		<altimeter>
+			<inhg>0</inhg>
+		</altimeter>
+		<pfd>
+			<minimums-mode>DH</minimums-mode>
+			<ILS1>false</ILS1>
+			<ILS2>false</ILS2>
+			<fma>
+				<athr-box>O  </athr-box>
+			</fma>
+		</pfd>
+	</modes>
 
 	<input>
 		<keyboard>

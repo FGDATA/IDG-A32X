@@ -20,12 +20,11 @@
 		</model>
 
 		<flaps>
-			<setting>0.00</setting><!-- -->
-			<setting>0.29</setting><!-- 18+0=18 ->  0.290 -->
-			<setting>0.596</setting><!-- 22+15=37 -> 0.596 -->
-			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
-			<setting>1</setting><!-- 27+35=62 -> 1 -->
-	
+			<setting>0.000</setting>
+			<setting>0.290</setting>
+			<setting>0.596</setting>
+			<setting>0.645</setting>
+			<setting>1.000</setting>
 		</flaps>
 
 		<view>
@@ -90,10 +89,17 @@
 			<file>Aircraft/A320Family/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/A320Family/Nasal/systems.nas</file>
 			<file>Aircraft/A320Family/Nasal/a320livery.nas</file>
+			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
+            <file>Aircraft/A320Family/Nasal/gpws.nas</file>
+            <file>Aircraft/A320Family/Nasal/efis.nas</file>
+			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 		</A320>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
-		</itaf>	
+		</itaf>
+		<thrust>
+			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
+		</thrust>
 	</nasal>
 
 </PropertyList>

@@ -412,7 +412,7 @@ YAW MOI_________3950000______23089847_______24848934
 </ground_reactions>
 
 <propulsion>
-	<engine file="v2533_a5">
+	<engine file="v2527_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
 		<y> -226.575 </y>
@@ -439,7 +439,7 @@ YAW MOI_________3950000______23089847_______24848934
 		</orient>
 	</thruster>
 	</engine>
-	<engine file="v2533_a5">
+	<engine file="v2527_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
 		<y> 226.575 </y>
@@ -653,6 +653,20 @@ YAW MOI_________3950000______23089847_______24848934
 		</range>
 		<output>fcs/right-aileron-pos-norm</output>
 	</aerosurface_scale>
+	</channel>
+	<channel name="Throttle">
+	<pure_gain name="fcs/throttle1">
+		<input>/controls/engines/engine[0]/throttle-fdm</input>
+		<gain>1</gain>
+		<output>fcs/throttle-cmd-norm</output>
+		<output>fcs/throttle-pos-norm</output>
+	</pure_gain>
+	<pure_gain name="fcs/throttle2">
+		<input>/controls/engines/engine[1]/throttle-fdm</input>
+		<gain>1</gain>
+		<output>fcs/throttle-cmd-norm[1]</output>
+		<output>fcs/throttle-pos-norm[1]</output>
+	</pure_gain>
 	</channel>
 	<channel name="Yaw">
 	<!-- Testing on Ground steering Rudder bug

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+    <filter>
+        <name>EPR 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[0]/n1</property> 
+                    <entry><ind>    0</ind><dep>1.00</dep></entry>
+                    <entry><ind>   22</ind><dep>1.01</dep></entry>
+                    <entry><ind>   35</ind><dep>1.06</dep></entry>
+                    <entry><ind>105.0</ind><dep>1.38</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/epr-actual</output>
+    </filter>
+	
+    <filter>
+        <name>EPR 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[1]/n1</property> 
+                    <entry><ind>    0</ind><dep>1.00</dep></entry>
+                    <entry><ind>   22</ind><dep>1.01</dep></entry>
+                    <entry><ind>   35</ind><dep>1.06</dep></entry>
+                    <entry><ind>105.0</ind><dep>1.38</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/epr-actual</output>
+    </filter>
+
+    <filter>
+        <name>EGT 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[0]/egt-degc</property> 
+                    <entry><ind>700</ind><dep>302</dep></entry>
+                    <entry><ind>765</ind><dep>765</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/egt-actual</output>
+    </filter>
+	
+    <filter>
+        <name>EGT 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[1]/egt-degc</property> 
+                    <entry><ind>700</ind><dep>302</dep></entry>
+                    <entry><ind>765</ind><dep>765</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/egt-actual</output>
+    </filter>
+
+</PropertyList>

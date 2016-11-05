@@ -1,6 +1,6 @@
 <PropertyList>
   <fx>
-	<apu>
+	<!--apu>
 		<name>apu_in</name>
 		<mode>looped</mode>
 		<path>Sounds/misc/a320_apu.wav</path>
@@ -36,7 +36,7 @@
 			<factor>0.01</factor>
 			<offset>0</offset>
 		</pitch>
-	</apu>
+	</apu-->
 	
 	
 	
@@ -59,7 +59,7 @@
 	<gear>
 		<name>gear0</name>
 		<mode>in-transit</mode>
-		<path>FL2070/320gear</path>
+		<path>FL2070/320gear.wav</path>
 		<property>gear/gear[0]/position-norm</property>
 		<volume>
 			<property>sim/sound/other/gear</property>
@@ -69,7 +69,7 @@
 	<gear>
 		<name>gear1</name>
 		<mode>in-transit</mode>
-		<path>FL2070/320gear</path>
+		<path>FL2070/320gear.wav</path>
 		<property>gear/gear[1]/position-norm</property>
 		<volume>
 			<property>sim/sound/other/gear</property>
@@ -79,7 +79,7 @@
 	<gear>
 		<name>gear2</name>
 		<mode>in-transit</mode>
-		<path>FL2070/320gear</path>
+		<path>FL2070/320gear.wav</path>
 		<property>gear/gear[2]/position-norm</property>
 		<volume>
 			<property>sim/sound/other/gear</property>

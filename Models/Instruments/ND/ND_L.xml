@@ -1,0 +1,22 @@
+<!--
+MD-11 Navigation display
+-->
+
+<PropertyList>
+
+<path>ND_L.ac</path>
+
+<animation>
+	<type>pick</type>
+	<object-name>ND.screen</object-name>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>A320.showNd();</script>
+		</binding>
+	</action>
+</animation>
+
+</PropertyList>

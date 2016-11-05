@@ -11,7 +11,7 @@ var systems =
  stopUpdate: 0,
  init: func
   {
-  print("A320 aircraft systems ... initialized");
+  print("A320 Systems ... Done!");
   systems.stop();
   settimer(func
    {
@@ -186,8 +186,28 @@ var triggerDoor = func(door, doorName, doorDesc)
 setlistener("/sim/signals/fdm-initialized", func {	
   	itaf.ap_init();			
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
-	setprop("/it-autoflight/settings/retard-enable", 1);  # Enable or disable automatic autothrottle retard.
+	setprop("/it-autoflight/settings/retard-enable", 0);  # Enable or disable automatic autothrottle retard.
 	setprop("/it-autoflight/settings/retard-ft", 50);     # Add this to change the retard altitude, default is 50ft AGL.
-	setprop("/it-autoflight/settings/land-flap", 0.6);    # Define the landing flaps here. This is needed for autoland, and retard.
+	setprop("/it-autoflight/settings/land-flap", 0.645);  # Define the landing flaps here. This is needed for autoland, and retard.
 	setprop("/it-autoflight/settings/land-enable", 0);    # Enable or disable automatic landing.
+});
+
+var aglgears = func {
+    var agl = getprop("/position/altitude-agl-ft") or 0;
+    var aglft = agl - 8.004;  # is the position from the Airbus A320 above ground
+    var aglm = aglft * 0.3048;
+    setprop("/position/gear-agl-ft", aglft);
+    setprop("/position/gear-agl-m", aglm);
+
+    settimer(aglgears, 0.01);
+}
+
+aglgears();
+
+setlistener("/instrumentation/altimeter/indicated-altitude-ft", func {
+	setprop("/instrumentation/altimeter/indicated-altitude-ft-pfd", getprop("/instrumentation/altimeter/indicated-altitude-ft") / 100);
+});
+
+setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", func {
+	setprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd", getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") / 100);
 });

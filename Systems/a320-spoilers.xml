@@ -4,59 +4,84 @@
 
 <PropertyList>
 
-	<logic>
-		<name>Ground spoilers disarm</name>
-		<enable>
-			<condition>
-				<!-- Ground spoilers can only be armed when the speedbrake lever is up -->
-				<greater-than>
-					<property>/controls/flight/speedbrake-lever</property>
-					<value>0</value>
-				</greater-than>
-			</condition>
-		</enable>
-		<input>
-			<false />
-		</input>
-		<output>/controls/flight/ground-spoilers-armed</output>
-	</logic>
-
-	<logic>
-		<name>Ground spoilers engage</name>
-		<input>
-			<and>
+    <flipflop>
+        <name>Auto Speedbrake Engage logic</name>
+        <debug>false</debug>
+        <type>RS</type>
+        <enable>
+            <condition>
+				<and>
+					<equals>
+						<property>/controls/flight/speedbrake-arm</property>
+						<value>1</value>
+					</equals>
+					<less-than>
+						<property>/surface-positions/reverser-norm</property>
+						<value>0.01</value>
+					</less-than>
+					<less-than>
+						<property>/surface-positions/reverser-norm[1]</property>
+						<value>0.01</value>
+					</less-than>
+					<less-than>
+						<property>/surface-positions/reverser-norm[2]</property>
+						<value>0.01</value>
+					</less-than>
+					<less-than>
+						<property>/surface-positions/reverser-norm[3]</property>
+						<value>0.01</value>
+					</less-than>
+				</and>
+            </condition>
+        </enable>
+        <S>
+				<and>
+                    <less-than>
+                        <property>/controls/engines/engine/throttle</property>
+                        <value>0.15</value>
+                    </less-than>
+                    <less-than>
+                        <property>/controls/engines/engine[1]/throttle</property>
+                        <value>0.15</value>
+                    </less-than>
+                    <less-than>
+                        <property>/controls/engines/engine[2]/throttle</property>
+                        <value>0.15</value>
+                    </less-than>
+                    <less-than>
+                        <property>/controls/engines/engine[3]/throttle</property>
+                        <value>0.15</value>
+                    </less-than>
+                    <property>/gear/gear[1]/wow</property>
+                    <property>/gear/gear[2]/wow</property>
+                    <greater-than>
+                        <property>/velocities/groundspeed-kt</property>
+                        <value>60</value>
+                    </greater-than>
+				</and>
+        </S>
+        <R>
 				<or>
-					<!-- Spoilers armed -->
-					<and>
-						<property>/controls/flight/ground-spoilers-armed</property>
-						<less-than>
-							<property>/controls/engines/engine[0]/throttle</property>
-							<property>/autopilot/autobrake/config/idle-throttle</property>
-						</less-than>
-						<less-than>
-							<property>/controls/engines/engine[1]/throttle</property>
-							<property>/autopilot/autobrake/config/idle-throttle</property>
-						</less-than>
-					</and>
-					<!-- Spoilers not armed -->
-					<and>
-						<not>
-							<property>/controls/flight/ground-spoilers-armed</property>
-						</not>
-						<property>/controls/engines/engine[0]/reverser</property>
-						<property>/controls/engines/engine[1]/reverser</property>
-					</and>
+                    <greater-than>
+                        <property>/controls/engines/engine/throttle</property>
+                        <value>0.16</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/controls/engines/engine[1]/throttle</property>
+                        <value>0.16</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/controls/engines/engine[2]/throttle</property>
+                        <value>0.16</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>/controls/engines/engine[3]/throttle</property>
+                        <value>0.16</value>
+                    </greater-than>
 				</or>
-				<property>/gear/gear[1]/wow</property>
-				<property>/gear/gear[2]/wow</property>
-				<greater-than>
-					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-					<value>72</value>
-				</greater-than>
-			</and>
-		</input>
-		<output>/controls/flight/ground-spoilers</output>
-	</logic>
+        </R>
+        <output>/controls/flight/ground-spoilers</output>	
+    </flipflop>
 
 	<filter>
 		<name>Main speedbrake controller</name>

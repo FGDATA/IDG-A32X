@@ -65,7 +65,7 @@
 	<!-- Primary Flight Displays -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD1.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>-0.51115</y-m>
@@ -81,7 +81,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD2.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0.51115</y-m>
@@ -99,7 +99,7 @@
 	<!-- Navigational Displays -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/ND/ND.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/ND/ND_L.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>-0.3227</y-m>
@@ -234,15 +234,10 @@
         <type>select</type>
         <object-name>spd.dash</object-name>
         <condition>
-            <and>
-                <equals>
-                    <property>/flight-management/control/spd-ctrl</property>
-                    <value>fmgc</value>
-                </equals>
-                <not>
-                    <property>/flight-management/fcu/display-spd</property>
-                </not>
-            </and>
+			<equals>
+				<property>/it-autoflight/unused</property>
+				<value>999</value>
+			</equals>
         </condition>
     </animation>
 	
@@ -251,8 +246,8 @@
 		<object-name>lat.fmgc</object-name>
 		<condition>
             <equals>
-                <property>/flight-management/control/lat-ctrl</property>
-                <value>fmgc</value>
+                <property>/it-autoflight/aplatmode</property>
+                <value>1</value>
             </equals>
 		</condition>
 	</animation>
@@ -261,24 +256,10 @@
         <type>select</type>
         <object-name>lat.dash</object-name>
         <condition>
-            <and>
-                <or>
-                    <equals>
-                        <property>/flight-management/control/lat-ctrl</property>
-                        <value>fmgc</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/control/lat-mode</property>
-                        <value>nav1</value>
-                    </equals>
-                </or>
-                <not>
-                    <property>/flight-management/fcu/display-hdg</property>
-                </not>
-                <not>
-                    <property>/flight-management/control/capture-leg</property>
-                </not>
-            </and>
+            <equals>
+                <property>/it-autoflight/aplatmode</property>
+                <value>1</value>
+            </equals>
         </condition>
     </animation>
 	
@@ -294,29 +275,26 @@
 		</condition>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>select</type>
 		<object-name>vs.ind</object-name>
         <object-name>hdg.ind</object-name>
 		<condition>
-			<equals>
-				<property>/flight-management/control/ver-sub</property>
-				<value>vs</value>
-			</equals>
+
 		</condition>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>select</type>
 		<object-name>fpa.ind</object-name>
         <object-name>trk.ind</object-name>
         <object-name>trk.ind2</object-name>
-		<condition>
+        <condition>
 			<equals>
-				<property>/flight-management/control/ver-sub</property>
-				<value>fpa</value>
+				<property>/it-autoflight/unused</property>
+				<value>999</value>
 			</equals>
-		</condition>
+        </condition>
 	</animation>
 	
 	<animation>
@@ -324,638 +302,242 @@
 		<object-name>lvlch.ind</object-name>
 		<condition>
 			<equals>
-				<property>/flight-management/fcu/level_ch</property>
-				<value>1</value>
+				<property>/it-autoflight/apvertmode</property>
+				<value>4</value>
 			</equals>
 		</condition>
 	</animation>
 	
-	<!-- Knobs' Pick Animations -->
-	
-	<!-- IMPORTANT - USE SCROLL WHEEL ON MOUSE OF TOUCH PAD EDGE TO SCROLL, AND CLICK TO SELECT -->
+	<!-- Knobs Pick Animations -->
     
     <animation>
-        <type>knob</type>
+        <type>pick</type>
         <object-name>spd-sel</object-name>
-        <drag-direction>vertical</drag-direction>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/ias</property>
-                <factor>-1</factor>
-                <min>100</min>
-                <max>350</max>
-                <wrap>false</wrap>
-                <condition>
-					<and>
-						<equals>
-							<property>/flight-management/control/spd-mode</property>
-							<value>ias</value>
-						</equals>
-						<not>
-							<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						</not>
-					</and>
-                </condition>
-            </binding>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/mach</property>
-                <factor>-0.01</factor>
-                <min>0.1</min>
-                <max>0.86</max>
-                <wrap>false</wrap>
-                <condition>
-					<and>
-						<equals>
-							<property>/flight-management/control/spd-mode</property>
-							<value>mach</value>
-						</equals>
-						<not>
-							<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						</not>
-					</and>
-                </condition>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.knob_rotated('spd');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </action>
-        <shift-action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<equals>
+					<property>/it-autoflight/apthrmode</property>
+					<value>0</value>
+					</equals>
+				</condition>
 				<command>property-adjust</command>
-				<property>/flight-management/fcu-values/ias</property>
-				<factor>-1</factor>
+				<property>/it-autoflight/settings/target-speed-kt</property>
+				<step>1</step>
 				<min>100</min>
-				<max>350</max>
-				<wrap>false</wrap>
-				<condition>
-					<and>
-						<equals>
-							<property>/flight-management/control/spd-mode</property>
-							<value>ias</value>
-						</equals>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</and>
-				</condition>
+				<max>380</max>
 			</binding>
 			<binding>
+				<condition>
+					<equals>
+					<property>/it-autoflight/apthrmode</property>
+					<value>1</value>
+					</equals>
+				</condition>
 				<command>property-adjust</command>
-				<property>/flight-management/fcu-values/mach</property>
-				<factor>-0.01</factor>
-				<min>0.1</min>
-				<max>0.86</max>
-				<wrap>false</wrap>
+				<property>/it-autoflight/settings/target-mach</property>
+				<step>0.01</step>
+				<min>0.40</min>
+				<max>0.99</max>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
 				<condition>
-					<and>
-						<equals>
-							<property>/flight-management/control/spd-mode</property>
-							<value>mach</value>
-						</equals>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</and>
+					<equals>
+					<property>/it-autoflight/apthrmode</property>
+					<value>0</value>
+					</equals>
 				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-speed-kt</property>
+				<step>-1</step>
+				<min>100</min>
+				<max>380</max>
 			</binding>
 			<binding>
-				<command>nasal</command>
-				<script>
-					flightdeck.fcu.knob_rotated('spd');
-				</script>
 				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
+					<equals>
+					<property>/it-autoflight/apthrmode</property>
+					<value>1</value>
+					</equals>
 				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-mach</property>
+				<step>-0.01</step>
+				<min>0.40</min>
+				<max>0.99</max>
 			</binding>
-        </shift-action>
-        <shift-increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.knob_pushed('spd');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </shift-increase>
-        <shift-decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.knob_pulled('spd');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </shift-decrease>
-		<increase>
-			<binding>
-				<command>nasal</command>
-				<script>
-					flightdeck.fcu.knob_pushed('spd');
-				</script>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>nasal</command>
-				<script>
-					flightdeck.fcu.knob_pulled('spd');
-				</script>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
-			</binding>
-		</decrease>
-		<hovered>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Drag: rotate, Shift+Drag: push/pull, Shift-Click: push, Shift-Alt-Click: pull</label>
-				<tooltip-id>hdg-knob-tooltip</tooltip-id>
-				<condition>
-					<and>
-						<not>
-							<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						</not>
-						<not>
-							<property>aircraft-config/saved/fcu/disable-tooltips</property>
-						</not>
-					</and>
-				</condition>
-			</binding>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Shift-Drag: rotate, Click: push, Alt-Click: pull</label>
-				<tooltip-id>hdg-knob-tooltip</tooltip-id>
-				<condition>
-					<and>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						<not>
-							<property>aircraft-config/saved/fcu/disable-tooltips</property>
-						</not>
-					</and>
-				</condition>
-			</binding>
-		</hovered>
-    </animation>
+		</action>
+	</animation>
     
     <animation>
-        <type>translate</type>
-        <object-name>spd-sel</object-name>
-        <property>flightdeck/fcu/spd-knob-pos</property>
-        <factor>-0.0005</factor>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
-    
-    <animation>
-        <type>knob</type>
+        <type>pick</type>
         <object-name>hdg-sel</object-name>
-        <drag-direction>vertical</drag-direction>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/hdg</property>
-                <factor>-1</factor>
-                <min>0</min>
-                <max>359</max>
-                <wrap>true</wrap>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    var hdg = getprop('/flight-management/fcu-values/hdg');
-                    setprop('autopilot/settings/heading-bug-deg', hdg);
-                    flightdeck.fcu.knob_rotated('hdg');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </action>
-        <shift-action>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/aplatset</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/aplatset</property>
+				<value>0</value>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>/flight-management/fcu-values/hdg</property>
-				<factor>-1</factor>
-				<min>0</min>
-				<max>359</max>
+				<property>it-autoflight/settings/heading-bug-deg</property>
+				<step>1</step>
+				<min>1</min>
+				<max>361</max>
 				<wrap>true</wrap>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
 			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-					var hdg = getprop('/flight-management/fcu-values/hdg');
-					setprop('autopilot/settings/heading-bug-deg', hdg);
-					flightdeck.fcu.knob_rotated('hdg');
-				</script>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
+				<command>property-adjust</command>
+				<property>it-autoflight/settings/heading-bug-deg</property>
+				<step>-1</step>
+				<min>1</min>
+				<max>361</max>
+				<wrap>true</wrap>
 			</binding>
-        </shift-action>
-        <shift-increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.knob_pushed('hdg');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </shift-increase>
-        <shift-decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.knob_pulled('hdg');
-                </script>
-				<condition>
-					<not>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-					</not>
-				</condition>
-            </binding>
-        </shift-decrease>
-		<increase>
-			<binding>
-				<command>nasal</command>
-				<script>
-					flightdeck.fcu.knob_pushed('hdg');
-				</script>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>nasal</command>
-				<script>
-					flightdeck.fcu.knob_pulled('hdg');
-				</script>
-				<condition>
-					<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-				</condition>
-			</binding>
-		</decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <label>Drag: rotate, Shift+Drag: push/pull, Shift-Click: push, Shift-Alt-Click: pull</label>
-                <tooltip-id>hdg-knob-tooltip</tooltip-id>
-				<condition>
-					<and>
-						<not>
-							<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						</not>
-						<not>
-							<property>aircraft-config/saved/fcu/disable-tooltips</property>
-						</not>
-					</and>
-				</condition>
-            </binding>
-			<binding>
-				<command>set-tooltip</command>
-				<label>Shift-Drag: rotate, Click: push, Alt-Click: pull</label>
-				<tooltip-id>hdg-knob-tooltip</tooltip-id>
-				<condition>
-					<and>
-						<property>aircraft-config/saved/fcu/shift-to-rotate</property>
-						<not>
-							<property>aircraft-config/saved/fcu/disable-tooltips</property>
-						</not>
-					</and>
-				</condition>
-			</binding>
-        </hovered>
+		</action>
     </animation>
     
     <animation>
-        <type>translate</type>
-        <object-name>hdg-sel</object-name>
-        <property>flightdeck/fcu/hdg-knob-pos</property>
-        <factor>-0.0005</factor>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
-    
-    <animation>
-        <type>knob</type>
+        <type>pick</type>
         <object-name>alt-sel</object-name>
-        <drag-direction>vertical</drag-direction>
-        <increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-					if(getprop('aircraft-config/saved/fcu/shift-to-rotate'))
-                        flightdeck.fcu.knob_pushed('alt');
-					else
-                        flightdeck.fcu.alt_rotated('decr');
-                </script>
-            </binding>
-        </increase>
-        <decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    if(getprop('aircraft-config/saved/fcu/shift-to-rotate'))
-                        flightdeck.fcu.knob_pulled('alt');
-                    else
-                        flightdeck.fcu.alt_rotated('incr');
-                </script>
-            </binding>
-        </decrease>
-        <shift-increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    if(getprop('aircraft-config/saved/fcu/shift-to-rotate'))
-                        flightdeck.fcu.alt_rotated('decr');
-                    else
-                        flightdeck.fcu.knob_pushed('alt');
-                </script>
-            </binding>
-        </shift-increase>
-        <shift-decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    if(getprop('aircraft-config/saved/fcu/shift-to-rotate'))
-                        flightdeck.fcu.alt_rotated('incr');
-                    else
-                        flightdeck.fcu.knob_pulled('alt');
-                </script>
-            </binding>
-        </shift-decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <label>Drag: rotate, Shift+Drag: push/pull, Shift-Click: push, Shift-Alt-Click: pull</label>
-                <tooltip-id>hdg-knob-tooltip</tooltip-id>
-                <condition>
-                    <and>
-                        <not>
-                            <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        </not>
-                        <not>
-                            <property>aircraft-config/saved/fcu/disable-tooltips</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>set-tooltip</command>
-                <label>Shift-Drag: rotate, Click: push, Alt-Click: pull</label>
-                <tooltip-id>hdg-knob-tooltip</tooltip-id>
-                <condition>
-                    <and>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        <not>
-                            <property>aircraft-config/saved/fcu/disable-tooltips</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-        </hovered>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>alt-sel</object-name>
-        <property>flightdeck/fcu/alt-knob-pos</property>
-        <factor>-0.0005</factor>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/apvertset</property>
+				<value>4</value>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/altitude-dial-mode</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-altitude-ft</property>
+				<step>100</step>
+				<min>0</min>
+				<max>50000</max>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/altitude-dial-mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-altitude-ft</property>
+				<step>1000</step>
+				<min>0</min>
+				<max>50000</max>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/altitude-dial-mode</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-altitude-ft</property>
+				<step>-100</step>
+				<min>0</min>
+				<max>50000</max>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/settings/altitude-dial-mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/target-altitude-ft</property>
+				<step>-1000</step>
+				<min>0</min>
+				<max>50000</max>
+			</binding>
+		</action>
     </animation>
     
     <animation>
-        <type>knob</type>
+        <type>pick</type>
         <object-name>vs-sel</object-name>
-        <drag-direction>vertical</drag-direction>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/vs</property>
-                <factor>-100</factor>
-                <min>-2500</min>
-                <max>3000</max>
-                <wrap>false</wrap>
-                <condition>
-                    <and>
-                        <equals>
-                            <property>/flight-management/control/ver-sub</property>
-                            <value>vs</value>
-                        </equals>
-                        <not>
-                            <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/fpa</property>
-                <factor>-1</factor>
-                <min>-10</min>
-                <max>15</max>
-                <wrap>false</wrap>
-                <condition>
-                    <and>
-                        <equals>
-                            <property>/flight-management/control/ver-sub</property>
-                            <value>fpa</value>
-                        </equals>
-                        <not>
-                            <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_rotated();
-                </script>
-                <condition>
-                    <not>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                    </not>
-                </condition>
-            </binding>
-        </action>
-        <shift-action>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/vs</property>
-                <factor>-100</factor>
-                <min>-2500</min>
-                <max>3000</max>
-                <wrap>false</wrap>
-                <condition>
-                    <and>
-                        <equals>
-                            <property>/flight-management/control/ver-sub</property>
-                            <value>vs</value>
-                        </equals>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>property-adjust</command>
-                <property>/flight-management/fcu-values/fpa</property>
-                <factor>-1</factor>
-                <min>-10</min>
-                <max>15</max>
-                <wrap>false</wrap>
-                <condition>
-                    <and>
-                        <equals>
-                            <property>/flight-management/control/ver-sub</property>
-                            <value>fpa</value>
-                        </equals>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_rotated();
-                </script>
-                <condition>
-                    <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                </condition>
-            </binding>
-        </shift-action>
-        <shift-increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_pushed();
-                </script>
-                <condition>
-                    <not>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                    </not>
-                </condition>
-            </binding>
-        </shift-increase>
-        <shift-decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_pulled();
-                </script>
-                <condition>
-                    <not>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                    </not>
-                </condition>
-            </binding>
-        </shift-decrease>
-        <increase>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_pushed();
-                </script>
-                <condition>
-                    <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                </condition>
-            </binding>
-        </increase>
-        <decrease>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    flightdeck.fcu.vsfpa_pulled();
-                </script>
-                <condition>
-                    <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                </condition>
-            </binding>
-        </decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <label>Drag: rotate, Shift+Drag: push/pull, Shift-Click: push, Shift-Alt-Click: pull</label>
-                <tooltip-id>hdg-knob-tooltip</tooltip-id>
-                <condition>
-                    <and>
-                        <not>
-                            <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        </not>
-                        <not>
-                            <property>aircraft-config/saved/fcu/disable-tooltips</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-            <binding>
-                <command>set-tooltip</command>
-                <label>Shift-Drag: rotate, Click: push, Alt-Click: pull</label>
-                <tooltip-id>hdg-knob-tooltip</tooltip-id>
-                <condition>
-                    <and>
-                        <property>aircraft-config/saved/fcu/shift-to-rotate</property>
-                        <not>
-                            <property>aircraft-config/saved/fcu/disable-tooltips</property>
-                        </not>
-                    </and>
-                </condition>
-            </binding>
-        </hovered>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>vs-sel</object-name>
-        <property>flightdeck/fcu/vs-knob-pos</property>
-        <factor>-0.0005</factor>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/apvertset</property>
+				<value>0</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/apvertset</property>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/settings/vertical-speed-fpm</property>
+				<step>100</step>
+				<max>8000</max>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>i/t-autoflight/settings/vertical-speed-fpm</property>
+				<step>-100</step>
+				<min>-6000</min>
+			</binding>
+		</action>
     </animation>
 
 	
@@ -966,22 +548,11 @@
 		<object-name>loc</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-				
-					if (getprop("/flight-management/control/lat-mode") != "nav1") {
-				
-						setprop("/flight-management/control/lat-mode", "nav1");
-	
-						#setprop("/flight-management/control/lat-ctrl", "man-set");
-						
-					} else
-					
-						setprop("/flight-management/control/lat-mode", "hdg");
-					
-				</script>
+				<command>property-assign></command>
+				<property>/it-autoflight/aplatset</property>
+				<value>2</value>
 			</binding>
 		</action>
 	</animation>
@@ -991,71 +562,53 @@
 		<object-name>gs</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-				
-				if (getprop("/flight-management/control/ver-mode") != "ils") {
-				
-					setprop("/flight-management/control/ver-mode", "ils");
-	
-					#setprop("/flight-management/control/ver-ctrl", "man-set");
-                    setprop("/flight-management/control/lat-mode", "nav1");
-
-                    #setprop("/flight-management/control/lat-ctrl", "man-set");
-				
-				} else
-				
-					setprop("/flight-management/control/ver-mode", "alt");
-					
-				</script>
+				<command>property-assign></command>
+				<property>/it-autoflight/apvertset</property>
+				<value>2</value>
 			</binding>
 		</action>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>pick</type>
 		<object-name>exped</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-                <property>/flight-management/control/exped-mode</property>
+
 			</binding>
 		</action>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>pick</type>
 		<object-name>spd-mach</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/flight-management/control/spd-mode</property>
-				<value>mach</value>
-				<value>ias</value>
+				<property>/it-autoflight/apthrmode</property>
+				<value>0</value>
+				<value>1</value>
 			</binding>
 		</action>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>pick</type>
 		<object-name>vs-fpa</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>/flight-management/control/ver-sub</property>
-				<value>fpa</value>
-				<value>vs</value>
+
 			</binding>
 		</action>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>pick</type>
@@ -1065,9 +618,9 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/flight-management/control/alt-sel-mode</property>
-				<value>1000</value>
-				<value>100</value>
+				<property>/it-autoflight/settings/altitude-dial-mode</property>
+				<value>0</value>
+				<value>1</value>
 			</binding>
 		</action>
 	</animation>
@@ -1077,12 +630,10 @@
 		<object-name>ap1</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>/flight-management/control/ap1-master</property>
-				<value>eng</value>
-				<value>off</value>
+				<command>property-toggle</command>
+				<property>/it-autoflight/ap_mastersw</property>
 			</binding>
 		</action>
 	</animation>
@@ -1094,10 +645,8 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-cycle</command>
-				<property>/flight-management/control/ap2-master</property>
-				<value>eng</value>
-				<value>off</value>
+				<command>property-toggle</command>
+				<property>/it-autoflight/ap_mastersw2</property>
 			</binding>
 		</action>
 	</animation>
@@ -1107,27 +656,10 @@
 		<object-name>a-thr</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>nasal</command>
-                <script>
-                    var athr_prop = '/flight-management/control/a-thrust';
-                    var athr = getprop(athr_prop);
-                    if (athr != 'off'){
-                        setprop(athr_prop, 'off');
-                        setprop('flight-management/thrust-lock', 0);
-                    } else {
-                        var lever_pos = getprop('controls/engines/engine/throttle-pos');
-                        if(lever_pos == nil) lever_pos = 0;
-                        if(getprop('controls/engines/engine/reverser')) return;
-                        var clb = getprop('controls/engines/detents/clb');
-                        #print(lever_pos);
-                        if(lever_pos > clb)
-                            setprop(athr_prop, 'armed');
-                        else
-                            setprop(athr_prop, 'eng');
-                    }
-                </script>
+				<command>property-toggle</command>
+				<property>/it-autoflight/at_mastersw</property>
 			</binding>
 		</action>
 	</animation>
@@ -1163,19 +695,10 @@
 		<type>select</type>
 		<object-name>spd-text</object-name>
 		<condition>
-			<and>
-				<or>
-                    <equals>
-                        <property>/flight-management/control/spd-ctrl</property>
-                        <value>man-set</value>
-                    </equals>
-                    <property>/flight-management/fcu/display-spd</property>
-                </or>
-				<equals>
-					<property>/flight-management/control/spd-mode</property>
-					<value>ias</value>
-				</equals>
-			</and>
+			<equals>
+				<property>/it-autoflight/apthrmode</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
@@ -1183,19 +706,10 @@
 		<type>select</type>
 		<object-name>mach-text</object-name>
 		<condition>
-			<and>
-				<or>
-                    <equals>
-                        <property>/flight-management/control/spd-ctrl</property>
-                        <value>man-set</value>
-                    </equals>
-                    <property>/flight-management/fcu/display-spd</property>
-                </or>
-				<equals>
-					<property>/flight-management/control/spd-mode</property>
-					<value>mach</value>
-				</equals>
-			</and>
+			<equals>
+				<property>/it-autoflight/apthrmode</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
@@ -1203,75 +717,32 @@
 		<type>select</type>
 		<object-name>hdg-text</object-name>
 		<condition>
-			<and>
-				<or>
-					<equals>
-						<property>/flight-management/control/lat-ctrl</property>
-						<value>man-set</value>
-					</equals>
-					<property>/flight-management/fcu/display-hdg</property>
-					<property>/flight-management/control/capture-leg</property>
-				</or>
-				<not>
-					<equals>
-						<property>/flight-management/control/lat-mode</property>
-						<value>nav1</value>
-					</equals>
-				</not>
-			</and>
-		</condition>
-	</animation>
-	
-	<!--animation>
-		<type>select</type>
-		<object-name>alt-text</object-name>
-		<condition>
 			<equals>
-				<property>/flight-management/control/ver-ctrl</property>
-				<value>man-set</value>
+				<property>/it-autoflight/aplatmode</property>
+				<value>0</value>
 			</equals>
 		</condition>
-	</animation-->
+	</animation>
     
     <animation>
         <type>select</type>
         <object-name>vs.dash</object-name>
-        <condition>
-            <and>
-                <or>
-                    <equals>
-                        <property>/flight-management/control/ver-ctrl</property>
-                        <value>fmgc</value>
-                    </equals>
-                    <not>
-                        <property>/flight-management/control/vsfpa-mode</property>
-                    </not>
-                </or>
-                <not>
-                    <property>/flight-management/fcu/display-vs</property>
-                </not>
-            </and>
-        </condition>
+		<condition>
+			<not-equals>
+				<property>/it-autoflight/apvertmode</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
     </animation>
 	
 	<animation>
 		<type>select</type>
 		<object-name>vs-text</object-name>
 		<condition>
-            <or>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/ver-ctrl</property>
-                        <value>man-set</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/control/ver-sub</property>
-                        <value>vs</value>
-                    </equals>
-                    <property>/flight-management/control/vsfpa-mode</property>
-                </and>
-                <property>/flight-management/fcu/display-vs</property>
-            </or>
+			<equals>
+				<property>/it-autoflight/apvertmode</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
@@ -1279,20 +750,10 @@
 		<type>select</type>
 		<object-name>fpa-text</object-name>
 		<condition>
-			<and>
-				<equals>
-					<property>/flight-management/control/ver-ctrl</property>
-					<value>man-set</value>
-				</equals>
-				<equals>
-					<property>/flight-management/control/ver-sub</property>
-					<value>fpa</value>
-				</equals>
-                <or>
-                    <property>/flight-management/control/vsfpa-mode</property>
-                    <property>/flight-management/fcu/display-vs</property>
-                </or>
-			</and>
+			<equals>
+				<property>/it-autoflight/unused</property>
+				<value>999</value>
+			</equals>
 		</condition>
 	</animation>
 
@@ -1300,16 +761,10 @@
             <type>select</type>
             <object-name>qnh-inhg</object-name>
             <condition>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/qnh-mode</property>
-                        <value>inhg</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/text/qnh</property>
-                        <value>QNH</value>
-                    </equals>
-                </and>
+                <equals>
+                    <property>/modes/altimeter/inhg</property>
+                    <value>1</value>
+                </equals>
             </condition>
         </animation>
 
@@ -1317,16 +772,10 @@
             <type>select</type>
             <object-name>qnh-hpa</object-name>
             <condition>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/qnh-mode</property>
-                        <value>hpa</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/text/qnh</property>
-                        <value>QNH</value>
-                    </equals>
-                </and>
+                <equals>
+                    <property>/modes/altimeter/inhg</property>
+                    <value>0</value>
+                </equals>
             </condition>
         </animation>
     
@@ -1335,8 +784,8 @@
             <object-name>qnh-std</object-name>
             <condition>
                 <equals>
-                    <property>/flight-management/text/qnh</property>
-                    <value>STD</value>
+                    <property>/modes/altimeter/inhg</property>
+                    <value>2</value>
                 </equals>
             </condition>
         </animation>
@@ -1466,7 +915,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/flight-management/fcu-values/ias</property>
+		<property>/it-autoflight/settings/target-speed-kt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1492,7 +941,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%1.2f</format>
-		<property>/flight-management/fcu-values/mach</property>
+		<property>/it-autoflight/settings/target-mach</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1518,7 +967,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/flight-management/fcu-values/hdg-disp</property>
+		<property>/it-autoflight/settings/heading-bug-deg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1544,7 +993,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/flight-management/fcu-values/fcu-alt</property>
+		<property>/it-autoflight/settings/target-altitude-ft</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1570,7 +1019,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/flight-management/fcu-values/vs</property>
+		<property>/it-autoflight/settings/vertical-speed-fpm</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1596,7 +1045,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/flight-management/fcu-values/fpa</property>
+		<property>/it-autoflight/settings/target-fpa</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1664,20 +1113,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-sel</object-name>
-		<property>/flight-management/fcu-values/hdg</property>
-        <condition>
-            <and>
-                <not>
-                    <equals>
-                        <property>/flight-management/control/lat-ctrl</property>
-                        <value>fmgc</value>
-                    </equals>
-                </not>
-                <not>
-                    <property>/flight-management/fcu/display-hdg</property>
-                </not>
-            </and>
-        </condition>
+		<property>/it-autoflight/settings/heading-bug-deg</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1692,7 +1128,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>spd-sel</object-name>
-		<property>/flight-management/fcu-values/spd-knob</property>
+		<property>/it-autoflight/settings/target-speed-kt</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1706,8 +1142,23 @@
 	
 	<animation>
 		<type>rotate</type>
+		<object-name>spd-sel</object-name>
+		<property>/it-autoflight/settings/target-mach</property>
+		<factor>0.01</factor>
+		<axis>
+			<x1-m>-0.4608</x1-m>
+			<y1-m>-0.0874</y1-m>
+			<z1-m>0.1526</z1-m>
+			<x2-m>-0.4807</x2-m>
+			<y2-m>-0.0874</y2-m>
+			<z2-m>0.1478</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
 		<object-name>alt-sel</object-name>
-		<property>/flight-management/fcu-values/alt</property>
+		<property>/it-autoflight/settings/target-altitude-ft</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4738</x1-m>
@@ -1722,7 +1173,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>vs-sel</object-name>
-		<property>/flight-management/fcu-values/vs-knob</property>
+		<property>/it-autoflight/settings/vertical-speed-fpm</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1737,10 +1188,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>alt-sel-mode</object-name>
-		<property>/flight-management/control/alt-sel-mode</property>
+		<property>/it-autoflight/settings/altitude-dial-mode</property>
 		<interpolation>
-			<entry><ind>100</ind><dep>0</dep></entry>
-			<entry><ind>1000</ind><dep>90</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>-0.4738</x1-m>
@@ -1988,76 +1439,50 @@
 	<animation>
 		<type>pick</type>
 		<object-name>qnh-0.01</object-name>
-        <!-- Artix -->
-        <action>
-            <button>0</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                    <command>nasal</command>
-                    <script>
-                        setprop("/instrumentation/altimeter/setting-inhg", 29.92);
-                        setprop('/flight-management/control/qnh-mode', 'inhg');
-                        setprop('/flight-management/text/qnh', 'STD');
-                    </script>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(6)</script>
-            </binding>
-        </action>
-        <action>
-        <button>1</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                    <command>nasal</command>
-                    <script>
-                        print("BTN 1 (0.01)"); 
-                    </script>
-            </binding>
-        </action>
 		<action>
+			<button>0</button>
 			<button>3</button>
+			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
-                    var mode = getprop('/flight-management/control/qnh-mode');
-                    var incr = 0.01;
-                    if(!mode){
-                        mode = 'inhg';
-                    }
-                    if(mode == 'hpa'){
-                        incr = 1.0;
-                    }
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
-					
-					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh + incr);
-                    setprop('/flight-management/text/qnh', 'QNH');
-					
+				setprop("/instrumentation/altimeter/setting-inhg", getprop("instrumentation/altimeter/setting-inhg") + 0.01);
 				</script>
+				<condition>
+					<property>modes/altimeter/inhg</property>
+				</condition>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/instrumentation/altimeter/setting-hpa", getprop("instrumentation/altimeter/setting-hpa") + 1.0);
+				</script>
+				<condition>
+					<not><property>modes/altimeter/inhg</property></not>
+				</condition>
 			</binding>
 		</action>
 		<action>
+			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
-					
-                    var mode = getprop('/flight-management/control/qnh-mode');
-                    var decr = 0.01;
-                    if(!mode){
-                        mode = 'inhg';
-                    }
-                    if(mode == 'hpa'){
-                        decr = 1.0;
-                    }
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
-					
-					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh - decr);
-                    setprop('/flight-management/text/qnh', 'QNH');
+				setprop("/instrumentation/altimeter/setting-inhg", getprop("instrumentation/altimeter/setting-inhg") - 0.01);
 				</script>
+				<condition>
+					<property>modes/altimeter/inhg</property>
+				</condition>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/instrumentation/altimeter/setting-hpa", getprop("instrumentation/altimeter/setting-hpa") - 1.0);
+				</script>
+				<condition>
+					<not><property>modes/altimeter/inhg</property></not>
+				</condition>
 			</binding>
 		</action>
 	</animation>
@@ -2065,67 +1490,19 @@
 	<animation>
 		<type>pick</type>
 		<object-name>qnh</object-name>
-        <!-- Artix -->
-        <action>
-        <button>0</button>
-        <repeatable type="bool">false</repeatable>
-            <binding>
-                    <command>property-cycle</command>
-                    <property>/flight-management/control/qnh-mode</property>
-                    <value>inhg</value>
-                    <value>hpa</value>
-            </binding>
-        </action>
 		<action>
+			<button>0</button>
+			<button>1</button>
 			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					
-                    var mode = getprop('/flight-management/control/qnh-mode');
-                    var incr = 0.01;
-                    if(!mode){
-                        mode = 'inhg';
-                    }
-                    if(mode == 'hpa'){
-                        incr = 1.0;
-                    }
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
-					
-					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh + incr);
-                    setprop('/flight-management/text/qnh', 'QNH');
-				</script>
-			</binding>
-		</action>
-		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-
-                    var mode = getprop('/flight-management/control/qnh-mode');
-                    var decr = 0.01;
-                    if(!mode){
-                        mode = 'inhg';
-                    }
-                    if(mode == 'hpa'){
-                        decr = 1.0;
-                    }
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
-					
-					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh - decr);
-                    setprop('/flight-management/text/qnh', 'QNH');
-				</script>
+				<command>property-cycle</command>
+				<property>modes/altimeter/inhg</property>
+				<value>0</value>
+				<value>1</value>
 			</binding>
 		</action>
-        <binding>
-            <command>nasal</command>
-            <script>utils.clickSound(4)</script>
-        </binding>
 	</animation>
 	
 	<animation>
@@ -2367,7 +1744,7 @@
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/efis[1]/inputs/wxr</property>
+                <property>/instrumentation/efis/inputs/wxr</property>
             </binding>
         </action>
     </animation>
@@ -2384,7 +1761,7 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle-pos</property>
+				<property>controls/engines/engine[0]/throttle</property>
 				<step type="double">0.01</step>
 				<max>1</max>
 			</binding>
@@ -2395,7 +1772,7 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle-pos</property>
+				<property>controls/engines/engine[0]/throttle</property>
 				<step type="double">-0.01</step>
 				<min>0</min>
 			</binding>
@@ -2405,8 +1782,19 @@
 		<name>Engine 1 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_l</object-name>
-		<property>controls/engines/engine[0]/throttle-pos</property>
-		<factor>40</factor>
+		<property>controls/engines/engine[0]/throttle</property>
+		<interpolation>
+			<entry><ind>0.00000</ind><dep>10</dep></entry>
+			<entry><ind>0.04900</ind><dep>10</dep></entry>
+			<entry><ind>0.05000</ind><dep>12</dep></entry>
+			<entry><ind>0.59999</ind><dep>33</dep></entry>
+			<entry><ind>0.60000</ind><dep>35</dep></entry>
+			<entry><ind>0.79999</ind><dep>35</dep></entry>
+			<entry><ind>0.80000</ind><dep>46</dep></entry>
+			<entry><ind>0.94999</ind><dep>46</dep></entry>
+			<entry><ind>0.95000</ind><dep>55</dep></entry>
+			<entry><ind>1.00000</ind><dep>55</dep></entry>
+		</interpolation> 
 		<axis>
 			<x>0</x>
 			<y>-1</y>
@@ -2428,7 +1816,7 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle-pos</property>
+				<property>controls/engines/engine[1]/throttle</property>
 				<step type="double">0.01</step>
 				<max>1</max>
 			</binding>
@@ -2439,7 +1827,7 @@
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle-pos</property>
+				<property>controls/engines/engine[1]/throttle</property>
 				<step type="double">-0.01</step>
 				<min>0</min>
 			</binding>
@@ -2449,8 +1837,19 @@
 		<name>Engine 2 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_r</object-name>
-		<property>controls/engines/engine[1]/throttle-pos</property>
-		<factor>40</factor>
+		<property>controls/engines/engine[1]/throttle</property>
+		<interpolation>
+			<entry><ind>0.00000</ind><dep>10</dep></entry>
+			<entry><ind>0.04900</ind><dep>10</dep></entry>
+			<entry><ind>0.05000</ind><dep>12</dep></entry>
+			<entry><ind>0.59999</ind><dep>33</dep></entry>
+			<entry><ind>0.60000</ind><dep>35</dep></entry>
+			<entry><ind>0.79999</ind><dep>35</dep></entry>
+			<entry><ind>0.80000</ind><dep>46</dep></entry>
+			<entry><ind>0.94999</ind><dep>46</dep></entry>
+			<entry><ind>0.95000</ind><dep>55</dep></entry>
+			<entry><ind>1.00000</ind><dep>55</dep></entry>
+		</interpolation> 
 		<axis>
 			<x>0</x>
 			<y>-1</y>
@@ -2545,10 +1944,6 @@
                 <command>property-toggle</command>
                 <property>controls/engines/engine[0]/cutoff-switch</property>
             </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound('')</script>
-            </binding>
         </action>
     </animation>
 
@@ -2560,10 +1955,6 @@
             <binding>
                 <command>property-toggle</command>
                 <property>controls/engines/engine[1]/cutoff-switch</property>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound('')</script>
             </binding>
         </action>
     </animation>
@@ -3130,7 +2521,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>flight-management/control/fd</property>
+				<property>/it-autoflight/fd_mastersw</property>
 			</binding>
 		</action>
     </animation>
@@ -3138,7 +2529,32 @@
     <animation>
 		<type>textranslate</type>
 		<object-name>fd_button</object-name>
-		<property>flight-management/control/fd</property>
+		<property>/it-autoflight/fd_master</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+    <animation>
+		<type>pick</type>
+		<object-name>fd_button2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/fd_mastersw2</property>
+			</binding>
+		</action>
+    </animation>
+    
+    <animation>
+		<type>textranslate</type>
+		<object-name>fd_button2</object-name>
+		<property>/it-autoflight/fd_master2</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3156,28 +2572,8 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-				
-					var radio = "/flight-management/freq/";
-				
-					var ils_mode = getprop(radio~ "ils-mode");
-					
-					if (ils_mode) {
-					
-						setprop(radio~ "ils-mode", 0);
-						
-						mcdu.rad_nav.switch_nav1(0);
-					
-					} else {
-					
-						setprop(radio~ "ils-mode", 1);
-						
-						mcdu.rad_nav.switch_nav1(1);
-					
-					}
-
-				</script>
+				<command>property-toggle</command>
+				<property>/modes/pfd/ILS1</property>
 			</binding>
 		</action>
 	</animation>
@@ -3189,28 +2585,8 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>
-				
-					var radio = "/flight-management/freq/";
-				
-					var mls_mode = getprop(radio~ "mls-mode");
-					
-					if (mls_mode) {
-					
-						setprop(radio~ "mls-mode", 0);
-						
-						mcdu.rad_nav.switch_nav2(0);
-					
-					} else {
-					
-						setprop(radio~ "mls-mode", 1);
-						
-						mcdu.rad_nav.switch_nav2(1);
-					
-					}
-
-				</script>
+				<command>property-toggle</command>
+				<property>/modes/pfd/ILS2</property>
 			</binding>
 		</action>
 	</animation>
@@ -3218,7 +2594,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ils</object-name>
-		<property>/flight-management/freq/ils-mode</property>
+		<property>/modes/pfd/ILS1</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3230,7 +2606,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>mls</object-name>
-		<property>/flight-management/freq/mls-mode</property>
+		<property>/modes/pfd/ILS2</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3660,7 +3036,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis[1]/inputs/CHRONO</property>
+				<property>/instrumentation/efis/inputs/CHRONO</property>
 				<value>1</value>
 				<value>2</value>
 				<value>0</value>
@@ -3691,7 +3067,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/CSTR</property>
+				<property>/instrumentation/efis/inputs/CSTR</property>
 			</binding>
 		</action>
 	</animation>
@@ -3717,7 +3093,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/wpt</property>
+				<property>/instrumentation/efis/inputs/wpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3747,11 +3123,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/VORD</property>
+				<property>/instrumentation/efis/inputs/VORD</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/DME</property>
+				<property>/instrumentation/efis/inputs/DME</property>
 			</binding>
 		</action>
 	</animation>
@@ -3777,7 +3153,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/NDB</property>
+				<property>/instrumentation/efis/inputs/NDB</property>
 			</binding>
 		</action>
 	</animation>
@@ -3803,7 +3179,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/arpt</property>
+				<property>/instrumentation/efis/inputs/arpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3823,7 +3199,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>cstr.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/CSTR</property>
+		<property>/instrumentation/efis/inputs/CSTR</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3847,7 +3223,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>wpt.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/wpt</property>
+		<property>/instrumentation/efis/inputs/wpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3871,7 +3247,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>vord.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/VORD</property>
+		<property>/instrumentation/efis/inputs/VORD</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3895,7 +3271,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ndb.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/NDB</property>
+		<property>/instrumentation/efis/inputs/NDB</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3919,7 +3295,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>arpt.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/arpt</property>
+		<property>/instrumentation/efis/inputs/arpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3933,165 +3309,45 @@
 		<object-name>nd-mode</object-name>
 		<action>
 			<button>0</button>
+			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/instrumentation/efis/nd/display-mode</property>
-				<value>ILS</value>
-				<value>VOR</value>
-				<value>NAV</value>
-				<value>ARC</value>
-				<value>PLAN</value>
-			</binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis/nd/display-mode-num</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value>
-                <value>3</value>
-                <value>4</value>
-            </binding>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.mode_inc();</script>
             </binding>
 		</action>
-        <action>
-            <button>4</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis/nd/display-mode</property>
-                <value>PLAN</value>
-                <value>ARC</value>
-                <value>NAV</value>
-                <value>VOR</value>
-                <value>ILS</value>
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis/nd/display-mode-num</property>
-                <value>4</value>
-                <value>3</value>
-                <value>2</value>
-                <value>1</value>
-                <value>0</value>
-            </binding>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.mode_dec();</script>
             </binding>
-        </action>
-        <action>
-            <button>3</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis/nd/display-mode</property>
-                <value>ILS</value>
-                <value>VOR</value>
-                <value>NAV</value>
-                <value>ARC</value>
-                <value>PLAN</value>
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis/nd/display-mode-num</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value>
-                <value>3</value>
-                <value>4</value>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(4)</script>
-            </binding>
-        </action>
+		</action>
 	</animation>
     
     <animation>
         <type>pick</type>
         <object-name>nd-mode-right</object-name>
-        <action>
-            <button>0</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode</property>
-                <value>ILS</value>
-                <value>VOR</value>
-                <value>NAV</value>
-                <value>ARC</value>
-                <value>PLAN</value>
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode-num</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value>
-                <value>3</value>
-                <value>4</value>
-            </binding>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.mode_inc();</script>
             </binding>
-        </action>
-        <action>
-            <button>4</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode</property>
-                <value>PLAN</value>
-                <value>ARC</value>
-                <value>NAV</value>
-                <value>VOR</value>
-                <value>ILS</value>
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode-num</property>
-                <value>4</value>
-                <value>3</value>
-                <value>2</value>
-                <value>1</value>
-                <value>0</value>
-            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.mode_dec();</script>
             </binding>
-        </action>
-        <action>
-            <button>3</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode</property>
-                <value>ILS</value>
-                <value>VOR</value>
-                <value>NAV</value>
-                <value>ARC</value>
-                <value>PLAN</value>
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/nd/display-mode-num</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value>
-                <value>3</value>
-                <value>4</value>
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(4)</script>
-            </binding>
-        </action>
+		</action>
     </animation>
 	
 	<animation>
@@ -4101,38 +3357,18 @@
 			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/instrumentation/efis/inputs/range-nm</property>
-				<value>10</value>
-				<value>20</value>
-				<value>40</value>
-				<value>80</value>
-				<value>160</value>
-				<value>320</value>
-			</binding>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.ctl_func("range",1);</script>
             </binding>
 		</action>
 		<action>
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/instrumentation/efis/inputs/range-nm</property>
-				<value>320</value>
-				<value>160</value>
-				<value>80</value>
-				<value>40</value>
-				<value>20</value>
-				<value>10</value>
-			</binding>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.ctl_func("range",-1);</script>
             </binding>
 		</action>
 	</animation>
@@ -4140,44 +3376,24 @@
     <animation>
         <type>pick</type>
         <object-name>nd-range-right</object-name>
-        <action>
-            <button>0</button>
-            <button>3</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/inputs/range-nm</property>
-                <value>10</value>
-                <value>20</value>
-                <value>40</value>
-                <value>80</value>
-                <value>160</value>
-                <value>320</value>
-            </binding>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.ctl_func("range",1);</script>
             </binding>
-        </action>
-        <action>
-            <button>1</button>
-            <button>4</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/inputs/range-nm</property>
-                <value>320</value>
-                <value>160</value>
-                <value>80</value>
-                <value>40</value>
-                <value>20</value>
-                <value>10</value>
-            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>utils.clickSound(4)</script>
+                <script>A320.ctl_func("range",-1);</script>
             </binding>
-        </action>
+		</action>
     </animation>
 	
 	<animation>
@@ -4200,10 +3416,6 @@
 				<value>1</value> <!-- VOR -->
 				<value>-1</value> <!-- ADF -->
 			</binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(7)</script>
-            </binding>
 		</action>
 	</animation>
     
@@ -4215,21 +3427,17 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/vor-adf-1</property>
+                <property>/instrumentation/efis/input/vor-adf-1</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/lh-vor-adf</property>
+                <property>/instrumentation/efis/input/lh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(7)</script>
             </binding>
         </action>
     </animation>
@@ -4254,10 +3462,6 @@
 				<value>1</value> <!-- VOR -->
 				<value>-1</value> <!-- ADF -->
 			</binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(7)</script>
-            </binding>
 		</action>
 	</animation>
     
@@ -4269,21 +3473,17 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/vor-adf-2</property>
+                <property>/instrumentation/efis/input/vor-adf-2</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/rh-vor-adf</property>
+                <property>/instrumentation/efis/input/rh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
-            </binding>
-            <binding>
-                <command>nasal</command>
-                <script>utils.clickSound(7)</script>
             </binding>
         </action>
     </animation>
@@ -4293,8 +3493,14 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-mode</object-name>
-		<property>/instrumentation/efis/nd/display-mode-num</property>
-		<factor>45</factor>
+        <property>/instrumentation/efis/mfd/pnl_mode-num</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>  0</dep></entry>
+            <entry><ind>1</ind><dep> 45</dep></entry>
+            <entry><ind>2</ind><dep> 90</dep></entry>
+            <entry><ind>3</ind><dep>135</dep></entry>
+            <entry><ind>4</ind><dep>180</dep></entry>
+        </interpolation>
 		<axis>
 			<x1-m>-0.4668</x1-m>
 			<y1-m>-0.2124</y1-m>
@@ -4308,8 +3514,14 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-mode-right</object-name>
-		<property>/instrumentation/efis[1]/nd/display-mode-num</property>
-		<factor>45</factor>
+        <property>/instrumentation/efis/mfd/pnl_mode-num</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>  0</dep></entry>
+            <entry><ind>1</ind><dep> 45</dep></entry>
+            <entry><ind>2</ind><dep> 90</dep></entry>
+            <entry><ind>3</ind><dep>135</dep></entry>
+            <entry><ind>4</ind><dep>180</dep></entry>
+        </interpolation>
 		<axis>
 			<x1-m>-0.4668</x1-m>
 			<y1-m>0.1718</y1-m>
@@ -4323,7 +3535,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range</object-name>
-        <property>/instrumentation/efis[0]/inputs/range-nm</property>
+        <property>/instrumentation/efis/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -4345,7 +3557,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range-right</object-name>
-        <property>/instrumentation/efis[1]/inputs/range-nm</property>
+        <property>/instrumentation/efis/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -4483,10 +3695,6 @@
 				<value>1</value>
 				<value>0</value>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound(4)</script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -4506,10 +3714,6 @@
 				<value>2</value>
 				<value>0</value>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound(4)</script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -4529,10 +3733,6 @@
 				<value>3</value>
 				<value>0</value>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound(4)</script>
-                        </binding>
 		</action>
 	</animation>
         
@@ -4638,10 +3838,6 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/cutoff-switch</property>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound('')</script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -4672,10 +3868,6 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/cutoff-switch</property>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound('')</script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -4709,13 +3901,6 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>
-                                utils.clickSound(4);
-                                setprop("instrumentation/efis/ecam/display-mode", "ENG");
-                            </script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -4741,12 +3926,6 @@
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
-                <!--condition>
-                    <equals>
-                       <property>/controls/flight/ground-spoilers-armed</property> 
-                       <value>0</value>
-                    </equals>
-                </condition-->
 		<property>/controls/flight/speedbrake</property>
 		<factor>0.045</factor>
 		<axis>
@@ -4759,7 +3938,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
-		<property>/controls/flight/ground-spoilers-armed</property>
+		<property>/controls/flight/speedbrake-arm</property>
 		<factor>-0.005</factor>
 		<axis>
 			<x>1</x>
@@ -4775,26 +3954,26 @@
             <button>0</button>
             <repeatable type="bool">false</repeatable>
             <binding>
+				<command>property-toggle</command>
+				<property>/controls/flight/speedbrake-arm</property>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <repeatable type="bool">false</repeatable>
+            <binding>
                 <command>nasal</command>
                 <script>
                     var spdBrk = getprop('/controls/flight/speedbrake-lever');
-                    var grnSpoilersArmed = getprop('/controls/flight/ground-spoilers-armed');
-                    if(grnSpoilersArmed){
-                    	setprop('/controls/flight/ground-spoilers-armed', 0);
-                    	setprop('/controls/flight/speedbrake', 0);
-                    } else {
-                    	if(spdBrk == 0){
-                    		setprop('/controls/flight/speedbrake-lever', 0.5);
-                   		}
-                    	elsif(spdBrk == 0.5){
-                    		setprop('/controls/flight/speedbrake-lever', 1);
-                    	}
-                    	elsif(spdBrk == 1){
-                    		setprop('/controls/flight/speedbrake-lever', 0);
-                    		setprop('/controls/flight/ground-spoilers-armed', 1);
-                    	}
+                   	if(spdBrk == 0){
+                   		setprop('/controls/flight/speedbrake-lever', 0.5);
+                   	}
+                   	elsif(spdBrk == 0.5){
+                   		setprop('/controls/flight/speedbrake-lever', 1);
+                   	}
+                   	elsif(spdBrk == 1){
+						# Do nothing because spoilers are fully up.
                     }
-                    utils.clickSound(5);
                 </script>
             </binding>
         </action>
@@ -4805,47 +3984,15 @@
                 <command>nasal</command>
                 <script>
                     var spdBrk = getprop('/controls/flight/speedbrake-lever');
-                    var grnSpoilersArmed = getprop('/controls/flight/ground-spoilers-armed');
-                    if(grnSpoilersArmed){
-                    	setprop('/controls/flight/ground-spoilers-armed', 0);
-                    	setprop('/controls/flight/speedbrake', 0);
-                    } else {
-                    	if(spdBrk == 0){
-                    		setprop('/controls/flight/speedbrake-lever', 0.5);
-                    	}
-                    	elsif(spdBrk == 0.5){
-                    		setprop('/controls/flight/speedbrake-lever', 1);
-                    	}
-                    	elsif(spdBrk == 1){
-
-                    	}
+                    if(spdBrk == 0){
+						# Do nothing because spoilers are fully down.
                     }
-                    utils.clickSound(5);
-                </script>
-            </binding>
-        </action>
-        <action>
-            <button>4</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>
-                    var spdBrk = getprop('/controls/flight/speedbrake-lever');
-                    var grnSpoilersArmed = getprop('/controls/flight/ground-spoilers-armed');
-                    if(grnSpoilersArmed){
-						
-                    } else {
-                    	if(spdBrk == 0){
-                    		setprop('/controls/flight/ground-spoilers-armed', 1);
-                    	}
-                    	elsif(spdBrk == 0.5){
-                    		setprop('/controls/flight/speedbrake-lever', 0);
-                    	}
-                    	elsif(spdBrk == 1){
-                    		setprop('/controls/flight/speedbrake-lever', 0.5);
-                    	}
-                    }
-                    utils.clickSound(5);
+                   	elsif(spdBrk == 0.5){
+                    	setprop('/controls/flight/speedbrake-lever', 0);
+                   	}
+                   	elsif(spdBrk == 1){
+                   		setprop('/controls/flight/speedbrake-lever', 0.5);
+                   	}
                 </script>
             </binding>
         </action>
@@ -4855,7 +4002,13 @@
 		<type>rotate</type>
 		<object-name>FlapsLever</object-name>
 		<property>controls/flight/flaps</property>
-		<factor>60</factor>
+		<interpolation>
+			<entry><ind>0.000</ind><dep>0 </dep></entry>
+			<entry><ind>0.290</ind><dep>15</dep></entry>
+			<entry><ind>0.596</ind><dep>30</dep></entry>
+			<entry><ind>0.645</ind><dep>45</dep></entry>
+			<entry><ind>1.000</ind><dep>60</dep></entry>
+		</interpolation> 
 		<center>
 			<x-m>-0.0020</x-m>
 			<y-m>0</y-m>
@@ -4873,15 +4026,26 @@
         <object-name>FlapsLever</object-name>
         <action>
         	<button>0</button>
+        	<button>4</button>
             <repeatable type="bool">false</repeatable>
             <binding>
-                <command>property-cycle</command>
-                <property>controls/flight/flaps</property>
-                <value>0.00</value>
-                <value>0.29</value>
-                <value>0.596</value>
-                <value>0.745</value>
-                <value>1</value>
+                <command>nasal</command>
+                <script>controls.flapsDown(1);</script>
+            </binding>
+        </action>
+    </animation>
+
+
+    <animation>
+        <type>pick</type>
+        <object-name>FlapsLever</object-name>
+        <action>
+        	<button>1</button>
+        	<button>3</button>
+            <repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>controls.flapsDown(-1);</script>
             </binding>
         </action>
     </animation>
@@ -5343,10 +4507,6 @@
 					setprop("/warnings/master-warning-state", 0);
 				</script>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound(6)</script>
-                        </binding>
 		</action>
 	</animation>
 	
@@ -5362,10 +4522,6 @@
 					setprop("/warnings/master-caution-state", 0);
 				</script>
 			</binding>
-                        <binding>
-                            <command>nasal</command>
-                            <script>utils.clickSound(6)</script>
-                        </binding>
 		</action>
 	</animation>
 	

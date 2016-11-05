@@ -39,14 +39,14 @@
 		<object-name>Nacelle</object-name>
 		<object-name>Reverser</object-name>
 		<property-base>sim/model/livery</property-base>
-		<texture-prop>texture-path[1]</texture-prop>
-		<texture>Liveries/A320-Blank.png</texture>
+		<texture-prop>texture</texture-prop>
+		<texture>Liveries/A320/USAirways.png</texture>
 	</animation>
 
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320-family/Models/Liveries/" ~ getprop("sim/aero"));
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A320");
 		</load>
 		<unload>
 		 livery_update.stop();
