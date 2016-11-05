@@ -48,9 +48,10 @@
         <input> 
             <expression>
                 <table>
-                    <property>/engines/engine[0]/egt-degc</property> 
-                    <entry><ind>700</ind><dep>302</dep></entry>
-                    <entry><ind>765</ind><dep>765</dep></entry>
+                    <property>/engines/engine[0]/egt-degf</property> 
+                    <entry><ind>0000</ind><dep>000</dep></entry>
+                    <entry><ind>0700</ind><dep>302</dep></entry>
+                    <entry><ind>1500</ind><dep>765</dep></entry>
                 </table>
             </expression>
         </input>
@@ -65,9 +66,10 @@
         <input> 
             <expression>
                 <table>
-                    <property>/engines/engine[1]/egt-degc</property> 
-                    <entry><ind>700</ind><dep>302</dep></entry>
-                    <entry><ind>765</ind><dep>765</dep></entry>
+                    <property>/engines/engine[1]/egt-degf</property> 
+                    <entry><ind>0000</ind><dep>000</dep></entry>
+                    <entry><ind>0700</ind><dep>302</dep></entry>
+                    <entry><ind>1500</ind><dep>765</dep></entry>
                 </table>
             </expression>
         </input>

@@ -9,7 +9,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<email> bicyus@gmail.com </email>
 	<filecreationdate> 2012-02-15 </filecreationdate>
 	<version> 0.99 </version>
-	<description> Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine </description>
+	<description> Airbus A320-200 with IAE V2500 Engines </description>
 	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
 	<limitation></limitation>
 </fileheader>
@@ -423,9 +423,9 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> 1 </yaw>
 	</orient>
+	<feed>4</feed>
 	<feed>2</feed>
 	<feed>3</feed>
-	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -450,9 +450,9 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> -1 </yaw>
 	</orient>
+	<feed>4</feed>
 	<feed>6</feed>
 	<feed>5</feed>
-	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -577,10 +577,10 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<aerosurface_scale name="Elevator Control">
 		<input>fcs/pitch-trim-sum</input>
-		<gain>0.018</gain>
+		<gain>0.025</gain>
 		<range>
-		<min>-30</min>
-		<max>15</max>
+		<min>-10</min>
+		<max>10</max>
 		</range>
 		<output>fcs/elevator-pos-rad</output>
 	</aerosurface_scale>
@@ -588,8 +588,8 @@ YAW MOI_________3950000______23089847_______24848934
 	<aerosurface_scale name="Elevator position normalized">
 		<input>fcs/elevator-pos-deg</input>
 		<domain>
-		<min>-30</min>
-		<max>15</max>
+		<min>-10</min>
+		<max>10</max>
 		</domain>
 		<range>
 		<min>-1</min>
@@ -612,8 +612,8 @@ YAW MOI_________3950000______23089847_______24848934
 		<input>fcs/roll-trim-sum</input>
 		<gain>0.02</gain>
 		<range>
-		<min>-25</min>
-		<max>25</max>
+		<min>-15</min>
+		<max>15</max>
 		</range>
 		<output>fcs/left-aileron-pos-rad</output>
 	</aerosurface_scale>
@@ -622,8 +622,8 @@ YAW MOI_________3950000______23089847_______24848934
 		<input>-fcs/roll-trim-sum</input>
 		<gain>0.02</gain>
 		<range>
-		<min>-25</min>
-		<max>25</max>
+		<min>-15</min>
+		<max>15</max>
 		</range>
 		<output>fcs/right-aileron-pos-rad</output>
 	</aerosurface_scale>
@@ -631,11 +631,11 @@ YAW MOI_________3950000______23089847_______24848934
 	<aerosurface_scale name="Left Aileron position normalized">
 		<input>fcs/left-aileron-pos-deg</input>
 		<domain>
-		<min>-25</min>
-		<max>25</max>
+		<min>-15</min>
+		<max>15</max>
 		</domain>
 		<range>
-		<min>-0.75</min>
+		<min>-1</min>
 		<max>1</max>
 		</range>
 		<output>fcs/left-aileron-pos-norm</output>
@@ -644,11 +644,11 @@ YAW MOI_________3950000______23089847_______24848934
 	<aerosurface_scale name="Right Aileron position normalized">
 		<input>fcs/right-aileron-pos-deg</input>
 		<domain>
-		<min>-25</min>
-		<max>25</max>
+		<min>-15</min>
+		<max>15</max>
 		</domain>
 		<range>
-		<min>-0.75</min>
+		<min>-1</min>
 		<max>1</max>
 		</range>
 		<output>fcs/right-aileron-pos-norm</output>
@@ -970,7 +970,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<product>
 			<property>aero/qbar-psf</property>
 			<property>metrics/Sw-sqft</property>
-			<value>0.30</value>
+			<value>0.40</value>
 			</product>
 		</function>
 
@@ -1459,7 +1459,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/cbarw-ft</property>
 			<property>aero/alpha-rad</property>
 			<!-- value>-4.0000</value> -->
-			<value>-0.6</value>
+			<value>-0.8</value>
 			</product>
 		</function>
 		<function name="aero/moment/Pitch_elevator">

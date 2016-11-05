@@ -25,9 +25,9 @@
 			<electrical>
 				<path></path>
 			</electrical>
-			<autopilot>
+			<!--autopilot>
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
-			</autopilot>
+			</autopilot-->
 			<!-- Uses slightly modified IT-AUTOFLIGHT Thrust controller. -->
             <autopilot>
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
@@ -169,20 +169,24 @@
 		<altitude-dial-mode>0</altitude-dial-mode>
 		<no-generics>1</no-generics>
 		<roll>
-			<umin>-0.5</umin>
-			<umax>0.5</umax>
-			<kp>0.10</kp>
-			<kp-vorloc>0.10</kp-vorloc>
+			<umin>-0.40</umin>
+			<umax>0.40</umax>
+			<kp>0.06</kp>
+			<kp-vorloc>0.07</kp-vorloc>
+			<ti>0.0001</ti>
+			<ti-vorloc>0.0001</ti-vorloc>
 		</roll>
 		<pitch>
-			<umin>-0.30</umin>
-			<umax>0.30</umax>
-			<kp>-0.10</kp>
+			<umin>-0.18</umin>
+			<umax>0.18</umax>
+			<kp>-0.05</kp>
+			<ti>0.0001</ti>
 		</pitch>
 		<flch>
-			<umin>-0.30</umin>
-			<umax>0.30</umax>
-			<kp>-0.09</kp>
+			<umin>-0.18</umin>
+			<umax>0.18</umax>
+			<kp>-0.05</kp>
+			<ti>0.0001</ti>
 		</flch>
 		<gs>
 			<kp>0.10</kp>
