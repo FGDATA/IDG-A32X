@@ -155,12 +155,6 @@
 			<tank n="6">
 				<name>Right Wing Vent</name>
 			</tank>
-			<tank n="7">
-				<name>Left Pipes</name>
-			</tank>
-			<tank n="8">
-				<name>Right Pipes</name>
-			</tank>
 		</fuel>
 	</consumables>
 	

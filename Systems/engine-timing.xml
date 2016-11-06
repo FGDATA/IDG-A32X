@@ -11,8 +11,8 @@
             <expression>
                 <table>
                     <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>    0</ind><dep>1.00</dep></entry>
-                    <entry><ind>   22</ind><dep>1.01</dep></entry>
+                    <entry><ind>   18</ind><dep>1.00</dep></entry>
+                    <entry><ind>   23</ind><dep>1.01</dep></entry>
                     <entry><ind>   35</ind><dep>1.06</dep></entry>
                     <entry><ind>105.0</ind><dep>1.38</dep></entry>
                 </table>
@@ -30,8 +30,8 @@
             <expression>
                 <table>
                     <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>    0</ind><dep>1.00</dep></entry>
-                    <entry><ind>   22</ind><dep>1.01</dep></entry>
+                    <entry><ind>   18</ind><dep>1.00</dep></entry>
+                    <entry><ind>   23</ind><dep>1.01</dep></entry>
                     <entry><ind>   35</ind><dep>1.06</dep></entry>
                     <entry><ind>105.0</ind><dep>1.38</dep></entry>
                 </table>
@@ -48,10 +48,11 @@
         <input> 
             <expression>
                 <table>
-                    <property>/engines/engine[0]/egt-degf</property> 
-                    <entry><ind>0000</ind><dep>000</dep></entry>
-                    <entry><ind>0700</ind><dep>302</dep></entry>
-                    <entry><ind>1500</ind><dep>765</dep></entry>
+                    <property>/engines/engine[0]/n1</property> 
+                    <entry><ind>  0</ind><dep>080</dep></entry>
+                    <entry><ind>  5</ind><dep>080</dep></entry>
+                    <entry><ind> 23</ind><dep>302</dep></entry>
+                    <entry><ind>110</ind><dep>650</dep></entry>
                 </table>
             </expression>
         </input>
@@ -66,10 +67,11 @@
         <input> 
             <expression>
                 <table>
-                    <property>/engines/engine[1]/egt-degf</property> 
-                    <entry><ind>0000</ind><dep>000</dep></entry>
-                    <entry><ind>0700</ind><dep>302</dep></entry>
-                    <entry><ind>1500</ind><dep>765</dep></entry>
+                    <property>/engines/engine[1]/n1</property> 
+                    <entry><ind>  0</ind><dep>080</dep></entry>
+                    <entry><ind>  5</ind><dep>080</dep></entry>
+                    <entry><ind> 23</ind><dep>302</dep></entry>
+                    <entry><ind>110</ind><dep>650</dep></entry>
                 </table>
             </expression>
         </input>

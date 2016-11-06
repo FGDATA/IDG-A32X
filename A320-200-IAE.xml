@@ -423,9 +423,9 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> 1 </yaw>
 	</orient>
-	<feed>4</feed>
-	<feed>2</feed>
 	<feed>3</feed>
+	<feed>1</feed>
+	<feed>2</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -450,9 +450,9 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> -1 </yaw>
 	</orient>
-	<feed>4</feed>
-	<feed>6</feed>
+	<feed>3</feed>
 	<feed>5</feed>
+	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -468,7 +468,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</engine>
 
 
-	<tank type="FUEL">    <!-- Left Tank (Wing tip Ventilation Surge) -->
+	<tank type="FUEL">    <!-- Left Tank (Wing tip Ventilation Surge) 0 -->
 		<location unit="IN">
 			<x> 788.4322 </x>
 			<y> -574.4148 </y>
@@ -481,7 +481,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Left Tank (Outer) -->
+	<tank type="FUEL">    <!-- Left Tank (Outer) 1 -->
 		<location unit="IN">
 			<x> 737.4190 </x>
 			<y> -457.4259 </y>
@@ -494,7 +494,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Left Tank (Inner) -->
+	<tank type="FUEL">    <!-- Left Tank (Inner) 2 -->
 		<location unit="IN">
 			<x> 630.6588 </x>
 			<y> -236.2992 </y>
@@ -507,7 +507,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Center Tank -->
+	<tank type="FUEL">    <!-- Center Tank 3 -->
 		<location unit="IN">
 			<x> 580.9955 </x>
 			<y> 0 </y>
@@ -520,7 +520,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Right Tank (Inner) -->
+	<tank type="FUEL">    <!-- Right Tank (Inner) 4 -->
 		<location unit="IN">
 			<x> 630.6588 </x>
 			<y> 236.2992 </y>
@@ -533,7 +533,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Right Tank (Outer) -->
+	<tank type="FUEL">    <!-- Right Tank (Outer) 5 -->
 		<location unit="IN">
 			<x> 737.4190 </x>
 			<y> 457.4259 </y>
@@ -546,7 +546,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Right Tank (Wing tip Ventilation Surge) -->
+	<tank type="FUEL">    <!-- Right Tank (Wing tip Ventilation Surge) 6 -->
 		<location unit="IN">
 			<x> 788.4322 </x>
 			<y> 574.4148 </y>
