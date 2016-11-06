@@ -2,7 +2,7 @@
 
 <PropertyList>
 	<name>Fuselage</name>
-	<path>res/a320neo.fuselage.ac</path>
+	<path>res/a320.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
 	<!--effect>

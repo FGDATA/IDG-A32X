@@ -87,9 +87,9 @@
             <expression>
                 <table>
                     <property>/engines/engine[0]/fuel-flow_pph</property> 
-	                <entry><ind>   0</ind><dep>   0</dep></entry>
-                    <entry><ind>2000</ind><dep> 865</dep></entry>
-                    <entry><ind>8000</ind><dep>2450</dep></entry>
+	                <entry><ind>   0</ind><dep>    0</dep></entry>
+                    <entry><ind>2000</ind><dep> 2387</dep></entry>
+                    <entry><ind>9000</ind><dep>13847</dep></entry>
                 </table>
             </expression>
         </input>
@@ -105,9 +105,9 @@
             <expression>
                 <table>
                     <property>/engines/engine[1]/fuel-flow_pph</property> 
-	                <entry><ind>   0</ind><dep>   0</dep></entry>
-                    <entry><ind>2000</ind><dep> 865</dep></entry>
-                    <entry><ind>8000</ind><dep>2450</dep></entry>
+	                <entry><ind>   0</ind><dep>    0</dep></entry>
+                    <entry><ind>2000</ind><dep> 2359</dep></entry>
+                    <entry><ind>9000</ind><dep>13831</dep></entry>
                 </table>
             </expression>
         </input>

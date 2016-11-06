@@ -12,7 +12,7 @@
 -->
 
 <turbine_engine name="V2527_A5">
-  <milthrust>     26000 </milthrust>
+  <milthrust>     26600 </milthrust>
   <bypassratio>     1.0 </bypassratio>
   <tsfc>            0.8 </tsfc>
   <bleed>           0.03</bleed>

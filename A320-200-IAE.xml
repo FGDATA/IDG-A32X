@@ -970,7 +970,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<product>
 			<property>aero/qbar-psf</property>
 			<property>metrics/Sw-sqft</property>
-			<value>0.40</value>
+			<value>0.30</value>
 			</product>
 		</function>
 

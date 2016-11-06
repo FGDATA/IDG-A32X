@@ -12,10 +12,10 @@
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A320-200-IAE.xml</path>
+			<path>Aircraft/A320Family/Models/A320-200.xml</path>
 			<livery>
-				<file>Liveries/A320/USAirways.xml</file>
-				<texture>Liveries/A320/USAirways.png</texture>
+				<file>Liveries/A320/Airbus.xml</file>
+				<texture>Liveries/A320/Airbus.png</texture>
 			</livery>
 		</model>
 

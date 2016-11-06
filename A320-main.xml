@@ -25,7 +25,7 @@
 			<electrical>
 				<path></path>
 			</electrical>
-			<!--autopilot>
+			<!--autopilot>AP is commented out on purpose! The FDM is not ready yet, once it is, I will allow the AP
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
 			</autopilot-->
 			<!-- Uses slightly modified IT-AUTOFLIGHT Thrust controller. -->

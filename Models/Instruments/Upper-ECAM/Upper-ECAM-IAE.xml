@@ -130,6 +130,28 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>thrpos1</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[0]/reverser-pos-norm</property>
+				<value>0.01</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>thrpos2</object-name>
+		<condition>
+			<less-than>
+				<property>engines/engine[1]/reverser-pos-norm</property>
+				<value>0.01</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
         <object-name>rev1.y</object-name>
 		<condition>
 			<and>
@@ -458,7 +480,7 @@
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-boundingbox type="bool">true</draw-boundingbox>
 		<character-size>0.0065</character-size>
 		<font-resolution>
 			<width type="int">32</width>
@@ -482,7 +504,7 @@
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-boundingbox type="bool">true</draw-boundingbox>
 		<character-size>0.0065</character-size>
 		<font-resolution>
 			<width type="int">32</width>
@@ -506,7 +528,7 @@
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-boundingbox type="bool">true</draw-boundingbox>
 		<character-size>0.0065</character-size>
 		<font-resolution>
 			<width type="int">32</width>
@@ -530,7 +552,7 @@
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-boundingbox type="bool">true</draw-boundingbox>
 		<character-size>0.0065</character-size>
 		<font-resolution>
 			<width type="int">32</width>
