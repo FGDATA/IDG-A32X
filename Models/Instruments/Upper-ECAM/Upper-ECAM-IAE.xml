@@ -6,7 +6,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>XX.1</object-name>'
+		<object-name>XX.1</object-name>
 		<object-name>XX1</object-name>
 		<condition>
 			<and>
@@ -93,6 +93,7 @@
 		<object-name>osgtext-green1</object-name>
 		<object-name>epr1</object-name>
 		<object-name>egt1</object-name>
+		<object-name>thrpos1</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -112,6 +113,7 @@
 		<object-name>osgtext-green2</object-name>
 		<object-name>epr2</object-name>
 		<object-name>egt2</object-name>
+		<object-name>thrpos2</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -266,6 +268,31 @@
 			<blue>0</blue>
 		</emission>
 	</animation>
+	
+    <animation>
+        <type>material</type> <!-- Blue -->
+        <object-name>osgtext-blue</object-name>
+        <diffuse>
+            <red>0.06</red>
+            <green>0.55</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.06</red>
+            <green>0.55</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
 
 	<!-- OSGText -->
 	
@@ -275,13 +302,13 @@
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0516</y-m>
-			<z-m>0.0572</z-m>
+			<y-m>-0.0580</y-m>
+			<z-m>0.0562</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%1.2f</format>
+		<format type="string">%1.3f</format>
 		<property>engines/engine/epr-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
@@ -299,13 +326,13 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.004</y-m>
-			<z-m>0.0572</z-m>
+			<y-m>-0.0025</y-m>
+			<z-m>0.0562</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%1.2f</format>
+		<format type="string">%1.3f</format>
 		<property>engines/engine[1]/epr-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
@@ -323,8 +350,8 @@
 		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0516</y-m>
-			<z-m>0.0572</z-m>
+			<y-m>-0.0580</y-m>
+			<z-m>0.0562</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -347,8 +374,8 @@
 		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.004</y-m>
-			<z-m>0.0572</z-m>
+			<y-m>-0.0025</y-m>
+			<z-m>0.0562</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -615,8 +642,8 @@
 		<name>osgtext-green3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0510</y-m>
-			<z-m>0.00</z-m>
+			<y-m>-0.0580</y-m>
+			<z-m>-0.001</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -639,8 +666,8 @@
 		<name>osgtext-green4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.005</y-m>
-			<z-m>0.00</z-m>
+			<y-m>-0.0025</y-m>
+			<z-m>-0.001</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -663,13 +690,13 @@
 		<name>XX.3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0510</y-m>
-			<z-m>0.00</z-m>
+			<y-m>-0.0580</y-m>
+			<z-m>-0.001</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string"> XX</format>
+		<format type="string">XX  </format>
 		<property>autopilot/serviceable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
@@ -687,13 +714,13 @@
 		<name>XX.4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.005</y-m>
-			<z-m>0.00</z-m>
+			<y-m>-0.0025</y-m>
+			<z-m>-0.001</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string"> XX</format>
+		<format type="string">XX  </format>
 		<property>autopilot/serviceable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
@@ -805,20 +832,70 @@
 		</font-resolution>
 	</text>
 	
+	<!-- Thrust Limit -->
+	
+	<text>
+		<name>osgtext-blue</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0265</y-m>
+    		<z-m>0.0618</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>controls/engines/thrust-limit</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0485</y-m>
+    		<z-m>0.0618</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%1.3f</format>
+		<property>controls/engines/epr-limit</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
 	<!-- FF -->
 	
-	<!--text>
+	<text>
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0345</y-m>
-			<z-m>-0.0147</z-m>
+			<y-m>0.0395</y-m>
+			<z-m>0.0412</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine/fuel-flow-kgph</property>
+		<property>engines/engine/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -835,14 +912,14 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.0345</y-m>
-			<z-m>-0.0147</z-m>
+			<y-m>0.0605</y-m>
+			<z-m>0.0412</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine[1]/fuel-flow-kgph</property>
+		<property>engines/engine[1]/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -853,16 +930,64 @@
 			<width type="int">32</width>
 			<height type="int">32</height>
 		</font-resolution>
-	</text-->
+	</text>
+	
+	<text>
+		<name>XX.1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0395</y-m>
+			<z-m>0.0412</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">XX </format>
+		<property>autopilot/serviceable</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XX.2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0605</y-m>
+			<z-m>0.0412</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">XX </format>
+		<property>autopilot/serviceable</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- FOB -->
 	
-	<!--text>
+	<text>
 		<name>osgtext-green</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0447</y-m>
-			<z-m>-0.0312</z-m>
+			<y-m>0.0525</y-m>
+			<z-m>0.0316</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -879,7 +1004,7 @@
 			<width type="int">32</width>
 			<height type="int">32</height>
 		</font-resolution>
-	</text-->
+	</text>
 	
 	<!-- Analog Displays -->
 	
@@ -891,7 +1016,8 @@
     	<property>engines/engine/epr-actual</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
-			<entry><ind>1.0</ind><dep> 18</dep></entry>
+			<entry><ind>1.0</ind><dep> 05</dep></entry>
+			<entry><ind>1.1</ind><dep> 33</dep></entry>
 			<entry><ind>1.2</ind><dep> 64</dep></entry>
 			<entry><ind>1.4</ind><dep>117</dep></entry>
 			<entry><ind>1.6</ind><dep>165</dep></entry>
@@ -914,10 +1040,65 @@
     	<property>engines/engine[1]/epr-actual</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
-			<entry><ind>1.0</ind><dep> 18</dep></entry>
+			<entry><ind>1.0</ind><dep> 05</dep></entry>
+			<entry><ind>1.1</ind><dep> 33</dep></entry>
 			<entry><ind>1.2</ind><dep> 64</dep></entry>
 			<entry><ind>1.4</ind><dep>117</dep></entry>
 			<entry><ind>1.6</ind><dep>165</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0042</y-m>
+    		<z-m>0.0588</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<animation>
+    	<type>rotate</type>
+    	<object-name>thrpos1</object-name>
+    	<property>controls/engines/engine[0]/throttle</property>
+		<interpolation>
+			<entry><ind>0.00000</ind><dep> 05</dep></entry>
+			<entry><ind>0.34198</ind><dep> 64</dep></entry>
+			<entry><ind>0.59999</ind><dep>102</dep></entry>
+			<entry><ind>0.60000</ind><dep>103</dep></entry>
+			<entry><ind>0.79999</ind><dep>103</dep></entry>
+			<entry><ind>0.80000</ind><dep>107</dep></entry>
+			<entry><ind>0.94999</ind><dep>107</dep></entry>
+			<entry><ind>0.95000</ind><dep>111</dep></entry>
+			<entry><ind>1.00000</ind><dep>111</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0598</y-m>
+    		<z-m>0.0588</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>thrpos2</object-name>
+    	<property>controls/engines/engine[1]/throttle</property>
+		<interpolation>
+			<entry><ind>0.00000</ind><dep> 05</dep></entry>
+			<entry><ind>0.34198</ind><dep> 64</dep></entry>
+			<entry><ind>0.59999</ind><dep>102</dep></entry>
+			<entry><ind>0.60000</ind><dep>103</dep></entry>
+			<entry><ind>0.79999</ind><dep>103</dep></entry>
+			<entry><ind>0.80000</ind><dep>107</dep></entry>
+			<entry><ind>0.94999</ind><dep>107</dep></entry>
+			<entry><ind>0.95000</ind><dep>111</dep></entry>
+			<entry><ind>1.00000</ind><dep>111</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>

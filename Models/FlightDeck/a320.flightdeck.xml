@@ -133,7 +133,7 @@
 	<!-- Engine Indications and Crew Alerting System (Upper ECAM) -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM-IAE.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0</y-m>
@@ -1785,8 +1785,6 @@
 		<property>controls/engines/engine[0]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
-			<entry><ind>0.04900</ind><dep>10</dep></entry>
-			<entry><ind>0.05000</ind><dep>12</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
 			<entry><ind>0.79999</ind><dep>35</dep></entry>
@@ -1840,8 +1838,6 @@
 		<property>controls/engines/engine[1]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
-			<entry><ind>0.04900</ind><dep>10</dep></entry>
-			<entry><ind>0.05000</ind><dep>12</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
 			<entry><ind>0.79999</ind><dep>35</dep></entry>

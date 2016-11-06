@@ -11,10 +11,10 @@
             <expression>
                 <table>
                     <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>   18</ind><dep>1.00</dep></entry>
-                    <entry><ind>   23</ind><dep>1.01</dep></entry>
-                    <entry><ind>   35</ind><dep>1.06</dep></entry>
-                    <entry><ind>105.0</ind><dep>1.38</dep></entry>
+                    <entry><ind>   18</ind><dep>0.988</dep></entry>
+                    <entry><ind>   23</ind><dep>1.000</dep></entry>
+                    <entry><ind>   35</ind><dep>1.060</dep></entry>
+                    <entry><ind>105.0</ind><dep>1.380</dep></entry>
                 </table>
             </expression>
         </input>
@@ -30,10 +30,10 @@
             <expression>
                 <table>
                     <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>   18</ind><dep>1.00</dep></entry>
-                    <entry><ind>   23</ind><dep>1.01</dep></entry>
-                    <entry><ind>   35</ind><dep>1.06</dep></entry>
-                    <entry><ind>105.0</ind><dep>1.38</dep></entry>
+                    <entry><ind>   18</ind><dep>0.988</dep></entry>
+                    <entry><ind>   23</ind><dep>1.000</dep></entry>
+                    <entry><ind>   35</ind><dep>1.060</dep></entry>
+                    <entry><ind>105.0</ind><dep>1.380</dep></entry>
                 </table>
             </expression>
         </input>
@@ -76,6 +76,42 @@
             </expression>
         </input>
 		<output>/engines/engine[1]/egt-actual</output>
+    </filter>
+	
+    <filter>
+        <name>FF 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[0]/fuel-flow_pph</property> 
+	                <entry><ind>   0</ind><dep>   0</dep></entry>
+                    <entry><ind>2000</ind><dep> 865</dep></entry>
+                    <entry><ind>8000</ind><dep>2450</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/fuel-flow_actual</output>
+    </filter>
+	
+    <filter>
+        <name>FF 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/engines/engine[1]/fuel-flow_pph</property> 
+	                <entry><ind>   0</ind><dep>   0</dep></entry>
+                    <entry><ind>2000</ind><dep> 865</dep></entry>
+                    <entry><ind>8000</ind><dep>2450</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/fuel-flow_actual</output>
     </filter>
 
 </PropertyList>

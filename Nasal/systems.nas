@@ -52,13 +52,6 @@ setlistener("sim/signals/reinit", func(reinit)
   }
  }, 0, 0);
 
-setlistener("sim/model/livery/texture", func
- {
- var base = getprop("sim/model/livery/texture");
- setprop("sim/model/livery/texture-path[0]", "../Models/" ~ base);
- setprop("sim/model/livery/texture-path[1]", "../../Models/" ~ base);
- }, 1, 1);
-
 ## LIGHTS
 #########
 
@@ -190,6 +183,9 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-autoflight/settings/retard-ft", 50);     # Add this to change the retard altitude, default is 50ft AGL.
 	setprop("/it-autoflight/settings/land-flap", 0.645);  # Define the landing flaps here. This is needed for autoland, and retard.
 	setprop("/it-autoflight/settings/land-enable", 0);    # Enable or disable automatic landing.
+	setprop("/controls/engines/thrust-limit", "TOGA");
+	setprop("/controls/engines/epr-limit", 1.379);
+	setprop("/controls/engines/n1-limit", 97.8);
 });
 
 var aglgears = func {
