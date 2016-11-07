@@ -30,7 +30,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<z> -25.2091 </z>
 	</location -->
 	<location name="AERORP" unit="IN">
-		<x> 680.00 </x>
+		<x> 650.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -85,7 +85,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<z> -41.7398 </z>
 	</location -->
 	<location name="CG" unit="IN">
-		<x> 660.00 </x>
+		<x> 650.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
