@@ -7,15 +7,14 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 <fileheader>
 	<author> Bicyus (Jon Ortuondo) </author>
 	<email> bicyus@gmail.com </email>
-	<filecreationdate> 2012-02-22 </filecreationdate>
+	<filecreationdate> 2012-03-02 </filecreationdate>
 	<version> 0.99 </version>
-	<description> Airbus A320-200 with IAE V2500 Engines </description>
+	<description> Airbus A319-200 with IAE V2500 Engines </description>
 	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
 	<limitation></limitation>
 </fileheader>
 
 <metrics>
-	<!-- lenght 44.50 m -->
 	<wingarea  unit="FT2"> 1319.79 </wingarea>
 	<wingspan  unit="FT" >  111.26 </wingspan>
 	<wing_incidence>          1.03 </wing_incidence>
@@ -25,26 +24,26 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<vtailarea unit="FT2">  248.79 </vtailarea>
 	<vtailarm  unit="FT" >   57.33 </vtailarm>
 	<location name="AERORP" unit="IN">
-		<x> 642.122 </x>
-		<y> 0 </y>
-		<z> -25.2091 </z>
+	<x> 642.122 </x>
+	<y> 0 </y>
+	<z> -25.2091 </z>
 	</location>
 	<location name="EYEPOINT" unit="IN">
-		<x> 80 </x>
-		<y> -30 </y>
-		<z> 70 </z>
+	<x> 80 </x>
+	<y> -30 </y>
+	<z> 70 </z>
 	</location>
 	<location name="VRP" unit="IN">
-		<x> 661.1 </x>
-		<y> 0 </y>
-		<z> -37 </z>
+	<x> 661.1 </x>
+	<y> 0 </y>
+	<z> -37 </z>
 	</location>
 </metrics>
 
 <mass_balance>
-	<!--ixx unit="SLUG*FT2">    611903 </ixx>
+	<ixx unit="SLUG*FT2">    611903 </ixx>
 	<iyy unit="SLUG*FT2">   1735389 </iyy>
-	<izz unit="SLUG*FT2">   2301293 </izz--> 
+	<izz unit="SLUG*FT2">   2301293 </izz> 
 <!--
 ___________________A320_________A330__________A340
 BOW_____________178000________270000________283925
@@ -57,20 +56,20 @@ YAW MOI_________3950000______23089847_______24848934
 	<ixx unit="SLUG*FT2">   2262183 </ixx>
 	<iyy unit="SLUG*FT2">   3172439 </iyy>
 	<izz unit="SLUG*FT2">   3337024 </izz>
--->
+
 	<ixx unit="SLUG*FT2">1725000</ixx>
 	<iyy unit="SLUG*FT2">2550000</iyy>
-	<izz unit="SLUG*FT2">3950000</izz> 
+	<izz unit="SLUG*FT2">3950000</izz> -->
 
 	<ixy unit="SLUG*FT2">         0 </ixy>
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
-	<emptywt unit="KG">42095.1863</emptywt> <!-- #ref-11 page 48, WV011. 103300 lb - 5248x2 (engines)=92804lbs 42095.1863KG-->
+	<emptywt unit="LBS">77083</emptywt> <!-- #ref-12 page 54, WV009. 87579 bs - 5248x2 (engines)=77083lbs-->
 	<location name="CG" unit="IN">
-		<!--x> 642.122 </x-->
-		<x> 650.122 </x><!-- At zero load of fuel and cargo/pax the CG goes to 642 -->
-		<y> 0 </y>
-		<z> -41.7398 </z>
+	<!--x> 642.122 </x-->
+	<x> 650.122 </x><!-- At zero load of fuel and cargo/pax the CG goes to 642 -->
+	<y> 0 </y>
+	<z> -41.7398 </z>
 	</location>
 
 	<pointmass name="Crew">
@@ -173,7 +172,7 @@ YAW MOI_________3950000______23089847_______24848934
 </mass_balance>
 
 <ground_reactions>
-	<!-- REF-1 page 165 + 271  -->
+<!-- REF-1 page 165 + 271  -->
 	<contact type="BOGEY" name="NOSE_LG">
 		<location unit="IN">
 			<x> 197.6772 </x>
@@ -295,7 +294,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z>-95.567</z>
 		</location>
 		<static_friction> 1.0 </static_friction>
-		<dynamic_friction> 0.5 </dynamic_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
 		<rolling_friction> 0.4 </rolling_friction>
 		<spring_coeff unit="LBS/FT"> 50000 </spring_coeff>
 		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
@@ -310,7 +309,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z>-95.567</z>
 		</location>
 		<static_friction> 1.0 </static_friction>
-		<dynamic_friction> 0.4 </dynamic_friction>
+		<dynamic_friction> 0.5 </dynamic_friction>
 		<rolling_friction> 0.4 </rolling_friction>
 		<spring_coeff unit="LBS/FT"> 50000 </spring_coeff>
 		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
@@ -410,10 +409,12 @@ YAW MOI_________3950000______23089847_______24848934
 		<brake_group> NONE </brake_group>
 		<retractable>0</retractable>
 	</contact>
-</ground_reactions>
+
+</ground_reactions>	
+
 
 <propulsion>
-	<engine file="v2533_a5">
+	<engine file="v2522_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
 		<y> -226.575 </y>
@@ -440,7 +441,7 @@ YAW MOI_________3950000______23089847_______24848934
 		</orient>
 	</thruster>
 	</engine>
-	<engine file="v2533_a5">
+	<engine file="v2522_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
 		<y> 226.575 </y>
@@ -566,7 +567,7 @@ YAW MOI_________3950000______23089847_______24848934
 <!--system file="a320-fuel" /-->
 <system file="glass-effect1"/>
 
-<flight_control name="FCS: A321">
+<flight_control name="FCS: A319">
 	<channel name="Pitch">
 	<summer name="Pitch Trim Sum">
 		<input>/controls/flight/elevator</input>
@@ -723,117 +724,117 @@ YAW MOI_________3950000______23089847_______24848934
 		</range>
 		<output>fcs/rudder-pos-norm</output>
 	</aerosurface_scale> -->
-   <summer name="Rudder Command Sum">
-      <input>fcs/rudder-cmd-norm</input>
-      <input>fcs/yaw-trim-cmd-norm</input>
-      <clipto>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
-      </clipto>
-   </summer>
+		<summer name="Rudder Command Sum">
+			<input>fcs/rudder-cmd-norm</input>
+			<input>fcs/yaw-trim-cmd-norm</input>
+			<clipto>
+				<min> -0.35 </min>
+				<max>  0.35 </max>
+			</clipto>
+		</summer>
 
-   <scheduled_gain name="Yaw Damper Rate">
-      <input>velocities/r-aero-rad_sec</input>
-      <table>
-        <independentVar lookup="row">velocities/ve-kts</independentVar>
-         <tableData>
-            30     0.00
-            60     2.00
-         </tableData>
-      </table>
-   </scheduled_gain>
+		<scheduled_gain name="Yaw Damper Rate">
+			<input>velocities/r-aero-rad_sec</input>
+			<table>
+				<independentVar lookup="row">velocities/ve-kts</independentVar>
+				<tableData>
+					30     0.00
+					60     2.00
+				</tableData>
+			</table>
+		</scheduled_gain>
 
-   <scheduled_gain name="Yaw Damper Beta">
-      <input>aero/beta-rad</input>
-      <table>
-        <independentVar lookup="row">velocities/ve-kts</independentVar>
-        <tableData>
-           30     0.00
-           60     0.00
-        </tableData>
-      </table>
-   </scheduled_gain>
+		<scheduled_gain name="Yaw Damper Beta">
+			<input>aero/beta-rad</input>
+			<table>
+				<independentVar lookup="row">velocities/ve-kts</independentVar>
+				<tableData>
+					30     0.00
+					60     0.00
+				</tableData>
+			</table>
+		</scheduled_gain>
 
-   <summer name="Yaw Damper Sum">
-      <input>fcs/yaw-damper-beta</input>
-      <input>fcs/yaw-damper-rate</input>
-      <clipto>
-        <min> -0.1 </min>
-        <max>  0.1 </max>
-      </clipto>
-   </summer>
+		<summer name="Yaw Damper Sum">
+			<input>fcs/yaw-damper-beta</input>
+			<input>fcs/yaw-damper-rate</input>
+			<clipto>
+				<min> -0.1 </min>
+				<max>  0.1 </max>
+			</clipto>
+		</summer>
 
-   <scheduled_gain name="Yaw Damper Final">
-      <input>fcs/yaw-damper-sum</input>
-      <table>
-        <independentVar lookup="row">velocities/ve-kts</independentVar>
-        <tableData>
-           30         0.0
-           31         1.0
-        </tableData>
-      </table>
-   </scheduled_gain>
+		<scheduled_gain name="Yaw Damper Final">
+			<input>fcs/yaw-damper-sum</input>
+			<table>
+				<independentVar lookup="row">velocities/ve-kts</independentVar>
+				<tableData>
+					30         0.0
+					31         1.0
+				</tableData>
+			</table>
+		</scheduled_gain>
 
-   <summer name="Rudder Sum">
-      <input>fcs/rudder-command-sum</input>
-      <input>fcs/yaw-damper-final</input>
-      <clipto>
-        <min> -1 </min>
-        <max>  1 </max>
-      </clipto>
-   </summer>
+		<summer name="Rudder Sum">
+			<input>fcs/rudder-command-sum</input>
+			<input>fcs/yaw-damper-final</input>
+			<clipto>
+				<min> -1 </min>
+				<max>  1 </max>
+			</clipto>
+		</summer>
 
-   <aerosurface_scale name="Rudder Control">
-      <input>fcs/rudder-sum</input>
-      <range>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
-      </range>
-      <output>fcs/rudder-pos-rad</output>
-   </aerosurface_scale>
+		<aerosurface_scale name="Rudder Control">
+			<input>fcs/rudder-sum</input>
+			<range>
+				<min> -0.35 </min>
+				<max>  0.35 </max>
+			</range>
+			<output>fcs/rudder-pos-rad</output>
+		</aerosurface_scale>
 
-   <aerosurface_scale name="rudder normalization">
-      <input>fcs/rudder-pos-rad</input>
-      <domain>
-        <min> -0.35 </min>
-        <max>  0.35 </max>
-      </domain>
-      <range>
-        <min> -1 </min>
-        <max>  1 </max>
-      </range>
-      <output>fcs/rudder-pos-norm</output>
-   </aerosurface_scale>
+		<aerosurface_scale name="rudder normalization">
+			<input>fcs/rudder-pos-rad</input>
+			<domain>
+				<min> -0.35 </min>
+				<max>  0.35 </max>
+			</domain>
+			<range>
+				<min> -1 </min>
+				<max>  1 </max>
+			</range>
+			<output>fcs/rudder-pos-norm</output>
+		</aerosurface_scale>
 
 	</channel>
 	<channel name="Flaps">
-	<kinematic name="Flaps Control">
-		<input>fcs/flap-cmd-norm</input>
-		<traverse>
-		<setting>
-			<position>0</position>
-			<time>0</time>
-		</setting>
-		<setting>
-			<position>40</position>
-			<time>40</time>
-		</setting>
-		</traverse>
-		<output>fcs/flap-pos-deg</output>
-	</kinematic>
+		<kinematic name="Flaps Control">
+			<input>fcs/flap-cmd-norm</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>40</position>
+				<time>40</time>
+			</setting>
+			</traverse>
+			<output>fcs/flap-pos-deg</output>
+		</kinematic>
 
-	<aerosurface_scale name="Flap position normalized">
-		<input>fcs/flap-pos-deg</input>
-		<domain>
-		<min>0</min>
-		<max>40</max>
-		</domain>
-		<range>
-		<min>0</min>
-		<max>1</max>
-		</range>
-		<output>fcs/flap-pos-norm</output>
-	</aerosurface_scale>
+		<aerosurface_scale name="Flap position normalized">
+			<input>fcs/flap-pos-deg</input>
+			<domain>
+			<min>0</min>
+			<max>40</max>
+			</domain>
+			<range>
+			<min>0</min>
+			<max>1</max>
+			</range>
+			<output>fcs/flap-pos-norm</output>
+		</aerosurface_scale>
 	</channel>
 	<channel name="Landing Gear">
 	<kinematic name="Gear Control">
@@ -913,7 +914,6 @@ YAW MOI_________3950000______23089847_______24848934
         </actuator>
         
     </channel>
-
     
 </flight_control>
 
@@ -965,18 +965,15 @@ YAW MOI_________3950000______23089847_______24848934
 			</table>
 		</product>
 	</function>
-
-
-	<axis name="LIFT">
+  	<axis name="LIFT">
 		<function name="aero/force/Lift_gain">
-			<description>Drag_at_zero_lift</description>
+			<description>Added_lift</description>
 			<product>
-			<property>aero/qbar-psf</property>
-			<property>metrics/Sw-sqft</property>
-			<value>0.30</value>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<value>0.30</value>
 			</product>
 		</function>
-
 		<!--function name="aero/coefficient/CLalpha">
 			<description>Lift_due_to_alpha</description>
 			<product>
@@ -1085,7 +1082,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<value>0.016</value>
 			</product>
 		</function>
-<!--function name="aero/coefficient/CDalpha">
+		<!--function name="aero/coefficient/CDalpha">
 			<description>Drag_due_to_alpha</description>
 			<product>
 			<property>aero/qbar-psf</property>
@@ -1241,7 +1238,7 @@ YAW MOI_________3950000______23089847_______24848934
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>fcs/speedbrake-pos-norm</property>
-				<value>0.04</value>
+				<value>0.08</value>
 			</product>
 		</function>
 

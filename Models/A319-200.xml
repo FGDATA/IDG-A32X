@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<name>A320-200</name>
+	<name>A319-200</name>
 	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
 
 	<offsets>
@@ -12,7 +12,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320Family/Models/Fuselages/a321.fuselage.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/a319.fuselage.xml</path>
 
 	</model>
 	    <!-- effects -->
@@ -30,21 +30,21 @@
 		<name>Flightdeck</name>
 		<path>Aircraft/A320Family/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
-            <x-m>0.55</x-m>
-            <z-m>0.27</z-m>
+            <x-m>6.4</x-m>
+            <z-m>0.2399</z-m>
 		</offsets>
 	</model>
 
 	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320Family/Models/Interior/a321.interior.xml</path>
+		<path>Aircraft/A320Family/Models/Interior/a319.interior.xml</path>
 	</model>
 
 	<model>
 		<name>Nose Gear</name>
 		<path>Aircraft/A320Family/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
-			<x-m>3.56</x-m>
+			<x-m>9.43</x-m>
 			<z-m>-1.8306008</z-m>
 		</offsets>
 	</model>
@@ -74,7 +74,7 @@
 		<condition>
 			<equals>
 				<property>/sim/aero</property>
-				<value>A321-200-IAE</value>
+				<value>A319-200-IAE</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -96,7 +96,7 @@
 		<name>Horizontal Stabilizer</name>
 		<path>Aircraft/A320Family/Models/Fuselages/a320.hstab.xml</path>
 		<offsets>
-			<x-m>36.8212207</x-m>
+			<x-m>32.0212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
 		</offsets>
 	</model>
@@ -105,7 +105,7 @@
 		<name>Vertical Stabilizer</name>
 		<path>Aircraft/A320Family/Models/Fuselages/a320.vstab.xml</path>
 		<offsets>
-			<x-m>34.9235728</x-m>
+			<x-m>30.1235728</x-m>
 		</offsets>
 	</model>
 	<!-- Lights -->
@@ -203,7 +203,7 @@
 		<name>Pushback</name>
 		<path>Models/Airport/Pushback/Goldhofert.xml</path>
 		<offsets>
-			<x-m>3.28</x-m>
+			<x-m>9.15</x-m>
 			<y-m>0</y-m>
 			<z-m>-4.14</z-m>
 		</offsets>
@@ -238,7 +238,7 @@
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A321");
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A319");
 		</load>
 		<unload>
 		 livery_update.stop();
@@ -342,10 +342,6 @@
                 <value>1</value>
             </equals>
         </condition>
-        <offsets>
-            <x-m>12</x-m>
-            <z-m>0.75</z-m>
-        </offsets>
     </model>
     
     <!-- Chokes -->
@@ -359,6 +355,10 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>23.5</x-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     
     <model>
@@ -370,6 +370,11 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>15.5</x-m>
+            <y-m>1.18</y-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     
     <model>
@@ -381,6 +386,11 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>15.5</x-m>
+            <y-m>-1.18</y-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     <!-- Stairways -->
     

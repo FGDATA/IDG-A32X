@@ -8,14 +8,14 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A321 (IAE V2500)</description>
+		<description>Airbus A319 (IAE V2500)</description>
 		<flight-model>jsb</flight-model>
-		<aero>A321-200-IAE</aero>
+		<aero>A319-200-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A321-200.xml</path>
+			<path>Aircraft/A320Family/Models/A319-200.xml</path>
 			<livery>
-				<file>Liveries/A321/Airbus.xml</file>
-				<texture>Liveries/A321/Airbus.png</texture>
+				<file>Liveries/A319/USAirwaysStar.xml</file>
+				<texture>Liveries/A319/USAirwaysStar.png</texture>
 			</livery>
 		</model>
 
@@ -33,7 +33,7 @@
 			<config>
 				<x-offset-m archive="y">-0.45</x-offset-m>
 				<y-offset-m archive="y">2.30</y-offset-m>
-				<z-offset-m archive="y">-17.87</z-offset-m>
+				<z-offset-m archive="y">-12.00</z-offset-m>
 				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
 			</config>
@@ -46,7 +46,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0.45</x-offset-m>
 				<y-offset-m archive="y">2.30</y-offset-m>
-				<z-offset-m archive="y">-17.87</z-offset-m>
+				<z-offset-m archive="y">-12.00</z-offset-m>
 				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
 			</config>
@@ -59,7 +59,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0</x-offset-m>
 				<y-offset-m archive="y">2.3635023</y-offset-m>
-				<z-offset-m archive="y">-18</z-offset-m>
+				<z-offset-m archive="y">-12.1</z-offset-m>
 				<pitch-offset-deg archive="y">40</pitch-offset-deg>
 				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
@@ -68,7 +68,7 @@
 		<menubar>
 			<default>
 				<menu n="100">
-					<label>Airbus A321-200</label>
+					<label>Airbus A319-200</label>
 				</menu>
 			</default>
 		</menubar>
@@ -77,7 +77,7 @@
 	<payload>
 		<weight n="1">
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">75500</max-lb>
+			<max-lb type="double">35500</max-lb>
 		</weight>
 	</payload>
 	
@@ -88,7 +88,7 @@
 			<file>Aircraft/A320Family/Nasal/v-speeds.nas</file>
 			<file>Aircraft/A320Family/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/A320Family/Nasal/systems.nas</file>
-			<file>Aircraft/A320Family/Nasal/a321livery.nas</file>
+			<file>Aircraft/A320Family/Nasal/a319livery.nas</file>
 			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
             <file>Aircraft/A320Family/Nasal/gpws.nas</file>
             <file>Aircraft/A320Family/Nasal/efis.nas</file>
