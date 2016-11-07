@@ -49,10 +49,11 @@
             <expression>
                 <table>
                     <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>  0</ind><dep>080</dep></entry>
-                    <entry><ind>  5</ind><dep>080</dep></entry>
-                    <entry><ind> 23</ind><dep>302</dep></entry>
-                    <entry><ind>110</ind><dep>650</dep></entry>
+                    <entry><ind>  0</ind><dep>037</dep></entry>
+                    <entry><ind>  8</ind><dep>037</dep></entry>
+                    <entry><ind> 10</ind><dep>631</dep></entry>
+                    <entry><ind> 23</ind><dep>415</dep></entry>
+                    <entry><ind>110</ind><dep>719</dep></entry>
                 </table>
             </expression>
         </input>
@@ -68,10 +69,11 @@
             <expression>
                 <table>
                     <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>  0</ind><dep>080</dep></entry>
-                    <entry><ind>  5</ind><dep>080</dep></entry>
-                    <entry><ind> 23</ind><dep>302</dep></entry>
-                    <entry><ind>110</ind><dep>650</dep></entry>
+                    <entry><ind>  0</ind><dep>037</dep></entry>
+                    <entry><ind>  8</ind><dep>037</dep></entry>
+                    <entry><ind> 10</ind><dep>631</dep></entry>
+                    <entry><ind> 23</ind><dep>415</dep></entry>
+                    <entry><ind>110</ind><dep>719</dep></entry>
                 </table>
             </expression>
         </input>
