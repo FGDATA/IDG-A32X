@@ -14,7 +14,7 @@
 		<model>
 			<path>Aircraft/A320Family/Models/A320-200.xml</path>
 			<livery>
-				<file>Liveries/A320/Airbus.xml</file>
+				<file>Liveries/A320/Airbus</file>
 				<texture>Liveries/A320/Airbus.png</texture>
 			</livery>
 		</model>
