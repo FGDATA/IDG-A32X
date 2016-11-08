@@ -73,13 +73,6 @@
 			</default>
 		</menubar>
 	</sim>
-
-	<!-- payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">35500</max-lb>
-		</weight>
-	</payload -->
 	
 	<nasal>
 		<A320>
