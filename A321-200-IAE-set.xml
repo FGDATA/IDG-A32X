@@ -14,7 +14,7 @@
 		<model>
 			<path>Aircraft/A320Family/Models/A321-200.xml</path>
 			<livery>
-				<file>Liveries/A321/Airbus.xml</file>
+				<file>Liveries/A321/Airbus</file>
 				<texture>Liveries/A321/Airbus.png</texture>
 			</livery>
 		</model>
@@ -73,13 +73,6 @@
 			</default>
 		</menubar>
 	</sim>
-
-	<payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">75500</max-lb>
-		</weight>
-	</payload>
 	
 	<nasal>
 		<A320>

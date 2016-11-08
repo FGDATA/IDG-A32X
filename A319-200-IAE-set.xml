@@ -14,7 +14,7 @@
 		<model>
 			<path>Aircraft/A320Family/Models/A319-200.xml</path>
 			<livery>
-				<file>Liveries/A319/USAirwaysStar.xml</file>
+				<file>Liveries/A319/USAirwaysStar</file>
 				<texture>Liveries/A319/USAirwaysStar.png</texture>
 			</livery>
 		</model>
@@ -73,13 +73,6 @@
 			</default>
 		</menubar>
 	</sim>
-
-	<!-- payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">35500</max-lb>
-		</weight>
-	</payload -->
 	
 	<nasal>
 		<A320>
