@@ -411,7 +411,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 589.735 </x>
+		<x> 677.0683 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -425,7 +425,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>2</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 589.735 </x>
+		<x> 8.12.4820 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -439,7 +439,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 589.735 </x>
+		<x> 677.00683 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -453,7 +453,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 589.735 </x>
+		<x> 812-4820 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -930,10 +930,10 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-0.20 -0.880
-							 0.00  0.500
-							 0.23  1.500
-							 0.60  0.900
+							-0.20 -0.680
+							 0.00  0.300
+							 0.23  1.300
+							 0.60  0.700
 						</tableData>
 					</table>
 				</product>
