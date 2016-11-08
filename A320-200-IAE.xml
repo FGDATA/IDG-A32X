@@ -85,7 +85,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<z> -41.7398 </z>
 	</location -->
 	<location name="CG" unit="IN">
-		<x> 655.00 </x>
+		<x> 642.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -109,7 +109,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0A (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>450.1711</x>
+			<x>400.1711</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -117,7 +117,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0B (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>739.5669</x>
+			<x>689.5669</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -125,7 +125,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0C (54 seats)">
 		<weight unit="LBS">5940</weight> <!-- MAX: 11880lbs, 54 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>1093.2729</x>
+			<x>993.2729</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -411,7 +411,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 677.0683 </x>
+		<x> 630.0683 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -425,7 +425,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>2</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 8.12.4820 </x>
+		<x> 642.4820 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -439,7 +439,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 677.00683 </x>
+		<x> 630.00683 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -453,7 +453,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 812-4820 </x>
+		<x> 642.4820 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -472,7 +472,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<capacity unit="LBS"> 0 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		
 		<priority>4</priority>
@@ -486,7 +486,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -8.0898 </z>
 		</location>
 		<capacity unit="LBS"> 1520.00 </capacity><!-- need review -->
-		<contents unit="LBS"> 154.88 </contents>
+		<contents unit="LBS"> 0 </contents>
 		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
 		<priority>2</priority>
 		<type>JET-A1</type>
@@ -499,7 +499,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -33.9470 </z>
 		</location>
 		<capacity unit="LBS"> 11982 </capacity><!-- need review -->
-		<contents unit="LBS"> 11982 </contents>
+		<contents unit="LBS"> 3000 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>
@@ -512,7 +512,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -47.0 </z>
 		</location>
 		<capacity unit="LBS"> 14281 </capacity><!-- need review -->
-		<contents unit="LBS"> 7260 </contents>
+		<contents unit="LBS"> 3000 </contents>
 		<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
 		<priority>1</priority>
 		<type>JET-A1</type>
@@ -525,7 +525,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -33.9470 </z>
 		</location>
 		<capacity unit="LBS"> 11982 </capacity><!-- need review -->
-		<contents unit="LBS"> 11982 </contents>
+		<contents unit="LBS"> 3000 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimum fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>
@@ -538,7 +538,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -8.0898 </z>
 		</location>
 		<capacity unit="LBS"> 1520 </capacity><!-- need review -->
-		<contents unit="LBS"> 154.88 </contents>
+		<contents unit="LBS"> 0 </contents>
 		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
 		<priority>2</priority>
 		<type>JET-A1</type>
@@ -550,7 +550,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<capacity unit="LBS"> 0 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>4</priority>
 		<type>JET-A1</type>
@@ -930,10 +930,10 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-0.20 -0.680
-							 0.00  0.300
-							 0.23  1.300
-							 0.60  0.700
+							-0.20 -0.880
+							 0.00  0.500
+							 0.23  1.500
+							 0.60  0.900
 						</tableData>
 					</table>
 				</product>
@@ -945,7 +945,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.03500 </value>
+					<value> 0.05000 </value>
 				</product>
 			</function>
 
@@ -965,7 +965,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/elevator-pos-rad</property>
-					<value>0.15</value>
+					<value>0.25</value>
 				</product>
 			</function>
 
@@ -981,11 +981,11 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-1.57    1.500
-							-0.26    0.026
-							 0.00    0.020
-							 0.26    0.026
-							 1.57    1.500
+							-1.57    1.300
+							-0.26    0.021
+							 0.00    0.015
+							 0.26    0.021
+							 1.57    1.300
 						</tableData>
 					</table>
 				</product>
@@ -997,7 +997,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/cl-squared</property>
-					<value>0.043</value>
+					<value>0.041</value>
 				</product>
 			</function>
 
