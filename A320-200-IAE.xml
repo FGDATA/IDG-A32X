@@ -75,8 +75,8 @@ YAW MOI_________3950000______23089847_______24848934
 	<iyz unit="SLUG*FT2">         0 </iyz>
 	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
 
-	<!-- 	#### PB: That makes no sense, the wohle aircraft is 1479.1339 inches long. 650inches eqauls to about 43.95% MAC with the Airbus limits according to the AMM between 45% and 49%
-		Also: The z-axis is -41.73 unches under the zero line of the plane while the pressure point is only -25,91 under the same line and slightly ahead, that causes the plane to behave quite unstable
+	<!-- 	#### PB: That makes no sense, the whole aircraft is 1479.1339 inches long. 650inches eqauls to about 43.95% MAC with the Airbus limits according to the AMM between 45% and 49%
+		Also: The z-axis is -41.73 inches under the zero line of the plane while the pressure point is only -25,91 under the same line and slightly ahead, that causes the plane to behave quite unstable
 	-->
 	<!-- location name="CG" unit="IN">
 		<! - -x> 642.122 </x- - >
@@ -90,99 +90,77 @@ YAW MOI_________3950000______23089847_______24848934
 		<z> 0.00 </z>
 	</location>
 
-	<pointmass name="Crew">
-		<weight unit="LBS">400</weight> <!-- MAX: 600lbs-->
+	<pointmass name="Cockpit Crew">
+		<weight unit="LBS">400</weight> <!-- MAX: 400lbs, two pilots-->
 		<location name="POINTMASS" unit="IN">
 			<x>200</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
 	</pointmass>
-	<pointmass name="PAX">
-		<weight unit="LBS">19750</weight> <!-- MAX: 39500 lbs ** looks too heavy. maybe low it and give a long cilinder shape. need to do some maths-->
-		<form shape="cylinder">
-			<radius unit="M"> 2.13 </radius>
-			<length unit="M"> 24.44 </length>
-		</form>
+	<pointmass name="Cabin Crew">
+		<weight unit="LBS">600</weight> <!-- MAX: 1320lbs, up to six flight-attendants-->
 		<location name="POINTMASS" unit="IN">
-			<x>705</x>
+			<x>696</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
 	</pointmass>
-
-<!-- NEW Pointmasses Start Weights for good CG -->
-	<pointmass name="Fwd Cargo">
-		<weight unit="LBS">3750</weight> <!-- #REF-3 page 19, MAX 3402 kilograms = 7500.12616 lbs -->
-		<form shape="cylinder">
-			<radius unit="M"> 1.24 </radius>
-			<length unit="M"> 4.95 </length>
-		</form> 
-		<location name="POINTMASS" unit="IN"> 
-			<!-- #REF-1 page 88+98,
-			x= (door form nose(8.16m))-(door with(1.816m)/2)+(Cargo compartment lenght(4.953m)/2)
-			x= 9.7285 meters = 383.011811 in
-			-->
-			<x>383.01</x>
-			<y>0</y>
-			<z>-59.05</z> <!-- Aprox lower deck 1.5 meters = 59.0551181 in -->
-		</location>
-	</pointmass>
-
-	<pointmass name="Aft Cargo">
-		<weight unit="LBS">0</weight> <!-- #REF-3 page 19, MAX 4536 kilograms = 10000.1682 lbs -->
-		<form shape="cylinder">
-			<radius unit="M"> 1.24 </radius>
-			<length unit="M"> 6.6 </length>
-		</form> 
-		<location name="POINTMASS" unit="IN"> 
-			<!-- #REF-1 page 88+98,
-			x= (door form nose(22.69m))-(door with(1.816m)/2)
-			x= 21.78200 meters = 857.559055 in
-			-->
-			<x>857.55</x>
-			<y>0</y>
-			<z>-59.05</z> <!-- Aprox lower deck 1.5 meters = 59.0551181 in -->
-		</location>
-	</pointmass>
-	<pointmass name="Rear Bulk Cargo">
-		<weight unit="LBS">0</weight> <!-- #REF-3 page 19, MAX 1497 kilograms = 3300.32006 lbs -->
-		<form shape="cylinder">
-			<radius unit="M"> 1.24 </radius>
-			<length unit="M"> 2 </length>
-		</form> 
-		<location name="POINTMASS" unit="IN"> 
-			<!-- #REF-1 page 88+102,
-			x= (door form nose(22.69m))+(door with(1.816m)/2)+( Dist. between rear doors(2.19))+(Aprox to compartment center (2m))
-			x= 27.78800 meters = 1 094.01575 in
-			-->
-			<x>1094</x>
-			<y>0</y>
-			<z>-39.37</z> <!-- Aprox bulk lower deck 1 meter = 39.3700787 in -->
-		</location>
-	</pointmass>
-	<pointmass name="Engine1">
-		<weight unit="LBS">5248</weight>
-		<form shape="cylinder">
-			<radius unit="M"> 1.31 </radius>
-			<length unit="M"> 5 </length>
-		</form>
+	<pointmass name="PAX 0A (60 seats)">
+		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>589.735</x>	
-			<y>-226.575</y>
-			<z>-45.567</z>
+			<x>450.1711</x>
+			<y>0</y>
+			<z>0</z>
 		</location>
 	</pointmass>
-	<pointmass name="Engine2">
-		<weight unit="LBS">5248</weight>
-		<form shape="cylinder">
-			<radius unit="M"> 1.31 </radius>
-			<length unit="M"> 5 </length>
-		</form>
+	<pointmass name="PAX 0B (60 seats)">
+		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>589.735</x>	
-			<y>226.575</y>
-			<z>-45.567</z>
+			<x>739.5669</x>
+			<y>0</y>
+			<z>0</z>
+		</location>
+	</pointmass>
+	<pointmass name="PAX 0C (54 seats)">
+		<weight unit="LBS">5940</weight> <!-- MAX: 11880lbs, 54 seats -->
+		<location name="POINTMASS" unit="IN">
+			<x>1093.2729</x>
+			<y>0</y>
+			<z>0</z>
+		</location>
+	</pointmass>
+	<pointmass name="Cargo Hold 1">
+		<weight unit="LBS">2000</weight> <!-- MAX: 7500.126lbs -->
+		<location name="POINTMASS" unit="IN">
+			<x>383.4792</x>
+			<y>0</y>
+			<z>-29.5</z>	<!-- 1.5m and now half of it for the center point of the load -->
+		</location>
+	</pointmass>
+	<!-- Cargo Hold 2 doesn't exist, that is the center tank -->
+	<pointmass name="Cargo Hold 3">
+		<weight unit="LBS">2000</weight> <!-- MAX: 5384.414lbs -->
+		<location name="POINTMASS" unit="IN">
+			<x>849.1324</x>
+			<y>0</y>
+			<z>-29.5</z>
+		</location>
+	</pointmass>
+	<pointmass name="Cargo Hold 4">
+		<weight unit="LBS">1500</weight> <!-- MAX: 4651.754lbs -->
+		<location name="POINTMASS" unit="IN">
+			<x>931.0653</x>
+			<y>0</y>
+			<z>-29.5</z>
+		</location>
+	</pointmass>
+	<pointmass name="Cargo Hold 5">
+		<weight unit="LBS">2000</weight> <!-- MAX: 3300.320lbs -->
+		<location name="POINTMASS" unit="IN">
+			<x>1068.2634</x>
+			<y>0</y>
+			<z>0</z>	<!-- Cargo Hold #5 sits higher on the range of the cabin deck, it's only loadable with lifter -->
 		</location>
 	</pointmass>
 
@@ -430,6 +408,7 @@ YAW MOI_________3950000______23089847_______24848934
 </ground_reactions>
 
 <propulsion>
+
 	<engine file="v2527_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
@@ -457,6 +436,7 @@ YAW MOI_________3950000______23089847_______24848934
 		</orient>
 	</thruster>
 	</engine>
+
 	<engine file="v2527_a5">
 	<location unit="IN">
 		<x> 589.735 </x>
@@ -488,7 +468,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<tank type="FUEL">    <!-- Left Tank (Wing tip Ventilation Surge) 0 -->
 		<location unit="IN">
-			<x> 788.4322 </x>
+			<x> 783.0709 </x>
 			<y> -574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
@@ -501,7 +481,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Left Tank (Outer) 1 -->
 		<location unit="IN">
-			<x> 737.4190 </x>
+			<x> 739.5669 </x>
 			<y> -457.4259 </y>
 			<z> -8.0898 </z>
 		</location>
@@ -514,7 +494,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Left Tank (Inner) 2 -->
 		<location unit="IN">
-			<x> 630.6588 </x>
+			<x> 652.5591 </x>
 			<y> -236.2992 </y>
 			<z> -33.9470 </z>
 		</location>
@@ -527,7 +507,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Center Tank 3 -->
 		<location unit="IN">
-			<x> 580.9955 </x>
+			<x> 522.0473 </x>
 			<y> 0 </y>
 			<z> -47.0 </z>
 		</location>
@@ -540,7 +520,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Inner) 4 -->
 		<location unit="IN">
-			<x> 630.6588 </x>
+			<x> 652.5591 </x>
 			<y> 236.2992 </y>
 			<z> -33.9470 </z>
 		</location>
@@ -553,7 +533,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Outer) 5 -->
 		<location unit="IN">
-			<x> 737.4190 </x>
+			<x> 739.5669 </x>
 			<y> 457.4259 </y>
 			<z> -8.0898 </z>
 		</location>
@@ -566,7 +546,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Wing tip Ventilation Surge) 6 -->
 		<location unit="IN">
-			<x> 788.4322 </x>
+			<x> 783.0709 </x>
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
