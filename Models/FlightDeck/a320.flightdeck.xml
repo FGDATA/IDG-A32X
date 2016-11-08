@@ -4045,8 +4045,10 @@
             <button>0</button>
             <repeatable type="bool">false</repeatable>
             <binding>
-				<command>property-toggle</command>
+				<command>property-cycle</command>
 				<property>/controls/flight/speedbrake-arm</property>
+				<value>0</value>
+				<value>1</value>
             </binding>
         </action>
         <action>
