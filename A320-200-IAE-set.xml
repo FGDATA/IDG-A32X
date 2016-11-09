@@ -19,14 +19,6 @@
 			</livery>
 		</model>
 
-		<flaps>
-			<setting>0.000</setting>
-			<setting>0.290</setting>
-			<setting>0.596</setting>
-			<setting>0.645</setting>
-			<setting>1.000</setting>
-		</flaps>
-
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
@@ -86,6 +78,7 @@
             <file>Aircraft/A320Family/Nasal/gpws.nas</file>
             <file>Aircraft/A320Family/Nasal/efis.nas</file>
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
+			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
 		</A320>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>

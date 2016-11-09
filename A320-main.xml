@@ -19,6 +19,14 @@
 		<startup>
 			<splash-texture>Aircraft/A320Family/splash.png</splash-texture>
 		</startup>
+		
+		<flaps>
+			<setting>0.000</setting>
+			<setting>0.290</setting>
+			<setting>0.596</setting>
+			<setting>0.645</setting>
+			<setting>1.000</setting>
+		</flaps>
 
 		<systems>
 			<!-- Disable the generic electrical system and use the Nasal system -->
