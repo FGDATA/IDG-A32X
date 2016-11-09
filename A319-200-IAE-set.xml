@@ -9,6 +9,7 @@
 		</sound>
 	
 		<description>NOT READY: Airbus A319 (IAE V2500)</description>
+		<status>Not Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A319-200-IAE</aero>
 		<model>

@@ -9,6 +9,7 @@
 		</sound>
 	
 		<description>Airbus A320 (IAE V2500)</description>
+		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
 		<model>
