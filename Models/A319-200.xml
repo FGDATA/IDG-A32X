@@ -73,8 +73,8 @@
 		<path>Aircraft/A320Family/Models/Wings/a320.wings.iae.xml</path>
 		<condition>
 			<equals>
-				<property>/sim/aero</property>
-				<value>A319-200-IAE</value>
+				<property>/sim/multiplay/generic/float[2]</property>
+				<value>1</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -233,6 +233,7 @@
 		<!-- Fuselage -->
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
+		<texture>A319.png</texture>
 	</animation>
 
 	<!-- Nasal code -->

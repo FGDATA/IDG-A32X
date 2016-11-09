@@ -16,7 +16,6 @@
 			<path>Aircraft/A320Family/Models/A320-200.xml</path>
 			<livery>
 				<file>Liveries/A320/Airbus</file>
-				<texture>Liveries/A320/Airbus.png</texture>
 			</livery>
 		</model>
 
@@ -66,6 +65,8 @@
 			</default>
 		</menubar>
 	</sim>
+	
+	<engine-type>1</engine-type>
 	
 	<nasal>
 		<A320>

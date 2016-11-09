@@ -16,7 +16,6 @@
 			<path>Aircraft/A320Family/Models/A319-200.xml</path>
 			<livery>
 				<file>Liveries/A319/USAirwaysStar</file>
-				<texture>Liveries/A319/USAirwaysStar.png</texture>
 			</livery>
 		</model>
 
@@ -74,6 +73,8 @@
 			</default>
 		</menubar>
 	</sim>
+	
+	<engine-type>1</engine-type>
 	
 	<nasal>
 		<A320>

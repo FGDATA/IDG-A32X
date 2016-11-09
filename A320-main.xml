@@ -125,6 +125,7 @@
 			<generic>
 				<float n="0" alias="/controls/lighting/dome-norm" />
 				<float n="1" alias="/controls/lighting/interior" />
+				<float n="2" alias="/engine-type" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
 				<int n="3" alias="/controls/lighting/landing-lights[1]" />
 				<int n="4" alias="/controls/lighting/landing-lights[2]" />
@@ -237,12 +238,12 @@
 		<pitch>
 			<umin>-0.25</umin>
 			<umax>0.25</umax>
-			<kp>-0.07</kp>
+			<kp>-0.05</kp>
 		</pitch>
 		<flch>
 			<umin>-0.25</umin>
 			<umax>0.25</umax>
-			<kp>-0.08</kp>
+			<kp>-0.03</kp>
 		</flch>
 		<gs>
 			<kp>0.10</kp>
