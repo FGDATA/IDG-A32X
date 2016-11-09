@@ -10,7 +10,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<filecreationdate> 2012-02-15 </filecreationdate>
 	<version> 0.99 </version>
 	<description> Airbus A320-200 with IAE V2500 Engines </description>
-	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
+	<note> Revised and fixed by Peter Brendt (jwocky) and Joshua Davidson (it0uchpods). Fork from the A320-Family aircraft project (Thanks to all authors) </note>
 	<limitation></limitation>
 </fileheader>
 
@@ -109,7 +109,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0A (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>400.1711</x>
+			<x>470.1711</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -117,7 +117,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0B (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>689.5669</x>
+			<x>809.5669</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -125,7 +125,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0C (54 seats)">
 		<weight unit="LBS">5940</weight> <!-- MAX: 11880lbs, 54 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>993.2729</x>
+			<x>1163.2729</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -425,9 +425,9 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>2</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 640.4820 </x>
+		<x> 655.4820 </x>
 		<y> -226.575 </y>
-		<z> -45.567 </z>
+		<z> 0.000 </z>
 		</location>
 		<orient unit="DEG">
 		<roll> 0.0 </roll>
@@ -453,9 +453,9 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 640.4820 </x>
+		<x> 655.4820 </x>
 		<y> 226.575 </y>
-		<z> -45.567 </z>
+		<z> 0.000 </z>
 		</location>
 		<orient unit="DEG">
 		<roll> 0.0 </roll>
@@ -965,8 +965,8 @@ YAW MOI_________3950000______23089847_______24848934
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
 							-0.20 -0.780
-							 0.00  0.375
-							 0.23  1.300
+							 0.00  0.345
+							 0.23  1.100
 							 0.60  0.700
 						</tableData>
 					</table>
@@ -979,7 +979,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.01000 </value>
+					<value> 0.00700 </value>
 				</product>
 			</function>
 
@@ -988,8 +988,8 @@ YAW MOI_________3950000______23089847_______24848934
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<property>fcs/flap-pos-deg</property>
-					<value> 0.02300 </value>
+					<property>fcs/slat-pos-deg</property>
+					<value> 0.02000 </value>
 				</product>
 			</function>
 
@@ -1068,7 +1068,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00150 </value>
+					<value> 0.00120 </value>
 				</product>
 			</function>
 
@@ -1078,7 +1078,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00150 </value>
+					<value> 0.00120 </value>
 				</product>
 			</function>
 

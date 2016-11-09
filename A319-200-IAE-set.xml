@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A319 (IAE V2500)</description>
+		<description>NOT READY: Airbus A319 (IAE V2500)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A319-200-IAE</aero>
 		<model>

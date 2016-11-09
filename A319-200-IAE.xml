@@ -10,7 +10,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<filecreationdate> 2012-03-02 </filecreationdate>
 	<version> 0.99 </version>
 	<description> Airbus A319-200 with IAE V2500 Engines </description>
-	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
+	<note> Revised and fixed by Peter Brendt (jwocky) and Joshua Davidson (it0uchpods). Fork from the A320-Family aircraft project (Thanks to all authors) </note>
 	<limitation></limitation>
 </fileheader>
 
