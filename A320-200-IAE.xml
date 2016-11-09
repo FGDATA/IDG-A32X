@@ -979,7 +979,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.02000 </value>
+					<value> 0.01000 </value>
 				</product>
 			</function>
 
@@ -989,7 +989,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.01800 </value>
+					<value> 0.02300 </value>
 				</product>
 			</function>
 
