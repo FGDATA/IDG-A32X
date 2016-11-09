@@ -411,7 +411,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 630.0683 </x>
+		<x> 620.0683 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -425,7 +425,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>2</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 642.4820 </x>
+		<x> 640.4820 </x>
 		<y> -226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -439,7 +439,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 630.00683 </x>
+		<x> 620.00683 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -453,7 +453,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<feed>4</feed>
 	<thruster file="direct">
 		<location unit="IN">
-		<x> 642.4820 </x>
+		<x> 640.4820 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 		</location>
@@ -472,7 +472,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 0 </capacity><!-- need review -->
+		<capacity unit="LBS"> 150 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		
 		<priority>4</priority>
@@ -550,7 +550,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 0 </capacity><!-- need review -->
+		<capacity unit="LBS"> 150 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>4</priority>
 		<type>JET-A1</type>
@@ -803,79 +803,113 @@ YAW MOI_________3950000______23089847_______24848934
 
 	</channel>
 
-	<channel name="Flaps">
+		<channel name="Flaps">
 
-	<kinematic name="Flaps Control">
-		<input>fcs/flap-cmd-norm</input>
-		<traverse>
-		<setting>
-			<position>0</position>
-			<time>0</time>
-		</setting>
-		<setting>
-			<position>40</position>
-			<time>40</time>
-		</setting>
-		</traverse>
-		<output>fcs/flap-pos-deg</output>
-	</kinematic>
+		<kinematic name="Flaps Control">
+			<input>/controls/flight/flaps</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>40</position>
+				<time>40</time>
+			</setting>
+			</traverse>
+			<output>fcs/flap-pos-deg</output>
+		</kinematic>
 
-	<aerosurface_scale name="Flap position normalized">
-		<input>fcs/flap-pos-deg</input>
-		<domain>
-		<min>0</min>
-		<max>40</max>
-		</domain>
-		<range>
-		<min>0</min>
-		<max>1</max>
-		</range>
-		<output>fcs/flap-pos-norm</output>
-	</aerosurface_scale>
+		<aerosurface_scale name="Flap position normalized">
+			<input>fcs/flap-pos-deg</input>
+			<domain>
+			<min>0</min>
+			<max>40</max>
+			</domain>
+			<range>
+			<min>0</min>
+			<max>1</max>
+			</range>
+			<output>fcs/flap-pos-norm</output>
+		</aerosurface_scale>
+
+	</channel>
+
+	<channel name="Slats">
+
+		<kinematic name="Slats Control">
+			<input>/controls/flight/slats</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>40</position>
+				<time>40</time>
+			</setting>
+			</traverse>
+			<output>fcs/slat-pos-deg</output>
+		</kinematic>
+
+		<aerosurface_scale name="Slat position normalized">
+			<input>fcs/slat-pos-deg</input>
+			<domain>
+			<min>0</min>
+			<max>27</max>
+			</domain>
+			<range>
+			<min>0</min>
+			<max>1</max>
+			</range>
+			<output>fcs/slat-pos-norm</output>
+		</aerosurface_scale>
 
 	</channel>
 
 	<channel name="Landing Gear">
-	<kinematic name="Gear Control">
-		<input>gear/gear-cmd-norm</input>
-		<traverse>
-		<setting>
-			<position>0</position>
-			<time>0</time>
-		</setting>
-		<setting>
-			<position>1</position>
-			<time>10</time>
-		</setting>
-		</traverse>
-		<output>gear/gear-pos-norm</output>
-	</kinematic>
+
+		<kinematic name="Gear Control">
+			<input>gear/gear-cmd-norm</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>10</time>
+			</setting>
+			</traverse>
+			<output>gear/gear-pos-norm</output>
+		</kinematic>
 	</channel>
+
 	<channel name="Speedbrake">
-	<kinematic name="Speedbrake">
-		<input>fcs/speedbrake-cmd-norm</input>
-		<traverse>
-		<setting>
-			<position>0</position>
-			<time>0</time>
-		</setting>
-		<setting>
-			<position>1</position>
-			<time>2</time>
-		</setting>
-		</traverse>
-		<output>fcs/speedbrake-pos-norm</output>
-	</kinematic>
+		<kinematic name="Speedbrake">
+			<input>fcs/speedbrake-cmd-norm</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>2</time>
+			</setting>
+			</traverse>
+			<output>fcs/speedbrake-pos-norm</output>
+		</kinematic>
 	</channel>
     
-    <channel name="Tiller">
+	<channel name="Tiller">
 		
 		<switch name="/controls/gear/tiller-disabled">
-            <default value="0"/>
-            <test logic="AND" value="1">
-                /controls/gear/tiller-enabled == 0
-            </test>
-        </switch>
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/gear/tiller-enabled == 0
+			</test>
+		</switch>
         
         <fcs_function name="Nose Wheel Steering 0">
             <function name="fcs/steer-nose-deg[0]">
@@ -930,10 +964,10 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-0.20 -0.880
-							 0.00  0.450
-							 0.23  1.500
-							 0.60  0.900
+							-0.20 -0.780
+							 0.00  0.375
+							 0.23  1.300
+							 0.60  0.700
 						</tableData>
 					</table>
 				</product>
@@ -945,7 +979,17 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.03500 </value>
+					<value> 0.02000 </value>
+				</product>
+			</function>
+
+			<function name="aero/force/Lift_slats">
+				<description>Delta Lift due to slats</description>
+				<product>
+					<property>aero/qbar-psf</property>
+					<property>metrics/Sw-sqft</property>
+					<property>fcs/flap-pos-deg</property>
+					<value> 0.01800 </value>
 				</product>
 			</function>
 
@@ -965,7 +1009,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/elevator-pos-rad</property>
-					<value>0.25</value>
+					<value>0.15</value>
 				</product>
 			</function>
 
@@ -983,7 +1027,7 @@ YAW MOI_________3950000______23089847_______24848934
 						<tableData>
 							-1.57    1.300
 							-0.26    0.021
-							 0.00    0.015
+							 0.00    0.012
 							 0.26    0.021
 							 1.57    1.300
 						</tableData>
@@ -1024,7 +1068,17 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00197 </value>
+					<value> 0.00150 </value>
+				</product>
+			</function>
+
+			<function name="aero/force/Drag_slats">
+				<description>Drag due to slats</description>
+				<product>
+					<property>aero/qbar-psf</property>
+					<property>metrics/Sw-sqft</property>
+					<property>fcs/flap-pos-deg</property>
+					<value> 0.00150 </value>
 				</product>
 			</function>
 
@@ -1034,7 +1088,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
-					<value>0.025</value>
+					<value>0.020</value>
 				</product>
 			</function>
 
@@ -1072,7 +1126,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<abs><property>fcs/elevator-pos-norm</property></abs>
-					<value>0.04</value>
+					<value>0.045</value>
 				</product>
 			</function>
 
