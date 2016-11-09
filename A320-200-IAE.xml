@@ -813,7 +813,7 @@ YAW MOI_________3950000______23089847_______24848934
 				<time>0</time>
 			</setting>
 			<setting>
-				<position>40</position>
+				<position>35</position>
 				<time>40</time>
 			</setting>
 			</traverse>
@@ -823,12 +823,12 @@ YAW MOI_________3950000______23089847_______24848934
 		<aerosurface_scale name="Flap position normalized">
 			<input>fcs/flap-pos-deg</input>
 			<domain>
-			<min>0</min>
-			<max>40</max>
+				<min>0</min>
+				<max>35</max>
 			</domain>
 			<range>
-			<min>0</min>
-			<max>1</max>
+				<min>0</min>
+				<max>1</max>
 			</range>
 			<output>fcs/flap-pos-norm</output>
 		</aerosurface_scale>
@@ -845,7 +845,7 @@ YAW MOI_________3950000______23089847_______24848934
 				<time>0</time>
 			</setting>
 			<setting>
-				<position>40</position>
+				<position>27</position>
 				<time>40</time>
 			</setting>
 			</traverse>
