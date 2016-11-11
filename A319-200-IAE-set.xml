@@ -13,9 +13,9 @@
 		<flight-model>jsb</flight-model>
 		<aero>A319-200-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A319-200.xml</path>
+			<path>Aircraft/A320Family/Models/A319-200-IAE.xml</path>
 			<livery>
-				<file>Liveries/A319/USAirwaysStar</file>
+				<file>USAirwaysStar</file>
 			</livery>
 		</model>
 
@@ -73,8 +73,6 @@
 			</default>
 		</menubar>
 	</sim>
-	
-	<engine-type>1</engine-type>
 	
 	<nasal>
 		<A320>

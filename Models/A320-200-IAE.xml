@@ -12,7 +12,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320Family/Models/Fuselages/a321.fuselage.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/a320.fuselage.xml</path>
 
 	</model>
 	    <!-- effects -->
@@ -30,22 +30,23 @@
 		<name>Flightdeck</name>
 		<path>Aircraft/A320Family/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
-            <x-m>0.55</x-m>
-            <z-m>0.27</z-m>
+			<x-m>4.7881</x-m>
+			<z-m>0.2399</z-m>
 		</offsets>
 	</model>
 
 	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320Family/Models/Interior/a321.interior.xml</path>
+		<path>Aircraft/A320Family/Models/Interior/a320.interior.xml</path>
 	</model>
 
 	<model>
 		<name>Nose Gear</name>
 		<path>Aircraft/A320Family/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
-			<x-m>3.56</x-m>
-			<z-m>-1.8306008</z-m>
+			<x-m>7.83</x-m>
+			<!-- <z-m>-1.8306008</z-m> Didn't touch ground -->
+			<z-m>-2</z-m>
 		</offsets>
 	</model>
 
@@ -71,12 +72,6 @@
 
 	<model>
 		<path>Aircraft/A320Family/Models/Wings/a320.wings.iae.xml</path>
-		<condition>
-			<equals>
-				<property>/sim/multiplay/generic/float[2]</property>
-				<value>1</value>
-			</equals>
-		</condition>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -96,7 +91,7 @@
 		<name>Horizontal Stabilizer</name>
 		<path>Aircraft/A320Family/Models/Fuselages/a320.hstab.xml</path>
 		<offsets>
-			<x-m>36.8212207</x-m>
+			<x-m>34.1512207</x-m>
 			<pitch-deg>0.0</pitch-deg>
 		</offsets>
 	</model>
@@ -105,7 +100,7 @@
 		<name>Vertical Stabilizer</name>
 		<path>Aircraft/A320Family/Models/Fuselages/a320.vstab.xml</path>
 		<offsets>
-			<x-m>34.9235728</x-m>
+			<x-m>32.2535728</x-m>
 		</offsets>
 	</model>
 	<!-- Lights -->
@@ -113,9 +108,9 @@
 		<name>Left nav light</name>
 		<path>Aircraft/A320Family/Models/Lights/rednav.xml</path>
 		<offsets>
-			<x-m>23.474</x-m>
-			<y-m>-16.91</y-m>
-			<z-m>0.299</z-m>
+			<x-m>22.93</x-m>
+			<y-m>-16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 
@@ -123,9 +118,9 @@
 		<name>Right nav light</name>
 		<path>Aircraft/A320Family/Models/Lights/greennav.xml</path>
 		<offsets>
-			<x-m>23.474</x-m>
-			<y-m>16.91</y-m>
-			<z-m>0.299</z-m>
+			<x-m>22.93</x-m>
+			<y-m>16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 
@@ -133,9 +128,9 @@
 		<name>Left strobe light</name>
 		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
 		<offsets>
-			<x-m>23.474</x-m>
-			<y-m>-16.91</y-m>
-			<z-m>0.299</z-m>
+			<x-m>23.92</x-m>
+			<y-m>-17.3</y-m>
+			<z-m>0.47</z-m>
 		</offsets>
 	</model>
 
@@ -143,9 +138,9 @@
 		<name>Right strobe light</name>
 		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
 		<offsets>
-			<x-m>23.474</x-m>
-			<y-m>16.91</y-m>
-			<z-m>0.299</z-m>
+			<x-m>23.92</x-m>
+			<y-m>17.23</y-m>
+			<z-m>0.47</z-m>
 		</offsets>
 	</model>
 	<model>
@@ -182,7 +177,7 @@
 		<name>Nosegear landing light</name>
 		<path>Aircraft/A320Family/Models/Lights/landing-nose.xml</path>
 		<offsets>
-			<x-m>3.08</x-m>
+			<x-m>7.35</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.5</z-m>
 		</offsets>
@@ -203,9 +198,13 @@
 		<name>Pushback</name>
 		<path>Models/Airport/Pushback/Goldhofert.xml</path>
 		<offsets>
-			<x-m>3.28</x-m>
+			<x-m>5.55</x-m>
 			<y-m>0</y-m>
 			<z-m>-4.14</z-m>
+<!--			<x-m>7.55</x-m>
+			<y-m>0</y-m>
+			<z-m>-4.14</z-m> -->
+
 		</offsets>
 	</model>
 
@@ -233,13 +232,13 @@
 		<!-- Fuselage -->
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>A321.png</texture>
+		<texture>A320.png</texture>
 	</animation>
 
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A321");
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A320");
 		</load>
 		<unload>
 		 livery_update.stop();
@@ -257,6 +256,12 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <!-- x: +19, z: +1.75 -->
+            <!--<x-m>2.87</x-m>
+            <y-m>7.28</y-m>-->
+            <z-m>0.95</z-m>
+        </offsets>
     </model>
     
     <animation>
@@ -312,9 +317,10 @@
             </equals>
         </condition>
         <offsets>
-            <x-m>-17.87</x-m>
+            <!-- x: +19, z: +1.75 -->
+            <x-m>2.87</x-m>
             <y-m>7.28</y-m>
-            <z-m>-5.45</z-m>
+            <z-m>-3.70</z-m>
             <heading-deg>100</heading-deg>
         </offsets>
     </model>
@@ -360,6 +366,10 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>23.5</x-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     
     <model>
@@ -371,6 +381,11 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>15.5</x-m>
+            <y-m>1.18</y-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     
     <model>
@@ -382,6 +397,11 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+            <x-m>15.5</x-m>
+            <y-m>-1.18</y-m>
+            <z-m>1.25</z-m>
+        </offsets>
     </model>
     <!-- Stairways -->
     
@@ -389,12 +409,12 @@
 	<model>
 	 <path>Aircraft/A320Family/Models/Services/Stairs/stairs.xml</path>
 	 <name>l1</name>
-        <offsets>
-            <x-m>-17.028</x-m>
-            <y-m>-2.69</y-m>
-            <z-m>0.0060</z-m>
-            <heading-deg>-8</heading-deg>
-        </offsets>
+	 <offsets>
+	  <x-m>7.94</x-m>
+	  <y-m>-0.1</y-m>
+	  <z-m>-0.6</z-m>
+	  <heading-deg>-8</heading-deg>
+	 </offsets>
 	 <condition>
 	  <property>/services/stairs/l1</property>
 	 </condition>
@@ -403,12 +423,12 @@
 	<model>
 	 <path>Aircraft/A320Family/Models/Services/Stairs/stairs.xml</path>
 	 <name>l4</name>
-        <offsets>
-            <x-m>22.42</x-m>
-            <y-m>-2.56</y-m>
-            <z-m>0.0060</z-m>
-            <heading-deg>6</heading-deg>
-        </offsets>
+	 <offsets>
+	  <x-m>31.94</x-m>
+	  <y-m>0.4</y-m>
+	  <z-m>-0.6</z-m>
+	  <heading-deg>6</heading-deg>
+	 </offsets>
 	 <condition>
 	  <property>/services/stairs/l4</property>
 	 </condition>
