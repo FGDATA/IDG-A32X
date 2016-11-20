@@ -5,6 +5,27 @@
 	<path>res/a321.interior.ac</path>
 
 	<!-- ANIMATIONS -->
+	<!-- Lighting -->
+	<animation>
+		<name>Cabin illumination</name>
+		<type>material</type>
+		<object-name>Cabin</object-name>
+		<object-name>CabinDiv1</object-name>
+		<object-name>CabinDiv2</object-name>
+		<object-name>CabinDiv3</object-name>
+		<object-name>Floor</object-name>
+		<object-name>OverheadBins</object-name>
+		<object-name>Seats</object-name>
+		<object-name>SeatFabric</object-name>
+		<object-name>SeatTrays</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>sim/multiplay/generic/float[1]</factor-prop>
+		</emission>
+	</animation>
+
 	<!-- PAX doors -->
 	<animation>
 		<name>PAX left-front door pick</name>

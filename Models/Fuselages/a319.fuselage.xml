@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-
-	<path>res/a319neo.fuselage.ac</path>
+	<name>Fuselage</name>
+	<path>res/a319.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
 	<!--effect>
 		<inherits-from>Effects/NEOreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 	</effect-->
+	
+	<effect>
+        <inherits-from>Effects/glass</inherits-from>
+		<object-name>glass</object-name>
+		<object-name>glass1</object-name>
+		<object-name>glass2</object-name>
+		<object-name>glass3</object-name>
+    </effect>	
 
 	<!-- APU fire -->
 	<model>

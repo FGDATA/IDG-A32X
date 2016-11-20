@@ -4,24 +4,4 @@
 
 	<path>a320.winglets.ac</path>
 
-	<!-- LIVERY SELECT -->
-	<!-- Animation -->
-	<animation>
-		<type>material</type>
-		<object-name>WingletL</object-name>
-		<object-name>WingletR</object-name>
-		<property-base>sim/model/livery</property-base>
-		<texture-prop>texture</texture-prop>
-	</animation>
-
-	<!-- Nasal code -->
-	<nasal>
-		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320-family/Models/Liveries/A320/");
-		</load>
-		<unload>
-		 livery_update.stop();
-		</unload>
-	</nasal>
-
 </PropertyList>

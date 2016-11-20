@@ -2,13 +2,21 @@
 
 <PropertyList>
 	<name>Fuselage</name>
-	<path>res/a321neo.fuselage.ac</path>
+	<path>res/a321.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
 	<!--effect>
 		<inherits-from>Effects/NEOreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 	</effect-->
+	
+	<effect>
+        <inherits-from>Effects/glass</inherits-from>
+		<object-name>glass</object-name>
+		<object-name>glass1</object-name>
+		<object-name>glass2</object-name>
+		<object-name>glass3</object-name>
+    </effect>	
 
 	<!-- APU fire -->
 	<model>

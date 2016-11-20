@@ -5,7 +5,6 @@
 	<sim>
 		
 		<author>Joshua Davidson (it0uchpods/411)</author>
-		<status>beta</status>
 
 		<model>
 			<pushback>
@@ -19,15 +18,23 @@
 		<startup>
 			<splash-texture>Aircraft/A320Family/splash.png</splash-texture>
 		</startup>
+		
+		<flaps>
+			<setting>0.000</setting>
+			<setting>0.290</setting>
+			<setting>0.596</setting>
+			<setting>0.645</setting>
+			<setting>1.000</setting>
+		</flaps>
 
 		<systems>
 			<!-- Disable the generic electrical system and use the Nasal system -->
 			<electrical>
 				<path></path>
 			</electrical>
-			<!--autopilot>
+			<autopilot>
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
-			</autopilot-->
+			</autopilot>
 			<!-- Uses slightly modified IT-AUTOFLIGHT Thrust controller. -->
             <autopilot>
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
@@ -155,15 +162,68 @@
 			<tank n="6">
 				<name>Right Wing Vent</name>
 			</tank>
-			<tank n="7">
-				<name>Left Pipes</name>
-			</tank>
-			<tank n="8">
-				<name>Right Pipes</name>
-			</tank>
 		</fuel>
 	</consumables>
 	
+
+	<payload>
+		<weight n="0">
+			<name>Cockpit Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<min-lb type="double">200</min-lb>
+			<max-lb type="double">440</max-lb>
+		</weight>
+		<weight n="1">
+			<name>Cabin Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">300</min-lb>
+			<max-lb type="double">1320</max-lb>
+		</weight>
+		<weight n="2">
+			<name>PAX 0A (60 seats)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<min-lb type="double">300</min-lb>
+			<max-lb type="double">13200</max-lb>
+		</weight>
+		<weight n="3">
+			<name>PAX 0B (60 seats)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<min-lb type="double">300</min-lb>
+			<max-lb type="double">13200</max-lb>
+		</weight>
+		<weight n="4">
+			<name>PAX 0C (54 seats)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<min-lb type="double">300</min-lb>
+			<max-lb type="double">11880</max-lb>
+		</weight>
+		<weight n="5">
+			<name>Cargo Hold 1</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">7500.126</max-lb>
+		</weight>
+		<weight n="6">
+			<name>Cargo Hold 3</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">5384.414</max-lb>
+		</weight>
+		<weight n="7">
+			<name>Cargo Hold 4</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">4651.754</max-lb>
+		</weight>
+		<weight n="8">
+			<name>Cargo Hold 5</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">3300.320</max-lb>
+		</weight>
+	</payload>
+
+
 <it-autoflight>
 	<settings>
 		<altitude-dial-mode>0</altitude-dial-mode>
@@ -171,41 +231,24 @@
 		<roll>
 			<umin>-0.40</umin>
 			<umax>0.40</umax>
-			<kp>0.06</kp>
-			<kp-vorloc>0.07</kp-vorloc>
-			<ti>0.0001</ti>
-			<ti-vorloc>0.0001</ti-vorloc>
+			<kp>0.09</kp>
+			<kp-vorloc>0.06</kp-vorloc>
 		</roll>
 		<pitch>
-			<umin>-0.18</umin>
-			<umax>0.18</umax>
+			<umin>-0.25</umin>
+			<umax>0.25</umax>
 			<kp>-0.05</kp>
-			<ti>0.0001</ti>
 		</pitch>
 		<flch>
-			<umin>-0.18</umin>
-			<umax>0.18</umax>
-			<kp>-0.05</kp>
-			<ti>0.0001</ti>
+			<umin>-0.25</umin>
+			<umax>0.25</umax>
+			<kp>-0.03</kp>
 		</flch>
 		<gs>
 			<kp>0.10</kp>
 		</gs>
 	</settings>
 </it-autoflight>
-
-	<payload>
-		<weight n="0">
-			<name>Crew</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
-			<min-lb type="double">120</min-lb>
-			<max-lb type="double">600</max-lb>
-		</weight>
-		<weight n="1">
-			<name>PAX</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
-		</weight>
-	</payload>
 
 	<autopilot>
 		<autobrake>
@@ -370,7 +413,7 @@
 				<category-5 type="int">0</category-5>
 				<category-6 type="int">1</category-6>
 				<category-7 type="int">124</category-7>
-				<category-8 type="int">2</category-8>
+				<category-8 type="int">3</category-8>
 				<category-9 type="int">3</category-9> 
 				<category-10 type="int">6</category-10>
 				<category-13 type="int">7</category-13>
@@ -385,10 +428,10 @@
 			<speaker>
 				<max-dist type="double">2</max-dist>
 				<reference-dist type="double">1</reference-dist>
-				<volume type="double">0.2</volume>
+				<volume type="double">2</volume>
 			</speaker>
 			<voice>
-				<file-prefix>Aircraft/A320Family/Sounds/GPWS</file-prefix>
+				<file-prefix>Aircraft/A320Family/Sounds/GPWS/</file-prefix>
 			</voice>
 		</mk-viii>
 		
@@ -422,6 +465,7 @@
 			<minimums-mode>DH</minimums-mode>
 			<ILS1>false</ILS1>
 			<ILS2>false</ILS2>
+			<stallvls>-10</stallvls>
 			<fma>
 				<athr-box>O  </athr-box>
 			</fma>
@@ -444,6 +488,11 @@
 			<key n="2">
 				<name>Ctrl-b</name>
 				<desc>Cycle speedbrake setting</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/speedbrake-arm</property>
+					<value>0</value>
+				</binding>
 				<binding>
 					<command>property-cycle</command>
 					<property>controls/flight/speedbrake-lever</property>

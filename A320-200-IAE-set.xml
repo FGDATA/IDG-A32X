@@ -9,23 +9,15 @@
 		</sound>
 	
 		<description>Airbus A320 (IAE V2500)</description>
+		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
 		<model>
 			<path>Aircraft/A320Family/Models/A320-200-IAE.xml</path>
 			<livery>
-				<file>Liveries/A320/USAirways.xml</file>
-				<texture>Liveries/A320/USAirways.png</texture>
+				<file>Airbus</file>
 			</livery>
 		</model>
-
-		<flaps>
-			<setting>0.000</setting>
-			<setting>0.290</setting>
-			<setting>0.596</setting>
-			<setting>0.645</setting>
-			<setting>1.000</setting>
-		</flaps>
 
 		<view>
 			<name>Pilot View</name>
@@ -73,13 +65,6 @@
 			</default>
 		</menubar>
 	</sim>
-
-	<payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">39500</max-lb>
-		</weight>
-	</payload>
 	
 	<nasal>
 		<A320>
@@ -93,6 +78,7 @@
             <file>Aircraft/A320Family/Nasal/gpws.nas</file>
             <file>Aircraft/A320Family/Nasal/efis.nas</file>
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
+			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
 		</A320>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>

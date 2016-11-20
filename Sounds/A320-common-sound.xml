@@ -38,23 +38,93 @@
 		</pitch>
 	</apu-->
 	
+<!-- Retard Warning -->
+
+	<retard>
+			<name>retard</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/retard.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<and>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>18</value>
+					</less-than>
+
+					<greater-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[2]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[3]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<less-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<less-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<less-than>
+						<property>controls/engines/engine[2]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<less-than>
+						<property>controls/engines/engine[3]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<not>
+						<property>/gear/gear[0]/wow</property>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</not>
+					<less-than>
+						<property>velocities/airspeed-kt</property>
+						<value>160</value>
+					</less-than>
+				</and>
+			</condition>
+			<volume>
+				<property>/sim/sound/effects/volume</property>
+			</volume>
+			<type>avionics</type>
+		</retard>
 	
-	
-	
-	<avn>
-		<name>no_ap</name>
-			<path>FL2070/320apoff.wav</path>
-		<mode>once</mode>
-		<type>avionics</type>
-		<condition>
-			<property>/sim/sound/warnings/ap_disc</property>
-		</condition>
-		<volume>
-			<property>sim/sound/effects/volume</property>
-		</volume>
-		<reference-dist>10</reference-dist>
-		<max-dist>100</max-dist>
-	</avn>
+  <apoff>
+   <name>apoff</name>
+   <path>/Aircraft/A320Family/Sounds/apoff.wav</path>
+   <condition>
+	 <property>/it-autoflight/apoffsound</property>
+   </condition>
+   <volume>
+    <factor>40.0</factor>
+   </volume>
+  </apoff>
+  
+  <apoff>
+   <name>apoff2</name>
+   <path>/Aircraft/A320Family/Sounds/apoff.wav</path>
+   <condition>
+	 <property>/it-autoflight/apoffsound2</property>
+   </condition>
+   <volume>
+    <factor>40.0</factor>
+   </volume>
+  </apoff>
 	
 	<gear>
 		<name>gear0</name>

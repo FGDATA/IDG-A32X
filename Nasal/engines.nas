@@ -206,6 +206,7 @@ var startup = func
     {
     setprop("controls/APU/master-switch", 0);
     setprop("controls/APU/starter", 0);
+	setprop("controls/engines/engine-start-switch", 1);
     setprop("controls/electric/battery-switch", 0);
     }, 2);
    removelistener(listener2);

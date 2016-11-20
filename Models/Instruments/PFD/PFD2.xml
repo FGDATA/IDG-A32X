@@ -174,7 +174,7 @@
         <type>texmultiple</type>
         <object-name>vls-tape</object-name>
         <transform>
-            <property>/flight-management/fmgc-values/indicated-vls-speed</property>
+            <property>/modes/pfd/stallvls</property>
             <subtype>textranslate</subtype>
             <factor>0.002001953</factor>
             <axis>
@@ -199,7 +199,7 @@
         <type>texmultiple</type>
         <object-name>stall-tape</object-name>
         <transform>
-            <property>/flight-management/fmgc-values/ind-stall-speed</property>
+            <property>/modes/pfd/stallvls</property>
             <subtype>textranslate</subtype>
             <factor>0.002001953</factor>
             <axis>
@@ -251,15 +251,14 @@
 			</axis>
 			</transform>
 			<transform>
-			<property>/controls/flight/flaps</property>
+			<property>/controls/flight/flap-lever</property>
 			<subtype>textranslate</subtype>
 			<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
-				<entry><ind>0.20</ind><dep>0.0703125</dep></entry>
-				<entry><ind>0.29</ind><dep>0.140625</dep></entry>
-				<entry><ind>0.596</ind><dep>0.2109375</dep></entry>
-				<entry><ind>0.645</ind><dep>0.28125</dep></entry>
-				<entry><ind>1</ind><dep>0.333984375</dep></entry>
+				<entry><ind>1</ind><dep>0.090625</dep></entry>
+				<entry><ind>2</ind><dep>0.1609375</dep></entry>
+				<entry><ind>3</ind><dep>0.23125</dep></entry>
+				<entry><ind>4</ind><dep>0.303984375</dep></entry>
 			</interpolation>
 			<axis>
 				<x>1</x>
@@ -274,7 +273,7 @@
         <object-name>vfe-tape</object-name>
         <condition>
             <greater-than>
-                <property>controls/flight/flaps</property>
+                <property>/controls/flight/flap-lever</property>
                 <value>0</value>
             </greater-than>
         </condition>

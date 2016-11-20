@@ -133,7 +133,7 @@
 	<!-- Engine Indications and Crew Alerting System (Upper ECAM) -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM-IAE.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0</y-m>
@@ -256,10 +256,16 @@
         <type>select</type>
         <object-name>lat.dash</object-name>
         <condition>
-            <equals>
-                <property>/it-autoflight/aplatmode</property>
-                <value>1</value>
-            </equals>
+			<or>
+				<equals>
+					<property>/it-autoflight/aplatmode</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/aplatmode</property>
+					<value>2</value>
+				</equals>
+			</or>
         </condition>
     </animation>
 	
@@ -550,7 +556,7 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign></command>
+				<command>property-assign</command>
 				<property>/it-autoflight/aplatset</property>
 				<value>2</value>
 			</binding>
@@ -564,7 +570,7 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign></command>
+				<command>property-assign</command>
 				<property>/it-autoflight/apvertset</property>
 				<value>2</value>
 			</binding>
@@ -598,17 +604,65 @@
 		</action>
 	</animation>
 	
-	<!--animation>
+	<animation>
 		<type>pick</type>
-		<object-name>vs-fpa</object-name>
+		<object-name>hdg-vs</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-
+				<command>property-assign</command>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/settings/use-fpa</property>
+				<value>1</value>
 			</binding>
 		</action>
-	</animation-->
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>trk-fpa</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/settings/use-fpa</property>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg-vs</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>trk-fpa</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
 	
 	<animation>
 		<type>pick</type>
@@ -672,6 +726,8 @@
 		<object-name>spd-text</object-name>
 		<object-name>mach-text</object-name>
 		<object-name>hdg-text</object-name>
+		<object-name>hdg2.ind</object-name>
+		<object-name>trk2.ind</object-name>
 		<object-name>alt-text</object-name>
 		<object-name>vs-text</object-name>
 		<object-name>fpa-text</object-name>
@@ -679,6 +735,16 @@
 		<object-name>qnh-hpa</object-name>
         <object-name>qnh-std</object-name>
 		<object-name>rudder-trim</object-name>
+		<object-name>fd1lt</object-name>
+		<object-name>ils1lt</object-name>
+		<object-name>loclt</object-name>
+		<object-name>ap1lt</object-name>
+		<object-name>ap2lt</object-name>
+		<object-name>athrlt</object-name>
+		<object-name>expedlt</object-name>
+		<object-name>apprlt</object-name>
+		<object-name>fd2lt</object-name>
+		<object-name>ils2lt</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>/systems/electrical/outputs/efis</property>
@@ -715,6 +781,7 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>hdg.ind</object-name>
 		<object-name>hdg-text</object-name>
 		<condition>
 			<equals>
@@ -723,7 +790,29 @@
 			</equals>
 		</condition>
 	</animation>
-    
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg2.ind</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>trk2.ind</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/settings/use-true-hdg-error</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
     <animation>
         <type>select</type>
         <object-name>vs.dash</object-name>
@@ -1203,79 +1292,139 @@
 		</axis>
 	</animation>
 	
-	<!-- AP1, AP2, LOC, APPR, EXPED and A-THR Indicator Textranslate -->
+	<!-- Light animation select -->
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>ap1</object-name>
-		<property>/flight-management/control/fcu/ap1</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>fd1lt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/fd_master</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ils1lt</object-name>
+		<condition>
+			<equals>
+				<property>/modes/pfd/ILS1</property>
+				<value>1</value>
+			</equals>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>ap2</object-name>
-		<property>/flight-management/control/fcu/ap2</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>loclt</object-name>
+		<condition>
+			<and>
+				<or>
+					<equals>
+						<property>/it-autoflight/aplatmode</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/loc-armed</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<equals>
+					<property>/it-autoflight/appr-armed</property>
+					<value>0</value>
+				</equals>
+				<not-equals>
+					<property>/it-autoflight/apvertmode</property>
+					<value>2</value>
+				</not-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/outputs/efis</property>
+					<value>15</value>
+				</greater-than-equals>
+			</and>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>a-thr</object-name>
-		<property>/flight-management/control/fcu/a-thrust</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>ap1lt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/ap_master</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ap2lt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/ap_master2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>athrlt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/at_master</property>
+				<value>1</value>
+			</equals>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>loc</object-name>
-		<property>/flight-management/control/fcu/nav1</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>expedlt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/unused/exped</property>
+				<value>999</value>
+			</equals>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>gs</object-name>
-		<property>/flight-management/control/fcu/ils</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>apprlt</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/it-autoflight/appr-armed</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/apvertmode</property>
+					<value>2</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
-    
-    <animation>
-        <type>textranslate</type>
-        <object-name>exped</object-name>
-        <property>/flight-management/control/exped-mode</property>
-        <factor>0.0625</factor>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fd2lt</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/fd_master2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ils2lt</object-name>
+		<condition>
+			<equals>
+				<property>/modes/pfd/ILS2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
 	
 	<!-- QNH -->
 	
@@ -1785,8 +1934,6 @@
 		<property>controls/engines/engine[0]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
-			<entry><ind>0.04900</ind><dep>10</dep></entry>
-			<entry><ind>0.05000</ind><dep>12</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
 			<entry><ind>0.79999</ind><dep>35</dep></entry>
@@ -1840,8 +1987,6 @@
 		<property>controls/engines/engine[1]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
-			<entry><ind>0.04900</ind><dep>10</dep></entry>
-			<entry><ind>0.05000</ind><dep>12</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
 			<entry><ind>0.79999</ind><dep>35</dep></entry>
@@ -2525,18 +2670,6 @@
 			</binding>
 		</action>
     </animation>
-    
-    <animation>
-		<type>textranslate</type>
-		<object-name>fd_button</object-name>
-		<property>/it-autoflight/fd_master</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
 	
     <animation>
 		<type>pick</type>
@@ -2551,19 +2684,7 @@
 		</action>
     </animation>
     
-    <animation>
-		<type>textranslate</type>
-		<object-name>fd_button2</object-name>
-		<property>/it-autoflight/fd_master2</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-    
-    <!-- ILS and MLS Toggle Buttons -->
+    <!-- ILS Toggle Buttons -->
     
     <animation>
 		<type>pick</type>
@@ -2580,7 +2701,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>mls</object-name>
+		<object-name>ils2</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -2589,30 +2710,6 @@
 				<property>/modes/pfd/ILS2</property>
 			</binding>
 		</action>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>ils</object-name>
-		<property>/modes/pfd/ILS1</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>mls</object-name>
-		<property>/modes/pfd/ILS2</property>
-		<factor>0.0625</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
 	</animation>
 
 	<!-- ECAM and Switching panel -->
@@ -3954,8 +4051,10 @@
             <button>0</button>
             <repeatable type="bool">false</repeatable>
             <binding>
-				<command>property-toggle</command>
+				<command>property-cycle</command>
 				<property>/controls/flight/speedbrake-arm</property>
+				<value>0</value>
+				<value>1</value>
             </binding>
         </action>
         <action>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<name>A320neo</name>
+	<name>A320-200</name>
 	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
 
 	<offsets>
@@ -37,7 +37,7 @@
 
 	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320Family/Models/Interior/a320neo.interior.xml</path>
+		<path>Aircraft/A320Family/Models/Interior/a320.interior.xml</path>
 	</model>
 
 	<model>
@@ -163,7 +163,7 @@
 		</offsets>
 	</model>
 
-	<model>
+	<!--model>
 		<name>Port landing light</name>
 		<path>Aircraft/A320Family/Models/Lights/landing-port.xml</path>
 		<offsets>
@@ -191,7 +191,7 @@
 			<y-m>3.16</y-m>
 			<z-m>-1.4</z-m>
 		</offsets>
-	</model>
+	</model-->
 
 	<!-- Other non-aircraft models -->
 	<model>
@@ -232,6 +232,7 @@
 		<!-- Fuselage -->
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
+		<texture>A320.png</texture>
 	</animation>
 
 	<!-- Nasal code -->
