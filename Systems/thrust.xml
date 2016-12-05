@@ -39,40 +39,6 @@
 		<output>/controls/engines/engine[1]/throttle-man</output>
     </filter>
 	
-    <filter>
-        <name>MAN Three</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/controls/engines/engine[2]/throttle</property> 
-                    <entry><ind>0.0</ind><dep>0.00</dep></entry>
-                    <entry><ind>0.6</ind><dep>0.90</dep></entry>
-                </table>
-            </expression>
-        </input>
-		<output>/controls/engines/engine[2]/throttle-man</output>
-    </filter>
-	
-    <filter>
-        <name>MAN Four</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/controls/engines/engine[3]/throttle</property> 
-                    <entry><ind>0.0</ind><dep>0.00</dep></entry>
-                    <entry><ind>0.6</ind><dep>0.90</dep></entry>
-                </table>
-            </expression>
-        </input>
-		<output>/controls/engines/engine[3]/throttle-man</output>
-    </filter>
-	
 	<filter>
 		<name>Throttle 1</name>
 		<debug>false</debug>
@@ -100,7 +66,7 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>0</value>
 					</equals>
 					<or>
@@ -125,7 +91,7 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<or>
@@ -160,15 +126,15 @@
 						</equals>
 					</or>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/apthrmode2</property>
+						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/retard</property>
+						<property>/it-autoflight/output/retard</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -189,15 +155,15 @@
 						</equals>
 					</or>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<not-equals>
-						<property>/it-autoflight/apthrmode2</property>
+						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</not-equals>
 					<equals>
-						<property>/it-autoflight/retard</property>
+						<property>/it-autoflight/output/retard</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -207,7 +173,7 @@
 		<max-rate-of-change>
 			<condition>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>0</value>
 				</equals>
 			</condition>
@@ -242,7 +208,7 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>0</value>
 					</equals>
 					<or>
@@ -267,7 +233,7 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<or>
@@ -302,15 +268,15 @@
 						</equals>
 					</or>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/apthrmode2</property>
+						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/retard</property>
+						<property>/it-autoflight/output/retard</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -331,15 +297,15 @@
 						</equals>
 					</or>
 					<equals>
-						<property>/it-autoflight/at_master</property>
+						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
 					<not-equals>
-						<property>/it-autoflight/apthrmode2</property>
+						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</not-equals>
 					<equals>
-						<property>/it-autoflight/retard</property>
+						<property>/it-autoflight/output/retard</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -349,291 +315,7 @@
 		<max-rate-of-change>
 			<condition>
 				<equals>
-					<property>/it-autoflight/at_master</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<name>Throttle 3</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<or>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>CL</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>MAN</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>IDLE</value>
-					</equals>
-				</or>
-			</condition>
-		</enable>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>MAN</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>IDLE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/engines/engine[2]/throttle-man</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/engines/engine[2]/throttle-cmd</property>
-		</input>
-		<output>
-			<property>/controls/engines/engine[2]/throttle-fdm</property>
-		</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/apthrmode2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/retard</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.40</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state3</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>/it-autoflight/apthrmode2</property>
-						<value>0</value>
-					</not-equals>
-					<equals>
-						<property>/it-autoflight/retard</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.05</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/it-autoflight/at_master</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<name>Throttle 4</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<or>
-					<equals>
-						<property>/systems/thrust/state4</property>
-						<value>CL</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
-						<value>MAN</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
-						<value>IDLE</value>
-					</equals>
-				</or>
-			</condition>
-		</enable>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>MAN</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>IDLE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/engines/engine[3]/throttle-man</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/engines/engine[3]/throttle-cmd</property>
-		</input>
-		<output>
-			<property>/controls/engines/engine[3]/throttle-fdm</property>
-		</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/apthrmode2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/retard</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.40</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state4</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/at_master</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>/it-autoflight/apthrmode2</property>
-						<value>0</value>
-					</not-equals>
-					<equals>
-						<property>/it-autoflight/retard</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.05</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>0</value>
 				</equals>
 			</condition>

@@ -16,7 +16,8 @@
 		</model>
 
 		<startup>
-			<splash-texture>Aircraft/A320Family/splash.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/splash.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/splash1.png</splash-texture>
 		</startup>
 		
 		<flaps>
@@ -225,29 +226,41 @@
 
 
 <it-autoflight>
-	<settings>
+	<config>
 		<altitude-dial-mode>0</altitude-dial-mode>
-		<no-generics>1</no-generics>
 		<roll>
 			<umin>-0.40</umin>
 			<umax>0.40</umax>
 			<kp>0.09</kp>
-			<kp-vorloc>0.06</kp-vorloc>
+			<ti>10.0</ti>
+			<td>0.00001</td>
 		</roll>
+		<vorloc>
+			<kp>0.06</kp>
+			<ti>10.0</ti>
+			<td>0.00001</td>
+		</vorloc>
 		<pitch>
 			<umin>-0.25</umin>
 			<umax>0.25</umax>
 			<kp>-0.05</kp>
+			<ti>10.0</ti>
+			<td>0.0001</td>
 		</pitch>
 		<flch>
 			<umin>-0.25</umin>
 			<umax>0.25</umax>
 			<kp>-0.03</kp>
+			<ti>10.0</ti>
+			<td>0.00001</td>
 		</flch>
 		<gs>
 			<kp>0.10</kp>
 		</gs>
-	</settings>
+		<autoland>
+			<kp-pitch>0.01</kp-pitch>
+		</autoland>
+	</config>
 </it-autoflight>
 
 	<autopilot>

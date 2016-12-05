@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- IT-AUTOFLIGHT: AUTOTHRUST -->
-<!-- Modified for A340 Custom Thrust Lever control system. -->
+<!-- Modified for A320 Custom Thrust Lever control system. -->
 
 <PropertyList>
 
@@ -18,15 +18,15 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode</property>
+			<property>/it-autoflight/input/kts-mach</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -36,7 +36,7 @@
       <property>/velocities/airspeed-kt</property>
     </input>
     <reference>
-      <property>/it-autoflight/settings/target-speed-kt</property>
+      <property>/it-autoflight/input/spd-kts</property>
     </reference>
     <output>
       <property>/controls/engines/engine[0]/throttle-cmd</property>
@@ -65,15 +65,15 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode</property>
+			<property>/it-autoflight/input/kts-mach</property>
 			<value>1</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -84,7 +84,7 @@
 	  <scale>1000.0</scale>
     </input>
     <reference>
-      <property>/it-autoflight/settings/target-mach</property>
+      <property>/it-autoflight/input/spd-mach</property>
 	  <scale>1000.0</scale>
     </reference>
     <output>
@@ -113,11 +113,11 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>1</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -155,11 +155,11 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>2</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -198,15 +198,15 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode</property>
+			<property>/it-autoflight/input/kts-mach</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -216,7 +216,7 @@
       <property>/velocities/airspeed-kt</property>
     </input>
     <reference>
-      <property>/it-autoflight/settings/target-speed-kt</property>
+      <property>/it-autoflight/input/spd-kts</property>
     </reference>
     <output>
       <property>/controls/engines/engine[1]/throttle-cmd</property>
@@ -245,15 +245,15 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode</property>
+			<property>/it-autoflight/input/kts-mach</property>
 			<value>1</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>0</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -264,7 +264,7 @@
 	  <scale>1000.0</scale>
     </input>
     <reference>
-      <property>/it-autoflight/settings/target-mach</property>
+      <property>/it-autoflight/input/spd-mach</property>
 	  <scale>1000.0</scale>
     </reference>
     <output>
@@ -293,11 +293,11 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>1</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -335,11 +335,11 @@
 	  <condition>
 		<and>
 		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
+			<property>/it-autoflight/output/thr-mode</property>
 			<value>2</value>
 		  </equals>
 		  <equals>
-			<property>/it-autoflight/retard</property>
+			<property>/it-autoflight/output/retard</property>
 			<value>0</value>
 		  </equals>
 		</and>
@@ -365,366 +365,6 @@
       <u_min>0.0</u_min>  
       <u_max>
 		<property>/controls/engines/engine[1]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
- <!-- Engine 3 -->
- <!-- Auto throttle --> 
- <pid-controller>
-    <name>IAS THR</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <property>/it-autoflight/settings/target-speed-kt</property>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[2]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[2]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-
-<!-- Auto throttle (Mach Hold)-->
-
- <pid-controller>
-    <name>MACH THR</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode</property>
-			<value>1</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/mach</property>
-	  <scale>1000.0</scale>
-    </input>
-    <reference>
-      <property>/it-autoflight/settings/target-mach</property>
-	  <scale>1000.0</scale>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[2]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[2]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
-<!-- IDLE THR -->
- <pid-controller>
-    <name>IDLE</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>1</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <value>0</value>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[2]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.08</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[2]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
-  <!-- CLB THR -->
- <pid-controller>
-    <name>CLB</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>2</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <value>900</value>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[2]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[2]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
- <!-- Engine 4 -->
- <!-- Auto throttle --> 
- <pid-controller>
-    <name>IAS THR</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <property>/it-autoflight/settings/target-speed-kt</property>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[3]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[3]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-
-<!-- Auto throttle (Mach Hold)-->
-
- <pid-controller>
-    <name>MACH THR</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode</property>
-			<value>1</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>0</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/mach</property>
-	  <scale>1000.0</scale>
-    </input>
-    <reference>
-      <property>/it-autoflight/settings/target-mach</property>
-	  <scale>1000.0</scale>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[3]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[3]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
-<!-- IDLE THR -->
- <pid-controller>
-    <name>IDLE</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>1</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <value>0</value>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[3]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.08</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[3]/throttle-man</property>
-	  </u_max>  
-    </config>
-  </pid-controller>
-  
-  <!-- CLB THR -->
- <pid-controller>
-    <name>CLB</name>
-    <debug>false</debug>
-    <enable>
-	  <condition>
-		<and>
-		  <equals>
-			<property>/it-autoflight/apthrmode2</property>
-			<value>2</value>
-		  </equals>
-		  <equals>
-			<property>/it-autoflight/retard</property>
-			<value>0</value>
-		  </equals>
-		</and>
-	  </condition>
-    </enable>
-    <input>
-      <property>/velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <value>900</value>
-    </reference>
-    <output>
-      <property>/controls/engines/engine[3]/throttle-cmd</property>
-    </output>
-    <config>
-      <Kp>0.1</Kp>        
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>10.0</Ti>       
-      <Td>0.00001</Td>    
-      <u_min>0.0</u_min>  
-      <u_max>
-		<property>/controls/engines/engine[3]/throttle-man</property>
 	  </u_max>  
     </config>
   </pid-controller>

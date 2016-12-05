@@ -3,77 +3,73 @@
 
 # Speed or Mach?
 var speedmach = func {
-  if (getprop("/it-autoflight/apvertmode") == 4) {
+  if (getprop("/it-autoflight/output/vert") == 4) {
     # Do nothing because it's in FLCH mode.
   } else {
-    if (getprop("/it-autoflight/apthrmode") == 0) {
+    if (getprop("/it-autoflight/input/kts-mach") == 0) {
       setprop("/modes/pfd/fma/throttle-mode", "SPEED");
-    } else if (getprop("/it-autoflight/apthrmode") == 1) {
+    } else if (getprop("/it-autoflight/input/kts-mach") == 1) {
       setprop("/modes/pfd/fma/throttle-mode", "MACH");
     }
   }
 }
 
 # Update Speed or Mach
-setlistener("/it-autoflight/apthrmode", func {
+setlistener("/it-autoflight/input/kts-mach", func {
   speedmach();
 });
 
 # Master Thrust
-setlistener("/it-autoflight/apthrmode2", func {
-  var latset = getprop("/it-autoflight/apthrmode2");
-  if (latset == 0) {
+setlistener("/it-autoflight/output/thr-mode", func {
+  var thr = getprop("/it-autoflight/output/thr-mode");
+  if (thr == 0) {
 	speedmach();
-  } else if (latset == 1) {
+  } else if (thr == 1) {
 	setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
-	flch();
-  } else if (latset == 2) {
+  } else if (thr == 2) {
 	setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
-	flch();
   }
 });
 
 # Master Lateral
-setlistener("/it-autoflight/aplatmode", func {
-  var latset = getprop("/it-autoflight/aplatmode");
-  if (latset == 0) {
+setlistener("/it-autoflight/mode/lat", func {
+  var lat = getprop("/it-autoflight/mode/lat");
+  if (lat == "HDG") {
 	setprop("/modes/pfd/fma/roll-mode", "HDG");
-  } else if (latset == 1) {
+  } else if (lat == "LNAV") {
 	setprop("/modes/pfd/fma/roll-mode", "NAV");
-  } else if (latset == 2) {
+  } else if (lat == "LOC") {
 	setprop("/modes/pfd/fma/roll-mode", "LOC");
+  } else if (lat == "ALGN") {
+	setprop("/modes/pfd/fma/roll-mode", "ALN");
   }
 });
 
 # Master Vertical
-setlistener("/it-autoflight/apvertmode", func {
-  var latset = getprop("/it-autoflight/apvertmode");
-  if (latset == 0) {
+setlistener("/it-autoflight/mode/vert", func {
+  var vert = getprop("/it-autoflight/mode/vert");
+  if (vert == "ALT HLD") {
 	setprop("/modes/pfd/fma/pitch-mode", "ALT HLD");
-  } else if (latset == 1) {
+  } else if (vert == "ALT CAP") {
+	setprop("/modes/pfd/fma/pitch-mode", "ALT CAP");
+  } else if (vert == "V/S") {
 	setprop("/modes/pfd/fma/pitch-mode", "V/S");
-  } else if (latset == 2) {
+  } else if (vert == "G/S") {
 	setprop("/modes/pfd/fma/pitch-mode", "G/S");
-  } else if (latset == 4) {
-	flch();
-  } else if (latset == 6) {
+  } else if (vert == "SPD CLB") {
+	setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
+  } else if (vert == "SPD DES") {
+	setprop("/modes/pfd/fma/pitch-mode", "OP DES");
+  } else if (vert == "LAND 3") {
 	setprop("/modes/pfd/fma/pitch-mode", "LAND");
+  } else if (vert == "FLARE") {
+	setprop("/modes/pfd/fma/pitch-mode", "FLARE");
   }
 });
 
-var flch = func {
-  var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-  var alt = getprop("/it-autoflight/settings/target-altitude-ft-actual");
-  if (calt < alt) {
-	  setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
-    } else if (calt > alt) {
-	  setprop("/modes/pfd/fma/pitch-mode", "OP DES");
-    }
-}
-
 # Arm LOC
-setlistener("/it-autoflight/loc-armed", func {
-  var loca = getprop("/it-autoflight/loc-armed");
+setlistener("/it-autoflight/output/loc-armed", func {
+  var loca = getprop("/it-autoflight/output/loc-armed");
   if (loca) {
     setprop("/modes/pfd/fma/roll-mode-armed", "LOC");
   } else {
@@ -82,8 +78,8 @@ setlistener("/it-autoflight/loc-armed", func {
 });
 
 # Arm G/S
-setlistener("/it-autoflight/appr-armed", func {
-  var appa = getprop("/it-autoflight/appr-armed");
+setlistener("/it-autoflight/output/appr-armed", func {
+  var appa = getprop("/it-autoflight/output/appr-armed");
   if (appa) {
     setprop("/modes/pfd/fma/pitch-mode-armed", "G/S");
   } else {
@@ -93,8 +89,8 @@ setlistener("/it-autoflight/appr-armed", func {
 
 # AP
 var ap = func {
-  var ap1 = getprop("/it-autoflight/ap_master");
-  var ap2 = getprop("/it-autoflight/ap_master2");
+  var ap1 = getprop("/it-autoflight/output/ap1");
+  var ap2 = getprop("/it-autoflight/output/ap2");
   if (ap1 and ap2) {
     setprop("/modes/pfd/fma/ap-mode", "AP1+2");
   } else if (ap1 and !ap2) {
@@ -108,8 +104,8 @@ var ap = func {
 
 # FD
 var fd = func {
-  var fd1 = getprop("/it-autoflight/fd_master");
-  var fd2 = getprop("/it-autoflight/fd_master2");
+  var fd1 = getprop("/it-autoflight/output/fd1");
+  var fd2 = getprop("/it-autoflight/output/fd2");
   if (fd1 and fd2) {
     setprop("/modes/pfd/fma/fd-mode", "1FD2");
   } else if (fd1 and !fd2) {
@@ -123,7 +119,7 @@ var fd = func {
 
 # AT
 var at = func {
-  var at = getprop("/it-autoflight/at_master");
+  var at = getprop("/it-autoflight/output/athr");
   if (at) {
     setprop("/modes/pfd/fma/at-mode", "A/THR");
   } else {
@@ -131,20 +127,20 @@ var at = func {
   }
 }
 
-# Update AP or FD
-setlistener("/it-autoflight/ap_master", func {
+# Update AP FD ATHR
+setlistener("/it-autoflight/output/ap1", func {
   ap();
 });
-setlistener("/it-autoflight/ap_master2", func {
+setlistener("/it-autoflight/output/ap2", func {
   ap();
 });
-setlistener("/it-autoflight/fd_master", func {
+setlistener("/it-autoflight/output/fd1", func {
   fd();
 });
-setlistener("/it-autoflight/fd_master2", func {
+setlistener("/it-autoflight/output/fd2", func {
   fd();
 });
-setlistener("/it-autoflight/at_master", func {
+setlistener("/it-autoflight/output/athr", func {
   at();
 });
 

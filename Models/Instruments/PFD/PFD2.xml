@@ -108,7 +108,7 @@
         <object-name>fd_pitch</object-name>
         <condition>
             <equals>
-                <property>/it-autoflight/fd_master2</property>
+                <property>/it-autoflight/output/fd2</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -465,7 +465,7 @@
         <object-name>hdg-bug</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/it-autoflight/settings/heading-bug-deg</property>
+            <property>/it-autoflight/input/hdg</property>
             <factor>0.002783031</factor>
             <axis>
                 <x>-1</x>
@@ -486,7 +486,7 @@
         <object-name>hdg-bug</object-name>
         <condition>
             <equals>
-                <property>/it-autoflight/aplatmode</property>
+                <property>/it-autoflight/output/lat</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -855,7 +855,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%3.0f</format>
-        <property>/it-autoflight/settings/target-speed-kt</property>
+        <property>/it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -879,7 +879,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%5.0f</format>
-        <property>/it-autoflight/settings/target-speed-kt</property>
+        <property>/it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -903,7 +903,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/settings/target-mach</property>
+        <property>/it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -927,7 +927,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/settings/target-mach</property>
+        <property>/it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -946,7 +946,7 @@
         <object-name>man-mach-lower</object-name>
         <condition>
             <equals>
-                <property>/it-autoflight/apthrmode</property>
+                <property>/it-autoflight/input/kts-mach</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -958,7 +958,7 @@
         <object-name>man-spd-lower</object-name>
         <condition>
             <equals>
-                <property>/it-autoflight/apthrmode</property>
+                <property>/it-autoflight/input/kts-mach</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -995,7 +995,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
@@ -1139,19 +1139,19 @@
         <condition>
 			<or>
 				<equals>
-					<property>/it-autoflight/ap_master</property>
+					<property>/it-autoflight/output/ap1</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/ap_master2</property>
+					<property>/it-autoflight/output/ap2</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/fd_master</property>
+					<property>/it-autoflight/output/fd1</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/fd_master2</property>
+					<property>/it-autoflight/output/fd2</property>
 					<value>1</value>
 				</equals>
 			</or>
@@ -1283,7 +1283,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
@@ -1314,7 +1314,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
@@ -1393,7 +1393,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
@@ -1440,7 +1440,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<less-than>
@@ -1563,7 +1563,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
@@ -1576,27 +1576,11 @@
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>TOGA</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
-						<value>TOGA</value>
-					</equals>
-					<equals>
 						<property>/systems/thrust/state1</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
 						<property>/systems/thrust/state2</property>
-						<value>MCT</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>MCT</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
 						<value>MCT</value>
 					</equals>
 				</or>
@@ -1610,7 +1594,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
@@ -1620,14 +1604,6 @@
 					</equals>
 					<equals>
 						<property>/systems/thrust/state2</property>
-						<value>TOGA</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>TOGA</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
 						<value>TOGA</value>
 					</equals>
 				</or>
@@ -1641,7 +1617,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
@@ -1652,14 +1628,6 @@
 					<property>/systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state3</property>
-					<value>TOGA</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state4</property>
-					<value>TOGA</value>
-				</not-equals>
 				<or>
 					<equals>
 						<property>/systems/thrust/state1</property>
@@ -1667,14 +1635,6 @@
 					</equals>
 					<equals>
 						<property>/systems/thrust/state2</property>
-						<value>MCT</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state3</property>
-						<value>MCT</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state4</property>
 						<value>MCT</value>
 					</equals>
 				</or>
@@ -1711,7 +1671,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/at_master</property>
+					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1735,7 +1695,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/it-autoflight/settings/target-altitude-ft-actual</property>
+		<property>/it-autoflight/internal/alt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1759,7 +1719,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
         <format type="string">%s</format>
-        <property>/it-autoflight/settings/target-altitude-ft-actual</property>
+        <property>/it-autoflight/internal/alt</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>

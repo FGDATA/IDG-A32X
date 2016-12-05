@@ -108,7 +108,7 @@
    <name>apoff</name>
    <path>/Aircraft/A320Family/Sounds/apoff.wav</path>
    <condition>
-	 <property>/it-autoflight/apoffsound</property>
+	 <property>/it-autoflight/sound/apoffsound</property>
    </condition>
    <volume>
     <factor>40.0</factor>
@@ -119,7 +119,7 @@
    <name>apoff2</name>
    <path>/Aircraft/A320Family/Sounds/apoff.wav</path>
    <condition>
-	 <property>/it-autoflight/apoffsound2</property>
+	 <property>/it-autoflight/sound/apoffsound2</property>
    </condition>
    <volume>
     <factor>40.0</factor>

@@ -36,7 +36,7 @@ controls.flapsDown = func(step) {
 			setprop("/controls/flight/flaps", 1.000);
 			setprop("/controls/flight/slats", 1.000);
 			setprop("/controls/flight/flap-lever", 4);
-			setprop("/controls/flight/flap-txt", "4");
+			setprop("/controls/flight/flap-txt", "FULL");
 			return;
 		}
 	} else if (step == -1) {
