@@ -5,7 +5,7 @@
 		setprop("instrumentation/efis/nd/display-mode", "ARC");
 		setprop("instrumentation/efis/inputs/tfc", 1);
 		setprop("instrumentation/efis/inputs/wpt", 0);
-		setprop("instrumentation/efis/inputs/wxr", 1);
+		setprop("instrumentation/efis/inputs/wxr", 0);
 		setprop("instrumentation/efis/inputs/sta", 0);
 		setprop("instrumentation/efis/inputs/arpt", 0);
 		setprop("instrumentation/efis/mfd/true-north", 0);
@@ -29,7 +29,7 @@
             'toggle_rh_vor_adf':        {path: '/input/rh-vor-adf',value:0, type:'INT'},
             'toggle_display_mode':      {path: '/nd/canvas-display-mode', value:'NAV', type:'STRING'},
             'toggle_display_type':      {path: '/mfd/display-type', value:'LCD', type:'STRING'},
-            'toggle_true_north':        {path: '/mfd/true-north', value:1, type:'BOOL'},
+            'toggle_true_north':        {path: '/mfd/true-north', value:0, type:'BOOL'},
             'toggle_track_heading':     {path: '/trk-selected', value:0, type:'BOOL'},
             'toggle_fplan': {path: '/nd/route-manager-active', value:0, type: 'BOOL'}, # flight plan active
             'toggle_lnav': {path: '/nd/lnav', value:0, type: 'BOOL'},                  # LNAV active
