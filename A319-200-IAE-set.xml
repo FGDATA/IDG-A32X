@@ -8,8 +8,8 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>NOT READY: Airbus A319 (IAE V2500)</description>
-		<status>Not Flyable</status>
+		<description>Airbus A319 (IAE V2500)</description>
+		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A319-200-IAE</aero>
 		<model>
@@ -18,22 +18,14 @@
 				<file>USAirwaysStar</file>
 			</livery>
 		</model>
-
-		<flaps>
-			<setting>0.000</setting>
-			<setting>0.290</setting>
-			<setting>0.596</setting>
-			<setting>0.645</setting>
-			<setting>1.000</setting>
-		</flaps>
-
+		
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.45</x-offset-m>
-				<y-offset-m archive="y">2.30</y-offset-m>
-				<z-offset-m archive="y">-12.00</z-offset-m>
+				<y-offset-m archive="y">2.25</y-offset-m>
+				<z-offset-m archive="y">-12.10</z-offset-m>
 				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
 			</config>
