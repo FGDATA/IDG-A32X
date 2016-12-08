@@ -97,7 +97,7 @@ aircraft.rain.init();
 # seatbelt/no smoking sign triggers
 setlistener("controls/switches/seatbelt-sign", func
  {
- props.globals.getNode("sim/sound/seatbelt-sign").setBoolValue(1);
+ setprop("/sim/sound/seatbelt-sign",1);
 
  settimer(func
   {
