@@ -2231,6 +2231,19 @@
             <z>0.0</z>
         </axis>
     </animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sidestick_button1</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/input/ap1</property>
+				<property>/it-autoflight/input/ap2</property>
+			</binding>
+		</action>
+	</animation>
     
     <animation>
         <type>rotate</type>
@@ -2397,7 +2410,20 @@
             <z>0.0</z>
         </axis>
     </animation>
-
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sidestick_button2</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/input/ap1</property>
+				<property>/it-autoflight/input/ap2</property>
+			</binding>
+		</action>
+	</animation>
+	
     <animation>
         <type>rotate</type>
         <object-name>sidestick_2</object-name>
