@@ -1,5 +1,6 @@
 ####    A320 Landing Gear System    ####
 ####    Jonathan Redpath    ####
+#### 	v.0.2				####
 
 var lgciu_one_init = func {
 	print("LGCIU No 1: Initializing");
