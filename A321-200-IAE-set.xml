@@ -86,6 +86,9 @@
 		<hyd>
 			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
 		</hyd>
+		<lgciu>
+			<file>Aircraft/A320Family/Nasal/LGCIU.nas</file>
+		</lgciu>
 		<thrust>
 			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
 		</thrust>

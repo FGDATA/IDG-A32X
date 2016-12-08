@@ -214,3 +214,4 @@ setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", fun
 #setlistener("/sim/signals/fdm-initialized", func {	
 #  	hyd.hyd_init();			
 #});
+
