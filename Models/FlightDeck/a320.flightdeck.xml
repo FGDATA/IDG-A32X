@@ -2232,7 +2232,7 @@
         </axis>
     </animation>
 	
-	<animation>
+	<!--<animation>
 		<type>pick</type>
 		<object-name>sidestick_button1</object-name>
 		<action>
@@ -2243,7 +2243,7 @@
 				<property>/it-autoflight/input/ap2</property>
 			</binding>
 		</action>
-	</animation>
+	</animation>-->
     
     <animation>
         <type>rotate</type>
@@ -2411,9 +2411,9 @@
         </axis>
     </animation>
 	
-	<animation>
+	<!--<animation>
 		<type>pick</type>
-		<object-name>sidestick_button2</object-name>
+		<object-name>sidestick_apdiscor</object-name>
 		<action>
 			<button>0</button>
 			<binding>
@@ -2422,7 +2422,7 @@
 				<property>/it-autoflight/input/ap2</property>
 			</binding>
 		</action>
-	</animation>
+	</animation>-->
 	
     <animation>
         <type>rotate</type>
