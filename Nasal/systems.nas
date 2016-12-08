@@ -211,6 +211,6 @@ setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", fun
 
 
 # Initialize Hydraulics
-setlistener("/sim/signals/fdm-initialized", func {	
-  	hyd.hyd_init();			
-});
+#setlistener("/sim/signals/fdm-initialized", func {	
+#  	hyd.hyd_init();			
+#});
