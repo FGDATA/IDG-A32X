@@ -4,9 +4,9 @@
 
 var lgciu_one_init = func {
 	print("LGCIU No 1: Initializing");
-	setprop("controls/lgciu[0]/mlgleft",1); #0 = retracted, 1 = extended
-	setprop("controls/lgciu[0]/mlgright",1); #0 = retracted, 1 = extended
-	setprop("controls/lgciu[0]/nlg",1); #0 = retracted, 1 = extended
+	setprop("controls/lgciu[0]/mlgleftpos",1); #0 = retracted, 1 = extended
+	setprop("controls/lgciu[0]/mlgrightpos",1); #0 = retracted, 1 = extended
+	setprop("controls/lgciu[0]/nlgpos",1); #0 = retracted, 1 = extended
 	setprop("/controls/lgciu[0]/doors/mlgleft",0); #0 = closed, 1 = open
 	setprop("controls/lgciu[0]/doors/mlgright",0); #0 = closed, 1 = open
 	setprop("controls/lgciu[0]/doors/nlg",0); #0 = closed, 1 = open
@@ -30,13 +30,13 @@ var lgciu_one_init = func {
 }
 
 var lgciu_two_init = func {
-	print("LGCIU No 2: Initializing");
-	setprop("/controls/lgciu[1]/mlgleft",1); #0 = retracted, 1 = extended
-	setprop("/controls/lgciu[1]/mlgright",1); #0 = retracted, 1 = extended
-	setprop("/controls/lgciu[1]/nlg",1); #0 = retracted, 1 = extended
+	print("LGCIU No 1: Initializing");
+	setprop("controls/lgciu[1]/mlgleftpos",1); #0 = retracted, 1 = extended
+	setprop("controls/lgciu[1]/mlgrightpos",1); #0 = retracted, 1 = extended
+	setprop("controls/lgciu[1]/nlgpos",1); #0 = retracted, 1 = extended
 	setprop("/controls/lgciu[1]/doors/mlgleft",0); #0 = closed, 1 = open
-	setprop("/controls/lgciu[1]/doors/mlgright",0); #0 = closed, 1 = open
-	setprop("/controls/lgciu[1]/doors/nlg",0); #0 = closed, 1 = open
+	setprop("controls/lgciu[1]/doors/mlgright",0); #0 = closed, 1 = open
+	setprop("controls/lgciu[1]/doors/nlg",0); #0 = closed, 1 = open
 	setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
 	print("L/G SYS: Gears and Doors Set");
 	setprop("/controls/lgciu[1]/mlgleft/isdownlock",1); #0 = no, 1 = yes
@@ -57,7 +57,6 @@ var lgciu_two_init = func {
 }
 
 
-
 # Initialize Landing Gear Control and Indication Unit
 setlistener("/sim/signals/fdm-initialized", func {	
 	print("Landing Gear System: Initializing");
@@ -74,6 +73,38 @@ setlistener("/gear/gear[0]/wow", func {
 	} else if (wowmlgl == 1) {
 	setprop("/controls/lgciu[0]/isonground",1);
 	setprop("/controls/lgciu[1]/isonground",1);
+}
+});
+
+### Interpolate MLG and NLG so that they take 8 seconds to move positions ###
+setlistener("/controls/gear/gear-down", func {
+var gr = getprop("/controls/gear/gear-down");
+var mlgl = getprop("/controls/lgciu[0]/mlgleftpos");
+var mlgr = getprop("/controls/lgciu[0]/mlgrightpos");
+var mlgl2 = getprop("/controls/lgciu[1]/mlgleftpos");
+var mlgr2 = getprop("/controls/lgciu[1]/mlgrightpos");
+var inuseno1 = getprop("/controls/lgciu[0]/inuse");
+var inuseno2 = getprop("/controls/lgciu[1]/inuse");
+if ((gr == 1) and (inuseno1 == 1)) {
+    interpolate("/controls/lgciu[0]/mlgleftpos", 1, 10);
+	interpolate("/controls/lgciu[0]/mlgrightpos", 1, 10);
+	setprop("/controls/lgciu[1]/mlgleftpos",1);
+	setprop("/controls/lgciu[1]/mlgrightpos",1);
+} else if ((gr == 1) and (inuseno2 == 1)) {
+    interpolate("/controls/lgciu[1]/mlgleftpos", 1, 10);
+	interpolate("/controls/lgciu[1]/mlgrightpos", 1, 10);
+	setprop("/controls/lgciu[0]/mlgleftpos",1);
+	setprop("/controls/lgciu[0]/mlgrightpos",1);
+} else if ((gr == 0) and (inuseno1 == 1)) {
+	interpolate("/controls/lgciu[0]/mlgleftpos", 0, 10);
+	interpolate("/controls/lgciu[0]/mlgrightpos", 0, 10);
+	setprop("/controls/lgciu[1]/mlgleftpos",0);
+	setprop("/controls/lgciu[1]/mlgrightpos",0);
+} else if ((gr == 0) and (inuseno2 == 1)) {
+	interpolate("/controls/lgciu[1]/mlgleftpos", 0, 10);
+	interpolate("/controls/lgciu[1]/mlgrightpos", 0, 10);
+	setprop("/controls/lgciu[0]/mlgleftpos",0);
+	setprop("/controls/lgciu[0]/mlgrightpos",0);
 }
 });
 
