@@ -21,7 +21,9 @@ var lgciu_one_init = func {
 	print("L/G SYS: Uplock / Downlock System Enabled");
 	setprop("/controls/lgciu[0]/hyd/greensupply",0); #0 = no, 1 = yes presently no supply as green pump is off
 	print("L/G SYS: Hydraulics Initialized");
-	setprop("/controls/lgciu[0]/isonground",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[0]/wow/isongroundl",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[0]/wow/isongroundn",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[0]/wow/isongroundr",1); #0 = no, 1 = yes
 	setprop("/controls/lgciu[0]/nws/nwsenabled",0); #0 = disabled 1 = enabled, must be disabled for push
 	setprop("/controls/lgciu[0]/inuse",1); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[0]/hasbeenret",0); #has the gear been retracted with LGCIU1?
@@ -48,7 +50,9 @@ var lgciu_two_init = func {
 	print("L/G SYS: Uplock / Downlock System Enabled");
 	setprop("/controls/lgciu[1]/hyd/greensupply",0); #0 = no, 1 = yes presently no supply as green pump is off
 	print("L/G SYS: Hydraulics Initialized");
-	setprop("/controls/lgciu[1]/isonground",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[1]/wow/isongroundl",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[1]/wow/isongroundn",1); #0 = no, 1 = yes
+	setprop("/controls/lgciu[1]/wow/isongroundr",1); #0 = no, 1 = yes
 	setprop("/controls/lgciu[1]/nws/nwsenabled",0); #0 = disabled 1 = enabled, must be disabled for push
 	setprop("/controls/lgciu[1]/inuse",0); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[1]/hasbeenret",0); #has the gear been retracted with LGCIU2?
@@ -68,11 +72,35 @@ setlistener("/sim/signals/fdm-initialized", func {
 setlistener("/gear/gear[0]/wow", func {	
 	var wowmlgl = getprop("/gear/gear[0]/wow");
 	if (wowmlgl == 0) {
-	setprop("/controls/lgciu[0]/isonground",0);
-	setprop("/controls/lgciu[1]/isonground",0);
+	setprop("/controls/lgciu[0]/wow/isongroundl",0);
+	setprop("/controls/lgciu[1]/wow/isongroundl",0);
 	} else if (wowmlgl == 1) {
-	setprop("/controls/lgciu[0]/isonground",1);
-	setprop("/controls/lgciu[1]/isonground",1);
+	setprop("/controls/lgciu[0]/wow/isongroundl",1);
+	setprop("/controls/lgciu[1]/wow/isongroundl",1);
+}
+});
+
+### Nose MLG compressor sensor to check if we are on the ground ###
+setlistener("/gear/gear[1]/wow", func {	
+	var wowmlgn = getprop("/gear/gear[1]/wow");
+	if (wowmlgn == 0) {
+	setprop("/controls/lgciu[0]/wow/isongroundn",0);
+	setprop("/controls/lgciu[1]/wow/isongroundn",0);
+	} else if (wowmlgn == 1) {
+	setprop("/controls/lgciu[0]/wow/isongroundn",1);
+	setprop("/controls/lgciu[1]/wow/isongroundn",1);
+}
+});
+
+### Right MLG compressor sensor to check if we are on the ground ###
+setlistener("/gear/gear[2]/wow", func {	
+	var wowmlgr = getprop("/gear/gear[2]/wow");
+	if (wowmlgr == 0) {
+	setprop("/controls/lgciu[0]/wow/isongroundr",0);
+	setprop("/controls/lgciu[1]/wow/isongroundr",0);
+	} else if (wowmlgr == 1) {
+	setprop("/controls/lgciu[0]/wow/isongroundr",1);
+	setprop("/controls/lgciu[1]/wow/isongroundr",1);
 }
 });
 
@@ -83,28 +111,38 @@ var mlgl = getprop("/controls/lgciu[0]/mlgleftpos");
 var mlgr = getprop("/controls/lgciu[0]/mlgrightpos");
 var mlgl2 = getprop("/controls/lgciu[1]/mlgleftpos");
 var mlgr2 = getprop("/controls/lgciu[1]/mlgrightpos");
+var nlg = getprop("/controls/lgciu[0]/nlgpos");
+var nlg2 = getprop("/controls/lgciu[1]/nlgpos");
 var inuseno1 = getprop("/controls/lgciu[0]/inuse");
 var inuseno2 = getprop("/controls/lgciu[1]/inuse");
 if ((gr == 1) and (inuseno1 == 1)) {
     interpolate("/controls/lgciu[0]/mlgleftpos", 1, 10);
 	interpolate("/controls/lgciu[0]/mlgrightpos", 1, 10);
+	interpolate("/controls/lgciu[0]/nlgpos", 1, 10);
 	setprop("/controls/lgciu[1]/mlgleftpos",1);
 	setprop("/controls/lgciu[1]/mlgrightpos",1);
+	setprop("/controls/lgciu[1]/nlgpos",1);
 } else if ((gr == 1) and (inuseno2 == 1)) {
     interpolate("/controls/lgciu[1]/mlgleftpos", 1, 10);
 	interpolate("/controls/lgciu[1]/mlgrightpos", 1, 10);
+	interpolate("/controls/lgciu[1]/nlgpos", 1, 10);
 	setprop("/controls/lgciu[0]/mlgleftpos",1);
 	setprop("/controls/lgciu[0]/mlgrightpos",1);
+	setprop("/controls/lgciu[0]/nlgpos",1);
 } else if ((gr == 0) and (inuseno1 == 1)) {
 	interpolate("/controls/lgciu[0]/mlgleftpos", 0, 10);
 	interpolate("/controls/lgciu[0]/mlgrightpos", 0, 10);
+	interpolate("/controls/lgciu[0]/nlgpos", 0, 10);
 	setprop("/controls/lgciu[1]/mlgleftpos",0);
 	setprop("/controls/lgciu[1]/mlgrightpos",0);
+	setprop("/controls/lgciu[1]/nlgpos",0);
 } else if ((gr == 0) and (inuseno2 == 1)) {
 	interpolate("/controls/lgciu[1]/mlgleftpos", 0, 10);
 	interpolate("/controls/lgciu[1]/mlgrightpos", 0, 10);
+	interpolate("/controls/lgciu[1]/nlgpos", 0, 10);
 	setprop("/controls/lgciu[0]/mlgleftpos",0);
 	setprop("/controls/lgciu[0]/mlgrightpos",0);
+	setprop("/controls/lgciu[0]/nlgpos",0);
 }
 });
 
