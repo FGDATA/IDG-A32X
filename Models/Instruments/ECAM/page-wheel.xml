@@ -90,6 +90,7 @@
 					<greater-than>
 						<property>/controls/lgciu[0]/nlgpos</property>
 						<value>0.01</value>
+					</greater-than>
 				</and>
 			</condition>
 		</layer>
