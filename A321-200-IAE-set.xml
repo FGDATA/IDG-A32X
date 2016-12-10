@@ -83,9 +83,6 @@
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>
-		<hyd>
-			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
-		</hyd>
 		<lgciu>
 			<file>Aircraft/A320Family/Nasal/LGCIU.nas</file>
 		</lgciu>

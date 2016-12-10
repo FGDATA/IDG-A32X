@@ -209,9 +209,3 @@ setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", fun
 	setprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd", getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") / 100);
 });
 
-
-# Initialize Hydraulics
-#setlistener("/sim/signals/fdm-initialized", func {	
-#  	hyd.hyd_init();			
-#});
-
