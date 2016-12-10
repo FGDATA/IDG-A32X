@@ -45,7 +45,7 @@
             'toggle_cur_ec': {path: '/nd/current-ec', value: 0, type: 'INT'},          # End of Climb dist. along route
             'toggle_lvl_off_at': {path: '/nd/level-off-at', value: 0, type: 'INT'},     # Level-off point along route
             'toggle_man_spd': {path: '/nd/managed-spd', value: 0, type: 'INT'},         # Managed Speed Mode
-            'toggle_athr': {path: '/nd/athr', value: 0, type: 'INT'},                   # Auto-thrust engaged
+            'toggle_athr': {path: '/it-autoflight/output/athr', value: 0, type: 'INT'},                   # Auto-thrust engaged
             'toggle_spd_point_100': {path: '/nd/spd-change-raw-100', value: 0, type: 'INT'}, # Speed limit change point FL100
             'toggle_spd_point_140': {path: '/nd/spd-change-raw-140', value: 0, type: 'INT'}, # Speed limit change point FL140
             'toggle_spd_point_250': {path: '/nd/spd-change-raw-250', value: 0, type: 'INT'}, # Speed limit change point FL250
@@ -96,7 +96,7 @@
         des_rwy: "/autopilot/route-manager/destination/runway",
         dep_rwy: "/autopilot/route-manager/departure/runway",
         fplan_active: 'autopilot/route-manager/active',
-        athr: '/flight-management/control/a-thrust',
+        athr: '/it-autoflight/output/athr',
         cur_wp: "/autopilot/route-manager/current-wp",
         vnav_node: "/autopilot/route-manager/vnav/",
         spd_node: "/autopilot/route-manager/spd/",
@@ -106,8 +106,8 @@
         adf2_frq: 'instrumentation/adf[1]/frequencies/selected-khz',
         nav1_frq: 'instrumentation/nav/frequencies/selected-mhz',
         nav2_frq: 'instrumentation/nav[1]/frequencies/selected-mhz',
-        lat_ctrl: 'flight-management/control/lat-ctrl',
-        ver_ctrl: "flight-management/control/ver-ctrl",
+        lat_ctrl: '/it-autoflight/output/lat',
+        ver_ctrl: "/it-autoflight/output/lat",
         spd_ctrl: "flight-management/control/spd-ctrl",
     };
  
@@ -144,7 +144,7 @@
  
     setlistener(property_map.athr, func{
         var athr = getprop(property_map.athr);
-        setprop('instrumentation/efis/nd/athr', (athr == 'eng'));
+        setprop('instrumentation/efis/nd/athr', (athr == '1'));
     });
  
     setlistener(property_map.ver_ctrl, func{
@@ -159,7 +159,7 @@
  
     setlistener(property_map.lat_ctrl, func{
         var latctrl = getprop(property_map.lat_ctrl);
-        setprop('instrumentation/efis/nd/lnav', (latctrl == 'fmgc'));
+        setprop('instrumentation/efis/nd/lnav', (latctrl == '1'));
     });
  
     setlistener("/instrumentation/mcdu/f-pln/disp/first", func{
