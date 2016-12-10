@@ -23,6 +23,77 @@
 			<emissive>true</emissive>
 		</layer>
 
+		<layer>
+			<name>greentriangle1</name>
+			<w>50</w>
+			<h>25</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/wheel-green-triangle.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>80</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>0</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<and>
+					<equals>
+						<property>gear/gear[1]/position-norm</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/lgciu[1]/nlg/isdownlock</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</layer>
+		
+		<layer>
+			<name>redtriangle1</name>
+			<w>50</w>
+			<h>25</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/wheel-red-triangle.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>80</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>0</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<and>
+					<less-than>
+						<property>/controls/lgciu[0]/nlgpos</property>
+						<value>0.99</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/lgciu[0]/nlgpos</property>
+						<value>0.01</value>
+					</greater-than>
+				</and>
+			</condition>
+		</layer>
 <!-- ################################## Bottom  #################################-->
 
 		<layer>

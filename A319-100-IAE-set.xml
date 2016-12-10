@@ -8,12 +8,12 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A319 (IAE V2500)</description>
+		<description>Airbus A319-133 (IAE V2500)</description>
 		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
-		<aero>A319-200-IAE</aero>
+		<aero>A319-100-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A319-200-IAE.xml</path>
+			<path>Aircraft/A320Family/Models/A319-100-IAE.xml</path>
 			<livery>
 				<file>USAirwaysStar</file>
 			</livery>
@@ -60,7 +60,7 @@
 		<menubar>
 			<default>
 				<menu n="100">
-					<label>Airbus A319-200</label>
+					<label>Airbus A319-100</label>
 				</menu>
 			</default>
 		</menubar>
@@ -83,6 +83,9 @@
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>
+		<lgciu>
+			<file>Aircraft/A320Family/Nasal/LGCIU.nas</file>
+		</lgciu>
 		<thrust>
 			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
 		</thrust>

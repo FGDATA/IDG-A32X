@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A320 (IAE V2500)</description>
+		<description>Airbus A320-232 (IAE V2500)</description>
 		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
@@ -79,6 +79,7 @@
             <file>Aircraft/A320Family/Nasal/efis.nas</file>
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
+			<file>Aircraft/A320Family/Nasal/LGCIU.nas</file>
 		</A320>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>

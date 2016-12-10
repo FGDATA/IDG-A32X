@@ -13,7 +13,7 @@
 		<flight-model>jsb</flight-model>
 		<aero>ACJ-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A319-200-IAE.xml</path>
+			<path>Aircraft/A320Family/Models/A319-100-IAE.xml</path>
 			<livery>
 				<file>USAirwaysStar</file>
 			</livery>
@@ -83,6 +83,9 @@
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>
+		<lgciu>
+			<file>Aircraft/A320Family/Nasal/LGCIU.nas</file>
+		</lgciu>
 		<thrust>
 			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
 		</thrust>

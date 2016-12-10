@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<name>A319-200</name>
+	<name>A319-100</name>
 	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
 
 	<offsets>

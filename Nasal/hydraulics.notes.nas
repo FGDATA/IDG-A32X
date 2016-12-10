@@ -20,6 +20,11 @@ var hyd_init = func {
 	setprop("/hydraulics/ratextended",0);
 	setprop("/hydraulics/ratmanguard",0);
 	setprop("/hydraulics/ratmanext",0);
+	setprop("/hydraulics/ratextended",0);
+	setprop("/hydraulics/ratmanguard",0);
+	setprop("/hydraulics/ratelecguard",0);
+	setprop("/hydraulics/ratelecconnect",0);
+	setprop("/hydraulics/ratmanext",0);
 	print("Hydraulics: PTU and RAT Initialized");
 	setprop("/hydraulics/greenpsi","0");
 	setprop("/hydraulics/bluepsi","0");
