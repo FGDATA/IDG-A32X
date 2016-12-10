@@ -6,7 +6,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/state1", "IDLE");
 	setprop("/systems/thrust/state2", "IDLE");
 	setprop("/systems/thrust/lvrclb", "0");
-	setprop("/systems/thrust/clbreduc-ft", "2000");
+	setprop("/systems/thrust/clbreduc-ft", "1500");
 	lvrclb();
 	print("Thrust System ... Done!")
 });
@@ -16,17 +16,22 @@ setlistener("/controls/engines/engine[0]/throttle", func {
 	if (thrr < 0.05) {
 		setprop("/systems/thrust/state1", "IDLE");
 		atoff_request();
-	} else if (thrr >= 0.05 and thrr < 0.60) {
+	} else if (thrr >= 0.01 and thrr < 0.60) {
 		setprop("/systems/thrust/state1", "MAN");
-	} else if (thrr >= 0.60 and thrr < 0.80) {
+	} else if (thrr >= 0.60 and thrr < 0.65) {
 		setprop("/systems/thrust/state1", "CL");
-	} else if (thrr >= 0.80 and thrr < 0.95) {
+	} else if (thrr >= 0.65 and thrr < 0.78) {
+		setprop("/systems/thrust/state1", "MAN THR");
+	} else if (thrr >= 0.78 and thrr < 0.83) {
 		setprop("/it-autoflight/input/athr", 1);
-		setprop("/controls/engines/engine[0]/throttle-fdm", 0.94);
+		setprop("/controls/engines/engine[0]/throttle-fdm", 0.90);
 		setprop("/systems/thrust/state1", "MCT");
+	} else if (thrr >= 0.83 and thrr < 0.95) {
+		setprop("/it-autoflight/input/athr", 1);
+		setprop("/systems/thrust/state1", "MAN THR");
 	} else if (thrr >= 0.95) {
 		setprop("/it-autoflight/input/athr", 1);
-		setprop("/controls/engines/engine[0]/throttle-fdm", 0.98);
+		setprop("/controls/engines/engine[0]/throttle-fdm", 0.95);
 		setprop("/systems/thrust/state1", "TOGA");
 	}
 });
@@ -36,17 +41,22 @@ setlistener("/controls/engines/engine[1]/throttle", func {
 	if (thrr < 0.05) {
 		setprop("/systems/thrust/state2", "IDLE");
 		atoff_request();
-	} else if (thrr >= 0.05 and thrr < 0.60) {
+	} else if (thrr >= 0.01 and thrr < 0.60) {
 		setprop("/systems/thrust/state2", "MAN");
-	} else if (thrr >= 0.60 and thrr < 0.80) {
+	} else if (thrr >= 0.60 and thrr < 0.65) {
 		setprop("/systems/thrust/state2", "CL");
-	} else if (thrr >= 0.80 and thrr < 0.95) {
+	} else if (thrr >= 0.65 and thrr < 0.78) {
+		setprop("/systems/thrust/state2", "MAN THR");
+	} else if (thrr >= 0.78 and thrr < 0.83) {
 		setprop("/it-autoflight/input/athr", 1);
-		setprop("/controls/engines/engine[1]/throttle-fdm", 0.94);
+		setprop("/controls/engines/engine[1]/throttle-fdm", 0.90);
 		setprop("/systems/thrust/state2", "MCT");
+	} else if (thrr >= 0.83 and thrr < 0.95) {
+		setprop("/it-autoflight/input/athr", 1);
+		setprop("/systems/thrust/state2", "MAN THR");
 	} else if (thrr >= 0.95) {
 		setprop("/it-autoflight/input/athr", 1);
-		setprop("/controls/engines/engine[1]/throttle-fdm", 0.98);
+		setprop("/controls/engines/engine[1]/throttle-fdm", 0.95);
 		setprop("/systems/thrust/state2", "TOGA");
 	}
 });

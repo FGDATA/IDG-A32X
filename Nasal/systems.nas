@@ -185,7 +185,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-autoflight/settings/land-enable", 1);     # Enable or disable automatic landing.
 	setprop("/it-autoflight/autoland/flare-altitude", 40); # Altitude when the flare mode starts in an autoland.
 	setprop("/controls/engines/thrust-limit", "TOGA");
-	setprop("/controls/engines/epr-limit", 1.379);
+	setprop("/controls/engines/epr-limit", 1.301);
 	setprop("/controls/engines/n1-limit", 97.8);
 });
 

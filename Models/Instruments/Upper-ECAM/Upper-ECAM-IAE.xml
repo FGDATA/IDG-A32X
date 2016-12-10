@@ -1085,15 +1085,20 @@
     	<object-name>thrpos1</object-name>
     	<property>controls/engines/engine[0]/throttle</property>
 		<interpolation>
-			<entry><ind>0.00000</ind><dep> 05</dep></entry>
-			<entry><ind>0.34198</ind><dep> 64</dep></entry>
-			<entry><ind>0.59999</ind><dep>102</dep></entry>
-			<entry><ind>0.60000</ind><dep>103</dep></entry>
-			<entry><ind>0.79999</ind><dep>103</dep></entry>
-			<entry><ind>0.80000</ind><dep>107</dep></entry>
-			<entry><ind>0.94999</ind><dep>107</dep></entry>
-			<entry><ind>0.95000</ind><dep>111</dep></entry>
-			<entry><ind>1.00000</ind><dep>111</dep></entry>
+			<entry><ind>0.00000</ind><dep>05</dep></entry>
+			<entry><ind>0.19560</ind><dep>33</dep></entry>
+			<entry><ind>0.42999</ind><dep>64</dep></entry>
+			<entry><ind>0.59999</ind><dep>82</dep></entry>
+			<entry><ind>0.60000</ind><dep>83</dep></entry>
+			<entry><ind>0.64999</ind><dep>83</dep></entry>
+			<entry><ind>0.65000</ind><dep>84</dep></entry>
+			<entry><ind>0.77999</ind><dep>88</dep></entry>
+			<entry><ind>0.78000</ind><dep>89</dep></entry>
+			<entry><ind>0.82999</ind><dep>89</dep></entry>
+			<entry><ind>0.83000</ind><dep>90</dep></entry>
+			<entry><ind>0.94999</ind><dep>92</dep></entry>
+			<entry><ind>0.95000</ind><dep>93</dep></entry>
+			<entry><ind>1.00000</ind><dep>93</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1112,15 +1117,20 @@
     	<object-name>thrpos2</object-name>
     	<property>controls/engines/engine[1]/throttle</property>
 		<interpolation>
-			<entry><ind>0.00000</ind><dep> 05</dep></entry>
-			<entry><ind>0.34198</ind><dep> 64</dep></entry>
-			<entry><ind>0.59999</ind><dep>102</dep></entry>
-			<entry><ind>0.60000</ind><dep>103</dep></entry>
-			<entry><ind>0.79999</ind><dep>103</dep></entry>
-			<entry><ind>0.80000</ind><dep>107</dep></entry>
-			<entry><ind>0.94999</ind><dep>107</dep></entry>
-			<entry><ind>0.95000</ind><dep>111</dep></entry>
-			<entry><ind>1.00000</ind><dep>111</dep></entry>
+			<entry><ind>0.00000</ind><dep>05</dep></entry>
+			<entry><ind>0.19560</ind><dep>33</dep></entry>
+			<entry><ind>0.42999</ind><dep>64</dep></entry>
+			<entry><ind>0.59999</ind><dep>82</dep></entry>
+			<entry><ind>0.60000</ind><dep>83</dep></entry>
+			<entry><ind>0.64999</ind><dep>83</dep></entry>
+			<entry><ind>0.65000</ind><dep>84</dep></entry>
+			<entry><ind>0.77999</ind><dep>88</dep></entry>
+			<entry><ind>0.78000</ind><dep>89</dep></entry>
+			<entry><ind>0.82999</ind><dep>89</dep></entry>
+			<entry><ind>0.83000</ind><dep>90</dep></entry>
+			<entry><ind>0.94999</ind><dep>92</dep></entry>
+			<entry><ind>0.95000</ind><dep>93</dep></entry>
+			<entry><ind>1.00000</ind><dep>93</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1185,7 +1195,7 @@
     	<object-name>n11</object-name>
     	<property>engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>  0</dep></entry>
+			<entry><ind> 20</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -1207,7 +1217,7 @@
     	<object-name>n12</object-name>
     	<property>engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>  0</dep></entry>
+			<entry><ind> 20</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>

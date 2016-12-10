@@ -55,10 +55,10 @@
 				<name>Spoilers</name>
 				<path>Aircraft/A320Family/Systems/a320-spoilers.xml</path>
 			</autopilot>
-			<property-rule n="101">
+			<autopilot>
 				<path>Systems/fl2070_sound.xml</path>
-			</property-rule>
-			<property-rule n="102">
+			</autopilot>
+			<property-rule n="100">
 				<path>Systems/pfd.xml</path>
 			</property-rule>
 		</systems>
@@ -298,15 +298,6 @@
 				<starter-switch type="bool">false</starter-switch>
 				<max-athr-thrust type="float">0.94</max-athr-thrust>
 			</engine>
-			<detents>
-				<current type="string">none</current>
-				<throttle type="float">0</throttle>
-				<rev type="float">-0.59</rev>
-				<idle type="float">0</idle>
-				<clb type="float">0.72</clb>
-				<flex type="float">0.98</flex>
-				<toga type="float">1</toga>
-			</detents>
 		</engines>
 		<flight>
 			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>

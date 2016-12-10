@@ -14,17 +14,7 @@
 		<name>Fuselage</name>
 		<path>Aircraft/A320Family/Models/Fuselages/a319.fuselage.xml</path>
 
-	</model>
-	    <!-- effects -->
-	<model>
-		<name>shadow</name>
-		<path>Aircraft/A320Family/Models/Effects/shadow.xml</path>
-	<offsets>
-		<x-m>20.38</x-m>
-		<z-m>-4.26</z-m>
-		<pitch-deg>1.5</pitch-deg>
-	</offsets>
-	</model>		
+	</model>	
 	<!-- Separate Flightdeck to fit the modified nose -->
 	<model>
 		<name>Flightdeck</name>

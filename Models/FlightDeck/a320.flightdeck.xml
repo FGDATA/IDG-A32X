@@ -1956,9 +1956,13 @@
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
-			<entry><ind>0.79999</ind><dep>35</dep></entry>
-			<entry><ind>0.80000</ind><dep>46</dep></entry>
-			<entry><ind>0.94999</ind><dep>46</dep></entry>
+			<entry><ind>0.64999</ind><dep>35</dep></entry>
+			<entry><ind>0.65000</ind><dep>37</dep></entry>
+			<entry><ind>0.77999</ind><dep>44</dep></entry>
+			<entry><ind>0.78000</ind><dep>46</dep></entry>
+			<entry><ind>0.82999</ind><dep>46</dep></entry>
+			<entry><ind>0.83000</ind><dep>48</dep></entry>
+			<entry><ind>0.94999</ind><dep>53</dep></entry>
 			<entry><ind>0.95000</ind><dep>55</dep></entry>
 			<entry><ind>1.00000</ind><dep>55</dep></entry>
 		</interpolation> 
@@ -2009,9 +2013,13 @@
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
 			<entry><ind>0.60000</ind><dep>35</dep></entry>
-			<entry><ind>0.79999</ind><dep>35</dep></entry>
-			<entry><ind>0.80000</ind><dep>46</dep></entry>
-			<entry><ind>0.94999</ind><dep>46</dep></entry>
+			<entry><ind>0.64999</ind><dep>35</dep></entry>
+			<entry><ind>0.65000</ind><dep>37</dep></entry>
+			<entry><ind>0.77999</ind><dep>44</dep></entry>
+			<entry><ind>0.78000</ind><dep>46</dep></entry>
+			<entry><ind>0.82999</ind><dep>46</dep></entry>
+			<entry><ind>0.83000</ind><dep>48</dep></entry>
+			<entry><ind>0.94999</ind><dep>53</dep></entry>
 			<entry><ind>0.95000</ind><dep>55</dep></entry>
 			<entry><ind>1.00000</ind><dep>55</dep></entry>
 		</interpolation> 
