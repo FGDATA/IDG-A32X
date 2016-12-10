@@ -38,6 +38,114 @@
 		</pitch>
 	</apu-->
 	
+<!-- Custom GPWS -->
+	    <gpws>
+			<name>2500</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/altitude-2500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2500</value>
+					</less-than>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2400</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<position>
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</position>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>2000</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/altitude-2000.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2000</value>
+					</less-than>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>1900</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<position>
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</position>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+		
+	    <gpws>
+			<name>100above</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/100-above.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<less-than> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350 -->
+						<property>/position/gear-agl-ft</property>
+						<value>350</value>
+					</less-than>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>300</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<position>
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</position>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	
 <!-- Retard Warning -->
 
 			
