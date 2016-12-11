@@ -2,7 +2,7 @@
 
 <PropertyList>
 	<name>Fuselage</name>
-	<path>res/a320.fuselage.ac</path>
+	<path>res/fuselage.ac</path>
 
 	<!-- Reflection Shader -->
 	<!--effect>
@@ -353,7 +353,5 @@
 			<z2-m>-2.0790732</z2-m>
 		</axis>
 	</animation>
-
-
 
 </PropertyList>

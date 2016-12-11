@@ -209,3 +209,10 @@ setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", fun
 	setprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd", getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") / 100);
 });
 
+setlistener("/controls/parking-brake", func {
+	if (getprop("/controls/parking-brake") == 1) {
+		setprop("/electrical/switches/ext-pwr", 1);
+	} else {
+		setprop("/electrical/switches/ext-pwr", 0);
+	}
+});

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<name>A320-200</name>
+	<name>A321-200</name>
 	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
 
 	<offsets>
@@ -12,7 +12,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320Family/Models/Fuselages/a321.fuselage.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/A321/fuselage.xml</path>
 
 	</model>
 	<!-- Separate Flightdeck to fit the modified nose -->
@@ -78,7 +78,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/a320.hstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/A321/hstab.xml</path>
 		<offsets>
 			<x-m>36.8212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -87,7 +87,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/a320.vstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/A321/vstab.xml</path>
 		<offsets>
 			<x-m>34.9235728</x-m>
 		</offsets>

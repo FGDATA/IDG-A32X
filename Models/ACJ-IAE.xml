@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<name>A319-100</name>
+	<name>ACJ</name>
 	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
 
 	<offsets>
@@ -12,7 +12,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A319/fuselage.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/ACJ/fuselage.xml</path>
 
 	</model>	
 	<!-- Separate Flightdeck to fit the modified nose -->
@@ -78,7 +78,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A319/hstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/ACJ/hstab.xml</path>
 		<offsets>
 			<x-m>32.0212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -87,7 +87,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A319/vstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/ACJ/vstab.xml</path>
 		<offsets>
 			<x-m>30.1235728</x-m>
 		</offsets>
@@ -217,13 +217,13 @@
 		<!-- Fuselage -->
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>A319.png</texture>
+		<texture>ACJ.png</texture>
 	</animation>
 
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A319");
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/ACJ");
 		</load>
 		<unload>
 		 livery_update.stop();

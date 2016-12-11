@@ -57,10 +57,6 @@
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>0</value>
 					</less-than>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
 				</and>
 			</condition>
 			<volume>
@@ -92,10 +88,6 @@
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>0</value>
 					</less-than>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
 				</and>
 			</condition>
 			<volume>
@@ -128,10 +120,6 @@
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>0</value>
 					</less-than>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
 				</and>
 			</condition>
 			<volume>
@@ -149,7 +137,7 @@
 <!-- Retard Warning -->
 
 			
-	<retard>
+		<retard>
 			<name>retard</name>
 			<path>Aircraft/A320Family/Sounds/GPWS/retard.wav</path>
 			<mode>looped</mode>
@@ -172,14 +160,6 @@
 						<property>controls/engines/engine[1]/throttle</property>
 						<value>0.0</value>
 					</greater-than>
-					<greater-than>
-						<property>controls/engines/engine[2]/throttle</property>
-						<value>0.0</value>
-					</greater-than>
-					<greater-than>
-						<property>controls/engines/engine[3]/throttle</property>
-						<value>0.0</value>
-					</greater-than>
 					<less-than>
 						<property>controls/engines/engine[0]/throttle</property>
 						<value>0.80</value>
@@ -188,16 +168,7 @@
 						<property>controls/engines/engine[1]/throttle</property>
 						<value>0.80</value>
 					</less-than>
-					<less-than>
-						<property>controls/engines/engine[2]/throttle</property>
-						<value>0.80</value>
-					</less-than>
-					<less-than>
-						<property>controls/engines/engine[3]/throttle</property>
-						<value>0.80</value>
-					</less-than>
 					<not>
-						<property>/gear/gear[0]/wow</property>
 						<property>/gear/gear[1]/wow</property>
 						<property>/gear/gear[2]/wow</property>
 					</not>

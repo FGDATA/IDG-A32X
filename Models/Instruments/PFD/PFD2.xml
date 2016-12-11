@@ -31,6 +31,18 @@
     </animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>sidestick-max</object-name>
+        <object-name>sidestick-pos</object-name>
+		<condition>
+			<or>
+				<property>/gear/gear[1]/wow</property>
+				<property>/gear/gear[2]/wow</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
         <object-name>spdtrnd-up</object-name>
         <property>instrumentation/pfd/speed-trend-up</property>
         <type>textranslate</type>

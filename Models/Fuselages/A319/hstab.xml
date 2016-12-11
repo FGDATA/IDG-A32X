@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>res/a320.hstab.ac</path> 
+	<path>res/hstab.ac</path> 
 
 	<!-- Animation for the elevators -->
 	<animation>
