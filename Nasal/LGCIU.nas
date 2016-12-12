@@ -23,6 +23,7 @@ var lgciu_one_init = func {
 	setprop("/controls/lgciu[0]/nws/nwsenabled",0); #0 = disabled 1 = enabled, must be disabled for push
 	setprop("/controls/lgciu[0]/inuse",1); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[0]/hasbeenret",0); #has the gear been retracted with LGCIU1?
+	setprop("/controls/lgciu[0]/fail",0); #0 = no 1 = yes
 }
 
 var lgciu_two_init = func {
@@ -46,6 +47,7 @@ var lgciu_two_init = func {
 	setprop("/controls/lgciu[1]/nws/nwsenabled",0); #0 = disabled 1 = enabled, must be disabled for push
 	setprop("/controls/lgciu[1]/inuse",0); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[1]/hasbeenret",0); #has the gear been retracted with LGCIU2?
+	setprop("/controls/lgciu[1]/fail",0); #0 = no 1 = yes
 
 }
 
