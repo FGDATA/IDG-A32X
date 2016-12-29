@@ -1,6 +1,7 @@
 ####    A320 Landing Gear System    ####
-####    Jonathan Redpath    ####
-#### 	v.0.2				####
+####    Jonathan Redpath   			####
+#### 	v.0.4						####
+
 
 var lgciu_one_init = func {
 	setprop("controls/lgciu[0]/mlgleftpos",1); #0 = retracted, 1 = extended
@@ -50,6 +51,8 @@ var lgciu_two_init = func {
 	setprop("/controls/lgciu[1]/hasbeenret",0); #has the gear been retracted with LGCIU2?
 	setprop("/controls/lgciu[1]/fail",0); #0 = no 1 = yes
 	setprop("/controls/lgciu[1]/emermanext",0); #0 = no 1 = extended can only be retracted if green hyd is available
+	setprop("/controls/lgciu[0]/init",1); #these two properties say that 'everything is ready now'
+	setprop("/controls/lgciu[1]/init",1); 
 
 }
 
@@ -97,7 +100,7 @@ setlistener("/gear/gear[2]/wow", func {
 }
 });
 
-### Interpolate MLG and NLG so that they take 8 seconds to move positions ###
+### Interpolate MLG and NLG so that they take 10 seconds to move positions ###
 setlistener("/controls/gear/gear-down", func {
 var gr = getprop("/controls/gear/gear-down");
 var mlgl = getprop("/controls/lgciu[0]/mlgleftpos");
@@ -112,35 +115,39 @@ if ((gr == 1) and (inuseno1 == 1)) {
     interpolate("/controls/lgciu[0]/mlgleftpos", 1, 10);
 	interpolate("/controls/lgciu[0]/mlgrightpos", 1, 10);
 	interpolate("/controls/lgciu[0]/nlgpos", 1, 10);
-	setprop("/controls/lgciu[1]/mlgleftpos",1);
-	setprop("/controls/lgciu[1]/mlgrightpos",1);
-	setprop("/controls/lgciu[1]/nlgpos",1);
+	interpolate("/controls/lgciu[1]/mlgleftpos", 1, 10); #we also interpolate the other LGCIU's properties just to keep the systems from clashing
+	interpolate("/controls/lgciu[1]/mlgrightpos", 1, 10);
+	interpolate("/controls/lgciu[1]/nlgpos", 1, 10);
 } else if ((gr == 1) and (inuseno2 == 1)) {
     interpolate("/controls/lgciu[1]/mlgleftpos", 1, 10);
 	interpolate("/controls/lgciu[1]/mlgrightpos", 1, 10);
 	interpolate("/controls/lgciu[1]/nlgpos", 1, 10);
-	setprop("/controls/lgciu[0]/mlgleftpos",1);
-	setprop("/controls/lgciu[0]/mlgrightpos",1);
-	setprop("/controls/lgciu[0]/nlgpos",1);
+	interpolate("/controls/lgciu[0]/mlgleftpos", 1, 10);
+	interpolate("/controls/lgciu[0]/mlgrightpos", 1, 10);
+	interpolate("/controls/lgciu[0]/nlgpos", 1, 10);
 } else if ((gr == 0) and (inuseno1 == 1)) {
 	interpolate("/controls/lgciu[0]/mlgleftpos", 0, 10);
 	interpolate("/controls/lgciu[0]/mlgrightpos", 0, 10);
 	interpolate("/controls/lgciu[0]/nlgpos", 0, 10);
-	setprop("/controls/lgciu[1]/mlgleftpos",0);
-	setprop("/controls/lgciu[1]/mlgrightpos",0);
-	setprop("/controls/lgciu[1]/nlgpos",0);
+	interpolate("/controls/lgciu[1]/mlgleftpos", 0, 10);
+	interpolate("/controls/lgciu[1]/mlgrightpos", 0, 10);
+	interpolate("/controls/lgciu[1]/nlgpos", 0, 10);
 } else if ((gr == 0) and (inuseno2 == 1)) {
 	interpolate("/controls/lgciu[1]/mlgleftpos", 0, 10);
 	interpolate("/controls/lgciu[1]/mlgrightpos", 0, 10);
 	interpolate("/controls/lgciu[1]/nlgpos", 0, 10);
-	setprop("/controls/lgciu[0]/mlgleftpos",0);
-	setprop("/controls/lgciu[0]/mlgrightpos",0);
-	setprop("/controls/lgciu[0]/nlgpos",0);
+	interpolate("/controls/lgciu[0]/mlgleftpos", 0, 10);
+	interpolate("/controls/lgciu[0]/mlgrightpos", 0, 10);
+	interpolate("/controls/lgciu[0]/nlgpos", 0, 10);
 }
 });
 
-### Checking the Green Hydraulic System ###
-#var checkgreen = func {
+
+
+
+
+### Checking the Hydraulics and Valves ###
+
 setlistener("/controls/gear/gear-down", func {
 #var psigrn = getprop("/hydraulics/green/psi"); it0uchpods, please enable whenever hydraulic system is available
 var spd = getprop("/velocities/airspeed-kt");
@@ -198,20 +205,21 @@ setprop("/controls/lgciu[0]/inuse",1); #we want to switch to no 1 after putting 
 setprop("/controls/lgciu[1]/inuse",0);
 setprop("/controls/lgciu[0]/gearlever",1); #0 = retracted, 1 = extended
 setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
-} else if ((inuse1 == 1) and isgearupordown == 1) and (hasbeen1 == 1) and (hydsupp ==1) and (no2fail == 1) {
+} else if ((inuse1 == 1) and (isgearupordown == 1) and (hasbeen1 == 1) and (hydsupp ==1) and (no2fail == 1)) {
 setprop("/controls/lgciu[0]/hasbeenret",0); #reset retraction sensor
 setprop("/controls/lgciu[0]/inuse",1); #we want to switch to no 2 after putting the gear down but we cant because it is failed
 setprop("/controls/lgciu[1]/inuse",0);
 setprop("/controls/lgciu[0]/gearlever",1); #0 = retracted, 1 = extended
 setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
-} else if ((inuse1 == 2) and isgearupordown == 1) and (hasbeen2 == 1) and (hydsupp ==1) and (no1fail == 1) {
+} else if ((inuse1 == 2) and (isgearupordown == 1) and (hasbeen2 == 1) and (hydsupp ==1) and (no1fail == 1)) {
 setprop("/controls/lgciu[0]/hasbeenret",0); #reset retraction sensor
 setprop("/controls/lgciu[1]/inuse",1); #we want to switch to no 1 after putting the gear down but we cant because it is failed
 setprop("/controls/lgciu[0]/inuse",0);
 setprop("/controls/lgciu[0]/gearlever",1); #0 = retracted, 1 = extended
 setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
 }
-});
+} 
+);
 
 # No 1 failed
 setlistener("/controls/lgciu[0]/fail", func {
@@ -219,6 +227,7 @@ var no1fail = getprop("/controls/lgciu[0]/fail");
 if (no1fail == 1) {
 setprop("/controls/lgciu[0]/inuse",0);
 setprop("/controls/lgciu[1]/inuse",1);
+print("LGCIU No 1... Failed!");
 } else {
 print("LGCIU No 1... Serviceable!");
 }
@@ -230,6 +239,7 @@ var no2fail = getprop("/controls/lgciu[1]/fail");
 if (no2fail == 1) {
 setprop("/controls/lgciu[1]/inuse",0);
 setprop("/controls/lgciu[0]/inuse",1);
+print("LGCIU No 2... Failed!");
 } else {
 print("LGCIU No 2... Serviceable!");
 }

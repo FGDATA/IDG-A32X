@@ -143,7 +143,7 @@
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>Left Wing Vent</name>
+				<name>Left Wing Pipes</name>
 			</tank>
 			<tank n="1">
 				<name>Left Wing Outer</name>
@@ -161,7 +161,7 @@
 				<name>Right Wing Outer</name>
 			</tank>
 			<tank n="6">
-				<name>Right Wing Vent</name>
+				<name>Right Wing Pipes</name>
 			</tank>
 		</fuel>
 	</consumables>
@@ -262,6 +262,8 @@
 		</autoland>
 	</config>
 </it-autoflight>
+
+	
 
 	<autopilot>
 		<autobrake>

@@ -84,7 +84,6 @@
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>
-
 		<thrust>
 			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
 		</thrust>
