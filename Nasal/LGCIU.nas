@@ -25,6 +25,7 @@ var lgciu_one_init = func {
 	setprop("/controls/lgciu[0]/inuse",1); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[0]/hasbeenret",0); #has the gear been retracted with LGCIU1?
 	setprop("/controls/lgciu[0]/fail",0); #0 = no 1 = yes
+	setprop("/controls/lgciu[0]/emermanext",0); #0 = no 1 = extended can only be retracted if green hyd is available
 }
 
 var lgciu_two_init = func {
@@ -168,13 +169,11 @@ if ((inuse1 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
 setprop("/controls/lgciu[0]/hasbeenret",1); #we have put gear up on lgciu no 1
 setprop("/controls/lgciu[0]/inuse",1); #we want to keep active LGCIU on no 1
 setprop("/controls/lgciu[0]/gearlever",0); #0 = retracted, 1 = extended
-
 } else {
 if ((inuse2 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
 setprop("/controls/lgciu[1]/hasbeenret",1); #we have put gear up on lgciu no 2
 setprop("/controls/lgciu[1]/inuse",1); #we want to keep active LGCIU on no 2
 setprop("/controls/lgciu[1]/gearlever",0); #0 = retracted, 1 = extended
-} else {
 }
 }
 });
@@ -198,7 +197,6 @@ setprop("/controls/lgciu[1]/hasbeenret",0); #reset retraction sensor
 setprop("/controls/lgciu[0]/inuse",1); #we want to switch to no 1 after putting the gear down
 setprop("/controls/lgciu[1]/inuse",0);
 setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
-<<<<<<< HEAD
 } else if ((inuse1 == 1) and (isgearupordown == 1) and (hasbeen1 == 1) and (hydsupp ==1) and (no2fail == 1)) {
 setprop("/controls/lgciu[0]/hasbeenret",0); #reset retraction sensor
 setprop("/controls/lgciu[0]/inuse",1); #we want to switch to no 2 after putting the gear down but we cant because it is failed
@@ -211,7 +209,6 @@ setprop("/controls/lgciu[1]/inuse",1); #we want to switch to no 1 after putting 
 setprop("/controls/lgciu[0]/inuse",0);
 setprop("/controls/lgciu[0]/gearlever",1); #0 = retracted, 1 = extended
 setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
-}
 } 
 );
 
@@ -223,6 +220,7 @@ setprop("/controls/lgciu[0]/inuse",0);
 setprop("/controls/lgciu[1]/inuse",1);
 print("LGCIU No 1... Failed!");
 } else {
+print("LGCIU No 1... Serviceable!");
 }
 });
 
