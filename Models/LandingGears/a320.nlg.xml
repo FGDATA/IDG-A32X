@@ -14,7 +14,7 @@
 		</offsets>
 	</model>
 
-	<model>
+	<!--model>
 		<name>Nose tire smoke</name>
 		<path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
 		<offsets>
@@ -22,7 +22,7 @@
 			<y-m>0</y-m>
 			<z-m>-2.314</z-m>
 		</offsets>
-	</model>
+	</model-->
 
 	<!-- Gear compression -->
 	<animation>

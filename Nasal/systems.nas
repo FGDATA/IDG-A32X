@@ -179,14 +179,11 @@ var triggerDoor = func(door, doorName, doorDesc)
 setlistener("/sim/signals/fdm-initialized", func {	
   	itaf.ap_init();			
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
-	setprop("/it-autoflight/settings/retard-enable", 0);   # Enable or disable automatic autothrottle retard.
-	setprop("/it-autoflight/settings/retard-ft", 50);      # Add this to change the retard altitude.
-	setprop("/it-autoflight/settings/land-flap", 0.645);   # Define the landing flaps here. This is needed for autoland, and retard.
-	setprop("/it-autoflight/settings/land-enable", 1);     # Enable or disable automatic landing.
-	setprop("/it-autoflight/autoland/flare-altitude", 40); # Altitude when the flare mode starts in an autoland.
 	setprop("/controls/engines/thrust-limit", "TOGA");
 	setprop("/controls/engines/epr-limit", 1.301);
 	setprop("/controls/engines/n1-limit", 97.8);
+	setprop("/it-autoflight/input/fd1", 1);
+	setprop("/it-autoflight/input/fd2", 1);
 });
 
 var aglgears = func {

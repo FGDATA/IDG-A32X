@@ -223,44 +223,49 @@
 			<max-lb type="double">3300.320</max-lb>
 		</weight>
 	</payload>
-
-
+	
 <it-autoflight>
 	<config>
 		<altitude-dial-mode>0</altitude-dial-mode>
 		<roll>
 			<umin>-0.40</umin>
 			<umax>0.40</umax>
-			<kp>0.09</kp>
-			<ti>10.0</ti>
-			<td>0.00001</td>
-		</roll>
-		<vorloc>
 			<kp>0.06</kp>
+			<kp-vloc>0.09</kp-vloc>
 			<ti>10.0</ti>
 			<td>0.00001</td>
-		</vorloc>
+			<kp-cws>0.09</kp-cws>
+		</roll>
 		<pitch>
-			<umin>-0.25</umin>
-			<umax>0.25</umax>
+			<umin>-0.30</umin>
+			<umax>0.30</umax>
 			<kp>-0.05</kp>
 			<ti>10.0</ti>
 			<td>0.0001</td>
+			<kp-cws>-0.07</kp-cws>
 		</pitch>
-		<flch>
-			<umin>-0.25</umin>
-			<umax>0.25</umax>
-			<kp>-0.03</kp>
-			<ti>10.0</ti>
-			<td>0.00001</td>
-		</flch>
-		<gs>
-			<kp>0.10</kp>
-		</gs>
+		<cmd>
+			<roll-scale>5</roll-scale>
+			<vorloc>-4.0</vorloc>
+			<alt>0.025</alt>
+			<vs>0.07</vs>
+			<flch>-0.30</flch>
+			<gs>0.10</gs>
+		</cmd>
 		<autoland>
+			<kp-roll>0.10</kp-roll>
 			<kp-pitch>0.01</kp-pitch>
+			<kp-rudder>-0.3</kp-rudder>
 		</autoland>
 	</config>
+	<settings>
+		<flare-altitude>40</flare-altitude>
+		<land-enable>1</land-enable>
+		<land-flap>0.645</land-flap>
+		<retard-ft>40</retard-ft>
+		<retard-enable>0</retard-enable>
+		<toga-pitch>15</toga-pitch>
+	</settings>
 </it-autoflight>
 
 	<autopilot>

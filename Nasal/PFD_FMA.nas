@@ -3,7 +3,7 @@
 
 # Speed or Mach?
 var speedmach = func {
-  if (getprop("/it-autoflight/output/vert") == 4) {
+  if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7)) {
     # Do nothing because it's in FLCH mode.
   } else {
     if (getprop("/it-autoflight/input/kts-mach") == 0) {
@@ -42,6 +42,8 @@ setlistener("/it-autoflight/mode/lat", func {
 	setprop("/modes/pfd/fma/roll-mode", "LOC");
   } else if (lat == "ALGN") {
 	setprop("/modes/pfd/fma/roll-mode", "ALN");
+  } else if (lat == "T/O") {
+	setprop("/modes/pfd/fma/roll-mode", " ");
   }
 });
 
@@ -60,10 +62,16 @@ setlistener("/it-autoflight/mode/vert", func {
 	setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
   } else if (vert == "SPD DES") {
 	setprop("/modes/pfd/fma/pitch-mode", "OP DES");
+  } else if (vert == "FPA") {
+	setprop("/modes/pfd/fma/pitch-mode", "FPA");
   } else if (vert == "LAND 3") {
 	setprop("/modes/pfd/fma/pitch-mode", "LAND");
   } else if (vert == "FLARE") {
 	setprop("/modes/pfd/fma/pitch-mode", "FLARE");
+  } else if (vert == "T/O CLB") {
+	setprop("/modes/pfd/fma/pitch-mode", "SRS");
+  } else if (vert == "G/A CLB") {
+	setprop("/modes/pfd/fma/pitch-mode", "SRS");
   }
 });
 

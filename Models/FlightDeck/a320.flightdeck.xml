@@ -265,6 +265,14 @@
 					<property>/it-autoflight/output/lat</property>
 					<value>2</value>
 				</equals>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>5</value>
+				</equals>
 			</or>
         </condition>
     </animation>

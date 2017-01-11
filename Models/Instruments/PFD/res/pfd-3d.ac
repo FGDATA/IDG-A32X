@@ -444,7 +444,7 @@ refs 4
 kids 0
 OBJECT poly
 name "alt-tape-2"
-loc 0.00091828 0.000295199 -0.0595814
+loc 0.00133137 0.000295199 -0.0595814
 texture "alt-tape-2.png"
 crease 45.000000
 numvert 4
