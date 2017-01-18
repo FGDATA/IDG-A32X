@@ -14,7 +14,7 @@
 		</overlay>
 	</model>
 
-	<model>
+	<!--model>
 		<name>Port tire smoke</name>
 		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
 		<offsets>
@@ -22,7 +22,7 @@
 			<y-m>0</y-m>
 			<z-m>-0.572</z-m>
 		</offsets>
-	</model>
+	</model-->
 
 	<!-- Gear compression -->
 	<animation>
