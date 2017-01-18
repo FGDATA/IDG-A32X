@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus Corperate Jet (IAE V2500)</description>
+		<description>Airbus Corporate Jet (IAE V2500)</description>
 		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>ACJ-IAE</aero>
