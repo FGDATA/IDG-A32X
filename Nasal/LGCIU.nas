@@ -25,7 +25,13 @@ var lgciu_one_init = func {
 	setprop("/controls/lgciu[0]/inuse",1); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[0]/hasbeenret",0); #has the gear been retracted with LGCIU1?
 	setprop("/controls/lgciu[0]/fail",0); #0 = no 1 = 
-	setprop("/controls/lgciu[0]/emermanext",0); #0 = no 1 = extended can only be retracted if green hyd is available
+	setprop("/controls/lgciu[0]/emermanext","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
+	setprop("/controls/lgciu[0]/cargo/fwd/lock",1);
+	setprop("/controls/lgciu[0]/cargo/aft/lock",1);
+	setprop("/controls/lgciu[0]/cargo/bulk/lock",1);
+	setprop("/controls/lgciu[0]/cargo/fwd/open",0);
+	setprop("/controls/lgciu[0]/cargo/aft/open",0);
+	setprop("/controls/lgciu[0]/cargo/bulk/open",0);
 }
 
 var lgciu_two_init = func {
@@ -50,18 +56,59 @@ var lgciu_two_init = func {
 	setprop("/controls/lgciu[1]/inuse",0); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[1]/hasbeenret",0); #has the gear been retracted with LGCIU2?
 	setprop("/controls/lgciu[1]/fail",0); #0 = no 1 = yes
-	setprop("/controls/lgciu[1]/emermanext",0); #0 = no 1 = extended can only be retracted if green hyd is available
+	setprop("/controls/lgciu[1]/emermanext","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
 	setprop("/controls/lgciu[0]/init",1); #these two properties say that 'everything is ready now'
 	setprop("/controls/lgciu[1]/init",1); 
+	setprop("/controls/lgciu[1]/cargo/fwd/lock",1);
+	setprop("/controls/lgciu[1]/cargo/aft/lock",1);
+	setprop("/controls/lgciu[1]/cargo/bulk/lock",1);
+	setprop("/controls/lgciu[1]/cargo/fwd/open",0);
+	setprop("/controls/lgciu[1]/cargo/aft/open",0);
+	setprop("/controls/lgciu[1]/cargo/bulk/open",0);
 }
 
+var BSCU_init = func {
+setprop("/controls/BSCU/hyd/greensupply",0);
+setprop("/controls/BSCU/nws/ruddlim","6");
+setprop("/controls/BSCU/nws/tilllim","70");
+setprop("/controls/BSCU/nws/enabled",0);
+setprop("/controls/BSCU/nws/pedalsdisc",0);
+setprop("/controls/BSCU/fail/nws",0);
+setprop("/controls/BSCU/fail/askid",0);
+setprop("/controls/BSCU/fail/BSCU",0);
+setprop("/controls/BSCU/brakes/hydsupp","0"); #0 is off, 1 is grn, 2 is altn yellow accum
+setprop("/controls/BSCU/brakes/mlgltemp","0"); #in celsius
+setprop("/controls/BSCU/brakes/mlgrtemp","0"); #in celsius
+setprop("/controls/BSCU/brakes/coolfans",0); #0 off 1 on
+setprop("/controls/BSCU/brakes/loverheatplug",0); #0 off 1 on
+setprop("/controls/BSCU/brakes/roverheatplug",0); #0 off 1 on
+setprop("/controls/BSCU/brakes/mode","4"); #0 is norm, 1 is altn, 3 is altn no askid 4 is parkbrake
+}
+
+# for now like this. later try to do a jsbsim table
+var BSCU_timer = maketimer(0.1, func(){
+var ias = getprop("/velocities/airspeed-kt");
+if (ias > 130) {
+setprop("/controls/BSCU/nws/ruddlim","0");
+} else if (ias > 70) {
+setprop("/controls/BSCU/nws/tilllim","0");
+} else if (ias > 57.9 and ias < 61.99 ) {
+setprop("/controls/BSCU/nws/ruddlim","3.5");
+});
+# BSCU logic is A/SKID and NWS sw on, one eng running, a/c on grnd, and towing ctrl lvr in norm pos
 
 # Initialize Landing Gear Control and Indication Unit
 setlistener("/sim/signals/fdm-initialized", func {	
   	lgciu_one_init();
 	lgciu_two_init();
+	BSCU_init();
+	BSCU_timer.start();
 	print("LGCIU System ... OK!");
+	print("BSCU System ... OK!");
 });
+
+
+
 
 ### Left MLG compressor sensor to check if we are on the ground ###
 setlistener("/gear/gear[0]/wow", func {	
@@ -164,14 +211,16 @@ setlistener("/controls/gear/gear-down", func {
 var inuse1 = getprop("/controls/lgciu[0]/inuse");
 var inuse2 = getprop("/controls/lgciu[1]/inuse");
 var isgearupordown = getprop("/controls/gear/gear-down");
-var hydsupp = getprop("/controls/lgciu[0]/hyd/greensupply");
-if ((inuse1 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
+#var hydsupp = getprop("/controls/lgciu[0]/hyd/greensupply");
+#if ((inuse1 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
+if ((inuse1 == 1) and (isgearupordown == 0)) {
 setprop("/controls/lgciu[0]/hasbeenret",1); #we have put gear up on lgciu no 1
 setprop("/controls/lgciu[0]/inuse",1); #we want to keep active LGCIU on no 1
 setprop("/controls/lgciu[0]/gearlever",0); #0 = retracted, 1 = extended
 setprop("/controls/lgciu[1]/gearlever",0); #0 = retracted, 1 = extended
 } else {
-if ((inuse2 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
+#if ((inuse2 == 1) and (isgearupordown == 0) and (hydsupp == 1)) {
+if ((inuse2 == 1) and (isgearupordown == 0)) {
 setprop("/controls/lgciu[1]/hasbeenret",1); #we have put gear up on lgciu no 2
 setprop("/controls/lgciu[1]/inuse",1); #we want to keep active LGCIU on no 2
 setprop("/controls/lgciu[0]/gearlever",0); #0 = retracted, 1 = extended
@@ -218,6 +267,24 @@ setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
 }
 } 
 );
+# Disconnect hyd to gear when we use emergency extension
+setlistener("/controls/lgciu[0]/emermanext", func {
+var no1manexthyd = getprop("/controls/lgciu[0]/emermanext");
+if (no1manexthyd > 0.1) {
+setprop("/controls/lgciu[0]/hyd/greensupply",0);
+setprop("/controls/lgciu[1]/hyd/greensupply",0);
+} else {
+}
+});
+# Disconnect hyd to gear when we use emergency extension
+setlistener("/controls/lgciu[0]/emermanext", func {
+var no2manexthyd = getprop("/controls/lgciu[1]/emermanext");
+if (no2manexthyd > 0.1) {
+setprop("/controls/lgciu[0]/hyd/greensupply",0);
+setprop("/controls/lgciu[1]/hyd/greensupply",0);
+} else {
+}
+});
 
 # No 1 failed
 setlistener("/controls/lgciu[0]/fail", func {
@@ -242,3 +309,14 @@ print("LGCIU No 2... Failed!");
 print("LGCIU No 2... Serviceable!");
 }
 });
+
+# BSCU failed
+setlistener("/controls/BSCU/fail/BSCU", func {
+var bscufail = getprop("/controls/BSCU/fail/BSCU");
+if (bscufail == 1) {
+print("BSCU... Failed!");
+} else {
+print("BSCU... Serviceable!");
+}
+});
+
