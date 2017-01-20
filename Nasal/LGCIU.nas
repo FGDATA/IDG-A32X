@@ -94,6 +94,7 @@ setprop("/controls/BSCU/nws/ruddlim","0");
 setprop("/controls/BSCU/nws/tilllim","0");
 } else if (ias > 57.9 and ias < 61.99 ) {
 setprop("/controls/BSCU/nws/ruddlim","3.5");
+}
 });
 # BSCU logic is A/SKID and NWS sw on, one eng running, a/c on grnd, and towing ctrl lvr in norm pos
 
