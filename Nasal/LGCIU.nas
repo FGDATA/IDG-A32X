@@ -25,7 +25,8 @@ var lgciu_one_init = func {
 	setprop("/controls/lgciu[0]/inuse",1); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[0]/hasbeenret",0); #has the gear been retracted with LGCIU1?
 	setprop("/controls/lgciu[0]/fail",0); #0 = no 1 = 
-	setprop("/controls/lgciu[0]/emermanext","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
+	setprop("/controls/lgciu[0]/emermanext",0); #0 = no 1 = begin
+	setprop("/controls/lgciu[0]/emermanextpos","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
 	setprop("/controls/lgciu[0]/cargo/fwd/lock",1);
 	setprop("/controls/lgciu[0]/cargo/aft/lock",1);
 	setprop("/controls/lgciu[0]/cargo/bulk/lock",1);
@@ -56,15 +57,16 @@ var lgciu_two_init = func {
 	setprop("/controls/lgciu[1]/inuse",0); #the LGCIUs switch between eachother on each gear cycle. eg if one LGCIU fails put the gear down and bring them up again to reset
 	setprop("/controls/lgciu[1]/hasbeenret",0); #has the gear been retracted with LGCIU2?
 	setprop("/controls/lgciu[1]/fail",0); #0 = no 1 = yes
-	setprop("/controls/lgciu[1]/emermanext","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
-	setprop("/controls/lgciu[0]/init",1); #these two properties say that 'everything is ready now'
-	setprop("/controls/lgciu[1]/init",1); 
+	setprop("/controls/lgciu[1]/emermanext",0); #0 = no 1 = begin
+	setprop("/controls/lgciu[1]/emermanextpos","0"); #0 = no 3 = extended can only be retracted if green hyd is available. crank must be turned 3 times clockwise so this has quotes
 	setprop("/controls/lgciu[1]/cargo/fwd/lock",1);
 	setprop("/controls/lgciu[1]/cargo/aft/lock",1);
 	setprop("/controls/lgciu[1]/cargo/bulk/lock",1);
 	setprop("/controls/lgciu[1]/cargo/fwd/open",0);
 	setprop("/controls/lgciu[1]/cargo/aft/open",0);
 	setprop("/controls/lgciu[1]/cargo/bulk/open",0);
+	setprop("/controls/lgciu[0]/init",1); #these two properties say that 'everything is ready now'
+	setprop("/controls/lgciu[1]/init",1); 
 }
 
 var BSCU_init = func {
@@ -268,24 +270,7 @@ setprop("/controls/lgciu[1]/gearlever",1); #0 = retracted, 1 = extended
 }
 } 
 );
-# Disconnect hyd to gear when we use emergency extension
-setlistener("/controls/lgciu[0]/emermanext", func {
-var no1manexthyd = getprop("/controls/lgciu[0]/emermanext");
-if (no1manexthyd > 0.1) {
-setprop("/controls/lgciu[0]/hyd/greensupply",0);
-setprop("/controls/lgciu[1]/hyd/greensupply",0);
-} else {
-}
-});
-# Disconnect hyd to gear when we use emergency extension
-setlistener("/controls/lgciu[0]/emermanext", func {
-var no2manexthyd = getprop("/controls/lgciu[1]/emermanext");
-if (no2manexthyd > 0.1) {
-setprop("/controls/lgciu[0]/hyd/greensupply",0);
-setprop("/controls/lgciu[1]/hyd/greensupply",0);
-} else {
-}
-});
+
 
 # No 1 failed
 setlistener("/controls/lgciu[0]/fail", func {
