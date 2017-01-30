@@ -198,14 +198,6 @@ var aglgears = func {
 
 aglgears();
 
-setlistener("/instrumentation/altimeter/indicated-altitude-ft", func {
-	setprop("/instrumentation/altimeter/indicated-altitude-ft-pfd", getprop("/instrumentation/altimeter/indicated-altitude-ft") / 100);
-});
-
-setlistener("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", func {
-	setprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd", getprop("/instrumentation/vertical-speed-indicator/indicated-speed-fpm") / 100);
-});
-
 setlistener("/controls/parking-brake", func {
 	if (getprop("/controls/parking-brake") == 1) {
 		setprop("/electrical/switches/ext-pwr", 1);
