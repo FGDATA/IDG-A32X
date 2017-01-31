@@ -123,10 +123,12 @@
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input> 
             <expression>
-                <div>
-                    <property>/instrumentation/altimeter/indicated-altitude-ft</property> 
-					<value>100</value>
-                </div>
+				<floor>
+					<div>
+						<property>/instrumentation/altimeter/indicated-altitude-ft</property> 
+						<value>100</value>
+					</div>
+				</floor>
             </expression>
         </input>
 		<output>/instrumentation/altimeter/indicated-altitude-ft-pfd</output>
@@ -139,10 +141,12 @@
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input> 
             <expression>
-                <div>
-                    <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property> 
-					<value>100</value>
-                </div>
+				<floor>
+					<div>
+						<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property> 
+						<value>100</value>
+					</div>
+				</floor>
             </expression>
         </input>
 		<output>/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd</output>
