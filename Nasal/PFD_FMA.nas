@@ -43,7 +43,7 @@ setlistener("/it-autoflight/mode/lat", func {
   } else if (lat == "ALGN") {
 	setprop("/modes/pfd/fma/roll-mode", "ALN");
   } else if (lat == "T/O") {
-	setprop("/modes/pfd/fma/roll-mode", " ");
+	setprop("/modes/pfd/fma/roll-mode", "RWY");
   }
 });
 
@@ -117,9 +117,9 @@ var fd = func {
   if (fd1 and fd2) {
     setprop("/modes/pfd/fma/fd-mode", "1FD2");
   } else if (fd1 and !fd2) {
-    setprop("/modes/pfd/fma/fd-mode", "FD1");
+    setprop("/modes/pfd/fma/fd-mode", "1FD-");
   } else if (fd2 and !fd1) {
-    setprop("/modes/pfd/fma/fd-mode", "FD2");
+    setprop("/modes/pfd/fma/fd-mode", "-FD2");
   } else {
     setprop("/modes/pfd/fma/fd-mode", " ");
   }
