@@ -239,7 +239,7 @@
 		<pitch>
 			<umin>-0.30</umin>
 			<umax>0.30</umax>
-			<kp>-0.05</kp>
+			<kp>-0.04</kp>
 			<ti>10.0</ti>
 			<td>0.0001</td>
 			<kp-cws>-0.07</kp-cws>
@@ -250,7 +250,7 @@
 			<alt>0.025</alt>
 			<vs>0.07</vs>
 			<fpa>0.30</fpa>
-			<flch>-0.35</flch>
+			<flch>-0.60</flch>
 			<gs>0.10</gs>
 		</cmd>
 		<autoland>
