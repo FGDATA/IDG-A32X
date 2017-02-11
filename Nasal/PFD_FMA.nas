@@ -41,7 +41,7 @@ setlistener("/it-autoflight/mode/lat", func {
   } else if (lat == "LOC") {
 	setprop("/modes/pfd/fma/roll-mode", "LOC");
   } else if (lat == "ALGN") {
-	setprop("/modes/pfd/fma/roll-mode", "ALN");
+	setprop("/modes/pfd/fma/roll-mode", "LAND");
   } else if (lat == "T/O") {
 	setprop("/modes/pfd/fma/roll-mode", "RWY");
   }

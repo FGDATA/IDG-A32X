@@ -1,4 +1,4 @@
-# A340 EFIS controller by Joshua Davidson (it0uchpods/411).
+# A320 EFIS controller by Joshua Davidson (it0uchpods/411).
 
 setlistener("sim/signals/fdm-initialized", func {
 	setprop("instrumentation/efis/mfd/pnl_mode-num", 3);

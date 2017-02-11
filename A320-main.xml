@@ -4,7 +4,7 @@
 
 	<sim>
 		
-		<author>Joshua Davidson (it0uchpods/411), J Redpath (YV-LEGO)</author>
+		<author>Joshua Davidson (it0uchpods/411)</author>
 
 		<model>
 			<pushback>
@@ -41,7 +41,7 @@
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
             </autopilot>
             <autopilot>
-                <path>Aircraft/A320Family/Systems/thrust.xml</path>
+                <path>Aircraft/A320Family/Systems/thrust-iae.xml</path>
             </autopilot>
             <autopilot>
                 <name>Custom engine values system</name>

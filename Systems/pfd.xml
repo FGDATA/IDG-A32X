@@ -99,7 +99,7 @@
         <update-interval-secs type="double">0.05</update-interval-secs>
         <gain>1.0</gain>
         <input>
-            <property>/it-autoflight/settings/target-altitude-ft-actual</property>
+            <property>/it-autoflight/internal/alt</property>
         </input>
         <reference>
             <property>instrumentation/altimeter/indicated-altitude-ft</property>
@@ -163,8 +163,8 @@
         <output>instrumentation/pfd/heading-deg</output>
         <enable>
             <equals>
-                <property>/flight-management/control/lat-ctrl</property>
-                <value>man-set</value>
+                <property>/it-autoflight/output/lat</property>
+                <value>0</value>
             </equals>
         </enable>
     </filter>
@@ -187,8 +187,8 @@
         <output>instrumentation/pfd/track-deg</output>
         <enable>
             <equals>
-                <property>/flight-management/control/lat-ctrl</property>
-                <value>man-set</value>
+                <property>/it-autoflight/output/lat</property>
+                <value>0</value>
             </equals>
         </enable>
     </filter>
@@ -213,8 +213,8 @@
         <output>instrumentation/pfd/track-diff</output>
         <enable>
             <equals>
-                <property>/flight-management/control/ver-sub</property>
-                <value>fpa</value>
+                <property>/it-autoflight/output/vert</property>
+                <value>5</value>
             </equals>
         </enable>
     </filter>
@@ -245,8 +245,8 @@
         </period>
         <enable>
             <equals>
-                <property>/flight-management/control/lat-ctrl</property>
-                <value>man-set</value>
+                <property>/it-autoflight/output/lat</property>
+                <value>0</value>
             </equals>
         </enable>
     </filter>
