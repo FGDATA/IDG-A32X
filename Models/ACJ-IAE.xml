@@ -329,11 +329,11 @@
         </condition>
     </model>
     
-    <!-- Chokes -->
+    <!-- Chocks -->
     
     <model>
-        <name>choke_nose</name>
-        <path>Aircraft/A320Family/Models/Services/Chokes/choke_nose.ac</path>
+        <name>chock_nose</name>
+        <path>Aircraft/A320Family/Models/Services/Chocks/chock_nose.ac</path>
         <condition>
             <equals>
                 <property>/services/chokes/nose</property>
@@ -347,8 +347,8 @@
     </model>
     
     <model>
-        <name>choke_left</name>
-        <path>Aircraft/A320Family/Models/Services/Chokes/choke_left.ac</path>
+        <name>chock_left</name>
+        <path>Aircraft/A320Family/Models/Services/Chocks/chock_left.ac</path>
         <condition>
             <equals>
                 <property>/services/chokes/left</property>
@@ -363,8 +363,8 @@
     </model>
     
     <model>
-        <name>choke_right</name>
-        <path>Aircraft/A320Family/Models/Services/Chokes/choke_right.ac</path>
+        <name>chock_right</name>
+        <path>Aircraft/A320Family/Models/Services/Chocks/chock_right.ac</path>
         <condition>
             <equals>
                 <property>/services/chokes/right</property>

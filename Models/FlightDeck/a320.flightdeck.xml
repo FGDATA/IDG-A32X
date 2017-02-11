@@ -752,7 +752,34 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/output/athrsw</property>
+				<property>/it-autoflight/input/athr</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>thr_b.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/input/athr</property>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>thr_b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/input/athr</property>\
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
@@ -2760,6 +2787,21 @@
 	</animation>
 
 	<!-- ECAM and Switching panel -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam.sts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("instrumentation/efis/ecam/display-mode", "STATUS");
+				</script>
+			</binding>
+		</action>
+	</animation>
     
     <animation>
 		<type>pick</type>

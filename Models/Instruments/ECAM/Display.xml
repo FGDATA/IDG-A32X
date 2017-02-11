@@ -46,6 +46,26 @@
 			<w>256</w>
 			<h>256</h>
 		</instrument>
+		
+		<instrument include="page-status.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>STATUS-DISABLED</value> <!-- Disabled due to missing textures, will fix -it0uchpods -->
+				</equals>
+			    </and>
+			</condition>
+	       		<name>STATUS</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
 
 		<instrument include="page-press.xml">
 			<condition>
