@@ -705,7 +705,7 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/lookahead-10-sec-mach</property>
-			<scale>500.0</scale>
+			<scale>1000.0</scale>
 		</input>
 		<reference>
 			<condition>
@@ -724,7 +724,7 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/input/spd-mach</property>
-			<scale>500.0</scale>
+			<scale>1000.0</scale>
 		</reference>
 		<output>
 			<property>/it-autoflight/internal/target-pitch-deg</property>
