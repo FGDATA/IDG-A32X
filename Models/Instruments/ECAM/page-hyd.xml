@@ -23,7 +23,7 @@
 			<emissive>true</emissive>
 		</layer>
         
-		<layer>
+		<!--<layer>
 
 			<type>text</type>
 			<name>GREEN_PSI</name>
@@ -37,7 +37,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/hydraulics/green/pressure-psi</property><!-- There is no TAT temperature property-->
+					<property>/hydraulics/green/pressure-psi</property>
 					<format type="string">%4.0f</format>
 				</chunk>
 			</chunks>
@@ -67,7 +67,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/hydraulics/blue/pressure-psi</property><!-- There is no TAT temperature property-->
+					<property>/hydraulics/blue/pressure-psi</property>
 					<format type="string">%4.0f</format>
 				</chunk>
 			</chunks>
@@ -97,7 +97,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/hydraulics/yellow/pressure-psi</property><!-- There is no TAT temperature property-->
+					<property>/hydraulics/yellow/pressure-psi</property>
 					<format type="string">%4.0f</format>
 				</chunk>
 			</chunks>
@@ -111,7 +111,7 @@
 					<offset>14	</offset>
 				</transformation>
 			</transformations>
-		</layer>
+		</layer>-->
 
 <!-- ################################## Bottom  #################################-->
 
