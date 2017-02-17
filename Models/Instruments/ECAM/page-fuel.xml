@@ -367,7 +367,7 @@
 		</layer>
 
 
-<!-- Left Tank Feed Pump 1 -->
+<!-- Left Tank Feed Pump 1
 		<layer>
 			<name>Left Tank Feed Pump 1 off</name>
 			<!--condition>
@@ -375,7 +375,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
@@ -403,7 +403,7 @@
 			</transformations>
 		</layer>
 		
-<!-- Left Tank Feed Pump 2 -->
+<!-- Left Tank Feed Pump 2 
 		<layer>
 			<name>Left Tank Feed Pump 2 off</name>
 			<!--condition>
@@ -411,7 +411,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
@@ -440,7 +440,7 @@
 		</layer>
 	
 
-<!-- Center Tank Feed Pump 1 -->
+<!-- Center Tank Feed Pump 1 
 		<layer>
 			<name>Center Tank Feed Pump 1 off</name>
 			<!--condition>
@@ -448,7 +448,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
@@ -476,7 +476,7 @@
 			</transformations>
 		</layer>
 		
-<!-- Center Tank Feed Pump 2 -->
+<!-- Center Tank Feed Pump 2 
 		<layer>
 			<name>Center Tank Feed Pump 2 off</name>
 			<!--condition>
@@ -484,7 +484,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
@@ -512,7 +512,7 @@
 			</transformations>
 		</layer>
 		
-<!-- Right Tank Feed Pump 2 -->
+<!-- Right Tank Feed Pump 2 
 		<layer>
 			<name>Right Tank Feed Pump 2 off</name>
 			<!--condition>
@@ -520,7 +520,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
@@ -548,7 +548,7 @@
 			</transformations>
 		</layer>
 		
-<!-- Right Tank Feed Pump 1 -->
+<!-- Right Tank Feed Pump 1 
 		<layer>
 			<name>Right Tank Feed Pump 1 off</name>
 			<!--condition>
@@ -556,7 +556,7 @@
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition-->
+			</condition
 			<emissive>true</emissive>
 			<w>12</w>
 			<h>3</h>
