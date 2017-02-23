@@ -56,7 +56,7 @@
 				</greater-than>
 				<equals>
 				    <property>instrumentation/efis/ecam/display-mode</property>
-				    <value>STATUS-DISABLED</value> <!-- Disabled due to missing textures, will fix -it0uchpods -->
+				    <value>STATUS</value> <!-- The textures are there - legoboy -->
 				</equals>
 			    </and>
 			</condition>
