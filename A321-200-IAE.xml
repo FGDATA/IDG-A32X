@@ -472,7 +472,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 150 </capacity><!-- need review -->
+		<capacity unit="LBS"> 412 </capacity><!-- 1 percent of total capacity, needs 20C to be filled -->
 		<contents unit="LBS"> 0 </contents>
 		
 		<priority>4</priority>
@@ -485,8 +485,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -457.4259 </y>
 			<z> -8.0898 </z>
 		</location>
-		<capacity unit="LBS"> 1520.00 </capacity><!-- need review -->
-		<contents unit="LBS"> 0 </contents>
+		<capacity unit="LBS"> 1520.00 </capacity><!-- correct by FCOM -->
+		<contents unit="LBS"> 1520 </contents><!-- outer filled first than inner -->
 		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
 		<priority>2</priority>
 		<type>JET-A1</type>
@@ -498,8 +498,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -236.2992 </y>
 			<z> -33.9470 </z>
 		</location>
-		<capacity unit="LBS"> 11982 </capacity><!-- need review -->
-		<contents unit="LBS"> 3000 </contents>
+		<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
+		<contents unit="LBS"> 6000 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>
@@ -518,14 +518,27 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
+	<tank type="FUEL">    <!-- Center Tank 3 -->
+		<location unit="IN">
+			<x> 522.0473 </x>
+			<y> 0 </y>
+			<z> -47.0 </z>
+		</location>
+		<capacity unit="LBS"> 14281 </capacity><!-- correct by FCOM -->
+		<contents unit="LBS"> 0 </contents> <!-- wing tanks filled first -->
+		<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
+		<priority>1</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
+	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Inner) 4 -->
 		<location unit="IN">
 			<x> 652.5591 </x>
 			<y> 236.2992 </y>
 			<z> -33.9470 </z>
 		</location>
-		<capacity unit="LBS"> 11982 </capacity><!-- need review -->
-		<contents unit="LBS"> 3000 </contents>
+		<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
+		<contents unit="LBS"> 6000 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimum fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>
@@ -538,7 +551,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -8.0898 </z>
 		</location>
 		<capacity unit="LBS"> 1520 </capacity><!-- need review -->
-		<contents unit="LBS"> 0 </contents>
+		<contents unit="LBS"> 1520 </contents><!-- outer tank filled first than inner tank -->
 		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
 		<priority>2</priority>
 		<type>JET-A1</type>
@@ -550,7 +563,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 150 </capacity><!-- need review -->
+		<capacity unit="LBS"> 412 </capacity><!-- 1 percent of total fuel capacity, needs 20C-->
 		<contents unit="LBS"> 0 </contents>
 		<priority>4</priority>
 		<type>JET-A1</type>
