@@ -9,8 +9,8 @@
 # Configuration settings
 ##########################################################################
 # Minimum landing flap position
-# A320 normal flaps for landing full
-var gpws_min_landing_flaps = 0.1;
+# 340 requires at least flap position 25 (=83%) for landing
+var gpws_min_landing_flaps = 0.645;
 
 ##############################################
 # GPWS specific class
@@ -24,7 +24,7 @@ var GPWS =
 
         m.gpws            = props.globals.getNode(prop1);
         m.self_test       = m.gpws.getNode("inputs/discretes/self-test");
-        m.flap_override   = m.gpws.getNode("inputs/discretes/momentary-flap-override"); #allows flap 3 ldg if overhead switch is enabled
+        m.flap_override   = m.gpws.getNode("inputs/discretes/momentary-flap-override");
         m.gs_inhibit      = m.gpws.getNode("inputs/discretes/glideslope-inhibit");
         m.gpws_inhibit    = m.gpws.getNode("inputs/discretes/gpws-inhibit");
         m.terrain_inhibit = m.gpws.getNode("inputs/discretes/ta-tcf-inhibit");
@@ -39,7 +39,7 @@ var GPWS =
         # add listener to gear
         setlistener("controls/gear/gear-down",         func { Gpws.update_gear_state() } );
 
-        # GPWS provides two TCWs (Time Critical Warnings) to the PFD: not enabled for A320
+        # GPWS provides two TCWs (Time Critical Warnings) to the PFD:
         # "PULL UP" and "WINDSHEAR" alerts (windshears not supported here...)
         m.tcw_out = m.gpws.initNode("outputs/warning","","STRING");
         m.tcw_out.setValue("");
@@ -49,8 +49,7 @@ var GPWS =
         return m;
     },
 
-#### self-test buttons #### 
-# above ND dimmer on A320, currently not modelled. NOT GPWS switches on OHP
+#### self-test buttons ####
     clicked_selftest : func
     {
         if (!me.self_test.getBoolValue())
@@ -75,7 +74,6 @@ var GPWS =
     },
 
 #### flap-override button ####
-# allow FLAP 3 ldg
     clicked_flap_override : func
     {
         if (!me.flap_override.getBoolValue())

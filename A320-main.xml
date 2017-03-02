@@ -143,7 +143,7 @@
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>Left Wing Pipes</name>
+				<name>Left Wing Surge</name>
 			</tank>
 			<tank n="1">
 				<name>Left Wing Outer</name>
@@ -161,7 +161,7 @@
 				<name>Right Wing Outer</name>
 			</tank>
 			<tank n="6">
-				<name>Right Wing Pipes</name>
+				<name>Right Wing Surge</name>
 			</tank>
 		</fuel>
 	</consumables>
@@ -513,9 +513,7 @@
 					<command>property-cycle</command>
 					<property>controls/flight/speedbrake-lever</property>
 					<value>0</value>
-					<value>0.25</value>
 					<value>0.5</value>
-					<value>0.75</value>
 					<value>1</value>
 				</binding>
 			</key>
