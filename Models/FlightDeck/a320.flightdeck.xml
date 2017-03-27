@@ -40,17 +40,6 @@
 		</offsets>
 	</model>
 	
-	<!-- Standby Attitude Indicator (new) -->
-	<model>
-		<path>Aircraft/A320Family/Models/Instruments/Stby-AI/Stby-AInew.xml</path>
-		<offsets>
-			<x-m>-0.5700</x-m>
-			<y-m>-0.1344</y-m>
-			<z-m>-0.0693</z-m>
-			<pitch-deg>-16</pitch-deg>
-		</offsets>
-	</model>
-	
 	<!-- Multi-purpose Control and Display Units -->
 	
 	<model>
@@ -3772,6 +3761,35 @@
 			<z2-m>0.1419</z2-m>
 		</axis>
 	</animation>
+	
+	<!-- Standby Attitude Indicator -->
+	
+	<animation>
+        <type>texmultiple</type>
+        <object-name>stby-ai</object-name>
+        <transform>
+            <property>orientation/pitch-deg</property>
+            <subtype>textranslate</subtype>
+            <factor>0.003955078</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <property>orientation/roll-deg</property>
+            <subtype>texrotate</subtype>
+            <center>
+                <x>0.50</x>
+                <y>0.50</y>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+        </transform>
+    </animation>
     
     <!-- Autobrake System -->
     

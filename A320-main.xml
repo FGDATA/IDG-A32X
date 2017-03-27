@@ -228,9 +228,9 @@
 	<config>
 		<altitude-dial-mode>0</altitude-dial-mode>
 		<roll>
-			<umin>-0.40</umin>
-			<umax>0.40</umax>
-			<kp>0.06</kp>
+			<umin>-0.30</umin>
+			<umax>0.30</umax>
+			<kp>0.05</kp>
 			<kp-vloc>0.09</kp-vloc>
 			<ti>10.0</ti>
 			<td>0.00001</td>
@@ -245,12 +245,13 @@
 			<kp-cws>-0.07</kp-cws>
 		</pitch>
 		<cmd>
-			<roll-scale>5</roll-scale>
+			<roll-kp>-1.9</roll-kp>
+			<roll-scale>1.4</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
 			<vs>0.07</vs>
 			<fpa>0.30</fpa>
-			<flch>-0.35</flch>
+			<flch>-4.0</flch>
 			<gs>0.10</gs>
 		</cmd>
 		<autoland>

@@ -42,11 +42,10 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
@@ -91,11 +90,10 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
@@ -133,11 +131,10 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.08</u_min>  
@@ -175,11 +172,10 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
@@ -222,11 +218,10 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
@@ -271,11 +266,10 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
@@ -313,11 +307,10 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.08</u_min>  
@@ -355,11 +348,10 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.1</Kp>        
+      <Kp>0.01</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
-                          
       <Ti>10.0</Ti>       
       <Td>0.00001</Td>    
       <u_min>0.0</u_min>  
