@@ -42,7 +42,7 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.01</Kp>        
+      <Kp>0.1</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
@@ -90,7 +90,7 @@
       <property>/controls/engines/engine[0]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.01</Kp>        
+      <Kp>0.1</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
@@ -218,7 +218,7 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.01</Kp>        
+      <Kp>0.1</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  
@@ -266,7 +266,7 @@
       <property>/controls/engines/engine[1]/throttle-cmd</property>
     </output>
     <config>
-      <Kp>0.01</Kp>        
+      <Kp>0.1</Kp>        
       <beta>1.0</beta>    
       <alpha>0.1</alpha>  
       <gamma>0.0</gamma>  

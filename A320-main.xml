@@ -237,8 +237,8 @@
 			<kp-cws>0.09</kp-cws>
 		</roll>
 		<pitch>
-			<umin>-0.30</umin>
-			<umax>0.30</umax>
+			<umin>-0.40</umin>
+			<umax>0.40</umax>
 			<kp>-0.04</kp>
 			<ti>10.0</ti>
 			<td>0.0001</td>
@@ -268,7 +268,7 @@
 		<land-flap>0.645</land-flap> <!-- Minimum Flap used for Landing -->
 		<retard-ft>40</retard-ft> <!-- Enable Thrust Retard -->
 		<retard-enable>0</retard-enable> <!-- AGL to Thrust Retard -->
-		<togaspd>157</togaspd> <!-- V2 + 10kts -->
+		<togaspd>162</togaspd> <!-- V2 + 10kts -->
 		<lat-agl-ft>100</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
 		<reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
 	</settings>
