@@ -22,7 +22,7 @@
 				<position-y-m type="float">-1.76</position-y-m>
 				<position-z-m type="float">2.20</position-z-m>
 				<jetway-hood-deg type="float">8</jetway-hood-deg>
-  </door>
+			</door>
 
 		</model>
 		
