@@ -922,16 +922,15 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatic/APU-bleed</property>
+				<property>controls/APU/bleed</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
 		<name>APU bleed on</name>
 		<type>textranslate</type>
 		<object-name>APUBleedBtn2</object-name>
-		<property>controls/pneumatic/APU-bleed</property>
+		<property>controls/APU/bleed</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
@@ -951,7 +950,6 @@
 				<command>property-toggle</command>
 				<property>controls/pneumatic/engine[1]/bleed</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
@@ -1368,7 +1366,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/master-switch</property>
+				<property>controls/APU/master</property>
 			</binding>
 
 		</action>
@@ -1379,7 +1377,7 @@
 		<object-name>APUMasterBtn1</object-name>
 		<property>engines/apu/serviceable</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry> <!-- Set 0.5 to make the FAULT light appear -->
 			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
 		<axis>
@@ -1391,7 +1389,7 @@
 		<name>APU master switch on</name>
 		<type>textranslate</type>
 		<object-name>APUMasterBtn2</object-name>
-		<property>controls/APU/master-switch</property>
+		<property>controls/APU/master</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
@@ -1409,7 +1407,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/starter</property>
+				<property>controls/APU/start</property>
 			</binding>
 
 		</action>
@@ -1418,7 +1416,7 @@
 		<name>APU starter on</name>
 		<type>textranslate</type>
 		<object-name>APUStartBtn2</object-name>
-		<property>controls/APU/starter</property>
+		<property>controls/APU/start</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>

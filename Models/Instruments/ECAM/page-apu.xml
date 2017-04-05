@@ -48,7 +48,7 @@
 					<type>rotation</type>
 					<offset>-30</offset>
 					<scale>1.6</scale>
-					<property>engines/apu/rpm</property>
+					<property>/systems/apu/rpm</property>
 				</transformation>
 			</transformations>
 		</layer>
@@ -66,7 +66,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>engines/apu/rpm</property>
+					<property>/systems/apu/rpm</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -108,7 +108,10 @@
 				</transformation>
 			</transformations>
 			<condition>
-				<property>engines/apu/running</property>
+				<greater-than>
+					<property>/systems/apu/rpm</property>
+					<value>98.0</value>
+				</greater-than>
 			</condition>
 		</layer>
 		
@@ -138,7 +141,7 @@
 				</transformation>
 			</transformations>
 			<condition>
-				<property>controls/APU/master-switch</property>
+				<property>controls/APU/master</property>
 			</condition>
 		</layer>
 		
@@ -156,7 +159,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/apu-v</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/suppliers/apu-v</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -189,7 +192,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>environment/temperature-degc</property><!-- There is no TAT temperature property-->
+					<property>environment/temperature-degc</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>

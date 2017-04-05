@@ -6,7 +6,7 @@
   Inputs:
     name:           V2522_A5
     type:           turbine
-    thrust:         21998.928 lb
+    thrust:         32000 lb
     augmented?      no
     injected?       no
 -->
@@ -15,11 +15,13 @@
   <milthrust>     32000 </milthrust>
   <bypassratio>     2.0 </bypassratio>
   <tsfc>            0.8 </tsfc>
-  <bleed>           0.03</bleed>
+  <bleed>          0.03 </bleed>
   <idlen1>         23.4 </idlen1>
-  <idlen2>         62.7 </idlen2>
+  <idlen2>         63.7 </idlen2>
+  <n1spinup>        5.1 </n1spinup>
+  <n2spinup>       22.8 </n2spinup>
   <maxn1>         105.8 </maxn1>
-  <maxn2>         102.1</maxn2>
+  <maxn2>         102.1 </maxn2>
   <augmented>         0 </augmented>
   <injected>          0 </injected>
 

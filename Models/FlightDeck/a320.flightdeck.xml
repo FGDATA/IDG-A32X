@@ -2119,64 +2119,6 @@
 
 	<!-- Engine Cut-off Switches -->
 
-    <animation>
-        <type>rotate</type>
-        <object-name>Lcutoff</object-name>
-        <property>controls/engines/engine[0]/cutoff</property>
-        <factor>40</factor>
-        <center>
-            <x-m>-0.1064</x-m>
-            <y-m>0</y-m>
-            <z-m>-0.3795</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>Rcutoff</object-name>
-        <property>controls/engines/engine[1]/cutoff</property>
-        <factor>40</factor>
-        <center>
-            <x-m>-0.1064</x-m>
-            <y-m>0</y-m>
-            <z-m>-0.3795</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-
-    <animation>
-        <type>pick</type>
-        <object-name>Lcutoff</object-name>
-        <action>
-            <button>0</button>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/engines/engine[0]/cutoff-switch</property>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Rcutoff</object-name>
-        <action>
-            <button>0</button>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/engines/engine[1]/cutoff-switch</property>
-            </binding>
-        </action>
-    </animation>
     
     <!-- Side Stick Animations -->
     
@@ -4019,7 +3961,7 @@
 		<object-name>Lcutoff</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/cutoff-switch</property>
@@ -4031,7 +3973,10 @@
 		<type>rotate</type>
 		<object-name>Lcutoff</object-name>
 		<property>controls/engines/engine[0]/cutoff-switch</property>
-		<factor>20</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>-0.1067</x-m>
 			<y-m>0</y-m>
@@ -4049,7 +3994,7 @@
 		<object-name>Rcutoff</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/cutoff-switch</property>
@@ -4061,7 +4006,10 @@
 		<type>rotate</type>
 		<object-name>Rcutoff</object-name>
 		<property>controls/engines/engine[1]/cutoff-switch</property>
-		<factor>20</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>-0.1067</x-m>
 			<y-m>0</y-m>

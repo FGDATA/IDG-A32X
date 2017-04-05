@@ -41,18 +41,26 @@
     </filter>
 
     <filter>
-        <name>EGT 1</name>
+        <name>EGT L</name>
         <type>gain</type>
         <gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/engines/engine[0]/state</property>
+					<value>3</value>
+				</equals>
+			</condition>
+		</enable>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input> 
             <expression>
                 <table>
                     <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>  0</ind><dep>037</dep></entry>
-                    <entry><ind>  8</ind><dep>037</dep></entry>
-                    <entry><ind> 23</ind><dep>415</dep></entry>
-                    <entry><ind>110</ind><dep>642</dep></entry>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>6</ind><dep>0</dep></entry>
+                    <entry><ind>23.4</ind><dep>323</dep></entry>
+                    <entry><ind>110</ind><dep>700</dep></entry>
                 </table>
             </expression>
         </input>
@@ -60,18 +68,26 @@
     </filter>
 	
     <filter>
-        <name>EGT 2</name>
+        <name>EGT R</name>
         <type>gain</type>
         <gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/engines/engine[1]/state</property>
+					<value>3</value>
+				</equals>
+			</condition>
+		</enable>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input> 
             <expression>
                 <table>
                     <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>  0</ind><dep>037</dep></entry>
-                    <entry><ind>  8</ind><dep>037</dep></entry>
-                    <entry><ind> 23</ind><dep>415</dep></entry>
-                    <entry><ind>110</ind><dep>642</dep></entry>
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>6</ind><dep>0</dep></entry>
+                    <entry><ind>23.4</ind><dep>323</dep></entry>
+                    <entry><ind>110</ind><dep>700</dep></entry>
                 </table>
             </expression>
         </input>

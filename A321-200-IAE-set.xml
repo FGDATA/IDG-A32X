@@ -68,7 +68,6 @@
 	
 	<nasal>
 		<A320>
-			<file>Aircraft/A320Family/Nasal/engines.nas</file>
 			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
 			<file>Aircraft/A320Family/Nasal/systems.nas</file>
 			<file>Aircraft/A320Family/Nasal/a321livery.nas</file>
@@ -78,6 +77,12 @@
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
 		</A320>
+		<acconfig>
+			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
+		</acconfig>
+		<systems>
+			<file>Aircraft/A320Family/Nasal/engines.nas</file>
+		</systems>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>

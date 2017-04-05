@@ -25,9 +25,6 @@ var systems =
   },
  update: func
   {
-  apu1.update();
-  engine1.update();
-  engine2.update();
   update_electrical();
 
   # stop calling our systems code if the stop() function was called or the aircraft crashes
