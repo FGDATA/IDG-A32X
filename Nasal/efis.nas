@@ -2,6 +2,8 @@
 
 setlistener("sim/signals/fdm-initialized", func {
 	setprop("instrumentation/efis/mfd/pnl_mode-num", 3);
+	setprop("/controls/lighting/ndl-norm", "1");
+	setprop("/controls/lighting/ndr-norm", "1");
 	print("EFIS ... FINE!");
 });
 
@@ -58,3 +60,4 @@ var mode_dec = func {
 		return 0;
 	}
 }
+

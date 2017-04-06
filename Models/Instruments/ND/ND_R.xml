@@ -6,6 +6,18 @@ MD-11 Navigation display
 
 <path>ND_R.ac</path>
 
+<!-- ND Right Dimmer -->
+<animation>
+  <type>material</type>
+  <object-name>ND.screen</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/controls/lighting/ndr-norm</factor-prop>
+  </emission>
+</animation>
+
 <animation>
 	<type>pick</type>
 	<object-name>ND.screen</object-name>
