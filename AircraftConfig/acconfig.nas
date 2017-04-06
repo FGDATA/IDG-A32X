@@ -26,14 +26,14 @@ var colddark = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electric/engine[0]/generator", 0);
-	setprop("/controls/electric/engine[1]/generator", 0);
+	setprop("/controls/electrical/switches/gen1", 0);
+	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-#	systems.elec_init();
+	systems.elec_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -53,8 +53,9 @@ var colddark_b = func {
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/APU/bleed", 0);
-	setprop("/controls/electric/APU-generator", 0);
-	setprop("/controls/electric/battery-switch", 0);
+	setprop("/controls/electrical/switches/gen-apu", 0);
+	setprop("/controls/electrical/switches/battery1", 0);
+	setprop("/controls/electrical/switches/battery2", 0);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -68,25 +69,27 @@ var beforestart = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electric/engine[0]/generator", 0);
-	setprop("/controls/electric/engine[1]/generator", 0);
+	setprop("/controls/electrical/switches/gen1", 0);
+	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-#	systems.elec_init();
+	systems.elec_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/APU/bleed", 0);
-	setprop("/controls/electric/APU-generator", 0);
-	setprop("/controls/electric/battery-switch", 0);
+	setprop("/controls/electrical/switches/gen-apu", 0);
+	setprop("/controls/electrical/switches/battery1", 0);
+	setprop("/controls/electrical/switches/battery2", 0);
 	
 	# Now the Startup!
-	setprop("/controls/electric/battery-switch", 1);
+	setprop("/controls/electrical/switches/battery1", 1);
+	setprop("/controls/electrical/switches/battery2", 1);
 	setprop("/controls/APU/master", 1);
 	setprop("/controls/APU/start", 1);
 	var apu_rpm_chk = setlistener("/systems/apu/rpm", func {
@@ -98,10 +101,11 @@ var beforestart = func {
 }
 var beforestart_b = func {
 	# Continue with engine start prep.
-	setprop("/controls/electric/APU-generator", 1);
+	setprop("/controls/electrical/switches/gen-apu", 1);
+	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/APU/bleed", 1);
-	setprop("/controls/electric/engine[0]/generator", 1);
-	setprop("/controls/electric/engine[1]/generator", 1);
+	setprop("/controls/electrical/switches/gen1", 1);
+	setprop("/controls/electrical/switches/gen2", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -115,25 +119,27 @@ var taxi = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electric/engine[0]/generator", 0);
-	setprop("/controls/electric/engine[1]/generator", 0);
+	setprop("/controls/electrical/switches/gen1", 0);
+	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-#	systems.elec_init();
+	systems.elec_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/APU/bleed", 0);
-	setprop("/controls/electric/APU-generator", 0);
-	setprop("/controls/electric/battery-switch", 0);
+	setprop("/controls/electrical/switches/gen-apu", 0);
+	setprop("/controls/electrical/switches/battery1", 0);
+	setprop("/controls/electrical/switches/battery2", 0);
 	
 	# Now the Startup!
-	setprop("/controls/electric/battery-switch", 1);
+	setprop("/controls/electrical/switches/battery1", 1);
+	setprop("/controls/electrical/switches/battery2", 1);
 	setprop("/controls/APU/master", 1);
 	setprop("/controls/APU/start", 1);
 	var apu_rpm_chk = setlistener("/systems/apu/rpm", func {
@@ -145,10 +151,11 @@ var taxi = func {
 }
 var taxi_b = func {
 	# Continue with engine start prep, and start engine 2.
-	setprop("/controls/electric/APU-generator", 1);
+	setprop("/controls/electrical/switches/gen-apu", 1);
+	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/APU/bleed", 1);
-	setprop("/controls/electric/engine[0]/generator", 1);
-	setprop("/controls/electric/engine[1]/generator", 1);
+	setprop("/controls/electrical/switches/gen1", 1);
+	setprop("/controls/electrical/switches/gen2", 1);
 	setprop("/controls/engines/engine-start-switch", 2);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 0);
 	var eng_two_chk = setlistener("/engines/engine[1]/state", func {

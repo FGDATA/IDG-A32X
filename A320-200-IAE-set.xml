@@ -68,7 +68,6 @@
 	
 	<nasal>
 		<A320>
-			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
 			<file>Aircraft/A320Family/Nasal/systems.nas</file>
 			<file>Aircraft/A320Family/Nasal/a320livery.nas</file>
 			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
@@ -81,6 +80,7 @@
 			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
 		</acconfig>
 		<systems>
+			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
 			<file>Aircraft/A320Family/Nasal/engines.nas</file>
 		</systems>
 		<itaf>

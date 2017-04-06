@@ -214,9 +214,6 @@
 			<checkbox>
 				<label>Enable External Power Box</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/unused/unusedthing</property>
-				</enable>
 				<property>/controls/switches/cart</property>
 				<binding>
 					<command>dialog-apply</command>

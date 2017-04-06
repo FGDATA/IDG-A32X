@@ -73,10 +73,36 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<or>
+				<and>
+					<or>
+						<equals>
+							<property>/controls/electrical/switches/battery1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/controls/electrical/switches/battery2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<less-than>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</less-than>
+					<less-than>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</less-than>
+				</and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
 		</condition>
 	</model>
 	
@@ -89,10 +115,16 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</and>
 		</condition>
 	</model>
 	
@@ -107,10 +139,16 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<or>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
 		</condition>
 	</model>
 	
@@ -123,10 +161,16 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</and>
 		</condition>
 	</model>
 	
@@ -141,10 +185,36 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<or>
+				<and>
+					<or>
+						<equals>
+							<property>/controls/electrical/switches/battery1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/controls/electrical/switches/battery2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<less-than>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</less-than>
+					<less-than>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</less-than>
+				</and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
 		</condition>
 	</model>
 	
@@ -159,10 +229,16 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>12</value>
-			</greater-than-equals>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</and>
 		</condition>
 	</model>
 	

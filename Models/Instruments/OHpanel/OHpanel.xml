@@ -69,10 +69,61 @@
 		</emission>
 	</animation>
 	
+	<!-- No buttons without power! -->
+	<animation>
+		<type>select</type>
+		<object-name>ACESSFeedBtn1F</object-name>
+		<object-name>ACESSFeedBtn2O</object-name>
+		<object-name>APUBleedBtn1F</object-name>
+		<object-name>APUBleedBtn2O</object-name>
+		<object-name>APUGenBtn1F</object-name>
+		<object-name>APUGenBtn2O</object-name>
+		<object-name>APUMasterBtn1F</object-name>
+		<object-name>APUMasterBtn2O</object-name>
+		<object-name>APUStartBtn1A</object-name>
+		<object-name>APUStartBtn2O</object-name>
+		<object-name>BatteryBtn11F</object-name>
+		<object-name>BatteryBtn21F</object-name>
+		<object-name>BatteryBtn12O</object-name>
+		<object-name>BatteryBtn22O</object-name>
+		<object-name>Battery-lvl</object-name>
+		<object-name>BusTieBtn2O</object-name>
+		<object-name>ExtPwrBtn1A</object-name>
+		<object-name>ExtPwrBtn2O</object-name>
+		<object-name>GalleyPwrBtn1F</object-name>
+		<object-name>GalleyPwrBtn2O</object-name>
+		<object-name>Gen1Btn1F</object-name>
+		<object-name>Gen1Btn2O</object-name>
+		<object-name>Gen2Btn1F</object-name>
+		<object-name>Gen2Btn2O</object-name>
+		<object-name>IDG1Btn1F</object-name>
+		<object-name>IDG2Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/battery1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/electrical/switches/battery2</property>
+					<value>1</value>
+				</equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<animation>
 		<type>material</type>
 		<object-name>adirs-coords</object-name>
-		<object-name>battery-lvl</object-name>
+		<object-name>Battery-lvl</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -98,7 +149,7 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>battery-lvl</object-name>
+		<object-name>Battery-lvl</object-name>
 		<condition>
 			<property>controls/electric/battery-switch</property>
 		</condition>
@@ -663,63 +714,290 @@
 
 	<!-- Electrical -->
 	<animation>
-		<name>Battery pick</name>
+		<name>Galley pick</name>
 		<type>pick</type>
-		<object-name>BatteryBtn1</object-name>
-		<object-name>BatteryBtn2</object-name>
+		<object-name>GalleyPwrBtn</object-name>
+		<object-name>GalleyPwrBtn1F</object-name>
+		<object-name>GalleyPwrBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/battery-switch</property>
+				<property>/controls/electrical/switches/galley</property>
 			</binding>
-
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Battery off</name>
-		<type>textranslate</type>
-		<object-name>BatteryBtn2</object-name>
-		<property>controls/electric/battery-switch</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>GalleyPwrBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
+	<animation>
+		<type>select</type>
+		<object-name>GalleyPwrBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/galley</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Battery1 pick</name>
+		<type>pick</type>
+		<object-name>BatteryBtn11</object-name>
+		<object-name>BatteryBtn12</object-name>
+		<object-name>BatteryBtn11F</object-name>
+		<object-name>BatteryBtn12O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electrical/switches/battery1</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>BatteryBtn11F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>BatteryBtn12O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/battery1</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Battery2 pick</name>
+		<type>pick</type>
+		<object-name>BatteryBtn21</object-name>
+		<object-name>BatteryBtn22</object-name>
+		<object-name>BatteryBtn21F</object-name>
+		<object-name>BatteryBtn22O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electrical/switches/battery2</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>BatteryBtn21F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>BatteryBtn22O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/battery2</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Not modeled in electric system yet -->
+	<!--animation>
+		<name>IDG 1 pick</name>
+		<type>pick</type>
+		<object-name>IDG1Btn</object-name>
+		<object-name>IDG1Btn1F</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/systems/unused/unused-oh</property>
+			</binding>
+		</action>
+	</animation-->
+	
+	<animation>
+		<type>select</type>
+		<object-name>IDG1Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<animation>
 		<name>Generator 1 pick</name>
 		<type>pick</type>
 		<object-name>Gen1Btn1</object-name>
 		<object-name>Gen1Btn2</object-name>
+		<object-name>Gen1Btn1F</object-name>
+		<object-name>Gen1Btn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/engine[0]/generator</property>
+				<property>/controls/electrical/switches/gen1</property>
 			</binding>
 
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Generator 1 off</name>
-		<type>textranslate</type>
-		<object-name>Gen1Btn2</object-name>
-		<property>controls/electric/engine[0]/generator</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>Gen1Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Gen1Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/gen1</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>AC ESS pick</name>
+		<type>pick</type>
+		<object-name>ACESSFeedBtn</object-name>
+		<object-name>ACESSFeedBtn1F</object-name>
+		<object-name>ACESSFeedBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electrical/switches/acc-ess-feed</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ACESSFeedBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ACESSFeedBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/acc-ess-feed</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -727,29 +1005,80 @@
 		<type>pick</type>
 		<object-name>APUGenBtn1</object-name>
 		<object-name>APUGenBtn2</object-name>
+		<object-name>APUGenBtnA</object-name>
+		<object-name>APUGenBtnO</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/APU-generator</property>
+				<property>/controls/electrical/switches/gen-apu</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
-		<name>APU generator off</name>
-		<type>textranslate</type>
-		<object-name>APUGenBtn2</object-name>
-		<property>controls/electric/APU-generator</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>APUGenBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>APUGenBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/gen-apu</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Bus Tie pick</name>
+		<type>pick</type>
+		<object-name>BusTieBtn</object-name>
+		<object-name>BusTieBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electrical/switches/apu-ext-crosstie</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>BusTieBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/apu-ext-crosstie</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -757,26 +1086,54 @@
 		<type>pick</type>
 		<object-name>ExtPwrBtn1</object-name>
 		<object-name>ExtPwrBtn2</object-name>
+		<object-name>ExtPwrBtn1A</object-name>
+		<object-name>ExtPwrBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/external-power</property>
+				<property>/controls/electrical/switches/gen-ext</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
-		<name>External power on</name>
-		<type>textranslate</type>
-		<object-name>ExtPwrBtn2</object-name>
-		<property>controls/electric/external-power</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>ExtPwrBtn1A</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/switches/cart</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtPwrBtn2O</object-name>
+		<condition>
+			<or>
+				<and>
+					<equals>
+						<property>/controls/switches/cart</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen-ext</property>
+						<value>1</value>
+					</equals>
+				</and>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -784,29 +1141,84 @@
 		<type>pick</type>
 		<object-name>Gen2Btn1</object-name>
 		<object-name>Gen2Btn2</object-name>
+		<object-name>Gen2Btn1F</object-name>
+		<object-name>Gen2Btn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electric/engine[1]/generator</property>
+				<property>/controls/electrical/switches/gen2</property>
 			</binding>
 
 		</action>
 	</animation>
+
 	<animation>
-		<name>Generator 2 off</name>
-		<type>textranslate</type>
-		<object-name>Gen2Btn2</object-name>
-		<property>controls/electric/engine[1]/generator</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>Gen2Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Gen2Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/electrical/switches/gen2</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Not modeled in electric system yet -->
+	<!--animation>
+		<name>IDG 2 pick</name>
+		<type>pick</type>
+		<object-name>IDG2Btn</object-name>
+		<object-name>IDG2Btn1F</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/systems/unused/unused-oh</property>
+			</binding>
+		</action>
+	</animation-->
+	
+	<animation>
+		<type>select</type>
+		<object-name>IDG2Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<!-- Air conditioning -->
@@ -917,6 +1329,8 @@
 		<type>pick</type>
 		<object-name>APUBleedBtn1</object-name>
 		<object-name>APUBleedBtn2</object-name>
+		<object-name>APUBleedBtn1F</object-name>
+		<object-name>APUBleedBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -926,16 +1340,39 @@
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>APU bleed on</name>
-		<type>textranslate</type>
-		<object-name>APUBleedBtn2</object-name>
-		<property>controls/APU/bleed</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>APUBleedBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>APUBleedBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/APU/bleed</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -1361,40 +1798,48 @@
 		<type>pick</type>
 		<object-name>APUMasterBtn1</object-name>
 		<object-name>APUMasterBtn2</object-name>
+		<object-name>APUMasterBtn1F</object-name>
+		<object-name>APUMasterBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/master</property>
+				<property>/controls/APU/master</property>
 			</binding>
-
 		</action>
+	</animation><!-- I didn't model faults yet -->
+	<animation>
+		<type>select</type>
+		<object-name>APUMasterBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	<animation>
-		<name>APU master switch fault</name>
-		<type>textranslate</type>
-		<object-name>APUMasterBtn1</object-name>
-		<property>engines/apu/serviceable</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry> <!-- Set 0.5 to make the FAULT light appear -->
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>APU master switch on</name>
-		<type>textranslate</type>
-		<object-name>APUMasterBtn2</object-name>
-		<property>controls/APU/master</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>APUMasterBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/APU/master</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -1402,6 +1847,8 @@
 		<type>pick</type>
 		<object-name>APUStartBtn1</object-name>
 		<object-name>APUStartBtn2</object-name>
+		<object-name>APUStartBtn1A</object-name>
+		<object-name>APUStartBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1409,19 +1856,39 @@
 				<command>property-toggle</command>
 				<property>controls/APU/start</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
-		<name>APU starter on</name>
-		<type>textranslate</type>
-		<object-name>APUStartBtn2</object-name>
-		<property>controls/APU/start</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>APUStartBtn1A</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/apu/rpm</property>
+					<value>99</value>
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>APUStartBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/APU/start</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<!-- Interior lights -->
@@ -1510,6 +1977,46 @@
 			<z-m>-0.2597</z-m>
 		</center>
 	</animation>
+	
+	<animation>
+		<name>Annun lights pick</name>
+		<type>pick</type>
+		<object-name>AnnunciatorLtSwtch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/switches/annun-test</property>
+				<!--value>-1</value-->
+				<value>0</value>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Annun lights rotate</name>
+		<type>rotate</type>
+		<object-name>AnnunciatorLtSwtch</object-name>
+		<property>/controls/switches/annun-test</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>35</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.01</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.2597</z-m>
+		</center>
+	</animation>
+	
+	
 
 	<!-- Passenger signs -->
 	<animation>
@@ -1830,7 +2337,7 @@
 	</text>
 
 	<text>
-		<name>battery-lvl</name>
+		<name>Battery-lvl</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>-0.057</y-m>
@@ -1843,7 +2350,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/systems/electrical/suppliers/battery</property>
+		<property>/systems/electrical/battery1-volts</property>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
@@ -1856,7 +2363,7 @@
 	</text>
 
 	<text>
-		<name>battery-lvl</name>
+		<name>Battery-lvl</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>0.035</y-m>
@@ -1869,7 +2376,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/systems/electrical/suppliers/battery</property>
+		<property>/systems/electrical/battery2-volts</property>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>

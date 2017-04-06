@@ -1235,6 +1235,30 @@
     </animation>
     
     <!-- Flaps Indicator -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0007</x-m>
+			<y-m>0.0445</y-m>
+    		<z-m>-0.0018</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/controls/flight/flap-txt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
     
     <!--animation>
     	<type>rotate</type>

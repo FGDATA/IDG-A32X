@@ -346,6 +346,7 @@
 			<!-- Smoking is bad :P -->
 			<no-smoking-sign type="bool">true</no-smoking-sign>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
+			<annun-test>0</annun-test>
 		</switches>
 	</controls>
 	

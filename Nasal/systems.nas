@@ -1,54 +1,6 @@
 # AIRBUS A320 SYSTEMS FILE
 ##########################
 
-# NOTE: This file contains a loop for running all update functions, so it should be loaded last
-
-## SYSTEMS LOOP
-###############
-
-var systems =
- {
- stopUpdate: 0,
- init: func
-  {
-  print("A320 Systems ... Done!");
-  systems.stop();
-  settimer(func
-   {
-   systems.stopUpdate = 0;
-   systems.update();
-   }, 0.5);
-  },
- stop: func
-  {
-  systems.stopUpdate = 1;
-  },
- update: func
-  {
-  update_electrical();
-
-  # stop calling our systems code if the stop() function was called or the aircraft crashes
-  if (!systems.stopUpdate and !props.globals.getNode("sim/crashed").getBoolValue())
-   {
-   settimer(systems.update, 0);
-   }
-  }
- };
-
-# call init() 2 seconds after the FDM is ready
-setlistener("sim/signals/fdm-initialized", func
- {
- settimer(systems.init, 2);
- }, 0, 0);
-# call init() if the simulator resets
-setlistener("sim/signals/reinit", func(reinit)
- {
- if (reinit.getBoolValue())
-  {
-  systems.init();
-  }
- }, 0, 0);
-
 ## LIGHTS
 #########
 
@@ -173,7 +125,8 @@ var triggerDoor = func(door, doorName, doorDesc)
   }
  };
  
-setlistener("/sim/signals/fdm-initialized", func {	
+setlistener("/sim/signals/fdm-initialized", func {
+	systems.elec_init();
   	itaf.ap_init();			
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/controls/engines/thrust-limit", "TOGA");
