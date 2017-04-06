@@ -193,11 +193,6 @@
 		</offsets>
 	</model>
 
-	<model>
-		<name>Tutorial marker</name>
-		<path>Models/Aircraft/marker.xml</path>
-	</model>
-
 
 
 	<!-- LIVERY SELECT -->
