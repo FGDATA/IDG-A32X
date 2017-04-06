@@ -33,6 +33,10 @@
 			<electrical>
 				<path></path>
 			</electrical>
+			<!-- Custom FBW System -->
+			<autopilot>
+				<path>Aircraft/A320Family/Systems/it-fbw.xml</path>
+			</autopilot>
 			<autopilot>
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
 			</autopilot>
@@ -264,6 +268,11 @@
 		<reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
 	</settings>
 </it-autoflight>
+
+<it-fbw>
+	<roll-deg>0</roll-deg>
+	<pitch-deg>0</pitch-deg>
+</it-fbw>
 
 <engines n="0">
   <engine n="0">

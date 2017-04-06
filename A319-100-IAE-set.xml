@@ -90,6 +90,9 @@
 			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
 			<file>Aircraft/A320Family/Nasal/engines.nas</file>
 		</systems>
+		<fbw>
+			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>
+		</fbw>
 		<itaf>
 			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
 		</itaf>
