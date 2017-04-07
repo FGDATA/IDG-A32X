@@ -183,8 +183,16 @@ setlistener("/it-fbw/law", func {
 });
 
 setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/it-fbw/law", "NORMAL");
+	setprop("/it-fbw/law", "DIRECT");
 	roll_input();
 	pitch_input();
 	print("AIRBUS FBW ... OK!");
+});
+
+setlistener("/systems/electrical/bus/ac-ess", func {
+	if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
+		setprop("/it-fbw/law", "NORMAL");
+	} else {
+		setprop("/it-fbw/law", "DIRECT");
+	}
 });
