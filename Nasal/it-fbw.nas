@@ -129,6 +129,7 @@ var pitch_input = func {
 		}
 	}
 	
+	var elev = getprop("/controls/flight/elevator");
 	if (getprop("/gear/gear[0]/wow") == 1) {
 		if (elev > -0.1 and elev < 0.1) {
 			setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
