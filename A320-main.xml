@@ -73,6 +73,29 @@
 
 		<instrumentation>
 			<path>Aircraft/A320Family/Systems/instrumentation.xml</path>
+			<adirs n="0">
+				<ir n="0">
+					<aligned type="bool">false</aligned>
+					<display>
+						<status type="string"></status>
+						<ttn type="int">0</ttn>
+					</display>
+				</ir>
+				<ir n="1">
+					<aligned type="bool">false</aligned>
+					<display>
+						<status type="string"></status>
+						<ttn type="int">0</ttn>
+					</display>
+				</ir>
+				<ir n="2">
+					<aligned type="bool">false</aligned>
+					<display>
+						<status type="string"></status>
+						<ttn type="int">0</ttn>
+					</display>
+				</ir>
+			</adirs>
 		</instrumentation>
 
 		<alarms>
@@ -290,6 +313,43 @@
 	</autopilot>
 
 	<controls>
+		<adirs n="0">
+			<adr n="0">
+				<fault type="bool">false</fault>
+				<off type="bool">false</off>
+			</adr>
+			<adr n="1">
+				<fault type="bool">false</fault>
+				<off type="bool">false</off>
+			</adr>
+			<adr n="2">
+				<fault type="bool">false</fault>
+				<off type="bool">false</off>
+			</adr>
+			<display>
+				<selected type="int">1</selected>
+				<dataknob type="int">5</dataknob>
+				<text type="string"></text>
+			</display>
+			<ir n="0">
+				<align type="bool">false</align>
+				<knob type="int">1</knob>
+				<fault type="bool">false</fault>
+			</ir>
+			<ir n="1">
+				<align type="bool">false</align>
+				<knob type="int">1</knob>
+				<fault type="bool">false</fault>
+			</ir>
+			<ir n="2">
+				<align type="bool">false</align>
+				<knob type="int">1</knob>
+				<fault type="bool">false</fault>
+			</ir>
+			<onbat type="bool">false</onbat>
+			<motionroll type="float">0</motionroll>
+			<motionpitch type="float">0</motionpitch>
+		</adirs>
 		<APU>
 			<fire-switch type="bool">0</fire-switch>
 			<master type="bool">0</master>

@@ -127,6 +127,7 @@ var triggerDoor = func(door, doorName, doorDesc)
  
 setlistener("/sim/signals/fdm-initialized", func {
 	systems.elec_init();
+	systems.ADIRSinit();
   	itaf.ap_init();			
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/controls/engines/thrust-limit", "TOGA");

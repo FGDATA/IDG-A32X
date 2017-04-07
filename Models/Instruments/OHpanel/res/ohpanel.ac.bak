@@ -9,7 +9,7 @@ OBJECT world
 kids 234
 OBJECT poly
 name "IrsOnBatLightOB"
-loc 0.0080412 0.188693 0.282104
+loc 0.00659427 0.209933 0.183575
 texture "onbat.png"
 crease 35.000000
 numvert 14
@@ -87,7 +87,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR1Btn1F"
-loc 0.0124491 0.104712 0.0928788
+loc 0.0110022 0.125952 -0.00565037
 data 8
 Cube.135
 texture "buttons3.png"
@@ -133,7 +133,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR1Btn2A"
-loc 0.0124491 0.104712 0.0928788
+loc 0.0110022 0.125952 -0.00565037
 data 8
 Cube.134
 texture "buttons3.png"
@@ -179,7 +179,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3Btn1F"
-loc 0.00723437 0.104712 0.0474062
+loc 0.00578745 0.125952 -0.051123
 data 8
 Cube.135
 texture "buttons3.png"
@@ -225,7 +225,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3Btn2A"
-loc 0.00723437 0.104712 0.0474062
+loc 0.00578745 0.125952 -0.051123
 data 8
 Cube.134
 texture "buttons3.png"
@@ -271,7 +271,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR2Btn1F"
-loc 0.00155337 0.104712 0.00118122
+loc 0.000106444 0.125952 -0.097348
 data 8
 Cube.135
 texture "buttons3.png"
@@ -317,7 +317,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR2Btn2A"
-loc 0.00155337 0.104712 0.00118122
+loc 0.000106444 0.125952 -0.097348
 data 8
 Cube.134
 texture "buttons3.png"
@@ -363,7 +363,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR1Btn1F"
-loc 0.0123311 0.0438654 0.092651
+loc 0.0108842 0.0651053 -0.00587822
 data 8
 Cube.135
 texture "buttons2.png"
@@ -409,7 +409,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR1Btn2O"
-loc 0.0123311 0.0438654 0.092651
+loc 0.0108842 0.0651053 -0.00587822
 data 8
 Cube.134
 texture "buttons2.png"
@@ -455,7 +455,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR3Btn1F"
-loc 0.00711638 0.0438654 0.0471783
+loc 0.00566945 0.0651053 -0.0513509
 data 8
 Cube.135
 texture "buttons2.png"
@@ -501,7 +501,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR3Btn2O"
-loc 0.00711638 0.0438654 0.0471783
+loc 0.00566945 0.0651053 -0.0513509
 data 8
 Cube.134
 texture "buttons2.png"
@@ -547,7 +547,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR2Btn1F"
-loc 0.00143538 0.0438654 0.000953317
+loc -1.15498e-005 0.0651053 -0.0975759
 data 8
 Cube.135
 texture "buttons2.png"
@@ -593,7 +593,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR2Btn2O"
-loc 0.00143538 0.0438654 0.000953317
+loc -1.15498e-005 0.0651053 -0.0975759
 data 8
 Cube.134
 texture "buttons2.png"
@@ -639,7 +639,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR1Btn1"
-loc 0.0122798 0.104712 0.0928788
+loc 0.0108329 0.125952 -0.00565037
 data 8
 Cube.135
 texture "buttons.png"
@@ -685,7 +685,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR1Btn2"
-loc 0.0122798 0.104712 0.0928788
+loc 0.0108329 0.125952 -0.00565037
 data 8
 Cube.134
 texture "buttons.png"
@@ -731,7 +731,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3Btn1"
-loc 0.00706509 0.104712 0.0474062
+loc 0.00561816 0.125952 -0.051123
 data 8
 Cube.135
 texture "buttons.png"
@@ -777,7 +777,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3Btn2"
-loc 0.00706509 0.104712 0.0474062
+loc 0.00561816 0.125952 -0.051123
 data 8
 Cube.134
 texture "buttons.png"
@@ -823,7 +823,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR2Btn1"
-loc 0.00138408 0.104712 0.00118122
+loc -6.28438e-005 0.125952 -0.097348
 data 8
 Cube.135
 texture "buttons.png"
@@ -869,7 +869,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3Btn2"
-loc 0.00138408 0.104712 0.00118122
+loc -6.28438e-005 0.125952 -0.097348
 data 8
 Cube.134
 texture "buttons.png"
@@ -915,7 +915,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR1Btn1"
-loc 0.0122798 0.0438654 0.092651
+loc 0.0108329 0.0651053 -0.00587822
 data 8
 Cube.135
 texture "buttons.png"
@@ -961,7 +961,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR1Btn2"
-loc 0.0122798 0.0438654 0.092651
+loc 0.0108329 0.0651053 -0.00587822
 data 8
 Cube.134
 texture "buttons.png"
@@ -1007,7 +1007,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR3Btn1"
-loc 0.00706509 0.0438654 0.0471783
+loc 0.00561816 0.0651053 -0.0513509
 data 8
 Cube.135
 texture "buttons.png"
@@ -1053,7 +1053,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR3Btn2"
-loc 0.00706509 0.0438654 0.0471783
+loc 0.00561816 0.0651053 -0.0513509
 data 8
 Cube.134
 texture "buttons.png"
@@ -1099,7 +1099,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR2Btn1"
-loc 0.00138408 0.0438654 0.000953317
+loc -6.28438e-005 0.0651053 -0.0975759
 data 8
 Cube.135
 texture "buttons.png"
@@ -1145,7 +1145,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ADR3Btn2"
-loc 0.00138408 0.0438654 0.000953317
+loc -6.28438e-005 0.0651053 -0.0975759
 data 8
 Cube.134
 texture "buttons.png"
@@ -1191,7 +1191,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUFire"
-loc 0.00138408 0.021288 -0.0985638
+loc -6.28438e-005 0.0425279 -0.197093
 data 8
 Cube.147
 texture "firebutton.png"
@@ -1295,7 +1295,7 @@ refs 3
 kids 0
 OBJECT poly
 name "APUFireTst"
-loc 0.00144693 0.390673 0.113859
+loc 0 0.411913 0.0153295
 data 12
 Cylinder.061
 crease 30.000000
@@ -1581,7 +1581,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Eng2FireTst"
-loc 0.00144693 0.390673 -0.00583978
+loc 0 0.411913 -0.104369
 data 12
 Cylinder.061
 crease 30.000000
@@ -1867,7 +1867,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1FireTst"
-loc 0.00144693 0.390673 0.285996
+loc 0 0.411913 0.187467
 data 12
 Cylinder.061
 crease 30.000000
@@ -2153,7 +2153,7 @@ refs 3
 kids 0
 OBJECT poly
 name "APUFireAgtBtn"
-loc 0.00144693 -0.0290214 -0.0305208
+loc 0 -0.00778147 -0.12905
 data 8
 Cube.143
 texture "buttons.png"
@@ -2231,7 +2231,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IrsOnBatLight"
-loc 0.00789467 0.188693 0.282104
+loc 0.00644774 0.209933 0.183575
 texture "buttons.png"
 crease 35.000000
 numvert 14
@@ -2309,7 +2309,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IDG1Btn1F"
-loc 0.0014462 -0.000150006 0.09335
+loc -7.20902e-007 0.0210899 -0.0051792
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2355,7 +2355,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IDG2Btn1F"
-loc 0.0014462 -0.000150006 -0.17615
+loc -7.20902e-007 0.0210899 -0.274679
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2401,7 +2401,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACESSFeedBtn1F"
-loc 0.0014462 0.0480501 -0.11075
+loc -7.20902e-007 0.06929 -0.209279
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2447,7 +2447,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACESSFeedBtn2O"
-loc 0.0014462 0.0480501 -0.11075
+loc -7.20902e-007 0.06929 -0.209279
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2493,7 +2493,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GalleyPwrBtn1F"
-loc 0.0014462 0.04045 0.09265
+loc -7.20902e-007 0.0616899 -0.0058792
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2539,7 +2539,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GalleyPwrBtn2O"
-loc 0.0014462 0.04045 0.09265
+loc -7.20902e-007 0.0616899 -0.0058792
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2585,7 +2585,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BusTieBtn2O"
-loc 0.0014462 0.01735 -0.0417498
+loc -7.20902e-007 0.0385899 -0.140279
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2631,7 +2631,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen2Btn1F"
-loc 0.0014462 -5.00064e-005 -0.14005
+loc -7.20902e-007 0.0211899 -0.238579
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2677,7 +2677,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen2Btn2O"
-loc 0.0014462 -5.00064e-005 -0.14005
+loc -7.20902e-007 0.0211899 -0.238579
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2723,7 +2723,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen1Btn1F"
-loc 0.0014462 -5.00064e-005 0.06045
+loc -7.20902e-007 0.0211899 -0.0380792
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2769,7 +2769,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen1Btn2O"
-loc 0.0014462 -5.00064e-005 0.06045
+loc -7.20902e-007 0.0211899 -0.0380792
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2815,7 +2815,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUBleedBtn2O"
-loc 0.0014462 -0.12015 0.0406501
+loc -7.20902e-007 -0.0989101 -0.0578791
 data 8
 Cube.063
 texture "buttons2.png"
@@ -2861,7 +2861,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUBleedBtn1F"
-loc 0.0014462 -0.12015 -0.0435498
+loc -7.20902e-007 -0.0989101 -0.142079
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2907,7 +2907,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn21F"
-loc 0.0014462 0.06135 -0.0413498
+loc -7.20902e-007 0.0825899 -0.139879
 data 8
 Cube.061
 texture "buttons2.png"
@@ -2953,7 +2953,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn22O"
-loc 0.0014462 0.06135 -0.0413498
+loc -7.20902e-007 0.0825899 -0.139879
 data 8
 Cube.062
 texture "buttons2.png"
@@ -2999,7 +2999,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn11F"
-loc 0.0014462 0.06135 -0.0181498
+loc -7.20902e-007 0.0825899 -0.116679
 data 8
 Cube.061
 texture "buttons2.png"
@@ -3045,7 +3045,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn12O"
-loc 0.0014462 0.06135 -0.0181498
+loc -7.20902e-007 0.0825899 -0.116679
 data 8
 Cube.062
 texture "buttons2.png"
@@ -3091,7 +3091,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUStartBtn1A"
-loc 0.0014462 -0.25695 0.04125
+loc -7.20902e-007 -0.23571 -0.0572792
 data 8
 Cube.064
 texture "buttons2.png"
@@ -3137,7 +3137,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUStartBtn2O"
-loc 0.0014462 -0.25695 0.04125
+loc -7.20902e-007 -0.23571 -0.0572792
 data 8
 Cube.063
 texture "buttons2.png"
@@ -3183,7 +3183,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUMasterBtn2O"
-loc 0.0014462 -0.22315 0.04125
+loc -7.20902e-007 -0.20191 -0.0572792
 data 8
 Cube.063
 texture "buttons2.png"
@@ -3229,7 +3229,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUMasterBtn1F"
-loc 0.0014462 -0.22315 -0.0429498
+loc -7.20902e-007 -0.20191 -0.141479
 data 8
 Cube.061
 texture "buttons2.png"
@@ -3275,7 +3275,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUGenBtn1F"
-loc 0.0014462 -5.00064e-005 -4.99785e-005
+loc -7.20902e-007 0.0211899 -0.0985792
 data 8
 Cube.061
 texture "buttons2.png"
@@ -3321,7 +3321,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUGenBtn2O"
-loc 0.0014462 -5.00064e-005 -4.99785e-005
+loc -7.20902e-007 0.0211899 -0.0985792
 data 8
 Cube.062
 texture "buttons2.png"
@@ -3367,7 +3367,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ExtPwrBtn1A"
-loc 0.0014462 -5.00064e-005 -4.99785e-005
+loc -7.20902e-007 0.0211899 -0.0985792
 data 8
 Cube.064
 texture "buttons2.png"
@@ -3413,7 +3413,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ExtPwrBtn2O"
-loc 0.0014462 -5.00064e-005 -4.99785e-005
+loc -7.20902e-007 0.0211899 -0.0985792
 data 8
 Cube.063
 texture "buttons2.png"
@@ -3459,7 +3459,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Panel"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 5
 Plane
 texture "background.png"
@@ -3519,7 +3519,7 @@ refs 3
 kids 0
 OBJECT poly
 name "inrL1"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.118
 texture "buttons.png"
@@ -3565,7 +3565,7 @@ refs 4
 kids 0
 OBJECT poly
 name "inrL2"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.117
 texture "buttons.png"
@@ -3611,7 +3611,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fueldumpACT1"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.123
 texture "buttons.png"
@@ -3657,7 +3657,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fueldumpACT2"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.124
 texture "buttons.png"
@@ -3703,7 +3703,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fueldumpARM1"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.122
 texture "buttons.png"
@@ -3749,7 +3749,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fueldumpARM2"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.121
 texture "buttons.png"
@@ -3795,7 +3795,7 @@ refs 4
 kids 0
 OBJECT poly
 name "inrR1"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.119
 texture "buttons.png"
@@ -3841,7 +3841,7 @@ refs 4
 kids 0
 OBJECT poly
 name "inrR2"
-loc 0.00138408 0.04095 -4.99785e-005
+loc -6.28438e-005 0.0621899 -0.0985792
 data 8
 Cube.120
 texture "buttons.png"
@@ -3887,7 +3887,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerGenInd"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 8
 Cube.128
 texture "buttons.png"
@@ -3965,7 +3965,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerGenTstBtn"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 8
 Cube.126
 crease 30.000000
@@ -4042,7 +4042,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EvacBtn"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 8
 Cube.129
 texture "buttons.png"
@@ -4120,7 +4120,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EvacCapt-Purs"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 12
 Cylinder.021
 crease 30.000000
@@ -4406,7 +4406,7 @@ refs 3
 kids 0
 OBJECT poly
 name "EvacHornOff"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 12
 Cylinder.020
 crease 30.000000
@@ -4692,7 +4692,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Gen1LineBtn"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 8
 Cube.127
 texture "buttons.png"
@@ -4770,7 +4770,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RATBtn"
-loc 0.0620309 0.0978181 -0.488893
+loc 0.060584 0.119058 -0.587422
 data 8
 Cube.125
 crease 30.000000
@@ -4847,7 +4847,7 @@ refs 4
 kids 0
 OBJECT poly
 name "MarkingLts"
-loc 0.00138409 -5.00064e-005 -4.99785e-005
+loc -6.28382e-005 0.0211899 -0.0985792
 data 9
 Plane.007
 texture "background.png"
@@ -4971,7 +4971,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACESSFeedBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.072
 texture "buttons.png"
@@ -5049,7 +5049,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACFlowKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.058
 texture "knob.png"
@@ -5168,7 +5168,7 @@ numvert 145
 -0.008824 -0.114053 0.12328
 -0.008824 -0.104386 0.127284
 7.6e-005 -0.116529 0.129812
-6.00005e-006 -0.1166 0.12834
+6e-006 -0.1166 0.12834
 -0.010004 -0.116529 0.129812
 -0.001044 -0.115439 0.134611
 -0.008884 -0.098609 0.123187
@@ -6079,7 +6079,7 @@ refs 3
 kids 0
 OBJECT poly
 name "ACPack1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 4
 Cube
 texture "buttons.png"
@@ -6125,7 +6125,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACPack1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.050
 texture "buttons.png"
@@ -6171,7 +6171,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACPack2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.158
 texture "buttons.png"
@@ -6217,7 +6217,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ACPack2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.051
 texture "buttons.png"
@@ -6263,7 +6263,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUBleedBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.156
 texture "buttons.png"
@@ -6309,7 +6309,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUBleedBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.046
 texture "buttons.png"
@@ -6355,7 +6355,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUGenBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.061
 texture "buttons.png"
@@ -6401,7 +6401,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUGenBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.062
 texture "buttons.png"
@@ -6447,7 +6447,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUMasterBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.028
 texture "buttons.png"
@@ -6493,7 +6493,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUMasterBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.026
 texture "buttons.png"
@@ -6539,7 +6539,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUStartBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.029
 texture "buttons.png"
@@ -6585,7 +6585,7 @@ refs 4
 kids 0
 OBJECT poly
 name "APUStartBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.030
 texture "buttons.png"
@@ -6631,7 +6631,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AftCabinACKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.057
 texture "knob.png"
@@ -6750,7 +6750,7 @@ numvert 145
 -0.008824 -0.114053 -0.05832
 -0.008824 -0.104386 -0.054316
 7.6e-005 -0.116529 -0.051788
-6.00005e-006 -0.1166 -0.05326
+6e-006 -0.1166 -0.05326
 -0.010004 -0.116529 -0.051788
 -0.001044 -0.115439 -0.046989
 -0.008884 -0.098609 -0.058413
@@ -7661,7 +7661,7 @@ refs 3
 kids 0
 OBJECT poly
 name "AftCabinCall"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.016
 crease 30.000000
@@ -7947,7 +7947,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AftCargoHtBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.102
 texture "buttons.png"
@@ -8025,7 +8025,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AftCargoHtKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.005
 texture "knob.png"
@@ -9055,7 +9055,7 @@ refs 3
 kids 0
 OBJECT poly
 name "AftCargoIsoBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.101
 texture "buttons.png"
@@ -9133,7 +9133,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AftCargoSmkBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.099
 texture "buttons.png"
@@ -9211,7 +9211,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AftCargoSmkDis"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.100
 crease 30.000000
@@ -9288,7 +9288,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AnnunciatorLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.040
 crease 30.000000
@@ -9674,7 +9674,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BeaconLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.028
 crease 30.000000
@@ -9837,7 +9837,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BlackBoxesCtlBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.116
 texture "buttons.png"
@@ -9915,7 +9915,7 @@ refs 4
 kids 0
 OBJECT poly
 name "elec-pump"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.083
 texture "buttons.png"
@@ -9961,7 +9961,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BusTieBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.068
 texture "buttons.png"
@@ -10039,7 +10039,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CVRErase"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.018
 crease 30.000000
@@ -10325,7 +10325,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CVRTest"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.019
 crease 30.000000
@@ -10611,7 +10611,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CabinFansBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.094
 texture "buttons.png"
@@ -10689,7 +10689,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CabinPressModeBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.042
 texture "buttons.png"
@@ -10767,7 +10767,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CargoSmkTest"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.001
 crease 30.000000
@@ -10800,10 +10800,10 @@ numvert 37
 0.001278 -0.135503 -0.25349
 0.000861 -0.137444 -0.250153
 0.000379 -0.137444 -0.246301
--3.80001e-005 -0.135503 -0.242965
+-3.8e-005 -0.135503 -0.242965
 -0.000278 -0.132141 -0.241039
 -0.000278 -0.128259 -0.241039
--3.80001e-005 -0.124897 -0.242965
+-3.8e-005 -0.124897 -0.242965
 0.000379 -0.122956 -0.246301
 0.000861 -0.122956 -0.250153
 0.001278 -0.124897 -0.25349
@@ -11053,7 +11053,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CockpitACKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.056
 texture "knob.png"
@@ -11172,7 +11172,7 @@ numvert 145
 -0.008824 -0.114053 0.04548
 -0.008824 -0.104386 0.049484
 7.6e-005 -0.116529 0.052012
-6.00005e-006 -0.1166 0.05054
+6e-006 -0.1166 0.05054
 -0.010004 -0.116529 0.052012
 -0.001044 -0.115439 0.056811
 -0.008884 -0.098609 0.045387
@@ -12083,7 +12083,7 @@ refs 3
 kids 0
 OBJECT poly
 name "CrewOxyBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.114
 texture "buttons.png"
@@ -12161,7 +12161,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DitchBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.044
 texture "buttons.png"
@@ -12207,7 +12207,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DitchBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.043
 texture "buttons.png"
@@ -12253,7 +12253,7 @@ refs 4
 kids 0
 OBJECT poly
 name "DomeLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.038
 crease 30.000000
@@ -12416,7 +12416,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ELAC1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.131
 texture "buttons.png"
@@ -12462,7 +12462,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ELAC1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.130
 texture "buttons.png"
@@ -12508,7 +12508,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ELAC2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.104
 texture "buttons.png"
@@ -12554,7 +12554,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ELAC2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.105
 texture "buttons.png"
@@ -12600,7 +12600,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerCallBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.112
 texture "buttons.png"
@@ -12678,7 +12678,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerExtLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.036
 crease 30.000000
@@ -13064,7 +13064,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1AntiIceBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.037
 texture "buttons.png"
@@ -13110,7 +13110,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1AntiIceBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.038
 texture "buttons.png"
@@ -13156,7 +13156,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1BleedBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.003
 texture "buttons.png"
@@ -13202,7 +13202,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1BleedBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.049
 texture "buttons.png"
@@ -13248,7 +13248,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1Fire"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.147
 texture "firebutton.png"
@@ -13352,7 +13352,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1FireAgt1Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.142
 texture "buttons.png"
@@ -13430,7 +13430,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1FireAgt2Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.143
 texture "buttons.png"
@@ -13508,7 +13508,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1ManStartBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.088
 texture "buttons.png"
@@ -13554,7 +13554,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1ManStartBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.027
 texture "buttons.png"
@@ -13600,7 +13600,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng1N1Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.092
 texture "buttons.png"
@@ -13678,7 +13678,7 @@ refs 4
 kids 0
 OBJECT poly
 name "e1-pump"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.086
 texture "buttons.png"
@@ -13724,7 +13724,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2AntiIceBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.036
 texture "buttons.png"
@@ -13770,7 +13770,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2AntiIceBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.035
 texture "buttons.png"
@@ -13816,7 +13816,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2BleedBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.157
 texture "buttons.png"
@@ -13862,7 +13862,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2BleedBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.045
 texture "buttons.png"
@@ -13908,7 +13908,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2Fire"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.149
 texture "firebutton.png"
@@ -14012,7 +14012,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2FireAgt1Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.145
 texture "buttons.png"
@@ -14090,7 +14090,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2FireAgt2Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.146
 texture "buttons.png"
@@ -14168,7 +14168,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2ManStartBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.089
 texture "buttons.png"
@@ -14214,7 +14214,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2ManStartBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.090
 texture "buttons.png"
@@ -14260,7 +14260,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Eng2N1Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.093
 texture "buttons.png"
@@ -14338,7 +14338,7 @@ refs 4
 kids 0
 OBJECT poly
 name "e1-pump-fault"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.085
 texture "buttons.png"
@@ -14384,7 +14384,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ExtPwrBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.064
 texture "buttons.png"
@@ -14430,7 +14430,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ExtPwrBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.063
 texture "buttons.png"
@@ -14476,7 +14476,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FuelModeBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.079
 texture "buttons.png"
@@ -14554,7 +14554,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FwdCabinACKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.049
 texture "knob.png"
@@ -14673,7 +14673,7 @@ numvert 145
 -0.008824 -0.114053 -0.00602
 -0.008824 -0.104386 -0.002016
 7.6e-005 -0.116529 0.000511996
-6.00005e-006 -0.1166 -0.00096
+6e-006 -0.1166 -0.00096
 -0.010004 -0.116529 0.000511996
 -0.001044 -0.115439 0.005311
 -0.008884 -0.098609 -0.006113
@@ -15584,7 +15584,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FwdCabinCall"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.015
 crease 30.000000
@@ -15870,7 +15870,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FwdCargoHtKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.004
 texture "knob.png"
@@ -16900,7 +16900,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FwdCargoIsoBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.103
 texture "buttons.png"
@@ -16978,7 +16978,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FwdCargoSmkBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.098
 texture "buttons.png"
@@ -17056,7 +17056,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FwdCargoSmkDis"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.097
 crease 30.000000
@@ -17133,7 +17133,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.118
 texture "buttons.png"
@@ -17179,7 +17179,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.117
 texture "buttons.png"
@@ -17225,7 +17225,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSFlp3Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.123
 texture "buttons.png"
@@ -17271,7 +17271,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSFlp3Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.124
 texture "buttons.png"
@@ -17317,7 +17317,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSFlpBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.122
 texture "buttons.png"
@@ -17363,7 +17363,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSFlpBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.121
 texture "buttons.png"
@@ -17409,7 +17409,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSGSBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.119
 texture "buttons.png"
@@ -17455,7 +17455,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSGSBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.120
 texture "buttons.png"
@@ -17501,7 +17501,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GalleyPwrBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.069
 texture "buttons.png"
@@ -17579,7 +17579,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.060
 texture "buttons.png"
@@ -17625,7 +17625,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.059
 texture "buttons.png"
@@ -17671,7 +17671,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.065
 texture "buttons.png"
@@ -17717,7 +17717,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gen2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.066
 texture "buttons.png"
@@ -17763,7 +17763,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GroundCall"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.017
 crease 30.000000
@@ -18049,7 +18049,7 @@ refs 4
 kids 0
 OBJECT poly
 name "HotAirBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.052
 texture "buttons.png"
@@ -18127,7 +18127,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IDG1Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.058
 texture "buttons.png"
@@ -18205,7 +18205,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IDG2Btn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.067
 texture "buttons.png"
@@ -18283,7 +18283,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR1ModeKnb"
-loc -0.00221008 -0.0443378 -0.0977238
+loc -0.00365701 -0.0230979 -0.196253
 data 12
 Cylinder.024
 texture "knob.png"
@@ -18662,7 +18662,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR2ModeKnb"
-loc 0.00153991 -0.0425569 -0.0649518
+loc 9.29832e-005 -0.021317 -0.163481
 data 12
 Cylinder.023
 texture "knob.png"
@@ -19041,7 +19041,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IR3ModeKnb"
-loc -0.000292525 -0.0425569 -0.0796108
+loc -0.00173945 -0.021317 -0.17814
 data 12
 Cylinder.022
 texture "knob.png"
@@ -19420,7 +19420,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IRDisplayDataKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.060
 texture "knob.png"
@@ -19799,7 +19799,7 @@ refs 4
 kids 0
 OBJECT poly
 name "IRDisplaySelectKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.059
 texture "knob.png"
@@ -20178,7 +20178,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LFuelTank1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.074
 texture "buttons.png"
@@ -20224,7 +20224,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LFuelTank1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.073
 texture "buttons.png"
@@ -20270,7 +20270,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LFuelTank2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.151
 texture "buttons.png"
@@ -20316,7 +20316,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LFuelTank2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.150
 texture "buttons.png"
@@ -20362,7 +20362,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LandingLtLSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.033
 crease 30.000000
@@ -21082,7 +21082,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LandingLtRSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.031
 crease 30.000000
@@ -21802,7 +21802,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LdgElevKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.062
 texture "knob.png"
@@ -22832,7 +22832,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LeftRainTest"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.014
 crease 30.000000
@@ -23118,7 +23118,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LeftWiperKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.008
 texture "knob.png"
@@ -24148,7 +24148,7 @@ refs 3
 kids 0
 OBJECT poly
 name "MarkingLts"
-loc 0.00253815 -5.00064e-005 -4.99785e-005
+loc 0.00109122 0.0211899 -0.0985792
 data 9
 Plane.007
 texture "markings.png"
@@ -24208,7 +24208,7 @@ refs 4
 kids 0
 OBJECT poly
 name "NavLogoLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.026
 crease 30.000000
@@ -24371,7 +24371,7 @@ refs 4
 kids 0
 OBJECT poly
 name "NoSmokingSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.035
 crease 30.000000
@@ -24757,7 +24757,7 @@ refs 4
 kids 0
 OBJECT poly
 name "NoseLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.030
 crease 30.000000
@@ -25143,7 +25143,7 @@ refs 4
 kids 0
 OBJECT poly
 name "OHPMarkLtKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.047
 texture "knob.png"
@@ -25522,7 +25522,7 @@ refs 4
 kids 0
 OBJECT poly
 name "OxyMaskDeploy"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.113
 crease 30.000000
@@ -25599,7 +25599,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PAC1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.135
 texture "buttons.png"
@@ -25645,7 +25645,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PAC1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.134
 texture "buttons.png"
@@ -25691,7 +25691,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PAC2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.111
 texture "buttons.png"
@@ -25737,7 +25737,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PAC2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.110
 texture "buttons.png"
@@ -25783,7 +25783,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PTUBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.084
 texture "buttons.png"
@@ -25829,7 +25829,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PassOxyInd"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.115
 texture "buttons.png"
@@ -25907,7 +25907,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PrbWinHeatBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.031
 texture "buttons.png"
@@ -25953,7 +25953,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PrbWinHeatBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.032
 texture "buttons.png"
@@ -25999,7 +25999,7 @@ refs 4
 kids 0
 OBJECT poly
 name "PressVSCtl"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.061
 crease 30.000000
@@ -26285,7 +26285,7 @@ refs 4
 kids 0
 OBJECT poly
 name "rat-fault"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.082
 texture "buttons.png"
@@ -26331,7 +26331,7 @@ refs 4
 kids 0
 OBJECT poly
 name "rat"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.081
 texture "buttons.png"
@@ -26377,7 +26377,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RFuelTank1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.077
 texture "buttons.png"
@@ -26423,7 +26423,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RFuelTank1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.078
 texture "buttons.png"
@@ -26469,7 +26469,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RFuelTank2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.153
 texture "buttons.png"
@@ -26515,7 +26515,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RFuelTank2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.152
 texture "buttons.png"
@@ -26561,7 +26561,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RightRainTest"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.007
 crease 30.000000
@@ -26847,7 +26847,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RightWiperKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.006
 texture "knob.png"
@@ -27877,7 +27877,7 @@ refs 3
 kids 0
 OBJECT poly
 name "SEC1Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.132
 texture "buttons.png"
@@ -27923,7 +27923,7 @@ refs 4
 kids 0
 OBJECT poly
 name "SEC1Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.133
 texture "buttons.png"
@@ -27969,17 +27969,17 @@ refs 4
 kids 0
 OBJECT poly
 name "SEC2Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.107
 texture "buttons.png"
 crease 30.000000
 numvert 8
--9.90001e-005 0.0099 -0.244085
+-9.9e-005 0.0099 -0.244085
 -0.00258 0.0099 -0.224239
 0.000397 0.0099 -0.223867
 0.002878 0.0099 -0.243712
--9.90001e-005 -0.000100002 -0.244085
+-9.9e-005 -0.000100002 -0.244085
 -0.00258 -0.000100002 -0.224239
 0.000397 -0.000100002 -0.223867
 0.002878 -0.000100002 -0.243712
@@ -28015,17 +28015,17 @@ refs 4
 kids 0
 OBJECT poly
 name "SEC2Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.106
 texture "buttons.png"
 crease 30.000000
 numvert 8
--9.90001e-005 -0.000100002 -0.244085
+-9.9e-005 -0.000100002 -0.244085
 -0.00258 -0.000100002 -0.224239
 0.000397 -0.000100002 -0.223867
 0.002878 -0.000100002 -0.243712
--9.90001e-005 -0.0101 -0.244085
+-9.9e-005 -0.0101 -0.244085
 -0.00258 -0.0101 -0.224239
 0.000397 -0.0101 -0.223867
 0.002878 -0.0101 -0.243712
@@ -28061,7 +28061,7 @@ refs 4
 kids 0
 OBJECT poly
 name "SEC3Btn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.108
 texture "buttons.png"
@@ -28107,7 +28107,7 @@ refs 4
 kids 0
 OBJECT poly
 name "SEC3Btn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.109
 texture "buttons.png"
@@ -28153,7 +28153,7 @@ refs 4
 kids 0
 OBJECT poly
 name "SeatBeltSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.034
 crease 30.000000
@@ -28539,7 +28539,7 @@ refs 4
 kids 0
 OBJECT poly
 name "StbyCompassLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.037
 crease 30.000000
@@ -28925,7 +28925,7 @@ refs 4
 kids 0
 OBJECT poly
 name "StrobeLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.029
 crease 30.000000
@@ -29088,7 +29088,7 @@ refs 4
 kids 0
 OBJECT poly
 name "SwitchSockets"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.025
 crease 30.000000
@@ -30287,7 +30287,7 @@ refs 3
 kids 0
 OBJECT poly
 name "TurnoffLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.032
 crease 30.000000
@@ -30673,7 +30673,7 @@ refs 4
 kids 0
 OBJECT poly
 name "VentBlowBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.096
 texture "buttons.png"
@@ -30751,7 +30751,7 @@ refs 4
 kids 0
 OBJECT poly
 name "VentExtractBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.095
 texture "buttons.png"
@@ -30829,7 +30829,7 @@ refs 4
 kids 0
 OBJECT poly
 name "WingAntiIceBtn1"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.040
 texture "buttons.png"
@@ -30875,7 +30875,7 @@ refs 4
 kids 0
 OBJECT poly
 name "WingAntiIceBtn2"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.039
 texture "buttons.png"
@@ -30921,7 +30921,7 @@ refs 4
 kids 0
 OBJECT poly
 name "WingLtSwtch"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.027
 crease 30.000000
@@ -31307,7 +31307,7 @@ refs 4
 kids 0
 OBJECT poly
 name "XbleedKnb"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 12
 Cylinder.012
 texture "knob.png"
@@ -31426,7 +31426,7 @@ numvert 145
 -0.008824 -0.180053 -0.05772
 -0.008824 -0.170386 -0.053716
 7.6e-005 -0.182529 -0.051188
-6.00005e-006 -0.1826 -0.05266
+6e-006 -0.1826 -0.05266
 -0.010004 -0.182529 -0.051188
 -0.001044 -0.181439 -0.046389
 -0.008884 -0.164609 -0.057813
@@ -32337,7 +32337,7 @@ refs 3
 kids 0
 OBJECT poly
 name "y-elec-pump"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.087
 texture "buttons.png"
@@ -32383,7 +32383,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FuelXfeedBtn1"
-loc -0.00711589 0.0978501 -0.000949979
+loc -0.00856282 0.11909 -0.0994792
 data 8
 Cube.080
 texture "buttons.png"
@@ -32437,7 +32437,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FuelXfeedBtn2"
-loc -0.00711589 0.0878501 -0.000949979
+loc -0.00856282 0.10909 -0.0994792
 data 8
 Cube.080
 texture "buttons.png"
@@ -32491,7 +32491,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CFuelTank1Btn1"
-loc -0.00711589 0.06155 0.03085
+loc -0.00856282 0.0827899 -0.0676792
 data 8
 Cube.075
 texture "buttons.png"
@@ -32545,7 +32545,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CFuelTank2Btn1"
-loc -0.00711589 0.06155 -0.0317498
+loc -0.00856282 0.0827899 -0.130279
 data 8
 Cube.075
 texture "buttons.png"
@@ -32599,7 +32599,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CFuelTank2Btn2"
-loc -0.00711589 0.05155 -0.0317498
+loc -0.00856282 0.0727899 -0.130279
 data 8
 Cube.076
 texture "buttons.png"
@@ -32653,7 +32653,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CFuelTank1Btn2"
-loc -0.00711589 0.05155 0.03085
+loc -0.00856282 0.0727899 -0.0676792
 data 8
 Cube.076
 texture "buttons.png"
@@ -32707,7 +32707,7 @@ refs 4
 kids 0
 OBJECT poly
 name "e1-pump-fault"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.086
 texture "buttons.png"
@@ -32753,7 +32753,7 @@ refs 4
 kids 0
 OBJECT poly
 name "elec-pump-fault"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.083
 texture "buttons.png"
@@ -32799,7 +32799,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ptu"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.084
 texture "buttons.png"
@@ -32845,7 +32845,7 @@ refs 4
 kids 0
 OBJECT poly
 name "e2-pump"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.085
 texture "buttons.png"
@@ -32891,7 +32891,7 @@ refs 4
 kids 0
 OBJECT poly
 name "y-elec-pump-fault"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.087
 texture "buttons.png"
@@ -32937,7 +32937,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn11"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.071
 texture "buttons.png"
@@ -32983,7 +32983,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn21"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.071
 texture "buttons.png"
@@ -33029,7 +33029,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn12"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.070
 texture "buttons.png"
@@ -33075,7 +33075,7 @@ refs 4
 kids 0
 OBJECT poly
 name "BatteryBtn22"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.070
 texture "buttons.png"
@@ -33121,7 +33121,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RamAirBtn"
-loc 0.00138408 -5.00064e-005 -4.99785e-005
+loc -6.28438e-005 0.0211899 -0.0985792
 data 8
 Cube.047
 texture "buttons.png"

@@ -35,6 +35,7 @@ var colddark = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
+	systems.ADIRSreset();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -78,6 +79,7 @@ var beforestart = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
+	systems.ADIRSreset();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -107,6 +109,15 @@ var beforestart_b = func {
 	setprop("/controls/APU/bleed", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
+	setprop("controls/adirs/ir[0]/knob","2");
+	setprop("controls/adirs/ir[1]/knob","2");
+	setprop("controls/adirs/ir[2]/knob","2");
+	setprop("instrumentation/adirs/ir[0]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[1]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[2]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[0]/aligned",1);
+	setprop("instrumentation/adirs/ir[1]/aligned",1);
+	setprop("instrumentation/adirs/ir[2]/aligned",1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -128,6 +139,7 @@ var taxi = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
+	systems.ADIRSreset();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -157,6 +169,15 @@ var taxi_b = func {
 	setprop("/controls/APU/bleed", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
+	setprop("controls/adirs/ir[0]/knob","2");
+	setprop("controls/adirs/ir[1]/knob","2");
+	setprop("controls/adirs/ir[2]/knob","2");
+	setprop("instrumentation/adirs/ir[0]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[1]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[2]/display/ttn",0);
+	setprop("instrumentation/adirs/ir[0]/aligned",1);
+	setprop("instrumentation/adirs/ir[1]/aligned",1);
+	setprop("instrumentation/adirs/ir[2]/aligned",1);
 	setprop("/controls/engines/engine-start-switch", 2);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 0);
 	var eng_two_chk = setlistener("/engines/engine[1]/state", func {

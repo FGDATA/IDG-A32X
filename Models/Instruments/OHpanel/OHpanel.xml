@@ -82,9 +82,15 @@
 		<object-name>APUMasterBtn2O</object-name>
 		<object-name>APUStartBtn1A</object-name>
 		<object-name>APUStartBtn2O</object-name>
+		<object-name>ADR1Btn1F</object-name>
+		<object-name>ADR1Btn2O</object-name>
+		<object-name>ADR2Btn1F</object-name>
+		<object-name>ADR2Btn2O</object-name>
+		<object-name>ADR3Btn1F</object-name>
+		<object-name>ADR3Btn2O</object-name>
 		<object-name>BatteryBtn11F</object-name>
-		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn12O</object-name>
+		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn22O</object-name>
 		<object-name>Battery-lvl</object-name>
 		<object-name>BusTieBtn2O</object-name>
@@ -98,6 +104,13 @@
 		<object-name>Gen2Btn2O</object-name>
 		<object-name>IDG1Btn1F</object-name>
 		<object-name>IDG2Btn1F</object-name>
+		<object-name>IR1Btn1F</object-name>
+		<object-name>IR1Btn2A</object-name>
+		<object-name>IR2Btn1F</object-name>
+		<object-name>IR2Btn2A</object-name>
+		<object-name>IR3Btn1F</object-name>
+		<object-name>IR3Btn2A</object-name>
+		<object-name>IrsOnBatLightOB</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -141,17 +154,551 @@
 		<object-name>adirs-coords</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
-				<value>9</value>
+				<property>/systems/electrical/bus/dc1</property>
+				<value>25</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
-
+	
+	<!-- IRS 1 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IR1ModeKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[0]/knob</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<max>3</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[0]/knob</property>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>IR1ModeKnb</object-name>
+		<property>/controls/adirs/ir[0]/knob</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>3</ind><dep>35</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.01578</x1-m>
+			<y1-m>-0.29391</y1-m>
+			<z1-m>0.1338</z1-m>
+			<x2-m>0.00637</x2-m>
+			<y2-m>-0.29509</y2-m>
+			<z2-m>0.1338</z2-m>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>select</type>
-		<object-name>Battery-lvl</object-name>
+		<object-name>IR1Btn1F</object-name>
 		<condition>
-			<property>controls/electric/battery-switch</property>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[0]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IR1Btn2A</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[0]/align</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- IRS 2 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IR2ModeKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[1]/knob</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<max>3</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[1]/knob</property>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>IR2ModeKnb</object-name>
+		<property>/controls/adirs/ir[1]/knob</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>3</ind><dep>35</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.00444</x1-m>
+			<y1-m>-0.20312</y1-m>
+			<z1-m>0.1338</z1-m>
+			<x2-m>-0.00498</x2-m>
+			<y2-m>-0.20429</y2-m>
+			<z2-m>0.1338</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>IR2Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[1]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IR2Btn2A</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[1]/align</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<!-- IRS 3 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IR3ModeKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[2]/knob</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<max>3</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/ir[2]/knob</property>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>IR3ModeKnb</object-name>
+		<property>/controls/adirs/ir[2]/knob</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>2</ind><dep>0</dep></entry>
+			<entry><ind>3</ind><dep>35</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.01021</x1-m>
+			<y1-m>-0.24926</y1-m>
+			<z1-m>0.1338</z1-m>
+			<x2-m>0.00082</x2-m>
+			<y2-m>-0.25062</y2-m>
+			<z2-m>0.1338</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>IR3Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[2]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IR3Btn2A</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/ir[2]/align</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- IR Display Data Knob -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IRDisplayDataKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/display/dataknob</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<value type="int">4</value>
+				<value type="int">5</value>
+				<value type="int">6</value>
+				<max>6</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/display/dataknob</property>
+				<value type="int">6</value>
+				<value type="int">5</value>
+				<value type="int">4</value>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>IRDisplayDataKnb</object-name>
+		<property>/controls/adirs/display/dataknob</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>-90</dep></entry>
+			<entry><ind>2</ind><dep>-55</dep></entry>
+			<entry><ind>3</ind><dep>-15</dep></entry>
+			<entry><ind>4</ind><dep>30</dep></entry>
+			<entry><ind>5</ind><dep>50</dep></entry>
+			<entry><ind>6</ind><dep>90</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.01551</x1-m>
+			<y1-m>-0.29163</y1-m>
+			<z1-m>0.2088</z1-m>
+			<x2-m>0.00609</x2-m>
+			<y2-m>-0.2928</y2-m>
+			<z2-m>0.2088</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- IRS Display Select Knob -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IRDisplaySelectKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/display/selected</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<value type="int">4</value>
+				<max>4</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/adirs/display/selected</property>
+				<value type="int">4</value>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
+				<min>1</min>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>IRDisplaySelectKnb</object-name>
+		<property>/controls/adirs/display/selected</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>-80</dep></entry>
+			<entry><ind>2</ind><dep>-45</dep></entry>
+			<entry><ind>3</ind><dep>5</dep></entry>
+			<entry><ind>4</ind><dep>45</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.00746</x1-m>
+			<y1-m>-0.24638</y1-m>
+			<z1-m>0.2072</z1-m>
+			<x2-m>0.0004</x2-m>
+			<y2-m>-0.24726</y2-m>
+			<z2-m>0.2072</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- On Bat Light -->
+	<animation>
+		<type>select</type>
+		<object-name>IrsOnBatLightOB</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/onbat</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<!-- ADR 1 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ADR1Btn1</object-name>
+		<object-name>ADR1Btn2</object-name>
+		<object-name>ADR1Btn1F</object-name>
+		<object-name>ADR1Btn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/adirs/adr[0]/off</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ADR1Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[0]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ADR1Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[0]/off</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<!-- ADR 2 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ADR2Btn1</object-name>
+		<object-name>ADR2Btn2</object-name>
+		<object-name>ADR2Btn1F</object-name>
+		<object-name>ADR2Btn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/adirs/adr[1]/off</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ADR2Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[1]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ADR2Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[1]/off</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- ADR 3 -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ADR3Btn1</object-name>
+		<object-name>ADR3Btn2</object-name>
+		<object-name>ADR3Btn1F</object-name>
+		<object-name>ADR3Btn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/adirs/adr[2]/off</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ADR3Btn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[2]/fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ADR3Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[2]/off</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 
@@ -202,7 +749,7 @@
 	
 	<!-- Call -->
 	
-	<animation>
+	<!--animation>
 		<name>Ground Call pick</name>
 		<type>pick</type>
 		<object-name>GroundCall</object-name>
@@ -240,7 +787,7 @@
 				</script>
 			</binding>
 		</action>
-	</animation>
+	</animation-->
 
 	<!-- GPWS -->
 	<animation>
@@ -1864,7 +2411,7 @@
 		<condition>
 			<or>
 				<greater-than>
-					<property>/systems/apu/rpm</property>
+					<property>controls/APU/start</property>
 					<value>99</value>
 				</greater-than>
 				<equals>
@@ -2315,7 +2862,7 @@
 	
 	<!-- Texts -->
 
-	<text>
+		<text>
 		<name>adirs-coords</name>
 		<offsets>
 			<x-m>0.005</x-m>
@@ -2329,8 +2876,8 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/instrumentation/oh-panel/pos-string</property>
-		<font type="string">Helvetica.txf</font>
+		<property>/controls/adirs/display/text</property>
+		<font type="string">LED-8.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
