@@ -4112,6 +4112,17 @@
 				<value>2</value>
 			</binding>
 		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/engines/engine-start-switch</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+		</action>
 	</animation>
 	
 	<animation>
