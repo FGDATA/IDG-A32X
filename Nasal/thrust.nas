@@ -1,6 +1,7 @@
 # A320 Throttle Control System by Joshua Davidson (it0uchpods/411)
 # Set A/THR modes to Custom IT-AUTOTHRUST, and other thrust modes like MCT, TOGA and eventually TO FLEX.
-# V1.8
+# Also handles FADEC
+# V1.9
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/state1", "IDLE");
@@ -8,11 +9,11 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/lvrclb", "0");
 	setprop("/systems/thrust/clbreduc-ft", "1500");
 	lvrclb();
-	print("Thrust System ... Done!")
+	print("FADEC ... Done!")
 });
 
-setlistener("/controls/engines/engine[0]/throttle", func {
-	var thrr = getprop("/controls/engines/engine[0]/throttle");
+setlistener("/controls/engines/engine[0]/throttle-pos", func {
+	var thrr = getprop("/controls/engines/engine[0]/throttle-pos");
 	if (thrr < 0.05) {
 		setprop("/systems/thrust/state1", "IDLE");
 		atoff_request();
@@ -36,8 +37,8 @@ setlistener("/controls/engines/engine[0]/throttle", func {
 	}
 });
 
-setlistener("/controls/engines/engine[1]/throttle", func {
-	var thrr = getprop("/controls/engines/engine[1]/throttle");
+setlistener("/controls/engines/engine[1]/throttle-pos", func {
+	var thrr = getprop("/controls/engines/engine[1]/throttle-pos");
 	if (thrr < 0.05) {
 		setprop("/systems/thrust/state2", "IDLE");
 		atoff_request();
@@ -69,8 +70,6 @@ var atoff_request = func {
 		setprop("/it-autoflight/input/athr", 0);
 		setprop("/systems/thrust/at1", 0);
 		setprop("/systems/thrust/at2", 0);
-		setprop("/systems/thrust/at3", 0);
-		setprop("/systems/thrust/at4", 0);
 	}
 }
 

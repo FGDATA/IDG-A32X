@@ -165,5 +165,39 @@
         </input>
 		<output>/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd</output>
     </filter>
+	
+    <filter>
+        <name>Throttle L</name>
+        <type>gain</type>
+        <gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+		</enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>/controls/engines/engine[0]/throttle</input>
+		<output>/controls/engines/engine[0]/throttle-pos</output>
+    </filter>
+	
+    <filter>
+        <name>Throttle R</name>
+        <type>gain</type>
+        <gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+		</enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>/controls/engines/engine[1]/throttle</input>
+		<output>/controls/engines/engine[1]/throttle-pos</output>
+    </filter>
 
 </PropertyList>

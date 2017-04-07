@@ -249,6 +249,18 @@
 				<live>true</live>
 			</checkbox>
 			
+			<button>
+				<legend>FBW Settings</legend>
+				<halign>center</halign>
+				<padding>5</padding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.fbw_dlg.open();
+					</script>
+				</binding>
+			</button>
+			
 		</group>
 	</group>
 	

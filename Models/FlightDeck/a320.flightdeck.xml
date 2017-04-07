@@ -1865,7 +1865,7 @@
 		<type>rotate</type>
 		<object-name>trim_wheel</object-name>
 		<property>/controls/flight/elevator-trim</property>
-		<factor>-70</factor>
+		<factor>-700</factor>
 		<center>
 			<x-m>-0.2373</x-m>
 			<y-m>0</y-m>
@@ -2073,7 +2073,13 @@
 		<name>Engine 1 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_l</object-name>
-		<property>controls/engines/engine[0]/throttle</property>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<property>controls/engines/engine[0]/throttle-pos</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
@@ -2087,6 +2093,32 @@
 			<entry><ind>0.94999</ind><dep>53</dep></entry>
 			<entry><ind>0.95000</ind><dep>55</dep></entry>
 			<entry><ind>1.00000</ind><dep>55</dep></entry>
+		</interpolation> 
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.2373</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3811</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Engine 1 throttle lever rev</name>
+		<type>rotate</type>
+		<object-name>thr_l</object-name>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<property>controls/engines/engine[0]/throttle-pos</property>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 0</dep></entry>
+			<entry><ind>0.25</ind><dep>-10</dep></entry>
 		</interpolation> 
 		<axis>
 			<x>0</x>
@@ -2130,7 +2162,13 @@
 		<name>Engine 2 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_r</object-name>
-		<property>controls/engines/engine[1]/throttle</property>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<property>controls/engines/engine[1]/throttle-pos</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
@@ -2156,42 +2194,68 @@
 			<z-m>-0.3811</z-m>
 		</center>
 	</animation>
-    
-    <animation>
-        <name>Reverse Thrust left lever</name>
-        <type>rotate</type>
-        <object-name>rev_l</object-name>
-        <property>controls/engines/engine/reverser</property>
-        <factor>60</factor>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m>-0.16</x-m>
-            <y-m>0</y-m>
-            <z-m>-0.29</z-m>
-        </center>
-    </animation>
-    
-    <animation>
-        <name>Reverse Thrust right lever</name>
-        <type>rotate</type>
-        <object-name>rev_r</object-name>
-        <property>controls/engines/engine[1]/reverser</property>
-        <factor>60</factor>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m>-0.16</x-m>
-            <y-m>0</y-m>
-            <z-m>-0.29</z-m>
-        </center>
-    </animation>
+	<animation>
+		<name>Engine 2 throttle lever rev</name>
+		<type>rotate</type>
+		<object-name>thr_r</object-name>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<property>controls/engines/engine[1]/throttle-pos</property>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 0</dep></entry>
+			<entry><ind>0.25</ind><dep>-10</dep></entry>
+		</interpolation> 
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.2373</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3811</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+	<name>Reverse Thrust left lever</name>
+		<type>rotate</type>
+		<object-name>rev_l</object-name>
+		<property>controls/engines/engine/reverser</property>
+		<factor>60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.16</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.29</z-m>
+		</center>
+	</animation>
+
+	<animation>
+	<name>Reverse Thrust right lever</name>
+		<type>rotate</type>
+		<object-name>rev_r</object-name>
+		<property>controls/engines/engine[1]/reverser</property>
+		<factor>60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.16</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.29</z-m>
+		</center>
+	</animation>
 
 	<!-- Engine Cut-off Switches -->
 

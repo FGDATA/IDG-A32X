@@ -223,9 +223,9 @@
 	<config>
 		<altitude-dial-mode>0</altitude-dial-mode>
 		<roll>
-			<umin>-0.30</umin>
-			<umax>0.30</umax>
-			<kp>0.05</kp>
+			<umin>-0.40</umin>
+			<umax>0.40</umax>
+			<kp>0.08</kp>
 			<kp-vloc>0.09</kp-vloc>
 			<ti>10.0</ti>
 			<td>0.00001</td>
@@ -234,24 +234,24 @@
 		<pitch>
 			<umin>-0.40</umin>
 			<umax>0.40</umax>
-			<kp>-0.04</kp>
+			<kp>-0.09</kp>
 			<ti>10.0</ti>
 			<td>0.0001</td>
-			<kp-cws>-0.07</kp-cws>
+			<kp-cws>-0.09</kp-cws>
 		</pitch>
 		<cmd>
 			<roll-kp>-1.9</roll-kp>
-			<roll-scale>1.4</roll-scale>
+			<roll-scale>1.5</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
-			<vs>0.07</vs>
+			<vs>0.10</vs>
 			<fpa>0.30</fpa>
 			<flch>-4.0</flch>
 			<gs>0.10</gs>
 		</cmd>
 		<autoland>
 			<kp-roll>0.10</kp-roll>
-			<kp-pitch>0.01</kp-pitch>
+			<kp-pitch>0.03</kp-pitch>
 			<kp-rudder>-0.3</kp-rudder>
 		</autoland>
 	</config>
@@ -273,17 +273,6 @@
 	<roll-deg>0</roll-deg>
 	<pitch-deg>0</pitch-deg>
 </it-fbw>
-
-<engines n="0">
-  <engine n="0">
-    <egt-actual type="float">0</egt-actual>
-    <state type="int">0</state>
-  </engine>
-  <engine n="1">
-    <egt-actual type="float">0</egt-actual>
-    <state type="int">0</state>
-  </engine>
-</engines>
 
 <apu>
   <rpm type="float">0</rpm>
@@ -367,11 +356,15 @@
 			<serviceable type="bool">true</serviceable>
 		</apu>
 		<engine n="0">
+			<egt-actual type="float">0</egt-actual>
+			<state type="int">0</state>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
 		</engine>
 		<engine n="1">
+			<egt-actual type="float">0</egt-actual>
+			<state type="int">0</state>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
@@ -509,13 +502,32 @@
 	<input>
 		<keyboard>
 			<key n="127">
-				<name>Delete</name>
-				<desc>Toggle thrust reversers</desc>
+				<name>DEL</name>
+				<desc>REV MSG</desc>
 				<binding>
 					<command>nasal</command>
 					<script>
-					 A320.engine1.reverse_thrust();
-					 A320.engine2.reverse_thrust();
+					gui.popupTip("Use F2 to activate reverse thrust, and F1 to deactivate reverse thrust.");
+					</script>
+				</binding>
+			</key>
+			<key n="257">
+				<name>F1</name>
+				<desc>Disengage/Decrease reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					systems.un_rev_thrust();
+					</script>
+				</binding>
+			</key>
+			<key n="258">
+				<name>F2</name>
+				<desc>Engage/Increase reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					systems.do_rev_thrust();
 					</script>
 				</binding>
 			</key>

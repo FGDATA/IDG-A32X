@@ -30,7 +30,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<z> -25.2091 </z>
 	</location -->
 	<location name="AERORP" unit="IN">
-		<x> 680.00 </x>
+		<x> 700.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -85,7 +85,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<z> -41.7398 </z>
 	</location -->
 	<location name="CG" unit="IN">
-		<x> 642.00 </x>
+		<x> 652.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -568,30 +568,25 @@ YAW MOI_________3950000______23089847_______24848934
 		<input>/controls/flight/elevator-fbw</input>
 		<input>/controls/flight/elevator-trim</input>
 		<clipto>
-		<min>-1</min>
-		<max>1</max>
+			<min>-1</min>
+			<max>1</max>
 		</clipto>
 	</summer>
 
 	<aerosurface_scale name="Elevator Control">
 		<input>fcs/pitch-trim-sum</input>
-		<gain>0.025</gain>
+		<gain>0.015</gain>
 		<range>
-		<min>-10</min>
-		<max>10</max>
+			<min>-20</min>
+			<max>20</max>
 		</range>
 		<output>fcs/elevator-pos-rad</output>
 	</aerosurface_scale>
-
-	<aerosurface_scale name="Elevator position normalized">
-		<input>fcs/elevator-pos-deg</input>
-		<domain>
-		<min>-10</min>
-		<max>10</max>
-		</domain>
+	<aerosurface_scale name="Elevator Position Normalizer">
+		<input>fcs/pitch-trim-sum</input>
 		<range>
-		<min>-1</min>
-		<max>1</max>
+			<min>-1</min>
+			<max>1</max>
 		</range>
 		<output>fcs/elevator-pos-norm</output>
 	</aerosurface_scale>
@@ -989,7 +984,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/slat-pos-deg</property>
-					<value> 0.02000 </value>
+					<value> 0.02500 </value>
 				</product>
 			</function>
 
@@ -1009,7 +1004,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/elevator-pos-rad</property>
-					<value>0.15</value>
+					<value>0.04</value>
 				</product>
 			</function>
 
@@ -1167,7 +1162,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/p-aero-rad_sec</property>
-					<value>-0.4</value>
+					<value>-0.95</value>
 				</product>
 			</function>
 
@@ -1179,7 +1174,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/r-aero-rad_sec</property>
-					<value>0.15</value>
+					<value>0.005</value>
 				</product>
 			</function>
 
@@ -1190,7 +1185,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
 					<property>fcs/left-aileron-pos-rad</property>
-					<value>0.1</value>
+					<value>0.20</value>
 				</product>
 			</function>
 
@@ -1201,7 +1196,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
 					<property>fcs/rudder-pos-rad</property>
-					<value>0.01</value>
+					<value>0.003</value>
 				</product>
 			</function>
 
@@ -1230,8 +1225,8 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">velocities/mach</independentVar>
 						<tableData>
-							0.0     -1.200
-							2.0     -0.300
+							0.0     -1.900
+							2.0     -0.900
 						</tableData>
 					</table>
 				</product>
@@ -1245,7 +1240,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/cbarw-ft</property>
 					<property>aero/ci2vel</property>
 					<property>velocities/q-aero-rad_sec</property>
-					<value>-17</value>
+					<value>-140</value>
 				</product>
 			</function>
 
@@ -1257,7 +1252,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/cbarw-ft</property>
 					<property>aero/ci2vel</property>
 					<property>aero/alphadot-rad_sec</property>
-					<value>-6</value>
+					<value>-1</value>
 				</product>
 			</function>
 

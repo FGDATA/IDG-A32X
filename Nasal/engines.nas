@@ -24,11 +24,13 @@ var apu_egt_max = 513;
 var spinup_time = 15;
 var start_time = 10;
 var egt_lightup_time = 3;
-var egt_lightdn_time = 7;
+var egt_lightdn_time = 11;
 var shutdown_time = 20;
 var egt_shutdown_time = 20;
 setprop("/systems/apu/rpm", 0);
 setprop("/systems/apu/egt", 42);
+setprop("/controls/engines/engine[0]/reverser", 0);
+setprop("/controls/engines/engine[1]/reverser", 0);
 
 ##############################
 # Trigger Startups and Stops #
@@ -182,6 +184,62 @@ setlistener("/controls/APU/bleed", func {
 		}
 	}
 });
+
+#########################
+# Reverse Thrust System #
+#########################
+var do_rev_thrust = func {
+	if ((getprop("/controls/engines/engine[0]/reverser") == "1") and (getprop("/controls/engines/engine[1]/reverser") == "1")  and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
+		var pos1 = getprop("/controls/engines/engine[0]/throttle-pos");
+		var pos2 = getprop("/controls/engines/engine[1]/throttle-pos");
+		if (pos1 < 0.25) {
+			setprop("/controls/engines/engine[0]/throttle-pos", pos1 + 0.05);
+		}
+		if (pos2 < 0.25) {
+			setprop("/controls/engines/engine[1]/throttle-pos", pos2 + 0.05);
+		}
+	}
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	if ((state1 == "IDLE") and (state2 == "IDLE") and (getprop("/controls/engines/engine[0]/reverser") == "0") and (getprop("/controls/engines/engine[1]/reverser") == "0") and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
+		interpolate("/engines/engine[0]/reverser-pos-norm", 1, 1.4);
+		interpolate("/engines/engine[1]/reverser-pos-norm", 1, 1.4);
+		setprop("/controls/engines/engine[0]/reverser", 1);
+		setprop("/controls/engines/engine[1]/reverser", 1);
+		setprop("/controls/engines/engine[0]/throttle-pos", 0);
+		setprop("/controls/engines/engine[1]/throttle-pos", 0);
+		setprop("/fdm/jsbsim/propulsion/engine[0]/reverser-angle-rad", 3.14);
+		setprop("/fdm/jsbsim/propulsion/engine[1]/reverser-angle-rad", 3.14);
+	}
+}
+
+var un_rev_thrust = func {
+	if ((getprop("/controls/engines/engine[0]/reverser") == "1") and (getprop("/controls/engines/engine[1]/reverser") == "1")) {
+		interpolate("/engines/engine[0]/reverser-pos-norm", 0, 1.0);
+		interpolate("/engines/engine[1]/reverser-pos-norm", 0, 1.0);
+		var pos1 = getprop("/controls/engines/engine[0]/throttle-pos");
+		var pos2 = getprop("/controls/engines/engine[1]/throttle-pos");
+		if (pos1 > 0.0) {
+			setprop("/controls/engines/engine[0]/throttle-pos", pos1 - 0.05);
+		} else {
+			un_rev_thrust_b();
+		}
+		if (pos2 > 0.0) {
+			setprop("/controls/engines/engine[1]/throttle-pos", pos2 - 0.05);
+		} else {
+			un_rev_thrust_b();
+		}
+	}
+}
+
+var un_rev_thrust_b = func {
+	setprop("/controls/engines/engine[0]/throttle-pos", 0);
+	setprop("/controls/engines/engine[1]/throttle-pos", 0);
+	setprop("/fdm/jsbsim/propulsion/engine[0]/reverser-angle-rad", 0);
+	setprop("/fdm/jsbsim/propulsion/engine[1]/reverser-angle-rad", 0);
+	setprop("/controls/engines/engine[0]/reverser", 0);
+	setprop("/controls/engines/engine[1]/reverser", 0);
+}
 
 # Timers
 var eng_one_auto_startt = maketimer(0.5, eng_one_auto_start);

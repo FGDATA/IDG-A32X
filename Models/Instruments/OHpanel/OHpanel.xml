@@ -961,7 +961,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/electrical/switches/acc-ess-feed</property>
+				<property>/controls/electrical/switches/ac-ess-feed</property>
 			</binding>
 		</action>
 	</animation>
@@ -989,7 +989,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/electrical/switches/acc-ess-feed</property>
+					<property>/controls/electrical/switches/ac-ess-feed</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2065,7 +2065,12 @@
 				<command>property-toggle</command>
 				<property>controls/switches/no-smoking-sign</property>
 			</binding>
-
+			<bindings>
+				<command>nasal</command>
+				<script>
+				A320.dingdong();
+				</script>
+			</bindings>
 		</action>
 	</animation>
 	<animation>

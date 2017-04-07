@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- A3XX Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>aircraft-config-fbw</name>
+	<layout>vbox</layout>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>FBW Settings</label>
+        </text>
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+	<group>
+		<layout>vbox</layout>
+		
+		<button>
+			<halign>center</halign>
+			<legend>Use NORMAL Law</legend>
+			<pref-width>140</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/it-fbw/law", "NORMAL");
+				gui.popupTip("Fly By Wire switched to NORMAL law!");
+				</script>
+			</binding>
+		</button>
+		<button>
+			<halign>center</halign>
+			<legend>Use ALTERNATE Law</legend>
+			<pref-width>140</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/it-fbw/law", "ALTERNATE");
+				gui.popupTip("Fly By Wire switched to ALTERNATE law!");
+				</script>
+			</binding>
+		</button>
+		<button>
+			<halign>center</halign>
+			<legend>Use DIRECT Law</legend>
+			<pref-width>140</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/it-fbw/law", "DIRECT");
+				gui.popupTip("Fly By Wire switched to DIRECT law!");
+				</script>
+			</binding>
+		</button>
+		<button>
+			<halign>center</halign>
+			<legend>Use BACKUP Law</legend>
+			<pref-width>140</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>
+				setprop("/it-fbw/law", "BACKUP");
+				gui.popupTip("Fly By Wire switched to MECHANICAL BACKUP law!");
+				</script>
+			</binding>
+		</button>
+		
+	</group>
+	
+</PropertyList>

@@ -1,5 +1,5 @@
 # A320 FBW System by Joshua Davidson (it0uchpods/411)
-# V0.8
+# V0.9
 
 var roll_input = func {
 
@@ -8,59 +8,59 @@ var roll_input = func {
 		
 		if (ail >= 0.05 and ail < 0.15) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.01");
+			setprop("/it-fbw/roll-deg", rfbw + "0.005");
 		} else if (ail >= 0.15 and ail < 0.3) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.05");
+			setprop("/it-fbw/roll-deg", rfbw + "0.01");
 		} else if (ail >= 0.3 and ail < 0.5) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.1");
+			setprop("/it-fbw/roll-deg", rfbw + "0.05");
 		} else if (ail >= 0.5 and ail < 0.7) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.2");
+			setprop("/it-fbw/roll-deg", rfbw + "0.1");
 		} else if (ail >= 0.7 and ail <= 1) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.3");
+			setprop("/it-fbw/roll-deg", rfbw + "0.2");
 		}
 	
 		if (ail <= -0.05 and ail > -0.15) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.01");
+			setprop("/it-fbw/roll-deg", rfbw - "0.005");
 		} else if (ail <= -0.15 and ail > -0.3) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.05");
+			setprop("/it-fbw/roll-deg", rfbw - "0.01");
 		} else if (ail <= -0.3 and ail > -0.5) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.1");
+			setprop("/it-fbw/roll-deg", rfbw - "0.05");
 		} else if (ail <= -0.5 and ail > -0.7) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.2");
+			setprop("/it-fbw/roll-deg", rfbw - "0.1");
 		} else if (ail <= -0.7 and ail >= -1) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.3");
+			setprop("/it-fbw/roll-deg", rfbw - "0.2");
 		}
 	}
 	
-	if (getprop("/it-fbw/roll-deg") >= 30) {
+	if (getprop("/it-fbw/roll-deg") >= 33) {
 		if (getprop("/it-fbw/law") == "NORMAL") {
 			if (ail > 0.4) {
-				if (getprop("/it-fbw/roll-deg") >= 65) {
-			setprop("/it-fbw/roll-deg", "65");
+				if (getprop("/it-fbw/roll-deg") >= 67) {
+			setprop("/it-fbw/roll-deg", "67");
 				}
 			} else {
-				setprop("/it-fbw/roll-deg", "30");
+				setprop("/it-fbw/roll-deg", "33");
 			}
 		}
 	}
 	
-	if (getprop("/it-fbw/roll-deg") <= -30) {
+	if (getprop("/it-fbw/roll-deg") <= -33) {
 		if (getprop("/it-fbw/law") == "NORMAL") {
 			if (ail < -0.4) {
-				if (getprop("/it-fbw/roll-deg") <= -65) {
-			setprop("/it-fbw/roll-deg", "-65");
+				if (getprop("/it-fbw/roll-deg") <= -67) {
+			setprop("/it-fbw/roll-deg", "-67");
 				}
 			} else {
-				setprop("/it-fbw/roll-deg", "-30");
+				setprop("/it-fbw/roll-deg", "-33");
 			}
 		}
 	}
@@ -74,8 +74,9 @@ var roll_input = func {
 
 var pitch_input = func {
 
+	var elev = getprop("/controls/flight/elevator");
+
 	if (getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0 and ((getprop("/it-fbw/law") == "NORMAL") or (getprop("/it-fbw/law") == "ALTERNATE"))) {
-		var elev = getprop("/controls/flight/elevator");
 		
 		if (elev >= 0.05 and elev < 0.15) {
 			var pfbw = getprop("/it-fbw/pitch-deg");
@@ -91,7 +92,7 @@ var pitch_input = func {
 			setprop("/it-fbw/pitch-deg", pfbw - "0.1");
 		} else if (elev >= 0.7 and elev <= 1) {
 			var pfbw = getprop("/it-fbw/pitch-deg");
-			setprop("/it-fbw/pitch-deg", pfbw - "0.15");
+			setprop("/it-fbw/pitch-deg", pfbw - "0.2");
 		}
 	
 		if (elev <= -0.05 and elev > -0.15) {
@@ -108,7 +109,26 @@ var pitch_input = func {
 			setprop("/it-fbw/pitch-deg", pfbw + "0.1");
 		} else if (elev <= -0.7 and elev >= -1) {
 			var pfbw = getprop("/it-fbw/pitch-deg");
-			setprop("/it-fbw/pitch-deg", pfbw + "0.15");
+			setprop("/it-fbw/pitch-deg", pfbw + "0.2");
+		}
+		
+		if ((getprop("/controls/flight/flap-lever") >= 3) and (getprop("/controls/engines/engine[0]/throttle") < 0.65) and (getprop("/controls/engines/engine[1]/throttle") < 0.65) and (getprop("/position/gear-agl-ft") <= 50)) {
+			if (elev > -0.05 and elev < 0.05) {
+				var pfbw = getprop("/it-fbw/pitch-deg");
+				setprop("/it-fbw/pitch-deg", pfbw - "0.003");
+			}
+			var gear1 = setlistener("/gear/gear[1]/wow", func {
+				if (getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
+					removelistener(gear1);
+					setprop("/controls/flight/elevator-trim", -0.1);
+				}
+			});
+			var gear2 = setlistener("/gear/gear[2]/wow", func {
+				if (getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
+					removelistener(gear2);
+					setprop("/controls/flight/elevator-trim", -0.1);
+				}
+			});
 		}
 	}
 	
@@ -129,7 +149,6 @@ var pitch_input = func {
 		}
 	}
 	
-	var elev = getprop("/controls/flight/elevator");
 	if (getprop("/gear/gear[0]/wow") == 1) {
 		if (elev > -0.1 and elev < 0.1) {
 			setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
@@ -164,8 +183,8 @@ setlistener("/it-fbw/law", func {
 });
 
 setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/it-fbw/law", "DIRECT"); # Will be changed to NORMAL when electric system powers up, as soon as I get the FBW/FDM stable
+	setprop("/it-fbw/law", "NORMAL");
 	roll_input();
 	pitch_input();
-#	print("AIRBUS FBW ... OK!") # Don't advertise until it's working! ;)
+	print("AIRBUS FBW ... OK!");
 });

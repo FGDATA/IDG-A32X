@@ -19,13 +19,14 @@ var elec_init = func {
 	setprop("/controls/electrical/switches/gen-apu", 0);
 	setprop("/controls/electrical/switches/gen-ext", 0);
 	setprop("/controls/electrical/switches/apu-ext-crosstie", 1);
-	setprop("/controls/electrical/switches/acc-ess-feed", 1);
+	setprop("/controls/electrical/switches/ac-ess-feed", 1);
 	setprop("/controls/electrical/switches/battery1", 0);
 	setprop("/controls/electrical/switches/battery2", 0);
 	setprop("/systems/electrical/battery1-volts", 25.9);
 	setprop("/systems/electrical/battery2-volts", 25.9);
 	setprop("/systems/electrical/bus/dc1", 0);
 	setprop("/systems/electrical/bus/dc2", 0);
+	setprop("/systems/electrical/bus/dc-ess", 0);
 	setprop("/systems/electrical/bus/ac1", 0);
 	setprop("/systems/electrical/bus/ac2", 0);
 	setprop("/systems/electrical/bus/ac-ess", 0);
@@ -74,7 +75,7 @@ var master_elec = func {
 	var gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
 	var gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
 	var apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
-	var acc_ess_feed_sw = getprop("/controls/electrical/switches/acc-ess-feed");
+	var ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
 	var battery1_sw = getprop("/controls/electrical/switches/battery1");
 	var battery2_sw = getprop("/controls/electrical/switches/battery2");
 	var rpmapu = getprop("/systems/apu/rpm");
@@ -88,6 +89,7 @@ var master_elec = func {
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	var dc1 = getprop("/systems/electrical/bus/dc1");
 	var dc2 = getprop("/systems/electrical/bus/dc2");
+	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	
 	
 	# Left cross tie yes?
@@ -117,24 +119,31 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac1", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc1", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (rpmapu >= 99 and gen_apu_sw) {
 		setprop("/systems/electrical/bus/ac1", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc1", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (stateL == 3 and gen1_sw) {
 		setprop("/systems/electrical/bus/ac1", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc1", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc1", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else {
 		setprop("/systems/electrical/bus/ac1", 0);
 		if (getprop("/systems/electrical/bus/ac2") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
 		setprop("/systems/electrical/bus/dc1", 0);
+		if (getprop("/systems/electrical/bus/dc2") == 0) {
+			setprop("/systems/electrical/bus/dc-ess", 0);
+		}
 	}
 	
 	# Right AC/DC bus yes?
@@ -142,24 +151,31 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac2", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc2", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (rpmapu >= 99 and gen_apu_sw) {
 		setprop("/systems/electrical/bus/ac2", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc2", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (stateR == 3 and gen2_sw) {
 		setprop("/systems/electrical/bus/ac2", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc2", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 		setprop("/systems/electrical/bus/ac2", 115);
 		setprop("/systems/electrical/bus/ac-ess", 115);
 		setprop("/systems/electrical/bus/dc2", 28);
+		setprop("/systems/electrical/bus/dc-ess", 28);
 	} else {
 		setprop("/systems/electrical/bus/ac2", 0);
 		if (getprop("/systems/electrical/bus/ac1") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
 		setprop("/systems/electrical/bus/dc2", 0);
+		if (getprop("/systems/electrical/bus/dc1") == 0) {
+			setprop("/systems/electrical/bus/dc-ess", 0);
+		}
 	}
 	
 	if (ac_ess >= 100) {
