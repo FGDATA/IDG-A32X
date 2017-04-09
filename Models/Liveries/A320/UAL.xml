@@ -1,0 +1,11 @@
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">United Airlines</name>
+        <texture>Liveries/A320/UAL.png</texture>
+        <texture2>FanDisk.png</texture2>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

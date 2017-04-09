@@ -1,0 +1,11 @@
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">XL Airways France</name>
+        <texture>Liveries/A320/XLF.png</texture>
+        <texture2>FanDisk.png</texture2>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>
