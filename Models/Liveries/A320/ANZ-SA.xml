@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<PropertyList>
+		<sim>
+				<model>
+						<livery>
+								<name>Air New Zealand (Star Alliance)</name>
+								<texture>Liveries/A320/ANZ-SA.png</texture>
+						</livery>
+				</model>
+		</sim>
+</PropertyList>
