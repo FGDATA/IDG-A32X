@@ -1,5 +1,9 @@
-# A320 FBW System by Joshua Davidson (it0uchpods/411)
-# V0.9
+# Airbus A3XX FBW System by Joshua Davidson (it0uchpods/411)
+# V0.9.1
+
+########################
+# Roll Update Function #
+########################
 
 var roll_input = func {
 
@@ -68,9 +72,11 @@ var roll_input = func {
 	if (getprop("/gear/gear[0]/wow") == 1) {
 		setprop("/it-fbw/roll-deg", "0");
 	}
-
-	settimer(roll_input, 0.01);
 }
+
+#########################
+# Pitch Update Function #
+#########################
 
 var pitch_input = func {
 
@@ -154,8 +160,6 @@ var pitch_input = func {
 			setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
 		}
 	}
-
-	settimer(pitch_input, 0.01);
 }
 
 setlistener("/it-autoflight/output/ap1", func {
@@ -184,8 +188,8 @@ setlistener("/it-fbw/law", func {
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-fbw/law", "DIRECT");
-	roll_input();
-	pitch_input();
+	update_roll.start();
+	update_pitch.start();
 	print("AIRBUS FBW ... OK!");
 });
 
@@ -200,3 +204,9 @@ setlistener("/systems/electrical/bus/ac-ess", func {
 		}
 	}
 });
+
+##########
+# Timers #
+##########
+var update_roll = maketimer(0.01, roll_input);
+var update_pitch = maketimer(0.01, pitch_input);

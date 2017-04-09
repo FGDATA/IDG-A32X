@@ -2074,10 +2074,10 @@
 		<type>rotate</type>
 		<object-name>thr_l</object-name>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>/controls/engines/engine[0]/reverser</property>
-				<value>0</value>
-			</equals>
+				<value>1</value>
+			</not-equals>
 		</condition>
 		<property>controls/engines/engine[0]/throttle-pos</property>
 		<interpolation>
@@ -2163,10 +2163,10 @@
 		<type>rotate</type>
 		<object-name>thr_r</object-name>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>/controls/engines/engine[0]/reverser</property>
-				<value>0</value>
-			</equals>
+				<value>1</value>
+			</not-equals>
 		</condition>
 		<property>controls/engines/engine[1]/throttle-pos</property>
 		<interpolation>
