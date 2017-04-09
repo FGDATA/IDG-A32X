@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Czech Airlines</name>
+        <texture>Liveries/A320/CSA.png</texture>
+	  <texture2>FanDisk.png</texture2>
+	  </livery> 
+    </model>
+  </sim>
+</PropertyList>
