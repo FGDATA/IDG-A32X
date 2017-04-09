@@ -163,7 +163,6 @@
 						<property>/position/gear-agl-ft</property>
 						<value>18</value>
 					</less-than>
-
 					<greater-than>
 						<property>controls/engines/engine[0]/throttle</property>
 						<value>0.0</value>
@@ -291,5 +290,289 @@
 			<property>gear/gear[2]/wow</property>
 		</condition>
 	</wow>
+	
+	<click>
+		<mode>once</mode>
+		<path>click.wav</path>
+		<condition>
+			<property>/unused/sound/click</property>
+		</condition>
+	</click>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendaa</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>IDLE</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendba</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>IDLE</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendab</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>MAN</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbb</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>MAN</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendac</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>CL</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbc</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>CL</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendad</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>MAN THR</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbd</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>MAN THR</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendae</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>MCT</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbe</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>MCT</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendaf</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state1</property>
+				<value>TOGA</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbf</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/thrust/state2</property>
+				<value>TOGA</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendag</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbg</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[1]/reverser</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<detenta>
+		<mode>once</mode>
+		<name>detendah</name>
+		<path>detenta.wav</path>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[0]/reverser</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detenta>
+	
+	<detentb>
+		<mode>once</mode>
+		<name>detendbh</name>
+		<path>detentb.wav</path>
+		<condition>
+			<equals>
+				<property>/controls/engines/engine[1]/reverser</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</detentb>
+	
+	<sb>
+		<mode>once</mode>
+		<name>sb</name>
+		<path>seatbelt.wav</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>/systems/electrical/bus/dc-ess</property>
+					<value>25</value>
+				</greater-than>
+				<property>/sim/sounde/seatbelt-sign</property>
+			</and>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</sb>
+	<ns>
+		<mode>once</mode>
+		<name>ns</name>
+		<path>nosmoko.wav</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>/systems/electrical/bus/dc-ess</property>
+					<value>25</value>
+				</greater-than>
+				<property>/sim/sounde/no-smoking-sign</property>
+			</and>
+		</condition>
+		<volume>
+			<property>/sim/sound/effects/volume</property>
+		</volume>
+	</ns>
+	
   </fx>
 </PropertyList>

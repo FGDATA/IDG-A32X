@@ -23,7 +23,11 @@
 		<object-name>Cone</object-name>
 		<condition>
 			<and>
-				<property>systems/electrical/outputs/landing-light</property>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac-ess</property>
+					<value>110</value>
+				</greater-than-equals>
+				<property>controls/lighting/landing-lights[1]</property>
 				<equals>
 					<property>gear/gear[0]/position-norm</property>
 					<value>1</value>

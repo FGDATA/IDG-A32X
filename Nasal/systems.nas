@@ -33,6 +33,26 @@ setlistener("controls/lighting/nav-lights-switch", func
   logo_lights.setBoolValue(0);
   }
  });
+ 
+setlistener("controls/lighting/landing-lights[1]", func
+ {
+ var landl = getprop("controls/lighting/landing-lights[1]");
+ if (landl == 1) {
+ setprop("sim/rendering/als-secondary-lights/alt-landing-light",1);
+ } else {
+ setprop("sim/rendering/als-secondary-lights/alt-landing-light",0);
+ }
+ });
+ 
+ setlistener("controls/lighting/landing-lights[2]", func
+ {
+ var landr = getprop("controls/lighting/landing-lights[2]");
+ if (landr == 1) {
+ setprop("sim/rendering/als-secondary-lights/use-alt-landing-light",1);
+ } else {
+ setprop("sim/rendering/als-secondary-lights/use-alt-landing-light",0);
+ }
+ });
 
 ## TIRE SMOKE/RAIN
 ##################
@@ -43,25 +63,25 @@ aircraft.rain.init();
 ## SOUNDS
 #########
 
-# seatbelt/no smoking sign triggers
-setlistener("controls/switches/seatbelt-sign", func
+# seatbelt/no smoking/detent sign triggers
+setlistener("/controls/switches/seatbelt-sign", func
  {
- setprop("/sim/sound/seatbelt-sign",1);
+ props.globals.getNode("/sim/sounde/seatbelt-sign").setBoolValue(1);
 
  settimer(func
   {
-  props.globals.getNode("sim/sound/seatbelt-sign").setBoolValue(0);
+  props.globals.getNode("/sim/sounde/seatbelt-sign").setBoolValue(0);
   }, 2);
- });
-setlistener("controls/switches/no-smoking-sign", func
+});
+setlistener("/controls/switches/no-smoking-sign", func
  {
- props.globals.getNode("sim/sound/no-smoking-sign").setBoolValue(1);
+ props.globals.getNode("/sim/sounde/no-smoking-sign").setBoolValue(1);
 
  settimer(func
   {
-  props.globals.getNode("sim/sound/no-smoking-sign").setBoolValue(0);
+  props.globals.getNode("/sim/sounde/no-smoking-sign").setBoolValue(0);
   }, 2);
- });
+});
 
 
 ## GEAR

@@ -9,7 +9,7 @@
 	<animation>
 		<name>On/off</name>
 		<type>select</type>
-		<object-name>strobe</object-name>
+		<object-name>Light</object-name>
 		<condition>
 			<property>systems/electrical/outputs/strobe</property>
 		</condition>
@@ -19,7 +19,7 @@
 	<animation>
 		<name>Billboard</name>
 		<type>billboard</type>
-		<object-name>strobe</object-name>
+		<object-name>Light</object-name>
 	</animation>
 
 </PropertyList>

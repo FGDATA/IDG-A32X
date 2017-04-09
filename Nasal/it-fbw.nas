@@ -69,7 +69,7 @@ var roll_input = func {
 		setprop("/it-fbw/roll-deg", "0");
 	}
 
-    settimer(roll_input, 0.01);
+	settimer(roll_input, 0.01);
 }
 
 var pitch_input = func {
@@ -155,7 +155,7 @@ var pitch_input = func {
 		}
 	}
 
-    settimer(pitch_input, 0.01);
+	settimer(pitch_input, 0.01);
 }
 
 setlistener("/it-autoflight/output/ap1", func {
@@ -191,8 +191,12 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 setlistener("/systems/electrical/bus/ac-ess", func {
 	if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
-		setprop("/it-fbw/law", "NORMAL");
+		if (getprop("/it-fbw/law") != "NORMAL") {
+			setprop("/it-fbw/law", "NORMAL");
+		}
 	} else {
-		setprop("/it-fbw/law", "DIRECT");
+		if (getprop("/it-fbw/law") != "DIRECT") {
+			setprop("/it-fbw/law", "DIRECT");
+		}
 	}
 });

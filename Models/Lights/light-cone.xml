@@ -9,7 +9,7 @@
 		<object-name>Cone</object-name>
 	</effect>
     
-    <animation>
+    <!--animation>
         <type>select</type>
         <object-name>Cone</object-name>
         <object-name>Cone-texture</object-name>
@@ -24,6 +24,6 @@
                 </not>
             </and>
         </condition>
-    </animation>
+    </animation-->
 
 </PropertyList>

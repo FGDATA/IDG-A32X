@@ -24,7 +24,13 @@
 		<object-name>Light</object-name>
 		<object-name>Cone</object-name>
 		<condition>
-			<property>systems/electrical/outputs/landing-light[2]</property>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac-ess</property>
+					<value>110</value>
+				</greater-than-equals>
+				<property>controls/lighting/landing-lights[2]</property>
+			</and>
 		</condition>
 	</animation>
 	<animation>

@@ -2235,43 +2235,9 @@
 	</animation>
 
 	<animation>
-		<name>Left landing light pick</name>
+		<name>landing light pick</name>
 		<type>pick</type>
 		<object-name>LandingLtLSwtch</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/lighting/landing-lights[0]</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Left landing light rotate</name>
-		<type>rotate</type>
-		<object-name>LandingLtLSwtch</object-name>
-		<property>controls/lighting/landing-lights[0]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>35</dep></entry>
-			<entry><ind>1</ind><dep>-35</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>-0.01</x-m>
-			<y-m>0</y-m>
-			<z-m>-0.3037</z-m>
-		</center>
-	</animation>
-
-	<animation>
-		<name>Right landing light pick</name>
-		<type>pick</type>
 		<object-name>LandingLtRSwtch</object-name>
 		<action>
 			<button>0</button>
@@ -2280,12 +2246,12 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[2]</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
-		<name>Right landing light rotate</name>
+		<name>landing light rotate</name>
 		<type>rotate</type>
+		<object-name>LandingLtLSwtch</object-name>
 		<object-name>LandingLtRSwtch</object-name>
 		<property>controls/lighting/landing-lights[2]</property>
 		<interpolation>
