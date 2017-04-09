@@ -511,19 +511,6 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 0 </y>
 			<z> -47.0 </z>
 		</location>
-		<capacity unit="LBS"> 14281 </capacity><!-- need review -->
-		<contents unit="LBS"> 3000 </contents>
-		<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
-		<priority>1</priority>
-		<type>JET-A1</type>
-		<temperature>50</temperature>
-	</tank>
-	<tank type="FUEL">    <!-- Center Tank 3 -->
-		<location unit="IN">
-			<x> 522.0473 </x>
-			<y> 0 </y>
-			<z> -47.0 </z>
-		</location>
 		<capacity unit="LBS"> 14281 </capacity><!-- correct by FCOM -->
 		<contents unit="LBS"> 0 </contents> <!-- wing tanks filled first -->
 		<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
