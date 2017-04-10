@@ -159,7 +159,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 var aglgears = func {
     var agl = getprop("/position/altitude-agl-ft") or 0;
-    var aglft = agl - 8.004;  # is the position from the Airbus A320 above ground
+    var aglft = agl - 11.102;  # is the position from the Airbus A320 above ground
     var aglm = aglft * 0.3048;
     setprop("/position/gear-agl-ft", aglft);
     setprop("/position/gear-agl-m", aglm);
@@ -168,11 +168,3 @@ var aglgears = func {
 }
 
 aglgears();
-
-setlistener("/controls/parking-brake", func {
-	if (getprop("/controls/parking-brake") == 1) {
-		setprop("/electrical/switches/ext-pwr", 1);
-	} else {
-		setprop("/electrical/switches/ext-pwr", 0);
-	}
-});

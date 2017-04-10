@@ -49,10 +49,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
-					<less-than>
+					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
 						<value>2500</value>
-					</less-than>
+					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
 						<value>2400</value>
@@ -84,10 +84,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
-					<less-than>
+					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
 						<value>2000</value>
-					</less-than>
+					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
 						<value>1900</value>
@@ -96,6 +96,102 @@
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>0</value>
 					</less-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<position>
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</position>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>10ftaland</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/altitude-10ft.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>10</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>8</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<position>
+				<x>0.00</x>
+				<y>0.00</y>
+				<z>0.00</z>
+			</position>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>5</name>
+			<path>Aircraft/A320Family/Sounds/GPWS/altitude-5.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>5</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>3</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<equals>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</equals>
+					<equals>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</equals>
 				</and>
 			</condition>
 			<volume>
@@ -120,10 +216,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
-					<less-than> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350 -->
+					<less-than-equals> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350. Should be working within the next few builds -->
 						<property>/position/gear-agl-ft</property>
 						<value>350</value>
-					</less-than>
+					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
 						<value>300</value>
@@ -159,10 +255,38 @@
 						<property>/controls/flight/flaps</property>
 						<value>0.640</value>
 					</greater-than>
-					<less-than>
-						<property>/position/gear-agl-ft</property>
-						<value>18</value>
-					</less-than>
+					<or>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>18</value>
+							</less-than>
+							<equals>
+								<property>/it-autoflight/output/ap1</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap2</property>
+								<value>0</value>
+							</equals>
+						</and>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>8</value>
+							</less-than>
+							<or>
+								<equals>
+									<property>/it-autoflight/output/ap1</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/it-autoflight/output/ap2</property>
+									<value>1</value>
+								</equals>
+							</or>
+						</and>
+					</or>
 					<greater-than>
 						<property>controls/engines/engine[0]/throttle</property>
 						<value>0.0</value>
@@ -192,7 +316,6 @@
 			<volume>
 				<property>/sim/sound/effects/volume</property>
 			</volume>
-			<type>avionics</type>
 		</retard>
 	
   <apoff>

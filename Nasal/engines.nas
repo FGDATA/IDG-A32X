@@ -192,11 +192,11 @@ var do_rev_thrust = func {
 	if ((getprop("/controls/engines/engine[0]/reverser") == "1") and (getprop("/controls/engines/engine[1]/reverser") == "1")  and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-pos");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-pos");
-		if (pos1 < 0.25) {
-			setprop("/controls/engines/engine[0]/throttle-pos", pos1 + 0.05);
+		if (pos1 < 0.5) {
+			setprop("/controls/engines/engine[0]/throttle-pos", pos1 + 0.167);
 		}
-		if (pos2 < 0.25) {
-			setprop("/controls/engines/engine[1]/throttle-pos", pos2 + 0.05);
+		if (pos2 < 0.5) {
+			setprop("/controls/engines/engine[1]/throttle-pos", pos2 + 0.167);
 		}
 	}
 	var state1 = getprop("/systems/thrust/state1");
@@ -215,17 +215,15 @@ var do_rev_thrust = func {
 
 var un_rev_thrust = func {
 	if ((getprop("/controls/engines/engine[0]/reverser") == "1") and (getprop("/controls/engines/engine[1]/reverser") == "1")) {
-		interpolate("/engines/engine[0]/reverser-pos-norm", 0, 1.0);
-		interpolate("/engines/engine[1]/reverser-pos-norm", 0, 1.0);
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-pos");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-pos");
 		if (pos1 > 0.0) {
-			setprop("/controls/engines/engine[0]/throttle-pos", pos1 - 0.05);
+			setprop("/controls/engines/engine[0]/throttle-pos", pos1 - 0.167);
 		} else {
 			un_rev_thrust_b();
 		}
 		if (pos2 > 0.0) {
-			setprop("/controls/engines/engine[1]/throttle-pos", pos2 - 0.05);
+			setprop("/controls/engines/engine[1]/throttle-pos", pos2 - 0.167);
 		} else {
 			un_rev_thrust_b();
 		}
@@ -233,6 +231,8 @@ var un_rev_thrust = func {
 }
 
 var un_rev_thrust_b = func {
+	interpolate("/engines/engine[0]/reverser-pos-norm", 0, 1.0);
+	interpolate("/engines/engine[1]/reverser-pos-norm", 0, 1.0);
 	setprop("/controls/engines/engine[0]/throttle-pos", 0);
 	setprop("/controls/engines/engine[1]/throttle-pos", 0);
 	setprop("/fdm/jsbsim/propulsion/engine[0]/reverser-angle-rad", 0);

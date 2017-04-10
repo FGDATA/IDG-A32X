@@ -1,5 +1,5 @@
 # Airbus A3XX FBW System by Joshua Davidson (it0uchpods/411)
-# V0.9.1
+# V0.9.2
 
 ########################
 # Roll Update Function #
@@ -7,8 +7,9 @@
 
 var roll_input = func {
 
+	var ail = getprop("/controls/flight/aileron");
+			
 	if (getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0 and ((getprop("/it-fbw/law") == "NORMAL") or (getprop("/it-fbw/law") == "ALTERNATE"))) {
-		var ail = getprop("/controls/flight/aileron");
 		
 		if (ail >= 0.05 and ail < 0.15) {
 			var rfbw = getprop("/it-fbw/roll-deg");

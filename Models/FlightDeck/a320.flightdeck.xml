@@ -74,26 +74,6 @@
 		</offsets>
 		<condition>
 			<or>
-				<and>
-					<or>
-						<equals>
-							<property>/controls/electrical/switches/battery1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/controls/electrical/switches/battery2</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<less-than>
-						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
-					</less-than>
-					<less-than>
-						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
-					</less-than>
-				</and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
 					<value>25</value>
@@ -186,26 +166,6 @@
 		</offsets>
 		<condition>
 			<or>
-				<and>
-					<or>
-						<equals>
-							<property>/controls/electrical/switches/battery1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/controls/electrical/switches/battery2</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<less-than>
-						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
-					</less-than>
-					<less-than>
-						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
-					</less-than>
-				</and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
 					<value>25</value>
