@@ -12,36 +12,36 @@ var roll_input = func {
 		
 		if (ail >= 0.05 and ail < 0.15) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.005");
+			setprop("/it-fbw/roll-deg", rfbw + "0.01");
 		} else if (ail >= 0.15 and ail < 0.3) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.01");
+			setprop("/it-fbw/roll-deg", rfbw + "0.05");
 		} else if (ail >= 0.3 and ail < 0.5) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.05");
+			setprop("/it-fbw/roll-deg", rfbw + "0.1");
 		} else if (ail >= 0.5 and ail < 0.7) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.1");
+			setprop("/it-fbw/roll-deg", rfbw + "0.2");
 		} else if (ail >= 0.7 and ail <= 1) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw + "0.2");
+			setprop("/it-fbw/roll-deg", rfbw + "0.3");
 		}
 	
 		if (ail <= -0.05 and ail > -0.15) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.005");
+			setprop("/it-fbw/roll-deg", rfbw - "0.01");
 		} else if (ail <= -0.15 and ail > -0.3) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.01");
+			setprop("/it-fbw/roll-deg", rfbw - "0.05");
 		} else if (ail <= -0.3 and ail > -0.5) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.05");
+			setprop("/it-fbw/roll-deg", rfbw - "0.01");
 		} else if (ail <= -0.5 and ail > -0.7) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.1");
+			setprop("/it-fbw/roll-deg", rfbw - "0.2");
 		} else if (ail <= -0.7 and ail >= -1) {
 			var rfbw = getprop("/it-fbw/roll-deg");
-			setprop("/it-fbw/roll-deg", rfbw - "0.2");
+			setprop("/it-fbw/roll-deg", rfbw - "0.3");
 		}
 	}
 	
