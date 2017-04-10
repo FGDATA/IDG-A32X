@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Northwest Airlines</name>
+        <texture>Liveries/A320/NWA.png</texture>
+	  <texture2>FanDisk.png</texture2>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

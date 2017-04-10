@@ -1,0 +1,11 @@
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Air Berlin</name>
+        <texture>Liveries/A320/BER.png</texture>
+        <texture2>FanDisk.png</texture2>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>
