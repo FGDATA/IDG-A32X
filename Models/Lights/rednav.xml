@@ -12,7 +12,7 @@
 		<object-name>Light</object-name>
 		<condition>
 			<greater-than>
-				<property>systems/electrical/outputs/nav-switch</property>
+				<property>controls/lighting/nav-lights-switch</property>
 				<value>0</value>
 			</greater-than>
 		</condition>
@@ -24,8 +24,5 @@
 		<type>billboard</type>
 		<object-name>Light</object-name>
 	</animation>
-	<effect>
-		<inherits-from>Effects/model-transparent</inherits-from>
-		<object-name>Light</object-name>
-	</effect>
+
 </PropertyList>
