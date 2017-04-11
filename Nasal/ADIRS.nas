@@ -2,10 +2,10 @@
 # Jonathan Redpath
 # Minor Modifications by Joshua Davidson
 
+
 #####################
 # Initializing Vars #
 #####################
-
 # Initializing these vars here to prevent nasal nil used in numeric context, since the electrical system doesn't until fdm init is done. -JD
 setprop("/systems/electrical/bus/dc1", 0);
 setprop("/systems/electrical/bus/dc2", 0);
@@ -17,6 +17,7 @@ setprop("/systems/electrical/bus/ac-ess", 0);
 var ADIRSinit = func {
 	var motionroll = getprop("/controls/adirs/motionroll");
 	var motionpitch = getprop("/controls/adirs/motionpitch");
+	setprop("controls/adirs/skip",0); #define this here, as we want this to be off on startup
 	adirs_timer.start();
 }
 
@@ -50,6 +51,7 @@ var ADIRSreset = func {
 	setprop("controls/adirs/ir[1]/fault",0);
 	setprop("controls/adirs/ir[2]/fault",0);
 	setprop("controls/adirs/onbat",0);
+	setprop("controls/adirs/skip",0);
 	ADIRSinit();
 }
 
@@ -57,20 +59,22 @@ var ir_align_loop = func(i) {
 	var motionroll = getprop("/controls/adirs/motionroll");
 	var motionpitch = getprop("/controls/adirs/motionpitch");
 	var ttn = getprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/ttn");
-	if (ttn == 0) {
+	if ((ttn >= 0) and (ttn < 0.99)) { #make it less sensitive
 		ir_align_finish(i);
 	} else {
 		setprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/ttn", ttn - 1);
 	}
 	var roll = getprop("/orientation/roll-deg");
 	var pitch = getprop("/orientation/pitch-deg");
-	if ((abs(motionroll - roll) > 0.02) or
-			(abs(motionpitch - pitch) > 0.02)) {
+	var gs = getprop("/velocities/groundspeed-kt");
+	if ((abs(motionroll - roll) > 0.15) or
+			(abs(motionpitch - pitch) > 0.15) or (gs > 2)) {
 		setprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/status", "STS-XCESS MOTION");
 		ir_align_abort(i);
 	}
 	setprop("/controls/adirs/motionroll", roll);
 	setprop("/controls/adirs/motionpitch", pitch);
+
 }
 
 var ir0_align_loop_timer = maketimer(1, func{ir_align_loop(0)});
@@ -187,7 +191,7 @@ var adirs_display = func() {
 		setprop("/controls/adirs/display/text", "");
 	} else {
 		if ( data_knob == 1 ) {
-			setprop("/controls/adirs/display/text", "8888888888888888");
+			setprop("/controls/adirs/display/text", "888888888888888");
 		} else if ( data_knob == 2 ) {
 			if ( ((selected_ir == 2) and getprop("/instrumentation/adirs/ir[0]/aligned")) or
 				((selected_ir == 3) and getprop("/instrumentation/adirs/ir[2]/aligned")) or
@@ -244,4 +248,22 @@ var adirs_display = func() {
 		}
 	}
 }
+var skip_ADIRS = func {
+	setprop("controls/adirs/display/selected","2");
+	setprop("controls/adirs/ir[0]/knob","2");
+	setprop("controls/adirs/ir[1]/knob","2");
+	setprop("controls/adirs/ir[2]/knob","2");
+	setprop("instrumentation/adirs/ir[0]/display/ttn",1); #set it to 1 so it counts down from 1 to 0
+	setprop("instrumentation/adirs/ir[1]/display/ttn",1);
+	setprop("instrumentation/adirs/ir[2]/display/ttn",1);
+}
+
+var adirs_skip = setlistener("/controls/adirs/skip", func {
+	var skipping = getprop("/controls/adirs/skip");
+		if (skipping == 1) {
+			skip_ADIRS();
+		}
+	});
+
 var adirs_timer = maketimer(1, adirs_display);
+
