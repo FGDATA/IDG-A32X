@@ -64,7 +64,7 @@ setlistener("/it-autoflight/mode/vert", func {
 		setprop("/modes/pfd/fma/pitch-mode", "OP DES");
 	} else if (vert == "FPA") {
 		setprop("/modes/pfd/fma/pitch-mode", "FPA");
-	} else if (vert == "LAND 3") {
+	} else if (vert == "LAND") {
 		setprop("/modes/pfd/fma/pitch-mode", "LAND");
 	} else if (vert == "FLARE") {
 		setprop("/modes/pfd/fma/pitch-mode", "FLARE");
