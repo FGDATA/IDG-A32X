@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>American Airlines (PSA heritage livery)</name>
+				<texture>Liveries/A319/N742PS.png</texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>
