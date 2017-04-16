@@ -66,11 +66,6 @@
 			<volume>
 				<factor>8</factor>
 			</volume>
-			<position>
-				<x>0.00</x>
-				<y>0.00</y>
-				<z>0.00</z>
-			</position>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
@@ -101,11 +96,6 @@
 			<volume>
 				<factor>8</factor>
 			</volume>
-			<position>
-				<x>0.00</x>
-				<y>0.00</y>
-				<z>0.00</z>
-			</position>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
@@ -150,11 +140,6 @@
 			<volume>
 				<factor>8</factor>
 			</volume>
-			<position>
-				<x>0.00</x>
-				<y>0.00</y>
-				<z>0.00</z>
-			</position>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
@@ -197,11 +182,6 @@
 			<volume>
 				<factor>8</factor>
 			</volume>
-			<position>
-				<x>0.00</x>
-				<y>0.00</y>
-				<z>0.00</z>
-			</position>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
@@ -233,11 +213,6 @@
 			<volume>
 				<factor>8</factor>
 			</volume>
-			<position>
-				<x>0.00</x>
-				<y>0.00</y>
-				<z>0.00</z>
-			</position>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
@@ -314,8 +289,10 @@
 				</and>
 			</condition>
 			<volume>
-				<property>/sim/sound/effects/volume</property>
+				<factor>8</factor>
 			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
 		</retard>
 	
   <apoff>
