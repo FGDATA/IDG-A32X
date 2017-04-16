@@ -570,12 +570,12 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					gui.popupTip("Use F2 to activate reverse thrust, and F1 to deactivate reverse thrust.");
+					gui.popupTip("Use w to activate reverse thrust, and q to deactivate reverse thrust.");
 					</script>
 				</binding>
 			</key>
-			<key n="257">
-				<name>F1</name>
+			<key n="113">
+				<name>q</name>
 				<desc>Disengage/Decrease reversers</desc>
 				<binding>
 					<command>nasal</command>
@@ -584,8 +584,8 @@
 					</script>
 				</binding>
 			</key>
-			<key n="258">
-				<name>F2</name>
+			<key n="119">
+				<name>w</name>
 				<desc>Engage/Increase reversers</desc>
 				<binding>
 					<command>nasal</command>

@@ -216,6 +216,11 @@
 				<halign>left</halign>
 				<property>/controls/switches/cart</property>
 				<binding>
+					<command>property-assign</command>
+					<property>/controls/electrical/switches/gen-ext</property>
+					<value>0</value>
+				</binding>
+				<binding>
 					<command>dialog-apply</command>
 				</binding>
 				<live>true</live>

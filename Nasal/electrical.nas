@@ -272,8 +272,6 @@ setlistener("/systems/electrical/bus/ac-ess", func {
 	}
 });
 
-
-
 var update_electrical = func {
   master_elec();
   settimer(update_electrical, ELEC_UPDATE_PERIOD);

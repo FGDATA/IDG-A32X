@@ -94,6 +94,8 @@
 		<object-name>epr1</object-name>
 		<object-name>egt1</object-name>
 		<object-name>thrpos1</object-name>
+		<object-name>rev1.g</object-name>
+		<object-name>rev1.y</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -114,6 +116,8 @@
 		<object-name>epr2</object-name>
 		<object-name>egt2</object-name>
 		<object-name>thrpos2</object-name>
+		<object-name>rev2.g</object-name>
+		<object-name>rev2.y</object-name>
 		<condition>
 			<or>
 				<equals>
