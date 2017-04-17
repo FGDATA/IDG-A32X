@@ -1,450 +1,122 @@
-<?xml version="1.0"?>
+<system name="it-fbw">
+	<property value="0">/it-fbw/law</property>
+	<property value="0">/it-fbw/roll-deg</property>
+	<property value="0">/it-fbw/pitch-deg</property>
+	<property value="30">/it-fbw/roll-lim-max</property>
+	<property value="30">/it-fbw/roll-lim-min</property>
+	<property value="30">/it-fbw/pitch-lim-max</property>
+	<property value="30">/it-fbw/pitch-lim-min</property>
 
-<!-- IT-AUTOFLIGHT: Fly By Wire -->
-
-<PropertyList>
-
- <!-- =============================================================== -->
- <!-- Lateral                                                         -->
- <!-- =============================================================== -->
-	
-	<pid-controller>
-		<name>IT-FBW: ROLL</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/orientation/roll-deg</property>
-		</input>
-		<reference>
-			<property>/it-fbw/roll-deg</property>
-		</reference>
-		<output>
-			<property>/controls/flight/aileron-fbw-cmd</property>
-		</output>
-		<config>
-			<Kp>0.12</Kp>
-			<beta>1</beta>
-			<alpha>0.1</alpha>
-			<gamma>0</gamma>
-			<Ti>10</Ti>
-			<Td>0.00001</Td>
-			<u_min>-1</u_min>
-			<u_max>1</u_max>
-		</config>
-	</pid-controller>
-	
-	<filter>
-		<name>IT-FBW: ROLL OPTION</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/flight/aileron-fbw-cmd</property>
-		</input>
-		<input>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/law</property>
-						<value>DIRECT</value>
-					</equals>
-				</or>
-			</condition>
-			<property>/controls/flight/aileron</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-fbw/law</property>
-					<value>BACKUP</value>
-				</equals>
-			</condition>
-			<value>0</value>
-		</input>
-		<output>/controls/flight/aileron-fbw</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>10</max-rate-of-change>
-	</filter>
-	
- <!-- =============================================================== -->
- <!-- Vertical                                                        -->
- <!-- =============================================================== -->
-	
-	<pid-controller>
-		<name>IT-FBW: PITCH</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/orientation/pitch-deg</property>
-		</input>
-		<reference>
-			<property>/it-fbw/pitch-deg</property>
-		</reference>
-		<output>
-			<property>/controls/flight/elevator-fbw-cmd</property>
-		</output>
-		<config>
-			<Kp>-0.20</Kp>
-			<beta>1</beta>
-			<alpha>0.1</alpha>
-			<gamma>0</gamma>
-			<Ti>10</Ti>
-			<Td>0.00001</Td>
-			<u_min>-1</u_min>
-			<u_max>1</u_max>
-		</config>
-	</pid-controller>
-	
-	<filter>
-		<name>IT-FBW: PITCH OPTION</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/flight/elevator-fbw-cmd</property>
-		</input>
-		<input>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/law</property>
-						<value>DIRECT</value>
-					</equals>
-				</or>
-			</condition>
-			<property>/controls/flight/elevator</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-fbw/law</property>
-					<value>BACKUP</value>
-				</equals>
-			</condition>
-			<value>0</value>
-		</input>
-		<output>/controls/flight/elevator-fbw</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>10</max-rate-of-change>
-	</filter>
-	
-	<pid-controller>
-		<name>AP PITCH HELPER PLUS</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<greater-than>
-						<property>/controls/flight/elevator-fbw</property>
-						<value>0.1</value>
-					</greater-than>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-					<greater-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>50</value>
-					</greater-than-equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<value>0</value>
-		</input>
-		<reference>
-			<value>1</value>
-		</reference>
-		<output>
-			<property>/controls/flight/elevator-trim-cmd</property>
-		</output>
-		<config>
-			<Kp>0.08</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10</Ti>
-			<Td>0.00001</Td>
-			<u_min>-1.00</u_min>
-			<u_max>1.00</u_max>
-		</config>
-	</pid-controller>
-	
-	<pid-controller>
-		<name>FBW PITCH HELPER MINUS</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<less-than>
-						<property>/controls/flight/elevator-fbw</property>
-						<value>-0.1</value>
-					</less-than>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>NORMAL</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>ALTERNATE</value>
-						</equals>
-					</or>
-					<greater-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>50</value>
-					</greater-than-equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<value>0</value>
-		</input>
-		<reference>
-			<value>1</value>
-		</reference>
-		<output>
-			<property>/controls/flight/elevator-trim-cmd</property>
-		</output>
-		<config>
-			<Kp>-0.08</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10</Ti>
-			<Td>0.00001</Td>
-			<u_min>-1.00</u_min>
-			<u_max>1.00</u_max>
-		</config>
-	</pid-controller>
-		
-	<filter>
-		<name>IT-FBW: PITCH TRIM FILTER</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<and>
+	<channel name="FBW Aileron">
+		<fcs_function name="/it-fbw/roll-deg">
+			<function>
+				<ifthen>
 					<and>
-						<equals>
+						<eq>
 							<property>/it-autoflight/output/ap1</property>
 							<value>0</value>
-						</equals>
-						<equals>
+						</eq>
+						<eq>
 							<property>/it-autoflight/output/ap2</property>
 							<value>0</value>
-						</equals>
+						</eq>
+						<eq>
+							<property>/gear/gear[0]/wow</property>
+							<value>0</value>
+						</eq>
 						<or>
-							<equals>
+							<eq>
 								<property>/it-fbw/law</property>
-								<value>NORMAL</value>
-							</equals>
-							<equals>
+								<value>0</value>
+							</eq>
+							<eq>
 								<property>/it-fbw/law</property>
-								<value>ALTERNATE</value>
-							</equals>
+								<value>1</value>
+							</eq>
 						</or>
-						<greater-than-equals>
-							<property>/position/gear-agl-ft</property>
-							<value>50</value>
-						</greater-than-equals>
 					</and>
-					<or>
-						<greater-than>
-							<property>/controls/flight/elevator-fbw</property>
-							<value>0.05</value>
-						</greater-than>
-						<less-than>
-							<property>/controls/flight/elevator-fbw</property>
-							<value>-0.05</value>
-						</less-than>
-					</or>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/controls/flight/elevator-trim-cmd</property>
-		</input>
-		<output>/controls/flight/elevator-trim</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>0.01</max-rate-of-change>
-	</filter>
-
-</PropertyList>
+					<sum>
+						<property>/it-fbw/roll-deg</property>
+						<table>
+							<independentVar lookup="row">/controls/flight/aileron</independentVar>
+							<tableData>
+							-1.0     -0.2
+							-0.7     -0.1
+							-0.5     -0.05
+							-0.3     -0.01
+							-0.15    -0.005
+							-0.05    -0.001
+							 0.00     0.00
+							 0.05     0.001
+							 0.15     0.005
+							 0.3      0.01
+							 0.5      0.05
+							 0.7      0.1
+							 1.0      0.2
+							</tableData>
+						</table>
+					</sum>
+					<v>0</v>
+				</ifthen>
+			</function>
+			<clipto>
+				<min><property>/it-fbw/roll-lim-min</property></min>
+				<max><property>/it-fbw/roll-lim-max</property></max>
+			</clipto>
+		</fcs_function>
+	</channel>
+	<channel name="FBW Elevator">
+		<fcs_function name="/it-fbw/pitch-deg">
+			<function>
+				<ifthen>
+					<and>
+						<eq>
+							<property>/it-autoflight/output/ap1</property>
+							<value>0</value>
+						</eq>
+						<eq>
+							<property>/it-autoflight/output/ap2</property>
+							<value>0</value>
+						</eq>
+						<or>
+							<eq>
+								<property>/it-fbw/law</property>
+								<value>0</value>
+							</eq>
+							<eq>
+								<property>/it-fbw/law</property>
+								<value>1</value>
+							</eq>
+						</or>
+					</and>
+					<sum>
+						<property>/it-fbw/pitch-deg</property>
+						<table>
+							<independentVar lookup="row">/controls/flight/elevator</independentVar>
+							<tableData>
+							-1.0      0.1
+							-0.7      0.05
+							-0.5      0.02
+							-0.3      0.01
+							-0.15     0.005
+							-0.05     0.001
+							 0.00     0.00
+							 0.05    -0.001
+							 0.15    -0.005
+							 0.3     -0.01
+							 0.5     -0.02
+							 0.7     -0.05
+							 1.0     -0.1
+							</tableData>
+						</table>
+					</sum>
+					<v>0</v>
+				</ifthen>
+			</function>
+			<clipto>
+				<min><property>/it-fbw/pitch-lim-min</property></min>
+				<max><property>/it-fbw/pitch-lim-max</property></max>
+			</clipto>
+		</fcs_function>
+	</channel>
+</system>

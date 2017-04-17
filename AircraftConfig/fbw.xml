@@ -38,7 +38,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				setprop("/it-fbw/law", "NORMAL");
+				setprop("/it-fbw/law", 0);
 				gui.popupTip("Fly By Wire switched to NORMAL law!");
 				</script>
 			</binding>
@@ -50,7 +50,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				setprop("/it-fbw/law", "ALTERNATE");
+				setprop("/it-fbw/law", 1);
 				gui.popupTip("Fly By Wire switched to ALTERNATE law!");
 				</script>
 			</binding>
@@ -62,7 +62,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				setprop("/it-fbw/law", "DIRECT");
+				setprop("/it-fbw/law", 2);
 				gui.popupTip("Fly By Wire switched to DIRECT law!");
 				</script>
 			</binding>
@@ -74,7 +74,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				setprop("/it-fbw/law", "BACKUP");
+				setprop("/it-fbw/law", 3);
 				gui.popupTip("Fly By Wire switched to MECHANICAL BACKUP law!");
 				</script>
 			</binding>
