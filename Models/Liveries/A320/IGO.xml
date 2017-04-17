@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<PropertyList><sim><model><livery><name>IndiGo</name><neo-texture>Liveries/A320/IGO.png</neo-texture></livery></model></sim></PropertyList>
+<PropertyList><sim><model><livery><name>IndiGo</name><texture>Liveries/A320/IGO.png</texture></livery></model></sim></PropertyList>
