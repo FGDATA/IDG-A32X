@@ -4,7 +4,7 @@
     <model>
       <livery>
         <name type="string">Air Malta</name>
-        <texture>Liveries/A320/A320-AMC.png</texture>
+        <texture>Liveries/A320/AMC.png</texture>
 	  <texture2>FanDisk.png</texture2>
       </livery>
     </model>
