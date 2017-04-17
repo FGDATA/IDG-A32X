@@ -29,10 +29,6 @@ var roll_input = func {
 		setprop("/it-fbw/roll-lim-max", "33");
 		setprop("/it-fbw/roll-lim-min", "-33");
 	}
-	
-	if (getprop("/gear/gear[0]/wow") == 1) {
-		setprop("/it-fbw/roll-deg", "0");
-	}
 }
 
 #########################
@@ -57,12 +53,6 @@ var pitch_input = func {
 	} else {
 		setprop("/it-fbw/pitch-lim-max", "15");
 		setprop("/it-fbw/pitch-lim-min", "-15");
-	}
-	
-	if (getprop("/gear/gear[0]/wow") == 1) {
-		if (elev > -0.05 and elev < 0.05) {
-			setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
-		}
 	}
 }
 
