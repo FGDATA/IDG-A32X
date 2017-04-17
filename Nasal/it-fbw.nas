@@ -1,4 +1,4 @@
-# Airbus A3XX FBW System by Joshua Davidson (it0uchpods/411)
+# Airbus A3XX FBW System by Joshua Davidson (it0uchpods)
 # V0.9.6
 
 ########################
@@ -87,7 +87,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-fbw/law", 2);
 	update_roll.start();
 	update_pitch.start();
-	print("AIRBUS FBW ... OK!");
+	print("AIRBUS FBW ... Done!");
 });
 
 setlistener("/systems/electrical/bus/ac-ess", func {

@@ -1,14 +1,14 @@
-# A320 Throttle Control System by Joshua Davidson (it0uchpods/411)
+# A3XX Throttle Control System by Joshua Davidson (it0uchpods)
 # Set A/THR modes to Custom IT-AUTOTHRUST, and other thrust modes like MCT, TOGA and eventually TO FLEX.
 # Also handles FADEC
-# V1.9
+# V1.9.1
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/state1", "IDLE");
 	setprop("/systems/thrust/state2", "IDLE");
 	setprop("/systems/thrust/lvrclb", "0");
 	setprop("/systems/thrust/clbreduc-ft", "1500");
-	lvrclb();
+	lvrclbt.start();
 	print("FADEC ... Done!")
 });
 
@@ -81,14 +81,20 @@ var lvrclb = func {
 	} else {
 		var status = getprop("/systems/thrust/lvrclb");
 		if (status == 0) {
-			if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft")) {
+			if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
 				setprop("/systems/thrust/lvrclb", "1");
 			} else {
-				setprop("/systems/thrust/lvrclb", "0");
+				if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft")) {
+					setprop("/systems/thrust/lvrclb", "1");
+				} else {
+					setprop("/systems/thrust/lvrclb", "0");
+				}
 			}
 		} else if (status == 1) {
 			setprop("/systems/thrust/lvrclb", "0");
 		}
 	}
-    settimer(lvrclb, 0.5);
 }
+
+# Timers
+var lvrclbt = maketimer(0.5, lvrclb);
