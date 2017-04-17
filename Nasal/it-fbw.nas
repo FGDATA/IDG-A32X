@@ -22,9 +22,12 @@ var roll_input = func {
 				setprop("/it-fbw/roll-deg", "-33");
 			}
 		}
-	} else {
+	} else if (getprop("/it-fbw/law") == 1) {
 		setprop("/it-fbw/roll-lim-max", "160");
 		setprop("/it-fbw/roll-lim-min", "-160");
+	} else {
+		setprop("/it-fbw/roll-lim-max", "33");
+		setprop("/it-fbw/roll-lim-min", "-33");
 	}
 	
 	if (getprop("/gear/gear[0]/wow") == 1) {
@@ -41,11 +44,19 @@ var pitch_input = func {
 	var elev = getprop("/controls/flight/elevator");
 	
 	if (getprop("/it-fbw/law") == 0) {
-		setprop("/it-fbw/pitch-lim-max", "30");
-		setprop("/it-fbw/pitch-lim-min", "-15");
-	} else {
+		if (getprop("/position/gear-agl-ft") <= 30) {
+			setprop("/it-fbw/pitch-lim-max", "15");
+			setprop("/it-fbw/pitch-lim-min", "-5");
+		} else {
+			setprop("/it-fbw/pitch-lim-max", "30");
+			setprop("/it-fbw/pitch-lim-min", "-15");
+		}
+	} else if (getprop("/it-fbw/law") == 1) {
 		setprop("/it-fbw/pitch-lim-max", "160");
 		setprop("/it-fbw/pitch-lim-min", "-160");
+	} else {
+		setprop("/it-fbw/pitch-lim-max", "15");
+		setprop("/it-fbw/pitch-lim-min", "-15");
 	}
 	
 	if (getprop("/gear/gear[0]/wow") == 1) {
@@ -59,31 +70,8 @@ var pitch_input = func {
 # Various Other Functions #
 ###########################
 
-setlistener("/it-autoflight/output/ap1", func {
-	if (getprop("/it-autoflight/output/ap1") == 0) {
-		setprop("/it-fbw/roll-deg", getprop("/orientation/roll-deg"));
-		setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
-	}
-});
-
-setlistener("/it-autoflight/output/ap2", func {
-	if (getprop("/it-autoflight/output/ap2") == 0) {
-		setprop("/it-fbw/roll-deg", getprop("/orientation/roll-deg"));
-		setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
-	}
-});
-
-setlistener("/it-fbw/law", func {
-	if (getprop("/it-fbw/law") == 0) {
-		setprop("/it-fbw/roll-deg", getprop("/orientation/roll-deg"));
-		setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
-	} else if (getprop("/it-fbw/law") == 1) {
-		setprop("/it-fbw/roll-deg", getprop("/orientation/roll-deg"));
-		setprop("/it-fbw/pitch-deg", getprop("/orientation/pitch-deg"));
-	}
-});
-
 setlistener("/sim/signals/fdm-initialized", func {
+	setprop("/it-fbw/override", 0);
 	setprop("/it-fbw/law", 2);
 	update_roll.start();
 	update_pitch.start();
@@ -91,13 +79,15 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 setlistener("/systems/electrical/bus/ac-ess", func {
-	if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
-		if (getprop("/it-fbw/law") != 0) {
-			setprop("/it-fbw/law", 0);
-		}
-	} else {
-		if (getprop("/it-fbw/law") != 2) {
-			setprop("/it-fbw/law", 2);
+	if (getprop("/it-fbw/override") == 0) {
+		if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
+			if (getprop("/it-fbw/law") != 0) {
+				setprop("/it-fbw/law", 0);
+			}
+		} else {
+			if (getprop("/it-fbw/law") != 2) {
+				setprop("/it-fbw/law", 2);
+			}
 		}
 	}
 });

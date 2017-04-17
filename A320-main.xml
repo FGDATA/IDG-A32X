@@ -258,16 +258,16 @@
 			<kp-cws>0.09</kp-cws>
 		</roll>
 		<pitch>
-			<umin>-0.40</umin>
-			<umax>0.40</umax>
-			<kp>-0.09</kp>
+			<umin>-0.60</umin>
+			<umax>0.60</umax>
+			<kp>-0.12</kp>
 			<ti>10.0</ti>
 			<td>0.0001</td>
-			<kp-cws>-0.09</kp-cws>
+			<kp-cws>-0.12</kp-cws>
 		</pitch>
 		<cmd>
-			<roll-kp>-1.9</roll-kp>
-			<roll-scale>1.5</roll-scale>
+			<roll-kp>-1.0</roll-kp>
+			<roll-scale>1.4</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
 			<vs>0.10</vs>
