@@ -293,6 +293,10 @@
 		<lat-agl-ft>100</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
 		<reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
 	</settings>
+	<output>
+		<ap1>0</ap1>
+		<ap2>0</ap2>
+	</output>
 </it-autoflight>
 
 <apu>
