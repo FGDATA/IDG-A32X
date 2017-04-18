@@ -68,8 +68,6 @@ var atoff_request = func {
 	var state2 = getprop("/systems/thrust/state2");
 	if ((state1 == "IDLE") and (state2 == "IDLE")) {
 		setprop("/it-autoflight/input/athr", 0);
-		setprop("/systems/thrust/at1", 0);
-		setprop("/systems/thrust/at2", 0);
 	}
 }
 
