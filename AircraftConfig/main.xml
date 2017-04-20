@@ -244,10 +244,11 @@
 			<checkbox>
 				<label>Skip IRS alignment</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/unused/unusedthing</property>
-				</enable>
-				<property>/systems/unused/unusedthing</property>
+				<property>/controls/adirs/skip</property>
+				<binding>
+					<command>property-toggle</command>
+					<property>/controls/adirs/skip</property>
+				</binding>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
