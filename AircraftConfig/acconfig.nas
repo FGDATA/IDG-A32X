@@ -54,7 +54,7 @@ var colddark_b = func {
 	# Continues the Cold and Dark script, after engines fully shutdown.
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
-	setprop("/controls/APU/bleed", 0);
+	setprop("/controls/bleed/OHP/bleedapu", 0);
 	setprop("/controls/electrical/switches/gen-apu", 0);
 	setprop("/controls/electrical/switches/battery1", 0);
 	setprop("/controls/electrical/switches/battery2", 0);
@@ -85,7 +85,7 @@ var beforestart = func {
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
-	setprop("/controls/APU/bleed", 0);
+	setprop("/controls/bleed/OHP/bleedapu", 0);
 	setprop("/controls/electrical/switches/gen-apu", 0);
 	setprop("/controls/electrical/switches/battery1", 0);
 	setprop("/controls/electrical/switches/battery2", 0);
@@ -106,7 +106,7 @@ var beforestart_b = func {
 	# Continue with engine start prep.
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
-	setprop("/controls/APU/bleed", 1);
+	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
@@ -145,7 +145,7 @@ var taxi = func {
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
-	setprop("/controls/APU/bleed", 0);
+	setprop("/controls/bleed/OHP/bleedapu", 0);
 	setprop("/controls/electrical/switches/gen-apu", 0);
 	setprop("/controls/electrical/switches/battery1", 0);
 	setprop("/controls/electrical/switches/battery2", 0);
@@ -166,7 +166,7 @@ var taxi_b = func {
 	# Continue with engine start prep, and start engine 2.
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
-	setprop("/controls/APU/bleed", 1);
+	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
@@ -200,7 +200,7 @@ var taxi_c = func {
 var taxi_d = func {
 	# After Start items.
 	setprop("/controls/engines/engine-start-switch", 1);
-	setprop("/controls/APU/bleed", 0);
+	setprop("/controls/bleed/OHP/bleedapu", 0);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/systems/acconfig/autoconfig-running", 0);
