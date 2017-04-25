@@ -1,5 +1,8 @@
-# A320Family LGCIU
+# A320 Hydraulics - Disabled until complete
+
+# LGCIU
 # Jonathan Redpath
+# Note: Will be compressed
 
 #####################
 # Initializing Vars #

@@ -4,6 +4,9 @@
 # V1.9.1
 
 setlistener("/sim/signals/fdm-initialized", func {
+	setprop("/controls/engines/thrust-limit", "TOGA");
+	setprop("/controls/engines/epr-limit", 1.301);
+	setprop("/controls/engines/n1-limit", 97.8);
 	setprop("/systems/thrust/state1", "IDLE");
 	setprop("/systems/thrust/state2", "IDLE");
 	setprop("/systems/thrust/lvrclb", "0");

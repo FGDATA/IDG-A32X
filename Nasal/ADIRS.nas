@@ -52,7 +52,7 @@ var ADIRSreset = func {
 	setprop("controls/adirs/ir[2]/fault",0);
 	setprop("controls/adirs/onbat",0);
 	setprop("controls/adirs/skip",0);
-	ADIRSinit();
+	adirs_init();
 }
 
 var ir_align_loop = func(i) {

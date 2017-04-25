@@ -27,8 +27,6 @@ var colddark = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electrical/switches/gen1", 0);
-	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
@@ -36,6 +34,7 @@ var colddark = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
+	systems.pneumatics_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -71,8 +70,6 @@ var beforestart = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electrical/switches/gen1", 0);
-	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
@@ -80,6 +77,7 @@ var beforestart = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
+	systems.pneumatics_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -96,7 +94,7 @@ var beforestart = func {
 	setprop("/controls/APU/master", 1);
 	setprop("/controls/APU/start", 1);
 	var apu_rpm_chk = setlistener("/systems/apu/rpm", func {
-		if (getprop("/systems/apu/rpm") >= 99) {
+		if (getprop("/systems/apu/rpm") >= 98) {
 			removelistener(apu_rpm_chk);
 			beforestart_b();
 		}
@@ -109,6 +107,8 @@ var beforestart_b = func {
 	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
+	setprop("/controls/bleed/OHP/bleed1", 1);
+	setprop("/controls/bleed/OHP/bleed2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
@@ -131,8 +131,6 @@ var taxi = func {
 	setprop("/controls/engines/engine-start-switch", 1);
 	setprop("/controls/engines/engine[0]/cutoff-switch", 1);
 	setprop("/controls/engines/engine[1]/cutoff-switch", 1);
-	setprop("/controls/electrical/switches/gen1", 0);
-	setprop("/controls/electrical/switches/gen2", 0);
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
@@ -140,6 +138,7 @@ var taxi = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
+	systems.pneumatics_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -169,6 +168,8 @@ var taxi_b = func {
 	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
+	setprop("/controls/bleed/OHP/bleed1", 1);
+	setprop("/controls/bleed/OHP/bleed2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
@@ -220,7 +221,7 @@ var takeoff = func {
 			setprop("/controls/flight/slats", 0.666);
 			setprop("/controls/flight/flap-lever", 1);
 			setprop("/controls/flight/flap-txt", "1+F");
-			setprop("/controls/flight/elevator-trim", -0.1);
+			setprop("/controls/flight/elevator-trim", -0.15);
 		}
 	});
 }

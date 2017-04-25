@@ -94,6 +94,10 @@
 		<object-name>BatteryBtn22O</object-name>
 		<object-name>Battery-lvl</object-name>
 		<object-name>BusTieBtn2O</object-name>
+		<object-name>Eng1BleedBtn1F</object-name>
+		<object-name>Eng1BleedBtn2O</object-name>
+		<object-name>Eng2BleedBtn1F</object-name>
+		<object-name>Eng2BleedBtn2O</object-name>
 		<object-name>ExtPwrBtn1A</object-name>
 		<object-name>ExtPwrBtn2O</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
@@ -1849,26 +1853,50 @@
 		<type>pick</type>
 		<object-name>Eng1BleedBtn1</object-name>
 		<object-name>Eng1BleedBtn2</object-name>
+		<object-name>Eng1BleedBtn1F</object-name>
+		<object-name>Eng1BleedBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/bleed/OHP/bleed1</property>
+				<property>/controls/bleed/OHP/bleed1</property>
 			</binding>
-
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Engine 1 bleed on</name>
-		<type>textranslate</type>
-		<object-name>Eng1BleedBtn2</object-name>
-		<property>controls/bleed/OHP/bleed1</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>Eng1BleedBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Eng1BleedBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/bleed/OHP/bleed1</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -1883,7 +1911,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/bleed/OHP/bleedapu</property>
+				<property>/controls/bleed/OHP/bleedapu</property>
 			</binding>
 		</action>
 	</animation>
@@ -1911,7 +1939,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/APU/bleed</property>
+					<property>/controls/bleed/OHP/bleedapu</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1927,25 +1955,50 @@
 		<type>pick</type>
 		<object-name>Eng2BleedBtn1</object-name>
 		<object-name>Eng2BleedBtn2</object-name>
+		<object-name>Eng2BleedBtn1F</object-name>
+		<object-name>Eng2BleedBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/bleed/OHP/bleed2</property>
+				<property>/controls/bleed/OHP/bleed2</property>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Engine 2 bleed on</name>
-		<type>textranslate</type>
-		<object-name>Eng2BleedBtn2</object-name>
-		<property>controls/bleed/OHP/bleed2</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>Eng2BleedBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>Eng2BleedBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/bleed/OHP/bleed2</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -2321,7 +2374,8 @@
 				<property>/controls/APU/master</property>
 			</binding>
 		</action>
-	</animation><!-- I didn't model faults yet -->
+	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>APUMasterBtn1F</object-name>
@@ -2338,6 +2392,7 @@
 			</or>
 		</condition>
 	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>APUMasterBtn2O</object-name>
@@ -2367,18 +2422,19 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/start</property>
+				<property>/controls/APU/start</property>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>APUStartBtn1A</object-name>
 		<condition>
 			<or>
 				<greater-than>
-					<property>controls/APU/start</property>
-					<value>99</value>
+					<property>/systems/apu/rpm</property>
+					<value>94.9</value>
 				</greater-than>
 				<equals>
 					<property>/controls/switches/annun-test</property>
@@ -2387,6 +2443,7 @@
 			</or>
 		</condition>
 	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>APUStartBtn2O</object-name>

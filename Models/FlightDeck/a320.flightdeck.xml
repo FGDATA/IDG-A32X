@@ -3807,6 +3807,43 @@
 	<!-- Standby Attitude Indicator -->
 	
 	<animation>
+		<type>select</type>
+		<object-name>stby-ai</object-name>
+		<condition>
+			<or>
+				<and>
+					<or>
+						<equals>
+							<property>/controls/electrical/switches/battery1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/controls/electrical/switches/battery2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<less-than>
+						<property>/systems/electrical/bus/dc1</property>
+						<value>25</value>
+					</less-than>
+					<less-than>
+						<property>/systems/electrical/bus/dc2</property>
+						<value>25</value>
+					</less-than>
+				</and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
         <type>texmultiple</type>
         <object-name>stby-ai</object-name>
         <transform>

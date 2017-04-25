@@ -110,7 +110,7 @@
 			<condition>
 				<greater-than>
 					<property>/systems/apu/rpm</property>
-					<value>98.0</value>
+					<value>94.9</value>
 				</greater-than>
 			</condition>
 		</layer>
