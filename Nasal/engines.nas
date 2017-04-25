@@ -48,7 +48,7 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 });
 
 var start_one_check = func {
-	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/APU/bleed") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
+	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/bleed/OHP/bleedapu") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
 		auto_start_one();
 	}
 }
@@ -65,7 +65,7 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 });
 
 var start_two_check = func {
-	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/APU/bleed") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
+	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/bleed/OHP/bleedapu") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
 		auto_start_two();
 	}
 }
@@ -174,8 +174,8 @@ setlistener("/controls/engines/engine-start-switch", func {
 	}
 });
 
-setlistener("/controls/APU/bleed", func {
-	if (getprop("/controls/APU/bleed") == 0) {
+setlistener("/controls/bleed/OHP/bleedapu", func {
+	if (getprop("/controls/bleed/OHP/bleedapu") == 0) {
 		if (getprop("/controls/engines/engine[0]/state") == 1) {
 			eng_one_stop();
 		}

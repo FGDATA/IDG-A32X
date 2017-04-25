@@ -14,7 +14,7 @@ setprop("/systems/electrical/bus/ac1", 0);
 setprop("/systems/electrical/bus/ac2", 0);
 setprop("/systems/electrical/bus/ac-ess", 0);
 
-var ADIRSinit = func {
+var adirs_init = func {
 	var motionroll = getprop("/controls/adirs/motionroll");
 	var motionpitch = getprop("/controls/adirs/motionpitch");
 	setprop("controls/adirs/skip",0); #define this here, as we want this to be off on startup

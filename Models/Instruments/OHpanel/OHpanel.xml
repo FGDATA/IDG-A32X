@@ -1854,7 +1854,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatic/engine[0]/bleed</property>
+				<property>controls/bleed/OHP/bleed1</property>
 			</binding>
 
 		</action>
@@ -1863,7 +1863,7 @@
 		<name>Engine 1 bleed on</name>
 		<type>textranslate</type>
 		<object-name>Eng1BleedBtn2</object-name>
-		<property>controls/pneumatic/engine[0]/bleed</property>
+		<property>controls/bleed/OHP/bleed1</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
@@ -1883,7 +1883,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/APU/bleed</property>
+				<property>controls/bleed/OHP/bleedapu</property>
 			</binding>
 		</action>
 	</animation>
@@ -1932,7 +1932,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatic/engine[1]/bleed</property>
+				<property>controls/bleed/OHP/bleed2</property>
 			</binding>
 		</action>
 	</animation>
@@ -1940,7 +1940,7 @@
 		<name>Engine 2 bleed on</name>
 		<type>textranslate</type>
 		<object-name>Eng2BleedBtn2</object-name>
-		<property>controls/pneumatic/engine[1]/bleed</property>
+		<property>controls/bleed/OHP/bleed2</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
