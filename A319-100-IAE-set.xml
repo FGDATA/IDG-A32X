@@ -75,7 +75,7 @@
 	
 	<nasal>
 		<A320>
-			<file>Aircraft/A320Family/Nasal/systems.nas</file>
+			<file>Aircraft/A320Family/Nasal/various.nas</file>
 			<file>Aircraft/A320Family/Nasal/a319livery.nas</file>
 			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
             <file>Aircraft/A320Family/Nasal/gpws.nas</file>

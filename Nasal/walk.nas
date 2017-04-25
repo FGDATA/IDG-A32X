@@ -14,4 +14,3 @@ var walk_about = func(wa_distance) {
 		yViewNode.setValue(new_y_position);
 	}
 }
-

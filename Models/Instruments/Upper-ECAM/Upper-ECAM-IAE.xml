@@ -11,11 +11,11 @@
 		<condition>
 			<and>
 				<not-equals>
-					<property>controls/engines/engine-start-switch</property>
+					<property>/controls/engines/engine-start-switch</property>
 					<value>2</value>
 				</not-equals>
 				<less-than>
-					<property>engines/engine[0]/n2</property>
+					<property>/engines/engine[0]/n2</property>
 					<value>5</value>
 				</less-than>
 			</and>
@@ -29,11 +29,11 @@
 		<condition>
 			<and>
 				<not-equals>
-					<property>controls/engines/engine-start-switch</property>
+					<property>/controls/engines/engine-start-switch</property>
 					<value>2</value>
 				</not-equals>
 				<less-than>
-					<property>engines/engine[1]/n2</property>
+					<property>/engines/engine[1]/n2</property>
 					<value>5</value>
 				</less-than>
 			</and>
@@ -46,7 +46,7 @@
 		<object-name>XX3</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[0]/n1</property>
+				<property>/engines/engine[0]/n1</property>
 				<value>20</value>
 			</less-than>
 		</condition>
@@ -58,7 +58,7 @@
 		<object-name>XX4</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[1]/n1</property>
+				<property>/engines/engine[1]/n1</property>
 				<value>20</value>
 			</less-than>
 		</condition>
@@ -70,8 +70,8 @@
 		<object-name>n11</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>engines/engine[0]/n1</property>
-				<value>20</value>
+				<property>/engines/engine[0]/n1</property>
+				<value>15</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -82,8 +82,8 @@
 		<object-name>n12</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>engines/engine[1]/n1</property>
-				<value>20</value>
+				<property>/engines/engine[1]/n1</property>
+				<value>15</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -93,17 +93,18 @@
 		<object-name>osgtext-green1</object-name>
 		<object-name>epr1</object-name>
 		<object-name>egt1</object-name>
+		<object-name>eprlimy1</object-name>
 		<object-name>thrpos1</object-name>
 		<object-name>rev1.g</object-name>
 		<object-name>rev1.y</object-name>
 		<condition>
 			<or>
 				<equals>
-					<property>controls/engines/engine-start-switch</property>
+					<property>/controls/engines/engine-start-switch</property>
 					<value>2</value>
 				</equals>
 				<greater-than-equals>
-					<property>engines/engine[0]/n2</property>
+					<property>/engines/engine[0]/n2</property>
 					<value>5</value>
 				</greater-than-equals>
 			</or>
@@ -115,17 +116,18 @@
 		<object-name>osgtext-green2</object-name>
 		<object-name>epr2</object-name>
 		<object-name>egt2</object-name>
+		<object-name>eprlimy2</object-name>
 		<object-name>thrpos2</object-name>
 		<object-name>rev2.g</object-name>
 		<object-name>rev2.y</object-name>
 		<condition>
 			<or>
 				<equals>
-					<property>controls/engines/engine-start-switch</property>
+					<property>/controls/engines/engine-start-switch</property>
 					<value>2</value>
 				</equals>
 				<greater-than-equals>
-					<property>engines/engine[1]/n2</property>
+					<property>/engines/engine[1]/n2</property>
 					<value>5</value>
 				</greater-than-equals>
 			</or>
@@ -137,7 +139,7 @@
 		<object-name>thrpos1</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[0]/reverser-pos-norm</property>
+				<property>/engines/engine[0]/reverser-pos-norm</property>
 				<value>0.01</value>
 			</less-than>
 		</condition>
@@ -148,7 +150,7 @@
 		<object-name>thrpos2</object-name>
 		<condition>
 			<less-than>
-				<property>engines/engine[1]/reverser-pos-norm</property>
+				<property>/engines/engine[1]/reverser-pos-norm</property>
 				<value>0.01</value>
 			</less-than>
 		</condition>
@@ -160,11 +162,11 @@
 		<condition>
 			<and>
 				<greater-than>
-					<property>engines/engine[0]/reverser-pos-norm</property>
+					<property>/engines/engine[0]/reverser-pos-norm</property>
 					<value>0.01</value>
 				</greater-than>
 				<less-than>
-					<property>engines/engine[0]/reverser-pos-norm</property>
+					<property>/engines/engine[0]/reverser-pos-norm</property>
 					<value>0.9500000001</value>
 				</less-than>
 			</and>
@@ -177,11 +179,11 @@
 		<condition>
 			<and>
 				<greater-than>
-					<property>engines/engine[1]/reverser-pos-norm</property>
+					<property>/engines/engine[1]/reverser-pos-norm</property>
 					<value>0.01</value>
 				</greater-than>
 				<less-than>
-					<property>engines/engine[1]/reverser-pos-norm</property>
+					<property>/engines/engine[1]/reverser-pos-norm</property>
 					<value>0.9500000001</value>
 				</less-than>
 			</and>
@@ -193,7 +195,7 @@
         <object-name>rev1.g</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[0]/reverser-pos-norm</property>
+				<property>/engines/engine[0]/reverser-pos-norm</property>
 				<value>0.95</value>
 			</greater-than>
 		</condition>
@@ -204,7 +206,7 @@
         <object-name>rev2.g</object-name>
 		<condition>
 			<greater-than>
-				<property>engines/engine[1]/reverser-pos-norm</property>
+				<property>/engines/engine[1]/reverser-pos-norm</property>
 				<value>0.95</value>
 			</greater-than>
 		</condition>
@@ -335,7 +337,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%1.3f</format>
-		<property>engines/engine/epr-actual</property>
+		<property>/engines/engine/epr-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -359,7 +361,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%1.3f</format>
-		<property>engines/engine[1]/epr-actual</property>
+		<property>/engines/engine[1]/epr-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -577,7 +579,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine/egt-actual</property>
+		<property>/engines/engine/egt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -601,7 +603,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine[1]/egt-actual</property>
+		<property>/engines/engine[1]/egt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -675,7 +677,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>engines/engine/n1</property>
+		<property>/engines/engine/n1</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -699,7 +701,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>engines/engine[1]/n1</property>
+		<property>/engines/engine[1]/n1</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -773,7 +775,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>engines/engine/n2</property>
+		<property>/engines/engine/n2</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -797,7 +799,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>engines/engine[1]/n2</property>
+		<property>/engines/engine[1]/n2</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -871,7 +873,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>controls/engines/thrust-limit</property>
+		<property>/controls/engines/thrust-limit</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -895,7 +897,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%1.3f</format>
-		<property>controls/engines/epr-limit</property>
+		<property>/controls/engines/epr-limit</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -921,7 +923,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine/fuel-flow_actual</property>
+		<property>/engines/engine/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -945,7 +947,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>engines/engine[1]/fuel-flow_actual</property>
+		<property>/engines/engine[1]/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1039,7 +1041,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>epr1</object-name>
-    	<property>engines/engine/epr-actual</property>
+    	<property>/engines/engine/epr-actual</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
 			<entry><ind>1.0</ind><dep> 05</dep></entry>
@@ -1063,7 +1065,55 @@
     <animation>
     	<type>rotate</type>
     	<object-name>epr2</object-name>
-    	<property>engines/engine[1]/epr-actual</property>
+    	<property>/engines/engine[1]/epr-actual</property>
+		<interpolation>
+			<entry><ind>0.8</ind><dep>  0</dep></entry>
+			<entry><ind>1.0</ind><dep> 05</dep></entry>
+			<entry><ind>1.1</ind><dep> 33</dep></entry>
+			<entry><ind>1.2</ind><dep> 64</dep></entry>
+			<entry><ind>1.4</ind><dep>117</dep></entry>
+			<entry><ind>1.6</ind><dep>165</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0042</y-m>
+    		<z-m>0.0588</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<animation>
+    	<type>rotate</type>
+    	<object-name>eprlimy1</object-name>
+    	<property>/controls/engines/epr-limit</property>
+		<interpolation>
+			<entry><ind>0.8</ind><dep>  0</dep></entry>
+			<entry><ind>1.0</ind><dep> 05</dep></entry>
+			<entry><ind>1.1</ind><dep> 33</dep></entry>
+			<entry><ind>1.2</ind><dep> 64</dep></entry>
+			<entry><ind>1.4</ind><dep>117</dep></entry>
+			<entry><ind>1.6</ind><dep>165</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0598</y-m>
+    		<z-m>0.0588</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>eprlimy2</object-name>
+    	<property>/controls/engines/epr-limit</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
 			<entry><ind>1.0</ind><dep> 05</dep></entry>
@@ -1087,7 +1137,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>thrpos1</object-name>
-    	<property>controls/engines/engine[0]/throttle</property>
+    	<property>/controls/engines/engine[0]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>05</dep></entry>
 			<entry><ind>0.19560</ind><dep>33</dep></entry>
@@ -1119,7 +1169,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>thrpos2</object-name>
-    	<property>controls/engines/engine[1]/throttle</property>
+    	<property>/controls/engines/engine[1]/throttle</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>05</dep></entry>
 			<entry><ind>0.19560</ind><dep>33</dep></entry>
@@ -1153,7 +1203,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>egt1</object-name>
-    	<property>engines/engine/egt-actual</property>
+    	<property>/engines/engine/egt-actual</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>  0</dep></entry>
 			<entry><ind>400</ind><dep> 78</dep></entry>
@@ -1174,7 +1224,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>egt2</object-name>
-    	<property>engines/engine[1]/egt-actual</property>
+    	<property>/engines/engine[1]/egt-actual</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>  0</dep></entry>
 			<entry><ind>400</ind><dep> 78</dep></entry>
@@ -1197,9 +1247,9 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>n11</object-name>
-    	<property>engines/engine/n1</property>
+    	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 20</ind><dep>  0</dep></entry>
+			<entry><ind> 23</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -1219,9 +1269,9 @@
     <animation>
     	<type>rotate</type>
     	<object-name>n12</object-name>
-    	<property>engines/engine[1]/n1</property>
+    	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 20</ind><dep>  0</dep></entry>
+			<entry><ind> 23</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>

@@ -2,8 +2,47 @@ AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 1 1 1  spec 0 0 0  shi 128  trans 0
 MATERIAL "DefaultWhite.001" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat9" rgb 0 0.356863 0.717647  amb 0 0 0  emis 0 0.356863 0.717647  spec 0 0 0  shi 0  trans 0
+MATERIAL "Material.001" rgb 0.8 0.5614 0  amb 1 1 1  emis 0.8 0.8 0.8  spec 0.5 0.5 0.5  shi 50  trans 0
 OBJECT world
-kids 17
+kids 19
+OBJECT poly
+name "eprlimy2"
+loc 0.000766698 0.0582223 0.0197803
+texture "yellow.png"
+crease 30.000002
+numvert 4
+0 -0.0045049 -0.00116534
+0 -0.00369225 -0.00086353
+0 -0.00417997 -0.00206228
+0 -0.00336739 -0.00176032
+numsurf 1
+SURF 0x20
+mat 3
+refs 4
+3 0 0
+1 0 0
+0 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "eprlimy1"
+loc 0.000766698 0.0582223 0.0753988
+texture "yellow.png"
+crease 30.000002
+numvert 4
+0 -0.00336739 -0.00176032
+0 -0.00417997 -0.00206228
+0 -0.00369225 -0.00086353
+0 -0.0045049 -0.00116534
+numsurf 1
+SURF 0x20
+mat 3
+refs 4
+0 0 0
+2 0 0
+3 0 0
+1 0 0
+kids 0
 OBJECT poly
 name "flapc"
 loc 0.000794735 0.00884851 -0.0438111

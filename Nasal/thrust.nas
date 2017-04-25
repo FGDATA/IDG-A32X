@@ -5,14 +5,13 @@
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/controls/engines/thrust-limit", "TOGA");
-	setprop("/controls/engines/epr-limit", 1.301);
-	setprop("/controls/engines/n1-limit", 97.8);
+	setprop("/controls/engines/epr-limit", 1.308);
+	setprop("/controls/engines/n1-limit", 101.9);
 	setprop("/systems/thrust/state1", "IDLE");
 	setprop("/systems/thrust/state2", "IDLE");
 	setprop("/systems/thrust/lvrclb", "0");
 	setprop("/systems/thrust/clbreduc-ft", "1500");
-	lvrclbt.start();
-	print("FADEC ... Done!")
+	thrustt.start();
 });
 
 setlistener("/controls/engines/engine[0]/throttle-pos", func {
@@ -74,7 +73,41 @@ var atoff_request = func {
 	}
 }
 
-var lvrclb = func {
+setlistener("/systems/thrust/state1", func {
+	thrust_lim();
+});
+
+setlistener("/systems/thrust/state2", func {
+	thrust_lim();
+});
+
+var thrust_lim = func {
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[0]/throttle-pos");
+	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
+		if (state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) {
+			setprop("/controls/engines/thrust-limit", "TOGA");
+			setprop("/controls/engines/epr-limit", 1.308);
+			setprop("/controls/engines/n1-limit", 101.8);
+		} else if (state1 == "MCT" or state2 == "MCT" or (state1 == "MAN THR" and thr1 < 0.83) or (state2 == "MAN THR" and thr2 < 0.83)) {
+			setprop("/controls/engines/thrust-limit", "MCT");
+			setprop("/controls/engines/epr-limit", 1.293);
+			setprop("/controls/engines/n1-limit", 97.7);
+		} else if (state1 == "CL" or state2 == "CL" or state1 == "MAN" or state2 == "MAN" or state1 == "IDLE" or state2 == "IDLE") {
+			setprop("/controls/engines/thrust-limit", "CLB");
+			setprop("/controls/engines/epr-limit", 1.271);
+			setprop("/controls/engines/n1-limit", 91.9);
+		}
+	} else {
+		setprop("/controls/engines/thrust-limit", "TOGA");
+		setprop("/controls/engines/epr-limit", 1.308);
+		setprop("/controls/engines/n1-limit", 101.9);
+	}
+}
+
+var thrust_loop = func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	if ((state1 == "CL") and (state2 == "CL")) {
@@ -85,7 +118,7 @@ var lvrclb = func {
 			if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
 				setprop("/systems/thrust/lvrclb", "1");
 			} else {
-				if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft")) {
+				if (getprop("/position/gear-agl-ft") >= getprop("/systems/thrust/clbreduc-ft")) {
 					setprop("/systems/thrust/lvrclb", "1");
 				} else {
 					setprop("/systems/thrust/lvrclb", "0");
@@ -98,4 +131,4 @@ var lvrclb = func {
 }
 
 # Timers
-var lvrclbt = maketimer(0.5, lvrclb);
+var thrustt = maketimer(0.5, thrust_loop);

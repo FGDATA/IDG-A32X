@@ -65,7 +65,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-fbw/law", 2);
 	update_roll.start();
 	update_pitch.start();
-	print("AIRBUS FBW ... Done!");
 });
 
 setlistener("/systems/electrical/bus/ac-ess", func {
