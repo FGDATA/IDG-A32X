@@ -40,7 +40,7 @@ var pitch_input = func {
 	var elev = getprop("/controls/flight/elevator");
 	
 	if (getprop("/it-fbw/law") == 0) {
-		if (getprop("/position/gear-agl-ft") <= 30) {
+		if (getprop("/position/gear-agl-ft") <= 15) {
 			setprop("/it-fbw/pitch-lim-max", "15");
 			setprop("/it-fbw/pitch-lim-min", "-5");
 		} else {

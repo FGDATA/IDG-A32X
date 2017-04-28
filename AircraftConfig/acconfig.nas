@@ -104,11 +104,11 @@ var beforestart_b = func {
 	# Continue with engine start prep.
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
-	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
-	setprop("/controls/bleed/OHP/bleed1", 1);
-	setprop("/controls/bleed/OHP/bleed2", 1);
+	setprop("/controls/pneumatic/switches/bleedapu", 1);
+	setprop("/controls/pneumatic/switches/bleed1", 1);
+	setprop("/controls/pneumatic/switches/bleed2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
@@ -165,11 +165,11 @@ var taxi_b = func {
 	# Continue with engine start prep, and start engine 2.
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
-	setprop("/controls/bleed/OHP/bleedapu", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
 	setprop("/controls/electrical/switches/gen2", 1);
-	setprop("/controls/bleed/OHP/bleed1", 1);
-	setprop("/controls/bleed/OHP/bleed2", 1);
+	setprop("/controls/pneumatic/switches/bleedapu", 1);
+	setprop("/controls/pneumatic/switches/bleed1", 1);
+	setprop("/controls/pneumatic/switches/bleed2", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
@@ -179,31 +179,42 @@ var taxi_b = func {
 	setprop("instrumentation/adirs/ir[0]/aligned",1);
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
-	setprop("/controls/engines/engine-start-switch", 2);
-	setprop("/controls/engines/engine[1]/cutoff-switch", 0);
-	var eng_two_chk = setlistener("/engines/engine[1]/state", func {
-		if (getprop("/engines/engine[1]/state") == 3) {
-			removelistener(eng_two_chk);
+	var pneu_chk = setlistener("/systems/pneumatic/total-psi", func {
+		if (getprop("/systems/pneumatic/total-psi") >= 28) {
+			removelistener(pneu_chk);
 			taxi_c();
 		}
 	});
 }
 var taxi_c = func {
-	# Start engine 1.
-	setprop("/controls/engines/engine[0]/cutoff-switch", 0);
-	var eng_one_chk = setlistener("/engines/engine[0]/state", func {
-		if (getprop("/engines/engine[0]/state") == 3) {
-			removelistener(eng_one_chk);
+	setprop("/controls/engines/engine-start-switch", 2);
+	setprop("/controls/engines/engine[1]/cutoff-switch", 0);
+	var eng_two_chk = setlistener("/engines/engine[1]/state", func {
+		if (getprop("/engines/engine[1]/state") == 3) {
+			removelistener(eng_two_chk);
 			taxi_d();
 		}
 	});
 }
 var taxi_d = func {
+	# Start engine 1.
+	setprop("/controls/engines/engine[0]/cutoff-switch", 0);
+	var eng_one_chk = setlistener("/engines/engine[0]/state", func {
+		if (getprop("/engines/engine[0]/state") == 3) {
+			removelistener(eng_one_chk);
+			taxi_e();
+		}
+	});
+}
+var taxi_e = func {
 	# After Start items.
 	setprop("/controls/engines/engine-start-switch", 1);
-	setprop("/controls/bleed/OHP/bleedapu", 0);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
+	setprop("/controls/pneumatic/switches/bleedapu", 0);
+	setprop("/controls/pneumatic/switches/pack1", 1);
+	setprop("/controls/pneumatic/switches/pack2", 1);
+	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();

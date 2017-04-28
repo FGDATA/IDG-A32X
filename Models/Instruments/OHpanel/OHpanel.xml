@@ -69,11 +69,15 @@
 		</emission>
 	</animation>
 	
-	<!-- No buttons without power! -->
+	<!-- No button lights without power! -->
 	<animation>
 		<type>select</type>
 		<object-name>ACESSFeedBtn1F</object-name>
 		<object-name>ACESSFeedBtn2O</object-name>
+		<object-name>ACPack1Btn1F</object-name>
+		<object-name>ACPack1Btn2O</object-name>
+		<object-name>ACPack2Btn1F</object-name>
+		<object-name>ACPack2Btn2O</object-name>
 		<object-name>APUBleedBtn1F</object-name>
 		<object-name>APUBleedBtn2O</object-name>
 		<object-name>APUGenBtn1F</object-name>
@@ -106,6 +110,8 @@
 		<object-name>Gen1Btn2O</object-name>
 		<object-name>Gen2Btn1F</object-name>
 		<object-name>Gen2Btn2O</object-name>
+		<object-name>HotAirBtn1F</object-name>
+		<object-name>HotAirBtn2O</object-name>
 		<object-name>IDG1Btn1F</object-name>
 		<object-name>IDG2Btn1F</object-name>
 		<object-name>IR1Btn1F</object-name>
@@ -115,6 +121,7 @@
 		<object-name>IR3Btn1F</object-name>
 		<object-name>IR3Btn2A</object-name>
 		<object-name>IrsOnBatLightOB</object-name>
+		<object-name>RamAirBtn2O</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -172,7 +179,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[0]/knob</property>
@@ -185,7 +192,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[0]/knob</property>
@@ -257,7 +264,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[1]/knob</property>
@@ -270,7 +277,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[1]/knob</property>
@@ -342,7 +349,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[2]/knob</property>
@@ -355,7 +362,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[2]/knob</property>
@@ -427,7 +434,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/dataknob</property>
@@ -443,7 +450,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/dataknob</property>
@@ -488,7 +495,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/selected</property>
@@ -502,7 +509,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/selected</property>
@@ -563,7 +570,7 @@
 		<object-name>ADR1Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[0]/off</property>
@@ -614,7 +621,7 @@
 		<object-name>ADR2Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[1]/off</property>
@@ -665,7 +672,7 @@
 		<object-name>ADR3Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[2]/off</property>
@@ -759,7 +766,7 @@
 		<object-name>GroundCall</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
@@ -781,7 +788,7 @@
 		<object-name>FwdCabinCall</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
@@ -801,7 +808,7 @@
 		<object-name>GPWSBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
@@ -841,7 +848,7 @@
 		<object-name>GPWSGSBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
@@ -867,7 +874,7 @@
 		<object-name>GPWSFlpBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
@@ -893,7 +900,7 @@
 		<object-name>GPWSFlp3Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
@@ -919,7 +926,7 @@
 		<object-name>Eng1Fire</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/fire-bottle-discharge</property>
@@ -944,7 +951,7 @@
 		<object-name>APUFire</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/APU/fire-switch</property>
@@ -969,7 +976,7 @@
 		<object-name>Eng2Fire</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/fire-bottle-discharge</property>
@@ -996,7 +1003,7 @@
 		<object-name>LFuelTank1Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!-- property>consumables/fuel/tank[0]/selected</property -->
@@ -1026,7 +1033,7 @@
 		<object-name>LFuelTank2Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!--property>consumables/fuel/tank[1]/selected</property-->
@@ -1057,7 +1064,7 @@
 		<object-name>CFuelTank1Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!--property>consumables/fuel/tank[3]/selected</property-->
@@ -1087,7 +1094,7 @@
 		<object-name>CFuelTank2Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!--property>consumables/fuel/tank[3]/selected</property-->
@@ -1119,7 +1126,7 @@
 		<object-name>FuelXfeedBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel/x-feed</property>
@@ -1151,7 +1158,7 @@
 		<object-name>RFuelTank1Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!--property>consumables/fuel/tank[4]/selected</property-->
@@ -1182,7 +1189,7 @@
 		<object-name>RFuelTank2Btn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<!--property>consumables/fuel/tank[5]/selected</property-->
@@ -1216,7 +1223,7 @@
 		<object-name>fueldumpARM2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel-dump/arm</property>
@@ -1243,7 +1250,7 @@
 		<object-name>fueldumpACT2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel-dump/active</property>
@@ -1272,7 +1279,7 @@
 		<object-name>GalleyPwrBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/galley</property>
@@ -1323,7 +1330,7 @@
 		<object-name>BatteryBtn12O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/battery1</property>
@@ -1374,7 +1381,7 @@
 		<object-name>BatteryBtn22O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/battery2</property>
@@ -1424,7 +1431,7 @@
 		<object-name>IDG1Btn1F</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/systems/unused/unused-oh</property>
@@ -1458,7 +1465,7 @@
 		<object-name>Gen1Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen1</property>
@@ -1509,7 +1516,7 @@
 		<object-name>ACESSFeedBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/ac-ess-feed</property>
@@ -1560,7 +1567,7 @@
 		<object-name>APUGenBtnO</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen-apu</property>
@@ -1607,7 +1614,7 @@
 		<object-name>BusTieBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/apu-ext-crosstie</property>
@@ -1641,7 +1648,7 @@
 		<object-name>ExtPwrBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen-ext</property>
@@ -1696,7 +1703,7 @@
 		<object-name>Gen2Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen2</property>
@@ -1747,7 +1754,7 @@
 		<object-name>IDG2Btn1F</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/systems/unused/unused-oh</property>
@@ -1779,23 +1786,24 @@
 		<object-name>ACFlowKnb</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<button>3</button>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pressurization/outflow-valve</property>
-				<step>0.5</step>
-				<max>1</max>
+				<property>/controls/pneumatic/switches/pack-flo</property>
+				<step>5</step>
+				<max>15</max>
 			</binding>
-
 		</action>
 		<action>
 			<button>1</button>
-			<repeatable type="bool">false</repeatable>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pressurization/outflow-valve</property>
-				<step>-0.5</step>
-				<min>0</min>
+				<property>/controls/pneumatic/switches/pack-flo</property>
+				<step>-5</step>
+				<min>5</min>
 			</binding>
 		</action>
 	</animation>
@@ -1803,11 +1811,11 @@
 		<name>AC pack flow rotate</name>
 		<type>rotate</type>
 		<object-name>ACFlowKnb</object-name>
-		<property>controls/pressurization/outflow-valve</property>
+		<property>/controls/pneumatic/switches/pack-flo</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>55</dep></entry>
-			<entry><ind>0.5</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-55</dep></entry>
+			<entry><ind> 5</ind><dep> 55</dep></entry>
+			<entry><ind>10</ind><dep>  0</dep></entry>
+			<entry><ind>15</ind><dep>-55</dep></entry>
 		</interpolation>
 		<axis>
 			<x>1</x>
@@ -1826,26 +1834,50 @@
 		<type>pick</type>
 		<object-name>ACPack1Btn1</object-name>
 		<object-name>ACPack1Btn2</object-name>
+		<object-name>ACPack1Btn1F</object-name>
+		<object-name>ACPack1Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pressurization/pack[0]/pack-on</property>
+				<property>/controls/pneumatic/switches/pack1</property>
 			</binding>
-
 		</action>
 	</animation>
+	
 	<animation>
-		<name>AC pack 1 on</name>
-		<type>textranslate</type>
-		<object-name>ACPack1Btn2</object-name>
-		<property>controls/pressurization/pack[0]/pack-on</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>ACPack1Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ACPack1Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pneumatic/switches/pack1</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -1857,10 +1889,10 @@
 		<object-name>Eng1BleedBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/bleed/OHP/bleed1</property>
+				<property>/controls/pneumatic/switches/bleed1</property>
 			</binding>
 		</action>
 	</animation>
@@ -1888,7 +1920,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/bleed/OHP/bleed1</property>
+					<property>/controls/pneumatic/switches/bleed1</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -1908,10 +1940,10 @@
 		<object-name>APUBleedBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/bleed/OHP/bleedapu</property>
+				<property>/controls/pneumatic/switches/bleedapu</property>
 			</binding>
 		</action>
 	</animation>
@@ -1939,7 +1971,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/bleed/OHP/bleedapu</property>
+					<property>/controls/pneumatic/switches/bleedapu</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1959,10 +1991,10 @@
 		<object-name>Eng2BleedBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/bleed/OHP/bleed2</property>
+				<property>/controls/pneumatic/switches/bleed2</property>
 			</binding>
 		</action>
 	</animation>
@@ -1990,7 +2022,57 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/bleed/OHP/bleed2</property>
+					<property>/controls/pneumatic/switches/bleed2</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Hot Air pick</name>
+		<type>pick</type>
+		<object-name>HotAirBtn</object-name>
+		<object-name>HotAirBtn1F</object-name>
+		<object-name>HotAirBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pneumatic/switches/hot-air</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>HotAirBtn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>HotAirBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pneumatic/switches/hot-air</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2006,26 +2088,82 @@
 		<type>pick</type>
 		<object-name>ACPack2Btn1</object-name>
 		<object-name>ACPack2Btn2</object-name>
+		<object-name>ACPack2Btn1F</object-name>
+		<object-name>ACPack2Btn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pressurization/pack[1]/pack-on</property>
+				<property>/controls/pneumatic/switches/pack2</property>
 			</binding>
-
 		</action>
 	</animation>
+	
 	<animation>
-		<name>AC pack 2 on</name>
-		<type>textranslate</type>
-		<object-name>ACPack2Btn2</object-name>
-		<property>controls/pressurization/pack[1]/pack-on</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>ACPack2Btn1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ACPack2Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pneumatic/switches/pack2</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>RAM Air Turb switch pick</name>
+		<type>pick</type>
+		<object-name>RamAirBtn</object-name>
+		<object-name>RamAirBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pneumatic/switches/ram-air</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>RamAirBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pneumatic/switches/ram-air</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<!-- Anti-ice -->
@@ -2036,7 +2174,7 @@
 		<object-name>WingAntiIceBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/anti-ice/wing-heat</property>
@@ -2063,7 +2201,7 @@
 		<object-name>Eng1AntiIceBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/anti-ice/engine[0]/inlet-heat</property>
@@ -2090,7 +2228,7 @@
 		<object-name>Eng2AntiIceBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/anti-ice/engine[1]/inlet-heat</property>
@@ -2117,7 +2255,7 @@
 		<object-name>PrbWinHeatBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/anti-ice/pitot-heat</property>
@@ -2149,7 +2287,7 @@
 		<object-name>StrobeLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/strobe</property>
@@ -2184,7 +2322,7 @@
 		<object-name>BeaconLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/beacon</property>
@@ -2219,7 +2357,7 @@
 		<object-name>WingLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/wing-lights</property>
@@ -2254,7 +2392,7 @@
 		<object-name>NavLogoLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/lighting/nav-lights-switch</property>
@@ -2294,7 +2432,7 @@
 		<object-name>LandingLtRSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[2]</property>
@@ -2329,7 +2467,7 @@
 		<object-name>NoseLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[1]</property>
@@ -2368,7 +2506,7 @@
 		<object-name>APUMasterBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/APU/master</property>
@@ -2419,10 +2557,14 @@
 		<object-name>APUStartBtn2O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-				<property>/controls/APU/start</property>
+				<command>nasal</command>
+				<script>
+				if (getprop("/controls/APU/master") == 1) {
+					setprop("/controls/APU/start", 1);
+				}
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -2469,7 +2611,7 @@
 		<action>
 			<button>0</button>
 			<button>3</button>
-			<repeatable type="bool">true</repeatable>
+			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/lighting/overhead-panel-norm</property>
@@ -2480,7 +2622,7 @@
 		<action>
 			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">true</repeatable>
+			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/lighting/overhead-panel-norm</property>
@@ -2516,7 +2658,7 @@
 		<object-name>DomeLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/lighting/dome-norm</property>
@@ -2554,7 +2696,7 @@
 		<object-name>AnnunciatorLtSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/switches/annun-test</property>
@@ -2595,7 +2737,7 @@
 		<object-name>SeatBeltSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/switches/seatbelt-sign</property>
@@ -2630,7 +2772,7 @@
 		<object-name>NoSmokingSwtch</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/switches/no-smoking-sign</property>
@@ -2672,7 +2814,7 @@
 		<object-name>Eng1ManStartBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/starter-switch</property>
@@ -2699,7 +2841,7 @@
 		<object-name>Eng2ManStartBtn2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/starter-switch</property>
@@ -2728,7 +2870,7 @@
 		<object-name>e1-pump</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>hydraulics/control/eng1-pump</property>
@@ -2744,7 +2886,7 @@
 		<object-name>e2-pump</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>hydraulics/control/eng2-pump</property>
@@ -2760,7 +2902,7 @@
 		<object-name>elec-pump</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>hydraulics/control/elec-pump</property>
@@ -2776,7 +2918,7 @@
 		<object-name>y-elec-pump</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>hydraulics/control/y-elec-pump</property>
@@ -2792,7 +2934,7 @@
 		<object-name>rat</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>hydraulics/control/rat-unlck</property>
@@ -2808,7 +2950,7 @@
 		<object-name>ptu</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
 				<property>hydraulics/control/ptu</property>
@@ -2901,9 +3043,9 @@
 		<format type="string">%s</format>
 		<property>/controls/adirs/display/text</property>
 		<font type="string">LED-8.txf</font>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0095</character-size>
 		<font-resolution>
 			<width type="int">32</width>
@@ -2927,9 +3069,9 @@
 		<format type="string">%2.1f</format>
 		<property>/systems/electrical/battery1-volts</property>
 		<font type="string">led.txf</font>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
 			<width type="int">32</width>
@@ -2953,9 +3095,9 @@
 		<format type="string">%2.1f</format>
 		<property>/systems/electrical/battery2-volts</property>
 		<font type="string">led.txf</font>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
 			<width type="int">32</width>

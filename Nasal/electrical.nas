@@ -268,4 +268,4 @@ var update_electrical = func {
 	master_elec();
 }
 
-var elec_timer = maketimer(0.5, update_electrical);
+var elec_timer = maketimer(0.2, update_electrical);

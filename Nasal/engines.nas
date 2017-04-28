@@ -48,7 +48,7 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 });
 
 var start_one_check = func {
-	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/bleed/OHP/bleedapu") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
+	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28)) {
 		auto_start_one();
 	}
 }
@@ -65,7 +65,7 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 });
 
 var start_two_check = func {
-	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/bleed/OHP/bleedapu") == 1) and (getprop("/systems/apu/rpm") >= 98)) {
+	if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28)) {
 		auto_start_two();
 	}
 }
@@ -166,21 +166,33 @@ var apu_stop = func {
 setlistener("/controls/engines/engine-start-switch", func {
 	if ((getprop("/controls/engines/engine-start-switch") == 0) or (getprop("/controls/engines/engine-start-switch") == 1)) {
 		if (getprop("/controls/engines/engine[0]/state") == 1) {
-			eng_one_stop();
+			setprop("/controls/engines/engine[0]/starter", 0);
+			setprop("/controls/engines/engine[0]/cutoff", 1);
+			setprop("/engines/engine[0]/state", 0);
+			interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
 		if (getprop("/controls/engines/engine[1]/state") == 1) {
-			eng_two_stop();
+			setprop("/controls/engines/engine[1]/starter", 0);
+			setprop("/controls/engines/engine[1]/cutoff", 1);
+			setprop("/engines/engine[1]/state", 0);
+			interpolate(engines[1].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
 	}
 });
 
-setlistener("/controls/bleed/OHP/bleedapu", func {
-	if (getprop("/controls/bleed/OHP/bleedapu") == 0) {
-		if (getprop("/controls/engines/engine[0]/state") == 1) {
-			eng_one_stop();
+setlistener("/systems/pneumatic/start-psi", func {
+	if (getprop("/systems/pneumatic/total-psi") < 12) {
+		if (getprop("/engines/engine[0]/state") == 1) {
+			setprop("/controls/engines/engine[0]/starter", 0);
+			setprop("/controls/engines/engine[0]/cutoff", 1);
+			setprop("/engines/engine[0]/state", 0);
+			interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
-		if (getprop("/controls/engines/engine[1]/state") == 1) {
-			eng_two_stop();
+		if (getprop("/engines/engine[1]/state") == 1) {
+			setprop("/controls/engines/engine[1]/starter", 0);
+			setprop("/controls/engines/engine[1]/cutoff", 1);
+			setprop("/engines/engine[1]/state", 0);
+			interpolate(engines[1].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
 	}
 });
