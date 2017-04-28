@@ -270,9 +270,9 @@
 			<roll-scale>1.4</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
-			<vs>0.10</vs>
+			<vs>0.015</vs>
 			<fpa>0.30</fpa>
-			<flch>-4.0</flch>
+			<flch>-4.8</flch>
 			<gs>0.10</gs>
 		</cmd>
 		<autoland>
@@ -291,7 +291,7 @@
 		<retard-enable>0</retard-enable> <!-- AGL to Thrust Retard -->
 		<togaspd>162</togaspd> <!-- V2 + 10kts -->
 		<lat-agl-ft>100</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
-		<reduc-agl-ft>1500</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
+		<reduc-agl-ft>1450</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
 	</settings>
 	<output>
 		<ap1>0</ap1>
