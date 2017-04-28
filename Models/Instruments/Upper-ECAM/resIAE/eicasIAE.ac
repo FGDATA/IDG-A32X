@@ -6,8 +6,8 @@ MATERIAL "Material.001" rgb 0.8 0.5614 0  amb 1 1 1  emis 0.8 0.8 0.8  spec 0.5 
 OBJECT world
 kids 19
 OBJECT poly
-name "eprlimy2"
-loc 0.000766698 0.0582223 0.0197803
+name "eprlimy1"
+loc 0.00028362 0.0578329 0.0214716
 texture "yellow.png"
 crease 30.000002
 numvert 4
@@ -26,7 +26,7 @@ refs 4
 kids 0
 OBJECT poly
 name "eprlimy1"
-loc 0.000766698 0.0582223 0.0753988
+loc 0.00028362 0.0578329 0.0770537
 texture "yellow.png"
 crease 30.000002
 numvert 4
