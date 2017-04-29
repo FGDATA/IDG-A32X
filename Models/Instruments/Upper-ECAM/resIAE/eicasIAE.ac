@@ -6,7 +6,7 @@ MATERIAL "Material.001" rgb 0.8 0.5614 0  amb 1 1 1  emis 0.8 0.8 0.8  spec 0.5 
 OBJECT world
 kids 19
 OBJECT poly
-name "eprlimy1"
+name "eprlimy2"
 loc 0.00028362 0.0578329 0.0214716
 texture "yellow.png"
 crease 30.000002
