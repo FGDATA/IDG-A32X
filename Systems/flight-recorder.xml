@@ -39,7 +39,8 @@
                 <property>/velocities/groundspeed-kt</property>
             </signal>
             <signal>
-                <type>float</type><property>/position/gear-agl-ft</property>
+                <type>float</type>
+				<property>/position/gear-agl-ft</property>
             </signal>
             <signal>
                 <type>float</type>
@@ -48,6 +49,14 @@
             <signal>
                 <type>float</type>
                 <property>/engines/engine[1]/reverser-pos-norm</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/elevator-fbw</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/aileron-fbw</property>
             </signal>
         </signals>
     </config>
