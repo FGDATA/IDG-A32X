@@ -13,13 +13,14 @@ var pneumatics_init = func {
 	setprop("/controls/pneumatic/switches/pack2", 0);
 	setprop("/controls/pneumatic/switches/hot-air", 0);
 	setprop("/controls/pneumatic/switches/ram-air", 0);
-	setprop("/controls/pneumatic/switches/pack-flo", 10); # LO: 5, NORM: 10, HI: 15
-	setprop("/controls/pneumatic/switches/xbleed", 1);
+	setprop("/controls/pneumatic/switches/pack-flo", 9); # LO: 7, NORM: 9, HI: 11.
+	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later, once I get the knob animated. -JD
 	setprop("/systems/pneumatic/bleed1", 0);
 	setprop("/systems/pneumatic/bleed2", 0);
 	setprop("/systems/pneumatic/bleedapu", 0);
 	setprop("/systems/pneumatic/total-psi", 0);
 	setprop("/systems/pneumatic/start-psi", 0);
+	setprop("/systems/pneumatic/pack-psi", 0);	
 	setprop("/systems/pneumatic/pack1", 0);
 	setprop("/systems/pneumatic/pack2", 0);
 	setprop("/systems/pneumatic/startpsir", 0);
@@ -40,8 +41,6 @@ var master_pneu = func {
 	var ram_air_sw	= getprop("/controls/pneumatic/switches/ram-air");
 	var pack_flo_sw = getprop("/controls/pneumatic/switches/pack-flo", 1);
 	var xbleed_sw = getprop("/controls/pneumatic/switches/xbleed");
-	var pack1 = getprop("/systems/pneumatic/pack1");
-	var pack2 = getprop("/systems/pneumatic/pack2");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var stateL = getprop("/engines/engine[0]/state");
 	var stateR = getprop("/engines/engine[1]/state");
@@ -69,18 +68,42 @@ var master_pneu = func {
 	var bleed2 = getprop("/systems/pneumatic/bleed2");
 	var bleedapu = getprop("/systems/pneumatic/bleedapu");
 	
-	if ( stateL == 1 or stateR == 1) {
+	if (stateL == 1 or stateR == 1) {
 		setprop("/systems/pneumatic/start-psi", 18);
 	} else {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
 	
+	if (pack1_sw == 1 and bleed1_sw) {
+		setprop("/systems/pneumatic/pack1", 9);
+	} else {
+		setprop("/systems/pneumatic/pack1", 0);
+	}
+	
+	if (pack2_sw == 1 and bleed2_sw) {
+		setprop("/systems/pneumatic/pack2", 9);
+	} else {
+		setprop("/systems/pneumatic/pack2", 0);
+	}
+	
+	var pack1 = getprop("/systems/pneumatic/pack1");
+	var pack2 = getprop("/systems/pneumatic/pack2");
+	
+	if (pack1_sw == 1 and pack2_sw == 1) {
+		setprop("/systems/pneumatic/pack-psi", pack1 + pack2);
+	} else if (pack1_sw == 0 and pack2_sw == 0) {
+		setprop("/systems/pneumatic/pack-psi", 0);
+	} else {
+		setprop("/systems/pneumatic/pack-psi", pack1 + pack2 + 5);
+	}
+	
+	var pack_psi = getprop("/systems/pneumatic/pack-psi");
 	var start_psi = getprop("/systems/pneumatic/start-psi");
 	
 	if ((bleed1 + bleed2 + bleedapu) > 42) {
 		setprop("/systems/pneumatic/total-psi", 42);
 	} else {
-		var total_psi_calc = ((bleed1 + bleed2 + bleedapu) - start_psi); # - pack_psi;
+		var total_psi_calc = ((bleed1 + bleed2 + bleedapu) - start_psi - pack_psi);
 		setprop("/systems/pneumatic/total-psi", total_psi_calc);
 	}
 	

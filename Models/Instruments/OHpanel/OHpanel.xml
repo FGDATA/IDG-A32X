@@ -1789,10 +1789,11 @@
 			<button>3</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/pneumatic/switches/pack-flo</property>
-				<step>5</step>
-				<max>15</max>
+				<value>7</value>
+				<value>9</value>
+				<value>11</value>
 			</binding>
 		</action>
 		<action>
@@ -1800,10 +1801,11 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/pneumatic/switches/pack-flo</property>
-				<step>-5</step>
-				<min>5</min>
+				<value>7</value>
+				<value>9</value>
+				<value>11</value>
 			</binding>
 		</action>
 	</animation>
@@ -1813,9 +1815,9 @@
 		<object-name>ACFlowKnb</object-name>
 		<property>/controls/pneumatic/switches/pack-flo</property>
 		<interpolation>
-			<entry><ind> 5</ind><dep> 55</dep></entry>
-			<entry><ind>10</ind><dep>  0</dep></entry>
-			<entry><ind>15</ind><dep>-55</dep></entry>
+			<entry><ind> 7</ind><dep> 55</dep></entry>
+			<entry><ind> 9</ind><dep>  0</dep></entry>
+			<entry><ind>11</ind><dep>-55</dep></entry>
 		</interpolation>
 		<axis>
 			<x>1</x>
@@ -2142,9 +2144,14 @@
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<binding>
+			<!--binding>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/ram-air</property>
+			</binding-->
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/pneumatic/switches/ram-air</property>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
