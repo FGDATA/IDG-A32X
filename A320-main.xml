@@ -157,6 +157,8 @@
 				<float n="6" alias="/controls/flight/aileron-left" />
 				<float n="7" alias="/controls/flight/aileron-right" />
 				<float n="8" alias="/controls/flight/rudder-fdm" />
+				<float n="9" alias="/controls/flight/spoiler-left" />
+				<float n="10" alias="/controls/flight/spoiler-right" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
 				<int n="3" alias="/controls/lighting/landing-lights[1]" />
 				<int n="4" alias="/controls/lighting/landing-lights[2]" />
@@ -361,8 +363,6 @@
 				<fault type="bool">false</fault>
 			</ir>
 			<onbat type="bool">false</onbat>
-			<motionroll type="float">0</motionroll>
-			<motionpitch type="float">0</motionpitch>
 		</adirs>
 		<APU>
 			<fire-switch type="bool">0</fire-switch>
@@ -401,6 +401,8 @@
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>
 			<elevator-sum>0.2</elevator-sum>
+			<spoiler-left>0.0</spoiler-left>
+			<spoiler-right>0.0</spoiler-right>
 			<speedbrake-arm>0</speedbrake-arm>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<speedbrake-lever type="double">0</speedbrake-lever>
