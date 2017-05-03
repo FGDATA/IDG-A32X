@@ -201,7 +201,7 @@
 					<property>/surface-positions/speedbrake-pos-norm</property>
 					<table>
 						<property>/controls/flight/aileron-fbw</property> 
-						<entry><ind>0</ind><dep>  0</dep></entry>
+						<entry><ind>0</ind><dep>   0</dep></entry>
 						<entry><ind>1</ind><dep>-0.5</dep></entry>
 					</table>
 				</sum>
@@ -246,7 +246,7 @@
             <expression>
                 <table>
                     <property>/controls/flight/aileron-fbw</property> 
-                    <entry><ind>-0.1</ind><dep>  0</dep></entry>
+                    <entry><ind> 0.0</ind><dep>  0</dep></entry>
                     <entry><ind>-1.0</ind><dep>0.5</dep></entry>
                 </table>
             </expression>
@@ -341,7 +341,7 @@
             <expression>
                 <table>
                     <property>/controls/flight/aileron-fbw</property> 
-                    <entry><ind>0.1</ind><dep>  0</dep></entry>
+                    <entry><ind>0.0</ind><dep>  0</dep></entry>
                     <entry><ind>1.0</ind><dep>0.5</dep></entry>
                 </table>
             </expression>

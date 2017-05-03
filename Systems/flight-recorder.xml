@@ -76,6 +76,14 @@
             </signal>
             <signal>
                 <type>float</type>
+                <property>/controls/flight/spoiler-left</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-right</property>
+            </signal>
+            <signal>
+                <type>float</type>
                 <property>/controls/flight/rudder-fdm</property>
             </signal>
         </signals>
