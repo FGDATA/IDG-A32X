@@ -111,6 +111,9 @@ var beforestart_b = func {
 	setprop("/controls/pneumatic/switches/bleedapu", 1);
 	setprop("/controls/pneumatic/switches/bleed1", 1);
 	setprop("/controls/pneumatic/switches/bleed2", 1);
+	setprop("/controls/pneumatic/switches/pack1", 1);
+	setprop("/controls/pneumatic/switches/pack2", 1);
+	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/controls/hydraulic/eng1-pump", 1);
 	setprop("/controls/hydraulic/eng2-pump", 1);
 	setprop("/controls/hydraulic/elec-pump-blue", 1);
@@ -176,6 +179,9 @@ var taxi_b = func {
 	setprop("/controls/pneumatic/switches/bleedapu", 1);
 	setprop("/controls/pneumatic/switches/bleed1", 1);
 	setprop("/controls/pneumatic/switches/bleed2", 1);
+	setprop("/controls/pneumatic/switches/pack1", 1);
+	setprop("/controls/pneumatic/switches/pack2", 1);
+	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/controls/hydraulic/eng1-pump", 1);
 	setprop("/controls/hydraulic/eng2-pump", 1);
 	setprop("/controls/hydraulic/elec-pump-blue", 1);
@@ -188,12 +194,7 @@ var taxi_b = func {
 	setprop("instrumentation/adirs/ir[0]/aligned",1);
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
-	var pneu_chk = setlistener("/systems/pneumatic/total-psi", func {
-		if (getprop("/systems/pneumatic/total-psi") >= 28) {
-			removelistener(pneu_chk);
-			taxi_c();
-		}
-	});
+	settimer(taxi_c, 0.5);
 }
 var taxi_c = func {
 	setprop("/controls/engines/engine-start-switch", 2);
@@ -221,9 +222,6 @@ var taxi_e = func {
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/pneumatic/switches/bleedapu", 0);
-	setprop("/controls/pneumatic/switches/pack1", 1);
-	setprop("/controls/pneumatic/switches/pack2", 1);
-	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();

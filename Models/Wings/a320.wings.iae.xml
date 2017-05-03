@@ -45,7 +45,7 @@
 		<type>rotate</type>
 		<object-name>AileronR</object-name>
 		<property>/sim/multiplay/generic/float[7]</property>
-		<factor>40</factor>
+		<factor>-40</factor>
 		<axis>
 			<x1-m>7.6792</x1-m>
 			<y1-m>13.3967144</y1-m>

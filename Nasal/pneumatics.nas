@@ -24,6 +24,8 @@ var pneu_init = func {
 	setprop("/systems/pneumatic/pack1", 0);
 	setprop("/systems/pneumatic/pack2", 0);
 	setprop("/systems/pneumatic/startpsir", 0);
+	setprop("/systems/pneumatic/eng1-starter", 0);
+	setprop("/systems/pneumatic/eng2-starter", 0);
 	pneu_timer.start();
 }
 
@@ -41,6 +43,8 @@ var master_pneu = func {
 	var ram_air_sw	= getprop("/controls/pneumatic/switches/ram-air");
 	var pack_flo_sw = getprop("/controls/pneumatic/switches/pack-flo");
 	var xbleed_sw = getprop("/controls/pneumatic/switches/xbleed");
+	var eng1_starter = getprop("/systems/pneumatic/eng1-starter");
+	var eng2_starter = getprop("/systems/pneumatic/eng2-starter");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var stateL = getprop("/engines/engine[0]/state");
 	var stateR = getprop("/engines/engine[1]/state");
@@ -74,13 +78,13 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
 	
-	if (pack1_sw == 1 and bleed1_sw) {
+	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0) {
 		setprop("/systems/pneumatic/pack1", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and bleed2_sw) {
+	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
