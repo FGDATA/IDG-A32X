@@ -53,9 +53,15 @@ var master_hyd = func {
 		} else {
 			setprop("/systems/hydraulic/blue-psi", 3000);
 		}
+	} else if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") >= 120 and rat_man_sw == 1) {
+		if (blue_psi < 2400) {
+			setprop("/systems/hydraulic/blue-psi", blue_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/blue-psi", 2500);
+		}
 	} else {
 		if (blue_psi > 1) {
-			setprop("/systems/hydraulic/blue-psi", blue_psi - 0.1);
+			setprop("/systems/hydraulic/blue-psi", blue_psi - 5);
 		} else {
 			setprop("/systems/hydraulic/blue-psi", 0);
 		}
@@ -75,7 +81,7 @@ var master_hyd = func {
 		}
 	} else {
 		if (green_psi > 1) {
-			setprop("/systems/hydraulic/green-psi", green_psi - 0.1);
+			setprop("/systems/hydraulic/green-psi", green_psi - 5);
 		} else {
 			setprop("/systems/hydraulic/green-psi", 0);
 		}
@@ -101,7 +107,7 @@ var master_hyd = func {
 		}
 	} else {
 		if (yellow_psi > 1) {
-			setprop("/systems/hydraulic/yellow-psi", yellow_psi - 0.1);
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi - 5);
 		} else {
 			setprop("/systems/hydraulic/yellow-psi", 0);
 		}

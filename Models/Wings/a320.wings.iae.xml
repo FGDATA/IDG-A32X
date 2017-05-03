@@ -29,8 +29,8 @@
 		<name>Left aileron</name>
 		<type>rotate</type>
 		<object-name>AileronL</object-name>
-		<property>surface-positions/left-aileron-pos-norm</property>
-		<factor>25</factor>
+		<property>/sim/multiplay/generic/float[6]</property>
+		<factor>40</factor>
 		<axis>
 			<x1-m>8.7295</x1-m>
 			<y1-m>-16.3231163</y1-m>
@@ -44,8 +44,8 @@
 		<name>Right aileron</name>
 		<type>rotate</type>
 		<object-name>AileronR</object-name>
-		<property>surface-positions/right-aileron-pos-norm</property>
-		<factor>25</factor>
+		<property>/sim/multiplay/generic/float[7]</property>
+		<factor>40</factor>
 		<axis>
 			<x1-m>7.6792</x1-m>
 			<y1-m>13.3967144</y1-m>

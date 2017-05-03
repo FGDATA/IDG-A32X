@@ -1,11 +1,11 @@
 # Airbus A3XX FBW System by Joshua Davidson (it0uchpods)
-# V0.9.6
+# V0.9.7
 
-########################
-# Roll Update Function #
-########################
+###################
+# Update Function #
+###################
 
-var roll_input = func {
+var update_loop = func {
 
 	var ail = getprop("/controls/flight/aileron");
 	
@@ -29,13 +29,6 @@ var roll_input = func {
 		setprop("/it-fbw/roll-lim-max", "33");
 		setprop("/it-fbw/roll-lim-min", "-33");
 	}
-}
-
-#########################
-# Pitch Update Function #
-#########################
-
-var pitch_input = func {
 
 	var elev = getprop("/controls/flight/elevator");
 	
@@ -54,28 +47,15 @@ var pitch_input = func {
 		setprop("/it-fbw/pitch-lim-max", "15");
 		setprop("/it-fbw/pitch-lim-min", "-15");
 	}
-}
 
-###########################
-# Various Other Functions #
-###########################
-
-setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/it-fbw/override", 0);
-	setprop("/it-fbw/law", 3);
-	update_roll.start();
-	update_pitch.start();
-});
-
-setlistener("/systems/electrical/bus/ac-ess", func {
-	fbw_law();
-});
-
-var fbw_law = func {
 	if (getprop("/it-fbw/override") == 0) {
-		if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
+		if ((getprop("/systems/electrical/bus/ac-ess") >= 110) and (getprop("/systems/hydraulic/green-psi") >= 1500) and (getprop("/systems/hydraulic/yellow-psi") >= 1500)) {
 			if (getprop("/it-fbw/law") != 0) {
 				setprop("/it-fbw/law", 0);
+			}
+		} else if ((getprop("/systems/electrical/bus/ac-ess") >= 110) and (getprop("/systems/hydraulic/blue-psi") >= 1500)) {
+			if (getprop("/it-fbw/law") != 2) {
+				setprop("/it-fbw/law", 2);
 			}
 		} else {
 			if (getprop("/it-fbw/law") != 3) {
@@ -85,8 +65,17 @@ var fbw_law = func {
 	}
 }
 
+###########################
+# Various Other Functions #
+###########################
+
+setlistener("/sim/signals/fdm-initialized", func {
+	setprop("/it-fbw/override", 0);
+	setprop("/it-fbw/law", 3);
+	updatet.start();
+});
+
 ##########
 # Timers #
 ##########
-var update_roll = maketimer(0.01, roll_input);
-var update_pitch = maketimer(0.01, pitch_input);
+var updatet = maketimer(0.01, update_loop);

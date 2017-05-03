@@ -9,11 +9,11 @@
 		<name>Left elevator</name>
 		<type>rotate</type>
 		<object-name>ElevatorL</object-name>
-		<property>/controls/flight/elevator-fbw</property>
+		<property>/sim/multiplay/generic/float[4]</property>
 		<interpolation>
-			<entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+			<entry><ind>-0.5</ind><dep>-20.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>15.0</dep></entry>
+			<entry><ind>0.5</ind><dep>20.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.8217428</x1-m>
@@ -28,11 +28,11 @@
 		<name>Right elevator</name>
 		<type>rotate</type>
 		<object-name>ElevatorR</object-name>
-		<property>/controls/flight/elevator-fbw</property>
+		<property>/sim/multiplay/generic/float[5]</property>
 		<interpolation>
-			<entry><ind>-1.0</ind><dep>-15.0</dep></entry>
+			<entry><ind>-0.5</ind><dep>-20.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>1.0</ind><dep>15.0</dep></entry>
+			<entry><ind>0.5</ind><dep>20.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>2.9796817</x1-m>
