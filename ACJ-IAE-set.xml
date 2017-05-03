@@ -62,6 +62,45 @@
 				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
 		</view>
+		<view n="105">
+			<name>Left Engine View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">-6.49</z-offset-m>
+				<heading-offset-deg>129</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="106">
+			<name>Right Wing View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">0</z-offset-m>
+				<heading-offset-deg>257</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="107">
+			<name>Aft View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">6.8</z-offset-m>
+				<heading-offset-deg>63</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
 
 		<menubar>
 			<default>
