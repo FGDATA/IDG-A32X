@@ -62,24 +62,28 @@ var pitch_input = func {
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-fbw/override", 0);
-	setprop("/it-fbw/law", 2);
+	setprop("/it-fbw/law", 3);
 	update_roll.start();
 	update_pitch.start();
 });
 
 setlistener("/systems/electrical/bus/ac-ess", func {
+	fbw_law();
+});
+
+var fbw_law = func {
 	if (getprop("/it-fbw/override") == 0) {
 		if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
 			if (getprop("/it-fbw/law") != 0) {
 				setprop("/it-fbw/law", 0);
 			}
 		} else {
-			if (getprop("/it-fbw/law") != 2) {
-				setprop("/it-fbw/law", 2);
+			if (getprop("/it-fbw/law") != 3) {
+				setprop("/it-fbw/law", 3);
 			}
 		}
 	}
-});
+}
 
 ##########
 # Timers #

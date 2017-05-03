@@ -5,69 +5,6 @@
 	<path>res/ohpanel.ac</path>
 
 	<!-- ANIMATIONS -->
-	<!-- Dome lighting -->
-	<animation>
-		<name>Dome illumination</name>
-		<type>material</type>
-		<object-name>ACFlowKnb</object-name>
-		<object-name>AftCabinACKnb</object-name>
-		<object-name>AftCabinCall</object-name>
-		<object-name>AftCargoHtKnb</object-name>
-		<object-name>AftCargoSmkDis</object-name>
-		<object-name>AnnunciatorLtSwtch</object-name>
-		<object-name>BeaconLtSwtch</object-name>
-		<object-name>CVRErase</object-name>
-		<object-name>CVRTest</object-name>
-		<object-name>CargoSmkTest</object-name>
-		<object-name>CockpitACKnb</object-name>
-		<object-name>DomeLtSwtch</object-name>
-		<object-name>EmerExtLtSwtch</object-name>
-		<object-name>EmerGenInd</object-name>
-		<object-name>EvacCapt-Purs</object-name>
-		<object-name>EvacHornOff</object-name>
-		<object-name>FwdCabinACKnb</object-name>
-		<object-name>FwdCabinCall</object-name>
-		<object-name>FwdCargoHtKnb</object-name>
-		<object-name>FwdCargoSmkDis</object-name>
-		<object-name>GroundCall</object-name>
-		<object-name>IR1Ind</object-name>
-		<object-name>IR1ModeKnb</object-name>
-		<object-name>IR2Ind</object-name>
-		<object-name>IR2ModeKnb</object-name>
-		<object-name>IR3Ind</object-name>
-		<object-name>IR3ModeKnb</object-name>
-		<object-name>IRDisplayDataKnb</object-name>
-		<object-name>IRDisplaySelectKnb</object-name>
-		<object-name>LandingLtLSwtch</object-name>
-		<object-name>LandingLtRSwtch</object-name>
-		<object-name>LdgElevKnb</object-name>
-		<object-name>LeftRainTest</object-name>
-		<object-name>LeftWiperKnb</object-name>
-		<object-name>NavLogoLtSwtch</object-name>
-		<object-name>NoSmokingSwtch</object-name>
-		<object-name>NoseLtSwtch</object-name>
-		<object-name>OHPMarkLtKnb</object-name>
-		<object-name>OxyMaskDeploy</object-name>
-		<object-name>Panel</object-name>
-		<object-name>PassOxyInd</object-name>
-		<object-name>PressVSCtl</object-name>
-		<object-name>RightRainTest</object-name>
-		<object-name>RightWiperKnb</object-name>
-		<object-name>SeatBeltSwtch</object-name>
-		<object-name>StbyCompassLtSwtch</object-name>
-		<object-name>StrobeLtSwtch</object-name>
-		<object-name>SwitchSockets</object-name>
-		<object-name>TurnoffLtSwtch</object-name>
-		<object-name>WingLtSwtch</object-name>
-		<object-name>XbleedKnb</object-name>
-		<object-name>Radio panel</object-name>
-		<emission>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-			<factor-prop>controls/lighting/dome-norm</factor-prop>
-		</emission>
-	</animation>
 	
 	<!-- No button lights without power! -->
 	<animation>
@@ -97,6 +34,9 @@
 		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn22O</object-name>
 		<object-name>Battery-lvl</object-name>
+		<object-name>Battery-lvl-test</object-name>
+		<object-name>BlueElecPump1F</object-name>
+		<object-name>BlueElecPump2O</object-name>
 		<object-name>BusTieBtn2O</object-name>
 		<object-name>Eng1BleedBtn1F</object-name>
 		<object-name>Eng1BleedBtn2O</object-name>
@@ -110,6 +50,8 @@
 		<object-name>Gen1Btn2O</object-name>
 		<object-name>Gen2Btn1F</object-name>
 		<object-name>Gen2Btn2O</object-name>
+		<object-name>GreenEngPump1F</object-name>
+		<object-name>GreenEngPump2O</object-name>
 		<object-name>HotAirBtn1F</object-name>
 		<object-name>HotAirBtn2O</object-name>
 		<object-name>IDG1Btn1F</object-name>
@@ -121,7 +63,13 @@
 		<object-name>IR3Btn1F</object-name>
 		<object-name>IR3Btn2A</object-name>
 		<object-name>IrsOnBatLightOB</object-name>
+		<object-name>PTU1F</object-name>
+		<object-name>PTU2O</object-name>
 		<object-name>RamAirBtn2O</object-name>
+		<object-name>YellowElecPump1F</object-name>
+		<object-name>YellowElecPump2O</object-name>
+		<object-name>YellowEngPump1F</object-name>
+		<object-name>YellowEngPump2O</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -146,7 +94,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>adirs-coords</object-name>
+		<object-name>Adirs-coords</object-name>
 		<object-name>Battery-lvl</object-name>
 		<emission>
 			<red>1</red>
@@ -162,7 +110,7 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>adirs-coords</object-name>
+		<object-name>Adirs-coords</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>/systems/electrical/bus/dc1</property>
@@ -183,9 +131,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[0]/knob</property>
-				<value type="int">1</value>
-				<value type="int">2</value>
-				<value type="int">3</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
 				<max>3</max>
 			</binding>
 		</action>
@@ -196,9 +144,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[0]/knob</property>
-				<value type="int">3</value>
-				<value type="int">2</value>
-				<value type="int">1</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
 				<min>1</min>
 			</binding>
 		</action>
@@ -268,9 +216,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[1]/knob</property>
-				<value type="int">1</value>
-				<value type="int">2</value>
-				<value type="int">3</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
 				<max>3</max>
 			</binding>
 		</action>
@@ -281,9 +229,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[1]/knob</property>
-				<value type="int">3</value>
-				<value type="int">2</value>
-				<value type="int">1</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
 				<min>1</min>
 			</binding>
 		</action>
@@ -353,9 +301,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[2]/knob</property>
-				<value type="int">1</value>
-				<value type="int">2</value>
-				<value type="int">3</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
 				<max>3</max>
 			</binding>
 		</action>
@@ -366,9 +314,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/ir[2]/knob</property>
-				<value type="int">3</value>
-				<value type="int">2</value>
-				<value type="int">1</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
 				<min>1</min>
 			</binding>
 		</action>
@@ -438,12 +386,12 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/dataknob</property>
-				<value type="int">1</value>
-				<value type="int">2</value>
-				<value type="int">3</value>
-				<value type="int">4</value>
-				<value type="int">5</value>
-				<value type="int">6</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<value>6</value>
 				<max>6</max>
 			</binding>
 		</action>
@@ -454,12 +402,12 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/dataknob</property>
-				<value type="int">6</value>
-				<value type="int">5</value>
-				<value type="int">4</value>
-				<value type="int">3</value>
-				<value type="int">2</value>
-				<value type="int">1</value>
+				<value>6</value>
+				<value>5</value>
+				<value>4</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
 				<min>1</min>
 			</binding>
 		</action>
@@ -499,10 +447,10 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/selected</property>
-				<value type="int">1</value>
-				<value type="int">2</value>
-				<value type="int">3</value>
-				<value type="int">4</value>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
 				<max>4</max>
 			</binding>
 		</action>
@@ -513,10 +461,10 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/adirs/display/selected</property>
-				<value type="int">4</value>
-				<value type="int">3</value>
-				<value type="int">2</value>
-				<value type="int">1</value>
+				<value>4</value>
+				<value>3</value>
+				<value>2</value>
+				<value>1</value>
 				<min>1</min>
 			</binding>
 		</action>
@@ -757,51 +705,9 @@
 			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
 		</emission>
 	</animation>
-	
-	<!-- Call -->
-	
-	<!--animation>
-		<name>Ground Call pick</name>
-		<type>pick</type>
-		<object-name>GroundCall</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					var gs = getprop('velocities/groundspeed-kt');
-					var on_ground = getprop('gear/gear[2]/wow');
-					var dlg = gui.Dialog.new("sim/gui/dialogs/ground-call/dialog", 
-											 "Aircraft/A320Family/Systems/call-ground.xml");
-					if(1.5 > gs and on_ground)
-						dlg.open();
-				</script>
-			</binding>
-		</action>
-	</animation>
-    
-	<animation>
-		<name>Cabin Call pick</name>
-		<type>pick</type>
-		<object-name>FwdCabinACKnb</object-name>
-		<object-name>FwdCabinCall</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					var dlg = gui.Dialog.new("sim/gui/dialogs/cabin-call/dialog", 
-					"Aircraft/A320Family/Systems/call-cabin.xml");
-					dlg.open();
-				</script>
-			</binding>
-		</action>
-	</animation-->
 
 	<!-- GPWS -->
-	<animation>
+	<!--animation>
 		<name>GPWS system pick</name>
 		<type>pick</type>
 		<object-name>GPWSBtn1</object-name>
@@ -917,7 +823,7 @@
 			<x>1</x>
 			<y>0</y>
 		</axis>
-	</animation>
+	</animation-->
 
 	<!-- Fire controls -->
 	<animation>
@@ -994,282 +900,263 @@
 			<factor-prop>controls/engines/engine[1]/fire-bottle-discharge</factor-prop>
 		</emission>
 	</animation>
-
-	<!-- Fuel -->
-	<animation>
-		<name>Left fuel tank pump 1 pick</name>
-		<type>pick</type>
-		<object-name>LFuelTank1Btn1</object-name>
-		<object-name>LFuelTank1Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!-- property>consumables/fuel/tank[0]/selected</property -->
-				<property>controls/fuel/tank[2]/boost-pump[0]</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Left fuel tank pump 1 off</name>
-		<type>textranslate</type>
-		<object-name>LFuelTank1Btn2</object-name>
-		<!--property>consumables/fuel/tank[0]/selected</property-->
-		<property>controls/fuel/tank[2]/boost-pump[0]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>Left fuel tank pump 2 pick</name>
-		<type>pick</type>
-		<object-name>LFuelTank2Btn1</object-name>
-		<object-name>LFuelTank2Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!--property>consumables/fuel/tank[1]/selected</property-->
-				<property>controls/fuel/tank[2]/boost-pump[1]</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Left fuel tank pump 2 off</name>
-		<type>textranslate</type>
-		<object-name>LFuelTank2Btn2</object-name>
-		<!--property>consumables/fuel/tank[1]/selected</property-->
-		<property>controls/fuel/tank[2]/boost-pump[1]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Center fuel tank pumps 1 pick</name>
-		<type>pick</type>
-		<object-name>CFuelTank1Btn1</object-name>
-		<object-name>CFuelTank1Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!--property>consumables/fuel/tank[3]/selected</property-->
-				<property>controls/fuel/tank[3]/boost-pump[0]</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Center fuel tank pumps 1 off</name>
-		<type>textranslate</type>
-		<object-name>CFuelTank1Btn2</object-name>
-		<!--property>consumables/fuel/tank[3]/selected</property-->
-		<property>controls/fuel/tank[3]/boost-pump[0]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>Center fuel tank pumps 2 pick</name>
-		<type>pick</type>
-		<object-name>CFuelTank2Btn1</object-name>
-		<object-name>CFuelTank2Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!--property>consumables/fuel/tank[3]/selected</property-->
-				<property>controls/fuel/tank[3]/boost-pump[1]</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Center fuel tank pumps 2 off</name>
-		<type>textranslate</type>
-		<object-name>CFuelTank2Btn2</object-name>
-		<!--property>consumables/fuel/tank[3]/selected</property-->
-		<property>controls/fuel/tank[3]/boost-pump[1]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>X-Feed Valve</name>
-		<type>pick</type>
-		<object-name>FuelXfeedBtn1</object-name>
-		<object-name>FuelXfeedBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/fuel/x-feed</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>X-Feed Valve off</name>
-		<type>textranslate</type>
-		<object-name>FuelXfeedBtn2</object-name>
-
-		<property>controls/fuel/x-feed</property>
-		<!-- interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation-->
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Right fuel tank pump 1 pick</name>
-		<type>pick</type>
-		<object-name>RFuelTank1Btn1</object-name>
-		<object-name>RFuelTank1Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!--property>consumables/fuel/tank[4]/selected</property-->
-				<property>controls/fuel/tank[4]/boost-pump[0]</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Right fuel tank pump 1 off</name>
-		<type>textranslate</type>
-		<object-name>RFuelTank1Btn2</object-name>
-		<!--property>consumables/fuel/tank[4]/selected</property-->
-		<property>controls/fuel/tank[4]/boost-pump[0]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>Right fuel tank pump 2 pick</name>
-		<type>pick</type>
-		<object-name>RFuelTank2Btn1</object-name>
-		<object-name>RFuelTank2Btn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<!--property>consumables/fuel/tank[5]/selected</property-->
-				<property>controls/fuel/tank[4]/boost-pump[1]</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Right fuel tank pump 2 off</name>
-		<type>textranslate</type>
-		<object-name>RFuelTank2Btn2</object-name>
-		<!--property>consumables/fuel/tank[5]/selected</property-->
-		<property>controls/fuel/tank[4]/boost-pump[1]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
 	
-	<!-- Fuel Jettison -->
-	
+	<!-- Hydraulic -->
 	<animation>
-		<name>Fuel Jettison Arm</name>
+		<name>Green Eng Pump pick</name>
 		<type>pick</type>
-		<object-name>fueldumpARM1</object-name>
-		<object-name>fueldumpARM2</object-name>
+		<object-name>GreenEngPump1</object-name>
+		<object-name>GreenEngPump2</object-name>
+		<object-name>GreenEngPump1F</object-name>
+		<object-name>GreenEngPump2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel-dump/arm</property>
+				<property>/controls/hydraulic/eng1-pump</property>
 			</binding>
-
 		</action>
-	</animation>
-	<animation>
-		<name>Fuel Jettison Arm animation</name>
-		<type>textranslate</type>
-		<object-name>fueldumpARM2</object-name>
-		<property>controls/fuel-dump/arm</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
 	</animation>
 	
 	<animation>
-		<name>Fuel Jettison Active</name>
+		<type>select</type>
+		<object-name>GreenEngPump1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>GreenEngPump2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/hydraulic/eng1-pump</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Blue Elec Pump pick</name>
 		<type>pick</type>
-		<object-name>fueldumpACT1</object-name>
-		<object-name>fueldumpACT2</object-name>
+		<object-name>BlueElecPump1</object-name>
+		<object-name>BlueElecPump2</object-name>
+		<object-name>BlueElecPump1F</object-name>
+		<object-name>BlueElecPump2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel-dump/active</property>
+				<property>/controls/hydraulic/elec-pump-blue</property>
 			</binding>
-
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Fuel Jettison Arm animation</name>
-		<type>textranslate</type>
-		<object-name>fueldumpACT2</object-name>
-		<property>controls/fuel-dump/active</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>BlueElecPump1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
+	<animation>
+		<type>select</type>
+		<object-name>BlueElecPump2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/hydraulic/elec-pump-blue</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>PTU pick</name>
+		<type>pick</type>
+		<object-name>PTU1</object-name>
+		<object-name>PTU2</object-name>
+		<object-name>PTU1F</object-name>
+		<object-name>PTU2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulic/ptu</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>PTU1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>PTU2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/hydraulic/ptu</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Yellow Eng Pump pick</name>
+		<type>pick</type>
+		<object-name>YellowEngPump1</object-name>
+		<object-name>YellowEngPump2</object-name>
+		<object-name>YellowEngPump1F</object-name>
+		<object-name>YellowEngPump2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulic/eng2-pump</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>YellowEngPump1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>YellowEngPump2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/hydraulic/eng2-pump</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Yellow Eng Pump pick</name>
+		<type>pick</type>
+		<object-name>YellowElecPump1</object-name>
+		<object-name>YellowElecPump2</object-name>
+		<object-name>YellowElecPump1F</object-name>
+		<object-name>YellowElecPump2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulic/elec-pump-yellow</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>YellowElecPump1F</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/unused/unused-oh</property>
+					<value>150</value> <!-- I didn't model faults yet -->
+				</greater-than>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>YellowElecPump2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/hydraulic/elec-pump-yellow</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<!-- Electrical -->
 	<animation>
 		<name>Galley pick</name>
@@ -1779,7 +1666,7 @@
 		</condition>
 	</animation>
 
-	<!-- Air conditioning -->
+	<!-- Pneumatic -->
 	<animation>
 		<name>AC pack flow pick</name>
 		<type>pick</type>
@@ -2173,120 +2060,6 @@
 		</condition>
 	</animation>
 
-	<!-- Anti-ice -->
-	<animation>
-		<name>Wing anti-ice pick</name>
-		<type>pick</type>
-		<object-name>WingAntiIceBtn1</object-name>
-		<object-name>WingAntiIceBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/anti-ice/wing-heat</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Wing anti-ice on</name>
-		<type>textranslate</type>
-		<object-name>WingAntiIceBtn2</object-name>
-		<property>controls/anti-ice/wing-heat</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Engine 1 anti-ice pick</name>
-		<type>pick</type>
-		<object-name>Eng1AntiIceBtn1</object-name>
-		<object-name>Eng1AntiIceBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/anti-ice/engine[0]/inlet-heat</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 1 anti-ice on</name>
-		<type>textranslate</type>
-		<object-name>Eng1AntiIceBtn2</object-name>
-		<property>controls/anti-ice/engine[0]/inlet-heat</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Engine 2 anti-ice pick</name>
-		<type>pick</type>
-		<object-name>Eng2AntiIceBtn1</object-name>
-		<object-name>Eng2AntiIceBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/anti-ice/engine[1]/inlet-heat</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 2 anti-ice on</name>
-		<type>textranslate</type>
-		<object-name>Eng2AntiIceBtn2</object-name>
-		<property>controls/anti-ice/engine[1]/inlet-heat</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Probe/window heat pick</name>
-		<type>pick</type>
-		<object-name>PrbWinHeatBtn1</object-name>
-		<object-name>PrbWinHeatBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/anti-ice/pitot-heat</property>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/anti-ice/window-heat</property>
-				<property>controls/anti-ice/pitot-heat</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Probe/window heat on</name>
-		<type>textranslate</type>
-		<object-name>PrbWinHeatBtn2</object-name>
-		<property>controls/anti-ice/pitot-heat</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
 	<!-- Exterior lights -->
 	<animation>
 		<name>Strobe lights pick</name>
@@ -2403,9 +2176,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/lighting/nav-lights-switch</property>
-				<value type="int">0</value>
-				<value type="int">1</value>
-				<value type="int">2</value>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
 			</binding>
 
 		</action>
@@ -2659,7 +2432,7 @@
 		</center>
 	</animation>
 
-	<animation>
+	<!--animation>
 		<name>Dome lights pick</name>
 		<type>pick</type>
 		<object-name>DomeLtSwtch</object-name>
@@ -2695,7 +2468,7 @@
 			<y-m>0</y-m>
 			<z-m>-0.2597</z-m>
 		</center>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<name>Annun lights pick</name>
@@ -2734,8 +2507,6 @@
 			<z-m>-0.2597</z-m>
 		</center>
 	</animation>
-	
-	
 
 	<!-- Passenger signs -->
 	<animation>
@@ -2749,7 +2520,6 @@
 				<command>property-toggle</command>
 				<property>controls/switches/seatbelt-sign</property>
 			</binding>
-
 		</action>
 	</animation>
 	<animation>
@@ -2784,12 +2554,6 @@
 				<command>property-toggle</command>
 				<property>controls/switches/no-smoking-sign</property>
 			</binding>
-			<bindings>
-				<command>nasal</command>
-				<script>
-				A320.dingdong();
-				</script>
-			</bindings>
 		</action>
 	</animation>
 	<animation>
@@ -2812,230 +2576,11 @@
 			<z-m>-0.3037</z-m>
 		</center>
 	</animation>
-
-	<!-- Engine controls -->
-	<animation>
-		<name>Engine 1 manual starter pick</name>
-		<type>pick</type>
-		<object-name>Eng1ManStartBtn1</object-name>
-		<object-name>Eng1ManStartBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[0]/starter-switch</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 1 manual starter on</name>
-		<type>textranslate</type>
-		<object-name>Eng1ManStartBtn2</object-name>
-		<property>controls/engines/engine[0]/starter-switch</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Engine 2 manual starter pick</name>
-		<type>pick</type>
-		<object-name>Eng2ManStartBtn1</object-name>
-		<object-name>Eng2ManStartBtn2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[1]/starter-switch</property>
-			</binding>
-
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 2 manual starter on</name>
-		<type>textranslate</type>
-		<object-name>Eng2ManStartBtn2</object-name>
-		<property>controls/engines/engine[1]/starter-switch</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<!-- Hydraulics Control Panel -->
-	
-	<animation>
-		<name>Engine 1 Hydraulic Pump</name>
-		<type>pick</type>
-		<object-name>e1-pump-fault</object-name>
-		<object-name>e1-pump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>hydraulics/control/eng1-pump</property>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Engine 2 Hydraulic Pump</name>
-		<type>pick</type>
-		<object-name>e2-pump-fault</object-name>
-		<object-name>e2-pump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>hydraulics/control/eng2-pump</property>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Electric Hydraulic Pump</name>
-		<type>pick</type>
-		<object-name>elec-pump-fault</object-name>
-		<object-name>elec-pump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>hydraulics/control/elec-pump</property>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Backup Electric Hydraulic Pump</name>
-		<type>pick</type>
-		<object-name>y-elec-pump-fault</object-name>
-		<object-name>y-elec-pump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>hydraulics/control/y-elec-pump</property>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Unlock Ram Air Turbine</name>
-		<type>pick</type>
-		<object-name>rat-fault</object-name>
-		<object-name>rat</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>hydraulics/control/rat-unlck</property>
-				<value>1</value>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Hydraulic Power Transfer Unit (PTU)</name>
-		<type>pick</type>
-		<object-name>ptu</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>hydraulics/control/ptu</property>
-			</binding>
-
-		</action>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>e1-pump</object-name>
-		<property>hydraulics/control/eng1-pump</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>e2-pump</object-name>
-		<property>hydraulics/control/eng2-pump</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>elec-pump</object-name>
-		<property>hydraulics/control/elec-pump</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>y-elec-pump</object-name>
-		<property>hydraulics/control/y-elec-pump</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>rat</object-name>
-		<property>hydraulics/control/rat-unlck</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>ptu</object-name>
-		<property>hydraulics/control/ptu</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation>
 	
 	<!-- Texts -->
 
 		<text>
-		<name>adirs-coords</name>
+		<name>Adirs-coords</name>
 		<offsets>
 			<x-m>0.005</x-m>
 			<y-m>-0.246</y-m>
@@ -3055,8 +2600,8 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0095</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 
@@ -3081,8 +2626,34 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>Battery-lvl-test</name>
+		<offsets>
+			<x-m>-0.008</x-m>
+			<y-m>-0.057</y-m>
+			<z-m>0.0155</z-m>
+			<pitch-deg>62</pitch-deg>
+			<roll-deg>88</roll-deg>
+			<heading-deg>32</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">88.8</format>
+		<property>autopilot/serviceable</property>
+		<font type="string">led.txf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 
@@ -3107,9 +2678,57 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
+	
+	<text>
+		<name>Battery-lvl-test</name>
+		<offsets>
+			<x-m>-0.008</x-m>
+			<y-m>0.035</y-m>
+			<z-m>0.0155</z-m>
+			<pitch-deg>62</pitch-deg>
+			<roll-deg>90</roll-deg>
+			<heading-deg>32</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">88.8</format>
+		<property>autopilot/serviceable</property>
+		<font type="string">led.txf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width>32</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Battery-lvl</object-name>
+		<condition>
+			<equals>
+				<property>/controls/switches/annun-test</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Battery-lvl-test</object-name>
+		<condition>
+			<equals>
+				<property>/controls/switches/annun-test</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
 
 </PropertyList>

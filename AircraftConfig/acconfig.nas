@@ -34,7 +34,8 @@ var colddark = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
-	systems.pneumatics_init();
+	systems.pneu_init();
+	systems.hyd_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -77,7 +78,8 @@ var beforestart = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
-	systems.pneumatics_init();
+	systems.pneu_init();
+	systems.hyd_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -109,6 +111,9 @@ var beforestart_b = func {
 	setprop("/controls/pneumatic/switches/bleedapu", 1);
 	setprop("/controls/pneumatic/switches/bleed1", 1);
 	setprop("/controls/pneumatic/switches/bleed2", 1);
+	setprop("/controls/hydraulic/eng1-pump", 1);
+	setprop("/controls/hydraulic/eng2-pump", 1);
+	setprop("/controls/hydraulic/elec-pump-blue", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
@@ -138,7 +143,8 @@ var taxi = func {
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
 	systems.ADIRSreset();
-	systems.pneumatics_init();
+	systems.pneu_init();
+	systems.hyd_init();
 	itaf.ap_init();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -170,6 +176,9 @@ var taxi_b = func {
 	setprop("/controls/pneumatic/switches/bleedapu", 1);
 	setprop("/controls/pneumatic/switches/bleed1", 1);
 	setprop("/controls/pneumatic/switches/bleed2", 1);
+	setprop("/controls/hydraulic/eng1-pump", 1);
+	setprop("/controls/hydraulic/eng2-pump", 1);
+	setprop("/controls/hydraulic/elec-pump-blue", 1);
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");

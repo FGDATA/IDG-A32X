@@ -33,7 +33,10 @@
 			<electrical>
 				<path></path>
 			</electrical>
-			<!-- Custom FBW System -->
+			<!-- Custom FBW/Flight Controls System -->
+			<!--autopilot>
+				<path>Aircraft/A320Family/Systems/hydraulics.xml</path>
+			</autopilot-->
 			<autopilot>
 				<path>Aircraft/A320Family/Systems/it-fbw-b.xml</path>
 			</autopilot>
@@ -406,7 +409,7 @@
 			<landing-lights n="1" type="bool">0</landing-lights>
 			<landing-lights n="2" type="bool">0</landing-lights>
 			<nav-lights-switch type="int">0</nav-lights-switch>
-			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
+			<overhead-panel-norm type="double">0.0</overhead-panel-norm>
 			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
 			<strobe type="bool">0</strobe>
 		</lighting>

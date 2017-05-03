@@ -84,16 +84,9 @@ setlistener("/controls/switches/no-smoking-sign", func {
 	}, 2);
 });
 
-##################
-# Gear and Doors #
-##################
-
-setlistener("/controls/gear/gear-down", func {
-	var down = props.globals.getNode("/controls/gear/gear-down").getBoolValue();
-	if (!down and (getprop("/gear/gear[0]/wow") or getprop("/gear/gear[1]/wow") or getprop("/gear/gear[2]/wow"))) {
-		props.globals.getNode("/controls/gear/gear-down").setBoolValue(1);
-	}
-});
+#########
+# Doors #
+#########
 
 # Front doors
 var doorl1 = aircraft.door.new("/sim/model/door-positions/doorl1", 2);
@@ -135,7 +128,8 @@ var triggerDoor = func(door, doorName, doorDesc) {
 setlistener("/sim/signals/fdm-initialized", func {
 	systems.elec_init();
 	systems.adirs_init();
-	systems.pneumatics_init();
+	systems.pneu_init();
+	systems.hyd_init();
   	itaf.ap_init();			
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);

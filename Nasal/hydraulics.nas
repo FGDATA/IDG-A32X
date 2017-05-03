@@ -1,79 +1,130 @@
-# A320 Hydraulics - Disabled until complete
+# A320 Hydraulic System
+# Joshua Davidson (it0uchpods)
 
-# LGCIU
-# Jonathan Redpath
-# Note: Will be compressed
+#############
+# Init Vars #
+#############
 
-#####################
-# Initializing Vars #
-#####################
-var lgciu_init = func {
-#Hydraulics
-setprop("controls/LGCIU/hyd/safetyvalvepos",0); #1 is closed, 0 is open. 
-setprop("controls/LGCIU/hyd/cutoffvalvepos",0); #1 is closed, 0 is open.
-setprop("controls/LGCIU/hyd/doorselvalvepos",1); #1 is closed, 0 is open.
-setprop("controls/LGCIU/hyd/gearselvalvepos",1); #1 is closed, 0 is open.
-#Sensors
-setprop("controls/LGCIU/sensor/ten",1); #1 is yes condition, ie on ground. Used to prohibit retraction on ground
-setprop("controls/LGCIU/sensor/adr1and3flt",0);
-setprop("controls/LGCIU/inhibit",1);
-#Timers
-safety_valve_ADR_timer.start();
-sensorten.start();
+var hyd_init = func {
+	setprop("/controls/hydraulic/eng1-pump", 0);
+	setprop("/controls/hydraulic/eng2-pump", 0);
+	setprop("/controls/hydraulic/elec-pump-blue", 0);
+	setprop("/controls/hydraulic/elec-pump-yellow", 0);
+	setprop("/controls/hydraulic/ptu", 1);
+	setprop("/controls/hydraulic/rat-man", 0);
+	setprop("/systems/hydraulic/ptu-active", 0);
+	setprop("/systems/hydraulic/blue-psi", 0);
+	setprop("/systems/hydraulic/green-psi", 0);
+	setprop("/systems/hydraulic/yellow-psi", 0);
+	hyd_timer.start();
 }
 
-var safety_valve_ADR = setlistener("controls/LGCIU/sensor/adr1and3flt", func {
-var ADRfault = getprop("controls/LGCIU/sensor/adr1and3flt");
-if (ADRfault) {
-setprop("controls/LGCIU/hyd/safetyvalvepos",1); #close valve if we have ADR 1 + 3 FAULT
+#######################
+# Main Hydraulic Loop #
+#######################
+
+var master_hyd = func {
+	var eng1_pump_sw = getprop("/controls/hydraulic/eng1-pump");
+	var eng2_pump_sw = getprop("/controls/hydraulic/eng2-pump");
+	var elec_pump_blue_sw = getprop("/controls/hydraulic/elec-pump-blue");
+	var elec_pump_yellow_sw = getprop("/controls/hydraulic/elec-pump-yellow");
+	var ptu_sw = getprop("/controls/hydraulic/ptu");
+	var rat_man_sw = getprop("/controls/hydraulic/rat-man");
+	var blue_psi = getprop("/systems/hydraulic/blue-psi");
+	var green_psi = getprop("/systems/hydraulic/green-psi");
+	var yellow_psi = getprop("/systems/hydraulic/yellow-psi");
+	var rpmapu = getprop("/systems/apu/rpm");
+	var stateL = getprop("/engines/engine[0]/state");
+	var stateR = getprop("/engines/engine[1]/state");
+	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
+	var psi_diff = green_psi - yellow_psi;
+	
+	if (psi_diff > 500 or psi_diff < -500 and ptu_sw) {
+		setprop("/systems/hydraulic/ptu-active", 1);
+	} else if (psi_diff < 20 and psi_diff > -20) {
+		setprop("/systems/hydraulic/ptu-active", 0);
+	}
+	
+	var ptu_active = getprop("/systems/hydraulic/ptu-active");
+	
+	if (elec_pump_blue_sw and dc_ess >= 25 and (stateL == 3 or stateR == 3)) {
+		if (blue_psi < 2900) {
+			setprop("/systems/hydraulic/blue-psi", blue_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/blue-psi", 3000);
+		}
+	} else {
+		if (blue_psi > 1) {
+			setprop("/systems/hydraulic/blue-psi", blue_psi - 0.1);
+		} else {
+			setprop("/systems/hydraulic/blue-psi", 0);
+		}
+	}
+	
+	if (eng1_pump_sw and stateL == 3) {
+		if (green_psi < 2900) {
+			setprop("/systems/hydraulic/green-psi", green_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/green-psi", 3000);
+		}
+	} else if (ptu_active and stateL != 3) {
+		if (green_psi < 2900) {
+			setprop("/systems/hydraulic/green-psi", green_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/green-psi", 3000);
+		}
+	} else {
+		if (green_psi > 1) {
+			setprop("/systems/hydraulic/green-psi", green_psi - 0.1);
+		} else {
+			setprop("/systems/hydraulic/green-psi", 0);
+		}
+	}
+	
+	if (eng2_pump_sw and stateR == 3) {
+		if (yellow_psi < 2900) {
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/yellow-psi", 3000);
+		}
+	} else if (elec_pump_yellow_sw and dc_ess >= 25) {
+		if (yellow_psi < 2900) {
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/yellow-psi", 3000);
+		}
+	} else if (ptu_active and stateR != 3) {
+		if (yellow_psi < 2900) {
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/yellow-psi", 3000);
+		}
+	} else {
+		if (yellow_psi > 1) {
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi - 0.1);
+		} else {
+			setprop("/systems/hydraulic/yellow-psi", 0);
+		}
+	}
 }
+
+#######################
+# Various Other Stuff #
+#######################
+
+setlistener("/controls/gear/gear-down", func {
+	var down = getprop("/controls/gear/gear-down");
+	if (!down and (getprop("/gear/gear[0]/wow") or getprop("/gear/gear[1]/wow") or getprop("/gear/gear[2]/wow"))) {
+		setprop("/controls/gear/gear-down", 1);
+	}
 });
 
-var gear_retract_inhibit = setlistener("controls/LGCIU/sensor/ten", func {
-var sens10 = getprop("controls/LGCIU/sensor/ten");
-var gearcmd = getprop("gear/gear-cmd-norm");
-if (sens10) {
-setprop("controls/LGCIU/inhibit",1); #use this property in gear retraction logic, eg if not gearinhib
-} else {
-setprop("controls/LGCIU/inhibit",0);
+###################
+# Update Function #
+###################
+
+var update_hydraulic = func {
+	master_hyd();
 }
-});
 
-
-# Logic: 
-#On the 320 series, the LGCIU, controls the safety valve when either ADR 1 or 3 has an indicated airspeed greater than 260KIAS, the valve will close preventing extension in flight. There is also a function where when the aircraft senses it's on the ground, the valve also closes to prevent inadvertent gear retraction.
-#ADR 1/3 less than 260 kts with L/G lever down ----> safety valve is open(lets hydraulic fluid pass through it) {take off condition}
-#ADR 1/3 less than 260 kts with L/G lever up ----> safety valve is still open as there is a 'Self Maintained' logic. {initial climb condition} As soon as ADR 1/3 more than 260 kts the safety valve will close (stop the hydraulic supply) {cruise}
-#ADR 1/3 more than 260 kts with L/G lever up ----> safety valve will remain close and when ADR 1/3 drops below 260 kts with L/G lever up it will still remain close. It will open only when L/G lever is selected down.{descent condition}
-
-var ADRlock = setlistener("controls/LGCIU/hyd/safetyvalvepos", func { #lock the valve if there is an ADR 1 + 3 fault
-var ADRfault = getprop("controls/LGCIU/sensor/adr1and3flt");
-var valve = getprop("controls/LGCIU/hyd/safetyvalvepos");
-if (!valve and ADRfault) {
-setprop("controls/LGCIU/hyd/safetyvalvepos",1);
-}
-});
-
-var safety_valve_ADR_timer = maketimer(1, func {
-var ADR1 = getprop("controls/adirs/ir[0]/fault");
-var ADR3 = getprop("controls/adirs/ir[2]/fault");
-if (ADR1 and ADR3) {
-setprop("controls/LGCIU/sensor/adr1and3flt", 1);
-} else {
-setprop("controls/LGCIU/sensor/adr1and3flt", 0);
-}
-});
-
-var sensorten = maketimer(0.1, func {
-var gearpos = getprop("/gear/gear[0]/position-norm");
-var gearpo1 = getprop("/gear/gear[1]/position-norm");
-var gearpo2 = getprop("/gear/gear[2]/position-norm");
-var gear1comp = getprop("gear/gear[0]/compression-norm");
-var gear2comp = getprop("gear/gear[1]/compression-norm");
-var gear3comp = getprop("gear/gear[2]/compression-norm");
-if (gearpos and gearpo1 and gearpo2 and ((gear1comp > 0) and (gear2comp > 0) and (gear3comp > 0))) {
-setprop("controls/LGCIU/sensor/ten",1); #1 is yes condition, ie on ground. Used to prohibit retraction on ground
-} else {
-setprop("controls/LGCIU/sensor/ten",0); #1 is yes condition, ie on ground. Used to prohibit retraction on ground
-}
-});
+var hyd_timer = maketimer(0.2, update_hydraulic);

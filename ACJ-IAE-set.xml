@@ -89,7 +89,7 @@
 			<file>Aircraft/A320Family/Nasal/engines.nas</file>
 			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
 			<file>Aircraft/A320Family/Nasal/pneumatics.nas</file>
-			<!--file>Aircraft/A320Family/Nasal/hydraulics.nas</file-->
+			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
 			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
 		</systems>
 		<fbw>

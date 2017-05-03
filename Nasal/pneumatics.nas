@@ -5,7 +5,7 @@
 # Init Vars #
 #############
 
-var pneumatics_init = func {
+var pneu_init = func {
 	setprop("/controls/pneumatic/switches/bleed1", 0);
 	setprop("/controls/pneumatic/switches/bleed2", 0);
 	setprop("/controls/pneumatic/switches/bleedapu", 0);
@@ -39,7 +39,7 @@ var master_pneu = func {
 	var pack2_sw = getprop("/controls/pneumatic/switches/pack2");
 	var hot_air_sw = getprop("/controls/pneumatic/switches/hot-air");
 	var ram_air_sw	= getprop("/controls/pneumatic/switches/ram-air");
-	var pack_flo_sw = getprop("/controls/pneumatic/switches/pack-flo", 1);
+	var pack_flo_sw = getprop("/controls/pneumatic/switches/pack-flo");
 	var xbleed_sw = getprop("/controls/pneumatic/switches/xbleed");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var stateL = getprop("/engines/engine[0]/state");
@@ -75,13 +75,13 @@ var master_pneu = func {
 	}
 	
 	if (pack1_sw == 1 and bleed1_sw) {
-		setprop("/systems/pneumatic/pack1", 9);
+		setprop("/systems/pneumatic/pack1", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
 	if (pack2_sw == 1 and bleed2_sw) {
-		setprop("/systems/pneumatic/pack2", 9);
+		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
 	}
