@@ -20,6 +20,23 @@
 			<splash-texture>Aircraft/A320Family/Splash/splash1.png</splash-texture>
 		</startup>
 		
+		<tags>
+			<tag>passenger</tag>
+			<tag>airbus</tag>
+			<tag>1980s</tag>
+			<tag>1990s</tag>
+			<tag>2000s</tag>
+			<tag>2010s</tag>
+			<tag>ifr</tag>
+			<tag>retractable-gear</tag>
+			<tag>glass-cockpit</tag>
+			<tag>pressurised</tag>
+			<tag>rembrandt</tag>
+			<!--tag>dual-controls</tag--> <!-- Coming Soon ;) -->
+			<tag>jet</tag>
+			<tag>2-engine</tag>
+		</tags>
+		
 		<flaps>
 			<setting>0.000</setting>
 			<setting>0.290</setting>
