@@ -33,7 +33,7 @@ var update_loop = func {
 	var elev = getprop("/controls/flight/elevator");
 	
 	if (getprop("/it-fbw/law") == 0) {
-		if (getprop("/position/gear-agl-ft") <= 15) {
+		if (getprop("/position/gear-agl-ft") <= 2) {
 			setprop("/it-fbw/pitch-lim-max", "15");
 			setprop("/it-fbw/pitch-lim-min", "-5");
 		} else {
