@@ -799,7 +799,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	</channel>
 
-		<channel name="Flaps">
+	<channel name="Flaps">
 
 		<kinematic name="Flaps Control">
 			<input>/controls/flight/flaps</input>
@@ -842,7 +842,7 @@ YAW MOI_________3950000______23089847_______24848934
 			</setting>
 			<setting>
 				<position>27</position>
-				<time>40</time>
+				<time>30</time>
 			</setting>
 			</traverse>
 			<output>fcs/slat-pos-deg</output>
@@ -891,7 +891,7 @@ YAW MOI_________3950000______23089847_______24848934
 			</setting>
 			<setting>
 				<position>1</position>
-				<time>2</time>
+				<time>1</time>
 			</setting>
 			</traverse>
 			<output>fcs/speedbrake-pos-norm</output>
@@ -961,9 +961,9 @@ YAW MOI_________3950000______23089847_______24848934
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
 							-0.20 -0.780
-							 0.00  0.345
-							 0.23  1.100
-							 0.60  0.700
+							 0.00  0.335
+							 0.23  1.090
+							 0.60  0.690
 						</tableData>
 					</table>
 				</product>

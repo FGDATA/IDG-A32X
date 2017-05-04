@@ -52,11 +52,39 @@
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/elevator-fbw</property>
+                <property>/controls/flight/elevator-sum</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/aileron-fbw</property>
+                <property>/controls/flight/elevator-left</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/elevator-right</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/aileron-sum</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/aileron-left</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/aileron-right</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-left</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-right</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/rudder-fdm</property>
             </signal>
         </signals>
     </config>
