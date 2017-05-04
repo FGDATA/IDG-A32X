@@ -24,9 +24,8 @@
 		</layer>
 
 		<layer>
-
 			<type>text</type>
-			<name>BAT1</name>
+			<name>BAT1-voltage</name>
 			<color>
 				<red>0</red>
 				<green>1.0</green>
@@ -37,7 +36,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/battery</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/battery1-volts</property>
 					<format type="string">%3.1f</format>
 				</chunk>
 			</chunks>
@@ -51,12 +50,18 @@
 					<offset>-68	</offset>
 				</transformation>
 			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery1</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
 		
 		<layer>
 
 			<type>text</type>
-			<name>BAT2</name>
+			<name>BAT2-voltage</name>
 			<color>
 				<red>0</red>
 				<green>1.0</green>
@@ -67,7 +72,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/battery</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/battery2-volts</property>
 					<format type="string">%3.1f</format>
 				</chunk>
 			</chunks>
@@ -81,7 +86,141 @@
 					<offset>38	</offset>
 				</transformation>
 			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery2</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
+		<layer>
+			<name>battery1off</name>
+			<emissive>true</emissive>
+			<w>42</w>
+			<h>42</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-bat1off.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-53	</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery1</property>
+					<value>0</value>
+				</equals>
+			</condition>
+		</layer>
+		<layer>
+			<name>battery2off</name>
+			<emissive>true</emissive>
+			<w>42</w>
+			<h>42</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-bat2off.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>54	</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery2</property>
+					<value>0</value>
+				</equals>
+			</condition>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>BAT1-amps</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/battery1-amps</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>88</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-68	</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery1</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>BAT2-amps</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/battery2-amps</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>88</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>38	</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/battery2</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</layer>
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		<layer>
 
