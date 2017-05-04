@@ -244,14 +244,14 @@
 	</animation>
 	
 	<animation>
-		<type>material</type> <!-- Orange -->
+		<type>material</type> <!-- Amber -->
 		<object-name>XX.1</object-name>
 		<object-name>XX.2</object-name>
 		<object-name>XX.3</object-name>
 		<object-name>XX.4</object-name>
 		<diffuse>
 			<red>1</red>
-			<green>0.5</green>
+			<green>0.3</green>
 			<blue>0</blue>
 		</diffuse>
 		<ambient>
@@ -266,7 +266,7 @@
 		</specular>
 		<emission>
 			<red>1</red>
-			<green>0.5</green>
+			<green>0.3</green>
 			<blue>0</blue>
 		</emission>
 	</animation>
@@ -769,7 +769,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.066</y-m>
-			<z-m>-0.0177</z-m>
+			<z-m>-0.0167</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -793,7 +793,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.00</y-m>
-			<z-m>-0.0177</z-m>
+			<z-m>-0.0167</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -817,7 +817,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.066</y-m>
-			<z-m>-0.0177</z-m>
+			<z-m>-0.0167</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -841,7 +841,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.00</y-m>
-			<z-m>-0.0177</z-m>
+			<z-m>-0.0167</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
