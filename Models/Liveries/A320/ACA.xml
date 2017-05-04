@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">Air Canada</name>
-        <texture>Liveries/A320/ACA.png</texture>
+        <texture>Liveries/A320/A320-ACA.png</texture>
         <texture2>FanDisk.png</texture2>
       </livery>
     </model>
