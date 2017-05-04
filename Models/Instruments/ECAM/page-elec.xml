@@ -213,19 +213,10 @@
 				</equals>
 			</condition>
 		</layer>
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<layer>
 
 			<type>text</type>
-			<name>GEN1</name>
+			<name>GEN1-volts</name>
 			<color>
 				<red>0</red>
 				<green>1.0</green>
@@ -236,7 +227,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/gen1-v</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/bus/ac1</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -247,15 +238,21 @@
 				</transformation>
 				<transformation>
 					<type>x-shift</type>
-					<offset>-116</offset>
+					<offset>-117</offset>
 				</transformation>
 			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/gen1</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
 		
 		<layer>
 
 			<type>text</type>
-			<name>GEN2</name>
+			<name>GEN2-volts</name>
 			<color>
 				<red>0</red>
 				<green>1.0</green>
@@ -266,7 +263,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/gen2-v</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/bus/ac2</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -277,13 +274,17 @@
 				</transformation>
 				<transformation>
 					<type>x-shift</type>
-					<offset>92</offset>
+					<offset>91</offset>
 				</transformation>
 			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/gen2</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
-		
 		<layer>
-
 			<type>text</type>
 			<name>APU-V</name>
 			<color>
@@ -296,7 +297,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/apu-v</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/extra/apu-volts</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -310,6 +311,12 @@
 					<offset>-24</offset>
 				</transformation>
 			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/gen-apu</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
 		
 		<layer>
@@ -326,7 +333,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/ext-power-v</property><!-- There is no TAT temperature property-->
+					<property>/systems/electrical/extra/ext-volts</property><!-- There is no TAT temperature property-->
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -340,6 +347,64 @@
 					<offset>37</offset>
 				</transformation>
 			</transformations>
+		</layer>
+		<layer>
+			<name>apugen</name>
+			<emissive>true</emissive>
+			<w>42</w>
+			<h>42</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-apu-gen-off.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-53</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-11</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/electrical/switches/gen-apu</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/controls/APU/master</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</layer>
+		<layer>
+			<name>apugenno</name>
+			<emissive>true</emissive>
+			<w>42</w>
+			<h>42</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-apu-gen-no.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-53</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-11</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/APU/master</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
 		</layer>
 		
 <!-- ################################## Bottom  #################################-->

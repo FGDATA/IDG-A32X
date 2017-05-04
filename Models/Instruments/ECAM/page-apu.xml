@@ -159,7 +159,7 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/systems/electrical/suppliers/apu-v</property>
+					<property>/systems/electrical/extra/apu-volts</property>
 					<format type="string">%3.0f</format>
 				</chunk>
 			</chunks>
@@ -170,7 +170,7 @@
 				</transformation>
 				<transformation>
 					<type>x-shift</type>
-					<offset>-80</offset>
+					<offset>-84</offset>
 				</transformation>
 			</transformations>
 		</layer>
