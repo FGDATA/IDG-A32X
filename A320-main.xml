@@ -297,8 +297,8 @@
 			<kp-cws>-0.09</kp-cws>
 		</pitch>
 		<cmd>
-			<roll-kp>-1.4</roll-kp>
-			<roll-scale>1.7</roll-scale>
+			<roll-kp>-1.0</roll-kp>
+			<roll-scale>1.4</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
 			<vs>0.05</vs>
