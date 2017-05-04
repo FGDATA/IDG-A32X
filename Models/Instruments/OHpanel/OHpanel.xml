@@ -33,8 +33,8 @@
 		<object-name>BatteryBtn12O</object-name>
 		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn22O</object-name>
-		<object-name>Battery-lvl</object-name>
-		<object-name>Battery-lvl-test</object-name>
+		<object-name>Battery-volt</object-name>
+		<object-name>Battery-volt-test</object-name>
 		<object-name>BlueElecPump1F</object-name>
 		<object-name>BlueElecPump2O</object-name>
 		<object-name>BusTieBtn2O</object-name>
@@ -95,7 +95,8 @@
 	<animation>
 		<type>material</type>
 		<object-name>Adirs-coords</object-name>
-		<object-name>Battery-lvl</object-name>
+		<object-name>Battery-volt</object-name>
+		<object-name>Battery-volt-test</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -1690,9 +1691,9 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/pneumatic/switches/pack-flo</property>
-				<value>7</value>
-				<value>9</value>
 				<value>11</value>
+				<value>9</value>
+				<value>7</value>
 			</binding>
 		</action>
 	</animation>
@@ -2579,7 +2580,7 @@
 	
 	<!-- Texts -->
 
-		<text>
+	<text>
 		<name>Adirs-coords</name>
 		<offsets>
 			<x-m>0.005</x-m>
@@ -2595,18 +2596,18 @@
 		<format type="string">%s</format>
 		<property>/controls/adirs/display/text</property>
 		<font type="string">LED-8.txf</font>
-		<draw-text>true</draw-text>
-		<draw-alignment>false</draw-alignment>
-		<draw-boundingbox>false</draw-boundingbox>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0095</character-size>
 		<font-resolution>
-			<width>32</width>
-			<height>32</height>
+			<width type="int">32</width>
+			<height type="int">32</height>
 		</font-resolution>
 	</text>
 
 	<text>
-		<name>Battery-lvl</name>
+		<name>Battery-volt</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>-0.057</y-m>
@@ -2621,18 +2622,18 @@
 		<format type="string">%2.1f</format>
 		<property>/systems/electrical/battery1-volts</property>
 		<font type="string">led.txf</font>
-		<draw-text>true</draw-text>
-		<draw-alignment>false</draw-alignment>
-		<draw-boundingbox>false</draw-boundingbox>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width>32</width>
-			<height>32</height>
+			<width type="int">32</width>
+			<height type="int">32</height>
 		</font-resolution>
 	</text>
 	
 	<text>
-		<name>Battery-lvl-test</name>
+		<name>Battery-volt-test</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>-0.057</y-m>
@@ -2647,18 +2648,18 @@
 		<format type="string">88.8</format>
 		<property>autopilot/serviceable</property>
 		<font type="string">led.txf</font>
-		<draw-text>true</draw-text>
-		<draw-alignment>false</draw-alignment>
-		<draw-boundingbox>false</draw-boundingbox>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width>32</width>
-			<height>32</height>
+			<width type="int">32</width>
+			<height type="int">32</height>
 		</font-resolution>
 	</text>
 
 	<text>
-		<name>Battery-lvl</name>
+		<name>Battery-volt</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>0.035</y-m>
@@ -2673,18 +2674,18 @@
 		<format type="string">%2.1f</format>
 		<property>/systems/electrical/battery2-volts</property>
 		<font type="string">led.txf</font>
-		<draw-text>true</draw-text>
-		<draw-alignment>false</draw-alignment>
-		<draw-boundingbox>false</draw-boundingbox>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width>32</width>
-			<height>32</height>
+			<width type="int">32</width>
+			<height type="int">32</height>
 		</font-resolution>
 	</text>
 	
 	<text>
-		<name>Battery-lvl-test</name>
+		<name>Battery-volt-test</name>
 		<offsets>
 			<x-m>-0.008</x-m>
 			<y-m>0.035</y-m>
@@ -2699,19 +2700,19 @@
 		<format type="string">88.8</format>
 		<property>autopilot/serviceable</property>
 		<font type="string">led.txf</font>
-		<draw-text>true</draw-text>
-		<draw-alignment>false</draw-alignment>
-		<draw-boundingbox>false</draw-boundingbox>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.007</character-size>
 		<font-resolution>
-			<width>32</width>
-			<height>32</height>
+			<width type="int">32</width>
+			<height type="int">32</height>
 		</font-resolution>
 	</text>
 	
 	<animation>
 		<type>select</type>
-		<object-name>Battery-lvl</object-name>
+		<object-name>Battery-volt</object-name>
 		<condition>
 			<equals>
 				<property>/controls/switches/annun-test</property>
@@ -2722,7 +2723,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>Battery-lvl-test</object-name>
+		<object-name>Battery-volt-test</object-name>
 		<condition>
 			<equals>
 				<property>/controls/switches/annun-test</property>

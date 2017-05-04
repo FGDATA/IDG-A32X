@@ -330,20 +330,10 @@
 	</output>
 </it-autoflight>
 
-<apu>
-  <rpm type="float">0</rpm>
-  <egt type="float">0</egt>
-</apu>
-
-	<autopilot>
-		<autobrake>
-			<config>
-				<idle-throttle type="double">0.1</idle-throttle>
-				<pilot-input type="double">0</pilot-input>
-			</config>
-			<step type="int">0</step>
-		</autobrake>
-	</autopilot>
+	<apu>
+		<rpm type="float">0</rpm>
+		<egt type="float">0</egt>
+	</apu>
 
 	<controls>
 		<adirs n="0">
@@ -446,7 +436,7 @@
 		</lighting>
 		<switches>
 			<!-- Smoking is bad :P -->
-			<no-smoking-sign type="bool">true</no-smoking-sign>
+			<no-smoking-sign type="bool">1</no-smoking-sign>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
 			<annun-test>0</annun-test>
 		</switches>
