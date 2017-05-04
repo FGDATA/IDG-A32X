@@ -799,7 +799,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	</channel>
 
-		<channel name="Flaps">
+	<channel name="Flaps">
 
 		<kinematic name="Flaps Control">
 			<input>/controls/flight/flaps</input>
@@ -842,7 +842,7 @@ YAW MOI_________3950000______23089847_______24848934
 			</setting>
 			<setting>
 				<position>27</position>
-				<time>40</time>
+				<time>30</time>
 			</setting>
 			</traverse>
 			<output>fcs/slat-pos-deg</output>

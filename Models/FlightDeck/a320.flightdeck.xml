@@ -4363,10 +4363,6 @@
                 <command>property-toggle</command>
                 <property>controls/parking-brake</property>
             </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/brake-parking</property>
-            </binding>
         </action>
     </animation>
 	

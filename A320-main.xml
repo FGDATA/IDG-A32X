@@ -423,6 +423,7 @@
 			<speedbrake-arm>0</speedbrake-arm>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<speedbrake-lever type="double">0</speedbrake-lever>
+			<slats>0</slats>
 		</flight>
 		<gear>
 			<brake-parking type="bool">true</brake-parking>
@@ -494,6 +495,14 @@
 			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
 		</gear>
 	</gear>
+	
+	<systems>
+		<hydraulic n="0">
+			<blue-psi>0</blue-psi>
+			<green-psi>0</green-psi>
+			<yellow-psi>0</yellow-psi>
+		</hydraulic>
+	</systems>
 
 	<instrumentation>
 	
