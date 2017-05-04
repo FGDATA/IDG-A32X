@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Frontier Airlines (Carmen the Blue Crowned Conure)</name>
+				<texture>Liveries/A319/N937FR.png</texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>
