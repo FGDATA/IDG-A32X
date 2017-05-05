@@ -40,6 +40,8 @@ var elec_init = func {
 	setprop("/systems/electrical/bus/ac-ess", 0);
 	setprop("/systems/electrical/extra/ext-volts", 0);
 	setprop("/systems/electrical/extra/apu-volts", 0);
+	setprop("/systems/electrical/extra/ext-hz", 0);
+	setprop("/systems/electrical/extra/apu-hz", 0);
 	setprop("systems/electrical/on", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
@@ -134,6 +136,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std); 
 		setprop("/systems/electrical/extra/ext-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/ext-hz", ac_volt_std);
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -141,6 +144,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/apu-hz", ac_volt_std);
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -160,6 +164,8 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac1", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
 		setprop("/systems/electrical/extra/apu-volts", 0);
+		setprop("/systems/electrical/extra/ext-hz", 0);
+		setprop("/systems/electrical/extra/apu-hz", 0);
 		if (getprop("/systems/electrical/bus/ac2") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
@@ -175,6 +181,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		setprop("/systems/electrical/extra/ext-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/ext-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -182,6 +189,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/apu-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -201,6 +209,8 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac2", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
 		setprop("/systems/electrical/extra/apu-volts", 0);
+		setprop("/systems/electrical/extra/ext-hz", 0);
+		setprop("/systems/electrical/extra/apu-hz", 0);
 		if (getprop("/systems/electrical/bus/ac1") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
