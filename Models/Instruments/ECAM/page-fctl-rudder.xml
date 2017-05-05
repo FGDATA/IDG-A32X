@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- Airbus A320 neo for FlightGear -->
+<!-- Airbus A320 for FlightGear -->
 <!-- ECAM Pages -->
 
 <PropertyList>	
@@ -23,7 +23,7 @@
             <transformations>
                 <transformation>
                     <type>rotation</type>
-                    <property>surface-positions/rudder-pos-norm</property>
+                    <property>/controls/flight/rudder-fdm</property>
 			<!-- min>5.0</min>
 			<max>95.0</max>
 			<scale>1.0</scale -->

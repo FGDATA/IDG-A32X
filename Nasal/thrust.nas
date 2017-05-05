@@ -16,7 +16,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 setlistener("/controls/engines/engine[0]/throttle-pos", func {
 	var thrr = getprop("/controls/engines/engine[0]/throttle-pos");
-	if (thrr < 0.02) {
+	if (thrr < 0.01) {
 		setprop("/systems/thrust/state1", "IDLE");
 		atoff_request();
 	} else if (thrr >= 0.01 and thrr < 0.60) {
@@ -41,7 +41,7 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 
 setlistener("/controls/engines/engine[1]/throttle-pos", func {
 	var thrr = getprop("/controls/engines/engine[1]/throttle-pos");
-	if (thrr < 0.02) {
+	if (thrr < 0.01) {
 		setprop("/systems/thrust/state2", "IDLE");
 		atoff_request();
 	} else if (thrr >= 0.01 and thrr < 0.60) {

@@ -46,8 +46,8 @@
 					<property>/controls/flight/aileron-left</property>
 					<interpolation>
 					<entry><ind>0</ind><dep>45</dep></entry>
-					<entry><ind>-1</ind><dep>70</dep></entry>
-					<entry><ind>1</ind><dep>27</dep></entry>
+					<entry><ind>-0.5</ind><dep>70</dep></entry>
+					<entry><ind>0.5</ind><dep>27</dep></entry>
 					</interpolation>
 				</transformation>
 				<transformation>
@@ -75,8 +75,8 @@
 					<property>/controls/flight/aileron-right</property>
 					<interpolation>
 					<entry><ind>0</ind><dep>45</dep></entry>
-					<entry><ind>1</ind><dep>70</dep></entry>
-					<entry><ind>-1</ind><dep>27</dep></entry>
+					<entry><ind>0.5</ind><dep>70</dep></entry>
+					<entry><ind>-0.5</ind><dep>27</dep></entry>
 					</interpolation>
 				</transformation>
 				<transformation>
@@ -119,8 +119,8 @@
 					<property>/controls/flight/elevator-left</property>
 					<interpolation>
 					<entry><ind>0</ind><dep>-50</dep></entry>
-					<entry><ind>-1</ind><dep>-19</dep></entry>
-					<entry><ind>1</ind><dep>-65</dep></entry>
+					<entry><ind>-0.5</ind><dep>-19</dep></entry>
+					<entry><ind>0.5</ind><dep>-65</dep></entry>
 					</interpolation>
 				</transformation>
 				<transformation>
@@ -148,8 +148,8 @@
 					<property>/controls/flight/elevator-right</property>
 					<interpolation>
 					<entry><ind>0</ind><dep>-50</dep></entry>
-					<entry><ind>-1</ind><dep>-19</dep></entry>
-					<entry><ind>1</ind><dep>-65</dep></entry>
+					<entry><ind>-0.5</ind><dep>-19</dep></entry>
+					<entry><ind>0.5</ind><dep>-65</dep></entry>
 					</interpolation>
 				</transformation>
 				<transformation>
