@@ -26,16 +26,10 @@
 							<property>/gear/gear[0]/wow</property>
 							<value>0</value>
 						</eq>
-						<or>
-							<eq>
-								<property>/it-fbw/law</property>
-								<value>0</value>
-							</eq>
-							<eq>
-								<property>/it-fbw/law</property>
-								<value>1</value>
-							</eq>
-						</or>
+						<eq>
+							<property>/it-fbw/law</property>
+							<value>0</value>
+						</eq>
 					</and>
 					<sum>
 						<property>/it-fbw/roll-deg</property>

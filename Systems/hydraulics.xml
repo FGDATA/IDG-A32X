@@ -549,7 +549,7 @@
 			</condition>
             <expression>
                 <sum>
-                    <property>/controls/flight/rudder</property>
+                    <property>/controls/flight/rudder-fbw</property>
                     <property>/controls/flight/rudder-trim</property> 
 				</sum>
             </expression>

@@ -4,13 +4,28 @@
 # Speed or Mach?
 var speedmach = func {
 	if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7)) {
-		# Do nothing because it's in FLCH mode.
-	} else {
-		if (getprop("/it-autoflight/input/kts-mach") == 0) {
-			setprop("/modes/pfd/fma/throttle-mode", "SPEED");
-		} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
-			setprop("/modes/pfd/fma/throttle-mode", "MACH");
+		if (getprop("/it-autoflight/output/fd1") == 0 and getprop("/it-autoflight/output/fd2") == 0 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
+			speedmach_b();
+		} else {
+			var thr = getprop("/it-autoflight/output/thr-mode");
+			if (thr == 0) {
+				speedmach_b();
+			} else if (thr == 1) {
+				setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
+			} else if (thr == 2) {
+				setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
+			}
 		}
+	} else {
+		speedmach_b();
+	}
+}
+
+var speedmach_b = func {
+	if (getprop("/it-autoflight/input/kts-mach") == 0) {
+		setprop("/modes/pfd/fma/throttle-mode", "SPEED");
+	} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
+		setprop("/modes/pfd/fma/throttle-mode", "MACH");
 	}
 }
 
@@ -21,14 +36,7 @@ setlistener("/it-autoflight/input/kts-mach", func {
 
 # Master Thrust
 setlistener("/it-autoflight/output/thr-mode", func {
-	var thr = getprop("/it-autoflight/output/thr-mode");
-	if (thr == 0) {
-		speedmach();
-	} else if (thr == 1) {
-		setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
-	} else if (thr == 2) {
-		setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
-	}
+	speedmach();
 });
 
 # Master Lateral
@@ -171,9 +179,11 @@ setlistener("/it-autoflight/output/ap2", func {
 	ap();
 });
 setlistener("/it-autoflight/output/fd1", func {
+	speedmach();
 	fd();
 });
 setlistener("/it-autoflight/output/fd2", func {
+	speedmach();
 	fd();
 });
 setlistener("/it-autoflight/output/athr", func {

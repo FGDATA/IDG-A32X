@@ -556,6 +556,11 @@
 			<binding>
 				<command>property-assign</command>
 				<property>/it-autoflight/input/vert</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/it-autoflight/input/vs</property>
 				<value>0</value>
 			</binding>
 		</action>
