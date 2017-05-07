@@ -119,10 +119,20 @@
         <object-name>fd_roll</object-name>
         <object-name>fd_pitch</object-name>
         <condition>
-            <equals>
-                <property>/it-autoflight/output/fd2</property>
-                <value>1</value>
-            </equals>
+			<and>
+				<equals>
+					<property>/it-autoflight/output/fd2</property>
+					<value>1</value>
+				</equals>
+				<less-than>
+					<property>orientation/roll-deg</property>
+					<value>45</value>
+				</less-than>
+				<greater-than>
+					<property>orientation/roll-deg</property>
+					<value>-45</value>
+				</greater-than>
+			</and>
         </condition>
     </animation>	
 	
@@ -255,22 +265,45 @@
 		<transform>
 			<subtype>textranslate</subtype>
 			<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
-    		<factor>0.002001953</factor>
+			<interpolation>
+				<entry><ind>  0</ind><dep>    0</dep></entry>
+				<entry><ind> 20</ind><dep>0.040</dep></entry>
+				<entry><ind> 40</ind><dep>0.080</dep></entry>
+				<entry><ind> 60</ind><dep>0.118</dep></entry>
+				<entry><ind> 80</ind><dep>0.158</dep></entry>
+				<entry><ind>100</ind><dep>0.198</dep></entry>
+				<entry><ind>120</ind><dep>0.236</dep></entry>
+				<entry><ind>140</ind><dep>0.276</dep></entry>
+				<entry><ind>160</ind><dep>0.316</dep></entry>
+				<entry><ind>180</ind><dep>0.356</dep></entry>
+				<entry><ind>200</ind><dep>0.395</dep></entry>
+				<entry><ind>220</ind><dep>0.435</dep></entry>
+				<entry><ind>240</ind><dep>0.474</dep></entry>
+				<entry><ind>260</ind><dep>0.514</dep></entry>
+				<entry><ind>280</ind><dep>0.554</dep></entry>
+				<entry><ind>300</ind><dep>0.593</dep></entry>
+				<entry><ind>320</ind><dep>0.633</dep></entry>
+				<entry><ind>340</ind><dep>0.672</dep></entry>
+				<entry><ind>360</ind><dep>0.712</dep></entry>
+				<entry><ind>380</ind><dep>0.751</dep></entry>
+				<entry><ind>400</ind><dep>0.791</dep></entry>
+			</interpolation>
 			<axis>
 				<x>0</x>
 				<y>1</y>
 				<z>0</z>
 			</axis>
-			</transform>
-			<transform>
-			<property>/controls/flight/flap-lever</property>
+		</transform>
+		<transform>
+			<property>/controls/flight/flap-pos</property>
 			<subtype>textranslate</subtype>
 			<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
-				<entry><ind>1</ind><dep>0.090625</dep></entry>
-				<entry><ind>2</ind><dep>0.1609375</dep></entry>
-				<entry><ind>3</ind><dep>0.23125</dep></entry>
-				<entry><ind>4</ind><dep>0.303984375</dep></entry>
+				<entry><ind>1</ind><dep>0.05</dep></entry>
+				<entry><ind>2</ind><dep>0.12</dep></entry>
+				<entry><ind>3</ind><dep>0.19</dep></entry>
+				<entry><ind>4</ind><dep>0.26</dep></entry>
+				<entry><ind>5</ind><dep>0.33</dep></entry>
 			</interpolation>
 			<axis>
 				<x>1</x>

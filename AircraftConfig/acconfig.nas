@@ -30,6 +30,8 @@ var colddark = func {
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
+	setprop("/controls/flight/flap-pos", 0);
+	setprop("/controls/flight/flap-txt", " ");
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -74,6 +76,8 @@ var beforestart = func {
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
+	setprop("/controls/flight/flap-pos", 0);
+	setprop("/controls/flight/flap-txt", " ");
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -142,6 +146,8 @@ var taxi = func {
 	setprop("/controls/flight/slats", 0.000);
 	setprop("/controls/flight/flaps", 0.000);
 	setprop("/controls/flight/flap-lever", 0);
+	setprop("/controls/flight/flap-pos", 0);
+	setprop("/controls/flight/flap-txt", " ");
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -238,6 +244,7 @@ var takeoff = func {
 			setprop("/controls/flight/flaps", 0.290);
 			setprop("/controls/flight/slats", 0.666);
 			setprop("/controls/flight/flap-lever", 1);
+			setprop("/controls/flight/flap-pos", 2);
 			setprop("/controls/flight/flap-txt", "1+F");
 			setprop("/controls/flight/elevator-trim", -0.15);
 		}

@@ -280,8 +280,8 @@
 	<config>
 		<altitude-dial-mode>0</altitude-dial-mode>
 		<roll>
-			<umin>-0.40</umin>
-			<umax>0.40</umax>
+			<umin>-0.55</umin>
+			<umax>0.55</umax>
 			<kp>0.05</kp>
 			<kp-vloc>0.07</kp-vloc>
 			<ti>10.0</ti>
@@ -297,8 +297,8 @@
 			<kp-cws>-0.09</kp-cws>
 		</pitch>
 		<cmd>
-			<roll-kp>-1.0</roll-kp>
-			<roll-scale>1.4</roll-scale>
+			<roll-kp>-0.9</roll-kp>
+			<roll-scale>1.6</roll-scale>
 			<vorloc>-4.0</vorloc>
 			<alt>0.025</alt>
 			<vs>0.05</vs>
@@ -309,7 +309,7 @@
 		<autoland>
 			<kp-roll>0.10</kp-roll>
 			<kp-pitch>0.05</kp-pitch>
-			<kp-rudder>-0.3</kp-rudder>
+			<kp-rudder>-0.1</kp-rudder>
 		</autoland>
 	</config>
 	<settings>
@@ -321,7 +321,7 @@
 		<retard-ft>40</retard-ft> <!-- Enable Thrust Retard -->
 		<retard-enable>0</retard-enable> <!-- AGL to Thrust Retard -->
 		<togaspd>162</togaspd> <!-- V2 + 10kts -->
-		<lat-agl-ft>100</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
+		<lat-agl-ft>30</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
 		<reduc-agl-ft>1450</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
 	</settings>
 	<output>

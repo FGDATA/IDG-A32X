@@ -13,12 +13,13 @@ var update_loop = func {
 		if (ail > 0.4 or ail < -0.4) {
 			setprop("/it-fbw/roll-lim-max", "67");
 			setprop("/it-fbw/roll-lim-min", "-67");
-		} else {
+		} else if (ail < 0.05 and ail > -0.05) {
 			setprop("/it-fbw/roll-lim-max", "33");
 			setprop("/it-fbw/roll-lim-min", "-33");
-			if (getprop("/it-fbw/law") > 33) {
+		} else {
+			if (getprop("/it-fbw/roll-deg") > 33) {
 				setprop("/it-fbw/roll-deg", "33");
-			} else if (getprop("/it-fbw/law") < -33) {
+			} else if (getprop("/it-fbw/roll-deg") < -33) {
 				setprop("/it-fbw/roll-deg", "-33");
 			}
 		}

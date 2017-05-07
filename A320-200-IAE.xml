@@ -439,7 +439,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<engine file="v2527_a5">
 	<location unit="IN">
-		<x> 620.00683 </x>
+		<x> 620.0683 </x>
 		<y> 226.575 </y>
 		<z> -45.567 </z>
 	</location>
@@ -662,59 +662,14 @@ YAW MOI_________3950000______23089847_______24848934
 		<output>fcs/throttle-pos-norm[1]</output>
 	</pure_gain>
 	</channel>
+	
 	<channel name="Yaw">
-	<!-- Testing on Ground steering Rudder bug
-	<pure_gain name="Yaw Damper Rate">
-		<input>velocities/r-rad_sec</input>
-		<gain>2</gain>
+	<pure_gain name="fcs/rudder-cmd">
+		<input>/controls/flight/rudder-fdm</input>
+		<gain>-1</gain>
+		<output>fcs/rudder-cmd-norm</output>
 	</pure_gain>
-
-	<pure_gain name="Yaw Damper Beta">
-		<input>aero/beta-rad</input>
-		<gain>-5</gain>
-	</pure_gain>
-
-	<summer name="Yaw Trim Sum">
-		<input>fcs/rudder-cmd-norm</input>
-		<input>fcs/yaw-trim-cmd-norm</input>
-		<clipto>
-		<min>-1</min>
-		<max>1</max>
-		</clipto>
-	</summer>
-
-	<summer name="Rudder Sum">
-		<input>fcs/yaw-trim-sum</input>
-		<input>fcs/yaw-damper-rate</input>
-		<input>fcs/yaw-damper-beta</input>
-		<clipto>
-		<min>-1</min>
-		<max>1</max>
-		</clipto>
-	</summer>
-
-	<aerosurface_scale name="Rudder Control">
-		<input>fcs/rudder-sum</input>
-		<gain>0.01745</gain>
-		<range>
-		<min>-25</min>
-		<max>25</max>
-		</range>
-		<output>fcs/rudder-pos-rad</output>
-	</aerosurface_scale>
-
-	<aerosurface_scale name="Rudder position normalized">
-		<input>fcs/rudder-pos-deg</input>
-		<domain>
-		<min>-25</min>
-		<max>25</max>
-		</domain>
-		<range>
-		<min>-1</min>
-		<max>1</max>
-		</range>
-		<output>fcs/rudder-pos-norm</output>
-	</aerosurface_scale> -->
+	
    <summer name="Rudder Command Sum">
       <input>fcs/rudder-cmd-norm</input>
       <input>fcs/yaw-trim-cmd-norm</input>
@@ -960,10 +915,10 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-0.20 -0.780
-							 0.00  0.335
-							 0.23  1.090
-							 0.60  0.690
+							-0.20 -0.520
+							 0.00  0.505
+							 0.23  1.800
+							 0.60  1.000
 						</tableData>
 					</table>
 				</product>
@@ -974,8 +929,16 @@ YAW MOI_________3950000______23089847_______24848934
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
-					<property>fcs/flap-pos-deg</property>
-					<value> 0.00700 </value>
+					<table>
+						<independentVar lookup="row">fcs/flap-pos-norm</independentVar>
+						<tableData>
+							0.000  0.00000
+							0.290  0.00350
+							0.596  0.00700
+							0.645  0.01300
+							1.000  0.01700
+						</tableData>
+					</table>
 				</product>
 			</function>
 
@@ -985,7 +948,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/slat-pos-deg</property>
-					<value> 0.02500 </value>
+					<value> 0.01000 </value>
 				</product>
 			</function>
 
@@ -995,7 +958,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/speedbrake-pos-norm</property>
-					<value>-0.1</value>
+					<value>-0.15</value>
 				</product>
 			</function>
 
@@ -1024,8 +987,8 @@ YAW MOI_________3950000______23089847_______24848934
 							-1.57    1.300
 							-0.26    0.021
 							 0.00    0.012
-							 0.26    0.021
-							 1.57    1.300
+							 0.26    0.028
+							 1.57    1.350
 						</tableData>
 					</table>
 				</product>
@@ -1074,7 +1037,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00120 </value>
+					<value> 0.00200 </value>
 				</product>
 			</function>
 
@@ -1084,7 +1047,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
-					<value>0.020</value>
+					<value>0.030</value>
 				</product>
 			</function>
 
@@ -1094,7 +1057,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/speedbrake-pos-norm</property>
-					<value>0.02</value>
+					<value>0.03</value>
 				</product>
 			</function>
 
@@ -1280,7 +1243,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/bw-ft</property>
 					<property>aero/bi2vel</property>
 					<property>velocities/r-aero-rad_sec</property>
-					<value>-0.15</value>
+					<value>-0.2</value>
 				</product>
 			</function>
 
@@ -1291,7 +1254,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>metrics/Sw-sqft</property>
 					<property>metrics/bw-ft</property>
 					<property>fcs/rudder-pos-rad</property>
-					<value>-0.1</value>
+					<value>-0.2</value>
 				</product>
 			</function>
 
