@@ -915,8 +915,8 @@ YAW MOI_________3950000______23089847_______24848934
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-0.20 -0.520
-							 0.00  0.505
+							-0.20 -0.900
+							 0.00  0.205
 							 0.23  1.800
 							 0.60  1.000
 						</tableData>
