@@ -178,16 +178,20 @@ var apu_stop = func {
 #######################
 
 setlistener("/controls/engines/engine-start-switch", func {
-	start_one_check();
-	start_two_check();
+	if (getprop("/engines/engine[0]/state") == 0) {
+		start_one_check();
+	}
+	if (getprop("/engines/engine[1]/state") == 0) {
+		start_two_check();
+	}
 	if ((getprop("/controls/engines/engine-start-switch") == 0) or (getprop("/controls/engines/engine-start-switch") == 1)) {
-		if (getprop("/controls/engines/engine[0]/state") == 1 or getprop("/controls/engines/engine[0]/state") == 2) {
+		if (getprop("/engines/engine[0]/state") == 1 or getprop("/engines/engine[0]/state") == 2) {
 			setprop("/controls/engines/engine[0]/starter", 0);
 			setprop("/controls/engines/engine[0]/cutoff", 1);
 			setprop("/engines/engine[0]/state", 0);
 			interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
-		if (getprop("/controls/engines/engine[1]/state") == 1 or getprop("/controls/engines/engine[1]/state") == 2) {
+		if (getprop("/engines/engine[1]/state") == 1 or getprop("/engines/engine[1]/state") == 2) {
 			setprop("/controls/engines/engine[1]/starter", 0);
 			setprop("/controls/engines/engine[1]/cutoff", 1);
 			setprop("/engines/engine[1]/state", 0);
@@ -198,13 +202,13 @@ setlistener("/controls/engines/engine-start-switch", func {
 
 setlistener("/systems/pneumatic/start-psi", func {
 	if (getprop("/systems/pneumatic/total-psi") < 12) {
-		if (getprop("/engines/engine[0]/state") == 1 or getprop("/controls/engines/engine[0]/state") == 2) {
+		if (getprop("/engines/engine[0]/state") == 1 or getprop("/engines/engine[0]/state") == 2) {
 			setprop("/controls/engines/engine[0]/starter", 0);
 			setprop("/controls/engines/engine[0]/cutoff", 1);
 			setprop("/engines/engine[0]/state", 0);
 			interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
 		}
-		if (getprop("/engines/engine[1]/state") == 1 or getprop("/controls/engines/engine[1]/state") == 2) {
+		if (getprop("/engines/engine[1]/state") == 1 or getprop("/engines/engine[1]/state") == 2) {
 			setprop("/controls/engines/engine[1]/starter", 0);
 			setprop("/controls/engines/engine[1]/cutoff", 1);
 			setprop("/engines/engine[1]/state", 0);
