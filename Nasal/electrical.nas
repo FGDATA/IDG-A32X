@@ -40,8 +40,11 @@ var elec_init = func {
 	setprop("/systems/electrical/bus/ac-ess", 0);
 	setprop("/systems/electrical/extra/ext-volts", 0);
 	setprop("/systems/electrical/extra/apu-volts", 0);
+	setprop("/systems/electrical/extra/gen1-volts", 0);
+	setprop("/systems/electrical/extra/gen2-volts", 0);
 	setprop("/systems/electrical/extra/ext-hz", 0);
 	setprop("/systems/electrical/extra/apu-hz", 0);
+	setprop("/systems/electrical/extra/galleyshed", 0);
 	setprop("systems/electrical/on", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
@@ -83,7 +86,7 @@ var elec_init = func {
 ######################
 
 var master_elec = func {
-	var gallery_sw = getprop("/controls/electrical/switches/galley");
+	var galley_sw = getprop("/controls/electrical/switches/galley");
 	var idg1_sw = getprop("/controls/electrical/switches/idg1");
 	var idg2_sw = getprop("/controls/electrical/switches/idg2");
 	var gen1_sw = getprop("/controls/electrical/switches/gen1");
@@ -106,6 +109,8 @@ var master_elec = func {
 	var dc1 = getprop("/systems/electrical/bus/dc1");
 	var dc2 = getprop("/systems/electrical/bus/dc2");
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
+	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
 	
 	
 	
@@ -151,6 +156,7 @@ var master_elec = func {
 	} else if (stateL == 3 and gen1_sw) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+		setprop("/systems/electrical/extra/gen1-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
@@ -158,7 +164,6 @@ var master_elec = func {
 	} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -168,6 +173,8 @@ var master_elec = func {
 		setprop("/systems/electrical/extra/apu-volts", 0);
 		setprop("/systems/electrical/extra/ext-hz", 0);
 		setprop("/systems/electrical/extra/apu-hz", 0);
+		setprop("/systems/electrical/extra/gen1-volts", 0);
+		setprop("/systems/electrical/bus/gen1-hz", 0);
 		if (getprop("/systems/electrical/bus/ac2") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
@@ -198,6 +205,7 @@ var master_elec = func {
 	} else if (stateR == 3 and gen2_sw) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+		setprop("/systems/electrical/extra/gen2-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen2-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
@@ -205,7 +213,6 @@ var master_elec = func {
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-		setprop("/systems/electrical/bus/gen2-hz", ac_hz_std);
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -215,6 +222,8 @@ var master_elec = func {
 		setprop("/systems/electrical/extra/apu-volts", 0);
 		setprop("/systems/electrical/extra/ext-hz", 0);
 		setprop("/systems/electrical/extra/apu-hz", 0);
+		setprop("/systems/electrical/extra/gen2-volts", 0);
+		setprop("/systems/electrical/bus/gen2-hz", 0);
 		if (getprop("/systems/electrical/bus/ac1") == 0) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
@@ -226,9 +235,9 @@ var master_elec = func {
 	}
 	
 	if (ac_ess >= 100) {
-		if (gallery_sw == 1) {
+		if (galley_sw == 1) { 
 			setprop("/systems/electrical/bus/galley", ac_volt_std);
-		} else if (gallery_sw == 0) {
+		} else if (galley_sw) {
 			setprop("/systems/electrical/bus/galley", 0);
 		}
 	} else {
