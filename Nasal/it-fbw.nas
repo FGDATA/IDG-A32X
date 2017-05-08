@@ -64,6 +64,10 @@ var update_loop = func {
 			}
 		}
 	}
+	
+	if (getprop("/it-fbw/law") == 1 and getprop("/controls/gear/gear-down") == 1 and getprop("/it-fbw/override") == 0) {
+		setprop("/it-fbw/law", 2);
+	}
 }
 
 ###########################

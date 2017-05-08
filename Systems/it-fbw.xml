@@ -88,7 +88,7 @@
 					<sum>
 						<property>/it-fbw/pitch-deg</property>
 						<table>
-							<independentVar lookup="row">/controls/flight/elevator</independentVar>
+							<independentVar lookup="row">/controls/flight/elevator-input</independentVar>
 							<tableData>
 							-1.0      0.1
 							-0.7      0.05

@@ -334,6 +334,12 @@
 		<rpm type="float">0</rpm>
 		<egt type="float">0</egt>
 	</apu>
+	
+	<FMGC>
+		<status>
+			<to-state type="bool">1</to-state>
+		</status>
+	</FMGC>
 
 	<controls>
 		<adirs n="0">
@@ -404,6 +410,7 @@
 			<aileron-left>0.5</aileron-left>
 			<aileron-right>-0.5</aileron-right>
 			<aileron-sum>0.0</aileron-sum>
+			<elevator-input>0</elevator-input>
 			<elevator-fbw>0</elevator-fbw>
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>

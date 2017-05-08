@@ -68,12 +68,19 @@
 				</or>
 			</condition>
             <expression>
-                <table>
-                    <property>/controls/flight/aileron-fbw</property> 
-                    <entry><ind>-1</ind><dep>-0.5</dep></entry>
-                    <entry><ind> 0</ind><dep> 0.0</dep></entry>
-                    <entry><ind> 1</ind><dep> 0.5</dep></entry>
-                </table>
+				<sum>
+					<table>
+						<property>/controls/flight/aileron-fbw</property> 
+						<entry><ind>-1</ind><dep>-0.5</dep></entry>
+						<entry><ind> 0</ind><dep> 0.0</dep></entry>
+						<entry><ind> 1</ind><dep> 0.5</dep></entry>
+					</table>
+					<table>
+						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
+						<entry><ind>1</ind><dep>0.0</dep></entry>
+						<entry><ind>5</ind><dep>0.2</dep></entry>
+					</table>
+				</sum>
             </expression>
 		</input>
 		<output>/controls/flight/aileron-left-cmd</output>
@@ -150,12 +157,19 @@
 				</or>
 			</condition>
             <expression>
-                <table>
-                    <property>/controls/flight/aileron-fbw</property> 
-                    <entry><ind>-1</ind><dep>-0.5</dep></entry>
-                    <entry><ind> 0</ind><dep> 0.0</dep></entry>
-                    <entry><ind> 1</ind><dep> 0.5</dep></entry>
-                </table>
+				<sum>
+					<table>
+						<property>/controls/flight/aileron-fbw</property> 
+						<entry><ind>-1</ind><dep>-0.5</dep></entry>
+						<entry><ind> 0</ind><dep> 0.0</dep></entry>
+						<entry><ind> 1</ind><dep> 0.5</dep></entry>
+					</table>
+					<table>
+						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
+						<entry><ind>1</ind><dep> 0.0</dep></entry>
+						<entry><ind>5</ind><dep>-0.2</dep></entry>
+					</table>
+				</sum>
             </expression>
 		</input>
 		<output>/controls/flight/aileron-right-cmd</output>

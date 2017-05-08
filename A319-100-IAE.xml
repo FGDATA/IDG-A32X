@@ -499,7 +499,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -33.9470 </z>
 		</location>
 		<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
-		<contents unit="LBS"> 6000 </contents>
+		<contents unit="LBS"> 4480 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>
@@ -525,7 +525,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z> -33.9470 </z>
 		</location>
 		<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
-		<contents unit="LBS"> 6000 </contents>
+		<contents unit="LBS"> 4480 </contents>
 		<standpipe unit="LBS">31</standpipe><!-- minimum fuel on pipes -->
 		<priority>3</priority>
 		<type>JET-A1</type>

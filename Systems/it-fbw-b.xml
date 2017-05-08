@@ -6,6 +6,70 @@
 <PropertyList>
 
  <!-- =============================================================== -->
+ <!-- Elevator Position Feeding                                       -->
+ <!-- =============================================================== -->
+
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than>
+					<greater-than-equals>
+						<property>/controls/flight/flap-pos</property>
+						<value>4</value>
+					</greater-than-equals>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<equals>
+						<property>/FMGC/status/to-state</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+            <expression>
+				<sum>
+					<property>/controls/flight/elevator</property>
+					<value>0.15</value>
+				</sum>
+            </expression>
+		</input>
+		<input>
+			<property>/controls/flight/elevator</property>
+		</input>
+		<output>/controls/flight/elevator-input</output>
+	</filter>
+
+ <!-- =============================================================== -->
  <!-- Lateral                                                         -->
  <!-- =============================================================== -->
 	

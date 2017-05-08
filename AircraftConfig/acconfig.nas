@@ -32,6 +32,7 @@ var colddark = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
+	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -78,6 +79,7 @@ var beforestart = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
+	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -148,6 +150,7 @@ var taxi = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
+	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systems.elec_init();
@@ -246,6 +249,7 @@ var takeoff = func {
 			setprop("/controls/flight/flap-lever", 1);
 			setprop("/controls/flight/flap-pos", 2);
 			setprop("/controls/flight/flap-txt", "1+F");
+			A320.flaptimer.start();
 			setprop("/controls/flight/elevator-trim", -0.15);
 		}
 	});
