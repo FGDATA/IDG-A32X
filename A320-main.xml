@@ -308,8 +308,8 @@
 		</cmd>
 		<autoland>
 			<kp-roll>0.10</kp-roll>
-			<kp-pitch>0.05</kp-pitch>
-			<kp-rudder>-0.1</kp-rudder>
+			<kp-pitch>0.03</kp-pitch>
+			<kp-rudder>-0.25</kp-rudder>
 		</autoland>
 	</config>
 	<settings>
