@@ -176,6 +176,7 @@
 				<float n="8" alias="/controls/flight/rudder-fdm" />
 				<float n="9" alias="/controls/flight/spoiler-left" />
 				<float n="10" alias="/controls/flight/spoiler-right" />
+				<float n="11" alias="/fdm/jsbsim/fcs/slat-pos-norm" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
 				<int n="3" alias="/controls/lighting/landing-lights[1]" />
 				<int n="4" alias="/controls/lighting/landing-lights[2]" />
