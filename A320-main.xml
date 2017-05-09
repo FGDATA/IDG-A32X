@@ -291,10 +291,10 @@
 		<pitch>
 			<umin>-0.60</umin>
 			<umax>0.60</umax>
-			<kp>-0.09</kp>
+			<kp>-0.06</kp>
 			<ti>5.0</ti>
-			<td>0.00001</td>
-			<kp-cws>-0.09</kp-cws>
+			<td>0.0001</td>
+			<kp-cws>-0.06</kp-cws>
 		</pitch>
 		<cmd>
 			<roll-kp>-0.9</roll-kp>
