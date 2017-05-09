@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Frontier Airlines (Maya the Jaguar)</name>
+				<texture>Liveries/A319/N947FR.png</texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>
