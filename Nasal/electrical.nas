@@ -111,6 +111,7 @@ var master_elec = func {
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	
 	
 	
@@ -235,13 +236,20 @@ var master_elec = func {
 	}
 	
 	if (ac_ess >= 100) {
-		if (galley_sw == 1) { 
+		if (galley_sw == 1 and !galley_shed) { 
 			setprop("/systems/electrical/bus/galley", ac_volt_std);
-		} else if (galley_sw) {
+		} else if (galley_sw or galley_shed) {
 			setprop("/systems/electrical/bus/galley", 0);
 		}
 	} else {
 		setprop("/systems/electrical/bus/galley", 0);
+	}
+	
+	# Galley Shedding Logic
+	if (!gen_apu_sw and !gen_ext_sw and (!gen1_sw or !gen2_sw)) { # this is when one of the generators is not working or turned off as it reads 0 V
+		setprop("/systems/electrical/extra/galleyshed", 1); 
+	} else {
+		setprop("/systems/electrical/extra/galleyshed", 0); 
 	}
 	
 	# Battery Amps
