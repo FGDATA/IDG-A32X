@@ -712,7 +712,6 @@
 				</or>
 			</condition>
 		</layer>
-		
 		<layer>
 			<type>text</type>
 			<name>TR1-volts</name>
@@ -829,6 +828,56 @@
 				</transformation>
 			</transformations>
 			<!-- TRs simply show 0V and 0A, no conditions -->
+		</layer>
+		<layer>
+			<name>gen1off</name>
+			<emissive>true</emissive>
+			<w>2</w>
+			<h>10</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-gen-green-line.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-16</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-100</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/gen1</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</layer>
+		<layer>
+			<name>gen2off</name>
+			<emissive>true</emissive>
+			<w>2</w>
+			<h>10</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-gen-green-line.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-16</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>101</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<equals>
+					<property>/controls/electrical/switches/gen2</property>
+					<value>1</value>
+				</equals>
+			</condition>
 		</layer>
 <!-- ################################## Bottom  #################################-->
 

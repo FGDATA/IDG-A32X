@@ -45,6 +45,7 @@ var elec_init = func {
 	setprop("/systems/electrical/extra/ext-hz", 0);
 	setprop("/systems/electrical/extra/apu-hz", 0);
 	setprop("/systems/electrical/extra/galleyshed", 0);
+	setprop("/systems/electrical/gen-apu", 0);
 	setprop("systems/electrical/on", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
@@ -93,6 +94,7 @@ var master_elec = func {
 	var gen2_sw = getprop("/controls/electrical/switches/gen2");
 	var gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
 	var gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
+	var gen_apu = getprop("/systems/electrical/gen-apu");
 	var apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
 	var ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
 	var battery1_sw = getprop("/controls/electrical/switches/battery1");
@@ -111,6 +113,7 @@ var master_elec = func {
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	
 	
 	
@@ -145,7 +148,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
-	} else if (rpmapu >= 94.9 and gen_apu_sw) {
+	} else if (gen_apu) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
@@ -194,7 +197,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
-	} else if (rpmapu >= 94.9 and gen_apu_sw) {
+	} else if (gen_apu) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
@@ -235,13 +238,27 @@ var master_elec = func {
 	}
 	
 	if (ac_ess >= 100) {
-		if (galley_sw == 1) { 
+		if (galley_sw == 1 and !galley_shed) { 
 			setprop("/systems/electrical/bus/galley", ac_volt_std);
-		} else if (galley_sw) {
+		} else if (galley_sw or galley_shed) {
 			setprop("/systems/electrical/bus/galley", 0);
 		}
 	} else {
 		setprop("/systems/electrical/bus/galley", 0);
+	}
+	
+	# Galley Shedding Logic
+	if (!gen_apu and !gen_ext_sw and (!gen1_sw or !gen2_sw)) { # this is when one of the generators is not working or turned off as it reads 0 V
+		setprop("/systems/electrical/extra/galleyshed", 1); 
+	} else {
+		setprop("/systems/electrical/extra/galleyshed", 0); 
+	}
+	
+	# APU Generator: Make it only come online when the apu is running. This is needed to make galley shed work properly.
+	if (rpmapu >= 94.9 and gen_apu_sw) {
+		setprop("/systems/electrical/gen-apu", 1);
+	} else {
+		setprop("/systems/electrical/gen-apu", 0);
 	}
 	
 	# Battery Amps

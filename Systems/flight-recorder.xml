@@ -86,6 +86,10 @@
                 <type>float</type>
                 <property>/controls/flight/rudder-fdm</property>
             </signal>
+			<signal>
+				<type>float</type>
+				<property>/fdm/jsbsim/fcs/slat-pos-norm</property>
+			</signal>
         </signals>
     </config>
 

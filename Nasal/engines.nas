@@ -21,7 +21,8 @@ var n1_wm = 0;
 var n2_wm = 0;
 var apu_max = 99.8;
 var apu_egt_max = 513;
-var spinup_time = 15;
+var spinup_time = 49; # Measured from youtube video
+# For future, APU FLAP also takes 15 extra seconds to open before startup
 var start_time = 10;
 var egt_lightup_time = 2;
 var egt_lightdn_time = 8;
@@ -156,6 +157,7 @@ setlistener("/controls/APU/start", func {
 		apu_stop();
 	}
 });
+
 
 ############
 # Stop APU #
