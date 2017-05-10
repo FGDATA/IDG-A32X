@@ -392,6 +392,7 @@
 			<engine n="0">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
+				<man-start type="bool">0</man-start>
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
 				<max-athr-thrust type="float">0.94</max-athr-thrust>
@@ -400,6 +401,7 @@
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
+				<man-start type="bool">0</man-start>
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
 				<max-athr-thrust type="float">0.94</max-athr-thrust>

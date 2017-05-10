@@ -21,8 +21,7 @@ var n1_wm = 0;
 var n2_wm = 0;
 var apu_max = 99.8;
 var apu_egt_max = 513;
-var spinup_time = 49; # Measured from youtube video
-# For future, APU FLAP also takes 15 extra seconds to open before startup
+var spinup_time = 49;
 var start_time = 10;
 var egt_lightup_time = 2;
 var egt_lightdn_time = 8;
@@ -39,14 +38,19 @@ setprop("/controls/engines/engine[1]/reverser", 0);
 
 setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[0]/cutoff-switch") == 0) {
-		setprop("/systems/pneumatic/eng1-starter", 1);
-		start_one_check();
+		if (getprop("/controls/engines/engine[0]/man-start") == 0) {
+			setprop("/systems/pneumatic/eng1-starter", 1);
+			start_one_check();
+		} else if (getprop("/controls/engines/engine[0]/man-start") == 1) {
+			eng_one_man_startt.start();
+		}
 	} else if (getprop("/controls/engines/engine[0]/cutoff-switch") == 1) {
 		setprop("/systems/pneumatic/eng1-starter", 0);
 		setprop("/controls/engines/engine[0]/starter", 0);
 		setprop("/controls/engines/engine[0]/cutoff", 1);
 		setprop("/engines/engine[0]/state", 0);
 		interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
+		eng_one_n2_checkt.stop();
 	}
 });
 
@@ -62,8 +66,12 @@ var start_one_check_b = func {
 
 setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[1]/cutoff-switch") == 0) {
-		setprop("/systems/pneumatic/eng2-starter", 1);
-		start_two_check();
+		if (getprop("/controls/engines/engine[1]/man-start") == 0) {
+			setprop("/systems/pneumatic/eng2-starter", 1);
+			start_two_check();
+		} else if (getprop("/controls/engines/engine[1]/man-start") == 1) {
+			eng_two_man_startt.start();
+		}
 	} else if (getprop("/controls/engines/engine[1]/cutoff-switch") == 1) {
 		setprop("/systems/pneumatic/eng2-starter", 0);
 		setprop("/controls/engines/engine[1]/starter", 0);
@@ -103,11 +111,21 @@ var eng_one_auto_start = func {
 	}
 }
 
+var eng_one_man_start = func {
+	if (getprop("/engines/engine[0]/n2") >= 16.7) {
+		setprop("/engines/engine[0]/state", 2);
+		setprop("/controls/engines/engine[0]/cutoff", 0);
+		interpolate(engines[0].getNode("egt-actual"), egt_start, egt_lightup_time);
+		eng_one_n2_checkt.start();
+		eng_one_man_startt.stop();
+	}
+}
+
 var eng_one_n2_check = func {
 	if (getprop("/engines/engine[0]/egt-actual") >= egt_start) {
 		interpolate(engines[0].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[0]/n2") >= 54.6) {
+	if (getprop("/engines/engine[0]/n2") >= 50.8) {
 		setprop("/systems/pneumatic/eng1-starter", 0);
 		setprop("/engines/engine[0]/state", 3);
 		eng_one_n2_checkt.stop();
@@ -134,11 +152,21 @@ var eng_two_auto_start = func {
 	}
 }
 
+var eng_two_man_start = func {
+	if (getprop("/engines/engine[1]/n2") >= 16.7) {
+		setprop("/engines/engine[1]/state", 2);
+		setprop("/controls/engines/engine[1]/cutoff", 0);
+		interpolate(engines[1].getNode("egt-actual"), egt_start, egt_lightup_time);
+		eng_two_n2_checkt.start();
+		eng_two_man_startt.stop();
+	}
+}
+
 var eng_two_n2_check = func {
 	if (getprop("/engines/engine[1]/egt-actual") >= egt_start) {
 		interpolate(engines[1].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[1]/n2") >= 54.6) {
+	if (getprop("/engines/engine[1]/n2") >= 50.8) {
 		setprop("/systems/pneumatic/eng2-starter", 0);
 		setprop("/engines/engine[1]/state", 3);
 		eng_two_n2_checkt.stop();
@@ -151,8 +179,13 @@ var eng_two_n2_check = func {
 
 setlistener("/controls/APU/start", func {
 	if ((getprop("/controls/APU/master") == 1) and (getprop("/controls/APU/start") == 1)) {
-		interpolate("/systems/apu/rpm", apu_max, spinup_time);
-		interpolate("/systems/apu/egt", apu_egt_max, spinup_time);
+		if (getprop("/systems/acconfig/autoconfig-running") == 0) {
+			interpolate("/systems/apu/rpm", apu_max, spinup_time);
+			interpolate("/systems/apu/egt", apu_egt_max, spinup_time);
+		} else if (getprop("/systems/acconfig/autoconfig-running") == 1) {
+			interpolate("/systems/apu/rpm", apu_max, 5);
+			interpolate("/systems/apu/egt", apu_egt_max, 5);
+		}
 	} else if (getprop("/controls/APU/master") == 0) {
 		apu_stop();
 	}
@@ -171,8 +204,8 @@ setlistener("/controls/APU/master", func {
 });
 
 var apu_stop = func {
-	interpolate("/systems/apu/rpm", 0, spinup_time);
-	interpolate("/systems/apu/egt", 42, spinup_time);
+	interpolate("/systems/apu/rpm", 0, 30);
+	interpolate("/systems/apu/egt", 42, 30);
 }
 
 #######################
@@ -277,6 +310,8 @@ var un_rev_thrust_b = func {
 
 # Timers
 var eng_one_auto_startt = maketimer(0.5, eng_one_auto_start);
+var eng_one_man_startt = maketimer(0.5, eng_one_man_start);
 var eng_one_n2_checkt = maketimer(0.5, eng_one_n2_check);
 var eng_two_auto_startt = maketimer(0.5, eng_two_auto_start);
+var eng_two_man_startt = maketimer(0.5, eng_two_man_start);
 var eng_two_n2_checkt = maketimer(0.5, eng_two_n2_check);

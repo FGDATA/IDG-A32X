@@ -37,29 +37,23 @@
 						<value>0.65</value>
 					</less-than>
 					<less-than>
-						<property>/controls/engines/engine[0]/throttle</property>
+						<property>/controls/engines/engine[1]/throttle</property>
 						<value>0.65</value>
 					</less-than>
 					<equals>
 						<property>/FMGC/status/to-state</property>
 						<value>0</value>
 					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
 				</and>
 			</condition>
             <expression>
 				<sum>
 					<property>/controls/flight/elevator</property>
-					<value>0.15</value>
+					<value>0.10</value>
 				</sum>
             </expression>
 		</input>
