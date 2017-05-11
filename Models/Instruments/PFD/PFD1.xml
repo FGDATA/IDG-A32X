@@ -1855,7 +1855,7 @@
         <condition>
 			<greater-than-equals>
 				<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-				<value>100</value>
+				<value>200</value>
 			</greater-than-equals>
         </condition>
     </animation>
@@ -1866,7 +1866,7 @@
         <condition>
 			<less-than-equals>
 				<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-				<value>-100</value>
+				<value>-200</value>
 			</less-than-equals>
         </condition>
     </animation>

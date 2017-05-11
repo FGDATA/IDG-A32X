@@ -100,7 +100,7 @@ controls.flapsDown = func(step) {
 }
 
 var flap_autoretract = func {
-	if (getprop("/controls/flight/flap-pos") == 2 and getprop("/velocities/airspeed-kt") >= 210) {
+	if (getprop("/controls/flight/flap-pos") == 2 and getprop("/velocities/airspeed-kt") >= 208) {
 		setprop("/controls/flight/flaps", 0.000);
 		setprop("/controls/flight/slats", 0.666);
 		setprop("/controls/flight/flap-lever", 1);
