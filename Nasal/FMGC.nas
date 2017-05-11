@@ -4,14 +4,14 @@
 # Very Simple at the moment, but will evolve into a fully-fledged FMGC System. -JD
 
 setlistener("/gear/gear[1]/wow", func {
-	gearfunc();
+	flarecheck();
 });
 
 setlistener("/gear/gear[2]/wow", func {
-	gearfunc();
+	flarecheck();
 });
 
-var gearfunc = func {
+var flarecheck = func {
 	var gear1 = getprop("/gear/gear[1]/wow");
 	var gear2 = getprop("/gear/gear[2]/wow");
 	var state1 = getprop("/systems/thrust/state1");
