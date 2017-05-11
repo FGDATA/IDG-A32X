@@ -1,4 +1,4 @@
-# Electrical system for A320 by Joshua Davidson (it0uchpods/411).
+# Electrical system for A320 by Joshua Davidson (it0uchpods) and Johnathan Redpath (legoboyvdlp).
 
 #############
 # Init Vars #
@@ -50,7 +50,6 @@ var elec_init = func {
 	setprop("/systems/electrical/extra/battery/bat2-contact", 0);
 	setprop("/systems/electrical/gen-apu", 0);
 	setprop("/systems/electrical/gen-ext", 0);
-	setprop("/systems/electrical/batchgenabled", 0);
 	setprop("/systems/electrical/on", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
@@ -125,7 +124,6 @@ var master_elec = func {
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
 	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
-	var bat_chg = getprop("/systems/electrical/batchgenabled");
 	
 	
 	# Left cross tie yes?
@@ -258,21 +256,18 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/galley", 0);
 	}
 	
-	# Galley Shedding Logic
-	if (!gen_apu and !gen_ext_sw and (!gen1_sw or !gen2_sw)) { # this is when one of the generators is not working or turned off as it reads 0 V
+	if (!gen_apu and !gen_ext_sw and (!gen1_sw or !gen2_sw)) {
 		setprop("/systems/electrical/extra/galleyshed", 1); 
 	} else {
 		setprop("/systems/electrical/extra/galleyshed", 0); 
 	}
 	
-	# APU Generator: Make it only come online when the apu is running. This is needed to make galley shed work properly.
 	if (rpmapu >= 94.9 and gen_apu_sw) {
 		setprop("/systems/electrical/gen-apu", 1);
 	} else {
 		setprop("/systems/electrical/gen-apu", 0);
 	}
 	
-	# Make EXT PWR only come online when connected and turned on to make ECAM work properly
 	if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/gen-ext", 1);
 	} else {
@@ -280,61 +275,54 @@ var master_elec = func {
 	}
 	
 	# Battery Amps
-		if (battery1_sw) {
-			setprop("/systems/electrical/battery1-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery1-amps", 0);
-		}
-		
-		if (battery2_sw) {
-			setprop("/systems/electrical/battery2-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery2-amps", 0);
-		}
-		
-	# DC BAT logic
-		if ((dc1 > 0) or (dc2 > 0)) {
-			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
-		} else {
-			setprop("/systems/electrical/bus/dcbat", 0);
-		}
-		
-	# Battery Charge Limiter
-		if (battery1_volts > 27.9 or (dcbat == 0)) { # above 27.9 volts close contact to stop charge at 28 or else stop if the dcbat is unpowered
-			setprop("/systems/electrical/extra/battery/bat1-contact", 0);
-			if (bat_chg) {
-				charge1.stop();
-			}
-		}
-		
-		if (battery2_volts > 27.9 or (dcbat == 0)) {
-			setprop("/systems/electrical/extra/battery/bat2-contact", 0);
-			if (bat_chg) {
-				charge2.stop();
-			}
-		}
+	if (battery1_sw) {
+		setprop("/systems/electrical/battery1-amps", dc_amps_std);
+	} else {
+		setprop("/systems/electrical/battery1-amps", 0);
+	}
 	
-	# Battery Charge Start
-		if ((dcbat > 0) and battery1_sw and bat_chg) { # pen contact to begin charge as long as DC BAT is powered unless at 28V
-			setprop("/systems/electrical/extra/battery/bat1-contact", 1);
-			decharge1.stop();
-			charge1.start(); # I need to use a timer to avoid problems
-		}
-		
-		if ((dcbat > 0) and battery2_sw and bat_chg) {
-			setprop("/systems/electrical/extra/battery/bat2-contact", 1);
-			decharge1.stop();
-			charge2.start();
-		}
+	if (battery2_sw) {
+		setprop("/systems/electrical/battery2-amps", dc_amps_std);
+	} else {
+		setprop("/systems/electrical/battery2-amps", 0);
+	}
+	
+	if ((dc1 > 0) or (dc2 > 0)) {
+		setprop("/systems/electrical/bus/dcbat", dc_volt_std);
+	} else {
+		setprop("/systems/electrical/bus/dcbat", 0);
+	}
+	
+	if (battery1_volts > 27.9 or (dcbat == 0)) {
+		setprop("/systems/electrical/extra/battery/bat1-contact", 0);
+		charge1.stop();
+	}
+	
+	if (battery2_volts > 27.9 or (dcbat == 0)) {
+		setprop("/systems/electrical/extra/battery/bat2-contact", 0);
+		charge2.stop();
+	}
+	
+	if ((dcbat > 0) and battery1_sw) {
+		setprop("/systems/electrical/extra/battery/bat1-contact", 1);
+		decharge1.stop();
+		charge1.start();
+	}
+	
+	if ((dcbat > 0) and battery2_sw) {
+		setprop("/systems/electrical/extra/battery/bat2-contact", 1);
+		decharge1.stop();
+		charge2.start();
+	}
 
-	# Battery Decharge
-		if (!bat1_con and (dcbat == 0) and battery1_sw and bat_chg) { # No supply to DC BAT to charge, so DC is not powered, meaning batteries only. Therefore the battery begins to decharge
-			decharge1.start();
-		}
-		
-		if (!bat2_con and (dcbat == 0) and battery2_sw and bat_chg) {
-			decharge2.start();
-		}
+	
+	if (!bat1_con and (dcbat == 0) and battery1_sw) {
+		decharge1.start();
+	}
+	
+	if (!bat2_con and (dcbat == 0) and battery2_sw) {
+		decharge2.start();
+	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") == 0) {
 		setprop("systems/electrical/on", 0);
@@ -412,24 +400,24 @@ var update_electrical = func {
 	master_elec();
 }
 
+##########
+# Timers #
+##########
+
 var elec_timer = maketimer(0.2, update_electrical);
-
-		var charge1 = maketimer(6, func { # I know 1 volt per minute is really slow but it is fast compared to real aircraft and I can add a reset function
-			var bat1_volts = getprop("/systems/electrical/battery1-volts");
-			setprop("/systems/electrical/battery1-volts", bat1_volts + 0.1);
-		});
-			
-		var charge2 = maketimer(6, func {
-			var bat2_volts = getprop("/systems/electrical/battery2-volts");
-			setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
-		});
-
-		var decharge1 = maketimer(60, func { # allow about 20 min of flight to 25.9 volts this is until I know what voltage a320 powers down
-			var bat1_volts = getprop("/systems/electrical/battery1-volts");
-			setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
-		});
-
-		var decharge2 = maketimer(60, func {
-			var bat2_volts = getprop("/systems/electrical/battery2-volts");
-			setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
-		});
+var charge1 = maketimer(6, func {
+	var bat1_volts = getprop("/systems/electrical/battery1-volts");
+	setprop("/systems/electrical/battery1-volts", bat1_volts + 0.1);
+});
+var charge2 = maketimer(6, func {
+	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+	setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
+});
+var decharge1 = maketimer(60, func {
+	var bat1_volts = getprop("/systems/electrical/battery1-volts");
+	setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
+});
+var decharge2 = maketimer(60, func {
+	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
+});

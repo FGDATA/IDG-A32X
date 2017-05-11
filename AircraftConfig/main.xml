@@ -198,7 +198,7 @@
 				</binding>
 			</button>
 			
-			<!--<checkbox>
+			<checkbox>
 				<label>Enable Baggage Ramp</label>
 				<halign>left</halign>
 				<enable>
@@ -209,7 +209,7 @@
 					<command>dialog-apply</command>
 				</binding>
 				<live>true</live>
-			</checkbox>-->
+			</checkbox>
 			
 			<checkbox>
 				<label>Enable External Power Box</label>
@@ -248,20 +248,6 @@
 				<binding>
 					<command>property-toggle</command>
 					<property>/controls/adirs/skip</property>
-				</binding>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Enable Battery Charging</label>
-				<halign>left</halign>
-				<property>/systems/electrical/batchgenabled</property>
-				<binding>
-					<command>property-toggle</command>
-					<property>/systems/electrical/batchgenabled</property>
 				</binding>
 				<binding>
 					<command>dialog-apply</command>
