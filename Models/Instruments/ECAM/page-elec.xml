@@ -550,6 +550,37 @@
 			</condition>
 		</layer>
 		<layer>
+			<name>apugreen</name>
+			<emissive>true</emissive>
+			<w>160</w>
+			<h>19</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-apu-green.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-22</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>1</offset>
+				</transformation>
+			</transformations>
+			<condition>
+				<and>
+					<equals>
+						<property>/systems/electrical/gen-apu</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/APU/master</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</layer>
+		<layer>
 			<name>noextpwr</name>
 			<emissive>true</emissive>
 			<w>55</w>
@@ -581,7 +612,31 @@
 			</condition>
 		</layer>
 		<layer>
-
+			<name>extgreen</name>
+			<emissive>true</emissive>
+			<w>160</w>
+			<h>19</h>
+			<texture>
+				<path>Aircraft/A320Family/Models/Instruments/ECAM/res/elec-ext-green.png</path>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-22</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>1</offset>
+				</transformation>
+			</transformations>
+			<condition>
+					<equals>
+						<property>/systems/electrical/gen-ext</property>
+						<value>1</value>
+					</equals>
+			</condition>
+		</layer>
+		<layer>
 			<type>text</type>
 			<name>GEN1-hz</name>
 			<color>

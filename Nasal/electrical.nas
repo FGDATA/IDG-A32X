@@ -30,6 +30,7 @@ var elec_init = func {
 	setprop("/systems/electrical/battery2-amps", 0);
 	setprop("/systems/electrical/bus/dc1", 0);
 	setprop("/systems/electrical/bus/dc2", 0);
+	setprop("/systems/electrical/bus/dcbat", 0);
 	setprop("/systems/electrical/bus/dc1-amps", 0);
 	setprop("/systems/electrical/bus/dc2-amps", 0);
 	setprop("/systems/electrical/bus/dc-ess", 0);
@@ -45,8 +46,12 @@ var elec_init = func {
 	setprop("/systems/electrical/extra/ext-hz", 0);
 	setprop("/systems/electrical/extra/apu-hz", 0);
 	setprop("/systems/electrical/extra/galleyshed", 0);
+	setprop("/systems/electrical/extra/battery/bat1-contact", 0);
+	setprop("/systems/electrical/extra/battery/bat2-contact", 0);
 	setprop("/systems/electrical/gen-apu", 0);
-	setprop("systems/electrical/on", 0);
+	setprop("/systems/electrical/gen-ext", 0);
+	setprop("/systems/electrical/batchgenabled", 0);
+	setprop("/systems/electrical/on", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
@@ -95,10 +100,13 @@ var master_elec = func {
 	var gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
 	var gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
 	var gen_apu = getprop("/systems/electrical/gen-apu");
+	var gen_apu = getprop("/systems/electrical/gen-ext");
 	var apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
 	var ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
 	var battery1_sw = getprop("/controls/electrical/switches/battery1");
 	var battery2_sw = getprop("/controls/electrical/switches/battery2");
+	var battery1_volts = getprop("/systems/electrical/battery1-volts");
+	var battery2_volts = getprop("/systems/electrical/battery2-volts");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var extpwr_on = getprop("/controls/switches/cart");
 	var stateL = getprop("/engines/engine[0]/state");
@@ -110,11 +118,14 @@ var master_elec = func {
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	var dc1 = getprop("/systems/electrical/bus/dc1");
 	var dc2 = getprop("/systems/electrical/bus/dc2");
+	var dcbat = getprop("/systems/electrical/bus/dcbat");
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
-	
+	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
+	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
+	var bat_chg = getprop("/systems/electrical/batchgenabled");
 	
 	
 	# Left cross tie yes?
@@ -261,6 +272,13 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-apu", 0);
 	}
 	
+	# Make EXT PWR only come online when connected and turned on to make ECAM work properly
+	if (extpwr_on and gen_ext_sw) {
+		setprop("/systems/electrical/gen-ext", 1);
+	} else {
+		setprop("/systems/electrical/gen-ext", 0);
+	}
+	
 	# Battery Amps
 		if (battery1_sw) {
 			setprop("/systems/electrical/battery1-amps", dc_amps_std);
@@ -273,7 +291,51 @@ var master_elec = func {
 		} else {
 			setprop("/systems/electrical/battery2-amps", 0);
 		}
+		
+	# DC BAT logic
+		if ((dc1 > 0) or (dc2 > 0)) {
+			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
+		} else {
+			setprop("/systems/electrical/bus/dcbat", 0);
+		}
+		
+	# Battery Charge Limiter
+		if (battery1_volts > 27.9 or (dcbat == 0)) { # above 27.9 volts close contact to stop charge at 28 or else stop if the dcbat is unpowered
+			setprop("/systems/electrical/extra/battery/bat1-contact", 0);
+			if (bat_chg) {
+				charge1.stop();
+			}
+		}
+		
+		if (battery2_volts > 27.9 or (dcbat == 0)) {
+			setprop("/systems/electrical/extra/battery/bat2-contact", 0);
+			if (bat_chg) {
+				charge2.stop();
+			}
+		}
 	
+	# Battery Charge Start
+		if ((dcbat > 0) and battery1_sw and bat_chg) { # pen contact to begin charge as long as DC BAT is powered unless at 28V
+			setprop("/systems/electrical/extra/battery/bat1-contact", 1);
+			decharge1.stop();
+			charge1.start(); # I need to use a timer to avoid problems
+		}
+		
+		if ((dcbat > 0) and battery2_sw and bat_chg) {
+			setprop("/systems/electrical/extra/battery/bat2-contact", 1);
+			decharge1.stop();
+			charge2.start();
+		}
+
+	# Battery Decharge
+		if (!bat1_con and (dcbat == 0) and battery1_sw and bat_chg) { # No supply to DC BAT to charge, so DC is not powered, meaning batteries only. Therefore the battery begins to decharge
+			decharge1.start();
+		}
+		
+		if (!bat2_con and (dcbat == 0) and battery2_sw and bat_chg) {
+			decharge2.start();
+		}
+		
 	if (getprop("/systems/electrical/bus/ac-ess") == 0) {
 		setprop("systems/electrical/on", 0);
 #		ai_spin.setValue(0.2);
@@ -351,3 +413,23 @@ var update_electrical = func {
 }
 
 var elec_timer = maketimer(0.2, update_electrical);
+
+		var charge1 = maketimer(6, func { # I know 1 volt per minute is really slow but it is fast compared to real aircraft and I can add a reset function
+			var bat1_volts = getprop("/systems/electrical/battery1-volts");
+			setprop("/systems/electrical/battery1-volts", bat1_volts + 0.1);
+		});
+			
+		var charge2 = maketimer(6, func {
+			var bat2_volts = getprop("/systems/electrical/battery2-volts");
+			setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
+		});
+
+		var decharge1 = maketimer(60, func { # allow about 20 min of flight to 25.9 volts this is until I know what voltage a320 powers down
+			var bat1_volts = getprop("/systems/electrical/battery1-volts");
+			setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
+		});
+
+		var decharge2 = maketimer(60, func {
+			var bat2_volts = getprop("/systems/electrical/battery2-volts");
+			setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
+		});
