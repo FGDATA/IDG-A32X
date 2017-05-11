@@ -934,7 +934,7 @@ YAW MOI_________3950000______23089847_______24848934
 						<independentVar lookup="row">fcs/flap-pos-norm</independentVar>
 						<tableData>
 							0.000  0.00000
-							0.290  0.00350
+							0.290  0.00250
 							0.596  0.00700
 							0.645  0.01300
 							1.000  0.01700
