@@ -131,6 +131,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.pneu_init();
 	systems.hyd_init();
   	itaf.ap_init();			
+	externalconnections.start();
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
@@ -147,3 +148,14 @@ var aglgears = func {
 }
 
 aglgears();
+
+var externalconnections = maketimer(0.1, func {
+	var groundpwr = getprop("/controls/switches/cart");
+	var groundair = getprop("/controls/pneumatic/switches/groundair");
+	var gs = getprop("/velocities/groundspeed-kt");
+	var parkbrake = getprop("controls/gear/brake-parking");
+	if ((groundair or groundpwr) and ((gs > 2) or !parkbrake)) {
+		setprop("/controls/switches/cart", 0);
+		setprop("/controls/pneumatic/switches/groundair", 0);
+	}
+});

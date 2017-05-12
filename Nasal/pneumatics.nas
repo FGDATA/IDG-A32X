@@ -1,5 +1,5 @@
 # A320 Pneumatics System
-# Joshua Davidson (it0uchpods)
+# Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #############
 # Init Vars #
@@ -9,6 +9,7 @@ var pneu_init = func {
 	setprop("/controls/pneumatic/switches/bleed1", 0);
 	setprop("/controls/pneumatic/switches/bleed2", 0);
 	setprop("/controls/pneumatic/switches/bleedapu", 0);
+	setprop("/controls/pneumatic/switches/groundair", 0);
 	setprop("/controls/pneumatic/switches/pack1", 0);
 	setprop("/controls/pneumatic/switches/pack2", 0);
 	setprop("/controls/pneumatic/switches/hot-air", 0);
@@ -18,6 +19,7 @@ var pneu_init = func {
 	setprop("/systems/pneumatic/bleed1", 0);
 	setprop("/systems/pneumatic/bleed2", 0);
 	setprop("/systems/pneumatic/bleedapu", 0);
+	setprop("/systems/pneumatic/groundair", 0);
 	setprop("/systems/pneumatic/total-psi", 0);
 	setprop("/systems/pneumatic/start-psi", 0);
 	setprop("/systems/pneumatic/pack-psi", 0);	
@@ -45,6 +47,8 @@ var master_pneu = func {
 	var xbleed_sw = getprop("/controls/pneumatic/switches/xbleed");
 	var eng1_starter = getprop("/systems/pneumatic/eng1-starter");
 	var eng2_starter = getprop("/systems/pneumatic/eng2-starter");
+	var groundair = getprop("/systems/pneumatic/groundair");
+	var groundair_supp = getprop("/controls/pneumatic/switches/groundair");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var stateL = getprop("/engines/engine[0]/state");
 	var stateR = getprop("/engines/engine[1]/state");
@@ -71,6 +75,7 @@ var master_pneu = func {
 	var bleed1 = getprop("/systems/pneumatic/bleed1");
 	var bleed2 = getprop("/systems/pneumatic/bleed2");
 	var bleedapu = getprop("/systems/pneumatic/bleedapu");
+	var ground = getprop("/systems/pneumatic/groundair");
 	
 	if (stateL == 1 or stateR == 1) {
 		setprop("/systems/pneumatic/start-psi", 18);
@@ -78,13 +83,13 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
 	
-	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0) {
+	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0) {
 		setprop("/systems/pneumatic/pack1", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0) {
+	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
@@ -109,6 +114,12 @@ var master_pneu = func {
 	} else {
 		var total_psi_calc = ((bleed1 + bleed2 + bleedapu) - start_psi - pack_psi);
 		setprop("/systems/pneumatic/total-psi", total_psi_calc);
+	}
+	
+	if (groundair_supp) { 
+		setprop("/systems/pneumatic/groundair", 39);
+	} else {
+		setprop("/systems/pneumatic/groundair", 0);
 	}
 	
 	var total_psi = getprop("/systems/pneumatic/total-psi");
