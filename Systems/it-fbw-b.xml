@@ -509,14 +509,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -565,14 +557,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -603,14 +587,6 @@
 		<input>
 			<condition>
 				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>1</value>
