@@ -73,7 +73,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "6");
 	}
 	# forget transition from APP to climb for now because it would be too complex
-	if ((phase == "6") and ((vertmode == "ALT CAP") or (vertmode == "G/A CLB") or (vertmode == "SPD CLB") or ((vertmode == "VS") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
+	if ((phase == "6") and ((vertmode == "ALT CAP") or (vertmode == "G/A CLB") or (vertmode == "SPD CLB") or ((vertmode == "V/S") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
 		setprop("/FMGC/status/phase", "2"); # going to CLIMB mode from GA
 	}
 	if ((wowl and wowr) and (gs < 20)) { # below twenty knots. In future make a timer to ensure that it goes to DONE 30 sec after landing. 
