@@ -122,28 +122,6 @@
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
 		</A320>
-		<acconfig>
-			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
-		</acconfig>
-		<systems>
-			<file>Aircraft/A320Family/Nasal/engines.nas</file>
-			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
-			<file>Aircraft/A320Family/Nasal/pneumatics.nas</file>
-			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
-			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
-		</systems>
-		<fbw>
-			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>
-		</fbw>
-		<itaf>
-			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
-		</itaf>
-		<fmgc>
-			<file>Aircraft/A320Family/Nasal/FMGC.nas</file>
-		</fmgc>
-		<thrust>
-			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
-		</thrust>
 	</nasal>
 
 </PropertyList>

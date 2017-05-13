@@ -133,6 +133,8 @@ setlistener("/sim/signals/fdm-initialized", func {
   	itaf.ap_init();			
 	externalconnections.start();
 	fmgc.FMGCinit();
+	mcdu1.MCDU_init();
+	mcdu2.MCDU_init();
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);

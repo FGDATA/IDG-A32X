@@ -668,5 +668,36 @@
 		</door>
 		<jetway-hood-deg type="double">3</jetway-hood-deg>
 	</aircraft>
+	
+	<nasal>
+		<acconfig>
+			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
+		</acconfig>
+		<systems>
+			<file>Aircraft/A320Family/Nasal/engines.nas</file>
+			<file>Aircraft/A320Family/Nasal/electrical.nas</file>
+			<file>Aircraft/A320Family/Nasal/pneumatics.nas</file>
+			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
+			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
+		</systems>
+		<fbw>
+			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>
+		</fbw>
+		<itaf>
+			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
+		</itaf>
+		<fmgc>
+			<file>Aircraft/A320Family/Nasal/FMGC.nas</file>
+		</fmgc>
+		<mcdu1>
+			<file>Aircraft/A320Family/Nasal/MCDU1.nas</file>
+		</mcdu1>
+		<mcdu2>
+			<file>Aircraft/A320Family/Nasal/MCDU2.nas</file>
+		</mcdu2>
+		<thrust>
+			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
+		</thrust>
+	</nasal>
 
 </PropertyList>

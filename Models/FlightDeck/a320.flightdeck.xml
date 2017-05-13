@@ -43,7 +43,7 @@
 	<!-- Multi-purpose Control and Display Units -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/mCDU/mCDU.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/MCDU1/MCDU1.xml</path>
 		<offsets>
 			<x-m>-0.4144</x-m>
 			<y-m>-0.1633</y-m>
@@ -53,7 +53,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/mCDU/mCDU.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/MCDU2/MCDU2.xml</path>
 		<offsets>
 			<x-m>-0.4144</x-m>
 			<y-m>0.1633</y-m>

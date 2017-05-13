@@ -1,14 +1,22 @@
 # A320Family FMGC
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
-# it0uchpods, you can remove these comments as soon as it is complete. They are basically my notes to remind me of things.
 
-# Very Simple at the moment, but will evolve into a fully-fledged FMGC System. -JD
+##################
+# Init Functions #
+##################
+
+setprop("/position/gear-agl-ft", 0);
+
 var FMGCinit = func {
-setprop("/FMGC/status/to-state", 0);
-setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
-setprop("/FMGC/internal/cruise-fl", 10000); 
-phasecheck.start();
+	setprop("/FMGC/status/to-state", 0);
+	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
+	setprop("/FMGC/internal/cruise-fl", 10000); 
+	phasecheck.start();
 }
+
+#############
+# TO Status #
+#############
 
 setlistener("/gear/gear[1]/wow", func {
 	flarecheck();
@@ -24,7 +32,7 @@ var flarecheck = func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	var flaps = getprop("/controls/flight/flap-pos");
-	if (gear1 == 1 and gear2 == 1 and (state1 == "MCT" or state1 == "TOGA") and (state2 == "MCT" or state2 == "TOGA") and flaps < 4) {
+	if (gear1 == 1 and gear2 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 4) {
 		setprop("/FMGC/status/to-state", 1);
 	}
 	if (getprop("/position/gear-agl-ft") >= 55) {
@@ -35,7 +43,10 @@ var flarecheck = func {
 	}
 }
 
-# flight phase computer
+################
+# Flight Phase #
+################
+
 var phasecheck = maketimer(0.2, func { 
 	var n1_left = getprop("/engines/engine[0]/n1");
 	var n1_right = getprop("/engines/engine[1]/n1");
@@ -44,13 +55,13 @@ var phasecheck = maketimer(0.2, func {
 	var gs = getprop("/velocities/groundspeed-kt");
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var cruisefl = getprop("/FMGC/internal/cruise-fl");
-	var newcruise = getprop("/it-autoflight/input/alt");
+	var newcruise = getprop("/it-autoflight/internal/alt");
 	var phase = getprop("/FMGC/status/phase");
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	var wowl = getprop("/gear/gear[1]/wow");
 	var wowr = getprop("/gear/gear[2]/wow");
-	var targetalt = getprop("/it-autoflight/input/alt");
+	var targetalt = getprop("/it-autoflight/internal/alt");
 	var targetvs = getprop("/it-autoflight/input/vs");
 	var targetfpa = getprop("/it-autoflight/input/fpa");
 	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
