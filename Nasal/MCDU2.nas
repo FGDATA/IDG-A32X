@@ -8,7 +8,7 @@ var MCDU_init = func {
 }
 
 var MCDU_reset = func {
-	setprop("/MCDU[1]/page", "INIT");
+	setprop("/MCDU[1]/page", "STATUS");
 	setprop("/MCDU[1]/scratchpad", " ");
 }
 

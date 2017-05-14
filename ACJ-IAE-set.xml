@@ -111,6 +111,11 @@
 		</menubar>
 	</sim>
 	
+	<MCDUC n="0">
+		<type>A319-100</type>
+		<eng>V2522-A5</eng>
+	</MCDUC>
+	
 	<nasal>
 		<A320>
 			<file>Aircraft/A320Family/Nasal/various.nas</file>
