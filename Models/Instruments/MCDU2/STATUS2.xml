@@ -114,7 +114,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">01JAN-28JAN</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -137,7 +137,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">AB20170101</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -184,7 +184,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">29JAN-26FEB</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -278,7 +278,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">+0.0/+0.0</format>
+		<format type="string">+4.0/+0.0</format> <!-- when FADEC A11.4 or more recent is installed, default IDLE factor is 4% -->
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -292,7 +292,7 @@
 		</font-resolution>
 	</text>
 	
-	<text>
+	<!-- remove status xload because it is only used when MCDU1 / MCDU2 have different software or nav data installed <text>
 		<name>software</name>
 		<offsets>
 			<x-m>-0.001</x-m>
@@ -337,7 +337,7 @@
 			<width type="int">32</width>
 			<height type="int">32</height>
 		</font-resolution>
-	</text>
+	</text>-->
 	
 	<text>
 		<name>scratchpad</name>
