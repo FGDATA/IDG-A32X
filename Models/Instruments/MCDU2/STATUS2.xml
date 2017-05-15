@@ -29,8 +29,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -53,8 +53,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -76,8 +76,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -100,8 +100,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -123,8 +123,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -146,8 +146,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -170,8 +170,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -193,8 +193,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -217,8 +217,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -240,8 +240,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -264,8 +264,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -287,8 +287,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -311,8 +311,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0045</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	<text>
@@ -334,8 +334,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.0055</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
@@ -358,8 +358,8 @@
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.006</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width type="int">64</width>
+			<height type="int">64</height>
 		</font-resolution>
 	</text>
 	
