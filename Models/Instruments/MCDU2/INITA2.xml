@@ -114,7 +114,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">01JAN-28JAN</format>
+		<format type="string">N/A</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -137,7 +137,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">AB20170101</format>
+		<format type="string">N/A</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -184,7 +184,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">29JAN-26FEB</format>
+		<format type="string">N/A</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -278,7 +278,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">+4.0/+0.0</format> <!-- with  FADEC A11.4 or more recent version delivery idle perf is 4% -->
+		<format type="string">+0.0/+0.0</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
