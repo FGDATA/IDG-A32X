@@ -278,7 +278,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">+4.0/+0.0</format> <!-- with  FADEC A11.4 or more recent version delivery idle perf is 4% -->
+		<format type="string">+4.0/+0.0</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -344,7 +344,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.046</y-m>
-			<z-m>0.0195</z-m>
+			<z-m>0.0190</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>

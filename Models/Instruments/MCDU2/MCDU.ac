@@ -23629,7 +23629,7 @@ refs 4
 51 0.134035 0.36197
 kids 0
 OBJECT poly
-name "arpt"
+name "airport"
 loc 0.0161619 0.00215198 0.0461766
 texture "bg.png"
 crease 45.000000

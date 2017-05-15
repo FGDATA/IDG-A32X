@@ -38,7 +38,7 @@
 	
 	<model>
 		<name>INITA</name>
-		<path>INITA.xml</path>
+		<path>INITA1.xml</path>
 		<offsets>
 			<heading-deg>180</heading-deg>
 			<roll-deg>180</roll-deg>

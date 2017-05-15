@@ -11,16 +11,40 @@
 	<path>EMPTY.ac</path>
 	
 	<text>
+		<name>page</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.004</y-m>
+			<z-m>0.08</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">INIT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
 		<name>companyroute</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>-0.045</y-m>
+			<y-m>-0.042</y-m>
 			<z-m>0.0745</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">CO RTE</format>
+		<format type="string">CO  RTE</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -57,7 +81,7 @@
 		</font-resolution>
 	</text>
 	<!--<text>
-		<name>engtype</name>
+		<name>fromto2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.043</y-m>
@@ -69,11 +93,11 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/eng</property>
+		<property>REPLACE ME WITH SOMETHING</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -90,7 +114,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">ALTN/CO RTE</format>
+		<format type="string">ALTN/CO  RTE</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -104,11 +128,35 @@
 		</font-resolution>
 	</text>
 	<text>
+		<name>altncorte2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0615</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">----/----------</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
 		<name>init</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.040</y-m>
-			<z-m>0.0655</z-m>
+			<z-m>0.0650</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -131,7 +179,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.040</y-m>
-			<z-m>0.0605</z-m>
+			<z-m>0.0600</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -143,7 +191,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -166,7 +214,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -190,7 +238,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -236,7 +284,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -295,7 +343,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0385</z-m>
+			<z-m>0.0380</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -314,6 +362,30 @@
 		</font-resolution>
 	</text>
 	<text>
+		<name>costindex2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0340</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">---</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Small.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
 		<name>wind</name>
 		<offsets>
 			<x-m>-0.001</x-m>
@@ -330,7 +402,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -388,7 +460,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0295</z-m>
+			<z-m>0.0290</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -423,7 +495,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -469,7 +541,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -515,7 +587,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -527,7 +599,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.046</y-m>
-			<z-m>0.0195</z-m>
+			<z-m>0.0190</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -550,11 +622,15 @@
 	<!-- White -->
     <animation>
         <type>material</type>
+		<object-name>page</object-name>
 		<object-name>companyroute</object-name>
         <object-name>altncorte</object-name>
+        <object-name>altncorte2</object-name>
 		<object-name>fltnmbr</object-name>
 		<object-name>costindex</object-name>
+		<object-name>costindex2</object-name>
 		<object-name>crzfltemp</object-name>
+		<object-name>crzfltemp2</object-name>
 		<object-name>fromto</object-name>
 		<object-name>tropo</object-name>
 		<object-name>wind</object-name>

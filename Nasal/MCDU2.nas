@@ -9,7 +9,9 @@ var MCDU_init = func {
 
 var MCDU_reset = func {
 	setprop("/MCDU[1]/page", "STATUS");
-	setprop("/MCDU[1]/scratchpad", " ");
+	setprop("/MCDU[1]/cost-index", 0);
+	setprop("/MCDU[1]/flight-num", 0);
+	setprop("/MCDU[1]/scratchpad", "");
 }
 
 var button = func(btn) {
@@ -69,7 +71,7 @@ var button = func(btn) {
 	} else if (btn == "SLASH") {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ "/");
 	} else if (btn == "SP") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ " ");
+		setprop("/MCDU[1]/scratchpad", scratchpad ~ "");
 	} else if (btn == "CLR") {
 		setprop("/MCDU[1]/scratchpad", " ");
 	} else if (btn == "0") {
