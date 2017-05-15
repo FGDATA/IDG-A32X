@@ -11,8 +11,24 @@
 	<path>MCDU.ac</path>
 	
 	<model>
+		<name>SCRATCHPAD</name>
+		<path>SCRATCHPAD.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/bus/ac2</property>
+				<value>25</value>
+			</greater-than-equals>
+		</condition>
+	</model>
+	
+	<model>
 		<name>STATUS</name>
-		<path>STATUS2.xml</path>
+		<path>STATUS.xml</path>
 		<offsets>
 			<heading-deg>180</heading-deg>
 			<roll-deg>180</roll-deg>
@@ -20,10 +36,6 @@
 		</offsets>
 		<condition>
 			<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac2</property>
 					<value>25</value>
@@ -36,6 +48,47 @@
 		</condition>
 	</model>
 	
+	<model>
+		<name>INITA</name>
+		<path>INITA.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>25</value>
+				</greater-than-equals>
+				<equals>
+					<property>/MCDU[1]/page</property>
+					<value>INITA</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>init</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu2.pagebutton("init");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>a</object-name>
@@ -46,16 +99,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("A");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -70,16 +117,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("B");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -94,16 +135,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("C");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -118,16 +153,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("D");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -142,16 +171,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("E");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -166,16 +189,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("F");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -190,16 +207,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("G");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -214,16 +225,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("H");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -238,16 +243,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("I");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -262,16 +261,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("J");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -286,16 +279,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("K");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -310,16 +297,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("L");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -334,16 +315,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("M");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -358,16 +333,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("N");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -382,16 +351,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("O");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -406,16 +369,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("P");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -430,16 +387,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("Q");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -454,16 +405,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("R");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -478,16 +423,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("S");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -502,16 +441,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("T");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -526,16 +459,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("U");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -550,16 +477,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("V");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -574,16 +495,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("W");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -598,16 +513,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("X");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -622,16 +531,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("Y");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -646,16 +549,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("Z");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -670,16 +567,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("SLASH");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -694,16 +585,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("SP");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -718,16 +603,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("OVFY");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -742,16 +621,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("CLR");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -766,16 +639,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("0");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -790,16 +657,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("1");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -814,16 +675,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("2");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -838,16 +693,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("3");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -862,16 +711,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("4");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -886,16 +729,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("5");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -910,16 +747,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("6");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -934,16 +765,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("7");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -958,16 +783,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("8");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -982,16 +801,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("9");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -1006,16 +819,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("DOT");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -1030,16 +837,10 @@
 				<command>nasal</command>
 				<script>mcdu2.button("PLUSMINUS");</script>
 				<condition>
-				<and>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-				</and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>

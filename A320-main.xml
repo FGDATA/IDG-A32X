@@ -334,12 +334,12 @@
 		<egt type="float">0</egt>
 	</apu>
 	
-	<FMGC>
+	<FMGC n="0">
 		<status>
 			<to-state type="bool">1</to-state>
 		</status>
 	</FMGC>
-
+	
 	<controls>
 		<adirs n="0">
 			<adr n="0">

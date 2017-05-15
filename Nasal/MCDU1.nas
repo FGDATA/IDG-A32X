@@ -14,6 +14,15 @@ var MCDU_reset = func {
 	setprop("/MCDU[0]/scratchpad", "");
 }
 
+var pagebutton = func(btn) {
+	if (btn == "init") {
+		setprop("/MCDU[0]/page", "NONE");	
+		settimer(func {
+			setprop("/MCDU[0]/page", "INITA");
+		}, 0.3);
+	}
+}
+
 var button = func(btn) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
 	if (btn == "A") {
@@ -71,9 +80,14 @@ var button = func(btn) {
 	} else if (btn == "SLASH") {
 		setprop("/MCDU[0]/scratchpad", scratchpad ~ "/");
 	} else if (btn == "SP") {
-		setprop("/MCDU[0]/scratchpad", scratchpad ~ "");
-	} else if (btn == "CLR") {
 		setprop("/MCDU[0]/scratchpad", " ");
+	} else if (btn == "CLR") {
+		var scratchpad = getprop("/MCDU[0]/scratchpad");
+		if (scratchpad == "NOT ALLOWED") {
+			setprop("/MCDU[0]/scratchpad", "");
+		} else if (size(scratchpad) > 0) {
+			setprop("/MCDU[0]/scratchpad", left(scratchpad, size(scratchpad)-1));
+		}
 	} else if (btn == "0") {
 		setprop("/MCDU[0]/scratchpad", scratchpad ~ "0");
 	} else if (btn == "1") {
