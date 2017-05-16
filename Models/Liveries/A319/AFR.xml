@@ -7,9 +7,10 @@
             <name type="string">Air France</name>
             <texture>Liveries/A319/AFR.png</texture>
         </livery>
-        <lights>
-            <texture>lights1.png</texture>
-        </lights>
     </model>
 </sim>
+
+<options>
+		<EIS2 type="bool">0</EIS2>
+</options>
 </PropertyList>

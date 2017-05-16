@@ -823,7 +823,7 @@ refs 4
 33 0.784848 0.395576
 kids 0
 OBJECT poly
-name "cylinder"
+name "R6"
 loc -0.0206386 0.00215198 -0.0511808
 texture "transparent.png"
 crease 45.000000
@@ -1233,7 +1233,7 @@ refs 4
 33 0.89324 0.641379
 kids 0
 OBJECT poly
-name "cylinder"
+name "L6"
 loc -0.0207483 0.00215198 0.0581243
 texture "transparent.png"
 crease 45.000000
@@ -1643,7 +1643,7 @@ refs 4
 51 0.0359442 0.641511
 kids 0
 OBJECT poly
-name "cylinder"
+name "R5"
 loc -0.0309278 0.00215198 -0.0512687
 texture "transparent.png"
 crease 45.000000
@@ -2053,7 +2053,7 @@ refs 4
 51 0.897714 0.686734
 kids 0
 OBJECT poly
-name "cylinder"
+name "L5"
 loc -0.0310376 0.00215198 0.0580363
 texture "transparent.png"
 crease 45.000000
@@ -2463,7 +2463,7 @@ refs 4
 33 0.0328553 0.686349
 kids 0
 OBJECT poly
-name "cylinder"
+name "R4"
 loc -0.0417643 0.00215198 -0.0512467
 texture "transparent.png"
 crease 45.000000
@@ -2873,7 +2873,7 @@ refs 4
 33 0.893759 0.734768
 kids 0
 OBJECT poly
-name "cylinder"
+name "L4"
 loc -0.0417839 0.00215198 0.0580583
 texture "transparent.png"
 crease 45.000000
@@ -3283,7 +3283,7 @@ refs 4
 51 0.0364637 0.7349
 kids 0
 OBJECT poly
-name "cylinder"
+name "R3"
 loc -0.052579 0.00215198 -0.0512028
 texture "transparent.png"
 crease 45.000000
@@ -3693,7 +3693,7 @@ refs 4
 51 0.897195 0.783662
 kids 0
 OBJECT poly
-name "cylinder"
+name "L3"
 loc -0.052509 0.00215198 0.0581023
 texture "transparent.png"
 crease 45.000000
@@ -4103,7 +4103,7 @@ refs 4
 33 0.0323358 0.783277
 kids 0
 OBJECT poly
-name "cylinder"
+name "R2"
 loc -0.062899 0.00215198 -0.0512028
 texture "transparent.png"
 crease 45.000000
@@ -4513,7 +4513,7 @@ refs 4
 33 0.893413 0.828653
 kids 0
 OBJECT poly
-name "cylinder"
+name "L2"
 loc -0.0628737 0.00215198 0.0581023
 texture "transparent.png"
 crease 45.000000
@@ -4923,7 +4923,7 @@ refs 4
 51 0.0361174 0.828786
 kids 0
 OBJECT poly
-name "cylinder"
+name "R1"
 loc -0.0739083 0.00215198 -0.0512493
 texture "transparent.png"
 crease 45.000000
@@ -5333,7 +5333,7 @@ refs 4
 51 0.89756 0.876721
 kids 0
 OBJECT poly
-name "cylinder"
+name "L1"
 loc -0.0737934 0.00215198 0.0580561
 texture "transparent.png"
 crease 45.000000
@@ -22399,7 +22399,7 @@ refs 4
 33 0.409124 0.395393
 kids 0
 OBJECT poly
-name "cylinder"
+name "down"
 loc 0.0441523 0.00215198 0.0297895
 texture "transparent.png"
 crease 45.000000
@@ -22809,7 +22809,7 @@ refs 4
 51 0.260554 0.307909
 kids 0
 OBJECT poly
-name "cylinder"
+name "right"
 loc 0.0441523 0.00215198 0.0457489
 texture "transparent.png"
 crease 45.000000
@@ -23219,7 +23219,7 @@ refs 4
 33 0.128064 0.307481
 kids 0
 OBJECT poly
-name "cylinder"
+name "up"
 loc 0.0333797 0.00215198 0.0299028
 texture "transparent.png"
 crease 45.000000
@@ -23629,7 +23629,7 @@ refs 4
 33 0.252676 0.361542
 kids 0
 OBJECT poly
-name "cylinder"
+name "left"
 loc 0.0333797 0.00215198 0.0458621
 texture "transparent.png"
 crease 45.000000
@@ -30489,7 +30489,7 @@ refs 4
 1 0.127383 1
 kids 0
 OBJECT poly
-name "box"
+name "screen"
 loc 0.00822081 -0.0782633 0
 texture "bg.jpg"
 crease 45.000000
