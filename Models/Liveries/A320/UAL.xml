@@ -4,8 +4,12 @@
       <livery>
         <name type="string">United Airlines</name>
         <texture>Liveries/A320/UAL.png</texture>
-        <texture2>FanDisk.png</texture2>
       </livery>
     </model>
   </sim>
+  
+	<options>
+		<EIS2 type="bool">0</EIS2>
+	</options>
+  
 </PropertyList>

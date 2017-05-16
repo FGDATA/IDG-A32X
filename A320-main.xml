@@ -6,6 +6,8 @@
 		
 		<author>Joshua Davidson (it0uchpods/411)</author>
 		
+		<status>Pre V1.0</status>
+		
 		<rating>
 			<FDM type="int">4</FDM>
 			<systems type="int">4</systems>
@@ -346,10 +348,6 @@
 			<to-state type="bool">1</to-state>
 		</status>
 	</FMGC>
-	
-	<options>
-		<EIS2 type="bool">1</EIS2>
-	</options>
 	
 	<controls>
 		<adirs n="0">

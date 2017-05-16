@@ -9,7 +9,6 @@
 		</sound>
 	
 		<description>Airbus Corporate Jet (IAE V2500)</description>
-		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>ACJ-IAE</aero>
 		<model>

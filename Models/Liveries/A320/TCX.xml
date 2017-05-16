@@ -3,10 +3,13 @@
     <model>
       <livery>
         <name type="string">Thomas Cook Airlines</name>
-                <texture>Liveries/A320/TCX.png</texture>
-      <texture2>FanDisk.png</texture2>
+        <texture>Liveries/A320/TCX.png</texture>
       </livery>
-          
     </model>
   </sim>
+  
+	<options>
+		<EIS2 type="bool">0</EIS2>
+	</options>
+  
 </PropertyList>

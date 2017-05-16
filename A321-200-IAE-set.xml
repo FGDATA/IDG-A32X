@@ -9,7 +9,6 @@
 		</sound>
 	
 		<description>Airbus A321-200 (IAE V2500)</description>
-		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A321-200-IAE</aero>
 		<model>

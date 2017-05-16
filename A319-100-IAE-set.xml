@@ -9,7 +9,6 @@
 		</sound>
 	
 		<description>Airbus A319-100 (IAE V2500)</description>
-		<status>Flyable</status>
 		<flight-model>jsb</flight-model>
 		<aero>A319-100-IAE</aero>
 		<model>

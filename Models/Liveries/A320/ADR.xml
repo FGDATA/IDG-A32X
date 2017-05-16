@@ -1,11 +1,15 @@
 <PropertyList>
-  <sim>
-    <model>
-      <livery>
-        <name type="string">Adria Airways</name>
-        <texture>Liveries/A320/ADR.png</texture>
-        <texture2>FanDisk.png</texture2>
-      </livery>
-    </model>
-  </sim>
+	<sim>
+		<model>
+			<livery>
+				<name type="string">Adria Airways</name>
+				<texture>Liveries/A320/ADR.png</texture>
+			</livery>
+		</model>
+	</sim>
+	
+	<options>
+		<EIS2 type="bool">0</EIS2>
+	</options>
+	
 </PropertyList>
