@@ -263,22 +263,6 @@
 			<hrule/>
 			
 			<checkbox>
-				<label>EIS2 Displays</label>
-				<halign>left</halign>
-				<enable>
-					<equals>
-						<property>/gear/gear[0]/wow</property>
-						<value>1</value>
-					</equals>
-				</enable>
-				<property>/options/EIS2</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
 				<label>Skip IRS alignment</label>
 				<halign>left</halign>
 				<property>/controls/adirs/skip</property>
