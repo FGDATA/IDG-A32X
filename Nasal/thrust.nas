@@ -10,7 +10,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/state1", "IDLE");
 	setprop("/systems/thrust/state2", "IDLE");
 	setprop("/systems/thrust/lvrclb", "0");
-	setprop("/systems/thrust/clbreduc-ft", "1550");
+	setprop("/systems/thrust/clbreduc-ft", "1500");
 	thrustt.start();
 });
 

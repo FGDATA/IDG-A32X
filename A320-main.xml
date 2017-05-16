@@ -54,7 +54,7 @@
 			<setting>1.000</setting>
 		</flaps>
 
-		<systems>
+		<systems n="0">
 			<!-- Disable the generic electrical system and use the Nasal system -->
 			<electrical>
 				<path></path>
@@ -69,7 +69,6 @@
 			<autopilot>
 				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
 			</autopilot>
-			<!-- Uses slightly modified IT-AUTOFLIGHT Thrust controller. -->
             <autopilot>
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
             </autopilot>
@@ -699,6 +698,9 @@
 			<file>Aircraft/A320Family/Nasal/hydraulics.nas</file>
 			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
 		</systems>
+		<thrust>
+			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
+		</thrust>
 		<fbw>
 			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>
 		</fbw>
@@ -714,9 +716,6 @@
 		<mcdu2>
 			<file>Aircraft/A320Family/Nasal/MCDU2.nas</file>
 		</mcdu2>
-		<thrust>
-			<file>Aircraft/A320Family/Nasal/thrust.nas</file>
-		</thrust>
 	</nasal>
 
 </PropertyList>

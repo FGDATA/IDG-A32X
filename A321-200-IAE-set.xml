@@ -102,7 +102,13 @@
 				</menu>
 			</default>
 		</menubar>
+		
 	</sim>
+	
+	<options>
+		<EIS2 type="bool">0</EIS2>
+		<eng>IAE</eng>
+	</options>
 	
 	<MCDUC n="0">
 		<type>A321-231</type>

@@ -5,14 +5,14 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
+			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A320-200 (IAE V2500)</description>
+		<description>Airbus A320-200 (CFM56)</description>
 		<flight-model>jsb</flight-model>
-		<aero>A320-200-IAE</aero>
+		<aero>A320-200-CFM</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A320-200-IAE.xml</path>
+			<path>Aircraft/A320Family/Models/A320-200-CFM.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
@@ -107,12 +107,12 @@
 	
 	<options>
 		<EIS2 type="bool">0</EIS2>
-		<eng>IAE</eng>
+		<eng>CFM</eng>
 	</options>
 	
 	<MCDUC n="0">
-		<type>A320-232</type>
-		<eng>V2527-A5</eng>
+		<type>A320-214</type>
+		<eng>CFM56-5B4</eng>
 	</MCDUC>
 	
 	<nasal>
