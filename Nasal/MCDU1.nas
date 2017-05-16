@@ -11,7 +11,7 @@ var MCDU_reset = func {
 	setprop("/MCDU[0]/page", "STATUS");
 	setprop("/MCDU[0]/cost-index", 0);
 	setprop("/MCDU[0]/flight-num", 0);
-	setprop("/MCDU[0]/scratchpad", "");
+	setprop("/MCDU[0]/scratchpad", " ");
 }
 
 var pagebutton = func(btn) {
@@ -27,10 +27,16 @@ var pagebutton = func(btn) {
 			setprop("/MCDU[0]/page", "DATA");
 		}, 0.2);
 	}
-	if (btn == "sttus") {
+	if (btn == "status") {
 		setprop("/MCDU[0]/page", "NONE");	
 		settimer(func {
 			setprop("/MCDU[0]/page", "STATUS");
+		}, 0.2);
+	}
+	if (btn == "data2") {
+		setprop("/MCDU[0]/page", "NONE");	
+		settimer(func {
+			setprop("/MCDU[0]/page", "DATA2");
 		}, 0.2);
 	}
 }
@@ -97,8 +103,10 @@ var button = func(btn) {
 		var scratchpad = getprop("/MCDU[0]/scratchpad");
 		if (scratchpad == " ") {
 			setprop("/MCDU[0]/scratchpad", "CLR");
-		} else {
+		} else if (scratchpad == "CLR") {
 			setprop("/MCDU[0]/scratchpad", " ");
+		} else if (size(scratchpad) > 0) {
+			setprop("/MCDU[0]/scratchpad", left(scratchpad, size(scratchpad)-1));
 		}
 	} else if (btn == "0") {
 		setprop("/MCDU[0]/scratchpad", scratchpad ~ "0");
