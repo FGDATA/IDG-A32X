@@ -27,6 +27,12 @@ var pagebutton = func(btn) {
 			setprop("/MCDU[0]/page", "DATA");
 		}, 0.2);
 	}
+	if (btn == "sttus") {
+		setprop("/MCDU[0]/page", "NONE");	
+		settimer(func {
+			setprop("/MCDU[0]/page", "STATUS");
+		}, 0.2);
+	}
 }
 
 var button = func(btn) {

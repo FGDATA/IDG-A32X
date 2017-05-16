@@ -94,6 +94,30 @@
 	
 	<animation>
 		<type>pick</type>
+		<object-name>L4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.pagebutton("status");</script>
+				<condition>
+					<and>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+					<equals>
+						<property>/MCDU[1]/page</property>
+						<value>DATA</value>
+					</and>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>init</object-name>
 		<action>
 			<button>0</button>
