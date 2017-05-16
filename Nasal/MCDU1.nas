@@ -19,7 +19,13 @@ var pagebutton = func(btn) {
 		setprop("/MCDU[0]/page", "NONE");	
 		settimer(func {
 			setprop("/MCDU[0]/page", "INITA");
-		}, 0.3);
+		}, 0.2);
+	}
+	if (btn == "data") {
+		setprop("/MCDU[0]/page", "NONE");	
+		settimer(func {
+			setprop("/MCDU[0]/page", "DATA");
+		}, 0.2);
 	}
 }
 
@@ -80,13 +86,13 @@ var button = func(btn) {
 	} else if (btn == "SLASH") {
 		setprop("/MCDU[0]/scratchpad", scratchpad ~ "/");
 	} else if (btn == "SP") {
-		setprop("/MCDU[0]/scratchpad", " ");
+		setprop("/MCDU[0]/scratchpad", scratchpad ~ " "); # this button adds a space
 	} else if (btn == "CLR") {
 		var scratchpad = getprop("/MCDU[0]/scratchpad");
-		if (scratchpad == "NOT ALLOWED") {
-			setprop("/MCDU[0]/scratchpad", "");
-		} else if (size(scratchpad) > 0) {
-			setprop("/MCDU[0]/scratchpad", left(scratchpad, size(scratchpad)-1));
+		if (scratchpad == " ") {
+			setprop("/MCDU[0]/scratchpad", "CLR");
+		} else {
+			setprop("/MCDU[0]/scratchpad", " ");
 		}
 	} else if (btn == "0") {
 		setprop("/MCDU[0]/scratchpad", scratchpad ~ "0");
