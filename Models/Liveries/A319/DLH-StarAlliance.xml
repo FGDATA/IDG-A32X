@@ -9,5 +9,8 @@
 			</livery>
 		</model>
 	</sim>
+	<options>
+			<EIS2 type="bool">0</EIS2>
+	</options>
 </PropertyList>
 
