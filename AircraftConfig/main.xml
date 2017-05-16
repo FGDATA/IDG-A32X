@@ -61,15 +61,12 @@
 					</button>
 					<button>
 						<halign>center</halign>
-						<legend>Aircraft Tutorial</legend>
+						<legend>Aircraft Help</legend>
 						<pref-width>140</pref-width>
-						<enable>
-							<property>/systems/unused/unusedthing</property>
-						</enable>
 						<binding>
 							<command>nasal</command>
 							<script>
-							# Blank for now
+							acconfig.help_dlg.open();
 							</script>
 						</binding>
 					</button>

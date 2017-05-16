@@ -5,6 +5,13 @@
 	<sim>
 		
 		<author>Joshua Davidson (it0uchpods/411)</author>
+		
+		<rating>
+			<FDM type="int">4</FDM>
+			<systems type="int">4</systems>
+			<cockpit type="int">4</cockpit>
+			<model type="int">4</model>
+		</rating>
 
 		<model>
 			<pushback>
@@ -642,6 +649,16 @@
 					<command>nasal</command>
 					<script>
 					systems.do_rev_thrust();
+					</script>
+				</binding>
+			</key>
+			<key n="101">
+				<name>e</name>
+				<desc>Thrust Levers Idle</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					systems.do_idle_thrust();
 					</script>
 				</binding>
 			</key>

@@ -252,6 +252,11 @@ setlistener("/systems/pneumatic/start-psi", func {
 	}
 });
 
+var do_idle_thrust = func {
+	setprop("/controls/engines/engine[0]/throttle", 0.0);
+	setprop("/controls/engines/engine[1]/throttle", 0.0);
+}
+
 #########################
 # Reverse Thrust System #
 #########################
