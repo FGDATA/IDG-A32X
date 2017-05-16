@@ -28,7 +28,7 @@
 	
 	<model>
 		<name>STATUS</name>
-		<path>STATUS.xml</path>
+		<path>STATUS/STATUS.xml</path>
 		<offsets>
 			<heading-deg>180</heading-deg>
 			<roll-deg>180</roll-deg>
@@ -50,7 +50,7 @@
 	
 	<model>
 		<name>INITA</name>
-		<path>INITA.xml</path>
+		<path>INITA/INITA.xml</path>
 		<offsets>
 			<heading-deg>180</heading-deg>
 			<roll-deg>180</roll-deg>

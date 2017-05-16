@@ -269,7 +269,10 @@
 				<label>EIS2 Displays</label>
 				<halign>left</halign>
 				<enable>
-					<property>/systems/unused/unusedthing</property>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>1</value>
+					</equals>
 				</enable>
 				<property>/options/EIS2</property>
 				<binding>
