@@ -160,7 +160,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("status");</script>
+				<script>mcdu2.pagebutton("status");</script>
 				<condition>
 					<and>
 					<greater-than-equals>
