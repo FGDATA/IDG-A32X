@@ -166,7 +166,7 @@
 		</offsets>
 		<condition>
 			<and>
-				<!--not><property>/options/EIS2</property></not-->
+				<not><property>/options/EIS2</property></not>
 				<equals>
 					<property>/options/eng</property>
 					<value>CFM</value>
@@ -199,6 +199,35 @@
 				<equals>
 					<property>/options/eng</property>
 					<value>IAE</value>
+				</equals>
+				<or>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
+				</or>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
+		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-EIS2/Upper-ECAM-CFM.xml</path>
+		<offsets>
+			<x-m>-0.5807</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<property>/options/EIS2</property>
+				<equals>
+					<property>/options/eng</property>
+					<value>CFM</value>
 				</equals>
 				<or>
 					<greater-than-equals>

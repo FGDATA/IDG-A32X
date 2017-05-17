@@ -278,8 +278,8 @@
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0590</y-m>
-			<z-m>0.0532</z-m>
+			<y-m>-0.0265</y-m>
+			<z-m>0.0527</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -302,8 +302,8 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
-			<z-m>0.0532</z-m>
+			<y-m>0.0420</y-m>
+			<z-m>0.0527</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -326,8 +326,8 @@
 		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0590</y-m>
-			<z-m>0.0532</z-m>
+			<y-m>-0.0265</y-m>
+			<z-m>0.0527</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -350,8 +350,8 @@
 		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
-			<z-m>0.0532</z-m>
+			<y-m>0.0420</y-m>
+			<z-m>0.0527</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -374,8 +374,8 @@
 		<name>rev1.y</name>
 		<offsets>
     		<x-m>0.0004</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0640</z-m>
+			<y-m>-0.0345</y-m>
+    		<z-m>0.0645</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -398,8 +398,8 @@
 		<name>rev2.y</name>
 		<offsets>
     		<x-m>0.0004</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0640</z-m>
+    		<y-m>0.0340</y-m>
+    		<z-m>0.0645</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -422,8 +422,8 @@
 		<name>rev1.g</name>
 		<offsets>
     		<x-m>0.0004</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0640</z-m>
+			<y-m>-0.0345</y-m>
+    		<z-m>0.0645</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -446,8 +446,8 @@
 		<name>rev2.g</name>
 		<offsets>
     		<x-m>0.0004</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0640</z-m>
+    		<y-m>0.0340</y-m>
+    		<z-m>0.0645</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -472,8 +472,8 @@
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0600</y-m>
-			<z-m>0.0227</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>0.0278</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -496,8 +496,8 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
-			<z-m>0.0227</z-m>
+			<y-m>0.0334</y-m>
+			<z-m>0.0278</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -520,8 +520,8 @@
 		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0600</y-m>
-			<z-m>0.0227</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>0.0278</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -544,8 +544,8 @@
 		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
-			<z-m>0.0227</z-m>
+			<y-m>0.0334</y-m>
+			<z-m>0.0278</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -570,8 +570,8 @@
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.066</y-m>
-			<z-m>0.002</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>0.011</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -594,8 +594,8 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.00</y-m>
-			<z-m>0.002</z-m>
+			<y-m>0.0336</y-m>
+			<z-m>0.011</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -618,8 +618,8 @@
 		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.066</y-m>
-			<z-m>0.002</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>0.011</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -642,8 +642,8 @@
 		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.00</y-m>
-			<z-m>0.002</z-m>
+			<y-m>0.0336</y-m>
+			<z-m>0.011</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -668,8 +668,8 @@
 		<name>osgtext-blue</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.0265</y-m>
-    		<z-m>0.0518</z-m>
+			<y-m>0.07</y-m>
+    		<z-m>0.072</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -692,8 +692,8 @@
 		<name>osgtext-green</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.0485</y-m>
-    		<z-m>0.0518</z-m>
+			<y-m>0.07</y-m>
+    		<z-m>0.066</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -718,8 +718,8 @@
 		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.066</y-m>
-			<z-m>-0.0167</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>-0.0036</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -742,8 +742,8 @@
 		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.00</y-m>
-			<z-m>-0.0167</z-m>
+			<y-m>0.0336</y-m>
+			<z-m>-0.0036</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -766,8 +766,8 @@
 		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.066</y-m>
-			<z-m>-0.0167</z-m>
+			<y-m>-0.0349</y-m>
+			<z-m>-0.0036</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -790,8 +790,8 @@
 		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.00</y-m>
-			<z-m>-0.0167</z-m>
+			<y-m>0.0336</y-m>
+			<z-m>-0.0036</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -816,8 +816,8 @@
 		<name>osgtext-green</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>0.0525</y-m>
-			<z-m>0.0316</z-m>
+			<y-m>-0.0447</y-m>
+			<z-m>-0.0160</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -845,16 +845,15 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
-			<entry><ind> 50</ind><dep> 72</dep></entry>
-			<entry><ind>100</ind><dep>178</dep></entry>
-			<entry><ind>110</ind><dep>195</dep></entry>
+			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 50</ind><dep> 53</dep></entry>
+			<entry><ind>100</ind><dep>152</dep></entry>
+			<entry><ind>110</ind><dep>170</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>-0.0350</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -868,16 +867,15 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
-			<entry><ind> 50</ind><dep> 72</dep></entry>
-			<entry><ind>100</ind><dep>178</dep></entry>
-			<entry><ind>110</ind><dep>195</dep></entry>
+			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 50</ind><dep> 53</dep></entry>
+			<entry><ind>100</ind><dep>152</dep></entry>
+			<entry><ind>110</ind><dep>170</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>0.0335</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -891,16 +889,15 @@
     	<object-name>n1limy1</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
-			<entry><ind> 50</ind><dep> 72</dep></entry>
-			<entry><ind>100</ind><dep>178</dep></entry>
-			<entry><ind>110</ind><dep>195</dep></entry>
+			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 50</ind><dep> 53</dep></entry>
+			<entry><ind>100</ind><dep>152</dep></entry>
+			<entry><ind>110</ind><dep>170</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>-0.0350</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -914,16 +911,15 @@
     	<object-name>n1limy2</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
-			<entry><ind> 50</ind><dep> 72</dep></entry>
-			<entry><ind>100</ind><dep>178</dep></entry>
-			<entry><ind>110</ind><dep>195</dep></entry>
+			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 50</ind><dep> 53</dep></entry>
+			<entry><ind>100</ind><dep>152</dep></entry>
+			<entry><ind>110</ind><dep>170</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>0.0335</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -937,24 +933,24 @@
     	<object-name>thrpos1</object-name>
     	<property>/controls/engines/engine[0]/throttle</property>
 		<interpolation>
-			<entry><ind>0.00000</ind><dep> -2</dep></entry>
-			<entry><ind>0.23350</ind><dep> 72</dep></entry>
-			<entry><ind>0.59999</ind><dep>160</dep></entry>
-			<entry><ind>0.60000</ind><dep>161</dep></entry>
-			<entry><ind>0.64999</ind><dep>161</dep></entry>
-			<entry><ind>0.65000</ind><dep>162</dep></entry>
-			<entry><ind>0.77999</ind><dep>172</dep></entry>
-			<entry><ind>0.78000</ind><dep>173</dep></entry>
-			<entry><ind>0.82999</ind><dep>173</dep></entry>
-			<entry><ind>0.83000</ind><dep>174</dep></entry>
-			<entry><ind>0.94999</ind><dep>180</dep></entry>
-			<entry><ind>0.95000</ind><dep>181</dep></entry>
-			<entry><ind>1.00000</ind><dep>181</dep></entry>
+			<entry><ind>0.00000</ind><dep>-12</dep></entry>
+			<entry><ind>0.23350</ind><dep> 53</dep></entry>
+			<entry><ind>0.59999</ind><dep>135</dep></entry>
+			<entry><ind>0.60000</ind><dep>136</dep></entry>
+			<entry><ind>0.64999</ind><dep>136</dep></entry>
+			<entry><ind>0.65000</ind><dep>137</dep></entry>
+			<entry><ind>0.77999</ind><dep>146</dep></entry>
+			<entry><ind>0.78000</ind><dep>147</dep></entry>
+			<entry><ind>0.82999</ind><dep>147</dep></entry>
+			<entry><ind>0.83000</ind><dep>148</dep></entry>
+			<entry><ind>0.94999</ind><dep>154</dep></entry>
+			<entry><ind>0.95000</ind><dep>155</dep></entry>
+			<entry><ind>1.00000</ind><dep>155</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>-0.0350</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -968,24 +964,24 @@
     	<object-name>thrpos2</object-name>
     	<property>/controls/engines/engine[1]/throttle</property>
 		<interpolation>
-			<entry><ind>0.00000</ind><dep> -2</dep></entry>
-			<entry><ind>0.23350</ind><dep> 72</dep></entry>
-			<entry><ind>0.59999</ind><dep>160</dep></entry>
-			<entry><ind>0.60000</ind><dep>161</dep></entry>
-			<entry><ind>0.64999</ind><dep>161</dep></entry>
-			<entry><ind>0.65000</ind><dep>162</dep></entry>
-			<entry><ind>0.77999</ind><dep>172</dep></entry>
-			<entry><ind>0.78000</ind><dep>173</dep></entry>
-			<entry><ind>0.82999</ind><dep>173</dep></entry>
-			<entry><ind>0.83000</ind><dep>174</dep></entry>
-			<entry><ind>0.94999</ind><dep>180</dep></entry>
-			<entry><ind>0.95000</ind><dep>181</dep></entry>
-			<entry><ind>1.00000</ind><dep>181</dep></entry>
+			<entry><ind>0.00000</ind><dep>-12</dep></entry>
+			<entry><ind>0.23350</ind><dep> 53</dep></entry>
+			<entry><ind>0.59999</ind><dep>135</dep></entry>
+			<entry><ind>0.60000</ind><dep>136</dep></entry>
+			<entry><ind>0.64999</ind><dep>136</dep></entry>
+			<entry><ind>0.65000</ind><dep>137</dep></entry>
+			<entry><ind>0.77999</ind><dep>146</dep></entry>
+			<entry><ind>0.78000</ind><dep>147</dep></entry>
+			<entry><ind>0.82999</ind><dep>147</dep></entry>
+			<entry><ind>0.83000</ind><dep>148</dep></entry>
+			<entry><ind>0.94999</ind><dep>154</dep></entry>
+			<entry><ind>0.95000</ind><dep>155</dep></entry>
+			<entry><ind>1.00000</ind><dep>155</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0579</z-m>
+    		<y-m>0.0335</y-m>
+    		<z-m>0.0591</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1001,14 +997,14 @@
     	<object-name>egt1</object-name>
     	<property>/engines/engine/egt-actual</property>
 		<interpolation>
-			<entry><ind>   0</ind><dep>  3</dep></entry>
-			<entry><ind> 500</ind><dep> 76</dep></entry>
-			<entry><ind>1000</ind><dep>160</dep></entry>
+			<entry><ind>  0</ind><dep>   0</dep></entry>
+			<entry><ind>500</ind><dep>  90</dep></entry>
+			<entry><ind>1000</ind><dep>180</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0265</z-m>
+    		<y-m>-0.0351</y-m>
+    		<z-m>0.0271</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1022,14 +1018,14 @@
     	<object-name>egt2</object-name>
     	<property>/engines/engine[1]/egt-actual</property>
 		<interpolation>
-			<entry><ind>   0</ind><dep>  3</dep></entry>
-			<entry><ind> 500</ind><dep> 76</dep></entry>
-			<entry><ind>1000</ind><dep>160</dep></entry>
+			<entry><ind>  0</ind><dep>   0</dep></entry>
+			<entry><ind>500</ind><dep>  90</dep></entry>
+			<entry><ind>1000</ind><dep>180</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0265</z-m>
+    		<y-m>0.0334</y-m>
+    		<z-m>0.0271</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1037,15 +1033,15 @@
     		<z>0</z>
     	</axis>
     </animation>
-
+    
     <!-- Flaps Indicator -->
 	
 	<text>
 		<name>osgtext-green</name>
 		<offsets>
 			<x-m>0.0007</x-m>
-			<y-m>0.0445</y-m>
-    		<z-m>-0.0018</z-m>
+			<y-m>0.0335</y-m>
+    		<z-m>-0.0172</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>

@@ -4,7 +4,7 @@ MATERIAL "DefaultWhite.001" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 64
 MATERIAL "ac3dmat9" rgb 0 0.356863 0.717647  amb 0 0 0  emis 0 0.356863 0.717647  spec 0 0 0  shi 0  trans 0
 MATERIAL "Material.001" rgb 0.8 0.5614 0  amb 1 1 1  emis 0.8 0.8 0.8  spec 0.5 0.5 0.5  shi 50  trans 0
 OBJECT world
-kids 18
+kids 14
 OBJECT poly
 name "egt2"
 loc 0.000794735 0.027279 -0.0182949
@@ -45,25 +45,6 @@ refs 4
 kids 0
 OBJECT poly
 name "n12"
-loc 0.000794736 -0.000248273 -0.0255507
-texture "symbols.png"
-crease 45.000000
-numvert 4
-0 -0.00188643 0.00651396
-0 -0.00245427 0.00633497
-0 0.00156807 -0.00661433
-0 0.00270377 -0.0062563
-numsurf 1
-SURF 0x30
-mat 0
-refs 4
-0 0.343129 0.181706
-1 0.343129 0.146419
-2 0.0771681 0.146419
-3 0.0771681 0.181706
-kids 0
-OBJECT poly
-name "epr2"
 loc 0.000794735 0.0565868 -0.0269054
 texture "symbols.png"
 crease 45.000000
@@ -82,7 +63,7 @@ refs 4
 3 0.0771681 0.181706
 kids 0
 OBJECT poly
-name "eprlimy2"
+name "n1limy2"
 loc 0.00028362 0.057454 -0.016538
 texture "yellow.png"
 crease 30.000002
@@ -957,7 +938,7 @@ refs 3
 60 0.5 0.5
 kids 0
 OBJECT poly
-name "eprlimy1"
+name "n1limy1"
 loc 0.00028362 0.057454 0.0520734
 texture "yellow.png"
 crease 30.000002
@@ -1832,25 +1813,6 @@ refs 3
 0 0.5 0.5
 kids 0
 OBJECT poly
-name "n11"
-loc 0.000794736 -0.000248273 0.0430787
-texture "symbols.png"
-crease 45.000000
-numvert 4
-0 0.00270377 -0.0062563
-0 0.00156807 -0.00661432
-0 -0.00245427 0.00633497
-0 -0.00188643 0.00651396
-numsurf 1
-SURF 0x30
-mat 0
-refs 4
-3 0.343129 0.181706
-2 0.343129 0.146419
-1 0.0771681 0.146419
-0 0.0771681 0.181706
-kids 0
-OBJECT poly
 name "egt1"
 loc 0.000794735 0.027279 0.0503317
 texture "symbols.png"
@@ -1870,7 +1832,7 @@ refs 4
 3 0.0771681 0.181706
 kids 0
 OBJECT poly
-name "epr1"
+name "n11"
 loc 0.000794735 0.0565868 0.0416832
 texture "symbols.png"
 crease 45.000000
@@ -1891,7 +1853,7 @@ kids 0
 OBJECT poly
 name "face"
 loc 1.66782e-005 -0.0851298 -0.51126
-texture "eicasIAE.png"
+texture "eicasCFM.png"
 crease 45.000000
 numvert 16
 0 0.00773945 0.430689
@@ -2023,7 +1985,7 @@ kids 0
 OBJECT poly
 name "XX2"
 loc 2.26668e-005 -0.0851298 -0.51126
-texture "eicasIAE-extra.png"
+texture "eicasCFM-extra.png"
 crease 45.000000
 numvert 8
 0 0.104181 0.495741
@@ -2058,56 +2020,9 @@ refs 4
 4 0.81184 0.621658
 kids 0
 OBJECT poly
-name "XX4"
-loc 2.26668e-005 -0.0851298 -0.51126
-texture "eicasIAE-extra.png"
-crease 45.000000
-numvert 4
-0 0.104181 0.495741
-0 0.0812431 0.495741
-0 0.104181 0.460072
-0 0.0812431 0.460072
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-2 0.81184 0.621658
-0 0.594542 0.621658
-1 0.594542 0.478566
-3 0.81184 0.478567
-kids 0
-OBJECT poly
-name "XX3"
-loc 2.26668e-005 -0.0851298 -0.51126
-texture "eicasIAE-extra.png"
-crease 45.000000
-numvert 6
-0 0.104181 0.56434
-0 0.0812431 0.56434
-0 0.101015 0.527829
-0 0.0812431 0.527829
-0 0.104181 0.527829
-0 0.104181 0.531131
-numsurf 2
-SURF 0x10
-mat 0
-refs 3
-4 0.399062 0.621658
-5 0.378944 0.621658
-2 0.399062 0.601908
-SURF 0x10
-mat 0
-refs 5
-1 0.176631 0.478566
-3 0.399062 0.478566
-2 0.399062 0.601908
-5 0.378944 0.621658
-0 0.176631 0.621658
-kids 0
-OBJECT poly
 name "XX1"
 loc 2.26668e-005 -0.0851298 -0.51126
-texture "eicasIAE-extra.png"
+texture "eicasCFM-extra.png"
 crease 45.000000
 numvert 8
 0 0.161764 0.56434
