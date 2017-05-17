@@ -53,7 +53,7 @@
             <expression>
 				<sum>
 					<property>/controls/flight/elevator</property>
-					<value>0.10</value>
+					<value>0.05</value>
 				</sum>
             </expression>
 		</input>
