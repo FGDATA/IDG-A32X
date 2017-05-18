@@ -112,7 +112,7 @@ var master_pneu = func {
 	if ((bleed1 + bleed2 + bleedapu) > 42) {
 		setprop("/systems/pneumatic/total-psi", 42);
 	} else {
-		var total_psi_calc = ((bleed1 + bleed2 + bleedapu) - start_psi - pack_psi);
+		var total_psi_calc = ((bleed1 + bleed2 + bleedapu + ground) - start_psi - pack_psi);
 		setprop("/systems/pneumatic/total-psi", total_psi_calc);
 	}
 	
