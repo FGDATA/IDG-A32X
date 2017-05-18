@@ -19,10 +19,7 @@ var MCDU_reset = func {
 var lskbutton = func(btn) {
 	if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "STATUS");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "STATUS");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -39,7 +36,6 @@ var initInputA = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
 	if (key == "L5") {
 		if (scratchpad == "CLR") {
-			screenFlash(0.2);
 			setprop("/FMGC/internal/cost-index", 0);
 			setprop("/FMGC/internal/cost-index-set", 0);
 			setprop("/MCDU[0]/scratchpad", "");
@@ -48,22 +44,18 @@ var initInputA = func(key) {
 			var cis = size(scratchpad);
 			if (cis >= 1 and cis <= 3) {
 				if (cis >= 0 and cis <= 120) {
-					screenFlash(0.2);
 					setprop("/FMGC/internal/cost-index", ci);
 					setprop("/FMGC/internal/cost-index-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
-					screenFlash(0.2);
 					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
-				screenFlash(0.2);
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 			}
 		}
 	} else if (key == "L6") {
 		if (scratchpad == "CLR") {
-			screenFlash(0.2);
 			setprop("/FMGC/internal/cruise-ft", 10000);
 			setprop("/FMGC/internal/cruise-fl", 100);
 			setprop("/FMGC/internal/cruise-lvl-set", 0);
@@ -73,17 +65,14 @@ var initInputA = func(key) {
 			var crzs = size(scratchpad);
 			if (crzs >= 1 and crzs <= 3) {
 				if (crz > 0 and crz <= 430) {
-					screenFlash(0.2);
 					setprop("/FMGC/internal/cruise-ft", crz * 100);
 					setprop("/FMGC/internal/cruise-fl", crz);
 					setprop("/FMGC/internal/cruise-lvl-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
-					screenFlash(0.2);
 					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
-				screenFlash(0.2);
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 			}
 		}
@@ -97,49 +86,25 @@ var rskbutton = func(btn) {
 var arrowbutton = func(btn) {
 	if (btn == "left") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "DATA2");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "DATA2");
 		} else if (getprop("/MCDU[0]/page") == "DATA2") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "DATA");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "DATA");
 		}
 		if (getprop("/MCDU[0]/page") == "INITA") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "INITB");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "INITB");
 		} else if (getprop("/MCDU[0]/page") == "INITB") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "INITA");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "INITA");
 		}
 	} else if (btn == "right") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "DATA2");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "DATA2");
 		} else if (getprop("/MCDU[0]/page") == "DATA2") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "DATA");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "DATA");
 		}
 		if (getprop("/MCDU[0]/page") == "INITA") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "INITB");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "INITB");
 		} else if (getprop("/MCDU[0]/page") == "INITB") {
-			setprop("/MCDU[0]/page", "NONE");
-			settimer(func {
-				setprop("/MCDU[0]/page", "INITA");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "INITA");
 		}
 	} else if (btn == "up") {
 		# Nothing for now
@@ -150,22 +115,13 @@ var arrowbutton = func(btn) {
 
 var pagebutton = func(btn) {
 	if (btn == "perf") {
-		setprop("/MCDU[0]/page", "NONE");
 		if (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) {
-			settimer(func {
-				setprop("/MCDU[0]/page", "TO");
-			}, 0.2);
+			setprop("/MCDU[0]/page", "TO");
 		}
 	} else if (btn == "init") {
-		setprop("/MCDU[0]/page", "NONE");	
-		settimer(func {
-			setprop("/MCDU[0]/page", "INITA");
-		}, 0.2);
+		setprop("/MCDU[0]/page", "INITA");
 	} else if (btn == "data") {
-		setprop("/MCDU[0]/page", "NONE");	
-		settimer(func {
-			setprop("/MCDU[0]/page", "DATA");
-		}, 0.2);
+		setprop("/MCDU[0]/page", "DATA");
 	}
 }
 
