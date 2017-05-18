@@ -73,6 +73,17 @@ var arrowbutton = func(btn) {
 				setprop("/MCDU[1]/page", "DATA");
 			}, 0.2);
 		}
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			setprop("/MCDU[1]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[1]/page", "INITB");
+			}, 0.2);
+		} else if (getprop("/MCDU[1]/page") == "INITB") {
+			setprop("/MCDU[1]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[1]/page", "INITA");
+			}, 0.2);
+		}
 	} else if (btn == "right") {
 		if (getprop("/MCDU[1]/page") == "DATA") {
 			setprop("/MCDU[1]/page", "NONE");
@@ -83,6 +94,17 @@ var arrowbutton = func(btn) {
 			setprop("/MCDU[1]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[1]/page", "DATA");
+			}, 0.2);
+		}
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			setprop("/MCDU[1]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[1]/page", "INITB");
+			}, 0.2);
+		} else if (getprop("/MCDU[1]/page") == "INITB") {
+			setprop("/MCDU[1]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[1]/page", "INITA");
 			}, 0.2);
 		}
 	} else if (btn == "up") {

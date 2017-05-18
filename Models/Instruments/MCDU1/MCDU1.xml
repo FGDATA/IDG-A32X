@@ -71,6 +71,28 @@
 	</model>
 	
 	<model>
+		<name>INITB</name>
+		<path>INITB/INITB.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<equals>
+					<property>/MCDU[0]/page</property>
+					<value>INITB</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
 		<name>DATA</name>
 		<path>DATA/DATA.xml</path>
 		<offsets>

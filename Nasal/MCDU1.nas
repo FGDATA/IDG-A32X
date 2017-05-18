@@ -42,8 +42,6 @@ var initInputA = func(key) {
 		} else {
 			var crz = int(scratchpad);
 			var crzs = size(scratchpad);
-			print(crz);
-			print(crzs);
 			if (crzs >= 1 and crzs <= 3) {
 				screenFlash(0.2);
 				setprop("/FMGC/internal/cruise-ft", crz * 100);
@@ -75,6 +73,17 @@ var arrowbutton = func(btn) {
 				setprop("/MCDU[0]/page", "DATA");
 			}, 0.2);
 		}
+		if (getprop("/MCDU[0]/page") == "INITA") {
+			setprop("/MCDU[0]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[0]/page", "INITB");
+			}, 0.2);
+		} else if (getprop("/MCDU[0]/page") == "INITB") {
+			setprop("/MCDU[0]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[0]/page", "INITA");
+			}, 0.2);
+		}
 	} else if (btn == "right") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
 			setprop("/MCDU[0]/page", "NONE");
@@ -85,6 +94,17 @@ var arrowbutton = func(btn) {
 			setprop("/MCDU[0]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[0]/page", "DATA");
+			}, 0.2);
+		}
+		if (getprop("/MCDU[0]/page") == "INITA") {
+			setprop("/MCDU[0]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[0]/page", "INITB");
+			}, 0.2);
+		} else if (getprop("/MCDU[0]/page") == "INITB") {
+			setprop("/MCDU[0]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[0]/page", "INITA");
 			}, 0.2);
 		}
 	} else if (btn == "up") {
