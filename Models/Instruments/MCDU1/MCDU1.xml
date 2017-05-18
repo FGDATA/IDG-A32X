@@ -182,29 +182,71 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("perfto");</script>
+				<script>mcdu1.pagebutton("perf");</script>
 				<condition>
-				<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<or>
-						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>1</value>
-						</equals>
-					</or>
-				</and>
 				</condition>
 			</binding>
 		</action>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>L1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.latbutton("1");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>L2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.latbutton("2");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>L3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.latbutton("3");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
 	<animation>
 		<type>pick</type>
 		<object-name>L4</object-name>
@@ -213,18 +255,48 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("status");</script>
+				<script>mcdu1.latbutton("4");</script>
 				<condition>
-					<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<equals>
-						<property>/MCDU[0]/page</property>
-						<value>DATA</value>
-					</equals>
-					</and>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>L5</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.latbutton("5");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>L6</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.latbutton("6");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>
@@ -232,28 +304,113 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>right</object-name>
+		<object-name>R1</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("data2");</script>
+				<script>mcdu1.vertbutton("1");</script>
 				<condition>
-					<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<equals>
-						<property>/MCDU[0]/page</property>
-						<value>DATA</value>
-					</equals>
-					</and>
 				</condition>
 			</binding>
 		</action>
 	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>R2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.vertbutton("2");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>R3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.vertbutton("3");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>R4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.vertbutton("4");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>R5</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.vertbutton("5");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>R6</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.vertbutton("6");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>left</object-name>
@@ -262,18 +419,12 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("data2");</script>
+				<script>mcdu1.arrowbutton("left");</script>
 				<condition>
-					<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<equals>
-						<property>/MCDU[0]/page</property>
-						<value>DATA</value>
-					</equals>
-					</and>
 				</condition>
 			</binding>
 		</action>
@@ -286,42 +437,48 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("data");</script>
+				<script>mcdu1.arrowbutton("right");</script>
 				<condition>
-					<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<equals>
-						<property>/MCDU[0]/page</property>
-						<value>DATA2</value>
-					</equals>
-					</and>
 				</condition>
 			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>left</object-name>
+		<object-name>up</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu1.pagebutton("data");</script>
+				<script>mcdu1.arrowbutton("up");</script>
 				<condition>
-					<and>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
 						<value>25</value>
 					</greater-than-equals>
-					<equals>
-						<property>/MCDU[0]/page</property>
-						<value>DATA2</value>
-					</equals>
-					</and>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>down</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.arrowbutton("down");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
 				</condition>
 			</binding>
 		</action>

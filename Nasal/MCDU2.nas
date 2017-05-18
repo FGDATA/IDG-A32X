@@ -14,35 +14,68 @@ var MCDU_reset = func {
 	setprop("/MCDU[1]/scratchpad", " ");
 }
 
+var latbutton = func(btn) {
+	if (btn == "4") {
+		if (getprop("/MCDU[1]/page") == "DATA") {
+			setprop("/MCDU[1]/page", "NONE");
+			settimer(func {
+				setprop("/MCDU[1]/page", "STATUS");
+			}, 0.2);
+		}
+	}
+}
+
+var vertbutton = func(btn) {
+	# LOL Nothing here :D
+}
+
+var arrowbutton = func(btn) {
+	if (btn == "left") {
+		setprop("/MCDU[1]/page", "NONE");
+		if (getprop("/MCDU[1]/page") == "DATA") {
+			settimer(func {
+				setprop("/MCDU[1]/page", "DATA2");
+			}, 0.2);
+		} else if (getprop("/MCDU[1]/page") == "DATA2") {
+			settimer(func {
+				setprop("/MCDU[1]/page", "DATA");
+			}, 0.2);
+		}
+	} else if (btn == "right") {
+		setprop("/MCDU[1]/page", "NONE");
+		if (getprop("/MCDU[1]/page") == "DATA") {
+			settimer(func {
+				setprop("/MCDU[1]/page", "DATA2");
+			}, 0.2);
+		} else if (getprop("/MCDU[1]/page") == "DATA2") {
+			settimer(func {
+				setprop("/MCDU[1]/page", "DATA");
+			}, 0.2);
+		}
+	} else if (btn == "up") {
+		# Nothing for now
+	} else if (btn == "down") {
+		# Nothing for now
+	}
+}
+
 var pagebutton = func(btn) {
-	if (btn == "init") {
+	if (btn == "perf") {
+		setprop("/MCDU[1]/page", "NONE");
+		if (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) {
+			settimer(func {
+				setprop("/MCDU[1]/page", "TO");
+			}, 0.2);
+		}
+	} else if (btn == "init") {
 		setprop("/MCDU[1]/page", "NONE");	
 		settimer(func {
 			setprop("/MCDU[1]/page", "INITA");
 		}, 0.2);
-	}
-	if (btn == "data") {
+	} else if (btn == "data") {
 		setprop("/MCDU[1]/page", "NONE");	
 		settimer(func {
 			setprop("/MCDU[1]/page", "DATA");
-		}, 0.2);
-	}
-	if (btn == "status") {
-		setprop("/MCDU[1]/page", "NONE");	
-		settimer(func {
-			setprop("/MCDU[1]/page", "STATUS");
-		}, 0.2);
-	}
-	if (btn == "data2") {
-		setprop("/MCDU[1]/page", "NONE");	
-		settimer(func {
-			setprop("/MCDU[1]/page", "DATA2");
-		}, 0.2);
-	}
-	if (btn == "perfto") {
-		setprop("/MCDU[1]/page", "NONE");	
-		settimer(func {
-			setprop("/MCDU[1]/page", "TO");
 		}, 0.2);
 	}
 }
@@ -104,7 +137,7 @@ var button = func(btn) {
 	} else if (btn == "SLASH") {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ "/");
 	} else if (btn == "SP") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ " "); # adds a space
+		setprop("/MCDU[1]/scratchpad", scratchpad ~ " "); # this button adds a space
 	} else if (btn == "CLR") {
 		var scratchpad = getprop("/MCDU[1]/scratchpad");
 		if (scratchpad == " ") {
