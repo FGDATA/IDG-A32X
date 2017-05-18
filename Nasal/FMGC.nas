@@ -13,7 +13,9 @@ var FMGCinit = func {
 	setprop("/FMGC/internal/cruise-fl", 10000); 
 	setprop("/FMGC/internal/tropo", 36090);
 	setprop("/FMGC/internal/cost", " ");
+	setprop("/FMGC/internal/greendot-kts", 0);
 	phasecheck.start();
+	greendot.start();
 }
 
 #############
@@ -70,7 +72,7 @@ var phasecheck = maketimer(0.2, func {
 	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and flaps < 4 and (mode == "SRS")) {
 		setprop("/FMGC/status/phase", "1");
 	}
-	if ((alt >= 1500) and (alt <= cruisefl) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
+	if ((alt >= 3000) and (alt <= cruisefl) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
 		setprop("/FMGC/status/phase", "2");
 	}
 	if ((alt >= cruisefl) and (phase == "2") and (mode != "SRS")) {
@@ -95,3 +97,13 @@ var phasecheck = maketimer(0.2, func {
 	}
 });
 
+var greendot = maketimer(0.1, func {
+	var gwlb = getprop("fdm/jsbsim/inertia/weight-lbs");
+	var factor = 0.45359237;
+	var kg = (gwlb * factor);
+	var alt = getprop("position/altitude-ft");
+	var kg2= (kg / 1000);
+	var greendot = ((kg2 * 2) + 85);
+	setprop("/FMGC/internal/greendot-kts", greendot);
+});
+	
