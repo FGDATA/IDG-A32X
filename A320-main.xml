@@ -73,7 +73,7 @@
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
             </autopilot>
             <autopilot>
-                <path>Aircraft/A320Family/Systems/thrust-iae.xml</path>
+                <path>Aircraft/A320Family/Systems/thrust.xml</path>
             </autopilot>
             <autopilot>
                 <name>Custom engine values system</name>
