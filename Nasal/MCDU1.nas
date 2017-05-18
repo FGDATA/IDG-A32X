@@ -12,6 +12,7 @@ var MCDU_reset = func {
 	setprop("/MCDU[0]/cost-index", 0);
 	setprop("/MCDU[0]/flight-num", 0);
 	setprop("/MCDU[0]/scratchpad", "");
+	setprop("/FMGC/internal/cost-index-set", 0);
 	setprop("/FMGC/internal/cruise-lvl-set", 0);
 }
 
@@ -23,6 +24,10 @@ var lskbutton = func(btn) {
 				setprop("/MCDU[0]/page", "STATUS");
 			}, 0.2);
 		}
+	} else if (btn == "5") {
+		if (getprop("/MCDU[0]/page") == "INITA") {
+			initInputA("L5");
+		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L6");
@@ -32,7 +37,31 @@ var lskbutton = func(btn) {
 
 var initInputA = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
-	if (key == "L6") {
+	if (key == "L5") {
+		if (scratchpad == "CLR") {
+			screenFlash(0.2);
+			setprop("/FMGC/internal/cost-index", 0);
+			setprop("/FMGC/internal/cost-index-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var ci = int(scratchpad);
+			var cis = size(scratchpad);
+			if (cis >= 1 and cis <= 3) {
+				if (cis >= 0 and cis <= 120) {
+					screenFlash(0.2);
+					setprop("/FMGC/internal/cost-index", ci);
+					setprop("/FMGC/internal/cost-index-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					screenFlash(0.2);
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				screenFlash(0.2);
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L6") {
 		if (scratchpad == "CLR") {
 			screenFlash(0.2);
 			setprop("/FMGC/internal/cruise-ft", 10000);

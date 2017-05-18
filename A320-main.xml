@@ -343,6 +343,9 @@
 	</apu>
 	
 	<FMGC n="0">
+		<internal>
+			<cost-index type="int">0</cost-index>
+		</internal>
 		<status>
 			<to-state type="bool">1</to-state>
 		</status>

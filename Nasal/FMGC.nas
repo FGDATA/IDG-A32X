@@ -13,7 +13,7 @@ var FMGCinit = func {
 	setprop("/FMGC/internal/cruise-ft", 10000);
 	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/tropo", 36090);
-	setprop("/FMGC/internal/cost", " ");
+	setprop("/FMGC/internal/cost-index", "0");
 	setprop("/FMGC/internal/greendot-kts", 0);
 	phasecheck.start();
 	greendott.start();

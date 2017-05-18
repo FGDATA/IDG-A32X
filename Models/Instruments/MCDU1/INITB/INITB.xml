@@ -289,7 +289,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0275</z-m>
+			<z-m>0.0280</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -360,7 +360,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0170</z-m>
+			<z-m>0.0180</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>

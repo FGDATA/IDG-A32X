@@ -381,7 +381,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0275</z-m>
+			<z-m>0.0285</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -399,6 +399,44 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>costindex3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0285</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/cost-index</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>costindex2</object-name>
+		<condition>
+			<not><property>/FMGC/internal/cost-index-set</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>costindex3</object-name>
+		<condition>
+			<property>/FMGC/internal/cost-index-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>wind</name>
@@ -498,12 +536,12 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0170</z-m>
+			<z-m>0.0180</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">----- /---</format>
+		<format type="string">-----/---</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -521,7 +559,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0170</z-m>
+			<z-m>0.0180</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -801,6 +839,7 @@
 		<object-name>tropovalue</object-name>
 		<object-name>LONG-val</object-name>
 		<object-name>LAT-val</object-name>
+		<object-name>costindex3</object-name>
 		<object-name>crzfltemp3</object-name>
         <diffuse>
             <red>0</red>
