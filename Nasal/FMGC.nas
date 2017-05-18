@@ -12,7 +12,7 @@ var FMGCinit = func {
 	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
 	setprop("/FMGC/internal/cruise-fl", 10000); 
 	setprop("/FMGC/internal/tropo", 36090);
-	setprop("/FMGC/internal/cost", " ");
+	setprop("/FMGC/internal/cost", "");
 	setprop("/FMGC/internal/greendot-kts", 0);
 	phasecheck.start();
 	greendot.start();
