@@ -43,11 +43,16 @@ var initInputA = func(key) {
 			var crz = int(scratchpad);
 			var crzs = size(scratchpad);
 			if (crzs >= 1 and crzs <= 3) {
-				screenFlash(0.2);
-				setprop("/FMGC/internal/cruise-ft", crz * 100);
-				setprop("/FMGC/internal/cruise-fl", crz);
-				setprop("/FMGC/internal/cruise-lvl-set", 1);
-				setprop("/MCDU[0]/scratchpad", "");
+				if (crz > 0 and crz <= 430) {
+					screenFlash(0.2);
+					setprop("/FMGC/internal/cruise-ft", crz * 100);
+					setprop("/FMGC/internal/cruise-fl", crz);
+					setprop("/FMGC/internal/cruise-lvl-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					screenFlash(0.2);
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
 			} else {
 				screenFlash(0.2);
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
