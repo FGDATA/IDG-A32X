@@ -201,7 +201,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("1");</script>
+				<script>mcdu2.lskbutton("1");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -219,7 +219,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("2");</script>
+				<script>mcdu2.lskbutton("2");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -237,7 +237,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("3");</script>
+				<script>mcdu2.lskbutton("3");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -255,7 +255,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("4");</script>
+				<script>mcdu2.lskbutton("4");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -273,7 +273,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("5");</script>
+				<script>mcdu2.lskbutton("5");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -291,7 +291,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.latbutton("6");</script>
+				<script>mcdu2.lskbutton("6");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -310,7 +310,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("1");</script>
+				<script>mcdu2.rskbutton("1");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -328,7 +328,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("2");</script>
+				<script>mcdu2.rskbutton("2");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -346,7 +346,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("3");</script>
+				<script>mcdu2.rskbutton("3");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -364,7 +364,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("4");</script>
+				<script>mcdu2.rskbutton("4");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -382,7 +382,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("5");</script>
+				<script>mcdu2.rskbutton("5");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
@@ -400,7 +400,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu2.vertbutton("6");</script>
+				<script>mcdu2.rskbutton("6");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>

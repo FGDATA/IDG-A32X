@@ -11,10 +11,11 @@ var MCDU_reset = func {
 	setprop("/MCDU[1]/page", "STATUS");
 	setprop("/MCDU[1]/cost-index", 0);
 	setprop("/MCDU[1]/flight-num", 0);
-	setprop("/MCDU[1]/scratchpad", " ");
+	setprop("/MCDU[1]/scratchpad", "");
+	setprop("/FMGC/internal/cruise-lvl-set", 0);
 }
 
-var latbutton = func(btn) {
+var lskbutton = func(btn) {
 	if (btn == "4") {
 		if (getprop("/MCDU[1]/page") == "DATA") {
 			setprop("/MCDU[1]/page", "NONE");
@@ -22,32 +23,64 @@ var latbutton = func(btn) {
 				setprop("/MCDU[1]/page", "STATUS");
 			}, 0.2);
 		}
+	} else if (btn == "6") {
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			initInputA("L6");
+		}
 	}
 }
 
-var vertbutton = func(btn) {
+var initInputA = func(key) {
+	var scratchpad = getprop("/MCDU[1]/scratchpad");
+	if (key == "L6") {
+		if (scratchpad == "CLR") {
+			screenFlash(0.2);
+			setprop("/FMGC/internal/cruise-ft", 10000);
+			setprop("/FMGC/internal/cruise-fl", 100);
+			setprop("/FMGC/internal/cruise-lvl-set", 0);
+			setprop("/MCDU[1]/scratchpad", "");
+		} else {
+			var crz = int(scratchpad);
+			var crzs = size(scratchpad);
+			if (crzs >= 1 and crzs <= 3) {
+				screenFlash(0.2);
+				setprop("/FMGC/internal/cruise-ft", crz * 100);
+				setprop("/FMGC/internal/cruise-fl", crz);
+				setprop("/FMGC/internal/cruise-lvl-set", 1);
+				setprop("/MCDU[1]/scratchpad", "");
+			} else {
+				screenFlash(0.2);
+				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	}
+}
+
+var rskbutton = func(btn) {
 	# LOL Nothing here :D
 }
 
 var arrowbutton = func(btn) {
 	if (btn == "left") {
-		setprop("/MCDU[1]/page", "NONE");
 		if (getprop("/MCDU[1]/page") == "DATA") {
+			setprop("/MCDU[1]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[1]/page", "DATA2");
 			}, 0.2);
 		} else if (getprop("/MCDU[1]/page") == "DATA2") {
+			setprop("/MCDU[1]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[1]/page", "DATA");
 			}, 0.2);
 		}
 	} else if (btn == "right") {
-		setprop("/MCDU[1]/page", "NONE");
 		if (getprop("/MCDU[1]/page") == "DATA") {
+			setprop("/MCDU[1]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[1]/page", "DATA2");
 			}, 0.2);
 		} else if (getprop("/MCDU[1]/page") == "DATA2") {
+			setprop("/MCDU[1]/page", "NONE");
 			settimer(func {
 				setprop("/MCDU[1]/page", "DATA");
 			}, 0.2);
@@ -137,13 +170,15 @@ var button = func(btn) {
 	} else if (btn == "SLASH") {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ "/");
 	} else if (btn == "SP") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ " "); # this button adds a space
+		setprop("/MCDU[1]/scratchpad", scratchpad ~ " ");
 	} else if (btn == "CLR") {
 		var scratchpad = getprop("/MCDU[1]/scratchpad");
-		if (scratchpad == " ") {
+		if (size(scratchpad) == 0) {
 			setprop("/MCDU[1]/scratchpad", "CLR");
 		} else if (scratchpad == "CLR") {
-			setprop("/MCDU[1]/scratchpad", " ");
+			setprop("/MCDU[1]/scratchpad", "");
+		} else if (scratchpad == "NOT ALLOWED") {
+			setprop("/MCDU[1]/scratchpad", "");
 		} else if (size(scratchpad) > 0) {
 			setprop("/MCDU[1]/scratchpad", left(scratchpad, size(scratchpad)-1));
 		}
@@ -170,4 +205,12 @@ var button = func(btn) {
 	} else if (btn == "DOT") {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ ".");
 	}
+}
+
+var screenFlash = func(time) {
+	var page = getprop("/MCDU[1]/page");
+	setprop("/MCDU[1]/page", "NONE");
+	settimer(func {
+		setprop("/MCDU[1]/page", page);
+	}, time);
 }

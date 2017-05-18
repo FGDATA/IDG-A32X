@@ -10,12 +10,13 @@ setprop("/position/gear-agl-ft", 0);
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
-	setprop("/FMGC/internal/cruise-fl", 10000); 
+	setprop("/FMGC/internal/cruise-ft", 10000);
+	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/tropo", 36090);
 	setprop("/FMGC/internal/cost", " ");
 	setprop("/FMGC/internal/greendot-kts", 0);
 	phasecheck.start();
-	greendot.start();
+	greendott.start();
 }
 
 #############
@@ -58,7 +59,7 @@ var phasecheck = maketimer(0.2, func {
 	var mode = getprop("/modes/pfd/fma/pitch-mode");
 	var gs = getprop("/velocities/groundspeed-kt");
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-	var cruisefl = getprop("/FMGC/internal/cruise-fl");
+	var cruisefl = getprop("/FMGC/internal/cruise-ft");
 	var newcruise = getprop("/it-autoflight/internal/alt");
 	var phase = getprop("/FMGC/status/phase");
 	var state1 = getprop("/systems/thrust/state1");
@@ -91,13 +92,18 @@ var phasecheck = maketimer(0.2, func {
 	if ((phase == "6") and ((vertmode == "G/A CLB") or (vertmode == "SPD CLB") or (vertmode == "CLB") or ((vertmode == "V/S") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
 		setprop("/FMGC/status/phase", "2"); # going to CLIMB mode from GA
 	}
-	if ((wowl and wowr) and (gs < 20)) { # below twenty knots. In future make a timer to ensure that it goes to DONE 30 sec after landing. 
+	if ((wowl and wowr) and (gs < 20) and (phase == "5")) { # below twenty knots.
 		setprop("/FMGC/status/phase", "7");
-		FMGCinit(); # reset. Eventually make it reset only when INIT / PERF page are accessed
+		settimer(func {
+			itaf.ap_init();
+			FMGCinit();
+			mcdu1.MCDU_reset();
+			mcdu2.MCDU_reset();
+		}, 30);
 	}
 });
 
-var greendot = maketimer(0.1, func {
+var greendott = maketimer(0.1, func {
 	var gwlb = getprop("fdm/jsbsim/inertia/weight-lbs");
 	var factor = 0.45359237;
 	var kg = (gwlb * factor);
