@@ -33,7 +33,7 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">INIT</format>
+		<format type="string">INIT  &lt;--&gt;</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -48,7 +48,7 @@
 	</text>
 	
 	<text>
-		<name>companyroute</name>
+		<name>taxi</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.042</y-m>
@@ -57,7 +57,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">CO  RTE</format>
+		<format type="string">TAXI</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -72,7 +72,31 @@
 	</text>
 	
 	<text>
-		<name>fromto</name>
+		<name>taxi2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.042</y-m>
+			<z-m>0.0755</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">0.2</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>zfwcgzfw</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.032</y-m>
@@ -81,7 +105,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">FROM/TO</format>
+		<format type="string">ZFWCG/ZFW</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -94,33 +118,9 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	
-	<!--<text>
-		<name>fromto2</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.035</y-m>
-			<z-m>0.0715</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">%s</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>REPLACE ME WITH SOMETHING</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>-->
-	
+
 	<text>
-		<name>altncorte</name>
+		<name>triptime</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -129,7 +129,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">ALTN/CO  RTE</format>
+		<format type="string">TRIP/TIME</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -143,7 +143,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>altncorte2</name>
+		<name>triptime2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -152,7 +152,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">----/----------</format>
+		<format type="string">---.-/----</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -167,7 +167,7 @@
 	</text>
 	
 	<text>
-		<name>initreq</name>
+		<name>block</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.040</y-m>
@@ -176,7 +176,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">INIT</format>
+		<format type="string">BLOCK</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -189,99 +189,7 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	<text>
-		<name>request</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.040</y-m>
-			<z-m>0.061</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">REQUEST</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>requeststar</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.044</y-m>
-			<z-m>0.0605</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">*</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">helvetica_medium.txf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-
-	<text>
-		<name>alignirs</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.0419</y-m>
-			<z-m>0.0505</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">ALIGN IRS-</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>alignirs-arrow</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.044</y-m>
-			<z-m>0.0505</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">&gt;</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0070</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
+	
 	<!--<text>
 		<name>activedata3</name>
 		<offsets>
@@ -307,7 +215,7 @@
 	</text>-->
 	
 	<text>
-		<name>fltnmbr</name>
+		<name>rtersv</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -316,7 +224,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">FLT  NBR</format>
+		<format type="string">RTE/RSV%</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -329,8 +237,8 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	<!--<text>
-		<name>fltnmbr2</name>
+	<text>
+		<name>rtersv2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.035</y-m>
@@ -339,7 +247,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">---.-/--.-</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -351,10 +259,10 @@
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
-	</text>-->
+	</text>
 	
 	<text>
-		<name>costindex</name>
+		<name>finaltime</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -363,7 +271,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">COST  INDEX</format>
+		<format type="string">FINAL/TIME</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -377,7 +285,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>costindex2</name>
+		<name>finaltime2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -386,7 +294,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">---</format>
+		<format type="string">---.-/----</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -401,7 +309,7 @@
 	</text>
 	
 	<text>
-		<name>wind</name>
+		<name>ldgw</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.040</y-m>
@@ -410,7 +318,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">WIND</format>
+		<format type="string">---.-</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -423,55 +331,9 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	<text>
-		<name>wind2</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.043</y-m>
-			<z-m>0.029</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">&gt;</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0070</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<!--<text>
-		<name>chgcode2</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>-0.043</y-m>
-			<z-m>0.0335</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">[   ]</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">helvetica_medium.txf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0045</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>-->
 	
 	<text>
-		<name>crzfltemp</name>
+		<name>extratime</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -480,7 +342,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">CRZ  FL/TEMP.</format>
+		<format type="string">EXTRA/TIME</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -494,7 +356,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>crzfltemp2</name>
+		<name>extratime2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -503,7 +365,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">----- /---</format>
+		<format type="string">---.-/----</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -518,7 +380,7 @@
 	</text>
 	
 	<text>
-		<name>LONG</name>
+		<name>tow</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.0405</y-m>
@@ -527,7 +389,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">LONG</format>
+		<format type="string">TOW</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -541,7 +403,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>LAT</name>
+		<name>altntime</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -550,7 +412,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">LAT</format>
+		<format type="string">ALTN/TIME</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -564,7 +426,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>LONG-val</name>
+		<name>tow2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.043</y-m>
@@ -573,7 +435,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">---.-</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -587,7 +449,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>LAT-val</name>
+		<name>altntime2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -596,7 +458,7 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">---.-/----</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -609,72 +471,27 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	<text>
-		<name>tropo</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.041</y-m>
-			<z-m>0.0230</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">TROPO</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>tropovalue</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.043</y-m>
-			<z-m>0.0190</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<property type="string">/FMGC/internal/tropo</property>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	
 	<!-- Colors -->
 	<!-- White -->
     <animation>
         <type>material</type>
 		<object-name>page</object-name>
-		<object-name>companyroute</object-name>
-        <object-name>altncorte</object-name>
-        <object-name>altncorte2</object-name>
-		<object-name>fltnmbr</object-name>
-		<object-name>costindex</object-name>
-		<object-name>costindex2</object-name>
-		<object-name>crzfltemp</object-name>
-		<object-name>crzfltemp2</object-name>
-		<object-name>fromto</object-name>
-		<object-name>tropo</object-name>
-		<object-name>wind</object-name>
-		<object-name>wind2</object-name>
-		<object-name>LONG</object-name>
-		<object-name>LAT</object-name>
+		<object-name>taxi</object-name>
+        <object-name>triptime</object-name>
+        <object-name>triptime2</object-name>
+		<object-name>block</object-name>
+		<object-name>finaltime</object-name>
+		<object-name>finaltime2</object-name>
+		<object-name>extratime</object-name>
+		<object-name>extratime2</object-name>
+		<object-name>zfwcgzfw</object-name>
+		<object-name>ldgw</object-name>
+		<object-name>rtersv</object-name>
+		<object-name>rtersv2</object-name>
+		<object-name>altntime</object-name>
+		<object-name>altntime2</object-name>
+		<object-name>tow</object-name>
+		<object-name>tow2</object-name>
         <diffuse>
             <red>1</red>
             <green>1</green>
@@ -696,73 +513,11 @@
             <blue>1</blue>
         </emission>
     </animation>
-	
-	<!-- Amber -->
-	 <animation>
-        <type>material</type>
-		<object-name>initreq</object-name>
-		<object-name>alignirs</object-name>
-		<object-name>alignirs-arrow</object-name>
-		<object-name>initreq</object-name>
-		<object-name>requeststar</object-name>
-		<object-name>request</object-name>
-		<object-name>fromtobox</object-name>
-        <diffuse>
-            <red>1</red>
-            <green>0.3</green>
-            <blue>0</blue>
-        </diffuse>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-        <emission>
-            <red>1</red>
-            <green>0.3</green>
-            <blue>0</blue>
-        </emission>
-    </animation>
-	
-	<!-- Green
-	<animation>
-        <type>material</type>
-		<object-name>engtype</object-name>
-		<object-name>activedata3</object-name>
-		<object-name>idleperf2</object-name>
-        <diffuse>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </diffuse>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-        <emission>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </emission>
-    </animation> -->
 	
 	<!-- Blue -->
 	<animation>
         <type>material</type>
-		<object-name>tropovalue</object-name>
-		<object-name>LONG-val</object-name>
-		<object-name>LAT-val</object-name>
+		<object-name>taxi2</object-name>
         <diffuse>
             <red>0</red>
             <green>0.5</green>
