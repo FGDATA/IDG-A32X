@@ -103,7 +103,7 @@ var greendot = maketimer(0.1, func {
 	var kg = (gwlb * factor);
 	var alt = getprop("position/altitude-ft");
 	var kg2= (kg / 1000);
-	var greendotis = ((kg2 * 2) + 85);
-	setprop("/FMGC/internal/greendot-kts", greendotis);
-},);
+	var greendot = ((kg2 * 2) + 85);
+	setprop("/FMGC/internal/greendot-kts", greendot);
+});
 	
