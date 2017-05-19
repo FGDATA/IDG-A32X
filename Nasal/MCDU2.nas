@@ -17,17 +17,27 @@ var MCDU_reset = func {
 }
 
 var lskbutton = func(btn) {
-	if (btn == "4") {
+	if (btn == "2") {
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			PerfInput("L2");
+		}
+	} else if (btn == "4") {
 		if (getprop("/MCDU[1]/page") == "DATA") {
 			setprop("/MCDU[1]/page", "STATUS");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[1]/page") == "INITA") {
 			initInputA("L5");
+		} else if (getprop("/MCDU[1]/page") == "CLB") {
+			PerfCLBInput("L5");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[1]/page") == "INITA") {
 			initInputA("L6");
+		} else if (getprop("/MCDU[1]/page") == "CLB") {
+			PerfCLBInput("L6");
+		} else if (getprop("/MCDU[1]/page") == "CRZ") {
+			PerfCRZInput("L6");
 		}
 	}
 }
@@ -79,8 +89,59 @@ var initInputA = func(key) {
 	}
 }
 
+var PerfCLBInput = func(key) {
+	var scratchpad = getprop("/MCDU[1]/scratchpad");
+	if (key == "L5") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/cost-index", 0);
+			setprop("/FMGC/internal/cost-index-set", 0);
+			setprop("/MCDU[1]/scratchpad", "");
+		} else {
+			var ci = int(scratchpad);
+			var cis = size(scratchpad);
+			if (cis >= 1 and cis <= 3) {
+				if (cis >= 0 and cis <= 120) {
+					setprop("/FMGC/internal/cost-index", ci);
+					setprop("/FMGC/internal/cost-index-set", 1);
+					setprop("/MCDU[1]/scratchpad", "");
+				} else {
+					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L6") {
+		setprop("/MCDU[1]/page", "TO");
+	} else if (key == "R6") {
+		setprop("/MCDU[1]/page", "CRZ");
+	}
+}
+
+var PerfTOInput = func(key) {
+	if (key == "R6") {
+		setprop("/MCDU[1]/page", "CLB");
+	}
+}
+
+var PerfCRZInput = func(key) {
+	if (key == "L6") {
+		setprop("/MCDU[1]/page", "CLB");
+	} # else if (key == "R6") {
+	#	setprop("/MCDU[1]/page", "DES");
+	#}
+}
+
 var rskbutton = func(btn) {
-	# LOL Nothing here :D
+	if (btn == "6") {
+		if (getprop("/MCDU[1]/page") == "TO") {
+			PerfTOInput("R6");
+		} else if (getprop("/MCDU[1]/page") == "CLB") {
+			PerfCLBInput("R6");
+		} # else if (getprop("/MCDU[1]/page") == "TO") {
+			# PerfCRZInput("R6");
+	  # }
+	}
 }
 
 var arrowbutton = func(btn) {
