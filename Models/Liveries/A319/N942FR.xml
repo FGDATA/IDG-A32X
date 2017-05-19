@@ -12,6 +12,6 @@
 	<options>
 			<EIS2 type="bool">1</EIS2>
 	</options>
-<sharklet type="bool">0</sharklet>
+	<sharklet type="bool">0</sharklet>
 </PropertyList>
 
