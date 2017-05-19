@@ -195,6 +195,7 @@
 				<int n="9" alias="/sim/model/lights/beacon/state" />
 				<int n="10" alias="/engines/engine[0]/contrail" />
 				<int n="11" alias="/engines/engine[1]/contrail" />
+				<int n="12" alias="/sharklet" />
 			</generic>
 		</multiplay>
 		

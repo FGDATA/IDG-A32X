@@ -71,6 +71,27 @@
 	<model>
 		<name>A320 Winglets</name>
 		<path>Aircraft/A320Family/Models/Wings/a320.winglets.xml</path>
+		<condition>
+			<equals>
+				<property>/sim/multiplay/generic/int[12]</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>15.280</x-m>
+			<z-m>-1.06019</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>A320 Sharklets</name>
+		<path>Aircraft/A320Family/Models/Wings/a320.sharklets.xml</path>
+		<condition>
+			<equals>
+				<property>/sim/multiplay/generic/int[12]</property>
+				<value>1</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
