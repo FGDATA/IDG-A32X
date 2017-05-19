@@ -562,6 +562,7 @@ YAW MOI_________3950000______23089847_______24848934
 <!--system file="a320-fuel" /-->
 <system file="glass-effect1" />
 <system file="it-fbw" />
+<system file="fmgc" />
 
 <flight_control name="FCS: A320">
 	<channel name="Pitch">
