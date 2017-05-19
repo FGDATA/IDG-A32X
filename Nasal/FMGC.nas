@@ -14,9 +14,7 @@ var FMGCinit = func {
 	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/tropo", 36090);
 	setprop("/FMGC/internal/cost-index", "0");
-	setprop("/FMGC/internal/greendot-kts", 0);
 	phasecheck.start();
-	greendott.start();
 }
 
 #############
@@ -101,15 +99,5 @@ var phasecheck = maketimer(0.2, func {
 			mcdu2.MCDU_reset();
 		}, 30);
 	}
-});
-
-var greendott = maketimer(0.1, func {
-	var gwlb = getprop("fdm/jsbsim/inertia/weight-lbs");
-	var factor = 0.45359237;
-	var kg = (gwlb * factor);
-	var alt = getprop("position/altitude-ft");
-	var kg2= (kg / 1000);
-	var greendot = ((kg2 * 2) + 85);
-	setprop("/FMGC/internal/greendot-kts", greendot);
 });
 	

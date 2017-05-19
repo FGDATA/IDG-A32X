@@ -218,7 +218,7 @@
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A319");
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A319/CFM");
 		</load>
 		<unload>
 		 livery_update.stop();

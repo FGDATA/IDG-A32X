@@ -14,7 +14,7 @@
 		<model>
 			<path>Aircraft/A320Family/Models/A319-100-CFM.xml</path>
 			<livery>
-				<file>USAirwaysStar</file>
+				<file>AAL</file>
 			</livery>
 			<door>
 				<position-x-m type="float">-9.26</position-x-m>
@@ -127,7 +127,7 @@
 	<nasal>
 		<A320>
 			<file>Aircraft/A320Family/Nasal/various.nas</file>
-			<file>Aircraft/A320Family/Nasal/a319livery.nas</file>
+			<file>Aircraft/A320Family/Nasal/a319livery-cfm.nas</file>
 			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
             <file>Aircraft/A320Family/Nasal/gpws.nas</file>
             <file>Aircraft/A320Family/Nasal/efis.nas</file>

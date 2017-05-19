@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			 <livery>
+				<name>Turkish Airlines (Star Alliance)</name>
+				<texture>Liveries/A321/IAE/THY-SA.png</texture>
+			 </livery>
+		</model>
+	</sim>
+		
+	<options>
+		<EIS2 type="bool">1</EIS2>
+	</options>
+		
+	<sharklet type="bool">0</sharklet>
+</PropertyList>
