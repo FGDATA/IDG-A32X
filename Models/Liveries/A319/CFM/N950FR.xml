@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Frontier Airlines (Bob the Dolphin)</name>
-				<texture>Liveries/A319/CFMN950FR.png</texture>
+				<texture>Liveries/A319/CFM/N950FR.png</texture>
 			</livery>
 		</model>
 	</sim>
