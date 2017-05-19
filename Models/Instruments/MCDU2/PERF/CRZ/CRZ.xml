@@ -447,7 +447,7 @@
 		<name>descabinrate</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.042</y-m>
+			<y-m>0.0265</y-m>
 			<z-m>0.030</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
