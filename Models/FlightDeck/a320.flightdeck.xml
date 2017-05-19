@@ -2574,7 +2574,7 @@
     
     <!--Right sidestick -->
     
-    <animation>
+    <!--animation>
         <type>rotate</type>
         <object-name>sidestick_2</object-name>
         <object-name>sidestick_4</object-name>
@@ -2736,7 +2736,7 @@
             <y>0.0</y>
             <z>0.0</z>
         </axis>
-    </animation>
+    </animation-->
     
     
 

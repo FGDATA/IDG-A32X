@@ -209,7 +209,7 @@
             </expression>
         </input>
 		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
-		<max-rate-of-change>5</max-rate-of-change>
+		<max-rate-of-change>10</max-rate-of-change>
     </filter>
 	
 	<filter>
@@ -220,7 +220,7 @@
 			<property>/it-autoflight/internal/vert-speed-fpm</property> 
         </input>
 		<output>/it-autoflight/internal/vert-speed-fpm-filtered</output>
-		<max-rate-of-change>500</max-rate-of-change>
+		<max-rate-of-change>1000</max-rate-of-change>
     </filter>
 	
     <filter>

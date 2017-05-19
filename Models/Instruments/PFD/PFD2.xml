@@ -152,7 +152,7 @@
         <type>translate</type>
         <object-name>fd_roll</object-name>
         <property>/it-autoflight/fd/roll-bar</property>
-        <factor>0.0001</factor>
+        <factor>0.0002</factor>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -1123,43 +1123,6 @@
         </font-resolution>
     </text>
 	
-    <animation>
-        <type>select</type>
-        <object-name>thrust-mode-fma</object-name>
-        <condition>
-			<and>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>1</value>
-				</equals>
-				<not-equals>
-					<property>/systems/thrust/state1</property>
-					<value>MAN THR</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state2</property>
-					<value>MAN THR</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state1</property>
-					<value>MCT</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state2</property>
-					<value>MCT</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state1</property>
-					<value>TOGA</value>
-				</not-equals>
-				<not-equals>
-					<property>/systems/thrust/state2</property>
-					<value>TOGA</value>
-				</not-equals>
-			</and>
-        </condition>
-    </animation>
-	
     <text>
         <name>pitch-mode-fma</name>
         <offsets>
@@ -1413,14 +1376,68 @@
 					<value>1</value>
 				</equals>
 				<or>
-					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>CL</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>CL</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/output/thr-mode</property>
+							<value>2</value>
+						</equals>
+						<or>
+							<equals>
+								<property>/it-autoflight/output/fd1</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/fd2</property>
+								<value>1</value>
+							</equals>
+						</or>
+						<or>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>CL</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>CL</value>
+							</equals>
+						</or>
+					</and>
+					<and>
+						<or>
+							<not-equals>
+								<property>/it-autoflight/output/thr-mode</property>
+								<value>2</value>
+							</not-equals>
+							<and>
+								<equals>
+									<property>/it-autoflight/output/fd1</property>
+									<value>0</value>
+								</equals>
+								<equals>
+									<property>/it-autoflight/output/fd2</property>
+									<value>0</value>
+								</equals>
+							</and>
+						</or>
+						<or>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>MAN</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>MAN</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>CL</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>CL</value>
+							</equals>
+						</or>
+					</and>
 				</or>
 			</and>
         </condition>
@@ -1431,6 +1448,14 @@
         <object-name>athr-active-fma</object-name>
         <condition>
 			<and>
+				<equals>
+					<property>/systems/thrust/alpha-floor</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/toga-lk</property>
+					<value>0</value>
+				</equals>
 				<equals>
 					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
@@ -1492,6 +1517,14 @@
 				</equals>
 				<or>
 					<equals>
+						<property>/systems/thrust/alpha-floor</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/toga-lk</property>
+						<value>1</value>
+					</equals>
+					<equals>
 						<property>/systems/thrust/state1</property>
 						<value>MAN THR</value>
 					</equals>
@@ -1529,20 +1562,26 @@
 					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>/it-autoflight/output/thr-mode</property>
+					<value>2</value>
+				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+				</or>
 				<less-than>
 					<property>/controls/engines/engine[0]/throttle</property>
 					<value>0.60</value>
 				</less-than>
 				<less-than>
 					<property>/controls/engines/engine[1]/throttle</property>
-					<value>0.60</value>
-				</less-than>
-				<less-than>
-					<property>/controls/engines/engine[2]/throttle</property>
-					<value>0.60</value>
-				</less-than>
-				<less-than>
-					<property>/controls/engines/engine[3]/throttle</property>
 					<value>0.60</value>
 				</less-than>
 			</and>
@@ -1832,6 +1871,118 @@
 				</equals>
 				<equals>
 					<property>/systems/thrust/lvrclb</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/alpha-floor</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/toga-lk</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>thrust-mode-fma</object-name>
+        <object-name>athr-lvrclb-fma</object-name>
+        <object-name>athr-thrlvr-fma</object-name>
+        <object-name>athr-thr-fma</object-name>
+        <object-name>athr-mct-fma</object-name>
+        <object-name>athr-toga-fma</object-name>
+        <object-name>athr-man-fma</object-name>
+        <object-name>athr-box-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/systems/thrust/alpha-floor</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/toga-lk</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <text>
+        <name>athr-afloor-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0546226</y-m>
+            <z-m>0.0710781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">A.FLOOR</format>
+		<property>autopilot/serviceable</property>
+        <font type="string">helvetica_medium.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <text>
+        <name>athr-togalk-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0546226</y-m>
+            <z-m>0.0710781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">TOGA LK</format>
+		<property>autopilot/serviceable</property>
+        <font type="string">helvetica_medium.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-afloor-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/systems/thrust/alpha-floor</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/toga-lk</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-togalk-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/systems/thrust/alpha-floor</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/systems/thrust/toga-lk</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -2219,5 +2370,31 @@
             <blue>0.04</blue>
         </emission>
     </animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>athr-afloor-fma</object-name>
+		<object-name>athr-togalk-fma</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.45</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.45</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
 	
 </PropertyList>

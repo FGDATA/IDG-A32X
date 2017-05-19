@@ -54,24 +54,34 @@
 		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
-				<or>
+				<and>
 					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>MAN THR</value>
+						<property>/systems/thrust/alpha-floor</property>
+						<value>0</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>CL</value>
+						<property>/systems/thrust/toga-lk</property>
+						<value>0</value>
 					</equals>
-					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>MAN</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>IDLE</value>
-					</equals>
-				</or>
+					<or>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>MAN THR</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>CL</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>MAN</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>IDLE</value>
+						</equals>
+					</or>
+				</and>
 			</condition>
 		</enable>
 		<input>
@@ -215,24 +225,34 @@
 		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
-				<or>
+				<and>
 					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>MAN THR</value>
+						<property>/systems/thrust/alpha-floor</property>
+						<value>0</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>CL</value>
+						<property>/systems/thrust/toga-lk</property>
+						<value>0</value>
 					</equals>
-					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>MAN</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>IDLE</value>
-					</equals>
-				</or>
+					<or>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>MAN THR</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>CL</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>MAN</value>
+						</equals>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>IDLE</value>
+						</equals>
+					</or>
+				</and>
 			</condition>
 		</enable>
 		<input>
