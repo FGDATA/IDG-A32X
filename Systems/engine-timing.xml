@@ -196,20 +196,48 @@
 	
 	<filter>
         <name>V/S PFD</name>
-        <type>gain</type>
-        <gain>1</gain>
+        <type>noise-spike</type>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input> 
             <expression>
 				<floor>
 					<div>
-						<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property> 
+						<property>/it-autoflight/internal/vert-speed-fpm</property> 
 						<value>100</value>
 					</div>
 				</floor>
             </expression>
         </input>
-		<output>/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd</output>
+		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
+		<max-rate-of-change>5</max-rate-of-change>
+    </filter>
+	
+	<filter>
+        <name>V/S 2 PFD</name>
+        <type>noise-spike</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+			<property>/it-autoflight/internal/vert-speed-fpm</property> 
+        </input>
+		<output>/it-autoflight/internal/vert-speed-fpm-filtered</output>
+		<max-rate-of-change>500</max-rate-of-change>
+    </filter>
+	
+    <filter>
+        <name>PFD IAS Sync</name>
+        <type>gain</type>
+        <gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+        <update-interval-secs type="double">0.5</update-interval-secs>
+        <input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
+		<output>/it-autoflight/input/spd-kts</output>
     </filter>
 	
     <filter>

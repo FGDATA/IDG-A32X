@@ -542,7 +542,8 @@
 					</less-than>
 				</and>
 			</condition>
-			<value>0.0</value>
+			<property>/controls/flight/rudder</property>
+			<scale>0.5</scale>
 		</input>
 		<input>
 			<condition>
@@ -561,12 +562,12 @@
 					</greater-than-equals>
 				</or>
 			</condition>
-            <expression>
-                <sum>
-                    <property>/controls/flight/rudder-fbw</property>
-                    <property>/controls/flight/rudder-trim</property> 
+			<expression>
+				<sum>
+					<property>/controls/flight/rudder-fbw</property>
+					<property>/controls/flight/rudder-trim</property> 
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/rudder-fdm-cmd</output>
 		<min>-1.0</min>

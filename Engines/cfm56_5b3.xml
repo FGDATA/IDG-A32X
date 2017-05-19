@@ -12,7 +12,7 @@
 -->
 
 <turbine_engine name="CFM56_5B3">
-  <milthrust>     33000 </milthrust>
+  <milthrust>     27000 </milthrust> <!-- Will put proper thrust amount once FDE sorted out -->
   <bypassratio>     7.1 </bypassratio>
   <tsfc>            0.8 </tsfc>
   <bleed>          0.03 </bleed>

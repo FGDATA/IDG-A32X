@@ -329,7 +329,7 @@
 	<animation>
     	<type>textranslate</type>
     	<object-name>alt-tape-1</object-name>
-    	<property>instrumentation/altimeter/indicated-altitude-ft-pfd</property>
+    	<property>instrumentation/altimeter/indicated-altitude-ft</property>
     	<factor>0.000019141</factor>
     	<axis>
     		<y>1</y>
@@ -468,7 +468,7 @@
     <animation>
     	<type>texrotate</type>
     	<object-name>vsi</object-name>
-    	<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+    	<property>/it-autoflight/internal/vert-speed-fpm-filtered</property>
 		<interpolation>
 			<entry><ind>-3300</ind><dep> 58</dep></entry>
 			<entry><ind>-3000</ind><dep> 57</dep></entry>
@@ -986,26 +986,115 @@
     </text>
 	
     <animation>
+    	<type>texmultiple</type>
+    	<object-name>trgt-spd-man</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/it-autoflight/input/spd-kts</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+	
+    <animation>
         <type>select</type>
         <object-name>man-spd</object-name>
-        <object-name>man-mach-lower</object-name>
         <condition>
-            <equals>
-                <property>/it-autoflight/input/kts-mach</property>
-                <value>0</value>
-            </equals>
+			<and>
+				<greater-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>70</value>
+				</greater-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>man-spd-lower</object-name>
+        <condition>
+			<and>
+				<less-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>-70</value>
+				</less-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</and>
         </condition>
     </animation>
 	
     <animation>
         <type>select</type>
         <object-name>man-mach</object-name>
-        <object-name>man-spd-lower</object-name>
         <condition>
-            <equals>
-                <property>/it-autoflight/input/kts-mach</property>
-                <value>1</value>
-            </equals>
+			<and>
+				<greater-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>70</value>
+				</greater-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>man-mach-lower</object-name>
+        <condition>
+			<and>
+				<less-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>-70</value>
+				</less-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</and>
         </condition>
     </animation>
 	
@@ -1799,6 +1888,63 @@
         </font-resolution>
     </text>
 	
+    <animation>
+        <type>select</type>
+        <object-name>man-alt</object-name>
+        <condition>
+			<greater-than-equals>
+				<expression>
+					<dif>
+						<property>/it-autoflight/internal/alt</property>
+						<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					</dif>
+				</expression>
+				<value>4300</value>
+			</greater-than-equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>man-alt-lower</object-name>
+        <condition>
+			<less-than-equals>
+				<expression>
+					<dif>
+						<property>/it-autoflight/internal/alt</property>
+						<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					</dif>
+				</expression>
+				<value>-4300</value>
+			</less-than-equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>texmultiple</type>
+        <object-name>target-alt-sel</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/it-autoflight/internal/alt</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+	
 	<!-- VS Numbers -->
 	
 	<text>
@@ -1812,7 +1958,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd</property>
+		<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1836,7 +1982,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.0f</format>
-        <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm-pfd</property>
+		<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1854,8 +2000,8 @@
         <object-name>vs-num</object-name>
         <condition>
 			<greater-than-equals>
-				<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-				<value>200</value>
+				<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+				<value>2</value>
 			</greater-than-equals>
         </condition>
     </animation>
@@ -1865,8 +2011,8 @@
         <object-name>vs-num-lower</object-name>
         <condition>
 			<less-than-equals>
-				<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
-				<value>-200</value>
+				<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+				<value>-2</value>
 			</less-than-equals>
         </condition>
     </animation>
