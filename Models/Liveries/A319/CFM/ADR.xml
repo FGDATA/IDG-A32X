@@ -4,11 +4,12 @@
 	<sim>
 		<model>
 			<livery>
-				<name>Capital Airlines Beijing (B-6416)</name>
-				<texture>Liveries/A319/IAE/CBJ.png</texture>
+				<name>Adria Airways (S5-AAP)</name>
+				<texture>Liveries/A319/IAE/ADR.png</texture>
 			</livery>
 		</model>
 	</sim>
+	
 	<options>
 		<EIS2 type="bool">1</EIS2>
 	</options>
