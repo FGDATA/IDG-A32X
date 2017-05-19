@@ -110,6 +110,8 @@
 		<eng>IAE</eng>
 	</options>
 	
+	<sharklet type="bool">0</sharklet>
+	
 	<MCDUC n="0">
 		<type>A320-232</type>
 		<eng>V2527-A5</eng>

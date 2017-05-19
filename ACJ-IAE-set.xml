@@ -116,6 +116,8 @@
 		<eng>IAE</eng>
 	</options>
 	
+	<sharklet type="bool">0</sharklet>
+	
 	<MCDUC n="0">
 		<type>A319-131</type>
 		<eng>V2522-A5</eng>
