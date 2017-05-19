@@ -110,6 +110,8 @@
 		<eng>IAE</eng>
 	</options>
 	
+	<sharklet type="bool">0</sharklet>
+	
 	<MCDUC n="0">
 		<type>A321-231</type>
 		<eng>V2533-A5</eng>

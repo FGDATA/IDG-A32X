@@ -110,6 +110,8 @@
 		<eng>CFM</eng>
 	</options>
 	
+	<sharklet type="bool">0</sharklet>
+	
 	<MCDUC n="0">
 		<type>A321-211</type>
 		<eng>CFM56-5B3</eng>
