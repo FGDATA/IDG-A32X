@@ -159,6 +159,28 @@
 	</model>
 	
 	<model>
+		<name>CRZ</name>
+		<path>PERF/CRZ/CRZ.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<equals>
+					<property>/MCDU[0]/page</property>
+					<value>CRZ</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
 		<name>DATA2</name>
 		<path>DATA2/DATA2.xml</path>
 		<offsets>

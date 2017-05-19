@@ -33,7 +33,7 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">CLB</format>
+		<format type="string">CRZ</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -48,7 +48,7 @@
 	</text>
 	
 	<text>
-		<name>actmode</name>
+		<name>actmode3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -72,7 +72,7 @@
 	</text>
 	
 	<text>
-		<name>actmode2</name>
+		<name>actmode4</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -96,7 +96,7 @@
 	</text>
 	
 	<text>
-		<name>timedest</name>
+		<name>timedest3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.0</y-m>
@@ -120,7 +120,7 @@
 	</text>
 	
 	<text>
-		<name>timedest2</name>
+		<name>timedest4</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.0</y-m>
@@ -144,7 +144,7 @@
 	</text>
 	
 	<text>
-		<name>efob</name>
+		<name>efob3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
@@ -168,7 +168,7 @@
 	</text>
 	
 	<text>
-		<name>efob2</name>
+		<name>efob4</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
@@ -192,7 +192,7 @@
 	</text>
 	
 	<text>
-		<name>ci</name>
+		<name>ci5</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -216,7 +216,7 @@
 	</text>
 	
 	<text>
-		<name>ci2</name>
+		<name>ci6</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -239,7 +239,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>ci3</name>
+		<name>ci7</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -264,21 +264,21 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>ci2</object-name>
+		<object-name>ci6</object-name>
 		<condition>
 			<not><property>/FMGC/internal/cost-index-set</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
-		<object-name>ci3</object-name>
+		<object-name>ci7</object-name>
 		<condition>
 			<property>/FMGC/internal/cost-index-set</property>
 		</condition>
 	</animation>
 	
 	<text>
-		<name>managed</name>
+		<name>managed2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -302,7 +302,7 @@
 	</text>
 	
 	<text>
-		<name>presel</name>
+		<name>presel3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -326,7 +326,7 @@
 	</text>
 	
 	<text>
-		<name>presel2</name>
+		<name>presel4</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -350,7 +350,7 @@
 	</text>
 	
 	<text>
-		<name>previous</name>
+		<name>previous2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -373,7 +373,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>phase2</name>
+		<name>phase4</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -397,7 +397,7 @@
 	</text>
 
 	<text>
-		<name>next</name>
+		<name>next2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.041</y-m>
@@ -420,7 +420,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>phase</name>
+		<name>phase3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.043</y-m>
@@ -443,20 +443,95 @@
 		</font-resolution>
 	</text>
 	
+	<text>
+		<name>descabinrate</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.042</y-m>
+			<z-m>0.030</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">-350</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>descabinrate2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.0345</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">DES CABIN RATE</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>descabinrate3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.030</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">FT/MIN</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
 	<!-- Colors -->
 	<!-- White -->
     <animation>
         <type>material</type>
 		<object-name>page</object-name>
-		<object-name>actmode</object-name>
-		<object-name>managed</object-name>
-		<object-name>ci</object-name>
-		<object-name>efob</object-name>
-		<object-name>next</object-name>
-		<object-name>phase</object-name>
-		<object-name>previous</object-name>
-		<object-name>phase2</object-name>
-		<object-name>timedest</object-name>
+		<object-name>actmode3</object-name>
+		<object-name>managed2</object-name>
+		<object-name>ci5</object-name>
+		<object-name>efob3</object-name>
+		<object-name>next2</object-name>
+		<object-name>phase3</object-name>
+		<object-name>previous2</object-name>
+		<object-name>phase4</object-name>
+		<object-name>presel3</object-name>
+		<object-name>descabinrate3</object-name>
+		<object-name>descabinrate2</object-name>
+		<object-name>timedest3</object-name>
         <diffuse>
             <red>1</red>
             <green>1</green>
@@ -482,9 +557,9 @@
 	<!-- Green -->
 	<animation>
         <type>material</type>
-		<object-name>efob2</object-name>
-		<object-name>actmode2</object-name>
-		<object-name>timedest2</object-name>
+		<object-name>efob4</object-name>
+		<object-name>actmode4</object-name>
+		<object-name>timedest4</object-name>
         <diffuse>
             <red>0.2</red>
             <green>0.4</green>
@@ -510,9 +585,10 @@
 	<!-- Blue -->
 	<animation>
         <type>material</type>
-		<object-name>presel2</object-name>
-		<object-name>ci2</object-name>
-		<object-name>ci3</object-name>
+		<object-name>presel4</object-name>
+		<object-name>ci6</object-name>
+		<object-name>ci7</object-name>
+		<object-name>descabinrate</object-name>
         <diffuse>
             <red>0</red>
             <green>0.5</green>

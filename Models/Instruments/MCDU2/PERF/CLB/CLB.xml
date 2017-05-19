@@ -452,7 +452,6 @@
 		<object-name>managed</object-name>
 		<object-name>ci</object-name>
 		<object-name>efob</object-name>
-		<object-name>trans</object-name>
 		<object-name>next</object-name>
 		<object-name>phase</object-name>
 		<object-name>previous</object-name>
