@@ -29,15 +29,15 @@ var lskbutton = func(btn) {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L5");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
-			PerfCLBInput("L5");
+			perfCLBInput("L5");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L6");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
-			PerfCLBInput("L6");
+			perfCLBInput("L6");
 		} else if (getprop("/MCDU[0]/page") == "CRZ") {
-			PerfCRZInput("L6");
+			perfCRZInput("L6");
 		}
 	}
 }
@@ -90,7 +90,7 @@ var initInputA = func(key) {
 	}
 }
 
-var PerfCLBInput = func(key) {
+var perfCLBInput = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
 	if (key == "L5") {
 		if (scratchpad == "CLR") {
@@ -125,7 +125,7 @@ var PerfTOInput = func(key) {
 	}
 }
 
-var PerfCRZInput = func(key) {
+var perfCRZInput = func(key) {
 	if (key == "L6") {
 		setprop("/MCDU[0]/page", "CLB");
 	}
@@ -139,9 +139,9 @@ var rskbutton = func(btn) {
 		if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("R6");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
-			PerfCLBInput("R6");
+			perfCLBInput("R6");
 		} # else if (getprop("/MCDU[0]/page") == "CRZ") {
-			# PerfCRZInput("R6");
+			# perfCRZInput("R6");
 		#}
 	}
 }
