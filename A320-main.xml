@@ -337,6 +337,11 @@
 	</output>
 </it-autoflight>
 
+	<it-fbw n="0">
+		<alpha-hld type="bool">0</alpha-hld>
+		<target-g-load type="float">1.0</target-g-load>
+	</it-fbw>
+
 	<apu>
 		<rpm type="float">0</rpm>
 		<egt type="float">0</egt>

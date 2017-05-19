@@ -542,8 +542,7 @@
 					</less-than>
 				</and>
 			</condition>
-			<property>/controls/flight/rudder</property>
-			<scale>0.5</scale>
+			<value>0</value>
 		</input>
 		<input>
 			<condition>

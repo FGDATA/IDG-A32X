@@ -1,5 +1,5 @@
 # Airbus A3XX FBW System by Joshua Davidson (it0uchpods)
-# V0.9.7.1
+# V0.9.8
 
 ###################
 # Update Function #
@@ -37,6 +37,9 @@ var update_loop = func {
 		if (getprop("/position/gear-agl-ft") <= 2) {
 			setprop("/it-fbw/pitch-lim-max", "15");
 			setprop("/it-fbw/pitch-lim-min", "-5");
+		} else if (getprop("/controls/flight/flap-lever") == 4) {
+			setprop("/it-fbw/pitch-lim-max", "25");
+			setprop("/it-fbw/pitch-lim-min", "-15");
 		} else {
 			setprop("/it-fbw/pitch-lim-max", "30");
 			setprop("/it-fbw/pitch-lim-min", "-15");
