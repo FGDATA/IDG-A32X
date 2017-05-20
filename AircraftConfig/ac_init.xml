@@ -23,8 +23,8 @@
 			<layout>vbox</layout>
 			
 			<text>
-				<halign>center</halign>
-				<label>Initializing...</label>
+				<halign>left</halign>
+				<label>Feeding Birds...</label>
 			</text>
 			
 		</group>

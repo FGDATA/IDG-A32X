@@ -12,7 +12,7 @@
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>Aircraft Configuration</label>
+			<label>Aircraft Configuration V1.3.0</label>
 		</text>
 		<button>
 			<halign>right</halign>
@@ -82,7 +82,7 @@
 						<stretch type="bool">true</stretch>
 					</hrule>
 					<text>
-						<label>Auto Aircraft Config</label>
+						<label>Load Panel State</label>
 					</text>
 					<hrule>
 						<stretch type="bool">true</stretch>
@@ -182,7 +182,6 @@
 				<enable>
 					<property>/systems/unused/unusedthing</property>
 				</enable>
-
 				<binding>
 					<command>nasal</command>
 					<script>
@@ -195,7 +194,7 @@
 				</binding>
 			</button>
 			
-			<!--<checkbox>
+			<checkbox>
 				<label>Enable Baggage Ramp</label>
 				<halign>left</halign>
 				<enable>
@@ -206,14 +205,16 @@
 					<command>dialog-apply</command>
 				</binding>
 				<live>true</live>
-			</checkbox>-->
+			</checkbox>
+			
 			<checkbox>
-				<label>Enable External Air</label> <!-- there is no overhead indication or switch -->
+				<label>Enable External Power Box</label>
 				<halign>left</halign>
-				<property>/controls/pneumatic/switches/groundair</property>
+				<property>/controls/switches/cart</property>
 				<binding>
-					<command>property-toggle</command>
-					<property>/controls/pneumatic/switches/groundair</property>
+					<command>property-assign</command>
+					<property>/controls/electrical/switches/gen-ext</property>
+					<value>0</value>
 				</binding>
 				<enable>
 					<and>
@@ -234,13 +235,12 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Enable External Power Box</label>
+				<label>Enable External Air</label>
 				<halign>left</halign>
-				<property>/controls/switches/cart</property>
+				<property>/controls/pneumatic/switches/groundair</property>
 				<binding>
-					<command>property-assign</command>
-					<property>/controls/electrical/switches/gen-ext</property>
-					<value>0</value>
+					<command>property-toggle</command>
+					<property>/controls/pneumatic/switches/groundair</property>
 				</binding>
 				<enable>
 					<and>

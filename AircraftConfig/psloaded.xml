@@ -12,7 +12,7 @@
         <layout>hbox</layout>
         <text>
             <halign>left</halign>
-            <label>Message</label>
+            <label>Panel State</label>
         </text>
     </group>
 	
@@ -23,11 +23,11 @@
 			
 			<text>
 				<halign>center</halign>
-				<label>Panel State Load Complete!</label>
+				<label>The Panel State was loaded sucessfully.</label>
 			</text>
 			<button>
 				<halign>center</halign>
-				<legend>Close</legend>
+				<legend>Go Away</legend>
 				<pref-width>140</pref-width>
 				<key>Esc</key>
 				<binding>
