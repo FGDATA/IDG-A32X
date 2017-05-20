@@ -37,6 +37,10 @@
 			</text>
 			<text>
 				<halign>center</halign>
+				<label>Version 0.3.X, it0uchpods Shared Libraries V1.3.0</label>
+			</text>
+			<text>
+				<halign>center</halign>
 				<label>This is a complex simulation of these amazing Airbus Aircraft.</label>
 			</text>
 			<text>
@@ -57,12 +61,12 @@
 	    <hrule/>
 	
 		<group>
-			<layout>vbox</layout>
+			<layout>hbox</layout>
 			
 			<button>
 				<halign>center</halign>
 				<legend>Open A/C Config</legend>
-				<pref-width>140</pref-width>
+				<pref-width>210</pref-width>
 				<binding>
 					<command>nasal</command>
 					<script>
@@ -75,8 +79,8 @@
 			</button>
 			<button>
 				<halign>center</halign>
-				<legend>Close</legend>
-				<pref-width>140</pref-width>
+				<legend>Go Away</legend>
+				<pref-width>210</pref-width>
 				<binding>
 					<command>dialog-close</command>
 				</binding>
