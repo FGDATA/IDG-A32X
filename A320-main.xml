@@ -518,7 +518,13 @@
 			<yellow-psi>0</yellow-psi>
 		</hydraulic>
 	</systems>
-
+	
+	<options n="0">
+		<pfd n="0">
+			<sidestick-pos type="bool">0</sidestick-pos>
+		</pfd>
+	</options>
+	
 	<instrumentation>
 	
 		<efis n="0">

@@ -38,6 +38,17 @@
 			<or>
 				<property>/gear/gear[1]/wow</property>
 				<property>/gear/gear[2]/wow</property>
+				<and>
+					<property>/options/pfd/sidestick-pos</property>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+				</and>
 			</or>
 		</condition>
 	</animation>

@@ -23,7 +23,7 @@
 			<layout>vbox</layout>
 			
 			<text>
-				<halign>left</halign>
+				<halign>center</halign>
 				<label>Feeding Birds...</label>
 			</text>
 			

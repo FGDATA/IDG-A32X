@@ -263,12 +263,40 @@
 			<hrule/>
 			
 			<checkbox>
-				<label>Skip IRS alignment</label>
+				<label>Skip IRS Alignment</label>
 				<halign>left</halign>
 				<property>/controls/adirs/skip</property>
 				<binding>
 					<command>property-toggle</command>
 					<property>/controls/adirs/skip</property>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Always Show Sidestick Position</label>
+				<halign>left</halign>
+				<property>/options/pfd/sidestick-pos</property>
+				<binding>
+					<command>property-toggle</command>
+					<property>/options/pfd/sidestick-pos</property>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Always Show Sidestick Position</label>
+				<halign>left</halign>
+				<property>/options/pfd/sidestick-pos</property>
+				<binding>
+					<command>property-toggle</command>
+					<property>/options/pfd/sidestick-pos</property>
 				</binding>
 				<binding>
 					<command>dialog-apply</command>
