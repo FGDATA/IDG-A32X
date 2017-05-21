@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">XL Airways France</name>
-        <texture>Liveries/A320/IAE/XLF.png</texture>
+        <texture>Liveries/A320/CFM/XLF.png</texture>
         <texture2>FanDisk.png</texture2>
       </livery>
     </model>

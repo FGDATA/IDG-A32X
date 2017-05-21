@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name type="string">Air Jamaica</name>
-				<texture>Liveries/A320/IAE/AJM.png</texture>
+				<texture>Liveries/A320/CFM/AJM.png</texture>
 			</livery>
 		</model>
 	</sim>

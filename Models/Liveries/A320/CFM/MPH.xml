@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">Martinair</name>
-        <texture>Liveries/A320/IAE/MPH.png</texture>
+        <texture>Liveries/A320/CFM/MPH.png</texture>
       </livery>
     </model>
   </sim>

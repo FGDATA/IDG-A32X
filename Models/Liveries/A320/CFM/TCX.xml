@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">Thomas Cook Airlines</name>
-        <texture>Liveries/A320/IAE/TCX.png</texture>
+        <texture>Liveries/A320/CFM/TCX.png</texture>
       </livery>
     </model>
   </sim>

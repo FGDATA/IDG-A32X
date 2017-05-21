@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Air France CFM (Dirty) (Carribean, F-GKXQ)</name>
-				<texture>Liveries/A320/IAE/AFR-dirt.png</texture>
+				<texture>Liveries/A320/CFM/AFR-dirt.png</texture>
 			</livery>
 		</model>
 	</sim>

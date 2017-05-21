@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>American Airlines (Piedmont heritage livery)</name>
-				<texture>Liveries/A319/IAE/N744P.png</texture>
+				<texture>Liveries/A319/CFM/N744P.png</texture>
 			</livery>
 		</model>
 	</sim>

@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Delta</name>
-				<texture>Liveries/A319/IAE/DAL.png</texture>
+				<texture>Liveries/A319/CFM/DAL.png</texture>
 			</livery>
 		</model>
 	</sim>
