@@ -290,20 +290,6 @@
 				<live>true</live>
 			</checkbox>
 			
-			<checkbox>
-				<label>Always Show Sidestick Position</label>
-				<halign>left</halign>
-				<property>/options/pfd/sidestick-pos</property>
-				<binding>
-					<command>property-toggle</command>
-					<property>/options/pfd/sidestick-pos</property>
-				</binding>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
 			<button>
 				<legend>FBW Settings</legend>
 				<halign>center</halign>
