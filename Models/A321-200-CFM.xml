@@ -257,6 +257,11 @@
                 <value>1</value>
             </equals>
         </condition>
+        <offsets>
+			<x-m>31</x-m>
+			<y-m>-25</y-m>
+			<z-m>0.95</z-m>
+        </offsets>
     </model>
     
     <animation>
@@ -293,9 +298,9 @@
             </equals>
         </condition>
         <offsets>
-            <x-m>-15</x-m>
+            <x-m>-3</x-m>
             <y-m>9.5</y-m>
-            <z-m>-5</z-m>
+            <z-m>-4</z-m>
             <heading-deg>160</heading-deg>
         </offsets>
     </model>
@@ -312,9 +317,9 @@
             </equals>
         </condition>
         <offsets>
-            <x-m>-17.87</x-m>
+            <x-m>7.87</x-m>
             <y-m>7.28</y-m>
-            <z-m>-5.45</z-m>
+            <z-m>-3.70</z-m>
             <heading-deg>100</heading-deg>
         </offsets>
     </model>
@@ -330,6 +335,11 @@
                 <value>1</value>
             </equals>
         </condition>
+		<offsets>
+			<x-m>11</x-m>
+			<y-m>0</y-m>
+			<z-m>0.5</z-m>            
+		</offsets>
     </model>
     
     <!-- External Power -->
@@ -339,13 +349,14 @@
         <path>Aircraft/A320Family/Models/Services/External-Power/ext-pwr-box.ac</path>
         <condition>
             <equals>
-                <property>/services/ext-pwr/enable</property>
+                <property>/controls/switches/cart</property>
                 <value>1</value>
             </equals>
         </condition>
         <offsets>
-            <x-m>12</x-m>
-            <z-m>0.75</z-m>
+			<x-m>5</x-m>
+			<y-m>2</y-m>
+			<z-m>0.5</z-m>
         </offsets>
     </model>
     

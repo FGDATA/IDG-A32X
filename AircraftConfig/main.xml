@@ -164,11 +164,7 @@
 			<checkbox>
 				<label>Enable De-icing Truck</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/unused/unusedthing</property>
-				</enable>
-
-				<property>services/deicing_truck/enable</property>
+				<property>/services/deicing_truck/enable</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -180,27 +176,56 @@
 				<halign>center</halign>
 				<padding>5</padding>
 				<enable>
-					<property>/systems/unused/unusedthing</property>
+					<property>/services/deicing_truck/enable</property>
 				</enable>
 				<binding>
 					<command>nasal</command>
 					<script>
-						if (getprop("services/deicing_truck/enable") == 1) {
-							setprop("/services/deicing_truck/de-ice", 1);
-							screen.log.write("Starting De-icing Process...", 1, 1, 1);
-						} else
-							screen.log.write("Please Enable the De-icing truck first", 1, 0, 0);
+					gui.popupTip("The Aircraft was De-iced!");
 					</script>
 				</binding>
 			</button>
 			
 			<checkbox>
-				<label>Enable Baggage Ramp</label>
+				<label>Enable Fuel Truck</label>
 				<halign>left</halign>
 				<enable>
-					<property>/systems/unused/unusedthing</property>
+					<not><property>/services/fuel-truck/connect</property></not>
 				</enable>
-				<property>services/baggage/enable</property>
+				<property>/services/fuel-truck/enable</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Connect Fuel Truck</label>
+				<halign>left</halign>
+				<enable>
+					<property>/services/fuel-truck/enable</property>
+				</enable>
+				<property>/services/fuel-truck/connect</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Enable Catering Truck</label>
+				<halign>left</halign>
+				<property>/services/catering/enable</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Enable Baggage Ramp</label>
+				<halign>left</halign>
+				<property>/services/baggage/enable</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
