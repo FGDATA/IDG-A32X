@@ -46,6 +46,21 @@ var flarecheck = func {
 	}
 }
 
+###############
+# MCDU Inputs #
+###############
+
+var updateARPT = func {
+	var dep = getprop("/FMGC/internal/dep-arpt");
+	var arr = getprop("/FMGC/internal/arr-arpt");
+	setprop("/autopilot/route-manager/departure/airport", dep);
+	setprop("/autopilot/route-manager/destination/airport", arr);
+}
+
+setlistener("/FMGC/internal/cruise-ft", func {
+	setprop("/autopilot/route-manager/cruise/altitude-ft", getprop("/FMGC/internal/cruise-ft"));
+});
+
 ################
 # Flight Phase #
 ################

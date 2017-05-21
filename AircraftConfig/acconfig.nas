@@ -22,6 +22,17 @@ setlistener("/sim/signals/fdm-initialized", func {
 #	print(file);
 #}
 
+var systemsReset = func {
+	systems.elec_init();
+	systems.ADIRSreset();
+	systems.pneu_init();
+	systems.hyd_init();
+	fmgc.FMGCinit();
+	mcdu1.MCDU_reset();
+	mcdu2.MCDU_reset();
+	itaf.ap_init();
+}
+
 ################
 # Panel States #
 ################
@@ -42,11 +53,7 @@ var colddark = func {
 	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	itaf.ap_init();
+	systemsReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	if (getprop("/engines/engine[1]/n2") < 2) {
@@ -89,11 +96,7 @@ var beforestart = func {
 	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	itaf.ap_init();
+	systemsReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
@@ -139,6 +142,7 @@ var beforestart_b = func {
 	setprop("instrumentation/adirs/ir[0]/aligned",1);
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
+	setprop("/controls/adirs/mcducbtn", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -160,11 +164,7 @@ var taxi = func {
 	A320.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	itaf.ap_init();
+	systemsReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
@@ -210,6 +210,7 @@ var taxi_b = func {
 	setprop("instrumentation/adirs/ir[0]/aligned",1);
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
+	setprop("/controls/adirs/mcducbtn", 1);
 	settimer(taxi_c, 0.5);
 }
 var taxi_c = func {

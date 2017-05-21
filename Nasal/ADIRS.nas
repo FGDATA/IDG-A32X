@@ -16,40 +16,42 @@ setprop("/systems/electrical/bus/ac-ess", 0);
 
 var adirs_init = func {
 	setprop("controls/adirs/skip",0); #define this here, as we want this to be off on startup
+	setprop("/controls/adirs/mcducbtn",0);
 	adirs_timer.start();
 }
 
 var ADIRSreset = func {
 	setprop("/controls/adirs/numm", 0);
-	setprop("instrumentation/adirs/ir[0]/aligned",0);
-	setprop("instrumentation/adirs/ir[1]/aligned",0);
-	setprop("instrumentation/adirs/ir[2]/aligned",0);
-	setprop("instrumentation/adirs/ir[0]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[1]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[2]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[0]/display/status","- - - - - - - - ");
-	setprop("instrumentation/adirs/ir[1]/display/status","- - - - - - - - ");
-	setprop("instrumentation/adirs/ir[2]/display/status","- - - - - - - - ");
-	setprop("controls/adirs/adr[0]/fault",0);
-	setprop("controls/adirs/adr[1]/fault",0);
-	setprop("controls/adirs/adr[2]/fault",0);
-	setprop("controls/adirs/adr[0]/off",0);
-	setprop("controls/adirs/adr[1]/off",0);
-	setprop("controls/adirs/adr[2]/off",0);
-	setprop("controls/adirs/display/text","");
-	setprop("controls/adirs/display/dataknob","5");
-	setprop("controls/adirs/display/selected","1");
-	setprop("controls/adirs/ir[0]/align",0);
-	setprop("controls/adirs/ir[1]/align",0);
-	setprop("controls/adirs/ir[2]/align",0);
-	setprop("controls/adirs/ir[0]/knob","0");
-	setprop("controls/adirs/ir[1]/knob","0");
-	setprop("controls/adirs/ir[2]/knob","0");
-	setprop("controls/adirs/ir[0]/fault",0);
-	setprop("controls/adirs/ir[1]/fault",0);
-	setprop("controls/adirs/ir[2]/fault",0);
-	setprop("controls/adirs/onbat",0);
-	setprop("controls/adirs/skip",0);
+	setprop("/instrumentation/adirs/ir[0]/aligned",0);
+	setprop("/instrumentation/adirs/ir[1]/aligned",0);
+	setprop("/instrumentation/adirs/ir[2]/aligned",0);
+	setprop("/instrumentation/adirs/ir[0]/display/ttn",0);
+	setprop("/instrumentation/adirs/ir[1]/display/ttn",0);
+	setprop("/instrumentation/adirs/ir[2]/display/ttn",0);
+	setprop("/instrumentation/adirs/ir[0]/display/status","- - - - - - - - ");
+	setprop("/instrumentation/adirs/ir[1]/display/status","- - - - - - - - ");
+	setprop("/instrumentation/adirs/ir[2]/display/status","- - - - - - - - ");
+	setprop("/controls/adirs/adr[0]/fault",0);
+	setprop("/controls/adirs/adr[1]/fault",0);
+	setprop("/controls/adirs/adr[2]/fault",0);
+	setprop("/controls/adirs/adr[0]/off",0);
+	setprop("/controls/adirs/adr[1]/off",0);
+	setprop("/controls/adirs/adr[2]/off",0);
+	setprop("/controls/adirs/display/text","");
+	setprop("/controls/adirs/display/dataknob","5");
+	setprop("/controls/adirs/display/selected","1");
+	setprop("/controls/adirs/ir[0]/align",0);
+	setprop("/controls/adirs/ir[1]/align",0);
+	setprop("/controls/adirs/ir[2]/align",0);
+	setprop("/controls/adirs/ir[0]/knob","0");
+	setprop("/controls/adirs/ir[1]/knob","0");
+	setprop("/controls/adirs/ir[2]/knob","0");
+	setprop("/controls/adirs/ir[0]/fault",0);
+	setprop("/controls/adirs/ir[1]/fault",0);
+	setprop("/controls/adirs/ir[2]/fault",0);
+	setprop("/controls/adirs/onbat",0);
+	setprop("/controls/adirs/skip",0);
+	setprop("/controls/adirs/mcducbtn",0);
 	adirs_init();
 }
 
@@ -137,9 +139,24 @@ var ir_knob_move = func(i) {
 	}
 }
 
-setlistener("/controls/adirs/ir[0]/knob", func { ir_knob_move(0) });
-setlistener("/controls/adirs/ir[1]/knob", func { ir_knob_move(1) });
-setlistener("/controls/adirs/ir[2]/knob", func { ir_knob_move(2) });
+setlistener("/controls/adirs/ir[0]/knob", func {
+	ir_knob_move(0);
+	knobmcducheck();
+});
+setlistener("/controls/adirs/ir[1]/knob", func {
+	ir_knob_move(1);
+	knobmcducheck();
+});
+setlistener("/controls/adirs/ir[2]/knob", func {
+	ir_knob_move(2);
+	knobmcducheck();
+});
+
+var knobmcducheck = func {
+	if (getprop("/controls/adirs/ir[0]/knob") == 1 and getprop("/controls/adirs/ir[1]/knob") == 1 and getprop("/controls/adirs/ir[2]/knob") == 1) {
+		setprop("/controls/adirs/mcducbtn", 0);
+	}
+}
 
 var onbat_light = func {
 	if (((getprop("/systems/electrical/bus/dc1") > 25) or (getprop("/systems/electrical/bus/dc2") > 25)) and 
@@ -155,14 +172,9 @@ var onbat_light = func {
 
 var onbat_light_b = func {
 	setprop("/controls/adirs/onbat", 1);
-	setprop("/controls/adirs/numm", 0);
-	interpolate("/controls/adirs/numm", 5, 7);
-	var nummlist = setlistener("/controls/adirs/numm", func {
-		if (getprop("/controls/adirs/numm") == 5) {
-			removelistener(nummlist);
-			onbat_light();
-		}
-	});
+	settimer(func {
+		onbat_light();
+	}, 4);
 	if (getprop("/controls/adirs/skip") == 1) {
 		skip_ADIRS();
 	}

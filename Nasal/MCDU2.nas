@@ -1,5 +1,5 @@
 ##################################################################
-# A3XX MCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath #
+# A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath #
 ##################################################################
 
 var MCDU_init = func {
@@ -9,9 +9,15 @@ var MCDU_init = func {
 
 var MCDU_reset = func {
 	setprop("/MCDU[1]/page", "STATUS");
-	setprop("/MCDU[1]/cost-index", 0);
-	setprop("/MCDU[1]/flight-num", 0);
 	setprop("/MCDU[1]/scratchpad", "");
+	setprop("/MCDUC/flight-num", "");
+	setprop("/MCDUC/flight-num-set", 0);
+	setprop("/FMGC/internal/dep-arpt", "");
+	setprop("/FMGC/internal/arr-arpt", "");
+	setprop("/FMGC/internal/tofrom-set", 0);
+	setprop("/FMGC/internal/cruise-ft", 10000);
+	setprop("/FMGC/internal/cruise-fl", 100);
+	setprop("/FMGC/internal/cost-index", "0");
 	setprop("/FMGC/internal/cost-index-set", 0);
 	setprop("/FMGC/internal/cruise-lvl-set", 0);
 }
@@ -20,6 +26,10 @@ var lskbutton = func(btn) {
 	if (btn == "2") {
 		if (getprop("/MCDU[1]/page") == "INITA") {
 			PerfInput("L2");
+		}
+	} else if (btn == "3") {
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			initInputA("L3");
 		}
 	} else if (btn == "4") {
 		if (getprop("/MCDU[1]/page") == "DATA") {
@@ -42,9 +52,44 @@ var lskbutton = func(btn) {
 	}
 }
 
+var rskbutton = func(btn) {
+	if (btn == "1") {
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			initInputA("R1");
+		}
+	} else if (btn == "3") {
+		if (getprop("/MCDU[1]/page") == "INITA") {
+			initInputA("R3");
+		}
+	} else if (btn == "6") {
+		if (getprop("/MCDU[1]/page") == "TO") {
+			PerfTOInput("R6");
+		} else if (getprop("/MCDU[1]/page") == "CLB") {
+			perfCLBInput("R6");
+		} # else if (getprop("/MCDU[1]/page") == "CRZ") {
+			# perfCRZInput("R6");
+		#}
+	}
+}
+
 var initInputA = func(key) {
 	var scratchpad = getprop("/MCDU[1]/scratchpad");
-	if (key == "L5") {
+	if (key == "L3") {
+		if (scratchpad == "CLR") {
+			setprop("/MCDUC/flight-num", "");
+			setprop("/MCDUC/flight-num-set", 0);
+			setprop("/MCDU[1]/scratchpad", "");
+		} else {
+			var flts = size(scratchpad);
+			if (flts >= 1 and flts <= 8) {
+				setprop("/MCDUC/flight-num", scratchpad);
+				setprop("/MCDUC/flight-num-set", 1);
+				setprop("/MCDU[1]/scratchpad", "");
+			} else {
+				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L5") {
 		if (scratchpad == "CLR") {
 			setprop("/FMGC/internal/cost-index", 0);
 			setprop("/FMGC/internal/cost-index-set", 0);
@@ -53,7 +98,9 @@ var initInputA = func(key) {
 			var ci = int(scratchpad);
 			var cis = size(scratchpad);
 			if (cis >= 1 and cis <= 3) {
-				if (cis >= 0 and cis <= 120) {
+				if (ci == nil) {
+					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+				} else if (ci >= 0 and ci <= 120) {
 					setprop("/FMGC/internal/cost-index", ci);
 					setprop("/FMGC/internal/cost-index-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
@@ -74,7 +121,9 @@ var initInputA = func(key) {
 			var crz = int(scratchpad);
 			var crzs = size(scratchpad);
 			if (crzs >= 1 and crzs <= 3) {
-				if (crz > 0 and crz <= 430) {
+				if (crz == nil) {
+					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+				} else if (crz > 0 and crz <= 430) {
 					setprop("/FMGC/internal/cruise-ft", crz * 100);
 					setprop("/FMGC/internal/cruise-fl", crz);
 					setprop("/FMGC/internal/cruise-lvl-set", 1);
@@ -85,6 +134,30 @@ var initInputA = func(key) {
 			} else {
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
+		}
+	} else if (key == "R1") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/dep-arpt", "");
+			setprop("/FMGC/internal/arr-arpt", "");
+			setprop("/FMGC/internal/tofrom-set", 0);
+			fmgc.updateARPT();
+			setprop("/MCDU[1]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 9) {
+				var fromto = split("/", scratchpad);
+				setprop("/FMGC/internal/dep-arpt", fromto[0]);
+				setprop("/FMGC/internal/arr-arpt", fromto[1]);
+				setprop("/FMGC/internal/tofrom-set", 1);
+				fmgc.updateARPT();
+				setprop("/MCDU[1]/scratchpad", "");
+			} else {
+				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R3") {
+		if (getprop("/controls/adirs/mcducbtn") == 0) {
+			setprop("/controls/adirs/mcducbtn", 1);
 		}
 	}
 }
@@ -100,7 +173,9 @@ var perfCLBInput = func(key) {
 			var ci = int(scratchpad);
 			var cis = size(scratchpad);
 			if (cis >= 1 and cis <= 3) {
-				if (cis >= 0 and cis <= 120) {
+				if (ci == nil) {
+					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
+				} else if (ci >= 0 and ci <= 120) {
 					setprop("/FMGC/internal/cost-index", ci);
 					setprop("/FMGC/internal/cost-index-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
@@ -127,21 +202,10 @@ var PerfTOInput = func(key) {
 var perfCRZInput = func(key) {
 	if (key == "L6") {
 		setprop("/MCDU[1]/page", "CLB");
-	} # else if (key == "R6") {
-	#	setprop("/MCDU[1]/page", "DES");
-	#}
-}
-
-var rskbutton = func(btn) {
-	if (btn == "6") {
-		if (getprop("/MCDU[1]/page") == "TO") {
-			PerfTOInput("R6");
-		} else if (getprop("/MCDU[1]/page") == "CLB") {
-			perfCLBInput("R6");
-		} # else if (getprop("/MCDU[1]/page") == "TO") {
-			# perfCRZInput("R6");
-	  # }
 	}
+	# if (key == "R6") {
+	 #	setprop("/MCDU[1]/page", "DES");
+	# }
 }
 
 var arrowbutton = func(btn) {
@@ -277,6 +341,8 @@ var button = func(btn) {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ "9");
 	} else if (btn == "DOT") {
 		setprop("/MCDU[1]/scratchpad", scratchpad ~ ".");
+	} else if (btn == "PLUSMINUS") {
+		setprop("/MCDU[1]/scratchpad", scratchpad ~ "-");
 	}
 }
 

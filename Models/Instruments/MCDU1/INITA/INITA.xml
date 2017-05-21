@@ -95,20 +95,20 @@
 		</font-resolution>
 	</text>
 	
-	<!--<text>
+	<text>
 		<name>fromto2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.035</y-m>
+			<y-m>0.028</y-m>
 			<z-m>0.0715</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>REPLACE ME WITH SOMETHING</property>
+		<property>/FMGC/internal/dep-arpt</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -117,7 +117,39 @@
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
-	</text>-->
+	</text>
+	
+	<text>
+		<name>fromto2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.043</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">/%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/arr-arpt</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fromto2</object-name>
+		<condition>
+			<property>/FMGC/internal/tofrom-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>altncorte</name>
@@ -282,6 +314,19 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>alignirs</object-name>
+		<object-name>alignirs-arrow</object-name>
+		<condition>
+			<and>
+				<property>/FMGC/internal/tofrom-set</property>
+				<not><property>/controls/adirs/mcducbtn</property></not>
+			</and>
+		</condition>
+	</animation>
+	
 	<!--<text>
 		<name>activedata3</name>
 		<offsets>
@@ -329,29 +374,37 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
-	<!--<text>
+	<text>
 		<name>fltnmbr2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>-0.035</y-m>
+			<y-m>-0.045</y-m>
 			<z-m>0.0505</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">N/A</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/flight-num</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0045</character-size>
+		<character-size>0.0050</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
-	</text>-->
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fltnmbr2</object-name>
+		<condition>
+			<property>/MCDUC/flight-num-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>costindex</name>
@@ -427,6 +480,7 @@
 		<type>select</type>
 		<object-name>costindex2</object-name>
 		<condition>
+			<not><property>/FMGC/internal/tofrom-set</property></not>
 			<not><property>/FMGC/internal/cost-index-set</property></not>
 		</condition>
 	</animation>
@@ -582,6 +636,7 @@
 		<type>select</type>
 		<object-name>crzfltemp2</object-name>
 		<condition>
+			<not><property>/FMGC/internal/tofrom-set</property></not>
 			<not><property>/FMGC/internal/cruise-lvl-set</property></not>
 		</condition>
 	</animation>
@@ -839,6 +894,8 @@
 		<object-name>tropovalue</object-name>
 		<object-name>LONG-val</object-name>
 		<object-name>LAT-val</object-name>
+		<object-name>fromto2</object-name>
+		<object-name>fltnmbr2</object-name>
 		<object-name>costindex3</object-name>
 		<object-name>crzfltemp3</object-name>
         <diffuse>
