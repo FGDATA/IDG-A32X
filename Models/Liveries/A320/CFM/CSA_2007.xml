@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name type="string">Czech Airlines (2007)</name>
-				<texture>Liveries/A320/IAE/CSA_2007.png</texture>
+				<texture>Liveries/A320/CFM/CSA_2007.png</texture>
 			</livery> 
 		</model>
 	</sim>

@@ -3,8 +3,7 @@
     <model>
       <livery>
         <name type="string">Virgin America (N629VA)</name>
-                <texture>Liveries/A320/IAE/N629VA.png</texture>
-      	    <texture2>FanDisk.png</texture2>
+                <texture>Liveries/A320/CFM/N629VA.png</texture>
       </livery>
     </model>
   </sim>

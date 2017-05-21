@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">Lufthansa (D-AIPE)</name>
-        <texture>Liveries/A320/IAE/D-AIPE.png</texture>
+        <texture>Liveries/A320/CFM/D-AIPE.png</texture>
       </livery>
     </model>
   </sim>

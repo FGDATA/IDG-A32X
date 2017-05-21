@@ -4,7 +4,7 @@
     <model>
       <livery>
         <name type="string">Northwest Airlines</name>
-        <texture>Liveries/A320/IAE/NWA.png</texture>
+        <texture>Liveries/A320/CFM/NWA.png</texture>
       </livery>
     </model>
   </sim>
