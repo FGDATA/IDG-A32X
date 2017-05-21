@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Dirty Aer Lingus (EI-CPH)</name>
-				<texture>Liveries/A321/IAE/EIN-dirt.png</texture>
+				<texture>Liveries/A321/CFM/EIN-dirt.png</texture>
 			</livery>
 		</model>
 	</sim>

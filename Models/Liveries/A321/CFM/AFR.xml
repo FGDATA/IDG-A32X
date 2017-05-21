@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Air France</name>
-				<texture>Liveries/A321/IAE/AFR.png</texture>
+				<texture>Liveries/A321/CFM/AFR.png</texture>
 			</livery>
 		</model>
 	</sim>
