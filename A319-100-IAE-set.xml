@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A319-100 (IAE V2500)</description>
+		<description>Airbus A319-131 (IAE V2500)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A319-100-IAE</aero>
 		<model>
@@ -113,7 +113,7 @@
 	</sim>
 	
 	<options>
-		<EIS2 type="bool">1</EIS2>
+		<EIS2 type="bool">0</EIS2>
 		<eng>IAE</eng>
 	</options>
 	

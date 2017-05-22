@@ -28,7 +28,7 @@
 			<button>
 				<halign>center</halign>
 				<legend>Go Away</legend>
-				<pref-width>140</pref-width>
+				<pref-width>160</pref-width>
 				<key>Esc</key>
 				<binding>
 					<command>dialog-close</command>

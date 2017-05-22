@@ -149,6 +149,7 @@
 					</item>
 				</menu>
 				<menu n="100">
+					<label>Airbus A3XX</label>
 					<enabled type="bool">true</enabled>
 					<item>
 						<label>Aircraft Config</label>
