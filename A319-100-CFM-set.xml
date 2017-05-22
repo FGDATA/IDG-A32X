@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A319-100 (CFM56)</description>
+		<description>Airbus A319-112 (CFM56)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A319-100-CFM</aero>
 		<model>
@@ -101,19 +101,11 @@
 				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
 		</view>
-
-		<menubar>
-			<default>
-				<menu n="100">
-					<label>Airbus A319-100</label>
-				</menu>
-			</default>
-		</menubar>
 		
 	</sim>
 	
 	<options>
-		<EIS2 type="bool">1</EIS2>
+		<EIS2 type="bool">0</EIS2>
 		<eng>CFM</eng>
 	</options>
 	
