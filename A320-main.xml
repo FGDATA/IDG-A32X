@@ -316,7 +316,7 @@
 		</cmd>
 		<autoland>
 			<kp-roll>0.10</kp-roll>
-			<kp-pitch>0.03</kp-pitch>
+			<kp-pitch>0.028</kp-pitch>
 			<kp-rudder>-0.25</kp-rudder>
 		</autoland>
 	</config>
