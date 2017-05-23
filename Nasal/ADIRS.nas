@@ -15,7 +15,6 @@ setprop("/systems/electrical/bus/ac2", 0);
 setprop("/systems/electrical/bus/ac-ess", 0);
 
 var adirs_init = func {
-	setprop("controls/adirs/skip",0); #define this here, as we want this to be off on startup
 	setprop("/controls/adirs/mcducbtn",0);
 	adirs_timer.start();
 }
@@ -50,7 +49,6 @@ var ADIRSreset = func {
 	setprop("/controls/adirs/ir[1]/fault",0);
 	setprop("/controls/adirs/ir[2]/fault",0);
 	setprop("/controls/adirs/onbat",0);
-	setprop("/controls/adirs/skip",0);
 	setprop("/controls/adirs/mcducbtn",0);
 	adirs_init();
 }

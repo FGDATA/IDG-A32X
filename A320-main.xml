@@ -391,6 +391,7 @@
 				<fault type="bool">false</fault>
 			</ir>
 			<onbat type="bool">false</onbat>
+			<skip userarchive="y" type="bool">0</skip>
 		</adirs>
 		<APU>
 			<fire-switch type="bool">0</fire-switch>
@@ -520,7 +521,7 @@
 	
 	<options n="0">
 		<pfd n="0">
-			<sidestick-pos type="bool">0</sidestick-pos>
+			<sidestick-pos userarchive="y" type="bool">0</sidestick-pos>
 		</pfd>
 	</options>
 	

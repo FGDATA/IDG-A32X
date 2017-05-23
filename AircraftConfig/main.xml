@@ -288,7 +288,7 @@
 			<hrule/>
 			
 			<checkbox>
-				<label>Skip IRS Alignment</label>
+				<label>Skip ADIRS Alignment</label>
 				<halign>left</halign>
 				<property>/controls/adirs/skip</property>
 				<binding>
@@ -297,6 +297,12 @@
 				</binding>
 				<binding>
 					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
 				</binding>
 				<live>true</live>
 			</checkbox>
@@ -311,6 +317,12 @@
 				</binding>
 				<binding>
 					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
 				</binding>
 				<live>true</live>
 			</checkbox>
