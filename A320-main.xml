@@ -149,6 +149,7 @@
 					</item>
 				</menu>
 				<menu n="100">
+					<label>Airbus A3XX</label>
 					<enabled type="bool">true</enabled>
 					<item>
 						<label>Aircraft Config</label>
@@ -312,7 +313,6 @@
 			<vorloc>-4.0</vorloc>
 			<vs>0.01</vs>
 			<fpa>0.30</fpa>
-			<gs>0.10</gs>
 		</cmd>
 		<autoland>
 			<kp-roll>0.10</kp-roll>
