@@ -315,7 +315,6 @@
 			<fpa>0.30</fpa>
 		</cmd>
 		<autoland>
-			<kp-roll>0.10</kp-roll>
 			<kp-pitch>0.03</kp-pitch>
 			<kp-rudder>-0.25</kp-rudder>
 		</autoland>
@@ -323,7 +322,6 @@
 	<settings>
 		<default-bank-limit>30</default-bank-limit> <!-- Set the Default Bank Limit -->
 		<enable-cws>0</enable-cws> <!-- Enable/Disable CWS -->
-		<flare-altitude>40</flare-altitude> <!-- Autoland Flare AGL -->
 		<land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
 		<land-flap>0.645</land-flap> <!-- Minimum Flap used for Landing -->
 		<retard-ft>40</retard-ft> <!-- Enable Thrust Retard -->
@@ -331,6 +329,7 @@
 		<togaspd>162</togaspd> <!-- V2 + 10kts -->
 		<lat-agl-ft>30</lat-agl-ft> <!-- Set to 999999 if you do not want T/O to change automatically to HDG, or LNAV -->
 		<reduc-agl-ft>3000</reduc-agl-ft> <!-- Set to 999999 if you do not want TOGA to change automatically to FLCH -->
+		<autoland-without-ap>1</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
 	</settings>
 	<output>
 		<ap1>0</ap1>
@@ -392,6 +391,7 @@
 				<fault type="bool">false</fault>
 			</ir>
 			<onbat type="bool">false</onbat>
+			<skip userarchive="y" type="bool">0</skip>
 		</adirs>
 		<APU>
 			<fire-switch type="bool">0</fire-switch>
@@ -521,7 +521,7 @@
 	
 	<options n="0">
 		<pfd n="0">
-			<sidestick-pos type="bool">0</sidestick-pos>
+			<sidestick-pos userarchive="y" type="bool">0</sidestick-pos>
 		</pfd>
 	</options>
 	
@@ -636,11 +636,11 @@
 		<keyboard>
 			<key n="127">
 				<name>DEL</name>
-				<desc>REV MSG</desc>
+				<desc>Simple Engage/Disengage reversers</desc>
 				<binding>
 					<command>nasal</command>
 					<script>
-					gui.popupTip("Use w to activate reverse thrust, and q to deactivate reverse thrust.");
+					systems.toggleFastRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -650,7 +650,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.un_rev_thrust();
+					systems.unRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -660,7 +660,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.do_rev_thrust();
+					systems.doRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -670,7 +670,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.do_idle_thrust();
+					systems.doIdleThrust();
 					</script>
 				</binding>
 			</key>

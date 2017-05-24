@@ -77,6 +77,10 @@
 							<property>/it-autoflight/output/ap2</property>
 							<value>0</value>
 						</eq>
+						<eq>
+							<property>/gear/gear[0]/wow</property>
+							<value>0</value>
+						</eq>
 						<or>
 							<eq>
 								<property>/it-fbw/law</property>

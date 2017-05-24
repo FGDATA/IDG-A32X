@@ -12,15 +12,16 @@ var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A3
 init_dlg.open();
 
 setlistener("/sim/signals/fdm-initialized", func {
-#	loadSettings();
 	init_dlg.close();
 	welcome_dlg.open();
 });
 
-#var loadSettings = func {
-#	var file = io.open(getprop("/sim/aircraft-dir")~"/AircraftConfig/settings.conf","r+");
-#	print(file);
-#}
+var saveSettings = func {
+	aircraft.data.add("/options/pfd/sidestick-pos", "/controls/adirs/skip");
+	aircraft.data.save();
+}
+
+saveSettings();
 
 var systemsReset = func {
 	systems.elec_init();
