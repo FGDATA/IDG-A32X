@@ -224,23 +224,6 @@
     </filter>
 	
     <filter>
-        <name>PFD IAS Sync</name>
-        <type>gain</type>
-        <gain>1</gain>
-		<enable>
-			<condition>
-				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>1</value>
-				</equals>
-			</condition>
-		</enable>
-        <update-interval-secs type="double">0.5</update-interval-secs>
-        <input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
-		<output>/it-autoflight/input/spd-kts</output>
-    </filter>
-	
-    <filter>
         <name>Throttle L</name>
         <type>gain</type>
         <gain>1</gain>
