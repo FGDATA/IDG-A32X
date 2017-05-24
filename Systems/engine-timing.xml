@@ -244,16 +244,77 @@
         <name>Throttle L</name>
         <type>gain</type>
         <gain>1</gain>
-		<enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[0]/reverser</property>
 					<value>0</value>
 				</equals>
 			</condition>
-		</enable>
+			<property>/controls/engines/engine[0]/throttle</property>
+		</input>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</input>
+		<output>/controls/engines/engine[0]/throttle-lever</output>
+    </filter>
+	
+    <filter>
+        <name>Throttle R</name>
+        <type>gain</type>
+        <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>/controls/engines/engine[0]/throttle</input>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[1]/throttle</property>
+		</input>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</input>
+		<output>/controls/engines/engine[1]/throttle-lever</output>
+    </filter>
+	
+    <filter>
+        <name>Throttle L</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[0]/throttle</property>
+		</input>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[0]/throttle-rev</property>
+		</input>
 		<output>/controls/engines/engine[0]/throttle-pos</output>
     </filter>
 	
@@ -261,16 +322,25 @@
         <name>Throttle R</name>
         <type>gain</type>
         <gain>1</gain>
-		<enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[1]/reverser</property>
 					<value>0</value>
 				</equals>
 			</condition>
-		</enable>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>/controls/engines/engine[1]/throttle</input>
+			<property>/controls/engines/engine[1]/throttle</property>
+		</input>
+        <input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[1]/throttle-rev</property>
+		</input>
 		<output>/controls/engines/engine[1]/throttle-pos</output>
     </filter>
 

@@ -636,11 +636,11 @@
 		<keyboard>
 			<key n="127">
 				<name>DEL</name>
-				<desc>REV MSG</desc>
+				<desc>Simple Engage/Disengage reversers</desc>
 				<binding>
 					<command>nasal</command>
 					<script>
-					gui.popupTip("Use w to activate reverse thrust, and q to deactivate reverse thrust.");
+					systems.toggleFastRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -650,7 +650,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.un_rev_thrust();
+					systems.unRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -660,7 +660,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.do_rev_thrust();
+					systems.doRevThrust();
 					</script>
 				</binding>
 			</key>
@@ -670,7 +670,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					systems.do_idle_thrust();
+					systems.doIdleThrust();
 					</script>
 				</binding>
 			</key>
