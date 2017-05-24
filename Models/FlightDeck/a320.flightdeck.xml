@@ -2132,13 +2132,7 @@
 		<name>Engine 1 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_l</object-name>
-		<condition>
-			<not-equals>
-				<property>/controls/engines/engine[0]/reverser</property>
-				<value>1</value>
-			</not-equals>
-		</condition>
-		<property>controls/engines/engine[0]/throttle-pos</property>
+		<property>controls/engines/engine[0]/throttle-lever</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
@@ -2168,16 +2162,10 @@
 		<name>Engine 1 throttle lever rev</name>
 		<type>rotate</type>
 		<object-name>thr_l</object-name>
-		<condition>
-			<equals>
-				<property>/controls/engines/engine[0]/reverser</property>
-				<value>1</value>
-			</equals>
-		</condition>
-		<property>controls/engines/engine[0]/throttle-pos</property>
+		<property>controls/engines/engine[0]/throttle-rev</property>
 		<interpolation>
 			<entry><ind>0.00</ind><dep> 0</dep></entry>
-			<entry><ind>0.25</ind><dep>-10</dep></entry>
+			<entry><ind>0.50</ind><dep>-10</dep></entry>
 		</interpolation> 
 		<axis>
 			<x>0</x>
@@ -2221,13 +2209,7 @@
 		<name>Engine 2 throttle lever</name>
 		<type>rotate</type>
 		<object-name>thr_r</object-name>
-		<condition>
-			<not-equals>
-				<property>/controls/engines/engine[0]/reverser</property>
-				<value>1</value>
-			</not-equals>
-		</condition>
-		<property>controls/engines/engine[1]/throttle-pos</property>
+		<property>controls/engines/engine[1]/throttle-lever</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep>10</dep></entry>
 			<entry><ind>0.59999</ind><dep>33</dep></entry>
@@ -2257,16 +2239,10 @@
 		<name>Engine 2 throttle lever rev</name>
 		<type>rotate</type>
 		<object-name>thr_r</object-name>
-		<condition>
-			<equals>
-				<property>/controls/engines/engine[0]/reverser</property>
-				<value>1</value>
-			</equals>
-		</condition>
-		<property>controls/engines/engine[1]/throttle-pos</property>
+		<property>controls/engines/engine[1]/throttle-rev</property>
 		<interpolation>
 			<entry><ind>0.00</ind><dep> 0</dep></entry>
-			<entry><ind>0.25</ind><dep>-10</dep></entry>
+			<entry><ind>0.50</ind><dep>-10</dep></entry>
 		</interpolation> 
 		<axis>
 			<x>0</x>

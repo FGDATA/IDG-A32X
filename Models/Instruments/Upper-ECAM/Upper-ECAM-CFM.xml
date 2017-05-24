@@ -935,7 +935,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>thrpos1</object-name>
-    	<property>/controls/engines/engine[0]/throttle</property>
+    	<property>/controls/engines/engine[0]/throttle-lever</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep> -2</dep></entry>
 			<entry><ind>0.23350</ind><dep> 72</dep></entry>
@@ -966,7 +966,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>thrpos2</object-name>
-    	<property>/controls/engines/engine[1]/throttle</property>
+    	<property>/controls/engines/engine[1]/throttle-lever</property>
 		<interpolation>
 			<entry><ind>0.00000</ind><dep> -2</dep></entry>
 			<entry><ind>0.23350</ind><dep> 72</dep></entry>
