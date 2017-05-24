@@ -86,7 +86,7 @@
         <type>texmultiple</type>
         <object-name>horizon</object-name>
         <transform>
-            <property>orientation/pitch-deg</property>
+            <property>/orientation/pitch-deg</property>
             <subtype>textranslate</subtype>
             <factor>0.003955078</factor>
             <axis>
@@ -95,7 +95,49 @@
             </axis>
         </transform>
         <transform>
-            <property>orientation/roll-deg</property>
+            <property>/orientation/roll-deg</property>
+            <subtype>texrotate</subtype>
+            <center>
+                <x>0.50</x>
+                <y>0.50</y>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+        </transform>
+    </animation>
+	
+	<animation>
+        <type>texrotate</type>
+		<object-name>sky</object-name>
+    	<property>/orientation/roll-deg</property>
+		<center>
+			<x>0.50</x>
+			<y>0.50</y>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+	
+	<animation>
+        <type>texmultiple</type>
+		<object-name>ground</object-name>
+        <transform>
+            <property>/instrumentation/pfd/horizon-ground</property>
+            <subtype>textranslate</subtype>
+            <factor>0.003955078</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <property>/orientation/roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
                 <x>0.50</x>
@@ -113,11 +155,14 @@
     	<type>rotate</type>
     	<object-name>bank</object-name>
     	<object-name>slipskid</object-name>
+		<object-name>radio-alt</object-name>
+		<object-name>radio-alt-land</object-name>
     	<property>orientation/roll-deg</property>
+		<factor>1.05</factor>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0049</y-m>
-    		<z-m>0.0005</z-m>
+    		<y-m>-0.0051</y-m>
+    		<z-m>0.00091</z-m>
     	</center>
     	<axis>
     		<x>1</x>
@@ -453,8 +498,8 @@
 		<name>radio-alt</name>
 		<offsets>
 			<x-m>0.0010</x-m>
-			<y-m>-0.0051</y-m>
-			<z-m>-0.0342</z-m>
+			<y-m>-0.006</y-m>
+			<z-m>-0.0362</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -477,8 +522,8 @@
         <name>radio-alt-land</name>
         <offsets>
             <x-m>0.0010</x-m>
-            <y-m>-0.0051</y-m>
-            <z-m>-0.0342</z-m>
+            <y-m>-0.006</y-m>
+            <z-m>-0.0362</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -831,7 +876,7 @@
                 </less-than>
                 <greater-than>
                     <property>position/gear-agl-ft</property>
-                    <value>400</value>
+                    <value>250</value>
                 </greater-than>
             </and>
         </condition>
@@ -844,7 +889,7 @@
         <condition>
             <less-than-equals>
                 <property>position/gear-agl-ft</property>
-                <value>400</value>
+                <value>250</value>
             </less-than-equals>
         </condition>
     </animation>
@@ -1209,7 +1254,7 @@
         <name>pitch-mode-armed-fma</name>
         <offsets>
             <x-m>0.00091828</x-m>
-            <y-m>-0.0210226</y-m>
+            <y-m>-0.0130226</y-m>
             <z-m>0.0635781</z-m>
         </offsets>
         <alignment>center-center</alignment>
@@ -1219,6 +1264,30 @@
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
         <property>/modes/pfd/fma/pitch-mode-armed</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <text>
+        <name>pitch-mode-armed2-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0290226</y-m>
+            <z-m>0.0635781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/modes/pfd/fma/pitch-mode2-armed</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -2247,6 +2316,7 @@
         <object-name>qnh-indicator-hpa</object-name>
 		<object-name>roll-mode-armed-fma</object-name>
 		<object-name>pitch-mode-armed-fma</object-name>
+		<object-name>pitch-mode-armed2-fma</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.886</green>

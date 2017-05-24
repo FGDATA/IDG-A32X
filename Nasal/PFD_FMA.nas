@@ -60,26 +60,35 @@ setlistener("/it-autoflight/mode/vert", func {
 	var vert = getprop("/it-autoflight/mode/vert");
 	if (vert == "ALT HLD") {
 		setprop("/modes/pfd/fma/pitch-mode", "ALT");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 	} else if (vert == "ALT CAP") {
 		setprop("/modes/pfd/fma/pitch-mode", "ALT");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 	} else if (vert == "V/S") {
 		setprop("/modes/pfd/fma/pitch-mode", "V/S");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 	} else if (vert == "G/S") {
 		setprop("/modes/pfd/fma/pitch-mode", "G/S");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 	} else if (vert == "SPD CLB") {
 		setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 	} else if (vert == "SPD DES") {
 		setprop("/modes/pfd/fma/pitch-mode", "OP DES");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 	} else if (vert == "FPA") {
 		setprop("/modes/pfd/fma/pitch-mode", "FPA");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 	} else if (vert == "LAND") {
 		setprop("/modes/pfd/fma/pitch-mode", "LAND");
 	} else if (vert == "FLARE") {
 		setprop("/modes/pfd/fma/pitch-mode", "FLARE");
 	} else if (vert == "T/O CLB") {
 		setprop("/modes/pfd/fma/pitch-mode", "SRS");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
 	} else if (vert == "G/A CLB") {
 		setprop("/modes/pfd/fma/pitch-mode", "SRS");
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 	}
 });
 
@@ -110,6 +119,18 @@ var vnav_clbdes = func {
 		}
 	}
 }
+
+# Arm HDG or NAV
+setlistener("/it-autoflight/mode/arm", func {
+	var arm = getprop("/it-autoflight/mode/arm");
+	if (arm == "HDG") {
+		setprop("/modes/pfd/fma/roll-mode-armed", "HDG");
+	} else if (arm == "LNV") {
+		setprop("/modes/pfd/fma/roll-mode-armed", "NAV");
+	} else if (arm == " ") {
+		setprop("/modes/pfd/fma/roll-mode-armed", " ");
+	}
+});
 
 # Arm LOC
 setlistener("/it-autoflight/output/loc-armed", func {
