@@ -1327,6 +1327,7 @@
         <object-name>pitch-mode-fma</object-name>
         <object-name>roll-mode-fma</object-name>
         <object-name>pitch-mode-armed-fma</object-name>
+        <object-name>pitch-mode-armed2-fma</object-name>
         <object-name>roll-mode-armed-fma</object-name>
         <condition>
 			<or>
