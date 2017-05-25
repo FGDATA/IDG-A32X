@@ -2718,19 +2718,11 @@
 
     <!-- Tiller Animation -->
 
-    <animation>
+    <!--animation>
             <type>rotate</type>
             <object-name>tiller</object-name>
             <property>controls/gear/tiller-cmd-norm</property>
             <factor>70</factor>
-            <!--axis>
-                    <x1-m>-0.16</x1-m>
-                    <y1-m>-0.223</y1-m>
-                    <z1-m>0.995</z1-m>
-                    <x2-m>-0.16</x2-m>
-                    <y2-m>-0.223</y2-m>
-                    <z2-m>-0.995</z2-m>
-            </axis-->
             <axis>
                     <x1-m>-0.15</x1-m>
                     <y1-m>-0.99</y1-m>
@@ -2781,7 +2773,7 @@
                             </script>
                     </binding>
             </action>
-    </animation>
+    </animation-->
 
     <!-- Rudder pedals -->
 
