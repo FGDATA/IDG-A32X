@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!-- Deutsche Lufthansa AG livery for Airbus Industries A320-200 mady by D-SVEN. Have fun! -->
 <PropertyList>
-	<sim>
-		<model>
-			<livery>
-				<name>Lufthansa</name>
-				<texture>Liveries/A320/CFM/DLH.png</texture>
-			</livery>
-		</model>
-	</sim>
-	
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Lufthansa D-AIZA</name>
+        <texture>Liveries/A320/CFM/DLH.png</texture>
+      </livery>
+    </model>
+  </sim>
+  
 	<options>
-		<EIS2 type="bool">0</EIS2>
+		<EIS2 type="bool">1</EIS2>
 	</options>
-	
+  
 	<sharklet type="bool">0</sharklet>
 </PropertyList>
- 

@@ -370,5 +370,30 @@
     <min>-0.24</min>
     <max>0</max>
   </filter>
+  
+  <!-- =============================================================== -->
+  <!--                            Other stuff                          -->
+  <!-- =============================================================== -->
+  
+    <filter>
+        <name>Ground Horizon</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+			<expression>
+				<sum>
+					<property>/orientation/pitch-deg</property>
+					<table>
+						<property>/position/gear-agl-ft</property> 
+						<entry><ind>  2</ind><dep> 0</dep></entry>
+						<entry><ind>150</ind><dep>16</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<output>/instrumentation/pfd/horizon-ground</output>
+		<max>16</max>
+    </filter>
     
 </PropertyList>
