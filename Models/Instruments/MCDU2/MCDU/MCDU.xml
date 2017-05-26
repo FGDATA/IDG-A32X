@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+
+<!--
+##################################################################
+# A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath #
+##################################################################
+-->
+
+<PropertyList>
+
+	<path>EMPTY.ac</path>
+	
+	<text>
+		<name>page</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.083</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">MCDU MENU</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>fmgctext</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0725</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;FMGC</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>acarstext</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0605</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;ACARS</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>aidstext</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;AIDS</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>cfdstext</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;CFDS</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>return</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.043</y-m>
+			<z-m>0.0190</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">RETURN&gt;</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Colors -->
+	<!-- White -->
+    <animation>
+        <type>material</type>
+		<object-name>page</object-name>
+		<object-name>aidstext</object-name>
+		<object-name>fmgctext</object-name>
+		<object-name>acarstext</object-name>
+		<object-name>cfdstext</object-name>
+		<object-name>return</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+	
+</PropertyList>

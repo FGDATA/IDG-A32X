@@ -62,7 +62,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.043</y-m>
-			<z-m>0.0715</z-m>
+			<z-m>0.0705</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -144,7 +144,7 @@
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0045</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
@@ -178,13 +178,13 @@
 		<name>seconddata2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>-0.040</y-m>
+			<y-m>-0.0455</y-m>
 			<z-m>0.0505</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">29JAN-26FEB</format>
+		<format type="string">&lt;-29JAN-26FEB</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>

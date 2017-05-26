@@ -837,6 +837,10 @@
 		<object-name>initreq</object-name>
 		<object-name>requeststar</object-name>
 		<object-name>request</object-name>
+		<object-name>fltnumbox</object-name>
+		<object-name>coroutebox</object-name>
+		<object-name>cruisetempbox</object-name>
+		<object-name>costindexbox</object-name>
 		<object-name>fromtobox</object-name>
         <diffuse>
             <red>1</red>
