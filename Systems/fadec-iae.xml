@@ -433,7 +433,7 @@
 			<condition>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>/systems/thrust/state2</property>
 						<value>MAN THR</value>
 					</equals>
 					<and>
