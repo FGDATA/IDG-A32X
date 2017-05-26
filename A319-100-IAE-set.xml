@@ -101,14 +101,12 @@
 				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
 		</view>
-
-		<menubar>
-			<default>
-				<menu n="100">
-					<label>Airbus A319-100</label>
-				</menu>
-			</default>
-		</menubar>
+		
+		<systems n="0">
+            <autopilot n="0">
+                <path>Aircraft/A320Family/Systems/fadec-iae.xml</path>
+            </autopilot>
+		</systems>
 		
 	</sim>
 	

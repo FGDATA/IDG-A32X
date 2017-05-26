@@ -3,44 +3,6 @@
 <PropertyList>
 
     <filter>
-        <name>EPR 1</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>   18</ind><dep>0.988</dep></entry>
-                    <entry><ind>   23</ind><dep>1.000</dep></entry>
-                    <entry><ind>   35</ind><dep>1.060</dep></entry>
-                    <entry><ind>105.8</ind><dep>1.322</dep></entry>
-                </table>
-            </expression>
-        </input>
-		<output>/engines/engine[0]/epr-actual</output>
-    </filter>
-	
-    <filter>
-        <name>EPR 2</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>   18</ind><dep>0.988</dep></entry>
-                    <entry><ind>   23</ind><dep>1.000</dep></entry>
-                    <entry><ind>   35</ind><dep>1.060</dep></entry>
-                    <entry><ind>105.8</ind><dep>1.322</dep></entry>
-                </table>
-            </expression>
-        </input>
-		<output>/engines/engine[1]/epr-actual</output>
-    </filter>
-
-    <filter>
         <name>EGT L</name>
         <type>gain</type>
         <gain>1</gain>
@@ -209,7 +171,7 @@
             </expression>
         </input>
 		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
-		<max-rate-of-change>10</max-rate-of-change>
+		<max-rate-of-change>50</max-rate-of-change>
     </filter>
 	
 	<filter>
@@ -220,7 +182,7 @@
 			<property>/it-autoflight/internal/vert-speed-fpm</property> 
         </input>
 		<output>/it-autoflight/internal/vert-speed-fpm-filtered</output>
-		<max-rate-of-change>1000</max-rate-of-change>
+		<max-rate-of-change>5000</max-rate-of-change>
     </filter>
 	
     <filter>

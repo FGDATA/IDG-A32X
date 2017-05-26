@@ -95,6 +95,12 @@
 			</config>
 		</view>
 		
+		<systems n="0">
+            <autopilot n="0">
+                <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
+            </autopilot>
+		</systems>
+		
 	</sim>
 	
 	<options>
