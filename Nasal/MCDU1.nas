@@ -9,6 +9,7 @@ var MCDU_init = func {
 
 var MCDU_reset = func {
 	setprop("/it-autoflight/settings/togaspd", 157);
+	setprop("/MCDU[0]/last-fmgc-page", "STATUS");
 	setprop("/MCDU[0]/page", "STATUS");
 	setprop("/MCDU[0]/scratchpad", "");
 	setprop("/MCDUC/flight-num", "");
@@ -38,7 +39,9 @@ var MCDU_reset = func {
 
 var lskbutton = func(btn) {
 	if (btn == "1") {
-		if (getprop("/MCDU[0]/page") == "TO") {
+		if (getprop("/MCDU[0]/page") == "MCDU") {
+			setprop("/MCDU[0]/page", getprop("/MCDU[0]/last-fmgc-page"));
+		} else if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("L1");
 		}
 	} else if (btn == "2") {
@@ -456,6 +459,7 @@ var pagebutton = func(btn) {
 	} else if (btn == "data") {
 		setprop("/MCDU[0]/page", "DATA");
 	} else if (btn == "mcdu") {
+		setprop("/MCDU[0]/last-fmgc-page", getprop("/MCDU[0]/page"));
 		setprop("/MCDU[0]/page", "MCDU");
 	}
 }
