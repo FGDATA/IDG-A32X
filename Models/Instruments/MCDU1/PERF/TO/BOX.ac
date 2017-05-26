@@ -4,7 +4,7 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 0  trans 0
 OBJECT world
 kids 4
 OBJECT poly
-name "vr"
+name "vrbox"
 loc -0.0660365 -0.00059823 0.0488058
 data 10
 enginepane
@@ -25,7 +25,7 @@ refs 4
 2 0.772026 0.340808
 kids 0
 OBJECT poly
-name "v1"
+name "v1box"
 loc -0.0766055 -0.00059823 0.0486379
 data 10
 enginepane
@@ -46,7 +46,7 @@ refs 4
 1 0.770887 0.340902
 kids 0
 OBJECT poly
-name "v2"
+name "v2box"
 loc -0.055732 -0.00059823 0.0488504
 data 10
 enginepane

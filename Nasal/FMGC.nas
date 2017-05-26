@@ -10,10 +10,7 @@ setprop("/position/gear-agl-ft", 0);
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
-	setprop("/FMGC/internal/cruise-ft", 10000);
-	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/tropo", 36090);
-	setprop("/FMGC/internal/cost-index", "0");
 	phasecheck.start();
 }
 
@@ -100,6 +97,7 @@ var phasecheck = maketimer(0.2, func {
 	}
 	if ((phase == "5") and (state1 == "TOGA") and (state2 == "TOGA")) { # this is the only fully correct one to FCOM
 		setprop("/FMGC/status/phase", "6");
+		setprop("/it-autoflight/input/toga", 1);
 	}
 	# forget transition from APP to climb for now because it would be too complex
 	if ((phase == "6") and ((vertmode == "G/A CLB") or (vertmode == "SPD CLB") or (vertmode == "CLB") or ((vertmode == "V/S") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
@@ -112,7 +110,7 @@ var phasecheck = maketimer(0.2, func {
 			FMGCinit();
 			mcdu1.MCDU_reset();
 			mcdu2.MCDU_reset();
-		}, 30);
+		}, 20);
 	}
 });
 	

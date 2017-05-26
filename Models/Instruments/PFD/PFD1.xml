@@ -1762,6 +1762,52 @@
     </text>
 	
     <text>
+        <name>athr-flex-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0576226</y-m>
+            <z-m>0.0630781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">FLX +</format>
+		<property>autopilot/serviceable</property>
+        <font type="string">helvetica_medium.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <text>
+        <name>athr-flexb-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0466226</y-m>
+            <z-m>0.0630781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/FMGC/internal/flex</property>
+        <font type="string">helvetica_medium.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <text>
         <name>athr-thr-fma</name>
         <offsets>
             <x-m>0.00091828</x-m>
@@ -1879,6 +1925,46 @@
 				<equals>
 					<property>/it-autoflight/output/athr</property>
 					<value>1</value>
+				</equals>
+				<not-equals>
+					<property>/controls/engines/thrust-limit</property>
+					<value>FLX</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state1</property>
+					<value>TOGA</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state2</property>
+					<value>TOGA</value>
+				</not-equals>
+				<or>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MCT</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MCT</value>
+					</equals>
+				</or>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-flex-fma</object-name>
+        <object-name>athr-flexb-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/engines/thrust-limit</property>
+					<value>FLX</value>
 				</equals>
 				<not-equals>
 					<property>/systems/thrust/state1</property>
@@ -2283,6 +2369,7 @@
 		<object-name>athr-man-fma</object-name>
 		<object-name>athr-toga-fma</object-name>
 		<object-name>athr-mct-fma</object-name>
+		<object-name>athr-flex-fma</object-name>
 		<object-name>athr-thr-fma</object-name>
 		<object-name>athr-box-fma</object-name>
 		<object-name>athr-lvrclb-fma</object-name>
@@ -2318,6 +2405,7 @@
 		<object-name>roll-mode-armed-fma</object-name>
 		<object-name>pitch-mode-armed-fma</object-name>
 		<object-name>pitch-mode-armed2-fma</object-name>
+		<object-name>athr-flexb-fma</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.886</green>

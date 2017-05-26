@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!--
+##################################################################
+# A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath #
+##################################################################
+-->
+
+<PropertyList>
+
+	<path>BOX.ac</path>
+	
+	<animation>
+		<type>select</type>
+		<object-name>v1box</object-name>
+		<condition>
+			<not><property>/FMGC/internal/v1-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vrbox</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vr-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>v2box</object-name>
+		<condition>
+			<not><property>/FMGC/internal/v2-set</property></not>
+		</condition>
+	</animation>
+	
+</PropertyList>

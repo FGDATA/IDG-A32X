@@ -8,33 +8,56 @@ var MCDU_init = func {
 }
 
 var MCDU_reset = func {
+	setprop("/it-autoflight/settings/togaspd", 157);
 	setprop("/MCDU[0]/page", "STATUS");
 	setprop("/MCDU[0]/scratchpad", "");
 	setprop("/MCDUC/flight-num", "");
-	setprop("/MCDUC/flight-num-set", 0);
 	setprop("/MCDUC/thracc-set", 0);
+	setprop("/MCDUC/flight-num-set", 0);
+	setprop("/FMGC/internal/flex", 0);
 	setprop("/FMGC/internal/dep-arpt", "");
 	setprop("/FMGC/internal/arr-arpt", "");
-	setprop("/FMGC/internal/tofrom-set", 0);
 	setprop("/FMGC/internal/cruise-ft", 10000);
 	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/cost-index", "0");
+	setprop("/FMGC/internal/trans-alt", 18000);
+	setprop("/FMGC/internal/v1", 0);
+	setprop("/FMGC/internal/vr", 0);
+	setprop("/FMGC/internal/v2", 0);
+	setprop("/FMGC/internal/v1-set", 0);
+	setprop("/FMGC/internal/vr-set", 0);
+	setprop("/FMGC/internal/v2-set", 0);
+	setprop("/FMGC/internal/to-flap", 0);
+	setprop("/FMGC/internal/to-ths", "0.0");
+	setprop("/FMGC/internal/tofrom-set", 0);
 	setprop("/FMGC/internal/cost-index-set", 0);
 	setprop("/FMGC/internal/cruise-lvl-set", 0);
+	setprop("/FMGC/internal/flap-ths-set", 0);
+	setprop("/FMGC/internal/flex-set", 0);
 }
 
 var lskbutton = func(btn) {
-	if (btn == "2") {
+	if (btn == "1") {
+		if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("L1");
+		}
+	} else if (btn == "2") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			PerfInput("L2");
+		} else if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("L2");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L3");
+		} else if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("L3");
 		}
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
 			setprop("/MCDU[0]/page", "STATUS");
+		} else if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("L4");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -63,6 +86,12 @@ var rskbutton = func(btn) {
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("R3");
+		} else if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("R3");
+		}
+	} else if (btn == "4") {
+		if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("R4");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "TO") {
@@ -181,7 +210,91 @@ var initInputA = func(key) {
 
 var PerfTOInput = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
-	if (key == "L5") {
+	if (key == "L1") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/v1", 0);
+			setprop("/FMGC/internal/v1-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3) {
+				if (scratchpad >= 100 and scratchpad <= 200) {
+					setprop("/FMGC/internal/v1", scratchpad);
+					setprop("/FMGC/internal/v1-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L2") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vr", 0);
+			setprop("/FMGC/internal/vr-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3) {
+				if (scratchpad >= 100 and scratchpad <= 200) {
+					setprop("/FMGC/internal/vr", scratchpad);
+					setprop("/FMGC/internal/vr-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L3") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/v2", 0);
+			setprop("/FMGC/internal/v2-set", 0);
+			setprop("/it-autoflight/settings/togaspd", 157);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3) {
+				if (scratchpad >= 100 and scratchpad <= 200) {
+					setprop("/FMGC/internal/v2", scratchpad);
+					setprop("/FMGC/internal/v2-set", 1);
+					setprop("/it-autoflight/settings/togaspd", scratchpad + 15);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L4") {
+		if (scratchpad == "CLR") {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 4 or tfs == 5) {
+				if (scratchpad >= 1000 and scratchpad <= 18000) {
+					setprop("/FMGC/internal/trans-alt", scratchpad);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L5") {
 		if (scratchpad == "CLR") {
 			setprop("/systems/thrust/clbreduc-ft", "1500");
 			setprop("/it-autoflight/settings/reduc-agl-ft", "3000");
@@ -193,7 +306,7 @@ var PerfTOInput = func(key) {
 				var thracc = split("/", scratchpad);
 				var thrred = size(thracc[0]);
 				var acc = size(thracc[1]);
-				if ((thrred >= 1 and thrred <= 4) and (acc >= 1 and acc <= 4)) {
+				if ((thrred >= 3 and thrred <= 5) and (acc >= 3 and acc <= 5)) {
 					setprop("/systems/thrust/clbreduc-ft", thracc[0]);
 					setprop("/it-autoflight/settings/reduc-agl-ft", thracc[1]);
 					setprop("/MCDUC/thracc-set", 1);
@@ -209,6 +322,51 @@ var PerfTOInput = func(key) {
 		}
 	} else if (key == "R6") {
 		setprop("/MCDU[0]/page", "CLB");
+	} else if (key == "R3") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/to-flap", 0);
+			setprop("/FMGC/internal/to-ths", "0.0");
+			setprop("/FMGC/internal/flap-ths-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 7) {
+				var flapths = split("/UP", scratchpad);
+				if ((flapths[0] >= 1 and flapths[0] <= 4) and (flapths[1] >= 0.0 and flapths[1] <= 2.5)) {
+					setprop("/FMGC/internal/to-flap", flapths[0]);
+					setprop("/FMGC/internal/to-ths", flapths[1]);
+					setprop("/FMGC/internal/flap-ths-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R4") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/flex", 0);
+			setprop("/FMGC/internal/flex-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 1 or tfs == 2) {
+				if (scratchpad >= 0 and scratchpad <= 70) {
+					setprop("/FMGC/internal/flex", scratchpad);
+					setprop("/FMGC/internal/flex-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
 	}
 }
 

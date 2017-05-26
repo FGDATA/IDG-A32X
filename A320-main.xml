@@ -627,7 +627,7 @@
 			<ILS2>0</ILS2>
 			<stallvls>-10</stallvls>
 			<fma>
-				<athr-box>O  </athr-box>
+				<athr-box>I  .</athr-box>
 			</fma>
 		</pfd>
 	</modes>
