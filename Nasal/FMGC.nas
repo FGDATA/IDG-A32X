@@ -12,6 +12,7 @@ var FMGCinit = func {
 	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
 	setprop("/FMGC/internal/tropo", 36090);
 	phasecheck.start();
+	various.start();
 }
 
 #############
@@ -62,7 +63,7 @@ setlistener("/FMGC/internal/cruise-ft", func {
 # Flight Phase #
 ################
 
-var phasecheck = maketimer(0.2, func { 
+var phasecheck = maketimer(0.2, func {
 	var n1_left = getprop("/engines/engine[0]/n1");
 	var n1_right = getprop("/engines/engine[1]/n1");
 	var flaps = getprop("/controls/flight/flap-pos");
@@ -103,7 +104,7 @@ var phasecheck = maketimer(0.2, func {
 	if ((phase == "6") and ((vertmode == "G/A CLB") or (vertmode == "SPD CLB") or (vertmode == "CLB") or ((vertmode == "V/S") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
 		setprop("/FMGC/status/phase", "2"); # going to CLIMB mode from GA
 	}
-	if ((wowl and wowr) and (gs < 20) and (phase == "5")) { # below twenty knots.
+	if ((wowl and wowr) and (gs < 20) and (phase == "5")) {
 		setprop("/FMGC/status/phase", "7");
 		settimer(func {
 			itaf.ap_init();
@@ -111,6 +112,16 @@ var phasecheck = maketimer(0.2, func {
 			mcdu1.MCDU_reset();
 			mcdu2.MCDU_reset();
 		}, 20);
+	}
+});
+
+var various = maketimer(1, func {
+	if (getprop("/engines/engine[0]/state") == 3 and getprop("/engines/engine[1]/state") != 3) {
+		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/eng-out-reduc"));
+	} else if (getprop("/engines/engine[0]/state") != 3 and getprop("/engines/engine[1]/state") == 3) {
+		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/eng-out-reduc"));
+	} else {
+		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/reduc-agl-ft"));
 	}
 });
 	

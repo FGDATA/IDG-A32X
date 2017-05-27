@@ -14,6 +14,7 @@ var MCDU_reset = func {
 	setprop("/MCDU[0]/scratchpad", "");
 	setprop("/MCDUC/flight-num", "");
 	setprop("/MCDUC/thracc-set", 0);
+	setprop("/MCDUC/reducacc-set", 0);
 	setprop("/MCDUC/flight-num-set", 0);
 	setprop("/FMGC/internal/flex", 0);
 	setprop("/FMGC/internal/dep-arpt", "");
@@ -22,6 +23,8 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/cruise-fl", 100);
 	setprop("/FMGC/internal/cost-index", "0");
 	setprop("/FMGC/internal/trans-alt", 18000);
+	setprop("/FMGC/internal/reduc-agl-ft", "3000");
+	setprop("/FMGC/internal/eng-out-reduc", "3500");
 	setprop("/FMGC/internal/v1", 0);
 	setprop("/FMGC/internal/vr", 0);
 	setprop("/FMGC/internal/v2", 0);
@@ -95,6 +98,10 @@ var rskbutton = func(btn) {
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("R4");
+		}
+	} else if (btn == "5") {
+		if (getprop("/MCDU[0]/page") == "TO") {
+			PerfTOInput("R5");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "TO") {
@@ -300,7 +307,7 @@ var PerfTOInput = func(key) {
 	} else if (key == "L5") {
 		if (scratchpad == "CLR") {
 			setprop("/systems/thrust/clbreduc-ft", "1500");
-			setprop("/it-autoflight/settings/reduc-agl-ft", "3000");
+			setprop("/FMGC/internal/reduc-agl-ft", "3000");
 			setprop("/MCDUC/thracc-set", 0);
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
@@ -311,7 +318,7 @@ var PerfTOInput = func(key) {
 				var acc = size(thracc[1]);
 				if ((thrred >= 3 and thrred <= 5) and (acc >= 3 and acc <= 5)) {
 					setprop("/systems/thrust/clbreduc-ft", thracc[0]);
-					setprop("/it-autoflight/settings/reduc-agl-ft", thracc[1]);
+					setprop("/FMGC/internal/reduc-agl-ft", thracc[1]);
 					setprop("/MCDUC/thracc-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
@@ -367,6 +374,22 @@ var PerfTOInput = func(key) {
 					setprop("/MCDU[0]/scratchpad-msg", "1");
 					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R5") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/eng-out-reduc", "3500");
+			setprop("/MCDUC/reducacc-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs >= 3 and tfs <= 5) {
+				setprop("/FMGC/internal/eng-out-reduc", scratchpad);
+				setprop("/MCDUC/reducacc-set", 1);
+				setprop("/MCDU[0]/scratchpad", "");
 			} else {
 				setprop("/MCDU[0]/scratchpad-msg", "1");
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
