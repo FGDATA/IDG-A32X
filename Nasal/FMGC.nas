@@ -106,12 +106,14 @@ var phasecheck = maketimer(0.2, func {
 	}
 	if ((wowl and wowr) and (gs < 20) and (phase == "5")) {
 		setprop("/FMGC/status/phase", "7");
-		settimer(func {
-			itaf.ap_init();
-			FMGCinit();
-			mcdu1.MCDU_reset();
-			mcdu2.MCDU_reset();
-		}, 20);
+		var fd1 = getprop("/it-autoflight/input/fd1");
+		var fd2 = getprop("/it-autoflight/input/fd2");
+		itaf.ap_init();
+		FMGCinit();
+		mcdu1.MCDU_reset();
+		mcdu2.MCDU_reset();
+		setprop("/it-autoflight/input/fd1", fd1);
+		setprop("/it-autoflight/input/fd2", fd2);
 	}
 });
 
