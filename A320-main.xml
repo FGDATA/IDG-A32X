@@ -332,6 +332,9 @@
 		<ap1>0</ap1>
 		<ap2>0</ap2>
 	</output>
+	<custom>
+		<hdg-input>0</hdg-input>
+	</custom>
 </it-autoflight>
 
 	<it-fbw n="0">

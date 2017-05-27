@@ -124,6 +124,10 @@ var triggerDoor = func(door, doorName, doorDesc) {
 		}
 	}
 };
+
+#######################
+# Various Other Stuff #
+#######################
  
 setlistener("/sim/signals/fdm-initialized", func {
 	systems.elec_init();

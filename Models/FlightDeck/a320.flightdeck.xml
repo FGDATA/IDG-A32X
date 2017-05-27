@@ -386,24 +386,16 @@
         <type>select</type>
         <object-name>lat.dash</object-name>
         <condition>
-			<or>
-				<equals>
+			<and>
+				<not-equals>
 					<property>/it-autoflight/output/lat</property>
-					<value>1</value>
-				</equals>
+					<value>0</value>
+				</not-equals>
 				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>2</value>
+					<property>/it-autoflight/custom/hdg-input</property>
+					<value>0</value>
 				</equals>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>4</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>5</value>
-				</equals>
-			</or>
+			</and>
         </condition>
     </animation>
 	
@@ -537,13 +529,19 @@
 			<binding>
 				<command>property-assign</command>
 				<property>/it-autoflight/input/lat</property>
-				<value>0</value>
+				<value>3</value>
 			</binding>
 		</action>
 		<action>
 			<button>3</button>
 			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/input/lat</property>
+						<value>0</value>
+					</equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/hdg</property>
 				<step>1</step>
@@ -556,6 +554,12 @@
 			<button>4</button>
 			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/input/lat</property>
+						<value>0</value>
+					</equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/hdg</property>
 				<step>-1</step>
@@ -983,12 +987,28 @@
 	<animation>
 		<type>select</type>
 		<object-name>hdg.ind</object-name>
-		<object-name>hdg-text</object-name>
 		<condition>
 			<equals>
 				<property>/it-autoflight/output/lat</property>
 				<value>0</value>
 			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg-text</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/custom/hdg-input</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -1403,7 +1423,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-sel</object-name>
-		<property>/it-autoflight/input/hdg</property>
+		<property>/it-autoflight/input/hdg-sel</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
