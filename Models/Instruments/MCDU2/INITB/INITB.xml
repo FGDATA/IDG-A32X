@@ -99,13 +99,13 @@
 		<name>zfwcgzfw</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.032</y-m>
+			<y-m>0.045</y-m>
 			<z-m>0.0755</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">ZFWCG/ZFW</format>
+		<format type="string">ZFW/ZFWCG</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -170,7 +170,7 @@
 		<name>block</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.040</y-m>
+			<y-m>0.045</y-m>
 			<z-m>0.065</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -189,6 +189,38 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	
+	<text>
+		<name>block2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/block</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>block2</object-name>
+		<condition>
+			<property>/FMGC/internal/block-set</property>
+		</condition>
+	</animation>
 	
 	<!--<text>
 		<name>activedata3</name>
@@ -518,6 +550,7 @@
 	<animation>
         <type>material</type>
 		<object-name>taxi2</object-name>
+		<object-name>block2</object-name>
         <diffuse>
             <red>0</red>
             <green>0.5</green>

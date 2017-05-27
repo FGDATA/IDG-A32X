@@ -28,9 +28,11 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/v1", 0);
 	setprop("/FMGC/internal/vr", 0);
 	setprop("/FMGC/internal/v2", 0);
+	setprop("/FMGC/internal/block", 0.0);
 	setprop("/FMGC/internal/v1-set", 0);
 	setprop("/FMGC/internal/vr-set", 0);
 	setprop("/FMGC/internal/v2-set", 0);
+	setprop("/FMGC/internal/block-set", 0);
 	setprop("/FMGC/internal/to-flap", 0);
 	setprop("/FMGC/internal/to-ths", "0.0");
 	setprop("/FMGC/internal/tofrom-set", 0);
@@ -88,6 +90,10 @@ var rskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("R1");
+		}
+	} else if (btn == "2") {
+		if (getprop("/MCDU[0]/page") == "INITB") {
+			initInputB("R2");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -214,6 +220,32 @@ var initInputA = func(key) {
 	} else if (key == "R3") {
 		if (getprop("/controls/adirs/mcducbtn") == 0) {
 			setprop("/controls/adirs/mcducbtn", 1);
+		}
+	}
+}
+
+var initInputB = func(key) {
+	var scratchpad = getprop("/MCDU[0]/scratchpad");
+	if (key == "R2") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/block", 0.0);
+			setprop("/FMGC/internal/block-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 4) {
+				if (scratchpad >= 1.0 and scratchpad <= 45.0) {
+					setprop("/FMGC/internal/block", scratchpad);
+					setprop("/FMGC/internal/block-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
 		}
 	}
 }

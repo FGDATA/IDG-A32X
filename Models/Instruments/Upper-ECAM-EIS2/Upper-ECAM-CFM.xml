@@ -822,8 +822,8 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%5.1f</format>
-		<property>consumables/fuel/total-fuel-kg</property>
+		<format type="string">%5.0f</format>
+		<property>consumables/fuel/total-fuel-lbs</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
