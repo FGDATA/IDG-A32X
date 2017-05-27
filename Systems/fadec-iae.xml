@@ -634,6 +634,41 @@
     </filter>
 	
     <filter>
+        <name>EPR Limit FLX</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+					<property>/engines/flx-thr</property>
+                    <entry><ind>0.000</ind><dep>0.03</dep></entry>
+                    <entry><ind>0.141</ind><dep>0.20</dep></entry>
+                    <entry><ind>1.000</ind><dep>1.00</dep></entry>
+                </table>
+            </expression>
+			<scale>/engines/epr-scale</scale>
+        </input>
+		<output>/systems/thrust/epr/flx-lim-cmd</output>
+    </filter>
+	
+    <filter>
+        <name>EPR CMD FLX</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+				<sum>
+					<property>/systems/thrust/epr/flx-lim-cmd</property>
+					<property>/engines/epr-scale-b</property>
+				</sum>
+            </expression>
+        </input>
+		<output>/systems/thrust/epr/flx-lim</output>
+    </filter>
+	
+    <filter>
         <name>EPR Limit CLB</name>
         <type>gain</type>
         <gain>1</gain>

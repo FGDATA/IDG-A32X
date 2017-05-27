@@ -360,6 +360,8 @@ var PerfTOInput = func(key) {
 				if (scratchpad >= 0 and scratchpad <= 70) {
 					setprop("/FMGC/internal/flex", scratchpad);
 					setprop("/FMGC/internal/flex-set", 1);
+					var flex_calc = getprop("/FMGC/internal/flex") - getprop("/environment/temperature-degc");
+					setprop("/FMGC/internal/flex-cmd", flex_calc);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
 					setprop("/MCDU[0]/scratchpad-msg", "1");

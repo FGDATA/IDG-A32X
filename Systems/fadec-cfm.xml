@@ -419,5 +419,22 @@
 			<value>1</value>
 		</max-rate-of-change>
 	</filter>
+	
+    <filter>
+        <name>N1 Limit FLX</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+					<property>/engines/flx-thr</property>
+                    <entry><ind>0.00</ind><dep> 23.4</dep></entry>
+                    <entry><ind>1.00</ind><dep>105.8</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/systems/thrust/n1/flx-lim</output>
+    </filter>
 
 </PropertyList>
