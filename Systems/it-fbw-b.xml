@@ -106,7 +106,7 @@
 			<property>/controls/flight/aileron-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.12</Kp>
+			<Kp>0.14</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
@@ -247,12 +247,12 @@
 			<property>/controls/flight/elevator-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>-0.29</Kp>
+			<Kp>-0.25</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>5</Ti>
-			<Td>0.1</Td>
+			<Td>0.08</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
 		</config>
@@ -541,14 +541,14 @@
 			<property>/controls/flight/rudder-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.05</Kp>
+			<Kp>0.03</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>5.0</Ti>
 			<Td>0.00000001</Td>
-			<u_min>-0.4</u_min>
-			<u_max>0.4</u_max>
+			<u_min>-0.3</u_min>
+			<u_max>0.3</u_max>
 		</config>
 	</pid-controller>
 	
