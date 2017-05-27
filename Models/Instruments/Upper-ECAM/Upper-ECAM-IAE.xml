@@ -251,7 +251,7 @@
 		<object-name>XX.4</object-name>
         <diffuse>
             <red>1</red>
-            <green>0.3</green>
+            <green>0.4</green>
             <blue>0</blue>
         </diffuse>
         <ambient>
@@ -266,7 +266,7 @@
         </specular>
         <emission>
             <red>1</red>
-            <green>0.3</green>
+            <green>0.4</green>
             <blue>0</blue>
         </emission>
 	</animation>
