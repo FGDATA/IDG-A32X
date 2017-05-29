@@ -12,7 +12,7 @@
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>Aircraft Configuration V1.3.1</label>
+			<label>Aircraft Configuration V1.4.1</label>
 		</text>
 		<button>
 			<halign>right</halign>
@@ -97,7 +97,12 @@
 						<legend>Cold and Dark</legend>
 						<pref-width>140</pref-width>
 						<enable>
-							<not><property>/systems/acconfig/autoconfig-running</property></not>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
 						</enable>
 						<binding>
 							<command>nasal</command>
@@ -112,7 +117,12 @@
 						<legend>Ready to Start Eng</legend>
 						<pref-width>140</pref-width>
 						<enable>
-							<not><property>/systems/acconfig/autoconfig-running</property></not>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
 						</enable>
 						<binding>
 							<command>nasal</command>
@@ -127,7 +137,12 @@
 						<legend>Ready for Taxi</legend>
 						<pref-width>140</pref-width>
 						<enable>
-							<not><property>/systems/acconfig/autoconfig-running</property></not>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
 						</enable>
 						<binding>
 							<command>nasal</command>
@@ -142,7 +157,12 @@
 						<legend>Ready for Takeoff</legend>
 						<pref-width>140</pref-width>
 						<enable>
-							<not><property>/systems/acconfig/autoconfig-running</property></not>
+							<and>
+								<not><property>/systems/acconfig/autoconfig-running</property></not>
+								<property>/gear/gear[0]/wow</property>
+								<property>/gear/gear[1]/wow</property>
+								<property>/gear/gear[2]/wow</property>
+							</and>
 						</enable>
 						<binding>
 							<command>nasal</command>

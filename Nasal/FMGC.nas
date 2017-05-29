@@ -1,4 +1,4 @@
-# A320Family FMGC
+# A3XX FMGC
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 ##################
