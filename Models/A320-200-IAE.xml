@@ -238,7 +238,7 @@
 		<!-- Fuselage -->
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>A320.png</texture>
+		<texture>a320.png</texture>
 	</animation>
 
 	<!-- Nasal code -->

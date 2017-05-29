@@ -18,7 +18,7 @@
 	<!-- Separate Flightdeck to fit the modified nose -->
 	<model>
 		<name>Flightdeck</name>
-		<path>Aircraft/A320Family/Models/FlightDeck/a320.flightdeck.xml</path>
+		<path>Aircraft/A320Family/Models/FlightDeck/libraries.flightdeck.xml</path>
 		<offsets>
             <x-m>6.4</x-m>
             <z-m>0.2399</z-m>
@@ -32,7 +32,7 @@
 
 	<model>
 		<name>Nose Gear</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.nlg.xml</path>
+		<path>Aircraft/A320Family/Models/LandingGears/libraries.nlg.xml</path>
 		<offsets>
 			<x-m>9.43</x-m>
 			<z-m>-1.8306008</z-m>
@@ -41,7 +41,7 @@
 
 	<model>
 		<name>Main Gears.Left</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.mlg.left.xml</path>
+		<path>Aircraft/A320Family/Models/LandingGears/libraries.mlg.left.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>-3.795</y-m>
@@ -51,7 +51,7 @@
 
 	<model>
 		<name>Main Gears.Right</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.mlg.right.xml</path>
+		<path>Aircraft/A320Family/Models/LandingGears/libraries.mlg.right.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>3.795</y-m>
@@ -60,7 +60,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320Family/Models/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/A320Family/Models/Wings/libraries.wings.iae.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -69,7 +69,7 @@
 
 	<model>
 		<name>A320 Winglets</name>
-		<path>Aircraft/A320Family/Models/Wings/a320.winglets.xml</path>
+		<path>Aircraft/A320Family/Models/Wings/libraries.winglets.xml</path>
 		<condition>
 			<equals>
 				<property>/sim/multiplay/generic/int[12]</property>
@@ -84,7 +84,7 @@
 	
 	<model>
 		<name>A320 Sharklets</name>
-		<path>Aircraft/A320Family/Models/Wings/a320.sharklets.xml</path>
+		<path>Aircraft/A320Family/Models/Wings/libraries.sharklets.xml</path>
 		<condition>
 			<equals>
 				<property>/sim/multiplay/generic/int[12]</property>

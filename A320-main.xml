@@ -97,6 +97,8 @@
 		<sounde>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
 			<no-smoking-sign type="bool">0</no-smoking-sign>
+			<oh-btn type="bool">0</oh-btn>
+			<oh-knb type="bool">0</oh-knb>
 		</sounde>
 
 		<instrumentation>
@@ -703,6 +705,14 @@
 	</aircraft>
 	
 	<nasal>
+		<libraries>
+			<file>Aircraft/A320Family/Nasal/libraries.nas</file>
+			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
+			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
+			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
+            <file>Aircraft/A320Family/Nasal/gpws.nas</file>
+            <file>Aircraft/A320Family/Nasal/efis.nas</file>
+		</libraries>
 		<acconfig>
 			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
 		</acconfig>
@@ -726,10 +736,10 @@
 			<file>Aircraft/A320Family/Nasal/FMGC.nas</file>
 		</fmgc>
 		<mcdu1>
-			<file>Aircraft/A320Family/Nasal/MCDU1.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU/MCDU1.nas</file>
 		</mcdu1>
 		<mcdu2>
-			<file>Aircraft/A320Family/Nasal/MCDU2.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU/MCDU2.nas</file>
 		</mcdu2>
 	</nasal>
 

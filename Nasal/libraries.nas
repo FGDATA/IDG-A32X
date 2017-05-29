@@ -1,4 +1,4 @@
-# A320 Various
+# A320 Main Libraries
 # Joshua Davidson (it0uchpods)
 
 # :)
@@ -69,6 +69,24 @@ aircraft.rain.init();
 ##########
 # Sounds #
 ##########
+
+setlistener("/sim/sounde/btn1", func {
+	if (!getprop("/sim/sounde/btn1")) {
+		return;
+	}
+	settimer(func {
+		props.globals.getNode("/sim/sounde/btn1").setBoolValue(0);
+	}, 0.05);
+});
+
+setlistener("/sim/sounde/knb1", func {
+	if (!getprop("/sim/sounde/knb1")) {
+		return;
+	}
+	settimer(func {
+		props.globals.getNode("/sim/sounde/knb1").setBoolValue(0);
+	}, 0.05);
+});
 
 setlistener("/controls/switches/seatbelt-sign", func {
 	props.globals.getNode("/sim/sounde/seatbelt-sign").setBoolValue(1);
@@ -166,3 +184,25 @@ var externalconnections = maketimer(0.1, func {
 		setprop("/controls/pneumatic/switches/groundair", 0);
 	}
 });
+
+var mcpSPDKnbPull = func {
+	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+	var mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
+	if (getprop("/it-autoflight/input/kts-mach") == 0) {
+		if (ias >= 100 and ias <= 360) {
+			setprop("/it-autoflight/input/spd-kts", math.round(ias, 1));
+		} else if (ias < 100) {
+			setprop("/it-autoflight/input/spd-kts", 100);
+		} else if (ias > 360) {
+			setprop("/it-autoflight/input/spd-kts", 360);
+		}
+	} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
+		if (mach >= 0.50 and mach <= 0.95) {
+			setprop("/it-autoflight/input/spd-kts", math.round(mach, 0.001));
+		} else if (mach < 0.50) {
+			setprop("/it-autoflight/input/spd-kts", 0.50);
+		} else if (mach > 0.95) {
+			setprop("/it-autoflight/input/spd-kts", 0.95);
+		}
+	}
+}

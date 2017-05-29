@@ -26,7 +26,7 @@ MD-11 Navigation display
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>A320.showNd();</script>
+			<script>libraries.showNd();</script>
 		</binding>
 	</action>
 </animation>

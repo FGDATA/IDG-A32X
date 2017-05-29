@@ -391,14 +391,6 @@
 		</condition>
 	</wow>
 	
-	<click>
-		<mode>once</mode>
-		<path>click.wav</path>
-		<condition>
-			<property>/unused/sound/click</property>
-		</condition>
-	</click>
-	
 	<detenta>
 		<mode>once</mode>
 		<name>detendaa</name>
@@ -673,6 +665,30 @@
 			<property>/sim/sound/effects/volume</property>
 		</volume>
 	</ns>
+	
+	<switch>
+		<name>Overhead Button</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/oh-button.wav</path>
+		<condition>
+			<property>/sim/sounde/btn1</property>
+		</condition>
+		<volume>
+			<factor>0.75</factor>
+		</volume>
+	</switch>
+	
+	<switch>
+		<name>Overhead Knob</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/oh-knob.wav</path>
+		<condition>
+			<property>/sim/sounde/knb1</property>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</switch>
 	
   </fx>
 </PropertyList>

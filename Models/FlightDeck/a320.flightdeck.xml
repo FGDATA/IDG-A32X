@@ -450,6 +450,20 @@
         <type>pick</type>
         <object-name>spd-sel</object-name>
 		<action>
+			<button>1</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				libraries.mcpSPDKnbPull();
+				</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
+		</action>
+		<action>
 			<button>3</button>
 			<repeatable>true</repeatable>
 			<binding>
@@ -475,8 +489,8 @@
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-mach</property>
 				<step>0.01</step>
-				<min>0.40</min>
-				<max>0.99</max>
+				<min>0.50</min>
+				<max>0.95</max>
 			</binding>
 		</action>
 		<action>
@@ -505,8 +519,8 @@
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-mach</property>
 				<step>-0.01</step>
-				<min>0.40</min>
-				<max>0.99</max>
+				<min>0.50</min>
+				<max>0.95</max>
 			</binding>
 		</action>
 	</animation>
@@ -522,6 +536,10 @@
 				<property>/it-autoflight/input/lat</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -530,6 +548,10 @@
 				<command>property-assign</command>
 				<property>/it-autoflight/input/lat</property>
 				<value>3</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 		<action>
@@ -581,6 +603,10 @@
 				<command>property-assign</command>
 				<property>/it-autoflight/input/vert</property>
 				<value>4</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 		<action>
@@ -661,6 +687,10 @@
 				<property>/it-autoflight/input/vs</property>
 				<value>0</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -674,6 +704,10 @@
 					setprop("/it-autoflight/input/vert", 5);
 				}
 				</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 		<action>
@@ -732,6 +766,10 @@
 				<property>/it-autoflight/input/lat</property>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -746,20 +784,25 @@
 				<property>/it-autoflight/input/vert</property>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
-	<!--animation>
+	<animation>
 		<type>pick</type>
 		<object-name>exped</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
-	</animation-->
+	</animation>
 	
 	<animation>
 		<type>pick</type>
@@ -772,6 +815,10 @@
 				<property>/it-autoflight/input/kts-mach</property>
 				<value>0</value>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -795,6 +842,10 @@
 				}
 				</script>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -816,6 +867,10 @@
 					setprop("/it-autoflight/input/vert", 5);
 				}
 				</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -854,6 +909,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -866,6 +925,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/it-autoflight/input/ap1</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -880,6 +943,10 @@
 				<command>property-toggle</command>
 				<property>/it-autoflight/input/ap2</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -892,6 +959,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/it-autoflight/input/athr</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -907,6 +978,10 @@
 				<property>/it-autoflight/input/athr</property>
 				<value>0</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -919,6 +994,10 @@
 				<command>property-assign</command>
 				<property>/it-autoflight/input/athr</property>\
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1250,7 +1329,7 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%1.2f</format>
+		<format type="string">%1.3f</format>
 		<property>/it-autoflight/input/spd-mach</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
@@ -3628,7 +3707,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.mode_inc();</script>
+                <script>libraries.mode_inc();</script>
             </binding>
 		</action>
 		<action>
@@ -3637,7 +3716,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.mode_dec();</script>
+                <script>libraries.mode_dec();</script>
             </binding>
 		</action>
 	</animation>
@@ -3651,7 +3730,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.mode_inc();</script>
+                <script>libraries.mode_inc();</script>
             </binding>
 		</action>
 		<action>
@@ -3660,7 +3739,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.mode_dec();</script>
+                <script>libraries.mode_dec();</script>
             </binding>
 		</action>
     </animation>
@@ -3674,7 +3753,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.ctl_func("range",1);</script>
+                <script>libraries.ctl_func("range",1);</script>
             </binding>
 		</action>
 		<action>
@@ -3683,7 +3762,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.ctl_func("range",-1);</script>
+                <script>libraries.ctl_func("range",-1);</script>
             </binding>
 		</action>
 	</animation>
@@ -3697,7 +3776,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.ctl_func("range",1);</script>
+                <script>libraries.ctl_func("range",1);</script>
             </binding>
 		</action>
 		<action>
@@ -3706,7 +3785,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>A320.ctl_func("range",-1);</script>
+                <script>libraries.ctl_func("range",-1);</script>
             </binding>
 		</action>
     </animation>

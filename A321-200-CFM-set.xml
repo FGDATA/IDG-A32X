@@ -111,15 +111,9 @@
 	</MCDUC>
 	
 	<nasal>
-		<A320>
-			<file>Aircraft/A320Family/Nasal/various.nas</file>
+		<specific>
 			<file>Aircraft/A320Family/Nasal/a321livery-cfm.nas</file>
-			<file>Aircraft/A320Family/Models/Instruments/ND/ND.nas</file>
-            <file>Aircraft/A320Family/Nasal/gpws.nas</file>
-            <file>Aircraft/A320Family/Nasal/efis.nas</file>
-			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
-			<file>Aircraft/A320Family/Nasal/fctl.nas</file>
-		</A320>
+		</specific>
 	</nasal>
 
 </PropertyList>

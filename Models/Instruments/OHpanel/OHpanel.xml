@@ -137,6 +137,10 @@
 				<value>3</value>
 				<max>3</max>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -149,6 +153,10 @@
 				<value>2</value>
 				<value>1</value>
 				<min>1</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -222,6 +230,10 @@
 				<value>3</value>
 				<max>3</max>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -234,6 +246,10 @@
 				<value>2</value>
 				<value>1</value>
 				<min>1</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -307,6 +323,10 @@
 				<value>3</value>
 				<max>3</max>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -319,6 +339,10 @@
 				<value>2</value>
 				<value>1</value>
 				<min>1</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -395,6 +419,10 @@
 				<value>6</value>
 				<max>6</max>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -410,6 +438,10 @@
 				<value>2</value>
 				<value>1</value>
 				<min>1</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -454,6 +486,10 @@
 				<value>4</value>
 				<max>4</max>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -467,6 +503,10 @@
 				<value>2</value>
 				<value>1</value>
 				<min>1</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -524,6 +564,10 @@
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[0]/off</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -575,6 +619,10 @@
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[1]/off</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -625,6 +673,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[2]/off</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -827,7 +879,7 @@
 	</animation-->
 
 	<!-- Fire controls -->
-	<animation>
+	<!--animation>
 		<name>Engine 1 fire pick</name>
 		<type>pick</type>
 		<object-name>Eng1Fire</object-name>
@@ -900,7 +952,7 @@
 			<blue>0.7</blue>
 			<factor-prop>controls/engines/engine[1]/fire-bottle-discharge</factor-prop>
 		</emission>
-	</animation>
+	</animation-->
 	
 	<!-- Hydraulic -->
 	<animation>
@@ -916,6 +968,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/eng1-pump</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -968,6 +1024,10 @@
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/elec-pump-blue</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1018,6 +1078,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/ptu</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1070,6 +1134,10 @@
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/eng2-pump</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1120,6 +1188,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/elec-pump-yellow</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1172,6 +1244,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/galley</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1223,6 +1299,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/battery1</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1273,6 +1353,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/battery2</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1358,7 +1442,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen1</property>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1408,6 +1495,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/ac-ess-feed</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1460,6 +1551,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen-apu</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -1507,6 +1602,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/apu-ext-crosstie</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1540,6 +1639,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen-ext</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1596,7 +1699,10 @@
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen2</property>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 
@@ -1683,6 +1789,10 @@
 				<value>9</value>
 				<value>11</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1694,6 +1804,10 @@
 				<value>11</value>
 				<value>9</value>
 				<value>7</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1732,6 +1846,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/pack1</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1784,6 +1902,10 @@
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleed1</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1834,6 +1956,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleedapu</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1886,6 +2012,10 @@
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleed2</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1935,6 +2065,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/hot-air</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -1986,6 +2120,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/pack2</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -2040,6 +2178,10 @@
 				<command>property-assign</command>
 				<property>/controls/pneumatic/switches/ram-air</property>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -2292,6 +2434,10 @@
 				<command>property-toggle</command>
 				<property>/controls/APU/master</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -2346,6 +2492,10 @@
 					setprop("/controls/APU/start", 1);
 				}
 				</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
 		</action>
 	</animation>

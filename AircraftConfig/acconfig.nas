@@ -1,7 +1,26 @@
 # Aircraft Config Center
 # Joshua Davidson (it0uchpods)
 
+var spinning = maketimer(0.1, func {
+	var spinning = getprop("/systems/acconfig/spinning");
+	if (spinning == 0) {
+		setprop("/systems/acconfig/spin", "\\");
+		setprop("/systems/acconfig/spinning", 1);
+	} else if (spinning == 1) {
+		setprop("/systems/acconfig/spin", "|");
+		setprop("/systems/acconfig/spinning", 2);
+	} else if (spinning == 2) {
+		setprop("/systems/acconfig/spin", "/");
+		setprop("/systems/acconfig/spinning", 3);
+	} else if (spinning == 3) {
+		setprop("/systems/acconfig/spin", "-");
+		setprop("/systems/acconfig/spinning", 0);
+	}
+});
+
 setprop("/systems/acconfig/autoconfig-running", 0);
+setprop("/systems/acconfig/spinning", 0);
+setprop("/systems/acconfig/spin", "-");
 var main_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/main/dialog", "Aircraft/A320Family/AircraftConfig/main.xml");
 var welcome_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/welcome/dialog", "Aircraft/A320Family/AircraftConfig/welcome.xml");
 var ps_load_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psload/dialog", "Aircraft/A320Family/AircraftConfig/psload.xml");
@@ -9,11 +28,13 @@ var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "
 var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/A320Family/AircraftConfig/ac_init.xml");
 var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/A320Family/AircraftConfig/help.xml");
 var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A320Family/AircraftConfig/fbw.xml");
+spinning.start();
 init_dlg.open();
 
 setlistener("/sim/signals/fdm-initialized", func {
 	init_dlg.close();
 	welcome_dlg.open();
+	spinning.stop();
 });
 
 var saveSettings = func {
@@ -40,6 +61,7 @@ var systemsReset = func {
 
 # Cold and Dark
 var colddark = func {
+	spinning.start();
 	ps_load_dlg.open();
 	setprop("/systems/acconfig/autoconfig-running", 1);
 	# Initial shutdown, and reinitialization.
@@ -51,7 +73,7 @@ var colddark = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
-	A320.flaptimer.stop();
+	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
@@ -79,10 +101,12 @@ var colddark_b = func {
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
+	spinning.stop();
 }
 
 # Ready to Start Eng
 var beforestart = func {
+	spinning.start();
 	ps_load_dlg.open();
 	setprop("/systems/acconfig/autoconfig-running", 1);
 	# First, we set everything to cold and dark.
@@ -94,7 +118,7 @@ var beforestart = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
-	A320.flaptimer.stop();
+	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
@@ -147,10 +171,12 @@ var beforestart_b = func {
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
+	spinning.stop();
 }
 
 # Ready to Taxi
 var taxi = func {
+	spinning.start();
 	ps_load_dlg.open();
 	setprop("/systems/acconfig/autoconfig-running", 1);
 	# First, we set everything to cold and dark.
@@ -162,7 +188,7 @@ var taxi = func {
 	setprop("/controls/flight/flap-lever", 0);
 	setprop("/controls/flight/flap-pos", 0);
 	setprop("/controls/flight/flap-txt", " ");
-	A320.flaptimer.stop();
+	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
@@ -243,6 +269,7 @@ var taxi_e = func {
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
+	spinning.stop();
 }
 
 # Ready to Takeoff
@@ -258,7 +285,7 @@ var takeoff = func {
 			setprop("/controls/flight/flap-lever", 1);
 			setprop("/controls/flight/flap-pos", 2);
 			setprop("/controls/flight/flap-txt", "1+F");
-			A320.flaptimer.start();
+			libraries.flaptimer.start();
 			setprop("/controls/flight/elevator-trim", -0.15);
 		}
 	});
