@@ -86,6 +86,10 @@ var lskbutton = func(btn) {
 	}
 }
 
+var lskbutton_b = func(btn) {
+	# Special Middle Click Functions
+}
+
 var rskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[1]/page") == "INITA") {
@@ -118,6 +122,10 @@ var rskbutton = func(btn) {
 			# perfCRZInput("R6");
 		#}
 	}
+}
+
+var rskbutton_b = func(btn) {
+	# Special Middle Click Functions
 }
 
 var initInputA = func(key) {
