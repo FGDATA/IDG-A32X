@@ -1,7 +1,9 @@
 # A3XX EFIS controller by Joshua Davidson (it0uchpods).
 
 setlistener("sim/signals/fdm-initialized", func {
-	setprop("instrumentation/efis/mfd/pnl_mode-num", 3);
+	setprop("/instrumentation/efis/nd/display-mode", "NAV");
+	setprop("/instrumentation/efis/mfd/pnl_mode-num", 2);
+	setprop("/instrumentation/efis/inputs/range-nm", 20);
 	setprop("/controls/lighting/ndl-norm", "1");
 	setprop("/controls/lighting/ndr-norm", "1");
 });
