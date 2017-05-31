@@ -386,16 +386,10 @@
         <type>select</type>
         <object-name>lat.dash</object-name>
         <condition>
-			<and>
-				<not-equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>0</value>
-				</not-equals>
-				<equals>
-					<property>/it-autoflight/custom/hdg-input</property>
-					<value>0</value>
-				</equals>
-			</and>
+			<not-equals>
+				<property>/it-autoflight/output/lat</property>
+				<value>0</value>
+			</not-equals>
         </condition>
     </animation>
 	
@@ -560,7 +554,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/input/lat</property>
+						<property>/it-autoflight/output/lat</property>
 						<value>0</value>
 					</equals>
 				</condition>
@@ -578,7 +572,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/input/lat</property>
+						<property>/it-autoflight/output/lat</property>
 						<value>0</value>
 					</equals>
 				</condition>
