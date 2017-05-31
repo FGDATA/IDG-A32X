@@ -18,6 +18,7 @@ var elec_init = func {
 	setprop("/controls/electrical/switches/idg2", 0);
 	setprop("/controls/electrical/switches/gen1", 0);
 	setprop("/controls/electrical/switches/gen2", 0);
+	setprop("/controls/electrical/switches/emer-gen", 0);
 	setprop("/controls/electrical/switches/gen-apu", 0);
 	setprop("/controls/electrical/switches/gen-ext", 0);
 	setprop("/controls/electrical/switches/apu-ext-crosstie", 1);
@@ -36,11 +37,13 @@ var elec_init = func {
 	setprop("/systems/electrical/bus/dc-ess", 0);
 	setprop("/systems/electrical/bus/ac1", 0);
 	setprop("/systems/electrical/bus/ac2", 0);
+	setprop("/systems/electrical/bus/emergen-hz", 0);
 	setprop("/systems/electrical/bus/gen1-hz", 0);
 	setprop("/systems/electrical/bus/gen2-hz", 0);
 	setprop("/systems/electrical/bus/ac-ess", 0);
 	setprop("/systems/electrical/extra/ext-volts", 0);
 	setprop("/systems/electrical/extra/apu-volts", 0);
+	setprop("/systems/electrical/extra/emergen-volts", 0);
 	setprop("/systems/electrical/extra/gen1-volts", 0);
 	setprop("/systems/electrical/extra/gen2-volts", 0);
 	setprop("/systems/electrical/extra/ext-hz", 0);
@@ -124,6 +127,12 @@ var master_elec = func {
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
 	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
+	var emergen = getprop("/controls/electrical/switches/emer-gen");
+	var emergenvolts = getprop("/systems/electrical/extra/emergen-volts");
+	var emergenhz = getprop("/systems/electrical/bus/emergen-hz");
+	var gs = getprop("/velocities/groundspeed-kt");
+	var rat = getprop("/controls/hydraulic/rat");
+	var manrat = getprop("/controls/hydraulic/rat-man");
 	
 	
 	# Left cross tie yes?
@@ -274,6 +283,22 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-ext", 0);
 	}
 	
+	if ((ac1 == 0) and (ac2 == 0) and (gs > 100) or (manrat)) {
+		setprop("/controls/hydraulic/rat-deployed", 1);
+		setprop("/controls/hydraulic/rat", 1);
+		setprop("/controls/electrical/switches/emer-gen", 1);
+		setprop("/systems/electrical/bus/dc-ess", ac_volt_std);
+		setprop("/systems/electrical/bus/ac-ess", dc_volt_std);
+	}
+	
+	if (rat and (gs < 100)) {
+		setprop("/controls/electrical/switches/emer-gen", 0);
+		setprop("/controls/hydraulic/rat", 0); 
+		setprop("/systems/electrical/bus/dc-ess", 0);
+		setprop("/systems/electrical/bus/ac-ess", 0);
+	}
+	
+		
 	# Battery Amps
 	if (battery1_sw) {
 		setprop("/systems/electrical/battery1-amps", dc_amps_std);
@@ -414,11 +439,11 @@ var charge2 = maketimer(6, func {
 	var bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
 });
-var decharge1 = maketimer(60, func {
+var decharge1 = maketimer(69, func { # interval is at 69 seconds, to allow about 30 min from 25.9
 	var bat1_volts = getprop("/systems/electrical/battery1-volts");
 	setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
 });
-var decharge2 = maketimer(60, func {
+var decharge2 = maketimer(69, func {
 	var bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });

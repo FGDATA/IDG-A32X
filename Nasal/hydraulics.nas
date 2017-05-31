@@ -12,6 +12,8 @@ var hyd_init = func {
 	setprop("/controls/hydraulic/elec-pump-yellow", 0);
 	setprop("/controls/hydraulic/ptu", 1);
 	setprop("/controls/hydraulic/rat-man", 0);
+	setprop("/controls/hydraulic/rat", 0);
+	setprop("/controls/hydraulic/rat-deployed", 0);
 	setprop("/systems/hydraulic/ptu-active", 0);
 	setprop("/systems/hydraulic/blue-psi", 0);
 	setprop("/systems/hydraulic/green-psi", 0);
@@ -38,11 +40,21 @@ var master_hyd = func {
 	var stateR = getprop("/engines/engine[1]/state");
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var psi_diff = green_psi - yellow_psi;
+	var rat = getprop("/controls/hydraulic/rat");
+	var ratout = getprop("/controls/hydraulic/rat-deployed");
+	var gs = getprop("/velocities/groundspeed-kt");
 	
 	if (psi_diff > 500 or psi_diff < -500 and ptu_sw) {
 		setprop("/systems/hydraulic/ptu-active", 1);
 	} else if (psi_diff < 20 and psi_diff > -20) {
 		setprop("/systems/hydraulic/ptu-active", 0);
+	}
+
+	if ((rat_man_sw == 1) and (gs > 100)) {
+		setprop("/controls/hydraulic/rat", 1);
+		setprop("/controls/hydraulic/rat-deployed", 1);
+	} else if (gs < 100) {
+		setprop("/controls/hydraulic/rat", 0);
 	}
 	
 	var ptu_active = getprop("/systems/hydraulic/ptu-active");
@@ -53,7 +65,7 @@ var master_hyd = func {
 		} else {
 			setprop("/systems/hydraulic/blue-psi", 3000);
 		}
-	} else if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") >= 120 and rat_man_sw == 1) {
+	} else if (gs >= 100 and rat) {
 		if (blue_psi < 2400) {
 			setprop("/systems/hydraulic/blue-psi", blue_psi + 100);
 		} else {
