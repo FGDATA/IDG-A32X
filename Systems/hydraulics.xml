@@ -191,18 +191,26 @@
 			<condition>
 				<and>
 					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/green-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/yellow-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
 					</or>
 					<not-equals>
 						<property>/controls/flight/speedbrake-lever</property>
@@ -243,18 +251,26 @@
 		<input>
 			<condition>
 				<or>
-					<greater-than-equals>
-						<property>/systems/hydraulic/green-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>/systems/hydraulic/blue-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>/systems/hydraulic/yellow-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
+					<and>
+						<greater-than-equals>
+							<property>/systems/hydraulic/green-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/hydraulic/blue-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+					</and>
+					<and>
+						<greater-than-equals>
+							<property>/systems/hydraulic/blue-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/hydraulic/yellow-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+					</and>
 				</or>
 			</condition>
             <expression>
@@ -275,7 +291,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-left-cmd</input>
 		<output>/controls/flight/spoiler-left</output>
-		<max-rate-of-change>1.5</max-rate-of-change>
+		<max-rate-of-change>1.0</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -286,18 +302,26 @@
 			<condition>
 				<and>
 					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/green-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/yellow-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
 					</or>
 					<not-equals>
 						<property>/controls/flight/speedbrake-lever</property>
@@ -338,18 +362,26 @@
 		<input>
 			<condition>
 				<or>
-					<greater-than-equals>
-						<property>/systems/hydraulic/green-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>/systems/hydraulic/blue-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>/systems/hydraulic/yellow-psi</property>
-						<value>1500</value>
-					</greater-than-equals>
+					<and>
+						<greater-than-equals>
+							<property>/systems/hydraulic/green-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/hydraulic/blue-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+					</and>
+					<and>
+						<greater-than-equals>
+							<property>/systems/hydraulic/blue-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/hydraulic/yellow-psi</property>
+							<value>1500</value>
+						</greater-than-equals>
+					</and>
 				</or>
 			</condition>
             <expression>
@@ -370,7 +402,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-right-cmd</input>
 		<output>/controls/flight/spoiler-right</output>
-		<max-rate-of-change>1.5</max-rate-of-change>
+		<max-rate-of-change>1.0</max-rate-of-change>
 	</filter>
 	
 	<filter>

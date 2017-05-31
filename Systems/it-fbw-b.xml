@@ -106,11 +106,11 @@
 			<property>/controls/flight/aileron-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.14</Kp>
+			<Kp>0.12</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
-			<Ti>5</Ti>
+			<Ti>10</Ti>
 			<Td>0.005</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
@@ -247,11 +247,11 @@
 			<property>/controls/flight/elevator-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>-0.25</Kp>
+			<Kp>-0.22</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
-			<Ti>5</Ti>
+			<Ti>10</Ti>
 			<Td>0.005</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
