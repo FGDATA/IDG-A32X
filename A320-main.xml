@@ -76,14 +76,6 @@
                 <name>Custom engine values system</name>
                 <path>Aircraft/A320Family/Systems/engine-timing.xml</path>
             </autopilot>
-			<autopilot n="6">
-				<name>Autobrake</name>
-				<path>Aircraft/A320Family/Systems/a320-autobrake.xml</path>
-			</autopilot>
-			<autopilot n="7">
-				<name>Spoilers</name>
-				<path>Aircraft/A320Family/Systems/a320-spoilers.xml</path>
-			</autopilot>
 			<autopilot n="8">
 				<path>Systems/fl2070_sound.xml</path>
 			</autopilot>
@@ -426,6 +418,7 @@
 			</engine>
 		</engines>
 		<flight>
+			<aileron-input>0</aileron-input>
 			<aileron-fbw>0</aileron-fbw>
 			<aileron-left>0.5</aileron-left>
 			<aileron-right>-0.5</aileron-right>

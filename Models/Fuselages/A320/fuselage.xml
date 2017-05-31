@@ -353,5 +353,15 @@
 			<z2-m>-2.0790732</z2-m>
 		</axis>
 	</animation>
+	
+	<model>
+		<name>RAT</name>
+		<path>Aircraft/A320Family/Models/RAT/RAT.xml</path>
+		<offsets>
+			<x-m>18</x-m>
+			<y-m>-1</y-m>
+			<z-m>-2.9</z-m>
+		</offsets>
+	</model>
 
 </PropertyList>

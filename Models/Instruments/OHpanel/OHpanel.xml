@@ -1011,6 +1011,24 @@
 	</animation>
 	
 	<animation>
+		<name>RAT MAN pick</name>
+		<type>pick</type>
+		<object-name>RATMan</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulic/rat-man</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<name>Blue Elec Pump pick</name>
 		<type>pick</type>
 		<object-name>BlueElecPump1</object-name>
