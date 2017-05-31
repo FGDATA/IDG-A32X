@@ -5,14 +5,22 @@
 
 <PropertyList>
 
+
  <!-- =============================================================== -->
- <!-- Elevator Position Feeding                                       -->
+ <!-- Surface Position Feeding                                        -->
  <!-- =============================================================== -->
 
 	<filter>
 		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
+		<type>noise-spike</type>
+		<input>/controls/flight/aileron</input>
+		<output>/controls/flight/aileron-input</output>
+		<max-rate-of-change>2.5</max-rate-of-change>
+	</filter>
+
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
 		<input>
 			<condition>
 				<and>
@@ -61,6 +69,7 @@
 			<property>/controls/flight/elevator</property>
 		</input>
 		<output>/controls/flight/elevator-input</output>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 
  <!-- =============================================================== -->
@@ -178,7 +187,7 @@
 					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/aileron</property>
+			<property>/controls/flight/aileron-input</property>
 		</input>
 		<input>
 			<condition>
@@ -189,9 +198,40 @@
 			</condition>
 			<value>0</value>
 		</input>
-		<output>/controls/flight/aileron-fbw</output>
+		<output>/controls/flight/roll-fbw</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>10</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<name>IT-FBW: AILERON</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>/controls/flight/roll-fbw</input>
+		<output>/controls/flight/aileron-fbw</output>
+	</filter>
+	
+	<filter>
+		<name>IT-FBW: LEFT SPOILER</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>/controls/flight/roll-fbw</input>
+		<output>/controls/flight/spoiler-left-fbw-cmd</output>
+		<min>-1</min>
+		<max>0</max>
+	</filter>
+	
+	<filter>
+		<name>IT-FBW: RIGHT SPOILER</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>/controls/flight/roll-fbw</input>
+		<output>/controls/flight/spoiler-right-fbw-cmd</output>
+		<min>0</min>
+		<max>1</max>
 	</filter>
 	
  <!-- =============================================================== -->
@@ -321,7 +361,7 @@
 					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/elevator</property>
+			<property>/controls/flight/elevator-input</property>
 		</input>
 		<input>
 			<condition>

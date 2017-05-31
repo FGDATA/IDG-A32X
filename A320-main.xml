@@ -426,6 +426,7 @@
 			</engine>
 		</engines>
 		<flight>
+			<aileron-input>0</aileron-input>
 			<aileron-fbw>0</aileron-fbw>
 			<aileron-left>0.5</aileron-left>
 			<aileron-right>-0.5</aileron-right>
