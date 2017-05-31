@@ -4,7 +4,10 @@
 
 <PropertyList>
 
-	<!-- Aileron/Spoileron/Speedbrake Control -->
+ <!-- =============================================================== -->
+ <!-- Aileron Control                                                 -->
+ <!-- =============================================================== -->
+
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -182,6 +185,10 @@
 		<output>/controls/flight/aileron-right</output>
 		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
+	
+ <!-- =============================================================== -->
+ <!-- Spoiler Control                                                 -->
+ <!-- =============================================================== -->
 	
 	<filter>
 		<debug>false</debug>
@@ -432,7 +439,10 @@
 		<output>/controls/flight/aileron-sum</output>
 	</filter>
 
-	<!-- Elevator Control -->
+ <!-- =============================================================== -->
+ <!-- Elevator Control                                                -->
+ <!-- =============================================================== -->
+ 
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -552,7 +562,10 @@
 		<output>/controls/flight/elevator-sum</output>
 	</filter>
 	
-	<!-- Rudder -->
+ <!-- =============================================================== -->
+ <!-- Rudder Control                                                  -->
+ <!-- =============================================================== -->
+ 
 	<filter>
 		<debug>false</debug>
 		<type>gain</type>
@@ -611,6 +624,80 @@
 		<input>/controls/flight/rudder-fdm-cmd</input>
 		<output>/controls/flight/rudder-fdm</output>
 		<max-rate-of-change>2.5</max-rate-of-change>
+	</filter>
+	
+ <!-- =============================================================== -->
+ <!-- Speedbrake Logic                                                -->
+ <!-- =============================================================== -->
+	
+	<flipflop>
+		<name>Auto Speedbrake</name>
+		<debug>false</debug>
+		<type>RS</type>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/flight/speedbrake-arm</property>
+						<value>1</value>
+					</equals>
+					<less-than>
+						<property>/engines/engine[0]/reverser-pos-norm</property>
+						<value>0.01</value>
+					</less-than>
+					<less-than>
+						<property>/engines/engine[1]/reverser-pos-norm</property>
+						<value>0.01</value>
+					</less-than>
+				</and>
+			</condition>
+		</enable>
+		<S>
+			<and>
+				<less-than>
+					<property>/controls/engines/engine/throttle</property>
+					<value>0.15</value>
+				</less-than>
+				<less-than>
+					<property>/controls/engines/engine[1]/throttle</property>
+					<value>0.15</value>
+				</less-than>
+				<property>/gear/gear[1]/wow</property>
+				<property>/gear/gear[2]/wow</property>
+				<greater-than>
+					<property>/velocities/groundspeed-kt</property>
+					<value>60</value>
+				</greater-than>
+			</and>
+		</S>
+		<R>
+			<or>
+				<greater-than>
+					<property>/controls/engines/engine/throttle</property>
+					<value>0.16</value>
+				</greater-than>
+				<greater-than>
+					<property>/controls/engines/engine[1]/throttle</property>
+					<value>0.16</value>
+				</greater-than>
+			</or>
+		</R>
+		<output>/controls/flight/speedbrake-lever</output>	
+	</flipflop>
+
+	<filter>
+		<name>Main speedbrake controller</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<max>
+					<property>/controls/flight/ground-spoilers</property>
+					<property>/controls/flight/speedbrake-lever</property>
+				</max>
+			</expression>
+		</input>
+		<output>/controls/flight/speedbrake</output>
 	</filter>
 
 </PropertyList>
