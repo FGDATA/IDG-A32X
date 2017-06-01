@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- A3XX Aircraft Config Dialog -->
+
+
+<PropertyList>
+
+	<name>aircraft-config-fail</name>
+	<layout>vbox</layout>
+
+    <group>
+        <layout>hbox</layout>
+        <text>
+            <halign>left</halign>
+            <label>System Failures</label>
+        </text>
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+	
+    <hrule/>
+	
+	<group>
+		<layout>vbox</layout>
+		
+        <text>
+            <halign>left</halign>
+            <label>Failed when Checked</label>
+        </text>
+		
+		<group>
+			<layout>hbox</layout>
+
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+			<text>
+				<label>Flight Surfaces</label>
+			</text>
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+		</group>
+		
+		<checkbox>
+			<label>Aileron Left</label>
+			<halign>left</halign>
+			<property>/systems/failures/aileron-left</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Aileron Right</label>
+			<halign>left</halign>
+			<property>/systems/failures/aileron-right</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Elevator Left</label>
+			<halign>left</halign>
+			<property>/systems/failures/elevator-left</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Elevator Right</label>
+			<halign>left</halign>
+			<property>/systems/failures/elevator-right</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Rudder</label>
+			<halign>left</halign>
+			<property>/systems/failures/rudder</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Spoiler Left</label>
+			<halign>left</halign>
+			<property>/systems/failures/spoiler-left</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<checkbox>
+			<label>Spoiler Right</label>
+			<halign>left</halign>
+			<property>/systems/failures/spoiler-right</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live>true</live>
+		</checkbox>
+		
+		<button>
+			<legend>Reset All</legend>
+			<halign>center</halign>
+			<padding>5</padding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				acconfig.failReset();
+				</script>
+			</binding>
+		</button>
+
+	</group>
+	
+</PropertyList>

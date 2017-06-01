@@ -28,6 +28,7 @@ var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "
 var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/A320Family/AircraftConfig/ac_init.xml");
 var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/A320Family/AircraftConfig/help.xml");
 var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A320Family/AircraftConfig/fbw.xml");
+var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/A320Family/AircraftConfig/fail.xml");
 spinning.start();
 init_dlg.open();
 
@@ -55,6 +56,16 @@ var systemsReset = func {
 	itaf.ap_init();
 }
 
+var failReset = func {
+	setprop("/systems/failures/aileron-left", 0);
+	setprop("/systems/failures/aileron-right", 0);
+	setprop("/systems/failures/elevator-left", 0);
+	setprop("/systems/failures/elevator-right", 0);
+	setprop("/systems/failures/rudder", 0);
+	setprop("/systems/failures/spoiler-left", 0);
+	setprop("/systems/failures/spoiler-right", 0);
+}
+
 ################
 # Panel States #
 ################
@@ -77,6 +88,7 @@ var colddark = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	if (getprop("/engines/engine[1]/n2") < 2) {
@@ -122,6 +134,7 @@ var beforestart = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
@@ -192,6 +205,7 @@ var taxi = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);

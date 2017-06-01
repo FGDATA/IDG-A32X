@@ -507,6 +507,15 @@
 	</gear>
 	
 	<systems>
+		<failures n="0">
+			<aileron-left>0</aileron-left>
+			<aileron-right>0</aileron-right>
+			<elevator-left>0</elevator-left>
+			<elevator-right>0</elevator-right>
+			<rudder>0</rudder>
+			<spoiler-left>0</spoiler-left>
+			<spoiler-right>0</spoiler-right>
+		</failures>
 		<hydraulic n="0">
 			<blue-psi>0</blue-psi>
 			<green-psi>0</green-psi>
