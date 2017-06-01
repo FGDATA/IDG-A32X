@@ -270,7 +270,7 @@ refs 4
 kids 0
 OBJECT poly
 name "sidestick-pos"
-loc 0.00133541 0.000618536 0.00377834
+loc 0.00135058 0.000618536 0.00368717
 texture "autoland.png"
 crease 45.000000
 numvert 4
@@ -289,7 +289,7 @@ refs 4
 kids 0
 OBJECT poly
 name "sidestick-max"
-loc 0.00091828 -0.0216617 0.0287131
+loc 0.00091828 -0.0216617 0.0292244
 texture "autoland.png"
 crease 45.000000
 numvert 8
@@ -319,7 +319,7 @@ refs 4
 kids 0
 OBJECT poly
 name "sidestick-max"
-loc 0.00091828 0.0234689 0.0287131
+loc 0.00091828 0.0234689 0.0292244
 texture "autoland.png"
 crease 45.000000
 numvert 8
@@ -615,7 +615,7 @@ refs 4
 kids 0
 OBJECT poly
 name "centerbar"
-loc 0.001346 -0.00175913 0.00477472
+loc 0.00133841 -0.00175913 0.00477472
 texture "symbols.png"
 crease 45.000000
 numvert 4

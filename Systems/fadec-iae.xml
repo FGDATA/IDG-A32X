@@ -10,8 +10,9 @@
         <input> 
             <expression>
                 <table>
-                    <property>/controls/engines/engine[0]/throttle-pos</property> 
+                    <property>/controls/engines/engine[0]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
+                    <entry><ind>0.01</ind><dep>0.00</dep></entry>
                     <entry><ind>0.60</ind><dep>0.83</dep></entry>
                     <entry><ind>0.65</ind><dep>0.83</dep></entry>
                     <entry><ind>0.78</ind><dep>0.90</dep></entry>
@@ -31,8 +32,9 @@
         <input> 
             <expression>
                 <table>
-                    <property>/controls/engines/engine[1]/throttle-pos</property> 
+                    <property>/controls/engines/engine[1]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
+                    <entry><ind>0.01</ind><dep>0.00</dep></entry>
                     <entry><ind>0.60</ind><dep>0.83</dep></entry>
                     <entry><ind>0.65</ind><dep>0.83</dep></entry>
                     <entry><ind>0.78</ind><dep>0.90</dep></entry>
@@ -53,8 +55,8 @@
             <expression>
                 <table>
                     <property>/position/altitude-ft</property> 
-                    <entry><ind>    0</ind><dep>0.344</dep></entry>
-                    <entry><ind>42000</ind><dep>0.644</dep></entry>
+                    <entry><ind>    0</ind><dep>0.441</dep></entry>
+                    <entry><ind>42000</ind><dep>0.671</dep></entry>
                 </table>
             </expression>
         </input>
@@ -70,9 +72,9 @@
             <expression>
                 <table>
                     <property>/position/altitude-ft</property> 
-                    <entry><ind>    0</ind><dep>0.993</dep></entry>
-                    <entry><ind>12000</ind><dep>0.979</dep></entry>
-                    <entry><ind>41000</ind><dep>0.968</dep></entry>
+                    <entry><ind>    0</ind><dep>0.992</dep></entry>
+                    <entry><ind>13000</ind><dep>0.979</dep></entry>
+                    <entry><ind>42000</ind><dep>0.969</dep></entry>
                 </table>
             </expression>
         </input>

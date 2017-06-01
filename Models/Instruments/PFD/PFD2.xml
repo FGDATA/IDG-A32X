@@ -10,7 +10,7 @@
         <type>translate</type>
         <object-name>sidestick-pos</object-name>
         <property>controls/flight/elevator</property>
-        <factor>0.0258</factor>
+        <factor>0.0198</factor>
         <axis>
             <x>0</x>
             <y>0</y>
@@ -22,7 +22,7 @@
         <type>translate</type>
         <object-name>sidestick-pos</object-name>
         <property>controls/flight/aileron</property>
-        <factor>0.0280</factor>
+        <factor>0.0220</factor>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -1854,9 +1854,71 @@
         </font-resolution>
     </text>
 	
+    <text>
+        <name>athr-box-b-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0546226</y-m>
+            <z-m>0.0670781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/modes/pfd/fma/athr-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.020</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+	
     <animation>
         <type>select</type>
         <object-name>athr-man-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>TOGA</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>TOGA</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MCT</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MCT</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MAN THR</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MAN THR</value>
+					</equals>
+				</or>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
         <object-name>athr-box-fma</object-name>
         <condition>
 			<and>
@@ -1881,6 +1943,21 @@
 						<property>/systems/thrust/state2</property>
 						<value>MCT</value>
 					</equals>
+				</or>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-box-b-fma</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+				<or>
 					<equals>
 						<property>/systems/thrust/state1</property>
 						<value>MAN THR</value>
@@ -2588,6 +2665,31 @@
 			<green>0.45</green>
 			<blue>0</blue>
 		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>athr-box-b-fma</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0.6</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0.6</green>
+            <blue>0</blue>
+        </emission>
 	</animation>
 	
 </PropertyList>

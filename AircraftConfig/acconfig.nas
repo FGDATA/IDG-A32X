@@ -28,6 +28,8 @@ var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "
 var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/A320Family/AircraftConfig/ac_init.xml");
 var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/A320Family/AircraftConfig/help.xml");
 var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A320Family/AircraftConfig/fbw.xml");
+var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/A320Family/AircraftConfig/fail.xml");
+var fail_b_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/failb/dialog", "Aircraft/A320Family/AircraftConfig/fail-b.xml");
 spinning.start();
 init_dlg.open();
 
@@ -55,6 +57,52 @@ var systemsReset = func {
 	itaf.ap_init();
 }
 
+var failReset = func {
+	setprop("/systems/failures/aileron-left", 0);
+	setprop("/systems/failures/aileron-right", 0);
+	setprop("/systems/failures/elevator-left", 0);
+	setprop("/systems/failures/elevator-right", 0);
+	setprop("/systems/failures/rudder", 0);
+	setprop("/systems/failures/spoiler-left", 0);
+	setprop("/systems/failures/spoiler-right", 0);
+	setprop("/systems/failures/elec-ac-ess", 0);
+	setprop("/systems/failures/elec-batt1", 0);
+	setprop("/systems/failures/elec-batt2", 0);
+	setprop("/systems/failures/elec-galley", 0);
+	setprop("/systems/failures/elec-genapu", 0);
+	setprop("/systems/failures/elec-gen1", 0);
+	setprop("/systems/failures/elec-gen2", 0);
+	setprop("/systems/failures/bleed-apu", 0);
+	setprop("/systems/failures/bleed-ext", 0);
+	setprop("/systems/failures/bleed-eng1", 0);
+	setprop("/systems/failures/bleed-eng2", 0);
+	setprop("/systems/failures/pack1", 0);
+	setprop("/systems/failures/pack2", 0);
+	setprop("/systems/failures/hyd-blue", 0);
+	setprop("/systems/failures/hyd-green", 0);
+	setprop("/systems/failures/hyd-yellow", 0);
+	setprop("/systems/failures/ptu", 0);
+	setprop("/systems/failures/pump-blue", 0);
+	setprop("/systems/failures/pump-green", 0);
+	setprop("/systems/failures/pump-yellow-eng", 0);
+	setprop("/systems/failures/pump-yellow-elec", 0);
+}
+
+var failPage = func(page) {
+	if (page == 0) {
+		gui.popupTip("This is the first page!");
+	} else if (page == 1) {
+		fail_dlg.open();
+		fail_b_dlg.close();
+	} else if (page == 2) {
+		fail_dlg.close();
+		fail_b_dlg.open();
+#		fail_c_dlg.open(); # Fail C Doesn't exist yet!!! :)
+	} else if (page == 3) {
+		gui.popupTip("No Moar!");
+	}
+}
+
 ################
 # Panel States #
 ################
@@ -77,6 +125,7 @@ var colddark = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	if (getprop("/engines/engine[1]/n2") < 2) {
@@ -122,6 +171,7 @@ var beforestart = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
@@ -192,6 +242,7 @@ var taxi = func {
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
+	failReset();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);

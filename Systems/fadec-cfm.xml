@@ -10,8 +10,9 @@
         <input> 
             <expression>
                 <table>
-                    <property>/controls/engines/engine[0]/throttle-pos</property> 
+                    <property>/controls/engines/engine[0]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
+                    <entry><ind>0.01</ind><dep>0.00</dep></entry>
                     <entry><ind>0.60</ind><dep>0.83</dep></entry>
                     <entry><ind>0.65</ind><dep>0.83</dep></entry>
                     <entry><ind>0.78</ind><dep>0.90</dep></entry>
@@ -31,8 +32,9 @@
         <input> 
             <expression>
                 <table>
-                    <property>/controls/engines/engine[1]/throttle-pos</property> 
+                    <property>/controls/engines/engine[1]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
+                    <entry><ind>0.01</ind><dep>0.00</dep></entry>
                     <entry><ind>0.60</ind><dep>0.83</dep></entry>
                     <entry><ind>0.65</ind><dep>0.83</dep></entry>
                     <entry><ind>0.78</ind><dep>0.90</dep></entry>

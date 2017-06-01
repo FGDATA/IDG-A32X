@@ -52,21 +52,27 @@ var master_pneu = func {
 	var rpmapu = getprop("/systems/apu/rpm");
 	var stateL = getprop("/engines/engine[0]/state");
 	var stateR = getprop("/engines/engine[1]/state");
+	var bleedapu_fail = getprop("/systems/failures/bleed-apu");
+	var bleedext_fail = getprop("/systems/failures/bleed-ext");
+	var bleedeng1_fail = getprop("/systems/failures/bleed-eng1");
+	var bleedeng2_fail = getprop("/systems/failures/bleed-eng2");
+	var pack1_fail = getprop("/systems/failures/pack1");
+	var pack2_fail = getprop("/systems/failures/pack2");
 	
 	# Air Sources/PSI
-	if (rpmapu >= 94.9 and bleedapu_sw) {
+	if (rpmapu >= 94.9 and bleedapu_sw and !bleedapu_fail) {
 		setprop("/systems/pneumatic/bleedapu", 34);
 	} else {
 		setprop("/systems/pneumatic/bleedapu", 0);
 	}
 	
-	if (stateL == 3 and bleed1_sw) {
+	if (stateL == 3 and bleed1_sw and !bleedeng1_fail) {
 		setprop("/systems/pneumatic/bleed1", 31);
 	} else {
 		setprop("/systems/pneumatic/bleed1", 0);
 	}
 	
-	if (stateR == 3 and bleed2_sw) {
+	if (stateR == 3 and bleed2_sw and !bleedeng2_fail) {
 		setprop("/systems/pneumatic/bleed2", 32);
 	} else {
 		setprop("/systems/pneumatic/bleed2", 0);
@@ -83,13 +89,13 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
 	
-	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0) {
+	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack1_fail) {
 		setprop("/systems/pneumatic/pack1", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0) {
+	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
@@ -116,7 +122,7 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/total-psi", total_psi_calc);
 	}
 	
-	if (groundair_supp) { 
+	if (groundair_supp) {
 		setprop("/systems/pneumatic/groundair", 39);
 	} else {
 		setprop("/systems/pneumatic/groundair", 0);
