@@ -229,7 +229,7 @@
 		</checkbox>
 		
 		<checkbox>
-			<label>Blue Elec Pump</label>
+			<label>Blue ELEC Pump</label>
 			<halign>left</halign>
 			<property>/systems/failures/pump-blue</property>
 			<binding>
