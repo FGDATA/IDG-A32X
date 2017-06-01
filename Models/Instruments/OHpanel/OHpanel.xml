@@ -981,10 +981,10 @@
 		<object-name>GreenEngPump1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pump-green</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1054,10 +1054,10 @@
 		<object-name>BlueElecPump1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pump-blue</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1109,10 +1109,10 @@
 		<object-name>PTU1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/ptu</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1164,10 +1164,10 @@
 		<object-name>YellowEngPump1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pump-yellow-eng</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1219,10 +1219,10 @@
 		<object-name>YellowElecPump1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pump-yellow-elec</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1274,10 +1274,10 @@
 		<object-name>GalleyPwrBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-galley</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1329,10 +1329,10 @@
 		<object-name>BatteryBtn11F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-batt1</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1384,10 +1384,10 @@
 		<object-name>BatteryBtn21F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-batt2</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1472,10 +1472,10 @@
 		<object-name>Gen1Btn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-gen1</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1526,10 +1526,10 @@
 		<object-name>ACESSFeedBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-ac-ess</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1580,10 +1580,10 @@
 		<object-name>APUGenBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-genapu</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1729,10 +1729,10 @@
 		<object-name>Gen2Btn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/elec-gen2</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1877,10 +1877,10 @@
 		<object-name>ACPack1Btn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pack1</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1932,10 +1932,10 @@
 		<object-name>Eng1BleedBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/bleed-eng1</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1987,10 +1987,10 @@
 		<object-name>APUBleedBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/bleed-apu</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2042,10 +2042,10 @@
 		<object-name>Eng2BleedBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/bleed-eng2</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2151,10 +2151,10 @@
 		<object-name>ACPack2Btn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>/systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>/systems/failures/pack2</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
