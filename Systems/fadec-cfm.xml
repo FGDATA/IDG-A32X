@@ -438,5 +438,71 @@
         </input>
 		<output>/systems/thrust/n1/flx-lim</output>
     </filter>
+	
+    <filter>
+        <name>EGT L</name>
+        <type>gain</type>
+        <gain>1</gain>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/engines/engine[0]/state</property>
+						<value>3</value>
+					</equals>
+					<greater-than>
+						<property>/engines/engine[0]/n1</property>
+						<value>23</value>
+					</greater-than>
+				</and>
+			</condition>
+		</enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+                    <property>/engines/engine[0]/n1</property> 
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>6</ind><dep>0</dep></entry>
+                    <entry><ind>23.4</ind><dep>434</dep></entry>
+                    <entry><ind>110</ind><dep>690</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/egt-actual</output>
+    </filter>
+	
+    <filter>
+        <name>EGT R</name>
+        <type>gain</type>
+        <gain>1</gain>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/engines/engine[1]/state</property>
+						<value>3</value>
+					</equals>
+					<greater-than>
+						<property>/engines/engine[1]/n1</property>
+						<value>23</value>
+					</greater-than>
+				</and>
+			</condition>
+		</enable>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+                    <property>/engines/engine[1]/n1</property> 
+                    <entry><ind>0</ind><dep>0</dep></entry>
+                    <entry><ind>6</ind><dep>0</dep></entry>
+                    <entry><ind>23.4</ind><dep>434</dep></entry>
+                    <entry><ind>110</ind><dep>690</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/egt-actual</output>
+    </filter>
 
 </PropertyList>

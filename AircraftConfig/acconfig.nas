@@ -55,6 +55,9 @@ var systemsReset = func {
 	mcdu1.MCDU_reset();
 	mcdu2.MCDU_reset();
 	itaf.ap_init();
+	setprop("/it-autoflight/input/fd1", 1);
+	setprop("/it-autoflight/input/fd2", 1);
+	libraries.ECAMinit();
 }
 
 var failReset = func {
@@ -126,8 +129,6 @@ var colddark = func {
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
 	failReset();
-	setprop("/it-autoflight/input/fd1", 1);
-	setprop("/it-autoflight/input/fd2", 1);
 	if (getprop("/engines/engine[1]/n2") < 2) {
 		colddark_b();
 	} else {
@@ -172,8 +173,6 @@ var beforestart = func {
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
 	failReset();
-	setprop("/it-autoflight/input/fd1", 1);
-	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/bleed/OHP/bleedapu", 0);
@@ -243,8 +242,6 @@ var taxi = func {
 	setprop("/controls/gear/gear-down", 1);
 	systemsReset();
 	failReset();
-	setprop("/it-autoflight/input/fd1", 1);
-	setprop("/it-autoflight/input/fd2", 1);
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/bleed/OHP/bleedapu", 0);

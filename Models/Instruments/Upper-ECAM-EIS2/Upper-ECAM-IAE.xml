@@ -4,6 +4,10 @@
 
 	<path>resIAE/eicasIAE.ac</path>
 	
+	<model>
+		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-MSG/ECAM-MSG.xml</path>
+	</model>
+	
 	<animation>
 		<type>select</type>
 		<object-name>XX.1</object-name>

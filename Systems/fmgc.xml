@@ -1,6 +1,6 @@
 <!-- Airbus A3XX FMGC System by Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp) -->
 
-<system name="it-fbw">
+<system name="fmgc">
 	<property value="0">/FMGC/internal/greendot-kts</property>
 
 	<channel name="GreenDot">

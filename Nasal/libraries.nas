@@ -160,6 +160,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
+	libraries.ECAMinit();
 });
 
 var aglgears = func {
@@ -206,3 +207,114 @@ var mcpSPDKnbPull = func {
 		}
 	}
 }
+
+# In air, flaps 1 is slats only. On ground, it is slats and flaps.
+
+setprop("/controls/flight/flap-lever", 0);
+setprop("/controls/flight/flap-pos", 0);
+setprop("/controls/flight/flap-txt", " ");
+
+controls.flapsDown = func(step) {
+	if (step == 1) {
+		if (getprop("/controls/flight/flap-lever") == 0) {
+			if (getprop("/velocities/airspeed-kt") <= 100) {
+				setprop("/controls/flight/flaps", 0.290);
+				setprop("/controls/flight/slats", 0.666);
+				setprop("/controls/flight/flap-lever", 1);
+				setprop("/controls/flight/flap-pos", 2);
+				setprop("/controls/flight/flap-txt", "1+F");
+				flaptimer.start();
+				return;
+			} else {
+				setprop("/controls/flight/flaps", 0.000);
+				setprop("/controls/flight/slats", 0.666);
+				setprop("/controls/flight/flap-lever", 1);
+				setprop("/controls/flight/flap-pos", 1);
+				setprop("/controls/flight/flap-txt", "1");
+				flaptimer.stop();
+				return;
+			}
+		} else if (getprop("/controls/flight/flap-lever") == 1) {
+			setprop("/controls/flight/flaps", 0.596);
+			setprop("/controls/flight/slats", 0.814);
+			setprop("/controls/flight/flap-lever", 2);
+			setprop("/controls/flight/flap-pos", 3);
+			setprop("/controls/flight/flap-txt", "2");
+			flaptimer.stop();
+			return;
+		} else if (getprop("/controls/flight/flap-lever") == 2) {
+			setprop("/controls/flight/flaps", 0.645);
+			setprop("/controls/flight/slats", 0.814);
+			setprop("/controls/flight/flap-lever", 3);
+			setprop("/controls/flight/flap-pos", 4);
+			setprop("/controls/flight/flap-txt", "3");
+			flaptimer.stop();
+			return;
+		} else if (getprop("/controls/flight/flap-lever") == 3) {
+			setprop("/controls/flight/flaps", 1.000);
+			setprop("/controls/flight/slats", 1.000);
+			setprop("/controls/flight/flap-lever", 4);
+			setprop("/controls/flight/flap-pos", 5);
+			setprop("/controls/flight/flap-txt", "FULL");
+			flaptimer.stop();
+			return;
+		}
+	} else if (step == -1) {
+		if (getprop("/controls/flight/flap-lever") == 4) {
+			setprop("/controls/flight/flaps", 0.645);
+			setprop("/controls/flight/slats", 0.814);
+			setprop("/controls/flight/flap-lever", 3);
+			setprop("/controls/flight/flap-pos", 4);
+			setprop("/controls/flight/flap-txt", "3");
+			flaptimer.stop();
+			return;
+		} else if (getprop("/controls/flight/flap-lever") == 3) {
+			setprop("/controls/flight/flaps", 0.596);
+			setprop("/controls/flight/slats", 0.814);
+			setprop("/controls/flight/flap-lever", 2);
+			setprop("/controls/flight/flap-pos", 3);
+			setprop("/controls/flight/flap-txt", "2");
+			flaptimer.stop();
+			return;
+		} else if (getprop("/controls/flight/flap-lever") == 2) {
+			if (getprop("/velocities/airspeed-kt") <= 100) {
+				setprop("/controls/flight/flaps", 0.290);
+				setprop("/controls/flight/slats", 0.666);
+				setprop("/controls/flight/flap-lever", 1);
+				setprop("/controls/flight/flap-pos", 2);
+				setprop("/controls/flight/flap-txt", "1+F");
+				flaptimer.start();
+				return;
+			} else {
+				setprop("/controls/flight/flaps", 0.000);
+				setprop("/controls/flight/slats", 0.666);
+				setprop("/controls/flight/flap-lever", 1);
+				setprop("/controls/flight/flap-pos", 1);
+				setprop("/controls/flight/flap-txt", "1");
+				flaptimer.stop();
+				return;
+			}
+		} else if (getprop("/controls/flight/flap-lever") == 1) {
+			setprop("/controls/flight/flaps", 0.000);
+			setprop("/controls/flight/slats", 0.000);
+			setprop("/controls/flight/flap-lever", 0);
+			setprop("/controls/flight/flap-pos", 0);
+			setprop("/controls/flight/flap-txt", " ");
+			flaptimer.stop();
+			return;
+		}
+	} else {
+		return 0;
+	}
+}
+
+var flaptimer = maketimer(0.5, func {
+	if (getprop("/controls/flight/flap-pos") == 2 and getprop("/velocities/airspeed-kt") >= 208) {
+		setprop("/controls/flight/flaps", 0.000);
+		setprop("/controls/flight/slats", 0.666);
+		setprop("/controls/flight/flap-lever", 1);
+		setprop("/controls/flight/flap-pos", 1);
+		setprop("/controls/flight/flap-txt", "1");
+		flaptimer.stop();
+	}
+});
