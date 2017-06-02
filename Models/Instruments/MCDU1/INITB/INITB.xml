@@ -273,7 +273,7 @@
 		<name>rtersv2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>-0.035</y-m>
+			<y-m>-0.045</y-m>
 			<z-m>0.0505</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
@@ -344,7 +344,7 @@
 		<name>ldgw</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.040</y-m>
+			<y-m>0.043</y-m>
 			<z-m>0.029</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -434,6 +434,31 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	
+	<text>
+		<name>tow</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0405</y-m>
+			<z-m>0.0335</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">LW</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
 	<text>
 		<name>altntime</name>
 		<offsets>

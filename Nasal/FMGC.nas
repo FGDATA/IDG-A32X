@@ -83,15 +83,19 @@ var phasecheck = maketimer(0.2, func {
 	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
 	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and flaps < 4 and (mode == "SRS")) {
 		setprop("/FMGC/status/phase", "1");
+		setprop("/systems/pressurization/mode", "TO");
 	}
 	if ((alt >= 3000) and (alt <= cruisefl) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
 		setprop("/FMGC/status/phase", "2");
 	}
 	if ((alt >= cruisefl) and (phase == "2") and (mode != "SRS")) {
-		setprop("/FMGC/status/phase", "3"); # for now cruise will be level 100 or above until the MCDU is ready
+		setprop("/FMGC/status/phase", "3");
+		setprop("/systems/pressurization/mode", "CR");
 	}
 	if ((alt <= cruisefl) and (phase == "3")) { # for now it will have to be when we begin descent.
 		setprop("/FMGC/status/phase", "4");
+		setprop("/systems/pressurization/mode", "DE");
+		
 	}
 	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 4 and ((phase == "4") or (phase == "2"))) { # add man activation of approach phase in MCDU or DECEL when those things are simulated
 		setprop("/FMGC/status/phase", "5");
@@ -114,6 +118,7 @@ var phasecheck = maketimer(0.2, func {
 		mcdu2.MCDU_reset();
 		setprop("/it-autoflight/input/fd1", fd1);
 		setprop("/it-autoflight/input/fd2", fd2);
+		press_init();
 	}
 });
 

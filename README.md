@@ -1,5 +1,5 @@
 # A320Family
-A very advanced simulation of the Airbus A320 Family for FlightGear.<br />
+A very advanced simulation of the Airbus A320 Family for FlightGear.
 
 Brought to you by:
 - Joshua Davidson (it0uchpods)

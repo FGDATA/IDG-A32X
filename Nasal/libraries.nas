@@ -152,6 +152,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.adirs_init();
 	systems.pneu_init();
 	systems.hyd_init();
+	systems.press_init();
   	itaf.ap_init();			
 	externalconnections.start();
 	fmgc.FMGCinit();
