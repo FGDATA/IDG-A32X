@@ -11,7 +11,7 @@
 	</sim>
 	
 	<options>
-		<EIS2 type="bool">1</EIS2>
+		<EIS2 type="bool">0</EIS2>
 	</options>
 	
 	<sharklet type="bool">0</sharklet>
