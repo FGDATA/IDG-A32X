@@ -161,7 +161,13 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();
+	libraries.variousReset();
 });
+
+var variousReset = func {
+	setprop("/modes/cpt-du-xfr", 0);
+	setprop("/modes/fo-du-xfr", 0);
+}
 
 var aglgears = func {
     var agl = getprop("/position/altitude-agl-ft") or 0;

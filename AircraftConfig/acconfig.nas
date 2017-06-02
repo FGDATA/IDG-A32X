@@ -58,6 +58,7 @@ var systemsReset = func {
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();
+	libraries.variousReset();
 }
 
 var failReset = func {

@@ -65,6 +65,7 @@
 	<!-- Primary Flight Displays -->
 	
 	<model>
+		<name>PFD1</name>
 		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD1.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -73,20 +74,39 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<or>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
-				</greater-than-equals>
-			</or>
+			<and>
+				<or>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>25</value>
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>25</value>
+					</greater-than-equals>
+				</or>
+				<not-equals>
+					<property>/modes/cpt-du-xfr</property>
+					<value>2</value>
+				</not-equals>
+			</and>
 		</condition>
 	</model>
 	
+    <animation>
+        <type>translate</type>
+        <object-name>PFD1</object-name>
+        <property>/modes/cpt-du-xfr</property>
+        <factor>0.18845</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
 	<model>
+		<name>PFD2</name>
 		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD2.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -104,13 +124,30 @@
 					<property>/systems/electrical/bus/ac2</property>
 					<value>25</value>
 				</greater-than-equals>
+				<not-equals>
+					<property>/modes/fo-du-xfr</property>
+					<value>2</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
 	
+    <animation>
+        <type>translate</type>
+        <object-name>PFD2</object-name>
+        <property>/modes/fo-du-xfr</property>
+        <factor>-0.19505</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
 	<!-- Navigational Displays -->
 	
 	<model>
+		<name>ND1</name>
 		<path>Aircraft/A320Family/Models/Instruments/ND/ND_L.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -119,7 +156,7 @@
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 		<condition>
-			<or>
+			<and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
 					<value>25</value>
@@ -128,11 +165,28 @@
 					<property>/systems/electrical/bus/ac2</property>
 					<value>25</value>
 				</greater-than-equals>
-			</or>
+				<not-equals>
+					<property>/modes/cpt-du-xfr</property>
+					<value>2</value>
+				</not-equals>
+			</and>
 		</condition>
 	</model>
 	
+    <animation>
+        <type>translate</type>
+        <object-name>ND1</object-name>
+        <property>/modes/cpt-du-xfr</property>
+        <factor>-0.18845</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
 	<model>
+		<name>ND2</name>
 		<path>Aircraft/A320Family/Models/Instruments/ND/ND_R.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -150,13 +204,30 @@
 					<property>/systems/electrical/bus/ac2</property>
 					<value>25</value>
 				</greater-than-equals>
+				<not-equals>
+					<property>/modes/fo-du-xfr</property>
+					<value>2</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
 	
+    <animation>
+        <type>translate</type>
+        <object-name>ND2</object-name>
+        <property>/modes/fo-du-xfr</property>
+        <factor>0.19505</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
 	<!-- Engine Indications and Crew Alerting System (Upper ECAM) -->
 	
 	<model>
+		<name>UECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM-CFM.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -186,6 +257,7 @@
 	</model>
 	
 	<model>
+		<name>UECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM-IAE.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -215,6 +287,7 @@
 	</model>
 	
 	<model>
+		<name>UECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-EIS2/Upper-ECAM-CFM.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -244,6 +317,7 @@
 	</model>
 	
 	<model>
+		<name>UECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-EIS2/Upper-ECAM-IAE.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -275,6 +349,7 @@
 	<!-- Lower ECAM -->
 	
 	<model>
+		<name>ECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/ECAM/ECAM.xml</path>
 		<offsets>
 			<x-m>-0.53631</x-m>
