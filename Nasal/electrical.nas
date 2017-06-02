@@ -310,8 +310,8 @@ var master_elec = func {
 		setprop("/controls/hydraulic/rat-deployed", 1);
 		setprop("/controls/hydraulic/rat", 1);
 		setprop("/controls/electrical/switches/emer-gen", 1);
-		setprop("/systems/electrical/bus/dc-ess", ac_volt_std);
-		setprop("/systems/electrical/bus/ac-ess", dc_volt_std);
+		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 	}
 	
 	if (rat and (gs < 100)) {
