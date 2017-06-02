@@ -10,5 +10,3 @@ Including repaints by:
 - Suleman Siddiqui (pakistan-1)
 - Sven Seipp (D-SVEN)
 - Various Others
-
-Includes the RAT from the 787-9, positioned by Jonathan Redpath
