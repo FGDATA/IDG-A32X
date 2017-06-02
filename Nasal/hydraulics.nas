@@ -58,7 +58,7 @@ var master_hyd = func {
 		setprop("/systems/hydraulic/ptu-active", 0);
 	}
 
-	if ((rat_man_sw == 1) and (gs > 100)) {
+	if ((rat_man_sw == 1 or getprop("/controls/electrical/switches/emer-gen") == 1) and (gs > 100)) {
 		setprop("/controls/hydraulic/rat", 1);
 		setprop("/controls/hydraulic/rat-deployed", 1);
 	} else if (gs < 100) {

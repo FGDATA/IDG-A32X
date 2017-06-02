@@ -130,7 +130,7 @@ var master_elec = func {
 	var emergen = getprop("/controls/electrical/switches/emer-gen");
 	var emergenvolts = getprop("/systems/electrical/extra/emergen-volts");
 	var emergenhz = getprop("/systems/electrical/bus/emergen-hz");
-	var gs = getprop("/velocities/groundspeed-kt");
+	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
 	var rat = getprop("/controls/hydraulic/rat");
 	var manrat = getprop("/controls/hydraulic/rat-man");
 	var ac_ess_fail = getprop("/systems/failures/elec-ac-ess");
@@ -180,6 +180,10 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+	} else if (emergen) {
+		setprop("/systems/electrical/bus/dc1", dc_volt_std);
+		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
 	} else {
 		setprop("/systems/electrical/bus/dc1", 0);
 		setprop("/systems/electrical/bus/dc1-amps", 0); 
@@ -202,6 +206,10 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
+		setprop("/systems/electrical/bus/dc2", dc_volt_std);
+		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+	} else if (emergen) {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -230,6 +238,14 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/extra/gen1-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
+	} else if (emergen) {
+		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		setprop("/systems/electrical/extra/ext-volts", 0);
+		setprop("/systems/electrical/extra/apu-volts", 0);
+		setprop("/systems/electrical/extra/ext-hz", 0);
+		setprop("/systems/electrical/extra/apu-hz", 0);
+		setprop("/systems/electrical/extra/gen1-volts", 0);
+		setprop("/systems/electrical/bus/gen1-hz", 0);
 	} else {
 		setprop("/systems/electrical/bus/ac1", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
@@ -257,6 +273,14 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 		setprop("/systems/electrical/extra/gen2-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen2-hz", ac_hz_std);
+	} else if (emergen) {
+		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		setprop("/systems/electrical/extra/ext-volts", 0);
+		setprop("/systems/electrical/extra/apu-volts", 0);
+		setprop("/systems/electrical/extra/ext-hz", 0);
+		setprop("/systems/electrical/extra/apu-hz", 0);
+		setprop("/systems/electrical/extra/gen2-volts", 0);
+		setprop("/systems/electrical/bus/gen2-hz", 0);
 	} else {
 		setprop("/systems/electrical/bus/ac2", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
@@ -306,22 +330,16 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-ext", 0);
 	}
 	
-	if ((ac1 == 0) and (ac2 == 0) and (gs > 100) or (manrat)) {
+	if ((ac1 == 0) and (ac2 == 0) and (ias > 100) or (manrat)) {
 		setprop("/controls/hydraulic/rat-deployed", 1);
 		setprop("/controls/hydraulic/rat", 1);
 		setprop("/controls/electrical/switches/emer-gen", 1);
-		setprop("/systems/electrical/bus/dc-ess", ac_volt_std);
-		setprop("/systems/electrical/bus/ac-ess", dc_volt_std);
 	}
 	
-	if (rat and (gs < 100)) {
+	if (ias < 100) {
 		setprop("/controls/electrical/switches/emer-gen", 0);
-		setprop("/controls/hydraulic/rat", 0); 
-		setprop("/systems/electrical/bus/dc-ess", 0);
-		setprop("/systems/electrical/bus/ac-ess", 0);
 	}
 	
-		
 	# Battery Amps
 	if (battery1_sw and !batt1_fail) {
 		setprop("/systems/electrical/battery1-amps", dc_amps_std);

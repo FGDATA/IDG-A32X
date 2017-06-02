@@ -5,6 +5,44 @@
 <PropertyList>
 
  <!-- =============================================================== -->
+ <!-- Surface Droop                                                   -->
+ <!-- =============================================================== -->
+ 
+    <filter>
+        <name>Aileron Droop</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+                    <entry><ind> 72</ind><dep>0.5</dep></entry>
+                    <entry><ind>116</ind><dep>0.0</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/systems/hydraulic/aileron-droop</output>
+    </filter>
+	
+    <filter>
+        <name>Elevator Droop</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input> 
+            <expression>
+                <table>
+                    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+                    <entry><ind> 87</ind><dep>0.5</dep></entry>
+                    <entry><ind>121</ind><dep>0.0</dep></entry>
+                </table>
+            </expression>
+        </input>
+		<output>/systems/hydraulic/elevator-droop</output>
+    </filter>
+
+ <!-- =============================================================== -->
  <!-- Aileron Control                                                 -->
  <!-- =============================================================== -->
 
@@ -74,7 +112,7 @@
 					</equals>
 				</or>
 			</condition>
-			<value>0.5</value>
+			<property>/systems/hydraulic/aileron-droop</property>
 		</input>
 		<input>
 			<condition>
@@ -188,7 +226,8 @@
 					</equals>
 				</or>
 			</condition>
-			<value>-0.5</value>
+			<property>/systems/hydraulic/aileron-droop</property>
+			<scale>-1.0</scale>
 		</input>
 		<input>
 			<condition>
@@ -754,7 +793,7 @@
 					</equals>
 				</or>
 			</condition>
-			<value>0.1</value>
+			<property>/systems/hydraulic/elevator-droop</property>
 		</input>
 		<input>
 			<condition>
@@ -818,7 +857,7 @@
 					</equals>
 				</or>
 			</condition>
-			<value>0.1</value>
+			<property>/systems/hydraulic/elevator-droop</property>
 		</input>
 		<input>
 			<condition>

@@ -78,11 +78,11 @@
 				<or>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 				</or>
 				<not-equals>
@@ -128,6 +128,10 @@
 					<property>/modes/fo-du-xfr</property>
 					<value>2</value>
 				</not-equals>
+				<not-equals>
+					<property>/controls/electrical/switches/emer-gen</property>
+					<value>1</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
@@ -159,15 +163,19 @@
 			<and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
 				<not-equals>
 					<property>/modes/cpt-du-xfr</property>
 					<value>2</value>
+				</not-equals>
+				<not-equals>
+					<property>/controls/electrical/switches/emer-gen</property>
+					<value>1</value>
 				</not-equals>
 			</and>
 		</condition>
@@ -198,15 +206,19 @@
 			<and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
 				<not-equals>
 					<property>/modes/fo-du-xfr</property>
 					<value>2</value>
+				</not-equals>
+				<not-equals>
+					<property>/controls/electrical/switches/emer-gen</property>
+					<value>1</value>
 				</not-equals>
 			</and>
 		</condition>
@@ -245,11 +257,11 @@
 				<or>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 				</or>
 			</and>
@@ -275,11 +287,11 @@
 				<or>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 				</or>
 			</and>
@@ -305,11 +317,11 @@
 				<or>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 				</or>
 			</and>
@@ -335,11 +347,11 @@
 				<or>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac1</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
-						<value>25</value>
+						<value>110</value>
 					</greater-than-equals>
 				</or>
 			</and>
@@ -361,12 +373,16 @@
 			<and>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac2</property>
-					<value>25</value>
+					<value>110</value>
 				</greater-than-equals>
+				<not-equals>
+					<property>/controls/electrical/switches/emer-gen</property>
+					<value>1</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
