@@ -54,7 +54,7 @@ var systemsReset = func {
 	fmgc.FMGCinit();
 	mcdu1.MCDU_reset();
 	mcdu2.MCDU_reset();
-	itaf.ap_init();
+	fmgc.APinit();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();

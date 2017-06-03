@@ -1,4 +1,4 @@
-# This file converts the IT-AUTOFLIGHT Mode numbers, and converts them into text strings for the Airbus Style PFD.
+# Airbus PFD FMA
 # Joshua Davidson (it0uchpods/411)
 
 # Speed or Mach?

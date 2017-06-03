@@ -67,7 +67,7 @@
 				<path>Aircraft/A320Family/Systems/it-fbw-b.xml</path>
 			</autopilot>
 			<autopilot n="3">
-				<path>Aircraft/A320Family/Systems/it-autoflight.xml</path>
+				<path>Aircraft/A320Family/Systems/fmgc-autofight.xml</path>
 			</autopilot>
             <autopilot n="4">
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
@@ -129,7 +129,7 @@
 				<menu n="3">
 					<item>
 						<name>autopilot</name>
-						<label>IT-AUTOFLIGHT System</label>
+						<label>Autopilot</label>
 						<binding>
 							<command>nasal</command>
 							<script>
@@ -751,9 +751,6 @@
 		<fbw>
 			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>
 		</fbw>
-		<itaf>
-			<file>Aircraft/A320Family/Nasal/it-autoflight.nas</file>
-		</itaf>
 		<fmgc>
 			<file>Aircraft/A320Family/Nasal/FMGC.nas</file>
 		</fmgc>

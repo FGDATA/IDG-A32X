@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- IT-AUTOFLIGHT -->
-
 <PropertyList>
 
  <!-- =============================================================== -->
@@ -1417,155 +1415,6 @@
 	</filter>
 	
  <!-- =============================================================== -->
- <!-- Control Wheel Steering                                          -->
- <!-- =============================================================== -->
-	
-	<pid-controller>
-		<name>IT-CONTROLLER: CWS ROLL</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/internal/cwsr</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/cws</property>
-						<value>1</value>
-					</equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/orientation/roll-deg</property>
-		</input>
-		<reference>
-			<property>/it-autoflight/internal/cws-roll-deg</property>
-		</reference>
-		<output>
-			<property>/it-autoflight/internal/cws-ail-cmd</property>
-		</output>
-		<config>
-			<Kp>
-				<property>/it-autoflight/config/roll/kp</property>
-			</Kp>
-			<beta>1.0</beta>	
-			<alpha>0.1</alpha>	
-			<gamma>0.0</gamma>	
-			<Ti>
-				<property>/it-autoflight/config/roll/ti</property>
-			</Ti>    
-			<Td>
-				<property>/it-autoflight/config/roll/td</property>
-			</Td>    	
-			<u_min>-1.0</u_min>
-			<u_max>1.0</u_max>
-		</config>
-	</pid-controller>
-	
-	<filter>
-		<name>IT-CONTROLLER: CWS ROLL CMD</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/cws</property>
-					<value>1</value>
-				</equals>
-			</condition>
-		</enable>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/internal/cwsr</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/internal/cws-ail-cmd</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/internal/cwsr</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<value>0</value>
-		</input>
-		<output>/controls/flight/aileron-trim</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>0.9</max-rate-of-change>
-	</filter>
-	
-	<pid-controller>
-		<name>IT-CONTROLLER: CWS PITCH</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/internal/cwsp</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/cws</property>
-						<value>1</value>
-					</equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/orientation/pitch-deg</property>
-		</input>
-		<reference>
-			<property>/it-autoflight/internal/cws-pitch-deg</property>
-		</reference>
-		<output>
-			<property>/it-autoflight/internal/cws-elv-cmd</property>
-		</output>
-		<config>
-			<Kp>
-				<property>/it-autoflight/config/pitch/kp-cws</property>
-			</Kp>
-			<beta>1.0</beta>    
-			<alpha>0.1</alpha>  
-			<gamma>0.0</gamma>  
-			<Ti>
-				<property>/it-autoflight/config/pitch/ti</property>
-			</Ti>      
-			<Td>
-				<property>/it-autoflight/config/pitch/td</property>
-			</Td>   
-			<u_min>-1.0</u_min>
-			<u_max>1.0</u_max>
-		</config>
-	</pid-controller>
-	
-	<filter>
-		<name>IT-CONTROLLER: CWS PITCH CMD</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/cws</property>
-					<value>1</value>
-				</equals>
-			</condition>
-		</enable>
-		<input>
-			<property>/it-autoflight/internal/cws-elv-cmd</property>
-		</input>
-		<output>/controls/flight/elevator-trim</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>0.5</max-rate-of-change>
-	</filter>
-	
- <!-- =============================================================== -->
  <!-- Autotrim                                                        -->
  <!-- =============================================================== -->
 	
@@ -1577,7 +1426,7 @@
 				<and>
 					<greater-than>
 						<property>/it-autoflight/internal/elevator-cmd</property>
-						<value>0.05</value>
+						<value>0.01</value>
 					</greater-than>
 					<or>
 						<equals>
@@ -1621,7 +1470,7 @@
 				<and>
 					<less-than>
 						<property>/it-autoflight/internal/elevator-cmd</property>
-						<value>-0.05</value>
+						<value>-0.01</value>
 					</less-than>
 					<or>
 						<equals>
@@ -1678,11 +1527,11 @@
 					<or>
 						<greater-than>
 							<property>/it-autoflight/internal/elevator-cmd</property>
-							<value>0.05</value>
+							<value>0.01</value>
 						</greater-than>
 						<less-than>
 							<property>/it-autoflight/internal/elevator-cmd</property>
-							<value>-0.05</value>
+							<value>-0.01</value>
 						</less-than>
 					</or>
 				</and>
