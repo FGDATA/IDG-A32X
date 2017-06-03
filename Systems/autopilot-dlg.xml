@@ -174,13 +174,11 @@
 			<button>
 				<legend>Push</legend>
 				<pref-width>65</pref-width>
-				<enable>
-					<property>/systems/unused/unused-button</property>
-				</enable>
 				<binding>
-					<command>property-assign</command>
-					<property>/systems/unused/unused-button</property>
-					<value>0</value>
+					<command>nasal</command>
+					<script>
+					libraries.mcpSPDKnbPush();
+					</script>
 				</binding>
 			</button>
 			
@@ -223,10 +221,16 @@
                 <pref-height>25</pref-height>
 				<legend>&lt;&lt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -244,10 +248,16 @@
                 <pref-height>25</pref-height>
 				<legend>&lt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -266,10 +276,16 @@
 				<property>/it-autoflight/input/spd-kts</property>
 				<live type="bool">true</live>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>dialog-apply</command>
@@ -283,10 +299,16 @@
                 <pref-height>25</pref-height>
 				<legend>&gt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -305,10 +327,16 @@
                 <pref-height>25</pref-height>
 				<legend>&gt;&gt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -338,10 +366,16 @@
                 <pref-height>25</pref-height>
 				<legend>&lt;&lt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -359,10 +393,16 @@
                 <pref-height>25</pref-height>
 				<legend>&lt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -381,10 +421,16 @@
 				<property>/it-autoflight/input/spd-mach</property>
 				<live type="bool">true</live>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>dialog-apply</command>
@@ -398,10 +444,16 @@
                 <pref-height>25</pref-height>
 				<legend>&gt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>
@@ -420,10 +472,16 @@
                 <pref-height>25</pref-height>
 				<legend>&gt;&gt;</legend>
 				<enable>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</enable>
 				<binding>
 					<command>property-adjust</command>

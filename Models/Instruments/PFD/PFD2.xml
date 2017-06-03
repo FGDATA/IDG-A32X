@@ -1015,6 +1015,54 @@
             <height type="int">32</height>
         </font-resolution>
     </text>
+	
+    <text>
+        <name>mng-spd</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <property>/it-autoflight/input/spd-kts</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>mng-spd-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%5.0f</format>
+        <property>/it-autoflight/input/spd-kts</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
     
     <text>
         <name>man-mach</name>
@@ -1064,9 +1112,58 @@
         </font-resolution>
     </text>
 	
+    <text>
+        <name>mng-mach</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/it-autoflight/input/spd-mach</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>mng-mach-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/it-autoflight/input/spd-mach</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
     <animation>
     	<type>texmultiple</type>
     	<object-name>trgt-spd-man</object-name>
+    	<object-name>trgt-spd-mng</object-name>
         <transform>
             <subtype>textranslate</subtype>
             <property>/it-autoflight/input/spd-kts</property>
@@ -1091,6 +1188,28 @@
 	
     <animation>
         <type>select</type>
+        <object-name>trgt-spd-man</object-name>
+        <condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>0</value>
+			</equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>trgt-spd-mng</object-name>
+        <condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>1</value>
+			</equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
         <object-name>man-spd</object-name>
         <condition>
 			<and>
@@ -1106,6 +1225,36 @@
 				<equals>
 					<property>/it-autoflight/input/kts-mach</property>
 					<value>0</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>mng-spd</object-name>
+        <condition>
+			<and>
+				<greater-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>70</value>
+				</greater-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>1</value>
 				</equals>
 			</and>
         </condition>
@@ -1129,6 +1278,36 @@
 					<property>/it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>mng-spd-lower</object-name>
+        <condition>
+			<and>
+				<less-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>-70</value>
+				</less-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>1</value>
+				</equals>
 			</and>
         </condition>
     </animation>
@@ -1151,6 +1330,36 @@
 					<property>/it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>mng-mach</object-name>
+        <condition>
+			<and>
+				<greater-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>70</value>
+				</greater-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>1</value>
+				</equals>
 			</and>
         </condition>
     </animation>
@@ -1171,6 +1380,36 @@
 				</less-than-equals>
 				<equals>
 					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>mng-mach-lower</object-name>
+        <condition>
+			<and>
+				<less-than-equals>
+					<expression>
+						<dif>
+							<property>/it-autoflight/input/spd-kts</property>
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						</dif>
+					</expression>
+					<value>-70</value>
+				</less-than-equals>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -2436,6 +2675,7 @@
     </animation>
 	
 	<!-- Colors -->
+	<!-- White -->
     <animation>
         <type>material</type>
         <object-name>qnh-indicator</object-name>
@@ -2474,6 +2714,7 @@
         </emission>
     </animation>
 	
+	<!-- Cyan -->
 	<animation>
 		<type>material</type>
 		<object-name>osgtext-cyan</object-name>
@@ -2505,6 +2746,7 @@
 		</emission>
 	</animation>
 	
+	<!-- Green -->
 	<animation>
 		<type>material</type>
 		<object-name>osgtext-green</object-name>
@@ -2535,6 +2777,7 @@
 		</emission>
 	</animation>
 	
+	<!-- Green 2 -->
 	<animation>
 		<type>material</type>
 		<object-name>radio-alt</object-name>
@@ -2560,6 +2803,7 @@
 		</emission>
 	</animation>
 	
+	<!-- Cyan 2 -->
 	<animation>
 		<type>material</type>
 		<object-name>man-alt</object-name>
@@ -2590,6 +2834,7 @@
 		</emission>
 	</animation>
 	
+	<!-- Unknown -->
     <animation>
         <type>material</type>
         <object-name>decision-height</object-name>
@@ -2616,6 +2861,7 @@
         </emission>
     </animation>
 	
+	<!-- Dark Yellow -->
     <animation>
         <type>material</type>
         <object-name>radio-alt-land</object-name>
@@ -2641,6 +2887,7 @@
         </emission>
     </animation>
 	
+	<!-- Amber -->
 	<animation>
 		<type>material</type>
 		<object-name>athr-afloor-fma</object-name>
@@ -2667,6 +2914,7 @@
 		</emission>
 	</animation>
 	
+	<!-- Amber 2 -->
 	<animation>
 		<type>material</type>
 		<object-name>athr-box-b-fma</object-name>
@@ -2690,6 +2938,35 @@
             <green>0.6</green>
             <blue>0</blue>
         </emission>
+	</animation>
+	
+	<!-- Magenta -->
+	<animation>
+		<type>material</type>
+		<object-name>mng-spd</object-name>
+		<object-name>mng-spd-lower</object-name>
+		<object-name>mng-mach</object-name>
+		<object-name>mng-mach-lower</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</emission>
 	</animation>
 	
 </PropertyList>

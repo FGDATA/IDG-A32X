@@ -5,13 +5,25 @@
 # Init Functions #
 ##################
 
+setprop("/FMGC/internal/overspeed", 338);
 setprop("/position/gear-agl-ft", 0);
+setprop("/FMGC/internal/mng-spd", 157);
+setprop("/FMGC/internal/mng-spd-cmd", 157);
+setprop("/FMGC/internal/mng-kts-mach", 0);
+setprop("/FMGC/internal/mach-switchover", 0);
+setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
 	setprop("/FMGC/internal/tropo", 36090);
+	setprop("/FMGC/internal/overspeed", 338);
+	setprop("/FMGC/internal/mng-spd", 157);
+	setprop("/FMGC/internal/mng-spd-cmd", 157);
+	setprop("/FMGC/internal/mng-kts-mach", 0);
+	setprop("/FMGC/internal/mach-switchover", 0);
+	setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 	phasecheck.start();
 	various.start();
 }
@@ -71,7 +83,9 @@ var phasecheck = maketimer(0.2, func {
 	var mode = getprop("/modes/pfd/fma/pitch-mode");
 	var gs = getprop("/velocities/groundspeed-kt");
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-	var cruisefl = getprop("/FMGC/internal/cruise-ft");
+	var aglalt = getprop("/position/gear-agl-ft");
+	var cruiseft = getprop("/FMGC/internal/cruise-ft");
+	var cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 50;
 	var newcruise = getprop("/it-autoflight/internal/alt");
 	var phase = getprop("/FMGC/status/phase");
 	var state1 = getprop("/systems/thrust/state1");
@@ -82,21 +96,21 @@ var phasecheck = maketimer(0.2, func {
 	var targetvs = getprop("/it-autoflight/input/vs");
 	var targetfpa = getprop("/it-autoflight/input/fpa");
 	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
+	var reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
 	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and flaps < 4 and (mode == "SRS")) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
-	if ((alt >= 3000) and (alt <= cruisefl) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
+	if ((aglalt >= reduc_agl_ft) and (alt <= cruiseft) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
 		setprop("/FMGC/status/phase", "2");
 	}
-	if ((alt >= cruisefl) and (phase == "2") and (mode != "SRS")) {
+	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == "ALT CRZ")) {
 		setprop("/FMGC/status/phase", "3");
 		setprop("/systems/pressurization/mode", "CR");
 	}
-	if ((alt <= cruisefl) and (phase == "3")) { # for now it will have to be when we begin descent.
+	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and phase == "3") {
 		setprop("/FMGC/status/phase", "4");
 		setprop("/systems/pressurization/mode", "DE");
-		
 	}
 	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 4 and ((phase == "4") or (phase == "2"))) { # add man activation of approach phase in MCDU or DECEL when those things are simulated
 		setprop("/FMGC/status/phase", "5");
@@ -131,6 +145,115 @@ var various = maketimer(1, func {
 	} else {
 		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/reduc-agl-ft"));
 	}
+	
+	var flap = getprop("/controls/flight/flap-pos");
+	if (flap == 0) {
+		setprop("/FMGC/internal/overspeed", 338);
+	} else if (flap == 1) {
+		setprop("/FMGC/internal/overspeed", 216);
+	} else if (flap == 2) {
+		setprop("/FMGC/internal/overspeed", 207);
+	} else if (flap == 3) {
+		setprop("/FMGC/internal/overspeed", 189);
+	} else if (flap == 4) {
+		setprop("/FMGC/internal/overspeed", 174);
+	} else if (flap == 5) {
+		setprop("/FMGC/internal/overspeed", 163);
+	}
+});
+
+#################
+# Managed Speed #
+#################
+
+var ManagedSPD = maketimer(0.25, func {
+	if (getprop("/FMGC/internal/cruise-lvl-set") == 1 and getprop("/FMGC/internal/cost-index-set") == 1) {
+		if (getprop("/it-autoflight/input/spd-managed") == 1) {
+			var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+			var mode = getprop("/modes/pfd/fma/pitch-mode");
+			var mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
+			var ktsmach = getprop("/it-autoflight/input/kts-mach");
+			var mngktsmach = getprop("/FMGC/internal/mng-kts-mach");
+			var mng_spd = getprop("/FMGC/internal/mng-spd");
+			var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+			var kts_sel = getprop("/it-autoflight/input/spd-kts");
+			var mach_sel = getprop("/it-autoflight/input/spd-mach");
+			var srsSPD = getprop("/it-autoflight/settings/togaspd");
+			var phase = getprop("/FMGC/status/phase"); # 0 is preflight 1 takeoff 2 climb 3 cruise 4 descent 5 approach 6 go around 7 done
+			var flap = getprop("/controls/flight/flap-pos");
+			var overspeed = getprop("/FMGC/internal/overspeed");
+			var mach_switchover = getprop("/FMGC/internal/mach-switchover");
+			
+			var mng_alt_spd_cmd = getprop("/FMGC/internal/mng-alt-spd");
+			var mng_alt_spd = math.round(mng_alt_spd_cmd, 1);
+			
+			var mng_alt_mach_cmd = getprop("/FMGC/internal/mng-alt-mach");
+			var mng_alt_mach = math.round(mng_alt_mach_cmd, 0.001);
+			
+			if (mode == "SRS" and phase == 0 or phase == 1) {
+				if (mngktsmach) {
+					setprop("/FMGC/internal/mng-kts-mach", 0);
+				}
+				if (mng_spd_cmd != srsSPD) {
+					setprop("/FMGC/internal/mng-spd-cmd", srsSPD);
+				}
+			} else if (phase == 2 and alt <= 10050) {
+				if (mngktsmach) {
+					setprop("/FMGC/internal/mng-kts-mach", 0);
+				}
+				if (mng_spd_cmd != 250) {
+					setprop("/FMGC/internal/mng-spd-cmd", 250);
+				}
+			} else if ((phase == 2 or phase == 3) and alt > 10100 and !mach_switchover) {
+				if (mngktsmach) {
+					setprop("/FMGC/internal/mng-kts-mach", 0);
+				}
+				if (mng_spd_cmd != mng_alt_spd) {
+					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_spd);
+				}
+			} else if ((phase == 2 or phase == 3) and alt > 10100 and mach_switchover) {
+				if (!mngktsmach) {
+					setprop("/FMGC/internal/mng-kts-mach", 1);
+				}
+				if (mng_spd_cmd != mng_alt_mach) {
+					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_mach);
+				}
+			} else if (phase == 4 or phase == 5 or phase == 6 or phase == 7) {
+				libraries.mcpSPDKnbPull();
+			}
+			
+			var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+			
+			if (mng_spd_cmd > overspeed) {
+				setprop("/FMGC/internal/mng-spd", overspeed);
+			} else {
+				setprop("/FMGC/internal/mng-spd", mng_spd_cmd);
+			}
+			
+			if (ktsmach and !mngktsmach) {
+				setprop("/it-autoflight/input/kts-mach", 0);
+			} else if (!ktsmach and mngktsmach) {
+				setprop("/it-autoflight/input/kts-mach", 1);
+			}
+			
+			var mng_spd = getprop("/FMGC/internal/mng-spd");
+			
+			if (kts_sel != mng_spd and !ktsmach) {
+				setprop("/it-autoflight/input/spd-kts", mng_spd);
+			} else if (mach_sel != mng_spd and ktsmach) {
+				setprop("/it-autoflight/input/spd-mach", mng_spd);
+			}
+			
+			if (mach >= mng_alt_mach and phase == 2) {
+				setprop("/FMGC/internal/mach-switchover", 1);
+			}
+		} else {
+			ManagedSPD.stop();
+		}
+	} else {
+		ManagedSPD.stop();
+		libraries.mcpSPDKnbPull();
+	}
 });
 
 #################################
@@ -154,6 +277,7 @@ var APinit = func {
 	setprop("/it-autoflight/input/bank-limit", 25);
 	setprop("/it-autoflight/input/trk", 0);
 	setprop("/it-autoflight/input/toga", 0);
+	setprop("/it-autoflight/input/spd-managed", 0);
 	setprop("/it-autoflight/output/ap1", 0);
 	setprop("/it-autoflight/output/ap2", 0);
 	setprop("/it-autoflight/output/athr", 0);
@@ -162,7 +286,6 @@ var APinit = func {
 	setprop("/it-autoflight/output/loc-armed", 0);
 	setprop("/it-autoflight/output/appr-armed", 0);
 	setprop("/it-autoflight/output/thr-mode", 2);
-	setprop("/it-autoflight/output/retard", 0);
 	setprop("/it-autoflight/output/lat", 5);
 	setprop("/it-autoflight/output/vert", 7);
 	setprop("/it-autoflight/settings/use-nav2-radio", 0);
@@ -177,8 +300,8 @@ var APinit = func {
 	setprop("/it-autoflight/mode/arm", "HDG");
 	setprop("/it-autoflight/mode/lat", "T/O");
 	setprop("/it-autoflight/mode/vert", "T/O CLB");
-	setprop("/it-autoflight/input/spd-kts", 250);
-	setprop("/it-autoflight/input/spd-mach", 0.68);
+	setprop("/it-autoflight/input/spd-kts", 100);
+	setprop("/it-autoflight/input/spd-mach", 0.50);
 	update_armst.start();
 	thrustmode();
 }
@@ -225,7 +348,6 @@ setlistener("/it-autoflight/input/athr", func {
 	if (atmas == 0) {
 		setprop("/it-autoflight/output/athr", 0);
 	} else if (atmas == 1) {
-		setprop("/it-autoflight/output/retard", 0);
 		thrustmode();
 		setprop("/it-autoflight/output/athr", 1);
 	}
@@ -534,8 +656,10 @@ setlistener("/it-autoflight/input/kts-mach", func {
 # Takeoff Modes
 # Lat Active
 var latarms = func {
-	if (getprop("/position/gear-agl-ft") >= getprop("/it-autoflight/settings/lat-agl-ft")) {
-		setprop("/it-autoflight/input/lat", getprop("/it-autoflight/input/lat-arm"));
+	if (getprop("/position/gear-agl-ft") >= 20) {
+		if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/input/lat", getprop("/it-autoflight/input/lat-arm"));
+		}
 	}
 }
 
@@ -705,52 +829,6 @@ var thrustmode = func {
 }
 
 # ILS and Autoland
-# Retard
-setlistener("/controls/flight/flaps", func {
-	var flapc = getprop("/controls/flight/flaps");
-	var flapl = getprop("/it-autoflight/settings/land-flap");
-	if (flapc >= flapl) {
-		retardt.start();
-	} else {
-		retardt.stop();
-	}
-});
-
-var retardchk = func {
-	if (getprop("/it-autoflight/settings/retard-enable") == 1) {
-		var altpos = getprop("/position/gear-agl-ft");
-		var retardalt = getprop("/it-autoflight/settings/retard-ft");
-		var aton = getprop("/it-autoflight/output/athr");
-		if (altpos < retardalt) {
-			if (aton == 1) {
-				setprop("/it-autoflight/output/retard", 1);
-				setprop("/it-autoflight/mode/thr", "RETARD");
-				atofft.start();
-			} else {
-				setprop("/it-autoflight/output/retard", 0);
-				thrustmode();
-			}
-		}
-	}
-}
-
-var atoffchk = func{
-	var gear1 = getprop("/gear/gear[1]/wow");
-	var gear2 = getprop("/gear/gear[2]/wow");
-	if (gear1 == 1 or gear2 == 1) {
-		setprop("/it-autoflight/input/athr", 0);
-		setprop("/controls/engines/engine[0]/throttle", 0);
-		setprop("/controls/engines/engine[1]/throttle", 0);
-		setprop("/controls/engines/engine[2]/throttle", 0);
-		setprop("/controls/engines/engine[3]/throttle", 0);
-		setprop("/controls/engines/engine[4]/throttle", 0);
-		setprop("/controls/engines/engine[5]/throttle", 0);
-		setprop("/controls/engines/engine[6]/throttle", 0);
-		setprop("/controls/engines/engine[7]/throttle", 0);
-		atofft.stop();
-	}
-}
-
 # LOC and G/S arming
 var update_arms = func {
 	update_locarmelec();
@@ -815,9 +893,7 @@ var make_appr_active = func {
 	setprop("/it-autoflight/output/vert", 2);
 	setprop("/it-autoflight/mode/vert", "G/S");
 	setprop("/it-autoflight/mode/arm", " ");
-	if (getprop("/it-autoflight/settings/land-enable") == 1){
-		alandt.start();
-	}
+	alandt.start();
 	thrustmode();
 }
 
@@ -864,8 +940,6 @@ var update_armst = maketimer(0.5, update_arms);
 var altcaptt = maketimer(0.5, altcapt);
 var thrustmodet = maketimer(0.5, thrustmode);
 var minmaxtimer = maketimer(0.5, minmax);
-var retardt = maketimer(0.5, retardchk);
-var atofft = maketimer(0.5, atoffchk);
 var alandt = maketimer(0.5, aland);
 var alandt1 = maketimer(0.5, aland1);
 var reduct = maketimer(0.5, toga_reduc);

@@ -81,22 +81,7 @@
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>
-			<condition>
-				<not-equals>
-					<property>/it-autoflight/mode/vert</property>
-					<value>T/O CLB</value>
-				</not-equals>
-			</condition>
 			<property>/it-autoflight/input/spd-kts</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/mode/vert</property>
-					<value>T/O CLB</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/settings/togaspd</property>
 		</input>
 		<output>/it-autoflight/internal/flch-kts</output>
 		<type>noise-spike</type>
@@ -1117,7 +1102,7 @@
 		</input>
 		<output>/it-autoflight/internal/target-pitch</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>3</max-rate-of-change>
+		<max-rate-of-change>3.5</max-rate-of-change>
 	</filter>
 
 	<pid-controller>
@@ -1192,7 +1177,7 @@
 		</input>
 		<output>/controls/flight/elevator</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.2</max-rate-of-change>
+		<max-rate-of-change>0.3</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->
