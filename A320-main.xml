@@ -65,7 +65,7 @@
 				<path>Aircraft/A320Family/Systems/it-fbw-b.xml</path>
 			</autopilot>
 			<autopilot n="3">
-				<path>Aircraft/A320Family/Systems/fmgc-autofight.xml</path>
+				<path>Aircraft/A320Family/Systems/fmgc-b.xml</path>
 			</autopilot>
             <autopilot n="4">
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
@@ -74,7 +74,7 @@
                 <path>Aircraft/A320Family/Systems/engine-timing.xml</path>
             </autopilot>
             <autopilot n="6">
-                <path>Aircraft/A320Family/Systems/fmgc-b.xml</path>
+                <path>Aircraft/A320Family/Systems/fmgc-c.xml</path>
             </autopilot>
 			<autopilot n="7">
 				<path>Systems/fl2070_sound.xml</path>

@@ -1166,7 +1166,7 @@
     	<object-name>trgt-spd-mng</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/it-autoflight/input/spd-kts</property>
+            <property>/FMGC/internal/target-ias-pfd</property>
             <factor>0.002001953</factor>
             <axis>
                 <y>-1</y>
