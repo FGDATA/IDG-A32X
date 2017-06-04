@@ -145,10 +145,6 @@
 							<value>0</value>
 						</equals>
 					</or>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -211,10 +207,6 @@
 							<value>0</value>
 						</equals>
 					</or>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -272,10 +264,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -330,10 +318,6 @@
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>2</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
 					</equals>
 				</and>
 			</condition>
@@ -418,10 +402,6 @@
 							<value>0</value>
 						</equals>
 					</or>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -484,10 +464,6 @@
 							<value>0</value>
 						</equals>
 					</or>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -545,10 +521,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 		</enable>
@@ -603,10 +575,6 @@
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>2</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
 					</equals>
 				</and>
 			</condition>

@@ -346,10 +346,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 			<value>0.40</value>
@@ -375,10 +371,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</not-equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 			<value>0.2</value>
@@ -517,10 +509,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 			<value>0.40</value>
@@ -546,10 +534,6 @@
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</not-equals>
-					<equals>
-						<property>/it-autoflight/output/retard</property>
-						<value>0</value>
-					</equals>
 				</and>
 			</condition>
 			<value>0.2</value>

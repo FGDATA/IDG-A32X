@@ -15,84 +15,6 @@
         <output>instrumentation/pfd/ground-level-diff</output>
     </filter>
     
-    <!--filter>
-        <name>Target speed diff (selected)</name>
-        <type>gain</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <gain>1.0</gain>
-        <input>
-            <property>/flight-management/fcu-values/ias</property>
-        </input>
-        <reference>
-            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
-        </reference>
-        <output>instrumentation/pfd/sel-speed-diff</output>
-        <enable>
-            <condition>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/spd-mode</property>
-                        <value>ias</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/control/spd-ctrl</property>
-                        <value>man-set</value>
-                    </equals>
-                </and>
-            </condition>
-        </enable>
-    </filter>
-    
-    <filter>
-        <name>Target speed diff (managed)</name>
-        <type>gain</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <gain>1.0</gain>
-        <input>
-            <property>instrumentation/pfd/target-spd</property>
-        </input>
-        <reference>
-            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
-        </reference>
-        <output>instrumentation/pfd/fmgc-speed-diff</output>
-        <enable>
-            <condition>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/spd-mode</property>
-                        <value>ias</value>
-                    </equals>
-                    <equals>
-                        <property>/flight-management/control/spd-ctrl</property>
-                        <value>fmgc</value>
-                    </equals>
-                </and>
-            </condition>
-        </enable>
-    </filter>
-    
-    <filter>
-        <name>V1 speed diff</name>
-        <type>gain</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <gain>1.0</gain>
-        <input>
-            <property>instrumentation/fmc/vspeeds/V1</property>
-        </input>
-        <reference>
-            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
-        </reference>
-        <output>instrumentation/pfd/v1-speed-diff</output>
-        <enable>
-            <condition>
-                <greater-than>
-                    <property>instrumentation/fmc/vspeeds/V1</property>
-                    <value>0</value>
-                </greater-than>
-            </condition>
-        </enable>
-    </filter-->
-    
     <filter>
         <name>Target alt diff (selected)</name>
         <type>gain</type>
@@ -105,45 +27,7 @@
             <property>instrumentation/altimeter/indicated-altitude-ft</property>
         </reference>
         <output>instrumentation/pfd/sel-alt-diff</output>
-        <!--enable>
-            <condition>
-                <or>
-                    <not>
-                        <property>/flight-management/control/is-alt-constraint</property>
-                    </not>
-                    <equals>
-                        <property>/flight-management/control/ver-ctrl</property>
-                        <value>man-set</value>
-                    </equals>
-                </or>
-            </condition>
-        </enable-->
     </filter>
-    
-    <!--filter>
-        <name>Target alt diff (managed)</name>
-        <type>gain</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <gain>1.0</gain>
-        <input>
-            <property>/flight-management/fmgc-values/vnav-target-alt</property>
-        </input>
-        <reference>
-            <property>instrumentation/altimeter/indicated-altitude-ft</property>
-        </reference>
-        <output>instrumentation/pfd/fmgc-alt-diff</output>
-        <enable>
-            <condition>
-                <and>
-                    <equals>
-                        <property>/flight-management/control/ver-ctrl</property>
-                        <value>fmgc</value>
-                    </equals>
-                    <property>/flight-management/control/is-alt-constraint</property>
-                </and>
-            </condition>
-        </enable>
-    </filter-->
     
     <filter>
         <name>Heading Deg</name>
@@ -333,7 +217,7 @@
     <input>velocities/airspeed-kt</input>
     <output>instrumentation/pfd/speed-lookahead</output>
     <seconds>10.0</seconds>
-    <filter-gain>0.05</filter-gain>
+    <filter-gain>0.01</filter-gain>
   </predict-simple>
 
   <filter>

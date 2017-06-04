@@ -395,12 +395,12 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/flight-management/control/spd-ctrl</property>
-					<value>man-set</value>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
 				</equals>
 				<equals>
-					<property>/flight-management/control/spd-mode</property>
-					<value>ias</value>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
 				</equals>
 			</and>
 		</condition>
@@ -412,29 +412,12 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/flight-management/control/spd-ctrl</property>
-					<value>man-set</value>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
 				</equals>
 				<equals>
-					<property>/flight-management/control/spd-mode</property>
-					<value>mach</value>
-				</equals>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>spd.ind</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>/flight-management/control/spd-ctrl</property>
-					<value>man-set</value>
-				</equals>
-				<equals>
-					<property>/flight-management/control/spd-mode</property>
-					<value>ias</value>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
 				</equals>
 			</and>
 		</condition>
@@ -444,10 +427,10 @@
 		<type>select</type>
 		<object-name>spd.fmgc</object-name>
 		<condition>
-            <equals>
-                <property>/flight-management/control/spd-ctrl</property>
-                <value>fmgc</value>
-            </equals>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
     
@@ -456,8 +439,8 @@
         <object-name>spd.dash</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/unused</property>
-				<value>999</value>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>1</value>
 			</equals>
         </condition>
     </animation>
@@ -535,6 +518,20 @@
         <type>pick</type>
         <object-name>spd-sel</object-name>
 		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				libraries.mcpSPDKnbPush();
+				</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
+		</action>
+		<action>
 			<button>1</button>
 			<repeatable>true</repeatable>
 			<binding>
@@ -553,10 +550,16 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-kts</property>
@@ -566,14 +569,20 @@
 			</binding>
 			<binding>
 				<condition>
-					<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-mach</property>
-				<step>0.01</step>
+				<step>0.001</step>
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
@@ -583,10 +592,16 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>0</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-kts</property>
@@ -596,14 +611,20 @@
 			</binding>
 			<binding>
 				<condition>
-					<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>1</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/input/kts-mach</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/spd-managed</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</condition>
 				<command>property-adjust</command>
 				<property>/it-autoflight/input/spd-mach</property>
-				<step>-0.01</step>
+				<step>-0.001</step>
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
@@ -1130,10 +1151,16 @@
 		<type>select</type>
 		<object-name>spd-text</object-name>
 		<condition>
-			<equals>
-				<property>/it-autoflight/input/kts-mach</property>
-				<value>0</value>
-			</equals>
+			<and>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
 		</condition>
 	</animation>
 	
@@ -1141,10 +1168,16 @@
 		<type>select</type>
 		<object-name>mach-text</object-name>
 		<condition>
-			<equals>
-				<property>/it-autoflight/input/kts-mach</property>
-				<value>1</value>
-			</equals>
+			<and>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/spd-managed</property>
+					<value>0</value>
+				</equals>
+			</and>
 		</condition>
 	</animation>
 	

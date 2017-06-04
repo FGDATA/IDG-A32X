@@ -1117,7 +1117,7 @@
 		</input>
 		<output>/it-autoflight/internal/target-pitch</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>3</max-rate-of-change>
+		<max-rate-of-change>3.5</max-rate-of-change>
 	</filter>
 
 	<pid-controller>
@@ -1192,7 +1192,7 @@
 		</input>
 		<output>/controls/flight/elevator</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.2</max-rate-of-change>
+		<max-rate-of-change>0.3</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->

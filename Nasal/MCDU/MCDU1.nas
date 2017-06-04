@@ -314,7 +314,7 @@ var PerfTOInput = func(key) {
 				if (scratchpad >= 100 and scratchpad <= 200) {
 					setprop("/FMGC/internal/v2", scratchpad);
 					setprop("/FMGC/internal/v2-set", 1);
-					setprop("/it-autoflight/settings/togaspd", scratchpad + 15);
+					setprop("/it-autoflight/settings/togaspd", scratchpad + 10);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
 					setprop("/MCDU[0]/scratchpad-msg", "1");

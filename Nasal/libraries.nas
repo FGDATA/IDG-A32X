@@ -194,6 +194,8 @@ var externalconnections = maketimer(0.1, func {
 });
 
 var mcpSPDKnbPull = func {
+	setprop("/it-autoflight/input/spd-managed", 0);
+	fmgc.ManagedSPD.stop();
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
 	var mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
 	if (getprop("/it-autoflight/input/kts-mach") == 0) {
@@ -212,6 +214,15 @@ var mcpSPDKnbPull = func {
 		} else if (mach > 0.95) {
 			setprop("/it-autoflight/input/spd-kts", 0.95);
 		}
+	}
+}
+
+var mcpSPDKnbPush = func {
+	if (getprop("/FMGC/internal/cruise-lvl-set") == 1 and getprop("/FMGC/internal/cost-index-set") == 1) {
+		setprop("/it-autoflight/input/spd-managed", 1);
+		fmgc.ManagedSPD.start();
+	} else {
+		gui.popupTip("Please make sure you have set a cruise altitude and cost index in the MCDU.");
 	}
 }
 
