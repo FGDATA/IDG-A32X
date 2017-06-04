@@ -72,15 +72,13 @@
 				</equals>
 			</condition>
             <expression>
-				<floor>
-					<product>
-						<div>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-						</div>
-						<property>/it-autoflight/input/spd-mach</property>
-					</product>
-				</floor>
+				<product>
+					<div>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</div>
+					<property>/it-autoflight/input/spd-mach</property>
+				</product>
             </expression>
         </input>
 		<output>/FMGC/internal/target-ias-pfd</output>

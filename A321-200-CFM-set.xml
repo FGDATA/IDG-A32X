@@ -103,6 +103,11 @@
 		
 	</sim>
 	
+	<options>
+		<EIS2 type="bool">0</EIS2>
+		<eng>CFM</eng>
+	</options>
+	
 	<sharklet type="bool">0</sharklet>
 	
 	<MCDUC n="0">
