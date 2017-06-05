@@ -1590,6 +1590,67 @@
         </condition>
     </animation>
 	
+    <animation>
+        <type>select</type>
+        <object-name>throttle-mode-box</object-name>
+        <condition>
+            <equals>
+                <property>/modes/pfd/fma/throttle-mode-box</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>pitch-mode-box</object-name>
+        <condition>
+            <equals>
+                <property>/modes/pfd/fma/pitch-mode-box</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>pitch-mode-armed-box</object-name>
+        <condition>
+			<or>
+				<equals>
+					<property>/modes/pfd/fma/pitch-mode-armed-box</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/modes/pfd/fma/pitch-mode2-armed-box</property>
+					<value>1</value>
+				</equals>
+			</or>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>roll-mode-box</object-name>
+        <condition>
+            <equals>
+                <property>/modes/pfd/fma/roll-mode-box</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>roll-mode-armed-box</object-name>
+        <condition>
+            <equals>
+                <property>/modes/pfd/fma/roll-mode-armed-box</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
     <text>
         <name>ap-mode-fma</name>
         <offsets>

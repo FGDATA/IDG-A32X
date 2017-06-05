@@ -8,12 +8,17 @@ var speedmach = func {
 			speedmach_b();
 		} else {
 			var thr = getprop("/it-autoflight/output/thr-mode");
+			var newthr = getprop("/modes/pfd/fma/throttle-mode");
 			if (thr == 0) {
 				speedmach_b();
 			} else if (thr == 1) {
-				setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
+				if (newthr != "THR IDLE") {
+					setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
+				}
 			} else if (thr == 2) {
-				setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
+				if (newthr != "THR CLB") {
+					setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
+				}
 			}
 		}
 	} else {
@@ -22,10 +27,15 @@ var speedmach = func {
 }
 
 var speedmach_b = func {
+	var newthr = getprop("/modes/pfd/fma/throttle-mode");
 	if (getprop("/it-autoflight/input/kts-mach") == 0) {
-		setprop("/modes/pfd/fma/throttle-mode", "SPEED");
+		if (newthr != "SPEED") {
+			setprop("/modes/pfd/fma/throttle-mode", "SPEED");
+		}
 	} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
-		setprop("/modes/pfd/fma/throttle-mode", "MACH");
+		if (newthr != "MACH") {
+			setprop("/modes/pfd/fma/throttle-mode", "MACH");
+		}
 	}
 }
 
@@ -42,113 +52,155 @@ setlistener("/it-autoflight/output/thr-mode", func {
 # Master Lateral
 setlistener("/it-autoflight/mode/lat", func {
 	var lat = getprop("/it-autoflight/mode/lat");
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
 	if (lat == "HDG") {
-		setprop("/modes/pfd/fma/roll-mode", "HDG");
+		if (newlat != "HDG") {
+			setprop("/modes/pfd/fma/roll-mode", "HDG");
+		}
 	} else if (lat == "LNAV") {
-		setprop("/modes/pfd/fma/roll-mode", "NAV");
+		if (newlat != "NAV") {
+			setprop("/modes/pfd/fma/roll-mode", "NAV");
+		}
 	} else if (lat == "LOC") {
-		setprop("/modes/pfd/fma/roll-mode", "LOC");
+		if (newlat != "LOC") {
+			setprop("/modes/pfd/fma/roll-mode", "LOC");
+		}
 	} else if (lat == "ALGN") {
-		setprop("/modes/pfd/fma/roll-mode", "LAND");
+		if (newlat != "LAND") {
+			setprop("/modes/pfd/fma/roll-mode", "LAND");
+		}
 	} else if (lat == "T/O") {
-		setprop("/modes/pfd/fma/roll-mode", "RWY");
+		if (newlat != "RWY") {
+			setprop("/modes/pfd/fma/roll-mode", "RWY");
+		}
 	}
 });
 
 # Master Vertical
 setlistener("/it-autoflight/mode/vert", func {
 	var vert = getprop("/it-autoflight/mode/vert");
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	if (vert == "ALT HLD") {
-		setprop("/modes/pfd/fma/pitch-mode", "ALT");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		if (newvert != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode", "ALT");
+		}
+		if (newvertarm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		}
 	} else if (vert == "ALT CAP") {
-		setprop("/modes/pfd/fma/pitch-mode", "ALT");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		if (newvert != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode", "ALT");
+		}
+		if (newvertarm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		}
 	} else if (vert == "V/S") {
-		setprop("/modes/pfd/fma/pitch-mode", "V/S");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		if (newvert != "V/S") {
+			setprop("/modes/pfd/fma/pitch-mode", "V/S");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
 	} else if (vert == "G/S") {
-		setprop("/modes/pfd/fma/pitch-mode", "G/S");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		if (newvert != "G/S") {
+			setprop("/modes/pfd/fma/pitch-mode", "G/S");
+		}
+		if (newvertarm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		}
 	} else if (vert == "SPD CLB") {
-		setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		if (newvert != "OP CLB") {
+			setprop("/modes/pfd/fma/pitch-mode", "OP CLB");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
 	} else if (vert == "SPD DES") {
-		setprop("/modes/pfd/fma/pitch-mode", "OP DES");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		if (newvert != "OP DES") {
+			setprop("/modes/pfd/fma/pitch-mode", "OP DES");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
 	} else if (vert == "FPA") {
-		setprop("/modes/pfd/fma/pitch-mode", "FPA");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		if (newvert != "FPA") {
+			setprop("/modes/pfd/fma/pitch-mode", "FPA");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
 	} else if (vert == "LAND") {
-		setprop("/modes/pfd/fma/pitch-mode", "LAND");
+		if (newvert != "LAND") {
+			setprop("/modes/pfd/fma/pitch-mode", "LAND");
+		}
 	} else if (vert == "FLARE") {
-		setprop("/modes/pfd/fma/pitch-mode", "FLARE");
+		if (newvert != "FLARE") {
+			setprop("/modes/pfd/fma/pitch-mode", "FLARE");
+		}
 	} else if (vert == "T/O CLB") {
-		setprop("/modes/pfd/fma/pitch-mode", "SRS");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
+		if (newvert != "SRS") {
+			setprop("/modes/pfd/fma/pitch-mode", "SRS");
+		}
+		if (newvertarm != "CLB") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
+		}
 	} else if (vert == "G/A CLB") {
-		setprop("/modes/pfd/fma/pitch-mode", "SRS");
-		setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
-	}
-});
-
-# Master VNAV
-setlistener("/it-autoflight/mode/prof", func {
-	var prof = getprop("/it-autoflight/mode/prof");
-	if (prof == "VNAV HLD") {
-		setprop("/modes/pfd/fma/pitch-mode", "ALT");
-	} else if (prof == "VNAV CAP") {
-		setprop("/modes/pfd/fma/pitch-mode", "ALT");
-	} else if (prof == "VNAV SPD") {
-		vnav_clbdes();
-	} else if (prof == "VNAV PTH") {
-		vnav_clbdes();
-	}
-});
-
-var vnav_clbdes = func {
-	var vert = getprop("/it-autoflight/output/vert");
-	if (vert == 8) {
-		var prof = getprop("/it-autoflight/internal/prof-mode");
-		if (prof == "XX") {
-			# Do nothing
-		} else if (prof == "DES") {
-			setprop("/modes/pfd/fma/pitch-mode", "DES");
-		} else if (prof == "CLB") {
-			setprop("/modes/pfd/fma/pitch-mode", "CLB");
+		if (newvert != "SRS") {
+			setprop("/modes/pfd/fma/pitch-mode", "SRS");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 		}
 	}
-}
+});
 
 # Arm HDG or NAV
 setlistener("/it-autoflight/mode/arm", func {
 	var arm = getprop("/it-autoflight/mode/arm");
+	var newarm = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (arm == "HDG") {
-		setprop("/modes/pfd/fma/roll-mode-armed", "HDG");
+		if (newarm != "HDG") {
+			setprop("/modes/pfd/fma/roll-mode-armed", "HDG");
+		}
 	} else if (arm == "LNV") {
-		setprop("/modes/pfd/fma/roll-mode-armed", "NAV");
+		if (newarm != "NAV") {
+			setprop("/modes/pfd/fma/roll-mode-armed", "NAV");
+		}
 	} else if (arm == " ") {
-		setprop("/modes/pfd/fma/roll-mode-armed", " ");
+		if (newarm != " ") {
+			setprop("/modes/pfd/fma/roll-mode-armed", " ");
+		}
 	}
 });
 
 # Arm LOC
 setlistener("/it-autoflight/output/loc-armed", func {
 	var loca = getprop("/it-autoflight/output/loc-armed");
+	var newarm = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (loca) {
-		setprop("/modes/pfd/fma/roll-mode-armed", "LOC");
+		if (newarm != "LOC") {
+			setprop("/modes/pfd/fma/roll-mode-armed", "LOC");
+		}
 	} else {
-		setprop("/modes/pfd/fma/roll-mode-armed", " ");
+		if (newarm != " ") {
+			setprop("/modes/pfd/fma/roll-mode-armed", " ");
+		}
 	}
 });
 
 # Arm G/S
 setlistener("/it-autoflight/output/appr-armed", func {
 	var appa = getprop("/it-autoflight/output/appr-armed");
+	var newvert2arm = getprop("/modes/pfd/fma/pitch-mode-armed");
 	if (appa) {
-		setprop("/modes/pfd/fma/pitch-mode-armed", "G/S");
+		if (newvert2arm != "G/S") {
+			setprop("/modes/pfd/fma/pitch-mode-armed", "G/S");
+		}
 	} else {
-		setprop("/modes/pfd/fma/pitch-mode-armed", " ");
+		if (newvert2arm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode-armed", " ");
+		}
 	}
 });
 
@@ -209,4 +261,56 @@ setlistener("/it-autoflight/output/fd2", func {
 });
 setlistener("/it-autoflight/output/athr", func {
 	at();
+});
+
+# Boxes
+setlistener("/modes/pfd/fma/throttle-mode", func {
+	setprop("/modes/pfd/fma/throttle-mode-box", 1);
+	settimer(func {
+		setprop("/modes/pfd/fma/throttle-mode-box", 0);
+	}, 5);
+});
+
+setlistener("/modes/pfd/fma/roll-mode", func {
+	setprop("/modes/pfd/fma/roll-mode-box", 1);
+	settimer(func {
+		setprop("/modes/pfd/fma/roll-mode-box", 0);
+	}, 5);
+});
+
+setlistener("/modes/pfd/fma/pitch-mode", func {
+	setprop("/modes/pfd/fma/pitch-mode-box", 1);
+	settimer(func {
+		setprop("/modes/pfd/fma/pitch-mode-box", 0);
+	}, 5);
+});
+
+setlistener("/modes/pfd/fma/roll-mode-armed", func {
+	var newarm = getprop("/modes/pfd/fma/roll-mode-armed");
+	if (newarm != " ") {
+		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
+		}, 5);
+	}
+});
+
+setlistener("/modes/pfd/fma/pitch-mode-armed", func {
+	var newarm = getprop("/modes/pfd/fma/pitch-mode-armed");
+	if (newarm != " ") {
+		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
+		}, 5);
+	}
+});
+
+setlistener("/modes/pfd/fma/pitch-mode2-armed", func {
+	var newarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	if (newarm != " ") {
+		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
+		}, 5);
+	}
 });

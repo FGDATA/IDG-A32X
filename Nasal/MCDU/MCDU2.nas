@@ -242,7 +242,7 @@ var initInputB = func(key) {
 			setprop("/MCDU[1]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs == 3 or tfs == 4) {
+			if (tfs == 2 or tfs == 4) {
 				if (scratchpad >= 1.0 and scratchpad <= 45.0) {
 					setprop("/FMGC/internal/block", scratchpad);
 					setprop("/FMGC/internal/block-set", 1);

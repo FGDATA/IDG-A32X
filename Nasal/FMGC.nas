@@ -122,8 +122,14 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/systems/pressurization/mode", "DE");
 	}
 	
-	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "2") or (phase == "4"))) {
+	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "3") or (phase == "4")) and alt < 7200) {
 		setprop("/FMGC/status/phase", "5");
+	}
+	
+	if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/distance-remaining-nm") <= 15) {
+		setprop("/FMGC/internal/decel", 1);
+	} else {
+		setprop("/FMGC/internal/decel", 0);
 	}
 	
 	if ((phase == "5") and (state1 == "TOGA") and (state2 == "TOGA")) {
