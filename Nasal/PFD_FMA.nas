@@ -161,7 +161,7 @@ setlistener("/it-autoflight/mode/arm", func {
 	var newarm = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (arm == "HDG") {
 		if (newarm != "HDG") {
-			setprop("/modes/pfd/fma/roll-mode-armed", "HDG");
+			setprop("/modes/pfd/fma/roll-mode-armed", " ");
 		}
 	} else if (arm == "LNV") {
 		if (newarm != "NAV") {
