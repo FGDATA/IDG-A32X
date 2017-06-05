@@ -1047,13 +1047,13 @@
     	<object-name>epr1</object-name>
     	<property>/engines/engine/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1072,13 +1072,13 @@
     	<object-name>epr2</object-name>
     	<property>/engines/engine[1]/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1097,13 +1097,13 @@
     	<object-name>eprlimy1</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1122,13 +1122,13 @@
     	<object-name>eprlimy2</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1147,13 +1147,13 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1172,13 +1172,13 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.80</ind><dep>-18</dep></entry>
-			<entry><ind>1.00</ind><dep>-11</dep></entry>
-			<entry><ind>1.10</ind><dep> 28</dep></entry>
-			<entry><ind>1.20</ind><dep> 63</dep></entry>
-			<entry><ind>1.40</ind><dep>125</dep></entry>
-			<entry><ind>1.60</ind><dep>191</dep></entry>
-			<entry><ind>1.65</ind><dep>208</dep></entry>
+			<entry><ind>0.985</ind><dep>-18</dep></entry>
+			<entry><ind>1.000</ind><dep>-11</dep></entry>
+			<entry><ind>1.100</ind><dep> 28</dep></entry>
+			<entry><ind>1.200</ind><dep> 63</dep></entry>
+			<entry><ind>1.400</ind><dep>125</dep></entry>
+			<entry><ind>1.600</ind><dep>191</dep></entry>
+			<entry><ind>1.650</ind><dep>208</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
