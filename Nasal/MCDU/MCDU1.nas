@@ -215,6 +215,7 @@ var initInputA = func(key) {
 					setprop("/FMGC/internal/dep-arpt", fromto[0]);
 					setprop("/FMGC/internal/arr-arpt", fromto[1]);
 					setprop("/FMGC/internal/tofrom-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
 					fmgc.updateARPT();
 				} else {
 					setprop("/MCDU[0]/scratchpad-msg", "1");
