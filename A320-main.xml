@@ -71,7 +71,7 @@
                 <path>Aircraft/A320Family/Systems/custom-autothrust.xml</path>
             </autopilot>
             <autopilot n="5">
-                <path>Aircraft/A320Family/Systems/engine-timing.xml</path>
+                <path>Aircraft/A320Family/Systems/libraries.xml</path>
             </autopilot>
             <autopilot n="6">
                 <path>Aircraft/A320Family/Systems/fmgc-c.xml</path>

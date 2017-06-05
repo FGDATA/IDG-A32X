@@ -1,4 +1,4 @@
-# A320Family JSB Engine System
+# A3XX JSB Engine System
 # Joshua Davidson (it0uchpods)
 
 #####################
@@ -6,12 +6,12 @@
 #####################
 
 var engines = props.globals.getNode("/engines").getChildren("engine");
-var n1_min = 23.4;
+var n1_min = 22.4;
 var n2_min = 63.7;
 var egt_min = 434;
 var n1_spin = 5.1;
 var n2_spin = 22.8;
-var n1_start = 23.3;
+var n1_start = 22.3;
 var n2_start = 63.6;
 var egt_start = 587;
 var n1_max = 105.8;
@@ -125,7 +125,7 @@ var eng_one_n2_check = func {
 	if (getprop("/engines/engine[0]/egt-actual") >= egt_start) {
 		interpolate(engines[0].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[0]/n2") >= 50.8) {
+	if (getprop("/engines/engine[0]/n2") >= 55.8) {
 		setprop("/systems/pneumatic/eng1-starter", 0);
 		setprop("/engines/engine[0]/state", 3);
 		eng_one_n2_checkt.stop();
@@ -166,7 +166,7 @@ var eng_two_n2_check = func {
 	if (getprop("/engines/engine[1]/egt-actual") >= egt_start) {
 		interpolate(engines[1].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[1]/n2") >= 50.8) {
+	if (getprop("/engines/engine[1]/n2") >= 55.8) {
 		setprop("/systems/pneumatic/eng2-starter", 0);
 		setprop("/engines/engine[1]/state", 3);
 		eng_two_n2_checkt.stop();
