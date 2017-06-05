@@ -722,6 +722,7 @@
 			<file>Aircraft/A320Family/Nasal/gpws.nas</file>
 			<file>Aircraft/A320Family/Nasal/efis.nas</file>
 			<file>Aircraft/A320Family/Nasal/ECAM.nas</file>
+			<file>Aircraft/A320Family/Nasal/shake.nas</file>
 		</libraries>
 		<acconfig>
 			<file>Aircraft/A320Family/AircraftConfig/acconfig.nas</file>
