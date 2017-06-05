@@ -88,6 +88,15 @@ setlistener("/sim/sounde/knb1", func {
 	}, 0.05);
 });
 
+setlistener("/sim/sounde/switch1", func {
+	if (!getprop("/sim/sounde/switch1")) {
+		return;
+	}
+	settimer(func {
+		props.globals.getNode("/sim/sounde/switch1").setBoolValue(0);
+	}, 0.05);
+});
+
 setlistener("/controls/switches/seatbelt-sign", func {
 	props.globals.getNode("/sim/sounde/seatbelt-sign").setBoolValue(1);
 	settimer(func {
@@ -154,7 +163,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.hyd_init();
 	systems.press_init();
   	fmgc.APinit();			
-	externalconnections.start();
+	librariesLoop.start();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_init();
 	mcdu2.MCDU_init();
@@ -163,6 +172,26 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();
 	libraries.variousReset();
+});
+
+var librariesLoop = maketimer(0.1, func {
+	var groundpwr = getprop("/controls/switches/cart");
+	var groundair = getprop("/controls/pneumatic/switches/groundair");
+	var gs = getprop("/velocities/groundspeed-kt");
+	var parkbrake = getprop("controls/gear/brake-parking");
+	
+	if ((groundair or groundpwr) and ((gs > 2) or !parkbrake)) {
+		setprop("/controls/switches/cart", 0);
+		setprop("/controls/pneumatic/switches/groundair", 0);
+	}
+	
+	var V = getprop("/velocities/groundspeed-kt");
+
+	if (V > 15) {
+		setprop("/systems/shake/effect", 1);
+	} else {
+		setprop("/systems/shake/effect", 0);
+	}
 });
 
 var variousReset = func {
@@ -181,17 +210,6 @@ var aglgears = func {
 }
 
 aglgears();
-
-var externalconnections = maketimer(0.1, func {
-	var groundpwr = getprop("/controls/switches/cart");
-	var groundair = getprop("/controls/pneumatic/switches/groundair");
-	var gs = getprop("/velocities/groundspeed-kt");
-	var parkbrake = getprop("controls/gear/brake-parking");
-	if ((groundair or groundpwr) and ((gs > 2) or !parkbrake)) {
-		setprop("/controls/switches/cart", 0);
-		setprop("/controls/pneumatic/switches/groundair", 0);
-	}
-});
 
 var mcpSPDKnbPull = func {
 	setprop("/it-autoflight/input/spd-managed", 0);
