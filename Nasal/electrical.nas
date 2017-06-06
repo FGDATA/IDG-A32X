@@ -37,13 +37,11 @@ var elec_init = func {
 	setprop("/systems/electrical/bus/dc-ess", 0);
 	setprop("/systems/electrical/bus/ac1", 0);
 	setprop("/systems/electrical/bus/ac2", 0);
-	setprop("/systems/electrical/bus/emergen-hz", 0);
 	setprop("/systems/electrical/bus/gen1-hz", 0);
 	setprop("/systems/electrical/bus/gen2-hz", 0);
 	setprop("/systems/electrical/bus/ac-ess", 0);
 	setprop("/systems/electrical/extra/ext-volts", 0);
 	setprop("/systems/electrical/extra/apu-volts", 0);
-	setprop("/systems/electrical/extra/emergen-volts", 0);
 	setprop("/systems/electrical/extra/gen1-volts", 0);
 	setprop("/systems/electrical/extra/gen2-volts", 0);
 	setprop("/systems/electrical/extra/ext-hz", 0);
@@ -128,8 +126,6 @@ var master_elec = func {
 	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
 	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
 	var emergen = getprop("/controls/electrical/switches/emer-gen");
-	var emergenvolts = getprop("/systems/electrical/extra/emergen-volts");
-	var emergenhz = getprop("/systems/electrical/bus/emergen-hz");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
 	var rat = getprop("/controls/hydraulic/rat");
 	var manrat = getprop("/controls/hydraulic/rat-man");
