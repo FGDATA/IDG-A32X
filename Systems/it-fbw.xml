@@ -8,8 +8,7 @@
 	<property value="-33">/it-fbw/roll-lim-min</property>
 	<property value="30">/it-fbw/pitch-lim-max</property>
 	<property value="-15">/it-fbw/pitch-lim-min</property>
-	<property value="14">/it-fbw/alpha-max</property>
-	<property value="0">/it-fbw/alpha-min</property>
+	<property value="0">/it-fbw/spd-hold</property>
 
 	<channel name="FBW Aileron">
 		<fcs_function name="/it-fbw/roll-deg">
@@ -79,6 +78,10 @@
 						</eq>
 						<eq>
 							<property>/gear/gear[0]/wow</property>
+							<value>0</value>
+						</eq>
+						<eq>
+							<property>/it-fbw/spd-hold</property>
 							<value>0</value>
 						</eq>
 						<or>

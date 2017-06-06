@@ -2,112 +2,111 @@
 
 <PropertyList>
 
-    <filter>
-        <name>Flex Derate</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
+	<filter>
+		<name>Flex Derate</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
 					<property>/FMGC/internal/flex-cmd</property>
-	                <entry><ind> 0</ind><dep>0.00</dep></entry>
-                    <entry><ind>70</ind><dep>0.12</dep></entry>
-                </table>
-            </expression>
-        </input>
+					<entry><ind> 0</ind><dep>0.00</dep></entry>
+					<entry><ind>70</ind><dep>0.12</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/engines/flex-derate</output>
-    </filter>
-	
-    <filter>
-        <name>FF 1</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/engines/engine[0]/fuel-flow_pph</property> 
-	                <entry><ind>   0</ind><dep>    0</dep></entry>
-                    <entry><ind>2000</ind><dep> 2387</dep></entry>
-                    <entry><ind>9000</ind><dep>13847</dep></entry>
-                </table>
-            </expression>
-        </input>
+	</filter>
+
+	<filter>
+		<name>FF 1</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/engines/engine[0]/fuel-flow_pph</property> 
+					<entry><ind>   0</ind><dep>    0</dep></entry>
+					<entry><ind>2000</ind><dep> 2387</dep></entry>
+					<entry><ind>9000</ind><dep>13847</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/engines/engine[0]/fuel-flow_actual</output>
-    </filter>
-	
-    <filter>
-        <name>FF 2</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/engines/engine[1]/fuel-flow_pph</property> 
-	                <entry><ind>   0</ind><dep>    0</dep></entry>
-                    <entry><ind>2000</ind><dep> 2359</dep></entry>
-                    <entry><ind>9000</ind><dep>13831</dep></entry>
-                </table>
-            </expression>
-        </input>
+	</filter>
+
+	<filter>
+		<name>FF 2</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/engines/engine[1]/fuel-flow_pph</property> 
+					<entry><ind>   0</ind><dep>    0</dep></entry>
+					<entry><ind>2000</ind><dep> 2359</dep></entry>
+					<entry><ind>9000</ind><dep>13831</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/engines/engine[1]/fuel-flow_actual</output>
-    </filter>
-	
-    <filter>
-        <name>Altitude PFD</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
+	</filter>
+
+	<filter>
+		<name>Altitude PFD</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
 				<floor>
 					<div>
 						<property>/instrumentation/altimeter/indicated-altitude-ft</property> 
 						<value>100</value>
 					</div>
 				</floor>
-            </expression>
-        </input>
+			</expression>
+		</input>
 		<output>/instrumentation/altimeter/indicated-altitude-ft-pfd</output>
-    </filter>
-	
+	</filter>
+
 	<filter>
-        <name>V/S PFD</name>
-        <type>noise-spike</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
+		<name>V/S PFD</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
 				<floor>
 					<div>
 						<property>/it-autoflight/internal/vert-speed-fpm</property> 
 						<value>100</value>
 					</div>
 				</floor>
-            </expression>
-        </input>
+			</expression>
+		</input>
 		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
 		<max-rate-of-change>50</max-rate-of-change>
-    </filter>
-	
+	</filter>
+
 	<filter>
-        <name>V/S 2 PFD</name>
-        <type>noise-spike</type>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
+		<name>V/S 2 PFD</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
 			<property>/it-autoflight/internal/vert-speed-fpm</property> 
-        </input>
+		</input>
 		<output>/it-autoflight/internal/vert-speed-fpm-filtered</output>
 		<max-rate-of-change>5000</max-rate-of-change>
-    </filter>
-	
-    <filter>
-        <name>Throttle L</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>
+	</filter>
+
+	<filter>
+		<name>Throttle L</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[0]/reverser</property>
@@ -116,7 +115,7 @@
 			</condition>
 			<property>/controls/engines/engine[0]/throttle</property>
 		</input>
-        <input>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[0]/reverser</property>
@@ -126,14 +125,13 @@
 			<value>0</value>
 		</input>
 		<output>/controls/engines/engine[0]/throttle-lever</output>
-    </filter>
-	
-    <filter>
-        <name>Throttle R</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>
+	</filter>
+
+	<filter>
+		<name>Throttle R</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[1]/reverser</property>
@@ -142,7 +140,7 @@
 			</condition>
 			<property>/controls/engines/engine[1]/throttle</property>
 		</input>
-        <input>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[1]/reverser</property>
@@ -152,14 +150,13 @@
 			<value>0</value>
 		</input>
 		<output>/controls/engines/engine[1]/throttle-lever</output>
-    </filter>
-	
-    <filter>
-        <name>Throttle L</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>
+	</filter>
+
+	<filter>
+		<name>Throttle L</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[0]/reverser</property>
@@ -168,7 +165,7 @@
 			</condition>
 			<property>/controls/engines/engine[0]/throttle</property>
 		</input>
-        <input>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[0]/reverser</property>
@@ -178,14 +175,13 @@
 			<property>/controls/engines/engine[0]/throttle-rev</property>
 		</input>
 		<output>/controls/engines/engine[0]/throttle-pos</output>
-    </filter>
-	
-    <filter>
-        <name>Throttle R</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input>
+	</filter>
+
+	<filter>
+		<name>Throttle R</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[1]/reverser</property>
@@ -194,7 +190,7 @@
 			</condition>
 			<property>/controls/engines/engine[1]/throttle</property>
 		</input>
-        <input>
+		<input>
 			<condition>
 				<equals>
 					<property>/controls/engines/engine[1]/reverser</property>
@@ -204,6 +200,6 @@
 			<property>/controls/engines/engine[1]/throttle-rev</property>
 		</input>
 		<output>/controls/engines/engine[1]/throttle-pos</output>
-    </filter>
+	</filter>
 
 </PropertyList>

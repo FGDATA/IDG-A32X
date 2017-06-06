@@ -14,6 +14,7 @@ setprop("/FMGC/internal/mng-kts-mach", 0);
 setprop("/FMGC/internal/mach-switchover", 0);
 setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
+setprop("/it-autoflight/output/fma-pwr", 0);
 
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
@@ -340,6 +341,7 @@ var APinit = func {
 	setprop("/it-autoflight/output/thr-mode", 2);
 	setprop("/it-autoflight/output/lat", 5);
 	setprop("/it-autoflight/output/vert", 7);
+	setprop("/it-autoflight/output/fma-pwr", 0);
 	setprop("/it-autoflight/settings/use-nav2-radio", 0);
 	setprop("/it-autoflight/settings/use-backcourse", 0);
 	setprop("/it-autoflight/internal/min-vs", -500);
@@ -363,6 +365,7 @@ setlistener("/it-autoflight/input/ap1", func {
 	var apmas = getprop("/it-autoflight/input/ap1");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	if (apmas == 0) {
+		fmabox();
 		setprop("/it-autoflight/output/ap1", 0);
 		if (getprop("/it-autoflight/sound/enableapoffsound") == 1) {
 			setprop("/it-autoflight/sound/apoffsound", 1);
@@ -370,6 +373,7 @@ setlistener("/it-autoflight/input/ap1", func {
 		}
 	} else if (apmas == 1 and ac_ess >= 110) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+			fmabox();
 			setprop("/it-autoflight/output/ap1", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 1);
 			setprop("/it-autoflight/sound/apoffsound", 0);
@@ -382,6 +386,7 @@ setlistener("/it-autoflight/input/ap2", func {
 	var apmas = getprop("/it-autoflight/input/ap2");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	if (apmas == 0) {
+		fmabox();
 		setprop("/it-autoflight/output/ap2", 0);
 		if (getprop("/it-autoflight/sound/enableapoffsound2") == 1) {
 			setprop("/it-autoflight/sound/apoffsound2", 1);	
@@ -389,6 +394,7 @@ setlistener("/it-autoflight/input/ap2", func {
 		}
 	} else if (apmas == 1 and ac_ess >= 110) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+			fmabox();
 			setprop("/it-autoflight/output/ap2", 1);
 			setprop("/it-autoflight/sound/enableapoffsound2", 1);
 			setprop("/it-autoflight/sound/apoffsound2", 0);
@@ -411,8 +417,10 @@ setlistener("/it-autoflight/input/athr", func {
 setlistener("/it-autoflight/input/fd1", func {
 	var fdmas = getprop("/it-autoflight/input/fd1");
 	if (fdmas == 0) {
+		fmabox();
 		setprop("/it-autoflight/output/fd1", 0);
 	} else if (fdmas == 1) {
+		fmabox();
 		setprop("/it-autoflight/output/fd1", 1);
 	}
 });
@@ -421,11 +429,30 @@ setlistener("/it-autoflight/input/fd1", func {
 setlistener("/it-autoflight/input/fd2", func {
 	var fdmas = getprop("/it-autoflight/input/fd2");
 	if (fdmas == 0) {
+		fmabox();
 		setprop("/it-autoflight/output/fd2", 0);
 	} else if (fdmas == 1) {
+		fmabox();
 		setprop("/it-autoflight/output/fd2", 1);
 	}
 });
+
+# FMA Boxes and Mode
+var fmabox = func {
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
+	var fd1 = getprop("/it-autoflight/output/fd1");
+	var fd2 = getprop("/it-autoflight/output/fd2");
+	if (!ap1 and !ap2 and !fd1 and !fd2) {
+		setprop("/it-autoflight/input/lat", 3);
+		setprop("/it-autoflight/input/vert", 1);
+		setprop("/it-autoflight/input/vs", 0);
+		setprop("/it-autoflight/output/fma-pwr", 0);
+	} else {
+		setprop("/it-autoflight/input/vs", 0);
+		setprop("/it-autoflight/output/fma-pwr", 1);
+	}
+}
 
 # Master Lateral
 setlistener("/it-autoflight/input/lat", func {
