@@ -2370,6 +2370,27 @@
 		<name>landing light pick</name>
 		<type>pick</type>
 		<object-name>LandingLtLSwtch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[1]</property>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[2]</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>landing light pick</name>
+		<type>pick</type>
 		<object-name>LandingLtRSwtch</object-name>
 		<action>
 			<button>0</button>
@@ -2384,6 +2405,25 @@
 		<name>landing light rotate</name>
 		<type>rotate</type>
 		<object-name>LandingLtLSwtch</object-name>
+		<property>controls/lighting/landing-lights[1]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.01</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3037</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>landing light rotate</name>
+		<type>rotate</type>
 		<object-name>LandingLtRSwtch</object-name>
 		<property>controls/lighting/landing-lights[2]</property>
 		<interpolation>
@@ -2410,8 +2450,11 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-				<property>controls/lighting/landing-lights[1]</property>
+				<command>property-cycle</command>
+				<property>controls/lighting/taxi-light-switch</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
 			</binding>
 
 		</action>
@@ -2420,9 +2463,10 @@
 		<name>Nose landing light rotate</name>
 		<type>rotate</type>
 		<object-name>NoseLtSwtch</object-name>
-		<property>controls/lighting/landing-lights[1]</property>
+		<property>controls/lighting/taxi-light-switch</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>0.5</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>-35</dep></entry>
 		</interpolation>
 		<axis>
