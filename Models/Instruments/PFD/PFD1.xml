@@ -209,6 +209,34 @@
 	
     <animation>
         <type>select</type>
+		<object-name>pitch-mode-box</object-name>
+		<object-name>pitch-mode-armed-box</object-name>
+		<object-name>roll-mode-box</object-name>
+		<object-name>roll-mode-armed-box</object-name>
+        <condition>
+			<or>
+				<equals>
+					<property>/it-autoflight/output/fd1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/fd2</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/ap1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/ap2</property>
+					<value>1</value>
+				</equals>
+			</or>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
         <object-name>rudder_bar</object-name>
         <condition>
 			<property>unused/unused</property>
@@ -1594,10 +1622,46 @@
         <type>select</type>
         <object-name>throttle-mode-box</object-name>
         <condition>
-            <equals>
-                <property>/modes/pfd/fma/throttle-mode-box</property>
-                <value>1</value>
-            </equals>
+			<and>
+				<equals>
+					<property>/modes/pfd/fma/throttle-mode-box</property>
+					<value>1</value>
+				</equals>
+				<not-equals>
+					<property>/systems/thrust/state1</property>
+					<value>MAN THR</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state2</property>
+					<value>MAN THR</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state1</property>
+					<value>MCT</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state2</property>
+					<value>MCT</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state1</property>
+					<value>TOGA</value>
+				</not-equals>
+				<not-equals>
+					<property>/systems/thrust/state2</property>
+					<value>TOGA</value>
+				</not-equals>
+				<or>
+					<not-equals>
+						<property>/systems/thrust/state1</property>
+						<value>IDLE</value>
+					</not-equals>
+					<not-equals>
+						<property>/systems/thrust/state2</property>
+						<value>IDLE</value>
+					</not-equals>
+				</or>
+			</and>
         </condition>
     </animation>
 	

@@ -244,20 +244,79 @@ var at = func {
 	}
 }
 
+var boxchk = func {
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
+	var fd1 = getprop("/it-autoflight/output/fd1");
+	var fd2 = getprop("/it-autoflight/output/fd2");
+	var fma_pwr = getprop("/it-autoflight/output/fma-pwr");
+	if (ap1 and !ap2 and !fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/input/lat", 3);
+		boxchk_b();
+	} else if (!ap1 and ap2 and !fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/input/lat", 3);
+		boxchk_b();
+	} else if (!ap1 and !ap2 and fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/input/lat", 3);
+		boxchk_b();
+	} else if (!ap1 and !ap2 and !fd1 and fd2 and !fma_pwr) {
+		setprop("/it-autoflight/input/lat", 3);
+		boxchk_b();
+	}
+}
+
+var boxchk_b = func {
+	setprop("/modes/pfd/fma/roll-mode-box", 1);
+	setprop("/modes/pfd/fma/pitch-mode-box", 1);
+	settimer(func {
+		setprop("/modes/pfd/fma/roll-mode-box", 0);
+	}, 5);
+	settimer(func {
+		setprop("/modes/pfd/fma/pitch-mode-box", 0);
+	}, 5);
+	var newarmr = getprop("/modes/pfd/fma/roll-mode-armed");
+	if (newarmr != " ") {
+		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
+		}, 5);
+	}
+	var newarmp = getprop("/modes/pfd/fma/pitch-mode-armed");
+	if (newarmp != " ") {
+		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
+		}, 5);
+	}
+	var newarmp2 = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	if (newarmp2 != " ") {
+		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
+		}, 5);
+	}
+}
+
 # Update AP FD ATHR
 setlistener("/it-autoflight/output/ap1", func {
+	speedmach();
 	ap();
+	boxchk();
 });
 setlistener("/it-autoflight/output/ap2", func {
+	speedmach();
 	ap();
+	boxchk();
 });
 setlistener("/it-autoflight/output/fd1", func {
 	speedmach();
 	fd();
+	boxchk();
 });
 setlistener("/it-autoflight/output/fd2", func {
 	speedmach();
 	fd();
+	boxchk();
 });
 setlistener("/it-autoflight/output/athr", func {
 	at();
