@@ -5,13 +5,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
 <fileheader>
-	<author> Bicyus (Jon Ortuondo) </author>
-	<email> bicyus@gmail.com </email>
-	<filecreationdate> 2012-02-15 </filecreationdate>
-	<version> 0.99 </version>
-	<description> Airbus A320-232 with CFM56 Engines </description>
-	<note> Revised and fixed by Peter Brendt (jwocky) and Joshua Davidson (it0uchpods). Fork from the A320-Family aircraft project (Thanks to all authors) </note>
-	<limitation></limitation>
+	<author>Joshua Davidson (it0uchpods)</author>
+	<version>Pre V1.0</version>
+	<description>A3XX FDE</description>
 </fileheader>
 
 <metrics>
@@ -989,8 +985,8 @@ YAW MOI_________3950000______23089847_______24848934
 							-1.57    1.300
 							-0.26    0.021
 							 0.00    0.012
-							 0.26    0.028
-							 1.57    1.350
+							 0.26    0.026
+							 1.57    1.340
 						</tableData>
 					</table>
 				</product>
@@ -1029,7 +1025,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00120 </value>
+					<value> 0.00110 </value>
 				</product>
 			</function>
 
@@ -1049,7 +1045,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
-					<value>0.030</value>
+					<value>0.025</value>
 				</product>
 			</function>
 
@@ -1059,7 +1055,7 @@ YAW MOI_________3950000______23089847_______24848934
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/speedbrake-pos-norm</property>
-					<value>0.03</value>
+					<value>0.035</value>
 				</product>
 			</function>
 

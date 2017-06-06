@@ -2233,7 +2233,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/strobe</property>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2268,7 +2271,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/beacon</property>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2303,7 +2309,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/wing-lights</property>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2341,7 +2350,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2398,6 +2410,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[2]</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
 			</binding>
 		</action>
 	</animation>
@@ -2456,7 +2472,10 @@
 				<value>0.5</value>
 				<value>1</value>
 			</binding>
-
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2659,6 +2678,10 @@
 				<value>0.5</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2697,6 +2720,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2733,6 +2760,10 @@
 				<command>property-toggle</command>
 				<property>controls/switches/seatbelt-sign</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
@@ -2766,6 +2797,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/switches/no-smoking-sign</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
 			</binding>
 		</action>
 	</animation>

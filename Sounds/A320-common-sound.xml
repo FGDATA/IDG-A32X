@@ -394,7 +394,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendaa</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -409,7 +409,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendba</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -424,7 +424,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendab</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -439,7 +439,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbb</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -454,7 +454,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendac</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -469,7 +469,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbc</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -484,7 +484,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendad</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -499,7 +499,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbd</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -514,7 +514,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendae</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -529,7 +529,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbe</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -544,7 +544,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendaf</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state1</property>
@@ -559,7 +559,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbf</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/systems/thrust/state2</property>
@@ -574,7 +574,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendag</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/controls/engines/engine[0]/reverser</property>
@@ -589,7 +589,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbg</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/controls/engines/engine[1]/reverser</property>
@@ -604,7 +604,7 @@
 	<detenta>
 		<mode>once</mode>
 		<name>detendah</name>
-		<path>detenta.wav</path>
+		<path>Cockpit/detenta.wav</path>
 		<condition>
 			<equals>
 				<property>/controls/engines/engine[0]/reverser</property>
@@ -619,7 +619,7 @@
 	<detentb>
 		<mode>once</mode>
 		<name>detendbh</name>
-		<path>detentb.wav</path>
+		<path>Cockpit/detentb.wav</path>
 		<condition>
 			<equals>
 				<property>/controls/engines/engine[1]/reverser</property>
@@ -667,9 +667,9 @@
 	</ns>
 	
 	<switch>
-		<name>Overhead Button</name>
+		<name>Button</name>
 		<mode>once</mode>
-		<path>Aircraft/A320Family/Sounds/oh-button.wav</path>
+		<path>Aircraft/A320Family/Sounds/Cockpit/button.wav</path>
 		<condition>
 			<property>/sim/sounde/btn1</property>
 		</condition>
@@ -679,11 +679,23 @@
 	</switch>
 	
 	<switch>
-		<name>Overhead Knob</name>
+		<name>Knob</name>
 		<mode>once</mode>
-		<path>Aircraft/A320Family/Sounds/oh-knob.wav</path>
+		<path>Aircraft/A320Family/Sounds/Cockpit/knob.wav</path>
 		<condition>
 			<property>/sim/sounde/knb1</property>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</switch>
+	
+	<switch>
+		<name>Switch</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/switch.wav</path>
+		<condition>
+			<property>/sim/sounde/switch1</property>
 		</condition>
 		<volume>
 			<factor>0.60</factor>

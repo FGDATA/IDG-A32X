@@ -91,7 +91,7 @@
                 <table>
                     <property>/engines/engine[0]/n1</property>
                     <entry><ind> 18.0</ind><dep>0.00</dep></entry>
-                    <entry><ind> 23.4</ind><dep>0.03</dep></entry>
+                    <entry><ind> 22.4</ind><dep>0.03</dep></entry>
                     <entry><ind> 35.0</ind><dep>0.20</dep></entry>
                     <entry><ind>105.8</ind><dep>1.00</dep></entry>
                 </table>
@@ -162,7 +162,7 @@
                 <table>
                     <property>/engines/engine[1]/n1</property> 
                     <entry><ind> 18.0</ind><dep>0.00</dep></entry>
-                    <entry><ind> 23.4</ind><dep>0.03</dep></entry>
+                    <entry><ind> 22.4</ind><dep>0.03</dep></entry>
                     <entry><ind> 35.0</ind><dep>0.20</dep></entry>
                     <entry><ind>105.8</ind><dep>1.00</dep></entry>
                 </table>
@@ -714,7 +714,7 @@
                     <property>/engines/engine[0]/n1</property> 
                     <entry><ind>0</ind><dep>0</dep></entry>
                     <entry><ind>6</ind><dep>0</dep></entry>
-                    <entry><ind>23.4</ind><dep>434</dep></entry>
+                    <entry><ind>22.4</ind><dep>434</dep></entry>
                     <entry><ind>110</ind><dep>620</dep></entry>
                 </table>
             </expression>
@@ -747,7 +747,7 @@
                     <property>/engines/engine[1]/n1</property> 
                     <entry><ind>0</ind><dep>0</dep></entry>
                     <entry><ind>6</ind><dep>0</dep></entry>
-                    <entry><ind>23.4</ind><dep>434</dep></entry>
+                    <entry><ind>22.4</ind><dep>434</dep></entry>
                     <entry><ind>110</ind><dep>620</dep></entry>
                 </table>
             </expression>
