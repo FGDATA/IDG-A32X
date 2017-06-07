@@ -27319,7 +27319,7 @@ refs 4
 51 0.387516 0.53503
 kids 0
 OBJECT poly
-name "radio"
+name "radnav"
 loc 0.0107708 0.00215198 0.0297895
 texture "transparent.png"
 crease 45.000000
