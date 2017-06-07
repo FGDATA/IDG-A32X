@@ -40,6 +40,10 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/cruise-lvl-set", 0);
 	setprop("/FMGC/internal/flap-ths-set", 0);
 	setprop("/FMGC/internal/flex-set", 0);
+	setprop("/FMGC/internal/vor1freq-set", 0);
+	setprop("/FMGC/internal/vor1crs-set", 0);
+	setprop("/FMGC/internal/vor2freq-set", 0);
+	setprop("/FMGC/internal/vor2crs-set", 0);
 }
 
 var lskbutton = func(btn) {
@@ -50,24 +54,32 @@ var lskbutton = func(btn) {
 			setprop("/MCDU[0]/scratchpad", "GPS PRIMARY");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("L1");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("L1");
 		}
 	} else if (btn == "2") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			PerfInput("L2");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("L2");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("L2");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L3");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("L3");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("L3");
 		}
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
 			setprop("/MCDU[0]/page", "STATUS");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("L4");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("L4");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -96,10 +108,14 @@ var rskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("R1");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("R1");
 		}
 	} else if (btn == "2") {
 		if (getprop("/MCDU[0]/page") == "INITB") {
 			initInputB("R2");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("R2");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -110,6 +126,8 @@ var rskbutton = func(btn) {
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "TO") {
 			PerfTOInput("R4");
+		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
+			radnavInput("R4");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "TO") {
@@ -128,6 +146,163 @@ var rskbutton = func(btn) {
 
 var rskbutton_b = func(btn) {
 	# Special Middle Click Functions
+}
+
+var radnavInput = func(key) {
+	var scratchpad = getprop("/MCDU[0]/scratchpad");
+	if (key == "L1") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor1freq-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 5 or tfs == 6) {
+				if (scratchpad >= 108.10 and scratchpad <= 111.95) {
+					if (scratchpad == 108.10 or scratchpad == 108.15 or scratchpad == 108.30 or scratchpad == 108.35 or scratchpad == 108.50 or scratchpad == 108.55 or scratchpad == 108.70 or scratchpad == 108.75 or scratchpad == 108.90 or scratchpad == 108.95 
+					or scratchpad == 109.10 or scratchpad == 109.15 or scratchpad == 109.30 or scratchpad == 109.35 or scratchpad == 109.50 or scratchpad == 109.55 or scratchpad == 109.70 or scratchpad == 109.75 or scratchpad == 109.90 or scratchpad == 109.95 
+					or scratchpad == 110.10 or scratchpad == 110.15 or scratchpad == 110.30 or scratchpad == 110.35 or scratchpad == 110.50 or scratchpad == 110.55 or scratchpad == 110.70 or scratchpad == 110.75 or scratchpad == 110.90 or scratchpad == 110.95 
+					or scratchpad == 111.10 or scratchpad == 111.15 or scratchpad == 111.30 or scratchpad == 111.35 or scratchpad == 111.50 or scratchpad == 111.55 or scratchpad == 111.70 or scratchpad == 111.75 or scratchpad == 111.90 or scratchpad == 111.95) {
+						setprop("/MCDU[0]/scratchpad-msg", "1");
+						setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+					} else {
+						setprop("/instrumentation/nav[0]/frequencies/selected-mhz", scratchpad);
+						setprop("/FMGC/internal/vor1freq-set", 1);
+						setprop("/MCDU[0]/scratchpad", "");
+					}
+				} else if (scratchpad >= 112.00 and scratchpad <= 117.95) {
+					setprop("/instrumentation/nav[0]/frequencies/selected-mhz", scratchpad);
+					setprop("/FMGC/internal/vor1freq-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L2") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor1crs-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs >= 1 and tfs <= 3) {
+				if (scratchpad >= 0 and scratchpad <= 360) {
+					setprop("/instrumentation/nav[0]/radials/selected-deg", scratchpad);
+					setprop("/FMGC/internal/vor1crs-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L3") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor1freq-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 5 or tfs == 6) {
+				if (scratchpad >= 108.10 and scratchpad <= 111.95) {
+					if (scratchpad == 108.10 or scratchpad == 108.15 or scratchpad == 108.30 or scratchpad == 108.35 or scratchpad == 108.50 or scratchpad == 108.55 or scratchpad == 108.70 or scratchpad == 108.75 or scratchpad == 108.90 or scratchpad == 108.95 
+					or scratchpad == 109.10 or scratchpad == 109.15 or scratchpad == 109.30 or scratchpad == 109.35 or scratchpad == 109.50 or scratchpad == 109.55 or scratchpad == 109.70 or scratchpad == 109.75 or scratchpad == 109.90 or scratchpad == 109.95 
+					or scratchpad == 110.10 or scratchpad == 110.15 or scratchpad == 110.30 or scratchpad == 110.35 or scratchpad == 110.50 or scratchpad == 110.55 or scratchpad == 110.70 or scratchpad == 110.75 or scratchpad == 110.90 or scratchpad == 110.95 
+					or scratchpad == 111.10 or scratchpad == 111.15 or scratchpad == 111.30 or scratchpad == 111.35 or scratchpad == 111.50 or scratchpad == 111.55 or scratchpad == 111.70 or scratchpad == 111.75 or scratchpad == 111.90 or scratchpad == 111.95) {
+						setprop("/instrumentation/nav[0]/frequencies/selected-mhz", scratchpad);
+						setprop("/FMGC/internal/vor1freq-set", 1);
+						setprop("/MCDU[0]/scratchpad", "");
+					} else {
+						setprop("/MCDU[0]/scratchpad-msg", "1");
+						setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+					}
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "L4") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor1crs-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs >= 1 and tfs <= 3) {
+				if (scratchpad >= 0 and scratchpad <= 360) {
+					setprop("/instrumentation/nav[0]/radials/selected-deg", scratchpad);
+					setprop("/FMGC/internal/vor1crs-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R1") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor2freq-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 5 or tfs == 6) {
+				if (scratchpad >= 108.10 and scratchpad <= 111.95) {
+					if (scratchpad == 108.10 or scratchpad == 108.15 or scratchpad == 108.30 or scratchpad == 108.35 or scratchpad == 108.50 or scratchpad == 108.55 or scratchpad == 108.70 or scratchpad == 108.75 or scratchpad == 108.90 or scratchpad == 108.95 
+					or scratchpad == 109.10 or scratchpad == 109.15 or scratchpad == 109.30 or scratchpad == 109.35 or scratchpad == 109.50 or scratchpad == 109.55 or scratchpad == 109.70 or scratchpad == 109.75 or scratchpad == 109.90 or scratchpad == 109.95 
+					or scratchpad == 110.10 or scratchpad == 110.15 or scratchpad == 110.30 or scratchpad == 110.35 or scratchpad == 110.50 or scratchpad == 110.55 or scratchpad == 110.70 or scratchpad == 110.75 or scratchpad == 110.90 or scratchpad == 110.95 
+					or scratchpad == 111.10 or scratchpad == 111.15 or scratchpad == 111.30 or scratchpad == 111.35 or scratchpad == 111.50 or scratchpad == 111.55 or scratchpad == 111.70 or scratchpad == 111.75 or scratchpad == 111.90 or scratchpad == 111.95) {
+						setprop("/MCDU[0]/scratchpad-msg", "1");
+						setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+					} else {
+						setprop("/instrumentation/nav[1]/frequencies/selected-mhz", scratchpad);
+						setprop("/FMGC/internal/vor2freq-set", 1);
+						setprop("/MCDU[0]/scratchpad", "");
+					}
+				} else if (scratchpad >= 112.00 and scratchpad <= 117.95) {
+					setprop("/instrumentation/nav[1]/frequencies/selected-mhz", scratchpad);
+					setprop("/FMGC/internal/vor2freq-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R2") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/vor2crs-set", 0);
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs >= 1 and tfs <= 3) {
+				if (scratchpad >= 0 and scratchpad <= 360) {
+					setprop("/instrumentation/nav[1]/radials/selected-deg", scratchpad);
+					setprop("/FMGC/internal/vor2crs-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	}
 }
 
 var initInputA = func(key) {

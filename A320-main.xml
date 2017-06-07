@@ -23,10 +23,17 @@
 				<position-norm type="double">0</position-norm>
 			</pushback>
 		</model>
+		
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash1.png</path>
+			</preview>
+		</previews>
 
 		<startup>
-			<splash-texture>Aircraft/A320Family/Splash/splash.png</splash-texture>
-			<splash-texture>Aircraft/A320Family/Splash/splash1.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/SplashOld.png</splash-texture>
 		</startup>
 		
 		<tags>
@@ -537,22 +544,18 @@
 		</pfd>
 	</options>
 	
-	<instrumentation>
+	<instrumentation n="0">
 	
 		<efis n="0">
-
 			<ecam>
-					<display-mode type="string">FCTL</display-mode>
+				<display-mode type="string">FCTL</display-mode>
 			</ecam>
-			
 		</efis>
 	
 		<efis n="1">
-
 			<ecam>
-					<display-mode type="string">FCTL</display-mode>
+				<display-mode type="string">FCTL</display-mode>
 			</ecam>
-
 		</efis>
 		
 		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
