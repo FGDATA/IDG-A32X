@@ -11,7 +11,7 @@ print("/_/    \_\____/____|\___/|_|  \__,_|_| |_| |_|_|_|\__, |");
 print("                                                   __/ |");
 print("                                                  |___/ ");
 print("-----------------------------------------------------------------------");
-print("(c) 2016-2017 Joshua Davidson, and The it0uchpods Development Group");
+print("(c) 2016-2017 Joshua Davidson, and Jonathan Redpath");
 print("Report all bugs on GitHub Issues tab, or the forums. :)");
 print("If you are reading this, you are awesome!");
 print("-----------------------------------------------------------------------");

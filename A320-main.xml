@@ -4,7 +4,7 @@
 
 	<sim>
 		
-		<author>Joshua Davidson (it0uchpods/411), Jonathan Redpath (legoboyvdlp)</author>
+		<author>Joshua Davidson (it0uchpods), Jonathan Redpath (legoboyvdlp)</author>
 		
 		<status>Pre V1.0</status>
 		
@@ -188,7 +188,7 @@
 		<multiplay>
 			<generic>
 				<float n="0" alias="/controls/lighting/dome-norm" />
-				<float n="1" alias="/controls/lighting/interior" />
+				<!--float n="1" alias="/replaceme" /-->
 				<float n="2" alias="/engines/engine[0]/reverser-pos-norm" />
 				<float n="3" alias="/engines/engine[1]/reverser-pos-norm" />
 				<float n="4" alias="/controls/flight/elevator-left" />

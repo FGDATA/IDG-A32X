@@ -20,11 +20,11 @@
 		<name>Flightdeck</name>
 		<path>Aircraft/A320Family/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
-            <x-m>6.4</x-m>
-            <z-m>0.2399</z-m>
+            <x-m>6.33</x-m>
+			<z-m>0.2399</z-m>
 		</offsets>
 	</model>
-
+	
 	<model>
 		<name>Interior</name>
 		<path>Aircraft/A320Family/Models/Interior/a319.interior.xml</path>
