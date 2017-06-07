@@ -15,6 +15,11 @@ setprop("/FMGC/internal/mach-switchover", 0);
 setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 setprop("/it-autoflight/output/fma-pwr", 0);
+setprop("/instrumentation/nav[0]/nav-id", "XXX");
+setprop("/instrumentation/nav[1]/nav-id", "XXX");
+setprop("/FMGC/internal/ils-mcdu", "XXX/999.99");
+setprop("/FMGC/internal/vor1-mcdu", "XXX/999.99");
+setprop("/FMGC/internal/vor2-mcdu", "999.99/XXX");
 
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
@@ -27,6 +32,7 @@ var FMGCinit = func {
 	setprop("/FMGC/internal/mach-switchover", 0);
 	setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 	setprop("/FMGC/internal/decel", 0);
+	setprop("/FMGC/internal/loc-source", "NAV0");
 	phasecheck.start();
 	various.start();
 }
@@ -185,7 +191,37 @@ var various = maketimer(1, func {
 	} else {
 		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/reduc-agl-ft"));
 	}
+	nav0();
+	nav1();
 });
+
+var nav0 = func {
+	var freqnav0uf = getprop("/instrumentation/nav[0]/frequencies/selected-mhz");
+	var freqnav0 = sprintf("%.2f", freqnav0uf);
+	var namenav0 = getprop("/instrumentation/nav[0]/nav-id");
+	if (freqnav0 >= 108.10 and freqnav0 <= 117.95) {
+		if (namenav0 != "") {
+			setprop("/FMGC/internal/ils-mcdu", namenav0 ~ "/" ~ freqnav0);
+			setprop("/FMGC/internal/vor1-mcdu", namenav0 ~ "/" ~ freqnav0);
+		} else {
+			setprop("/FMGC/internal/ils-mcdu", freqnav0);
+			setprop("/FMGC/internal/vor1-mcdu", freqnav0);
+		}
+	}
+}
+
+var nav1 = func {
+	var freqnav1uf = getprop("/instrumentation/nav[1]/frequencies/selected-mhz");
+	var freqnav1 = sprintf("%.2f", freqnav1uf);
+	var namenav1 = getprop("/instrumentation/nav[1]/nav-id");
+	if (freqnav1 >= 108.10 and freqnav1 <= 117.95) {
+		if (namenav1 != "") {
+			setprop("/FMGC/internal/vor2-mcdu", namenav1 ~ "/" ~ freqnav1);
+		} else {
+			setprop("/FMGC/internal/vor2-mcdu", freqnav1);
+		}
+	}
+}
 
 #################
 # Managed Speed #
@@ -342,7 +378,6 @@ var APinit = func {
 	setprop("/it-autoflight/output/lat", 5);
 	setprop("/it-autoflight/output/vert", 7);
 	setprop("/it-autoflight/output/fma-pwr", 0);
-	setprop("/it-autoflight/settings/use-nav2-radio", 0);
 	setprop("/it-autoflight/settings/use-backcourse", 0);
 	setprop("/it-autoflight/internal/min-vs", -500);
 	setprop("/it-autoflight/internal/max-vs", 500);
@@ -591,7 +626,6 @@ var vertical = func {
 			# Do nothing because G/S or LAND or FLARE is active
 		} else {
 			setprop("/instrumentation/nav[0]/gs-rate-of-climb", 0);
-			setprop("/instrumentation/nav[1]/gs-rate-of-climb", 0);
 			setprop("/it-autoflight/output/appr-armed", 1);
 			setprop("/it-autoflight/mode/arm", "ILS");
 		}
@@ -937,9 +971,9 @@ var update_apparmelec = func {
 var locarmcheck = func {
 	var locdefl = getprop("instrumentation/nav[0]/heading-needle-deflection-norm");
 	var locdefl_b = getprop("instrumentation/nav[1]/heading-needle-deflection-norm");
-	if ((locdefl < 0.9233) and (getprop("instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0)) {
+	if ((locdefl < 0.9233) and (getprop("instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/FMGC/internal/loc-source") == "NAV0")) {
 		make_loc_active();
-	} else if ((locdefl_b < 0.9233) and (getprop("instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1)) {
+	} else if ((locdefl_b < 0.9233) and (getprop("instrumentation/nav[1]/signal-quality-norm") > 0.99) and (getprop("/FMGC/internal/loc-source") == "NAV1")) {
 		make_loc_active();
 	} else {
 		return 0;
@@ -959,10 +993,7 @@ var make_loc_active = func {
 
 var apparmcheck = func {
 	var signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
-	var signal_b = getprop("/instrumentation/nav[1]/gs-needle-deflection-norm");
-	if ((signal <= -0.000000001) and (getprop("/it-autoflight/settings/use-nav2-radio") == 0) and (getprop("/it-autoflight/output/lat") == 2)) {
-		make_appr_active();
-	} else if ((signal_b <= -0.000000001) and (getprop("/it-autoflight/settings/use-nav2-radio") == 1) and (getprop("/it-autoflight/output/lat") == 2)) {
+	if ((signal <= -0.000000001) and (getprop("/FMGC/internal/loc-source") == "NAV0") and (getprop("/it-autoflight/output/lat") == 2)) {
 		make_appr_active();
 	} else {
 		return 0;

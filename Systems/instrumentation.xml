@@ -103,11 +103,6 @@ file, these values will be used (they are hardcoded).
 		<name>nav</name>
 		<number>1</number>
 	</nav-radio>
-	
-	<nav-radio>
-		<name>nav</name>
-		<number>2</number>
-	</nav-radio>
 
 	<slip-skid-ball>
 		<name>slip-skid-ball</name>

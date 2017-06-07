@@ -67,19 +67,58 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">XXX/XXX.XX</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/FMGC/internal/vor1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0045</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>vor1freq3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.042</y-m>
+			<z-m>0.0705</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/vor1-mcdu</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1freq2</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor1freq-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1freq3</object-name>
+		<condition>
+			<property>/FMGC/internal/vor1freq-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>vor2freq</name>
@@ -114,19 +153,58 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">XXX.XX/XXX</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/FMGC/internal/vor2-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0045</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>vor2freq3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.041</y-m>
+			<z-m>0.0705</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/vor2-mcdu</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2freq2</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor2freq-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2freq3</object-name>
+		<condition>
+			<property>/FMGC/internal/vor2freq-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>crs1</name>
@@ -174,6 +252,45 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>crs13</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/instrumentation/nav[0]/radials/selected-deg</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crs12</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor1crs-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crs13</object-name>
+		<condition>
+			<property>/FMGC/internal/vor1crs-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>crs2</name>
@@ -221,6 +338,45 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>crs23</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.044</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/instrumentation/nav[1]/radials/selected-deg</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crs22</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor2crs-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crs23</object-name>
+		<condition>
+			<property>/FMGC/internal/vor2crs-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>ilsfreq</name>
@@ -255,19 +411,58 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">XXX/XXX.XX</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/FMGC/internal/ils-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0055</character-size>
+		<character-size>0.0045</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>ilsfreq3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.042</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/FMGC/internal/ils-mcdu</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ilsfreq2</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor1freq-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ilsfreq3</object-name>
+		<condition>
+			<property>/FMGC/internal/vor1freq-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>chanmls</name>
@@ -362,6 +557,45 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	<text>
+		<name>ilscrs13</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/instrumentation/nav[0]/radials/selected-deg</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ilscrs12</object-name>
+		<condition>
+			<not><property>/FMGC/internal/vor1crs-set</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ilscrs13</object-name>
+		<condition>
+			<property>/FMGC/internal/vor1crs-set</property>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>slopecrs</name>
@@ -467,14 +701,14 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">[    ]/[     .]</format>
+		<format type="string">[    ]/[     . ]</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_medium.txf</font>
 		<property>autopilot/serviceable</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0045</character-size>
+		<character-size>0.0040</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
@@ -514,14 +748,14 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">[     .]/[    ]</format>
+		<format type="string">[     . ]/[    ]</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_medium.txf</font>
 		<property>autopilot/serviceable</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0045</character-size>
+		<character-size>0.0040</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
@@ -566,42 +800,19 @@
         </emission>
     </animation>
 	
-	<!-- Green -->
-	<animation>
-        <type>material</type>
-		<object-name>engtype</object-name>
-		<object-name>activedata3</object-name>
-		<object-name>idleperf2</object-name>
-        <diffuse>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </diffuse>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-        <emission>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </emission>
-    </animation>
-	
 	<!-- Blue -->
 	<animation>
         <type>material</type>
 		<object-name>vor1freq2</object-name>
+		<object-name>vor1freq3</object-name>
 		<object-name>vor2freq2</object-name>
+		<object-name>vor2freq3</object-name>
 		<object-name>crs12</object-name>
+		<object-name>crs13</object-name>
 		<object-name>crs22</object-name>
+		<object-name>crs23</object-name>
 		<object-name>ilsfreq2</object-name>
+		<object-name>ilsfreq3</object-name>
 		<object-name>chanmls2</object-name>
 		<object-name>ilscrs12</object-name>
 		<object-name>mlscrs2</object-name>
