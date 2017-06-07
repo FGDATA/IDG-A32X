@@ -835,7 +835,7 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<channel name="Speedbrake">
 		<kinematic name="Speedbrake">
-			<input>fcs/speedbrake-cmd-norm</input>
+			<input>/controls/flight/spoiler-output</input>
 			<traverse>
 			<setting>
 				<position>0</position>

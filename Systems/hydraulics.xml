@@ -64,7 +64,7 @@
 						</greater-than-equals>
 					</or>
 					<equals>
-						<property>/controls/flight/speedbrake-lever</property>
+						<property>/surface-positions/speedbrake-pos-norm</property>
 						<value>1.0</value>
 					</equals>
 					<equals>
@@ -178,7 +178,7 @@
 						</greater-than-equals>
 					</or>
 					<equals>
-						<property>/controls/flight/speedbrake-lever</property>
+						<property>/surface-positions/speedbrake-pos-norm</property>
 						<value>1.0</value>
 					</equals>
 					<equals>
@@ -504,7 +504,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-left-cmd</input>
 		<output>/controls/flight/spoiler-left</output>
-		<max-rate-of-change>1.0</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -732,7 +732,80 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-right-cmd</input>
 		<output>/controls/flight/spoiler-right</output>
-		<max-rate-of-change>1.0</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/green-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
+						<and>
+							<greater-than-equals>
+								<property>/systems/hydraulic/blue-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/hydraulic/yellow-psi</property>
+								<value>1500</value>
+							</greater-than-equals>
+						</and>
+					</or>
+					<equals>
+						<property>/systems/failures/spoiler-left</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/systems/failures/spoiler-right</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<property>/fdm/jsbsim/fcs/speedbrake-cmd-norm</property>
+		</input>
+		<input>
+			<condition>
+				<or>
+					<and>
+						<less-than>
+							<property>/systems/hydraulic/green-psi</property>
+							<value>1500</value>
+						</less-than>
+						<less-than>
+							<property>/systems/hydraulic/blue-psi</property>
+							<value>1500</value>
+						</less-than>
+						<less-than>
+							<property>/systems/hydraulic/yellow-psi</property>
+							<value>1500</value>
+						</less-than>
+					</and>
+					<equals>
+						<property>/systems/failures/spoiler-left</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/systems/failures/spoiler-right</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<value>0.0</value>
+		</input>
+		<output>/controls/flight/spoiler-output</output>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->

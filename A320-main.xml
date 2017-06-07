@@ -438,6 +438,7 @@
 			<elevator-right>0.1</elevator-right>
 			<elevator-sum>0.2</elevator-sum>
 			<spoiler-left>0.0</spoiler-left>
+			<spoiler-output>0.0</spoiler-output>
 			<spoiler-right>0.0</spoiler-right>
 			<speedbrake-arm>0</speedbrake-arm>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
