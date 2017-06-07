@@ -4,7 +4,7 @@
 
 	<sim>
 		
-		<author>Joshua Davidson (it0uchpods/411)</author>
+		<author>Joshua Davidson (it0uchpods/411), Jonathan Redpath (legoboyvdlp)</author>
 		
 		<status>Pre V1.0</status>
 		
@@ -28,31 +28,27 @@
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash1.png</path>
+				<path>Splash/splash1.png</path>
 			</preview>
-			<preview>
+			<!--preview>
 				<type>interior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash2.png</path>
+				<path>Splash/splash2.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash3.png</path>
+				<path>Splash/splash3.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/Splash4.png</path>
-			</preview>
+				<path>Splash/splash4.png</path>
+			</preview-->
 		</previews>
 
 		<startup>
 			<splash-texture>Aircraft/A320Family/Splash/SplashOld.png</splash-texture>
-			<splash-texture>Aircraft/A320Family/Splash/Splash1.png</splash-texture>
-			<splash-texture>Aircraft/A320Family/Splash/Splash2.png</splash-texture>
-			<splash-texture>Aircraft/A320Family/Splash/Splash3.png</splash-texture>
-			<splash-texture>Aircraft/A320Family/Splash/Splash4.png</splash-texture>
 		</startup>
 		
 		<tags>
