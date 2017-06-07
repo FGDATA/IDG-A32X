@@ -115,7 +115,7 @@
 			<property>/controls/flight/aileron-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.12</Kp>
+			<Kp>0.06</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
@@ -129,6 +129,8 @@
 	<filter>
 		<name>IT-FBW: ROLL OPTION</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>
@@ -157,6 +159,7 @@
 				</and>
 			</condition>
 			<property>/controls/flight/aileron-fbw-cmd</property>
+			<scale>2.0</scale>
 		</input>
 		<input>
 			<condition>
@@ -199,8 +202,6 @@
 			<value>0</value>
 		</input>
 		<output>/controls/flight/roll-fbw</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>10</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -287,14 +288,14 @@
 			<property>/controls/flight/elevator-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>-0.22</Kp>
+			<Kp>-0.12</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
-			<Ti>10</Ti>
+			<Ti>5</Ti>
 			<Td>0.005</Td>
-			<u_min>-1</u_min>
-			<u_max>1</u_max>
+			<u_min>-0.5</u_min>
+			<u_max>0.5</u_max>
 		</config>
 	</pid-controller>
 	
@@ -473,6 +474,8 @@
 	<filter>
 		<name>IT-FBW: PITCH OPTION</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>
@@ -507,6 +510,7 @@
 				</and>
 			</condition>
 			<property>/controls/flight/elevator-fbw-cmd</property>
+			<scale>2.0</scale>
 		</input>
 		<input>
 			<condition>
@@ -545,8 +549,6 @@
 			<value>0</value>
 		</input>
 		<output>/controls/flight/elevator-fbw</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>10</max-rate-of-change>
 	</filter>
 	
 	<pid-controller>

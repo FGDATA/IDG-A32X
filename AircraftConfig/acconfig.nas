@@ -1,7 +1,7 @@
 # Aircraft Config Center
 # Joshua Davidson (it0uchpods)
 
-var spinning = maketimer(0.1, func {
+var spinning = maketimer(0.05, func {
 	var spinning = getprop("/systems/acconfig/spinning");
 	if (spinning == 0) {
 		setprop("/systems/acconfig/spin", "\\");
