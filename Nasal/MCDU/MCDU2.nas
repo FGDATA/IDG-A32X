@@ -512,7 +512,9 @@ var arrowbutton = func(btn) {
 }
 
 var pagebutton = func(btn) {
-	if (btn == "perf") {
+	if (btn == "radnav") {
+		setprop("/MCDU[1]/page", "RADNAV");
+	} else if (btn == "perf") {
 		if (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) {
 			setprop("/MCDU[1]/page", "TO");
 		} else if (getprop("/FMGC/status/phase") == 2) {
