@@ -30,10 +30,29 @@
 				<splash type="bool">true</splash>
 				<path>Splash/Splash1.png</path>
 			</preview>
+			<preview>
+				<type>interior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash2.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash3.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/Splash4.png</path>
+			</preview>
 		</previews>
 
 		<startup>
 			<splash-texture>Aircraft/A320Family/Splash/SplashOld.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/Splash1.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/Splash2.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/Splash3.png</splash-texture>
+			<splash-texture>Aircraft/A320Family/Splash/Splash4.png</splash-texture>
 		</startup>
 		
 		<tags>
