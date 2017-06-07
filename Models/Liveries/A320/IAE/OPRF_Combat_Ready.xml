@@ -5,13 +5,13 @@
 		<model>
 			<livery>
 				<name>OPRF Combat Ready</name>
-				<texture>Liveries/A320/IAE/OPRF Combat Ready.png</texture>
+				<texture>Liveries/A320/IAE/OPRF_Combat_Ready.png</texture>
 			</livery>
 		</model>
 	</sim>
 	
 	<options>
-		<EIS2 type="bool">1</EIS2>
+		<EIS2 type="bool">0</EIS2>
 	</options>
 	
 	<sharklet type="bool">0</sharklet>
