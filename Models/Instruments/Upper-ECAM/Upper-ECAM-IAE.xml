@@ -1243,7 +1243,7 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>  0</dep></entry>
+			<entry><ind> 22</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -1265,7 +1265,7 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>  0</dep></entry>
+			<entry><ind> 22</ind><dep>  0</dep></entry>
 			<entry><ind> 40</ind><dep> 47</dep></entry>
 			<entry><ind>100</ind><dep>159</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>

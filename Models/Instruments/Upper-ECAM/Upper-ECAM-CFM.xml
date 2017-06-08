@@ -850,7 +850,7 @@
     	<property>/engines/engine/n1</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>
@@ -873,7 +873,7 @@
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>
@@ -896,7 +896,7 @@
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>
@@ -919,7 +919,7 @@
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>
@@ -942,7 +942,7 @@
     	<property>/engines/engine[0]/n1-cmd</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>
@@ -965,7 +965,7 @@
     	<property>/engines/engine[1]/n1-cmd</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep> -3</dep></entry>
-			<entry><ind> 23</ind><dep> -3</dep></entry>
+			<entry><ind> 22</ind><dep> -3</dep></entry>
 			<entry><ind> 50</ind><dep> 72</dep></entry>
 			<entry><ind>100</ind><dep>178</dep></entry>
 			<entry><ind>110</ind><dep>195</dep></entry>

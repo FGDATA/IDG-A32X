@@ -849,7 +849,7 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -871,7 +871,7 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -893,7 +893,7 @@
     	<object-name>n1limy1</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -915,7 +915,7 @@
     	<object-name>n1limy2</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -937,7 +937,7 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
@@ -959,7 +959,7 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 23</ind><dep>-13</dep></entry>
+			<entry><ind> 22</ind><dep>-13</dep></entry>
 			<entry><ind> 50</ind><dep> 53</dep></entry>
 			<entry><ind>100</ind><dep>152</dep></entry>
 			<entry><ind>110</ind><dep>170</dep></entry>
