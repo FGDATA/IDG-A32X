@@ -51,6 +51,8 @@ var systemsReset = func {
 	systems.ADIRSreset();
 	systems.pneu_init();
 	systems.hyd_init();
+	systems.press_init();
+	systems.fuel_init();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_reset();
 	mcdu2.MCDU_reset();
@@ -195,6 +197,12 @@ var beforestart = func {
 }
 var beforestart_b = func {
 	# Continue with engine start prep.
+	setprop("/controls/fuel/tank2pump1", 1);
+	setprop("/controls/fuel/tank2pump2", 1);
+	setprop("/controls/fuel/tank3pump1", 1);
+	setprop("/controls/fuel/tank3pump2", 1);
+	setprop("/controls/fuel/tank4pump1", 1);
+	setprop("/controls/fuel/tank4pump2", 1);
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
@@ -264,6 +272,12 @@ var taxi = func {
 }
 var taxi_b = func {
 	# Continue with engine start prep, and start engine 2.
+	setprop("/controls/fuel/tank2pump1", 1);
+	setprop("/controls/fuel/tank2pump2", 1);
+	setprop("/controls/fuel/tank3pump1", 1);
+	setprop("/controls/fuel/tank3pump2", 1);
+	setprop("/controls/fuel/tank4pump1", 1);
+	setprop("/controls/fuel/tank4pump2", 1);
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
@@ -287,7 +301,7 @@ var taxi_b = func {
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
 	setprop("/controls/adirs/mcducbtn", 1);
-	settimer(taxi_c, 0.5);
+	settimer(taxi_c, 2);
 }
 var taxi_c = func {
 	setprop("/controls/engines/engine-start-switch", 2);

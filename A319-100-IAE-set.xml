@@ -14,15 +14,8 @@
 		<model>
 			<path>Aircraft/A320Family/Models/A319-100-IAE.xml</path>
 			<livery>
-				<file>AAL</file>
+				<file>Airbus</file>
 			</livery>
-			<door>
-				<position-x-m type="float">-9.26</position-x-m>
-				<position-y-m type="float">-1.76</position-y-m>
-				<position-z-m type="float">2.20</position-z-m>
-				<jetway-hood-deg type="float">8</jetway-hood-deg>
-			</door>
-
 		</model>
 		
 		<view>

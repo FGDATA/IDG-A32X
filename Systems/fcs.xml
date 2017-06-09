@@ -292,7 +292,6 @@
 	</channel>
     
 	<channel name="Tiller">
-		
 		<switch name="/controls/gear/tiller-disabled">
 			<default value="0"/>
 			<test logic="AND" value="1">
