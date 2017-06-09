@@ -122,7 +122,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
-	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == "ALT CRZ")) {
+	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == mode == "ALT*" or mode == "ALT CRZ")) {
 		setprop("/FMGC/status/phase", "3");
 		setprop("/systems/pressurization/mode", "CR");
 	}
