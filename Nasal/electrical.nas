@@ -193,7 +193,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/gen1-hz", 0);
 	}
 	
-	else if (apu_ext_crosstie_sw == 1 and xtieL) {
+	if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 		setprop("/systems/electrical/extra/gen1-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
