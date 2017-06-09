@@ -30,21 +30,11 @@
 				<splash type="bool">true</splash>
 				<path>Splash/splash1.png</path>
 			</preview>
-			<!--preview>
-				<type>interior</type>
+			<preview>
+				<type>exterior</type>
 				<splash type="bool">true</splash>
 				<path>Splash/splash2.png</path>
 			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/splash3.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/splash4.png</path>
-			</preview-->
 		</previews>
 
 		<startup>
