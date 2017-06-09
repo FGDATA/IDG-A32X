@@ -98,7 +98,7 @@ var phasecheck = maketimer(0.2, func {
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var aglalt = getprop("/position/gear-agl-ft");
 	var cruiseft = getprop("/FMGC/internal/cruise-ft");
-	var cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 50;
+	var cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 200;
 	var newcruise = getprop("/it-autoflight/internal/alt");
 	var phase = getprop("/FMGC/status/phase");
 	var state1 = getprop("/systems/thrust/state1");
@@ -155,7 +155,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "7");
 		var fd1 = getprop("/it-autoflight/input/fd1");
 		var fd2 = getprop("/it-autoflight/input/fd2");
-		ap_init();
+		APinit();
 		FMGCinit();
 		mcdu1.MCDU_reset();
 		mcdu2.MCDU_reset();
