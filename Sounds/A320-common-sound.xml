@@ -703,29 +703,20 @@
 	</switch>
 	
 	<relay>
-		<name>RelayBatt1</name>
+		<name>RelayBatt</name>
 		<mode>once</mode>
 		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
 		<condition>
-			<greater-than>
-				<property>/systems/electrical/battery1-amps</property>
-				<value>25</value>
-			</greater-than>
-		</condition>
-		<volume>
-			<factor>0.60</factor>
-		</volume>
-	</relay>
-	
-	<relay>
-		<name>RelayBatt2</name>
-		<mode>once</mode>
-		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
-		<condition>
-			<greater-than>
-				<property>/systems/electrical/battery2-amps</property>
-				<value>25</value>
-			</greater-than>
+			<or>
+				<greater-than>
+					<property>/systems/electrical/battery1-amps</property>
+					<value>25</value>
+				</greater-than>
+				<greater-than>
+					<property>/systems/electrical/battery2-amps</property>
+					<value>25</value>
+				</greater-than>
+			</or>
 		</condition>
 		<volume>
 			<factor>0.60</factor>
@@ -747,6 +738,21 @@
 					<value>1</value>
 				</equals>
 			</and>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</relay>
+	
+	<relay>
+		<name>RelayAPU</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/relay1.wav</path>
+		<condition>
+			<equals>
+				<property>/systems/electrical/gen-apu</property>
+				<value>1</value>
+			</equals>
 		</condition>
 		<volume>
 			<factor>0.60</factor>

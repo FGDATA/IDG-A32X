@@ -75,6 +75,9 @@ var updateARPT = func {
 	var arr = getprop("/FMGC/internal/arr-arpt");
 	setprop("/autopilot/route-manager/departure/airport", dep);
 	setprop("/autopilot/route-manager/destination/airport", arr);
+	if (getprop("/autopilot/route-manager/active") != 1) {
+		fgcommand("activate-flightplan", props.Node.new({"activate": 1}));
+	}
 }
 
 setlistener("/FMGC/internal/cruise-ft", func {

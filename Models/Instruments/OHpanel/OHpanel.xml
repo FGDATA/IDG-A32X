@@ -1280,7 +1280,8 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>FuelXfeedBtn</object-name>
+		<object-name>FuelXfeedBtn1</object-name>
+		<object-name>FuelXfeedBtn2</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
 		<action>
 			<button>0</button>
@@ -1299,7 +1300,7 @@
 	<!-- Did not make light yet-->
 	<!--animation>
 		<type>select</type>
-		<object-name>FuelModeBtn1O</object-name>
+		<object-name>FuelXfeedBtn1F</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -1315,7 +1316,7 @@
 	</animation-->
 	<animation>
 		<type>select</type>
-		<object-name>FuelModeBtn2O</object-name>
+		<object-name>FuelXfeedBtn2O</object-name>
 		<condition>
 			<or>
 				<equals>
