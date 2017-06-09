@@ -702,5 +702,56 @@
 		</volume>
 	</switch>
 	
+	<relay>
+		<name>RelayBatt1</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
+		<condition>
+			<greater-than>
+				<property>/systems/electrical/battery1-amps</property>
+				<value>25</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</relay>
+	
+	<relay>
+		<name>RelayBatt2</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
+		<condition>
+			<greater-than>
+				<property>/systems/electrical/battery2-amps</property>
+				<value>25</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</relay>
+	
+	<relay>
+		<name>RelayEXT</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/relay1.wav</path>
+		<condition>
+			<and>
+				<equals>
+					<property>/controls/switches/cart</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/electrical/switches/gen-ext</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</relay>
+	
   </fx>
 </PropertyList>

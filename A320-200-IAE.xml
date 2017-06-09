@@ -416,9 +416,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> 1 </yaw>
 	</orient>
-	<feed>3</feed>
-	<feed>1</feed>
-	<feed>2</feed>
+	<feed>7</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 655.4820 </x>
@@ -444,9 +442,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> -1 </yaw>
 	</orient>
-	<feed>3</feed>
-	<feed>5</feed>
-	<feed>4</feed>
+	<feed>8</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 655.4820 </x>
@@ -471,7 +467,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<capacity unit="LBS"> 412 </capacity><!-- 1 percent of total capacity, needs 20C to be filled -->
 		<contents unit="LBS"> 0 </contents>
 		
-		<priority>4</priority>
+		<priority>0</priority>
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
@@ -548,14 +544,36 @@ YAW MOI_________3950000______23089847_______24848934
 		</location>
 		<capacity unit="LBS"> 412 </capacity><!-- 1 percent of total fuel capacity, needs 20C-->
 		<contents unit="LBS"> 0 </contents>
-		<priority>4</priority>
+		<priority>0</priority>
 		<type>JET-A1</type>
 		<temperature>50</temperature>
+	</tank>
+	<tank type="FUEL">    <!-- LEFT FUEL PIPES (Engine 1 feed from this) -->
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>-226.575</y>
+			<z>-45.567</z>
+		</location>
+		<capacity unit="LBS"> 100 </capacity><!-- need review -->
+		<contents unit="LBS"> 0 </contents>
+		<priority>1</priority>
+		<type>JET-A1</type>
+	</tank>
+	<tank type="FUEL">    <!-- RIGHT FUEL PIPES (Engine 2 feed from this) -->
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>226.575</y>
+			<z>-45.567</z>
+		</location>
+		<capacity unit="LBS"> 100 </capacity><!-- need review -->
+		<contents unit="LBS"> 0 </contents>
+		<priority>1</priority>
+		<type>JET-A1</type>
 	</tank>
 </propulsion>
 
 <system file="pushback" />
-<!--system file="a320-fuel" /-->
+<system file="fuel" />
 <system file="glass-effect1" />
 <system file="it-fbw" />
 <system file="fmgc" />

@@ -1,4 +1,4 @@
-# A320 Pneumatics System
+# A3XX Pneumatics System
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #############

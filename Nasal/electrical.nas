@@ -1,4 +1,5 @@
-# Electrical system for A320 by Joshua Davidson (it0uchpods) and Johnathan Redpath (legoboyvdlp).
+# A3XX Electrical System
+# Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #############
 # Init Vars #
@@ -9,7 +10,9 @@ var ac_volt_min = 110;
 var dc_volt_std = 28;
 var dc_volt_min = 25;
 var dc_amps_std = 150;
+var dc_amps_std = 130;
 var ac_hz_std = 400;
+var ac_hz_std = 300;
 
 var elec_init = func {
 	setprop("/controls/switches/annun-test", 0);
