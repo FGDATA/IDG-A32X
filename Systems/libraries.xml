@@ -209,16 +209,16 @@
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
-			<table>
+				<table>
 					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
-					<entry><ind> 0</ind><dep> 0</dep></entry>
+					<entry><ind>    0</ind><dep>   0</dep></entry>
 					<entry><ind> 1000</ind><dep> 500</dep></entry>
-					<entry><ind> 5000</ind><dep> 1100</dep></entry>
-					<entry><ind> 20000</ind><dep> 5200</dep></entry>
-					<entry><ind> 30000</ind><dep> 6700</dep></entry>
-					<entry><ind> 30000</ind><dep> 7900</dep></entry>
-					<entry><ind> 40500</ind><dep> 8000</dep></entry>
-					</table>
+					<entry><ind> 5000</ind><dep>1100</dep></entry>
+					<entry><ind>20000</ind><dep>5200</dep></entry>
+					<entry><ind>30000</ind><dep>6700</dep></entry>
+					<entry><ind>30000</ind><dep>7900</dep></entry>
+					<entry><ind>40500</ind><dep>8000</dep></entry>
+				</table>
 			</expression>
 		</input>
 		<output>/systems/pressurization/targetalt</output>		
@@ -233,14 +233,14 @@
 			<expression>
 				<table>
 					<property>/systems/pressurization/cabinalt-norm</property>
-					<entry><ind> -1000</ind><dep> 16.5</dep></entry>
-					<entry><ind> 0</ind><dep> 14.7</dep></entry>
+					<entry><ind>-1000</ind><dep> 16.5</dep></entry>
+					<entry><ind>    0</ind><dep> 14.7</dep></entry>
 					<entry><ind> 1000</ind><dep> 14.6</dep></entry>
 					<entry><ind> 5000</ind><dep> 14.4</dep></entry>
-					<entry><ind> 20000</ind><dep> 12.1</dep></entry>
-					<entry><ind> 30000</ind><dep> 11.4</dep></entry>
-					<entry><ind> 30000</ind><dep> 11.0</dep></entry>
-					<entry><ind> 40500</ind><dep> 10.9</dep></entry>
+					<entry><ind>20000</ind><dep> 12.1</dep></entry>
+					<entry><ind>30000</ind><dep> 11.4</dep></entry>
+					<entry><ind>30000</ind><dep> 11.0</dep></entry>
+					<entry><ind>40500</ind><dep> 10.9</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -256,8 +256,8 @@
 			<expression>
 				<table>
 					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
-					<entry><ind> -1000</ind><dep> 16.5</dep></entry>
-					<entry><ind> 0</ind><dep> 14.7</dep></entry>
+					<entry><ind>-1000</ind><dep> 16.5</dep></entry>
+					<entry><ind>    0</ind><dep> 14.7</dep></entry>
 					<entry><ind> 1000</ind><dep> 14.2</dep></entry>
 					<entry><ind> 2000</ind><dep> 13.6</dep></entry>
 					<entry><ind> 3000</ind><dep> 13.2</dep></entry>
@@ -267,29 +267,30 @@
 					<entry><ind> 7000</ind><dep> 11.3</dep></entry>
 					<entry><ind> 8000</ind><dep> 10.9</dep></entry>
 					<entry><ind> 9000</ind><dep> 10.5</dep></entry>
-					<entry><ind> 10000</ind><dep> 10.1</dep></entry>
-					<entry><ind> 11000</ind><dep> 9.7</dep></entry>
-					<entry><ind> 12000</ind><dep> 9.3</dep></entry>
-					<entry><ind> 13000</ind><dep> 9</dep></entry>
-					<entry><ind> 14000</ind><dep> 8.6</dep></entry>
-					<entry><ind> 15000</ind><dep> 8.3</dep></entry>
-					<entry><ind> 16000</ind><dep> 8.0</dep></entry>
-					<entry><ind> 17000</ind><dep> 7.6</dep></entry>
-					<entry><ind> 18000</ind><dep> 7.3</dep></entry>
-					<entry><ind> 19000</ind><dep> 7.0</dep></entry>
-					<entry><ind> 20000</ind><dep> 6.8</dep></entry>
-					<entry><ind> 22000</ind><dep> 6.2</dep></entry>
-					<entry><ind> 24000</ind><dep> 5.7</dep></entry>
-					<entry><ind> 26000</ind><dep> 5.2</dep></entry>
-					<entry><ind> 28000</ind><dep> 4.7</dep></entry>
-                    <entry><ind> 30000</ind><dep> 4.4</dep></entry>
-					<entry><ind> 32000</ind><dep> 4.0</dep></entry>
-					<entry><ind> 34000</ind><dep> 3.6</dep></entry>
-					<entry><ind> 36000</ind><dep> 3.3</dep></entry>
-					<entry><ind> 38000</ind><dep> 3.0</dep></entry>
-					<entry><ind> 39000</ind><dep> 2.9</dep></entry>
-					<entry><ind> 40000</ind><dep> 2.7</dep></entry>
-					<entry><ind> 41000</ind><dep> 2.6</dep></entry>
+					<entry><ind>10000</ind><dep> 10.1</dep></entry>
+					<entry><ind>11000</ind><dep>  9.7</dep></entry>
+					<entry><ind>12000</ind><dep>  9.3</dep></entry>
+					<entry><ind>13000</ind><dep>  9.0</dep></entry>
+					<entry><ind>14000</ind><dep>  8.6</dep></entry>
+					<entry><ind>15000</ind><dep>  8.3</dep></entry>
+					<entry><ind>16000</ind><dep>  8.0</dep></entry>
+					<entry><ind>17000</ind><dep>  7.6</dep></entry>
+					<entry><ind>18000</ind><dep>  7.3</dep></entry>
+					<entry><ind>19000</ind><dep>  7.0</dep></entry>
+					<entry><ind>20000</ind><dep>  6.8</dep></entry>
+					<entry><ind>22000</ind><dep>  6.2</dep></entry>
+					<entry><ind>24000</ind><dep>  5.7</dep></entry>
+					<entry><ind>26000</ind><dep>  5.2</dep></entry>
+					<entry><ind>28000</ind><dep>  4.7</dep></entry>
+                    <entry><ind>30000</ind><dep>  4.4</dep></entry>
+					<entry><ind>32000</ind><dep>  4.0</dep></entry>
+					<entry><ind>34000</ind><dep>  3.6</dep></entry>
+					<entry><ind>36000</ind><dep>  3.3</dep></entry>
+					<entry><ind>38000</ind><dep>  3.0</dep></entry>
+					<entry><ind>39000</ind><dep>  2.9</dep></entry>
+					<entry><ind>40000</ind><dep>  2.7</dep></entry>
+					<entry><ind>41000</ind><dep>  2.6</dep></entry>
+					<entry><ind>42000</ind><dep>  2.5</dep></entry>
 				</table>
 			</expression>
 		</input>

@@ -18,59 +18,19 @@ var spinning = maketimer(0.05, func {
 	}
 });
 
-setprop("/systems/acconfig/autoconfig-running", 0);
-setprop("/systems/acconfig/spinning", 0);
-setprop("/systems/acconfig/spin", "-");
-var main_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/main/dialog", "Aircraft/A320Family/AircraftConfig/main.xml");
-var welcome_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/welcome/dialog", "Aircraft/A320Family/AircraftConfig/welcome.xml");
-var ps_load_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psload/dialog", "Aircraft/A320Family/AircraftConfig/psload.xml");
-var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "Aircraft/A320Family/AircraftConfig/psloaded.xml");
-var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/A320Family/AircraftConfig/ac_init.xml");
-var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/A320Family/AircraftConfig/help.xml");
-var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A320Family/AircraftConfig/fbw.xml");
-var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/A320Family/AircraftConfig/fail.xml");
-var fail_b_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/failb/dialog", "Aircraft/A320Family/AircraftConfig/fail-b.xml");
-spinning.start();
-init_dlg.open();
-
-setlistener("/sim/signals/fdm-initialized", func {
-	init_dlg.close();
-	welcome_dlg.open();
-	spinning.stop();
-});
-
-var saveSettings = func {
-	aircraft.data.add("/options/pfd/sidestick-pos", "/controls/adirs/skip");
-	aircraft.data.save();
-}
-
-saveSettings();
-
-var systemsReset = func {
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	systems.press_init();
-	systems.fuel_init();
-	fmgc.FMGCinit();
-	mcdu1.MCDU_reset();
-	mcdu2.MCDU_reset();
-	fmgc.APinit();
-	setprop("/it-autoflight/input/fd1", 1);
-	setprop("/it-autoflight/input/fd2", 1);
-	libraries.ECAMinit();
-	libraries.variousReset();
-}
-
 var failReset = func {
+	setprop("/systems/failures/elac1", 0);
+	setprop("/systems/failures/elac2", 0);
+	setprop("/systems/failures/sec1", 0);
+	setprop("/systems/failures/sec2", 0);
+	setprop("/systems/failures/sec3", 0);
+	setprop("/systems/failures/fac1", 0);
+	setprop("/systems/failures/fac2", 0);
 	setprop("/systems/failures/aileron-left", 0);
 	setprop("/systems/failures/aileron-right", 0);
 	setprop("/systems/failures/elevator-left", 0);
 	setprop("/systems/failures/elevator-right", 0);
 	setprop("/systems/failures/rudder", 0);
-	setprop("/systems/failures/spoiler-left", 0);
-	setprop("/systems/failures/spoiler-right", 0);
 	setprop("/systems/failures/elec-ac-ess", 0);
 	setprop("/systems/failures/elec-batt1", 0);
 	setprop("/systems/failures/elec-batt2", 0);
@@ -94,19 +54,52 @@ var failReset = func {
 	setprop("/systems/failures/pump-yellow-elec", 0);
 }
 
-var failPage = func(page) {
-	if (page == 0) {
-		gui.popupTip("This is the first page!");
-	} else if (page == 1) {
-		fail_dlg.open();
-		fail_b_dlg.close();
-	} else if (page == 2) {
-		fail_dlg.close();
-		fail_b_dlg.open();
-#		fail_c_dlg.open(); # Fail C Doesn't exist yet!!! :)
-	} else if (page == 3) {
-		gui.popupTip("No Moar!");
-	}
+setprop("/systems/failures/spoiler-left", 0);
+setprop("/systems/failures/spoiler-right", 0); 
+failReset();
+setprop("/systems/acconfig/autoconfig-running", 0);
+setprop("/systems/acconfig/spinning", 0);
+setprop("/systems/acconfig/spin", "-");
+var main_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/main/dialog", "Aircraft/A320Family/AircraftConfig/main.xml");
+var welcome_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/welcome/dialog", "Aircraft/A320Family/AircraftConfig/welcome.xml");
+var ps_load_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psload/dialog", "Aircraft/A320Family/AircraftConfig/psload.xml");
+var ps_loaded_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psloaded/dialog", "Aircraft/A320Family/AircraftConfig/psloaded.xml");
+var init_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/init/dialog", "Aircraft/A320Family/AircraftConfig/ac_init.xml");
+var help_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/help/dialog", "Aircraft/A320Family/AircraftConfig/help.xml");
+var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/A320Family/AircraftConfig/fbw.xml");
+var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/A320Family/AircraftConfig/fail.xml");
+spinning.start();
+init_dlg.open();
+
+setlistener("/sim/signals/fdm-initialized", func {
+	init_dlg.close();
+	welcome_dlg.open();
+	spinning.stop();
+});
+
+var saveSettings = func {
+	aircraft.data.add("/options/pfd/sidestick-pos", "/controls/adirs/skip");
+	aircraft.data.save();
+}
+
+saveSettings();
+
+var systemsReset = func {
+	fbw.fctlInit();
+	systems.elec_init();
+	systems.ADIRSreset();
+	systems.pneu_init();
+	systems.hyd_init();
+	systems.press_init();
+	systems.fuel_init();
+	fmgc.FMGCinit();
+	mcdu1.MCDU_reset();
+	mcdu2.MCDU_reset();
+	fmgc.APinit();
+	setprop("/it-autoflight/input/fd1", 1);
+	setprop("/it-autoflight/input/fd2", 1);
+	libraries.ECAMinit();
+	libraries.variousReset();
 }
 
 ################
@@ -130,6 +123,7 @@ var colddark = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	if (getprop("/engines/engine[1]/n2") < 2) {
@@ -174,6 +168,7 @@ var beforestart = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	setprop("/controls/APU/master", 0);
@@ -249,6 +244,7 @@ var taxi = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	setprop("/controls/APU/master", 0);

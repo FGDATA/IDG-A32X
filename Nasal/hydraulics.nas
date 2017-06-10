@@ -6,9 +6,9 @@
 #############
 
 var hyd_init = func {
-	setprop("/controls/hydraulic/eng1-pump", 0);
-	setprop("/controls/hydraulic/eng2-pump", 0);
-	setprop("/controls/hydraulic/elec-pump-blue", 0);
+	setprop("/controls/hydraulic/eng1-pump", 1);
+	setprop("/controls/hydraulic/eng2-pump", 1);
+	setprop("/controls/hydraulic/elec-pump-blue", 1);
 	setprop("/controls/hydraulic/elec-pump-yellow", 0);
 	setprop("/controls/hydraulic/ptu", 1);
 	setprop("/controls/hydraulic/rat-man", 0);
@@ -18,6 +18,7 @@ var hyd_init = func {
 	setprop("/systems/hydraulic/blue-psi", 0);
 	setprop("/systems/hydraulic/green-psi", 0);
 	setprop("/systems/hydraulic/yellow-psi", 0);
+	setprop("/controls/gear/brake-parking", 0);
 	hyd_timer.start();
 }
 
