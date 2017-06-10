@@ -157,6 +157,7 @@ var triggerDoor = func(door, doorName, doorDesc) {
 #######################
  
 setlistener("/sim/signals/fdm-initialized", func {
+	fbw.fctlInit();
 	systems.elec_init();
 	systems.adirs_init();
 	systems.pneu_init();

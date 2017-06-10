@@ -515,36 +515,6 @@
 	</gear>
 	
 	<systems>
-		<failures n="0">
-			<aileron-left type="bool">0</aileron-left>
-			<aileron-right type="bool">0</aileron-right>
-			<elevator-left type="bool">0</elevator-left>
-			<elevator-right type="bool">0</elevator-right>
-			<rudder type="bool">0</rudder>
-			<spoiler-left type="bool">0</spoiler-left>
-			<spoiler-right type="bool">0</spoiler-right>
-			<elec-ac-ess type="bool">0</elec-ac-ess>
-			<elec-batt1 type="bool">0</elec-batt1>
-			<elec-batt2 type="bool">0</elec-batt2>
-			<elec-galley type="bool">0</elec-galley>
-			<elec-genapu type="bool">0</elec-genapu>
-			<elec-gen1 type="bool">0</elec-gen1>
-			<elec-gen2 type="bool">0</elec-gen2>
-			<bleed-apu type="bool">0</bleed-apu>
-			<bleed-ext type="bool">0</bleed-ext>
-			<bleed-eng1 type="bool">0</bleed-eng1>
-			<bleed-eng2 type="bool">0</bleed-eng2>
-			<pack1 type="bool">0</pack1>
-			<pack2 type="bool">0</pack2>
-			<hyd-blue type="bool">0</hyd-blue>
-			<hyd-green type="bool">0</hyd-green>
-			<hyd-yellow type="bool">0</hyd-yellow>
-			<ptu type="bool">0</ptu>
-			<pump-blue type="bool">0</pump-blue>
-			<pump-green type="bool">0</pump-green>
-			<pump-yellow-eng type="bool">0</pump-yellow-eng>
-			<pump-yellow-elec type="bool">0</pump-yellow-elec>
-		</failures>
 		<fuel n="0">
 			<only-use-ctr-tank type="bool">0</only-use-ctr-tank>
 			<tank n="2">
