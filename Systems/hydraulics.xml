@@ -66,7 +66,7 @@
 						</greater-than-equals>
 					</or>
 					<equals>
-						<property>/surface-positions/speedbrake-pos-norm</property>
+						<property>/controls/flight/speedbrake-norm</property>
 						<value>1.0</value>
 					</equals>
 					<equals>
@@ -85,7 +85,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property>
+					<property>/controls/flight/speedbrake-norm</property>
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -182,7 +182,7 @@
 						</greater-than-equals>
 					</or>
 					<equals>
-						<property>/surface-positions/speedbrake-pos-norm</property>
+						<property>/controls/flight/speedbrake-norm</property>
 						<value>1.0</value>
 					</equals>
 					<equals>
@@ -201,7 +201,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property>
+					<property>/controls/flight/speedbrake-norm</property>
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>-0.0</ind><dep>   0</dep></entry>
@@ -316,7 +316,7 @@
 					</equals>
 				</and>
 			</condition>
-			<property>/surface-positions/speedbrake-pos-norm</property> 
+			<property>/controls/flight/speedbrake-norm</property> 
 		</input>
 		<input>
 			<condition>
@@ -380,7 +380,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/surface-positions/speedbrake-pos-norm</property> 
+						<property>/controls/flight/speedbrake-norm</property> 
 						<entry><ind>0.1</ind><dep>0.0</dep></entry>
 						<entry><ind>0.5</ind><dep>0.3</dep></entry>
 						<entry><ind>1.0</ind><dep>0.7</dep></entry>
@@ -423,7 +423,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/surface-positions/speedbrake-pos-norm</property> 
+						<property>/controls/flight/speedbrake-norm</property> 
 						<entry><ind>0.1</ind><dep>0.0</dep></entry>
 						<entry><ind>0.5</ind><dep>0.3</dep></entry>
 						<entry><ind>1.0</ind><dep>1.0</dep></entry>
@@ -518,7 +518,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/spoiler-left-fbw-cmd</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -556,7 +556,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -647,7 +647,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/spoiler-left-fbw-cmd</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -685,7 +685,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -778,7 +778,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>0.0</ind><dep>   0</dep></entry>
@@ -889,7 +889,7 @@
 					</equals>
 				</and>
 			</condition>
-			<property>/surface-positions/speedbrake-pos-norm</property> 
+			<property>/controls/flight/speedbrake-norm</property> 
 		</input>
 		<input>
 			<condition>
@@ -953,7 +953,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/surface-positions/speedbrake-pos-norm</property> 
+						<property>/controls/flight/speedbrake-norm</property> 
 						<entry><ind>0.1</ind><dep>0.0</dep></entry>
 						<entry><ind>0.5</ind><dep>0.3</dep></entry>
 						<entry><ind>1.0</ind><dep>0.7</dep></entry>
@@ -996,7 +996,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/surface-positions/speedbrake-pos-norm</property> 
+						<property>/controls/flight/speedbrake-norm</property> 
 						<entry><ind>0.1</ind><dep>0.0</dep></entry>
 						<entry><ind>0.5</ind><dep>0.3</dep></entry>
 						<entry><ind>1.0</ind><dep>1.0</dep></entry>
@@ -1091,7 +1091,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/spoiler-right-fbw-cmd</property> 
 						<entry><ind> 0.0</ind><dep>   0</dep></entry>
@@ -1129,7 +1129,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind> 0.0</ind><dep>   0</dep></entry>
@@ -1220,7 +1220,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/spoiler-right-fbw-cmd</property> 
 						<entry><ind> 0.0</ind><dep>   0</dep></entry>
@@ -1258,7 +1258,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind> 0.0</ind><dep>   0</dep></entry>
@@ -1351,7 +1351,7 @@
 			</condition>
 			<expression>
 				<sum>
-					<property>/surface-positions/speedbrake-pos-norm</property> 
+					<property>/controls/flight/speedbrake-norm</property> 
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind> 0.0</ind><dep>   0</dep></entry>
@@ -1429,16 +1429,6 @@
 		<output>/controls/flight/spoiler-r-sum</output>
 	</filter>
 	
-	<!-- Spoiler Lever -->
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/fdm/jsbsim/fcs/speedbrake-cmd-norm</input>
-		<output>/controls/flight/spoiler-output</output>
-	</filter>
-	
  <!-- =============================================================== -->
  <!-- Roll Control                                                    -->
  <!-- =============================================================== -->
@@ -1464,6 +1454,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/aileron-sum</output>
+		<min>-1.0</min>
+		<max>1.0</max>
 	</filter>
 
  <!-- =============================================================== -->
@@ -1611,6 +1603,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/elevator-sum</output>
+		<min>-1.0</min>
+		<max>1.0</max>
 	</filter>
 	
  <!-- =============================================================== -->
@@ -1692,6 +1686,63 @@
  <!-- =============================================================== -->
  <!-- Speedbrake Logic                                                -->
  <!-- =============================================================== -->
+ 
+	<!-- Speedbrake Sum -->
+	
+	<filter>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<product>
+					<sum>
+						<property>/controls/flight/spoiler-l-sum</property>
+						<property>/controls/flight/spoiler-r-sum</property>
+					</sum>
+					<value>0.15</value>
+				</product>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<expression>
+				<product>
+					<sum>
+						<property>/controls/flight/spoiler-l-sum</property>
+						<property>/controls/flight/spoiler-r-sum</property>
+					</sum>
+					<value>0.1</value>
+				</product>
+			</expression>
+		</input>
+		<output>/controls/flight/speedbrake-output</output>
+	</filter>
+ 
+	<!-- Auto Speedbrake -->
 	
 	<flipflop>
 		<name>Auto Speedbrake</name>
@@ -1748,8 +1799,11 @@
 		<output>/controls/flight/speedbrake-lever</output>	
 	</flipflop>
 
+ 
+	<!-- Speedbrake Selector -->
+	
 	<filter>
-		<name>Main speedbrake controller</name>
+		<name>Main Speedbrake Controller</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -1761,6 +1815,14 @@
 			</expression>
 		</input>
 		<output>/controls/flight/speedbrake</output>
+	</filter>
+	
+	<filter>
+		<name>Speedbrake Norm</name>
+		<type>noise-spike</type>
+		<input>/controls/flight/speedbrake</input>
+		<output>/controls/flight/speedbrake-norm</output>
+		<max-rate-of-change>0.7</max-rate-of-change>
 	</filter>
 
 </PropertyList>
