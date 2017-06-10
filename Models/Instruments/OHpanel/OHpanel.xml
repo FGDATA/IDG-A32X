@@ -3185,7 +3185,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/pressurization/auto</property>
+				<property>/systems/pressurization/auto</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -3217,7 +3217,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/pressurization/auto</property>
+					<property>/systems/pressurization/auto</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -3230,7 +3230,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>DitchBtn</object-name>
+		<object-name>DitchBtn1</object-name>
 		<object-name>DitchBtn2O</object-name>
 		<action>
 			<button>0</button>

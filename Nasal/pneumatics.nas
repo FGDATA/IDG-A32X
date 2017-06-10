@@ -44,7 +44,7 @@ var pneu_init = func {
 	setprop("/systems/pressurization/targetalt", altitude); 
 	setprop("/systems/pressurization/diff-to-target", "0");
 	setprop("/systems/pressurization/ditchingpb", 0);
-	setprop("/systems/pressurization/targetvs", 0);
+	setprop("/systems/pressurization/targetvs", "0");
 	pneu_timer.start();
 }
 
@@ -187,16 +187,6 @@ var master_pneu = func {
 	}
 	
 	if (ditch and auto) {
-		setprop("/systems/pressurization/outflowpos", "1");
-	} 
-	
-	if ((targetvs => 0) and (targetvs < 1000) and !ditch) {
-		setprop("/systems/pressurization/outflowpos", "0.75");
-	} else if ((targetvs => 1000) and (targetvs < 1999) and !ditch) {
-		setprop("/systems/pressurization/outflowpos", "0.55");
-	} else if ((targetvs => 2000) and !ditch) {
-		setprop("/systems/pressurization/outflowpos", "0.25");
-	} else if ((targetvs < 0) and !ditch) {
 		setprop("/systems/pressurization/outflowpos", "1");
 	}
 }

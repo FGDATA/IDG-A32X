@@ -98,7 +98,6 @@ var systemsReset = func {
 	systems.ADIRSreset();
 	systems.pneu_init();
 	systems.hyd_init();
-	systems.press_init();
 	systems.fuel_init();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_reset();
