@@ -29,10 +29,6 @@ var pneu_init = func {
 	setprop("/systems/pneumatic/startpsir", 0);
 	setprop("/systems/pneumatic/eng1-starter", 0);
 	setprop("/systems/pneumatic/eng2-starter", 0);
-	pneu_timer.start();
-}
-
-var press_init = func {
 	setprop("/FMGC/internal/dep-arpt", "");
 	setprop("/systems/pressurization/mode", "GN");
 	setprop("/systems/pressurization/vs", "0");
@@ -43,10 +39,13 @@ var press_init = func {
 	setprop("/systems/pressurization/outflowpos", "0");
 	setprop("/systems/pressurization/deltap-norm", "0");
 	setprop("/systems/pressurization/outflowpos-norm", "0");
-	var altitude = getprop("/position/altitude-ft");
+	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	setprop("/systems/pressurization/cabinalt", altitude);
 	setprop("/systems/pressurization/targetalt", altitude); 
 	setprop("/systems/pressurization/diff-to-target", "0");
+	setprop("/systems/pressurization/ditchingpb", 0);
+	setprop("/systems/pressurization/targetvs", 0);
+	pneu_timer.start();
 }
 
 #######################
@@ -157,27 +156,25 @@ var master_pneu = func {
 	var deltap = getprop("/systems/pressurization/deltap");
 	var outflow = getprop("/systems/pressurization/outflowpos"); 
 	var speed = getprop("/velocities/groundspeed-kt");
-	var cabinalt = getprop("/systems/pressurization/cabinalt");
-	var dep_apt = getprop("autopilot/route-manager/departure/airport");
-	var airport_dep_elev_ft = getprop("autopilot/route-manager/departure/field-elevation-ft");
-	var altitude = getprop("/position/altitude-ft");
+	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var airport_arr_elev_ft = getprop("autopilot/route-manager/destination/field-elevation-ft");
 	var vs = getprop("/systems/pressurization/vs-norm");
+	var ditch = getprop("/systems/pressurization/ditchingpb");
 	var outflowpos = getprop("/systems/pressurization/outflowpos");
 	var cabinalt = getprop("/systems/pressurization/cabinalt");
 	var targetalt = getprop("/systems/pressurization/targetalt");
 	var targetvs = getprop("/systems/pressurization/targetvs");
 	var ambient = getprop("/systems/pressurization/ambientpsi");
 	var cabinpsi = getprop("/systems/pressurization/cabinpsi");
+	var pause = getprop("/sim/freeze/master");
+	var auto = getprop("/systems/pressurization/auto");
 	
 	setprop("/systems/pressurization/diff-to-target", targetalt - cabinalt); 
 	setprop("/systems/pressurization/deltap", cabinpsi - ambient); 
 
 	if ((pressmode == "GN") and (pressmode != "CL") and (wowl and wowr) and ((state1 == "MCT") or (state1 == "TOGA")) and ((state2 == "MCT") or (state2 == "TOGA"))) {
 		setprop("/systems/pressurization/mode", "TO");
-	}
-	
-	if (((!wowl) or (!wowr)) and (speed > 100) and (pressmode == "TO")) {
+	} else if (((!wowl) or (!wowr)) and (speed > 100) and (pressmode == "TO")) {
 		setprop("/systems/pressurization/mode", "CL");	
 	}
 	
@@ -185,8 +182,22 @@ var master_pneu = func {
 		setprop("/systems/pressurization/vs", targetvs);
 	}
 	
-	if (cabinalt != targetalt and !wowl and !wowr) {
+	if (cabinalt != targetalt and !wowl and !wowr and !pause) {
 		setprop("/systems/pressurization/cabinalt", cabinalt + vs);
+	}
+	
+	if (ditch and auto) {
+		setprop("/systems/pressurization/outflowpos", "1");
+	} 
+	
+	if ((targetvs => 0) and (targetvs < 1000) and !ditch) {
+		setprop("/systems/pressurization/outflowpos", "0.75");
+	} else if ((targetvs => 1000) and (targetvs < 1999) and !ditch) {
+		setprop("/systems/pressurization/outflowpos", "0.55");
+	} else if ((targetvs => 2000) and !ditch) {
+		setprop("/systems/pressurization/outflowpos", "0.25");
+	} else if ((targetvs < 0) and !ditch) {
+		setprop("/systems/pressurization/outflowpos", "1");
 	}
 }
 

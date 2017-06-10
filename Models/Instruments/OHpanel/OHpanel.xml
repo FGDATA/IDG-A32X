@@ -3171,7 +3171,7 @@
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<!--binding>
+			<binding>
 				<condition>
 					<or>
 						<greater-than-equals>
@@ -3186,7 +3186,7 @@
 				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pressurization/auto</property>
-			</binding-->
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/btn1", 1);</script>
@@ -3235,7 +3235,7 @@
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<!--binding>
+			<binding>
 				<condition>
 					<or>
 						<greater-than-equals>
@@ -3257,8 +3257,8 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/ditching</property>
-			</binding-->
+				<property>/systems/pressurization/ditchingpb</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/btn1", 1);</script>
@@ -3272,7 +3272,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/pressurization/unused-oh-btn</property>
+					<property>/systems/pressurization/ditchingpb</property>
 					<value>1</value>
 				</equals>
 				<equals>
