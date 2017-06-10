@@ -189,8 +189,6 @@
 				<float n="6" alias="/controls/flight/aileron-left" />
 				<float n="7" alias="/controls/flight/aileron-right" />
 				<float n="8" alias="/controls/flight/rudder-fdm" />
-				<float n="9" alias="/controls/flight/spoiler-left" />
-				<float n="10" alias="/controls/flight/spoiler-right" />
 				<float n="11" alias="/fdm/jsbsim/fcs/slat-pos-norm" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
 				<int n="3" alias="/controls/lighting/landing-lights[1]" />
@@ -434,9 +432,19 @@
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>
 			<elevator-sum>0.2</elevator-sum>
-			<spoiler-left>0.0</spoiler-left>
+			<spoiler-l1>0.0</spoiler-l1>
+			<spoiler-l2>0.0</spoiler-l2>
+			<spoiler-l3>0.0</spoiler-l3>
+			<spoiler-l4>0.0</spoiler-l4>
+			<spoiler-l5>0.0</spoiler-l5>
+			<spoiler-l-sum>0.0</spoiler-l-sum>
 			<spoiler-output>0.0</spoiler-output>
-			<spoiler-right>0.0</spoiler-right>
+			<spoiler-r1>0.0</spoiler-r1>
+			<spoiler-r2>0.0</spoiler-r2>
+			<spoiler-r3>0.0</spoiler-r3>
+			<spoiler-r4>0.0</spoiler-r4>
+			<spoiler-r5>0.0</spoiler-r5>
+			<spoiler-r-sum>0.0</spoiler-r-sum>
 			<speedbrake-arm>0</speedbrake-arm>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<speedbrake-lever type="double">0</speedbrake-lever>
@@ -697,6 +705,36 @@
 					<value>0</value>
 				</binding>
 				<binding>
+					<condition>
+						<or>
+							<equals>
+								<property>/gear/gear[1]/wow</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/gear/gear[2]/wow</property>
+								<value>1</value>
+							</equals>
+						</or>
+					</condition>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake-lever</property>
+					<value>0</value>
+					<value>1</value>
+				</binding>
+				<binding>
+					<condition>
+						<and>
+							<equals>
+								<property>/gear/gear[1]/wow</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/gear/gear[2]/wow</property>
+								<value>0</value>
+							</equals>
+						</and>
+					</condition>
 					<command>property-cycle</command>
 					<property>controls/flight/speedbrake-lever</property>
 					<value>0</value>
