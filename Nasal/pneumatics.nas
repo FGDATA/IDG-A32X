@@ -6,13 +6,13 @@
 #############
 
 var pneu_init = func {
-	setprop("/controls/pneumatic/switches/bleed1", 0);
-	setprop("/controls/pneumatic/switches/bleed2", 0);
+	setprop("/controls/pneumatic/switches/bleed1", 1);
+	setprop("/controls/pneumatic/switches/bleed2", 1);
 	setprop("/controls/pneumatic/switches/bleedapu", 0);
 	setprop("/controls/pneumatic/switches/groundair", 0);
-	setprop("/controls/pneumatic/switches/pack1", 0);
-	setprop("/controls/pneumatic/switches/pack2", 0);
-	setprop("/controls/pneumatic/switches/hot-air", 0);
+	setprop("/controls/pneumatic/switches/pack1", 1);
+	setprop("/controls/pneumatic/switches/pack2", 1);
+	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/controls/pneumatic/switches/ram-air", 0);
 	setprop("/controls/pneumatic/switches/pack-flo", 9); # LO: 7, NORM: 9, HI: 11.
 	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later, once I get the knob animated. -JD
@@ -156,7 +156,7 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
+	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);

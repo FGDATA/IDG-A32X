@@ -443,7 +443,7 @@
 			<slats>0</slats>
 		</flight>
 		<gear>
-			<brake-parking type="bool">true</brake-parking>
+			<brake-parking type="bool">0</brake-parking>
             <tiller-cmd-norm type="double">0</tiller-cmd-norm>
 			<tiller-enabled type="bool">0</tiller-enabled>
 		</gear>
@@ -460,7 +460,7 @@
 			<overhead-panel-norm type="double">0.0</overhead-panel-norm>
 			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
 			<strobe type="bool">0</strobe>
-			<taxi-light-switch type="bool">0</taxi-light-switch>
+			<taxi-light-switch type="float">0</taxi-light-switch>
 		</lighting>
 		<switches>
 			<!-- Smoking is bad :P -->

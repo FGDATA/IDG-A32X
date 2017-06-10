@@ -13,10 +13,19 @@
 		<object-name>ACPack1Btn2O</object-name>
 		<object-name>ACPack2Btn1F</object-name>
 		<object-name>ACPack2Btn2O</object-name>
+		<object-name>APUBleedBtn1F</object-name>
+		<object-name>APUBleedBtn2O</object-name>
+		<object-name>APUGenBtn1F</object-name>
+		<object-name>APUGenBtn2O</object-name>
+		<object-name>APUMasterBtn1F</object-name>
+		<object-name>APUMasterBtn2O</object-name>
+		<object-name>APUStartBtn1A</object-name>
+		<object-name>APUStartBtn2O</object-name>
 		<object-name>BatteryBtn11F</object-name>
 		<object-name>BatteryBtn12O</object-name>
 		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn22O</object-name>
+		<object-name>ExtPwrBtn2O</object-name>
 		<object-name>Gen1Btn1F</object-name>
 		<object-name>Gen1Btn2O</object-name>
 		<object-name>Gen2Btn1F</object-name>
@@ -47,14 +56,6 @@
 		<type>select</type>
 		<object-name>ACESSFeedBtn1F</object-name>
 		<object-name>ACESSFeedBtn2O</object-name>
-		<object-name>APUBleedBtn1F</object-name>
-		<object-name>APUBleedBtn2O</object-name>
-		<object-name>APUGenBtn1F</object-name>
-		<object-name>APUGenBtn2O</object-name>
-		<object-name>APUMasterBtn1F</object-name>
-		<object-name>APUMasterBtn2O</object-name>
-		<object-name>APUStartBtn1A</object-name>
-		<object-name>APUStartBtn2O</object-name>
 		<object-name>ADR1Btn1F</object-name>
 		<object-name>ADR1Btn2O</object-name>
 		<object-name>ADR2Btn1F</object-name>
@@ -72,7 +73,6 @@
 		<object-name>Eng1BleedBtn2O</object-name>
 		<object-name>Eng2BleedBtn1F</object-name>
 		<object-name>Eng2BleedBtn2O</object-name>
-		<object-name>ExtPwrBtn2O</object-name>
 		<object-name>FuelModeBtn1F</object-name>
 		<object-name>FuelModeBtn2O</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
@@ -2354,6 +2354,16 @@
 					<property>/systems/failures/pack1</property>
 					<value>1</value>
 				</equals>
+				<and>
+					<equals>
+						<property>/controls/pneumatic/switches/pack1</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>/systems/pneumatic/pack1</property>
+						<value>5</value>
+					</less-than-equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2628,6 +2638,16 @@
 					<property>/systems/failures/pack2</property>
 					<value>1</value>
 				</equals>
+				<and>
+					<equals>
+						<property>/controls/pneumatic/switches/pack2</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>/systems/pneumatic/pack2</property>
+						<value>5</value>
+					</less-than-equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>

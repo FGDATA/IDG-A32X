@@ -13,13 +13,13 @@ var ac_hz_std = 400;
 
 var elec_init = func {
 	setprop("/controls/switches/annun-test", 0);
-	setprop("/controls/electrical/switches/galley", 0);
+	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/electrical/switches/idg1", 0);
 	setprop("/controls/electrical/switches/idg2", 0);
-	setprop("/controls/electrical/switches/gen1", 0);
-	setprop("/controls/electrical/switches/gen2", 0);
+	setprop("/controls/electrical/switches/gen1", 1);
+	setprop("/controls/electrical/switches/gen2", 1);
 	setprop("/controls/electrical/switches/emer-gen", 0);
-	setprop("/controls/electrical/switches/gen-apu", 0);
+	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/gen-ext", 0);
 	setprop("/controls/electrical/switches/apu-ext-crosstie", 1);
 	setprop("/controls/electrical/switches/ac-ess-feed", 1);
