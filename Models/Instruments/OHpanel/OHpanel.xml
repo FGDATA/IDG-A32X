@@ -25,11 +25,14 @@
 		<object-name>BatteryBtn12O</object-name>
 		<object-name>BatteryBtn21F</object-name>
 		<object-name>BatteryBtn22O</object-name>
+		<object-name>BusTieBtn2O</object-name>
+		<object-name>DitchBtn2O</object-name>
 		<object-name>ExtPwrBtn2O</object-name>
 		<object-name>Gen1Btn1F</object-name>
 		<object-name>Gen1Btn2O</object-name>
 		<object-name>Gen2Btn1F</object-name>
 		<object-name>Gen2Btn2O</object-name>
+		<object-name>RamAirBtn2O</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -64,7 +67,6 @@
 		<object-name>ADR3Btn2O</object-name>
 		<object-name>BlueElecPump1F</object-name>
 		<object-name>BlueElecPump2O</object-name>
-		<object-name>BusTieBtn2O</object-name>
 		<object-name>CFuelTank1Btn1F</object-name>
 		<object-name>CFuelTank1Btn2O</object-name>
 		<object-name>CFuelTank2Btn1F</object-name>
@@ -149,7 +151,6 @@
 	</animation>
 	
 	<!-- IRS 1 -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>IR1ModeKnb</object-name>
@@ -242,7 +243,6 @@
 	</animation>
 	
 	<!-- IRS 2 -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>IR2ModeKnb</object-name>
@@ -335,7 +335,6 @@
 	</animation>
 
 	<!-- IRS 3 -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>IR3ModeKnb</object-name>
@@ -428,7 +427,6 @@
 	</animation>
 	
 	<!-- IR Display Data Knob -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>IRDisplayDataKnb</object-name>
@@ -497,7 +495,6 @@
 	</animation>
 	
 	<!-- IRS Display Select Knob -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>IRDisplaySelectKnb</object-name>
@@ -589,6 +586,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[0]/off</property>
 			</binding>
@@ -644,6 +653,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[1]/off</property>
 			</binding>
@@ -699,6 +720,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/adirs/adr[2]/off</property>
 			</binding>
@@ -994,6 +1027,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/eng1-pump</property>
 			</binding>
@@ -1046,6 +1091,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/rat-man</property>
 			</binding>
@@ -1067,6 +1132,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/elec-pump-blue</property>
 			</binding>
@@ -1122,6 +1199,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/ptu</property>
 			</binding>
@@ -1177,6 +1266,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/eng2-pump</property>
 			</binding>
@@ -1232,6 +1333,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/hydraulic/elec-pump-yellow</property>
 			</binding>
@@ -1287,6 +1400,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/x-feed</property>
 			</binding>
@@ -1341,6 +1466,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank2pump1</property>
 			</binding>
@@ -1394,6 +1531,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank2pump2</property>
 			</binding>
@@ -1447,6 +1596,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank3pump1</property>
 			</binding>
@@ -1499,6 +1660,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/mode</property>
 			</binding>
@@ -1552,6 +1725,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank3pump2</property>
 			</binding>
@@ -1605,6 +1790,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank4pump1</property>
 			</binding>
@@ -1658,6 +1855,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/fuel/tank4pump2</property>
 			</binding>
@@ -1712,6 +1921,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/galley</property>
 			</binding>
@@ -1876,6 +2097,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/systems/unused/unused-oh</property>
 			</binding>
@@ -1910,6 +2143,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen1</property>
 			</binding>
@@ -1974,6 +2227,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/ac-ess-feed</property>
 			</binding>
@@ -2029,6 +2294,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen-apu</property>
 			</binding>
@@ -2080,6 +2365,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/apu-ext-crosstie</property>
 			</binding>
@@ -2177,6 +2482,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/electrical/switches/gen2</property>
 			</binding>
@@ -2241,6 +2566,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/systems/unused/unused-oh</property>
 			</binding>
@@ -2335,6 +2672,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/pack1</property>
 			</binding>
@@ -2400,6 +2757,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleed1</property>
 			</binding>
@@ -2455,6 +2824,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleedapu</property>
 			</binding>
@@ -2510,6 +2899,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/bleed2</property>
 			</binding>
@@ -2564,6 +2965,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/hot-air</property>
 			</binding>
@@ -2619,6 +3032,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/pack2</property>
 			</binding>
@@ -2681,14 +3114,29 @@
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<!--binding>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/ram-air</property>
-			</binding-->
-			<binding>
-				<command>property-assign</command>
-				<property>/controls/pneumatic/switches/ram-air</property>
-				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2704,6 +3152,127 @@
 			<or>
 				<equals>
 					<property>/controls/pneumatic/switches/ram-air</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Cabin Pressurization -->
+	<animation>
+		<type>pick</type>
+		<object-name>CabinPressModeBtn</object-name>
+		<object-name>CabinPressModeBtn1F</object-name>
+		<object-name>CabinPressModeBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<!--binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/auto</property>
+			</binding-->
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>CabinPressModeBtn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/systems/failures/pack2</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>CabinPressModeBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pressurization/auto</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>DitchBtn</object-name>
+		<object-name>DitchBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<!--binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/ditching</property>
+			</binding-->
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/btn1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>DitchBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/pressurization/unused-oh-btn</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -3005,6 +3574,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>/controls/APU/master</property>
 			</binding>
@@ -3060,6 +3649,26 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>
 				if (getprop("/controls/APU/master") == 1) {

@@ -130,6 +130,7 @@ var colddark = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	if (getprop("/engines/engine[1]/n2") < 2) {
@@ -174,6 +175,7 @@ var beforestart = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	setprop("/controls/APU/master", 0);
@@ -249,6 +251,7 @@ var taxi = func {
 	libraries.flaptimer.stop();
 	setprop("/controls/flight/speedbrake-arm", 0);
 	setprop("/controls/gear/gear-down", 1);
+	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
 	setprop("/controls/APU/master", 0);

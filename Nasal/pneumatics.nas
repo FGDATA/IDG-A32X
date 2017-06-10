@@ -16,6 +16,7 @@ var pneu_init = func {
 	setprop("/controls/pneumatic/switches/ram-air", 0);
 	setprop("/controls/pneumatic/switches/pack-flo", 9); # LO: 7, NORM: 9, HI: 11.
 	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later, once I get the knob animated. -JD
+	setprop("/controls/pressurization/auto", 1);
 	setprop("/systems/pneumatic/bleed1", 0);
 	setprop("/systems/pneumatic/bleed2", 0);
 	setprop("/systems/pneumatic/bleedapu", 0);
@@ -48,53 +49,9 @@ var press_init = func {
 	setprop("/systems/pressurization/diff-to-target", "0");
 }
 
-##############
-# Main Loops #
-##############
-var master_press = func {
-	var phase = getprop("/FMGC/status/phase");
-	var pressmode = getprop("/systems/pressurization/mode");
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
-	var wowl = getprop("/gear/gear[1]/wow");
-	var wowr = getprop("/gear/gear[2]/wow");
-	var deltap = getprop("/systems/pressurization/deltap");
-	var outflow = getprop("/systems/pressurization/outflowpos"); 
-	var speed = getprop("/velocities/groundspeed-kt");
-	var cabinalt = getprop("/systems/pressurization/cabinalt");
-	var dep_apt = getprop("autopilot/route-manager/departure/airport");
-	var airport_dep_elev_ft = getprop("autopilot/route-manager/departure/field-elevation-ft");
-	var altitude = getprop("/position/altitude-ft");
-	var airport_arr_elev_ft = getprop("autopilot/route-manager/destination/field-elevation-ft");
-	var vs = getprop("/systems/pressurization/vs-norm");
-	var outflowpos = getprop("/systems/pressurization/outflowpos");
-	var cabinalt = getprop("/systems/pressurization/cabinalt");
-	var targetalt = getprop("/systems/pressurization/targetalt");
-	var targetvs = getprop("/systems/pressurization/targetvs");
-	var ambient = getprop("/systems/pressurization/ambientpsi");
-	var cabinpsi = getprop("/systems/pressurization/cabinpsi");
-	
-	setprop("/systems/pressurization/diff-to-target", targetalt - cabinalt); 
-	setprop("/systems/pressurization/deltap", cabinpsi - ambient); 
-	# switch mode to TO
-	if ((pressmode == "GN") and (pressmode != "CL") and (wowl and wowr) and ((state1 == "MCT") or (state1 == "TOGA")) and ((state2 == "MCT") or (state2 == "TOGA"))) {
-		setprop("/systems/pressurization/mode", "TO");
-	}
-	
-	# switch mode to CLB
-	if (((!wowl) or (!wowr)) and (speed > 100) and (pressmode == "TO")) {
-		setprop("/systems/pressurization/mode", "CL");	
-	}
-	
-	if (vs != targetvs and !wowl and !wowr) {
-		setprop("/systems/pressurization/vs", targetvs);
-	}
-	
-	if (cabinalt != targetalt and !wowl and !wowr) {
-		setprop("/systems/pressurization/cabinalt", cabinalt + vs);
-	}
-}
-
+#######################
+# Main Pneumatic Loop #
+#######################
 
 var master_pneu = func {
 	var bleed1_sw = getprop("/controls/pneumatic/switches/bleed1");
@@ -190,6 +147,47 @@ var master_pneu = func {
 	}
 	
 	var total_psi = getprop("/systems/pneumatic/total-psi");
+	
+	var phase = getprop("/FMGC/status/phase");
+	var pressmode = getprop("/systems/pressurization/mode");
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var wowl = getprop("/gear/gear[1]/wow");
+	var wowr = getprop("/gear/gear[2]/wow");
+	var deltap = getprop("/systems/pressurization/deltap");
+	var outflow = getprop("/systems/pressurization/outflowpos"); 
+	var speed = getprop("/velocities/groundspeed-kt");
+	var cabinalt = getprop("/systems/pressurization/cabinalt");
+	var dep_apt = getprop("autopilot/route-manager/departure/airport");
+	var airport_dep_elev_ft = getprop("autopilot/route-manager/departure/field-elevation-ft");
+	var altitude = getprop("/position/altitude-ft");
+	var airport_arr_elev_ft = getprop("autopilot/route-manager/destination/field-elevation-ft");
+	var vs = getprop("/systems/pressurization/vs-norm");
+	var outflowpos = getprop("/systems/pressurization/outflowpos");
+	var cabinalt = getprop("/systems/pressurization/cabinalt");
+	var targetalt = getprop("/systems/pressurization/targetalt");
+	var targetvs = getprop("/systems/pressurization/targetvs");
+	var ambient = getprop("/systems/pressurization/ambientpsi");
+	var cabinpsi = getprop("/systems/pressurization/cabinpsi");
+	
+	setprop("/systems/pressurization/diff-to-target", targetalt - cabinalt); 
+	setprop("/systems/pressurization/deltap", cabinpsi - ambient); 
+
+	if ((pressmode == "GN") and (pressmode != "CL") and (wowl and wowr) and ((state1 == "MCT") or (state1 == "TOGA")) and ((state2 == "MCT") or (state2 == "TOGA"))) {
+		setprop("/systems/pressurization/mode", "TO");
+	}
+	
+	if (((!wowl) or (!wowr)) and (speed > 100) and (pressmode == "TO")) {
+		setprop("/systems/pressurization/mode", "CL");	
+	}
+	
+	if (vs != targetvs and !wowl and !wowr) {
+		setprop("/systems/pressurization/vs", targetvs);
+	}
+	
+	if (cabinalt != targetalt and !wowl and !wowr) {
+		setprop("/systems/pressurization/cabinalt", cabinalt + vs);
+	}
 }
 
 ###################
@@ -198,7 +196,6 @@ var master_pneu = func {
 
 var update_pneumatic = func {
 	master_pneu();
-	master_press();
 }
 
 var pneu_timer = maketimer(0.2, update_pneumatic);

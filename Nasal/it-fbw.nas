@@ -1,5 +1,5 @@
-# Airbus A3XX FBW System by Joshua Davidson (it0uchpods)
-# V0.9.8
+# Airbus A3XX FBW/Flight Control Computer System
+# Joshua Davidson (it0uchpods)
 
 ###################
 # Update Function #
