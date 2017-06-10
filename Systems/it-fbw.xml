@@ -1,4 +1,4 @@
-<!-- Airbus A3XX FBW System by Joshua Davidson (it0uchpods) and Richard Harrison (richard) -->
+<!-- Airbus A3XX FBW System by Joshua Davidson (it0uchpods) -->
 
 <system name="it-fbw">
 	<property value="0">/it-fbw/law</property>
@@ -100,19 +100,19 @@
 						<table>
 							<independentVar lookup="row">/controls/flight/elevator-input</independentVar>
 							<tableData>
-							-1.0      0.0750
-							-0.7      0.0530
-							-0.5      0.0220
-							-0.3      0.0110
-							-0.15     0.0040
+							-1.0      0.0755
+							-0.7      0.0535
+							-0.5      0.0225
+							-0.3      0.0115
+							-0.15     0.0045
 							-0.05     0.0007
 							 0.00     0.0000
 							 0.05    -0.0007
-							 0.15    -0.0040
-							 0.3     -0.0110
-							 0.5     -0.0220
-							 0.7     -0.0530
-							 1.0     -0.0750
+							 0.15    -0.0045
+							 0.3     -0.0115
+							 0.5     -0.0225
+							 0.7     -0.0535
+							 1.0     -0.0755
 							</tableData>
 						</table>
 					</sum>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- A3XX IAE V2500 FADEC -->
+<!-- Joshua Davidson -->
+
 <PropertyList>
 
     <filter>
@@ -702,7 +705,7 @@
 					</equals>
 					<greater-than>
 						<property>/engines/engine[0]/n1</property>
-						<value>23</value>
+						<value>22</value>
 					</greater-than>
 				</and>
 			</condition>
@@ -735,7 +738,7 @@
 					</equals>
 					<greater-than>
 						<property>/engines/engine[1]/n1</property>
-						<value>23</value>
+						<value>22</value>
 					</greater-than>
 				</and>
 			</condition>
