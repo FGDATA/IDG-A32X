@@ -8,7 +8,53 @@ MATERIAL "OHPanelOnBat" rgb 0.8 0.8 0.8  amb 1 1 1  emis 1 1 1  spec 0.5 0.5 0.5
 MATERIAL "Switch" rgb 0.678431 0.678431 0.678431  amb 0.678431 0.678431 0.678431  emis 0 0 0  spec 0 0 0  shi 32  trans 0.004
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 128  trans 0
 OBJECT world
-kids 265
+kids 266
+OBJECT poly
+name "FuelXfeedBtn1A"
+loc 0.000175806 0.13925 0.04185
+data 8
+Cube.064
+texture "buttons3.png"
+crease 30.000000
+numvert 8
+-0.01 -0.0364 -0.0528
+-0.01 -0.0364 -0.0328
+-0.007 -0.0364 -0.0328
+-0.007 -0.0364 -0.0528
+-0.01 -0.0464 -0.0528
+-0.01 -0.0464 -0.0328
+-0.007 -0.0464 -0.0328
+-0.007 -0.0464 -0.0528
+numsurf 4
+SURF 0x0
+mat 4
+refs 4
+3 0.5 1
+7 0.5 0.75
+4 0.5 0.75
+0 0.5 1
+SURF 0x0
+mat 4
+refs 4
+6 0 0.75
+2 9.31321e-008 1
+1 9.31321e-008 1
+5 0 0.75
+SURF 0x0
+mat 4
+refs 4
+7 0.5 0.75
+3 0.5 1
+2 9.31321e-008 1
+6 0 0.75
+SURF 0x0
+mat 4
+refs 4
+3 0.5 1
+0 0.5 1
+1 9.31321e-008 1
+2 9.31321e-008 1
+kids 0
 OBJECT poly
 name "DitchBtn2O"
 loc 0.000175806 -0.17005 -0.10065
@@ -488,11 +534,11 @@ refs 4
 2 9.31321e-008 0.5
 kids 0
 OBJECT poly
-name "CabinPressModeBtn2O"
+name "CabinPressModeBtn2M"
 loc 0.000175806 -0.17185 -0.11335
 data 8
 Cube.062
-texture "buttons2.png"
+texture "buttons4.png"
 crease 30.000000
 numvert 8
 -0.007 -0.0564 0.0314

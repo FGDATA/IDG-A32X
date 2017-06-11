@@ -67,6 +67,8 @@
 		<object-name>ADR3Btn2O</object-name>
 		<object-name>BlueElecPump1F</object-name>
 		<object-name>BlueElecPump2O</object-name>
+		<object-name>CabinPressModeBtn1F</object-name>
+		<object-name>CabinPressModeBtn2M</object-name>
 		<object-name>CFuelTank1Btn1F</object-name>
 		<object-name>CFuelTank1Btn2O</object-name>
 		<object-name>CFuelTank2Btn1F</object-name>
@@ -77,6 +79,7 @@
 		<object-name>Eng2BleedBtn2O</object-name>
 		<object-name>FuelModeBtn1F</object-name>
 		<object-name>FuelModeBtn2O</object-name>
+		<object-name>FuelXfeedBtn1A</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
 		<object-name>GalleyPwrBtn2O</object-name>
@@ -1395,6 +1398,7 @@
 		<type>pick</type>
 		<object-name>FuelXfeedBtn1</object-name>
 		<object-name>FuelXfeedBtn2</object-name>
+		<object-name>FuelXfeedBtn1A</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
 		<action>
 			<button>0</button>
@@ -1422,14 +1426,13 @@
 		</action>
 	</animation>
 	
-	<!-- Did not make light yet-->
-	<!--animation>
+	<animation>
 		<type>select</type>
-		<object-name>FuelXfeedBtn1F</object-name>
+		<object-name>FuelXfeedBtn1A</object-name>
 		<condition>
 			<or>
 				<equals>
-					<property>/something</property>
+					<property>/systems/fuel/x-feed</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1438,7 +1441,7 @@
 				</equals>
 			</or>
 		</condition>
-	</animation-->
+	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>FuelXfeedBtn2O</object-name>
@@ -2437,14 +2440,40 @@
 		<object-name>ExtPwrBtn1A</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/controls/switches/cart</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/controls/switches/cart</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen-ext</property>
+						<value>0</value>
+					</equals>
+				</and>
+				<and>
+					<equals>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</equals>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</and>
 			</or>
 		</condition>
 	</animation>
@@ -3167,11 +3196,11 @@
 		<type>pick</type>
 		<object-name>CabinPressModeBtn</object-name>
 		<object-name>CabinPressModeBtn1F</object-name>
-		<object-name>CabinPressModeBtn2O</object-name>
+		<object-name>CabinPressModeBtn2M</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<!--binding>
+			<binding>
 				<condition>
 					<or>
 						<greater-than-equals>
@@ -3185,8 +3214,8 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/pressurization/auto</property>
-			</binding-->
+				<property>/systems/pressurization/auto</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/btn1", 1);</script>
@@ -3213,11 +3242,11 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>CabinPressModeBtn2O</object-name>
+		<object-name>CabinPressModeBtn2M</object-name>
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/pressurization/auto</property>
+					<property>/systems/pressurization/auto</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -3230,12 +3259,12 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>DitchBtn</object-name>
+		<object-name>DitchBtn1</object-name>
 		<object-name>DitchBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
-			<!--binding>
+			<binding>
 				<condition>
 					<or>
 						<greater-than-equals>
@@ -3257,8 +3286,8 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/ditching</property>
-			</binding-->
+				<property>/systems/pressurization/ditchingpb</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/btn1", 1);</script>
@@ -3272,7 +3301,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/pressurization/unused-oh-btn</property>
+					<property>/systems/pressurization/ditchingpb</property>
 					<value>1</value>
 				</equals>
 				<equals>

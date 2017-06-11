@@ -52,19 +52,11 @@
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/elevator-sum</property>
-            </signal>
-            <signal>
-                <type>float</type>
                 <property>/controls/flight/elevator-left</property>
             </signal>
             <signal>
                 <type>float</type>
                 <property>/controls/flight/elevator-right</property>
-            </signal>
-            <signal>
-                <type>float</type>
-                <property>/controls/flight/aileron-sum</property>
             </signal>
             <signal>
                 <type>float</type>
@@ -76,11 +68,43 @@
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-left</property>
+                <property>/controls/flight/spoiler-l1</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-right</property>
+                <property>/controls/flight/spoiler-l2</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-l3</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-l4</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-l5</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-r1</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-r2</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-r3</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-r4</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property>/controls/flight/spoiler-r5</property>
             </signal>
             <signal>
                 <type>float</type>

@@ -162,7 +162,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.adirs_init();
 	systems.pneu_init();
 	systems.hyd_init();
-	systems.press_init();
 	systems.fuel_init();
   	fmgc.APinit();			
 	librariesLoop.start();

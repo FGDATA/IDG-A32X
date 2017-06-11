@@ -18,6 +18,8 @@ var hyd_init = func {
 	setprop("/systems/hydraulic/blue-psi", 0);
 	setprop("/systems/hydraulic/green-psi", 0);
 	setprop("/systems/hydraulic/yellow-psi", 0);
+	setprop("/systems/hydraulic/spoiler3and4-inhibit", 0);
+	setprop("/systems/hydraulic/spoiler-inhibit", 0);
 	setprop("/controls/gear/brake-parking", 0);
 	hyd_timer.start();
 }
@@ -132,6 +134,26 @@ var master_hyd = func {
 		} else {
 			setprop("/systems/hydraulic/yellow-psi", 0);
 		}
+	}
+	
+	var lelev = getprop("/systems/failures/elevator-left");
+	var relev = getprop("/systems/failures/elevator-right");
+	var flap = getprop("/controls/flight/flap-txt");
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var alpha = getprop("/systems/thrust/alpha-floor");
+	var sec1 = getprop("/systems/failures/sec1");
+	var sec3 = getprop("/systems/failures/sec3");
+	#var aoa_prot = getprop("aoaprotection);
+	if (lelev or relev) {
+		setprop("/systems/hydraulic/spoiler3and4-inhibit", 1);
+	} else {
+			setprop("/systems/hydraulic/spoiler3and4-inhibit", 0);
+	}
+	if ((flap == "FULL") or alpha or (sec1 and sec3) or (((state1 == "MCT") or (state1 == "TOGA")) and ((state2 == "MCT") or (state2 == "TOGA")))) {
+		setprop("/systems/hydraulic/spoiler-inhibit", 1);
+	} else {
+			setprop("/systems/hydraulic/spoiler-inhibit", 0);
 	}
 }
 
