@@ -277,6 +277,14 @@ var master_elec = func {
 		setprop("/systems/electrical/extra/apu-hz", 0);
 	}
 	
+	if (stateL == 3 and gen1_sw and !gen1_fail) {
+		setprop("/systems/electrical/extra/gen1-volts", ac_volt_std);
+		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
+	} else {
+		setprop("/systems/electrical/extra/gen1-volts", 0);
+		setprop("/systems/electrical/bus/gen1-hz", 0);
+	}
+	
 	if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/systems/electrical/extra/gen2-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen2-hz", ac_hz_std);
