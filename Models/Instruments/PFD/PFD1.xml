@@ -951,7 +951,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0326226</y-m>
-            <z-m>0.0581781</z-m>
+            <z-m>0.0591781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -975,7 +975,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0436226</y-m>
-            <z-m>0.0581781</z-m>
+            <z-m>0.0591781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -1715,12 +1715,75 @@
         </condition>
     </animation>
 	
+    <animation>
+        <type>select</type>
+        <object-name>ap-mode-box</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/modes/pfd/fma/ap-mode-box</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>fd-mode-box</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/modes/pfd/fma/fd-mode-box</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-mode-box</object-name>
+        <condition>
+			<and>
+				<equals>
+					<property>/modes/pfd/fma/athr-mode-box</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
     <text>
         <name>ap-mode-fma</name>
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0730781</z-m>
+            <z-m>0.0734781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -1744,7 +1807,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0655781</z-m>
+            <z-m>0.0662781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -1768,7 +1831,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0581781</z-m>
+            <z-m>0.0591781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -1792,7 +1855,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0581781</z-m>
+            <z-m>0.0591781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>

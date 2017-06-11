@@ -208,13 +208,14 @@ setlistener("/it-autoflight/output/appr-armed", func {
 var ap = func {
 	var ap1 = getprop("/it-autoflight/output/ap1");
 	var ap2 = getprop("/it-autoflight/output/ap2");
-	if (ap1 and ap2) {
+	var newap = getprop("/modes/pfd/fma/ap-mode");
+	if (ap1 and ap2 and newap != "AP1+2") {
 		setprop("/modes/pfd/fma/ap-mode", "AP1+2");
-	} else if (ap1 and !ap2) {
+	} else if (ap1 and !ap2 and newap != "AP1") {
 		setprop("/modes/pfd/fma/ap-mode", "AP1");
-	} else if (ap2 and !ap1) {
+	} else if (ap2 and !ap1 and newap != "AP2") {
 		setprop("/modes/pfd/fma/ap-mode", "AP2");
-	} else {
+	} else if (!ap1 and !ap2) {
 		setprop("/modes/pfd/fma/ap-mode", " ");
 	}
 }
@@ -223,13 +224,14 @@ var ap = func {
 var fd = func {
 	var fd1 = getprop("/it-autoflight/output/fd1");
 	var fd2 = getprop("/it-autoflight/output/fd2");
-	if (fd1 and fd2) {
+	var newfd = getprop("/modes/pfd/fma/fd-mode");
+	if (fd1 and fd2 and newfd != "1FD2") {
 		setprop("/modes/pfd/fma/fd-mode", "1FD2");
-	} else if (fd1 and !fd2) {
+	} else if (fd1 and !fd2 and newfd != "1FD-") {
 		setprop("/modes/pfd/fma/fd-mode", "1FD-");
-	} else if (fd2 and !fd1) {
+	} else if (fd2 and !fd1 and newfd != "-FD2") {
 		setprop("/modes/pfd/fma/fd-mode", "-FD2");
-	} else {
+	} else if (!fd1 and !fd2) {
 		setprop("/modes/pfd/fma/fd-mode", " ");
 	}
 }
@@ -237,9 +239,10 @@ var fd = func {
 # AT
 var at = func {
 	var at = getprop("/it-autoflight/output/athr");
-	if (at) {
+	var newat = getprop("/modes/pfd/fma/at-mode");
+	if (at and newat != "A/THR") {
 		setprop("/modes/pfd/fma/at-mode", "A/THR");
-	} else {
+	} else if (!at) {
 		setprop("/modes/pfd/fma/at-mode", " ");
 	}
 }
@@ -323,11 +326,46 @@ setlistener("/it-autoflight/output/athr", func {
 });
 
 # Boxes
+setlistener("/modes/pfd/fma/ap-mode", func {
+	if (getprop("/modes/pfd/fma/ap-mode") != " ") {
+		setprop("/modes/pfd/fma/ap-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/ap-mode-box", 0);
+		}, 5);
+	}
+});
+
+setlistener("/modes/pfd/fma/fd-mode", func {
+	if (getprop("/modes/pfd/fma/fd-mode") != " ") {
+		setprop("/modes/pfd/fma/fd-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/fd-mode-box", 0);
+		}, 5);
+	}
+});
+
+setlistener("/modes/pfd/fma/at-mode", func {
+	if (getprop("/modes/pfd/fma/at-mode") != " ") {
+		setprop("/modes/pfd/fma/throttle-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/throttle-mode-box", 0);
+		}, 5);
+		setprop("/modes/pfd/fma/athr-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/athr-mode-box", 0);
+		}, 5);
+	}
+});
+
 setlistener("/modes/pfd/fma/throttle-mode", func {
-	setprop("/modes/pfd/fma/throttle-mode-box", 1);
-	settimer(func {
-		setprop("/modes/pfd/fma/throttle-mode-box", 0);
-	}, 5);
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	if (getprop("/it-autoflight/output/athr") == 1 and state1 != "MCT" and state2 != "MCT" and state1 != "MAN THR" and state2 != "MAN THR" and state1 != "TOGA" and state2 != "TOGA" and state1 != "IDLE" and state2 != "IDLE") {
+		setprop("/modes/pfd/fma/throttle-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/throttle-mode-box", 0);
+		}, 5);
+	}
 });
 
 setlistener("/modes/pfd/fma/roll-mode", func {
