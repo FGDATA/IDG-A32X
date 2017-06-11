@@ -469,7 +469,7 @@
 			<Ti>5.0</Ti>        
 			<Td>0.0001</Td>    
 			<u_min>-10</u_min>
-			<u_max>20</u_max>
+			<u_max>30</u_max>
 		</config>
 	</pid-controller>
 	
