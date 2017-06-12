@@ -183,7 +183,7 @@ var master_pneu = func {
 	}
 	
 	if (cabinalt != targetalt and !wowl and !wowr and !pause) {
-		setprop("/systems/pressurization/cabinalt", cabinalt + vs);
+		setprop("/systems/pressurization/cabinalt", cabinalt + ((vs / 60) / 10));
 	}
 	
 	if (ditch and auto) {
