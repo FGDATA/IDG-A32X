@@ -538,7 +538,22 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<enable>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<property>/controls/flight/elevator-fbw</property>
+		</input>
+		<input>
 			<condition>
 				<or>
 					<equals>
@@ -551,13 +566,40 @@
 					</equals>
 				</or>
 			</condition>
-		</enable>
-		<input>
 			<property>/it-autoflight/internal/elevator-cmd</property>
 		</input>
-		<output>/controls/flight/elevator</output>
+		<output>/controls/flight/elevator-fmgc</output>
 		<type>noise-spike</type>
-		<max-rate-of-change>0.4</max-rate-of-change>
+		<max-rate-of-change>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>10</value>
+		</max-rate-of-change>
+		<max-rate-of-change>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<value>0.35</value>
+		</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->

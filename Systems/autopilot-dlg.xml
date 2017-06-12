@@ -689,14 +689,48 @@
 				<legend>V/S Push</legend>
 				<pref-width>75</pref-width>
 				<binding>
+					<condition>
+						<equals>
+							<property>/it-autoflight/custom/trk-fpa</property>
+							<value>0</value>
+						</equals>
+					</condition>
 					<command>property-assign</command>
 					<property>/it-autoflight/input/vert</property>
 					<value>1</value>
 				</binding>
 				<binding>
+					<condition>
+						<equals>
+							<property>/it-autoflight/custom/trk-fpa</property>
+							<value>0</value>
+						</equals>
+					</condition>
 					<command>property-assign</command>
 					<property>/it-autoflight/input/vs</property>
 					<value>0</value>
+				</binding>
+				<binding>
+					<condition>
+						<equals>
+							<property>/it-autoflight/custom/trk-fpa</property>
+							<value>1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>/it-autoflight/input/vert</property>
+					<value>5</value>
+				</binding>
+				<binding>
+					<condition>
+						<equals>
+							<property>/it-autoflight/custom/trk-fpa</property>
+							<value>1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>/it-autoflight/input/fpa</property>
+					<value>0.0</value>
 				</binding>
 			</button>
 			
@@ -704,9 +738,14 @@
 				<legend>V/S Pull</legend>
 				<pref-width>75</pref-width>
 				<binding>
-					<command>property-assign</command>
-					<property>/it-autoflight/input/vert</property>
-					<value>1</value>
+					<command>nasal</command>
+					<script>
+					if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
+						setprop("/it-autoflight/input/vert", 1);
+					} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+						setprop("/it-autoflight/input/vert", 5);
+					}
+					</script>
 				</binding>
 			</button>
 			
@@ -1031,6 +1070,55 @@
 					<wrap>false</wrap>
 				</binding>
 			</button>
+		</group>
+		
+		<group>
+			<layout>hbox</layout>
+
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+			<text>
+				<label>Other Mode</label>
+			</text>
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+		</group>
+		
+		<group>
+			<layout>hbox</layout>
+		
+			<text>
+				<label>HDG VS</label>
+				<visible>
+					<equals>
+						<property>/it-autoflight/custom/trk-fpa</property>
+						<value>0</value>
+					</equals>
+				</visible>
+			</text>
+			
+			<button>
+				<legend>HDG VS/TRK FPA</legend>
+				<pref-width>120</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>
+					fmgc.toggle_trkfpa();
+					</script>
+				</binding>
+			</button>
+			
+			<text>
+				<label>TRK FPA</label>
+				<visible>
+					<equals>
+						<property>/it-autoflight/custom/trk-fpa</property>
+						<value>1</value>
+					</equals>
+				</visible>
+			</text>
 		</group>
 		
 	</group>
