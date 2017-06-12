@@ -353,6 +353,7 @@ var ManagedSPD = maketimer(0.25, func {
 #################################
 
 var APinit = func {
+	setprop("/it-autoflight/custom/trk-fpa", 0);
 	setprop("/it-autoflight/input/kts-mach", 0);
 	setprop("/it-autoflight/input/ap1", 0);
 	setprop("/it-autoflight/input/ap2", 0);
@@ -482,11 +483,13 @@ var fmabox = func {
 	var fd1 = getprop("/it-autoflight/output/fd1");
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	if (!ap1 and !ap2 and !fd1 and !fd2) {
+		setprop("/it-autoflight/input/trk", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		setprop("/it-autoflight/input/vert", 1);
 		setprop("/it-autoflight/input/vs", 0);
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
+		setprop("/it-autoflight/input/trk", 0);
 		setprop("/it-autoflight/input/vs", 0);
 		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
@@ -540,8 +543,8 @@ var lateral = func {
 		lnavwptt.stop();
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
-		var hdgnow = int(getprop("/orientation/heading-magnetic-deg")+0.5);
-		setprop("/it-autoflight/input/hdg", hdgnow);
+		var hdg5sec = int(getprop("/it-autoflight/internal/heading-5-sec-ahead")+0.5);
+		setprop("/it-autoflight/input/hdg", hdg5sec);
 		setprop("/it-autoflight/output/lat", 0);
 		setprop("/it-autoflight/mode/lat", "HDG");
 		setprop("/it-autoflight/mode/arm", " ");
@@ -668,6 +671,7 @@ var vertical = func {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
 	} else if (vertset == 5) {
+		fpa_calc();
 		alandt.stop();
 		alandt1.stop();
 		fpa_calct.start();
@@ -675,6 +679,7 @@ var vertical = func {
 		var altinput = getprop("/it-autoflight/input/alt");
 		setprop("/it-autoflight/internal/alt", altinput);
 		var fpanow = (int(10*getprop("/it-autoflight/internal/fpa")))*0.1;
+		print(fpanow);
 		setprop("/it-autoflight/input/fpa", fpanow);
 		setprop("/it-autoflight/output/vert", 5);
 		setprop("/it-autoflight/mode/vert", "FPA");
@@ -712,6 +717,31 @@ var vert_arm = func {
 }
 
 # Helpers
+var toggle_trkfpa = func {
+	var trkfpa = getprop("/it-autoflight/custom/trk-fpa");
+	if (trkfpa == 0) {
+		setprop("/it-autoflight/custom/trk-fpa", 1);
+		if (getprop("/it-autoflight/output/vert") == 1) {
+			setprop("/it-autoflight/input/vert", 5);
+		}
+		setprop("/it-autoflight/input/trk", 1);
+		var hed = getprop("/it-autoflight/internal/heading-error-deg");
+		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
+			setprop("/it-autoflight/input/lat", 3);
+		}
+	} else if (trkfpa == 1) {
+		setprop("/it-autoflight/custom/trk-fpa", 0);
+		if (getprop("/it-autoflight/output/vert") == 5) {
+			setprop("/it-autoflight/input/vert", 1);
+		}
+		setprop("/it-autoflight/input/trk", 0);
+		var hed = getprop("/it-autoflight/internal/heading-error-deg");
+		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
+			setprop("/it-autoflight/input/lat", 3);
+		}
+	}
+}
+
 var lnavwpt = func {
 	if (getprop("/autopilot/route-manager/route/num") > 0) {
 		if (getprop("/autopilot/route-manager/wp/dist") <= 1.0) {
@@ -740,8 +770,8 @@ var alt_on = func {
 var fpa_calc = func {
 	var VS = getprop("/velocities/vertical-speed-fps");
 	var TAS = getprop("/velocities/uBody-fps");
-	if(TAS < 10) TAS = 10;
-	if(VS < -200) VS =-200;
+	if (TAS < 10) TAS = 10;
+	if (VS < -200) VS =-200;
 	if (abs(VS/TAS) <= 1) {
 		var FPangle = math.asin(VS/TAS);
 		FPangle *=90;

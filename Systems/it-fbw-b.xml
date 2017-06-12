@@ -9,6 +9,23 @@
  <!-- =============================================================== -->
  <!-- Surface Position Feeding                                        -->
  <!-- =============================================================== -->
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<input>/controls/flight/aileron</input>
+		<output>/controls/flight/aileron-input-fast</output>
+		<max-rate-of-change>5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<input>/controls/flight/elevator</input>
+		<output>/controls/flight/elevator-input-fast</output>
+		<max-rate-of-change>5</max-rate-of-change>
+	</filter>
+	
 
 	<filter>
 		<debug>false</debug>
@@ -162,6 +179,39 @@
 		</input>
 		<input>
 			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>2</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<property>/controls/flight/aileron-input</property>
+		</input>
+		<input>
+			<condition>
 				<or>
 					<equals>
 						<property>/it-autoflight/output/ap1</property>
@@ -171,25 +221,9 @@
 						<property>/it-autoflight/output/ap2</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/law</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/law</property>
-						<value>2</value>
-					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/aileron-input</property>
+			<property>/controls/flight/aileron-fmgc</property>
 		</input>
 		<input>
 			<condition>
@@ -575,6 +609,35 @@
 		</input>
 		<input>
 			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>2</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<property>/controls/flight/elevator-input</property>
+		</input>
+		<input>
+			<condition>
 				<or>
 					<equals>
 						<property>/it-autoflight/output/ap1</property>
@@ -584,21 +647,9 @@
 						<property>/it-autoflight/output/ap2</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/law</property>
-						<value>2</value>
-					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/elevator-input</property>
+			<property>/controls/flight/elevator-fmgc</property>
 		</input>
 		<input>
 			<condition>
@@ -803,6 +854,10 @@
 						<property>/position/gear-agl-ft</property>
 						<value>50</value>
 					</greater-than-equals>
+					<not-equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>4</value>
+					</not-equals>
 				</and>
 			</condition>
 		</enable>
@@ -859,6 +914,10 @@
 						<property>/position/gear-agl-ft</property>
 						<value>50</value>
 					</greater-than-equals>
+					<not-equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>4</value>
+					</not-equals>
 				</and>
 			</condition>
 			<property>/controls/flight/rudder-fbw-cmd</property>
@@ -890,6 +949,10 @@
 						<property>/position/gear-agl-ft</property>
 						<value>50</value>
 					</less-than>
+					<equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>4</value>
+					</equals>
 				</or>
 			</condition>
 			<property>/controls/flight/rudder</property>

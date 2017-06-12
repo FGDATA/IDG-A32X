@@ -333,6 +333,7 @@
 	</output>
 	<custom>
 		<hdg-input>0</hdg-input>
+		<trk-fpa>0</trk-fpa>
 	</custom>
 </it-autoflight>
 

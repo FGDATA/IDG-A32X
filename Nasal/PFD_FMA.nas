@@ -254,15 +254,19 @@ var boxchk = func {
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	var fma_pwr = getprop("/it-autoflight/output/fma-pwr");
 	if (ap1 and !ap2 and !fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and ap2 and !fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and !ap2 and fd1 and !fd2 and !fma_pwr) {
+		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and !ap2 and !fd1 and fd2 and !fma_pwr) {
+		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	}
