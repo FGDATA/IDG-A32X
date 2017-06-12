@@ -62,7 +62,7 @@ var flarecheck = func {
 		setprop("/FMGC/status/to-state", 0);
 	}
 	if (gear1 == 1 and gear2 == 1 and getprop("/FMGC/status/to-state") == 0 and flaps >= 4) {
-		setprop("/controls/flight/elevator-trim", -0.15);
+		setprop("/controls/flight/elevator-trim", 0.0);
 	}
 }
 

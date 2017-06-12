@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList include="A320-main.xml">
+
+	<sim>
+	
+		<sound>
+			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
+		</sound>
+	
+		<description>Airbus A320-251N (LEAP-1A)</description>
+		<flight-model>jsb</flight-model>
+		<aero>A320-200-CFM</aero>
+		<model>
+			<path>Aircraft/A320Family/Models/A320neo-CFM.xml</path>
+			<livery>
+				<file>Airbus</file>
+			</livery>
+		</model>
+
+		<view>
+			<name>Pilot View</name>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.45</x-offset-m>
+				<y-offset-m archive="y">2.29</y-offset-m>
+				<z-offset-m archive="y">-13.75</z-offset-m>
+				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="103">
+			<name>Copilot View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.45</x-offset-m>
+				<y-offset-m archive="y">2.29</y-offset-m>
+				<z-offset-m archive="y">-13.75</z-offset-m>
+				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>Overhead Panel View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.3635023</y-offset-m>
+				<z-offset-m archive="y">-13.73</z-offset-m>
+				<pitch-offset-deg archive="y">40</pitch-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="105">
+			<name>Left Engine View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">-6.49</z-offset-m>
+				<heading-offset-deg>129</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="106">
+			<name>Right Wing View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">0</z-offset-m>
+				<heading-offset-deg>257</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="107">
+			<name>Aft View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">6.8</z-offset-m>
+				<heading-offset-deg>63</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		
+		<systems n="0">
+            <autopilot n="0">
+                <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
+            </autopilot>
+		</systems>
+		
+	</sim>
+	
+	<options>
+		<EIS2 type="bool">1</EIS2>
+		<eng>CFM</eng>
+	</options>
+	
+	<sharklet type="bool">1</sharklet>
+	
+	<MCDUC n="0">
+		<type>A320-251N</type>
+		<eng>LEAP-1A26</eng>
+	</MCDUC>
+	
+	<nasal>
+		<specific>
+			<file>Aircraft/A320Family/Nasal/a320livery-neocfm.nas</file>
+		</specific>
+	</nasal>
+
+</PropertyList>
