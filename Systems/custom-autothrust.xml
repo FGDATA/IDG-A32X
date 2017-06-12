@@ -164,7 +164,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[0]/throttle-man</property>
 			</u_max>
@@ -228,7 +228,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[0]/throttle-man</property>
 			</u_max>
@@ -338,7 +338,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[0]/throttle-man</property>
 			</u_max>
@@ -421,7 +421,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[1]/throttle-man</property>
 			</u_max>
@@ -485,7 +485,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[1]/throttle-man</property>
 			</u_max>
@@ -595,7 +595,7 @@
 			<gamma>0.0</gamma>
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.0</u_min>
+			<u_min>0.005</u_min>
 			<u_max>
 				<property>/controls/engines/engine[1]/throttle-man</property>
 			</u_max>
