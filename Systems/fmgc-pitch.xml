@@ -242,28 +242,6 @@
 		</config>
 	</pid-controller>
 	
-    <filter>
-        <name>AUTOLAND FPM</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/position/gear-agl-ft</property> 
-                    <entry><ind>100</ind><dep>-600</dep></entry>
-                    <entry><ind> 50</ind><dep>-500</dep></entry>
-                    <entry><ind> 40</ind><dep>-400</dep></entry>
-                    <entry><ind> 30</ind><dep>-300</dep></entry>
-                    <entry><ind> 20</ind><dep>-200</dep></entry>
-                    <entry><ind> 10</ind><dep>-150</dep></entry>
-                    <entry><ind>  5</ind><dep>-100</dep></entry>
-                </table>
-            </expression>
-        </input>
-		<output>/it-autoflight/internal/target-fpm-c</output>
-    </filter>
-	
 	<pid-controller>
 		<name>FPM HOLD</name>
 		<debug>false</debug>
