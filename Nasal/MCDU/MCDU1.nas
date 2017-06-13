@@ -53,41 +53,58 @@ var lskbutton = func(btn) {
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "GPS PRIMARY");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("L1");
+			perfTOInput("L1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L1");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "2") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			PerfInput("L2");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("L2");
+			perfTOInput("L2");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L2");
+		} else if (getprop("/MCDU[0]/page") == "CLB") {
+			initInputA("L5"); # Does the same thing as on the INIT page
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L3");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("L3");
+			perfTOInput("L3");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L3");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
 			setprop("/MCDU[0]/page", "STATUS");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("L4");
+			perfTOInput("L4");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L4");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("L5");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("L5");
+			perfTOInput("L5");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
 			perfCLBInput("L5");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
@@ -96,6 +113,9 @@ var lskbutton = func(btn) {
 			perfCLBInput("L6");
 		} else if (getprop("/MCDU[0]/page") == "CRZ") {
 			perfCRZInput("L6");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	}
 }
@@ -110,37 +130,53 @@ var rskbutton = func(btn) {
 			initInputA("R1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R1");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "2") {
 		if (getprop("/MCDU[0]/page") == "INITB") {
 			initInputB("R2");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R2");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "3") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("R3");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("R3");
+			perfTOInput("R3");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "4") {
 		if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("R4");
+			perfTOInput("R4");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R4");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "5") {
 		if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("R5");
+			perfTOInput("R5");
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		}
 	} else if (btn == "6") {
 		if (getprop("/MCDU[0]/page") == "TO") {
-			PerfTOInput("R6");
+			perfTOInput("R6");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
 			perfCLBInput("R6");
-		} # else if (getprop("/MCDU[0]/page") == "CRZ") {
-			# perfCRZInput("R6");
-		#}
+		} else {
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+		}
 	}
 }
 
@@ -434,7 +470,7 @@ var initInputB = func(key) {
 	}
 }
 
-var PerfTOInput = func(key) {
+var perfTOInput = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
 	if (key == "L1") {
 		if (scratchpad == "CLR") {

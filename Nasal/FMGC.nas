@@ -115,6 +115,7 @@ var phasecheck = maketimer(0.2, func {
 	
 	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and flaps < 4 and (mode == "SRS")) {
 		setprop("/FMGC/status/phase", "1");
+		setprop("/systems/pressurization/mode", "TO");
 	}
 	
 	if ((aglalt >= reduc_agl_ft) and (alt <= cruiseft) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
@@ -128,6 +129,7 @@ var phasecheck = maketimer(0.2, func {
 	
 	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and phase == "3") {
 		setprop("/FMGC/status/phase", "4");
+		setprop("/systems/pressurization/mode", "DE");
 	}
 	
 	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "3") or (phase == "4")) and alt < 7200) {
@@ -177,10 +179,10 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/internal/minspeed", 159);
 	} else if (flap == 4) {
 		setprop("/FMGC/internal/overspeed", 174);
-		setprop("/FMGC/internal/minspeed", 146);
+		setprop("/FMGC/internal/minspeed", 149);
 	} else if (flap == 5) {
 		setprop("/FMGC/internal/overspeed", 163);
-		setprop("/FMGC/internal/minspeed", 136);
+		setprop("/FMGC/internal/minspeed", 139);
 	}
 });
 

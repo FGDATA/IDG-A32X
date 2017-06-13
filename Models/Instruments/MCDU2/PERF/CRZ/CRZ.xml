@@ -48,7 +48,7 @@
 	</text>
 	
 	<text>
-		<name>actmode3</name>
+		<name>actmode</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -72,7 +72,7 @@
 	</text>
 	
 	<text>
-		<name>actmode4</name>
+		<name>actmode2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -94,6 +94,51 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	
+	<text>
+		<name>actmode3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0705</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">SELECTED</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>actmode2</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>actmode3</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
 	
 	<text>
 		<name>timedest3</name>
@@ -192,7 +237,7 @@
 	</text>
 	
 	<text>
-		<name>ci5</name>
+		<name>ci</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -216,7 +261,7 @@
 	</text>
 	
 	<text>
-		<name>ci6</name>
+		<name>ci2</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -239,7 +284,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>ci7</name>
+		<name>ci3</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -264,14 +309,14 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>ci6</object-name>
+		<object-name>ci2</object-name>
 		<condition>
 			<not><property>/FMGC/internal/cost-index-set</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
-		<object-name>ci7</object-name>
+		<object-name>ci3</object-name>
 		<condition>
 			<property>/FMGC/internal/cost-index-set</property>
 		</condition>
@@ -520,9 +565,9 @@
     <animation>
         <type>material</type>
 		<object-name>page</object-name>
-		<object-name>actmode3</object-name>
+		<object-name>actmode</object-name>
 		<object-name>managed2</object-name>
-		<object-name>ci5</object-name>
+		<object-name>ci</object-name>
 		<object-name>efob3</object-name>
 		<object-name>next2</object-name>
 		<object-name>phase3</object-name>
@@ -558,7 +603,8 @@
 	<animation>
         <type>material</type>
 		<object-name>efob4</object-name>
-		<object-name>actmode4</object-name>
+		<object-name>actmode2</object-name>
+		<object-name>actmode3</object-name>
 		<object-name>timedest4</object-name>
         <diffuse>
             <red>0.2</red>
@@ -586,8 +632,8 @@
 	<animation>
         <type>material</type>
 		<object-name>presel4</object-name>
-		<object-name>ci6</object-name>
-		<object-name>ci7</object-name>
+		<object-name>ci2</object-name>
+		<object-name>ci3</object-name>
 		<object-name>descabinrate</object-name>
         <diffuse>
             <red>0</red>
