@@ -784,6 +784,7 @@
 		</fbw>
 		<fmgc>
 			<file>Aircraft/A320Family/Nasal/FMGC.nas</file>
+			<file>Aircraft/A320Family/Nasal/FMGC-b.nas</file>
 		</fmgc>
 		<mcdu1>
 			<file>Aircraft/A320Family/Nasal/MCDU/MCDU1.nas</file>

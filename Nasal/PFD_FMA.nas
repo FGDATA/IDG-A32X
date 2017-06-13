@@ -1,9 +1,12 @@
 # Airbus PFD FMA
 # Joshua Davidson (it0uchpods/411)
 
+setprop("/FMGC/internal/cruise-ft", 10000);
+setprop("/it-autoflight/internal/alt", 10000);
+
 # Speed or Mach?
 var speedmach = func {
-	if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7)) {
+	if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 7) or (getprop("/it-autoflight/output/vert") == 8)) {
 		if (getprop("/it-autoflight/output/fd1") == 0 and getprop("/it-autoflight/output/fd2") == 0 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
 			speedmach_b();
 		} else {
@@ -82,6 +85,7 @@ setlistener("/it-autoflight/mode/vert", func {
 	var newvert = getprop("/modes/pfd/fma/pitch-mode");
 	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	if (vert == "ALT HLD") {
+		altvert();
 		if (newvert != "ALT") {
 			setprop("/modes/pfd/fma/pitch-mode", "ALT");
 		}
@@ -89,6 +93,7 @@ setlistener("/it-autoflight/mode/vert", func {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 		}
 	} else if (vert == "ALT CAP") {
+		altvert();
 		if (newvert != "ALT*") {
 			setprop("/modes/pfd/fma/pitch-mode", "ALT*");
 		}
@@ -152,8 +157,68 @@ setlistener("/it-autoflight/mode/vert", func {
 		if (newvertarm != "ALT") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 		}
+	} else if (vert == "MNG HLD") {
+		if (newvert != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode", "ALT");
+		}
+		if (newvertarm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		}
+	} else if (vert == "MNG CAP") {
+		if (newvert != "ALT*") {
+			setprop("/modes/pfd/fma/pitch-mode", "ALT*");
+		}
+		if (newvertarm != " ") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+		}
+	} else if (vert == "MNG CLB") {
+		if (newvert != "CLB") {
+			setprop("/modes/pfd/fma/pitch-mode", "CLB");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
+	} else if (vert == "MNG DES") {
+		if (newvert != "DES") {
+			setprop("/modes/pfd/fma/pitch-mode", "DES");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
 	}
+	altvert();
 });
+
+var altvert = func {
+	var FMGCalt = getprop("/FMGC/internal/cruise-ft");
+	var MCPalt = getprop("/it-autoflight/internal/alt");
+	var ALTdif = abs(FMGCalt - MCPalt);
+	var vert = getprop("/it-autoflight/mode/vert");
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	if (ALTdif <= 20) {
+		if (vert == "ALT HLD") {
+			if (newvert != "ALT CRZ") {
+				setprop("/modes/pfd/fma/pitch-mode", "ALT CRZ");
+			}
+		} else if (vert == "ALT CAP") {
+			if (newvert != "ALT CRZ*") {
+				setprop("/modes/pfd/fma/pitch-mode", "ALT CRZ*");
+			}
+		}
+	} else {
+		if (vert == "ALT HLD") {
+			if (newvert != "ALT") {
+				setprop("/modes/pfd/fma/pitch-mode", "ALT");
+			}
+		} else if (vert == "ALT CAP") {
+			if (newvert != "ALT*") {
+				setprop("/modes/pfd/fma/pitch-mode", "ALT*");
+			}
+		}
+	}
+}
+
+setlistener("/FMGC/internal/cruise-ft", altvert);
 
 # Arm HDG or NAV
 setlistener("/it-autoflight/mode/arm", func {
