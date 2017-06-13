@@ -2,7 +2,26 @@ AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0 0 0  emis 0.658824 0.670588 0.67451  spec 0 0 0  shi 128  trans 0
 MATERIAL "white" rgb 1 1 1  amb 1 1 1  emis 0.798 0.798 0.798  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 43
+kids 44
+OBJECT poly
+name "target-alt-mng"
+loc 0.000960576 -0.000264099 -0.0431903
+texture "trgt-alt-mng.png"
+crease 45.000000
+numvert 4
+0 0.0428304 -0.00623311
+0 0.0428304 0.00772078
+0 -0.0428304 0.00772078
+0 -0.0428304 -0.00623311
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+0 0.990386 0.217208
+1 0.022378 0.217208
+2 0.0223766 0.0507198
+3 0.990386 0.0507198
+kids 0
 OBJECT poly
 name "ap-mode-box"
 loc 0.000380651 0.0723146 -0.0618702
