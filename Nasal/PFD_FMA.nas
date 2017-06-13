@@ -1,6 +1,9 @@
 # Airbus PFD FMA
 # Joshua Davidson (it0uchpods/411)
 
+setprop("/FMGC/internal/cruise-ft", 10000);
+setprop("/it-autoflight/internal/alt", 10000);
+
 # Speed or Mach?
 var speedmach = func {
 	if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7)) {
@@ -150,6 +153,20 @@ setlistener("/it-autoflight/mode/vert", func {
 	} else if (vert == "G/A CLB") {
 		if (newvert != "SRS") {
 			setprop("/modes/pfd/fma/pitch-mode", "SRS");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
+	} else if (vert == "MNG CLB") {
+		if (newvert != "CLB") {
+			setprop("/modes/pfd/fma/pitch-mode", "CLB");
+		}
+		if (newvertarm != "ALT") {
+			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
+		}
+	} else if (vert == "MNG DES") {
+		if (newvert != "DES") {
+			setprop("/modes/pfd/fma/pitch-mode", "DES");
 		}
 		if (newvertarm != "ALT") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
