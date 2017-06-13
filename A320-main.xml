@@ -324,7 +324,7 @@
 		</cmd>
 		<autoland>
 			<kp-pitch>0.035</kp-pitch>
-			<kp-rudder>-0.25</kp-rudder>
+			<kp-rudder>-0.15</kp-rudder>
 		</autoland>
 	</config>
 	<output>
