@@ -16,7 +16,22 @@
 			<property>/it-autoflight/internal/altitude-5-sec-ahead</property>
 		</input>
 		<reference>
+			<condition>
+					<not-equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>8</value>
+					</not-equals>
+				</condition>
 			<property>/it-autoflight/internal/alt</property>
+		</reference>
+		<reference>
+			<condition>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>8</value>
+					</equals>
+				</condition>
+			<property>/it-autoflight/internal/mng-alt</property>
 		</reference>
 		<gain>-8</gain>
 		<output>
@@ -102,6 +117,16 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>7</value>
 					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>8</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert-mng</property>
+							<value>4</value>
+						</equals>
+					</and>
 				</or>
 			</condition>
 		</enable>
@@ -149,10 +174,10 @@
 		<config>
 			<Kp>
 				<condition>
-					<equals>
+					<not-equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>4</value>
-					</equals>
+						<value>7</value>
+					</not-equals>
 				</condition>
 				<value>-50</value>
 			</Kp>
@@ -273,6 +298,10 @@
 							<property>/it-autoflight/output/vert</property>
 							<value>7</value>
 						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>8</value>
+						</equals>
 					</or>
 					<or>
 						<equals>
@@ -301,10 +330,22 @@
 		</input>
 		<reference>
 			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>0</value>
-				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>0</value>
+					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>8</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert-mng</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</or>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm</property>
 			<scale>0.16667</scale>
@@ -330,6 +371,16 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>7</value>
 					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>8</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert-mng</property>
+							<value>4</value>
+						</equals>
+					</and>
 				</or>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-b</property>
