@@ -397,6 +397,7 @@
 		</offsets>
 		<condition>
 			<and>
+				<property>sim/current-view/internal</property>
 				<greater-than-equals>
 					<property>/systems/electrical/bus/ac1</property>
 					<value>110</value>
