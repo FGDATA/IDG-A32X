@@ -96,6 +96,51 @@
 	</text>
 	
 	<text>
+		<name>actmode3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0705</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">SELECTED</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>actmode2</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>actmode3</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/input/spd-managed</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
 		<name>timedest</name>
 		<offsets>
 			<x-m>-0.001</x-m>
@@ -457,6 +502,7 @@
 		<object-name>previous</object-name>
 		<object-name>phase2</object-name>
 		<object-name>timedest</object-name>
+		<object-name>presel</object-name>
         <diffuse>
             <red>1</red>
             <green>1</green>
@@ -484,6 +530,7 @@
         <type>material</type>
 		<object-name>efob2</object-name>
 		<object-name>actmode2</object-name>
+		<object-name>actmode3</object-name>
 		<object-name>timedest2</object-name>
         <diffuse>
             <red>0.2</red>
