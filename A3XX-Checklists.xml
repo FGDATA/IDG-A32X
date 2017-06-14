@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <checklist>
+        <title>BEFORE START</title>
+        <page>
+            <item>
+                <name>COCKPIT PREP</name>
+                <value>COMPLET(BOTH)</value>
+            </item>
+            <item>
+                <name>PINS AND COVERS</name>
+                <value>REMOVED</value>
+            </item>
+            <item>
+                <name>SIGNS</name>
+                <value>ON/AUTO</value>
+            </item>
+            <item>
+                <name>ADIRS</name>
+                <value>NAV</value>
+            </item>
+            <item>
+                <name>FUEL QUANTITY</name>
+                <value>____KG</value>
+            </item>
+            <item>
+                <name>TO DATA/V.BUGS</name>
+                <value>____SET (BOTH)</value>
+            </item>
+            <item>
+                <name>BARO REF</name>
+                <value>____SET (BOTH)</value>
+            </item>
+            <item>
+                <name>MOBILE PHONES</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>A/SKID + N/W STEERING</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>WINDOWS/DOORS</name>
+                <value>CLOSED (BOTH)</value>
+            </item>
+            <item>
+                <name>BEACON</name>
+                <value>ON/(AUTO)</value>
+            </item>
+            <item>
+                <name>THR LEVERS</name>
+                <value>IDLE</value>
+            </item>
+            <item>
+                <name>PARKING BRAKE</name>
+                <value>AS RQRD</value>
+            </item>
+        </page>
+    </checklist>
+    <checklist>
+        <title>ENG START PROCEDURE</title>
+        <item>
+                <name>Eng Mstr Swtch</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>Eng Start Selector</name>
+                <value>NORM</value>
+            </item>
+            <item>
+                <name>ENG Man Start PB</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>Check ECAM oil 10 qts ++</name>
+            </item>
+            <item>
+                <name>Eng Start Selector</name>
+                <value>IGN/Start</value>
+            </item>
+            <item>
+                <name>Eng 1 Mstr Swtch</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>wait 30 sec</name>
+            </item>
+            <item>
+                <name>Eng 2 Mstr Swtch</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>wait 30 sec</name>
+            </item>
+        </checklist>
+    <checklist>
+        <title>AFTER START</title>
+        <item>
+                <name>ANTI-ICE</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>ECAM STATUS</name>
+                <value>CHECKED</value>
+            </item>
+            <item>
+                <name>APU</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>PITCH TRIM</name>
+                <value>____SET</value>
+            </item>
+            <item>
+                <name>RUDDER TRIM</name>
+                <value>ZERO</value>
+            </item>
+            <item>
+                <name>GROUND CREW</name>
+                <value>CLEAR</value>
+            </item>
+            <item>
+                <name>A/SKID + N/W STEERING</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>Eng Start Selector</name>
+                <value>NORM</value>
+            </item>
+        </checklist>
+</PropertyList>

@@ -7,7 +7,7 @@
 		<sound>
 			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
 		</sound>
-	
+                <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-214 (CFM56)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-CFM</aero>
@@ -120,5 +120,4 @@
 			<file>Aircraft/A320Family/Nasal/a320livery-cfm.nas</file>
 		</specific>
 	</nasal>
-
 </PropertyList>
