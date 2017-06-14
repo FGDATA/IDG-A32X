@@ -10,7 +10,7 @@
 	
 		<description>Airbus A320-251N (LEAP-1A)</description>
 		<flight-model>jsb</flight-model>
-		<aero>A320-200-CFM</aero>
+		<aero>A320neo-CFM</aero>
 		<model>
 			<path>Aircraft/A320Family/Models/A320neo-CFM.xml</path>
 			<livery>
