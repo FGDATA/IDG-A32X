@@ -151,7 +151,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
-	if ((wowl and wowr) and (gs < 20) and (phase == "5")) {
+	if ((wowl and wowr) and (gs < 20) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
 		setprop("/FMGC/status/phase", "7");
 		var fd1 = getprop("/it-autoflight/input/fd1");
 		var fd2 = getprop("/it-autoflight/input/fd2");
