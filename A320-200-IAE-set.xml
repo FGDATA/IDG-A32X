@@ -7,7 +7,7 @@
 		<sound>
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
-	
+                <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-232 (IAE V2500)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
