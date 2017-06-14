@@ -871,12 +871,12 @@
 			<property>/controls/flight/rudder-fbw-cmd</property>
 		</output>
 		<config>
-			<Kp>0.03</Kp>
+			<Kp>0.025</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
-			<Ti>1.5</Ti>
-			<Td>0.0001</Td>
+			<Ti>3.0</Ti>
+			<Td>0.00001</Td>
 			<u_min>-0.2</u_min>
 			<u_max>0.2</u_max>
 		</config>
