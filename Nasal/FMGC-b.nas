@@ -388,6 +388,7 @@ var vertical = func {
 			thrustmodet.stop();
 		} else {
 			setprop("/it-autoflight/input/vert", 4);
+			vertical();
 		}
 	}
 }
