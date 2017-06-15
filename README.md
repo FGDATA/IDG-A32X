@@ -8,6 +8,6 @@ Brought to you by:
 Including repaints by:
 - Brandon Amaro (omega13a)
 - Suleman Siddiqui (pakistan-1)
-- Enrico Castaldi
+- Enrico Castaldi (Spectre)
 - Sven Seipp (D-SVEN)
 - Various Others
