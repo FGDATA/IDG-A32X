@@ -23,6 +23,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/thrust/mct-lim", 0.0);
 	setprop("/systems/thrust/clb-lim", 0.0);
 	setprop("/systems/thrust/lim-flex", 0);
+	setprop("/engines/flex-derate", 0);
 	thrustt.start();
 });
 

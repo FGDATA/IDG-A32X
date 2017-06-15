@@ -51,6 +51,8 @@ var pneu_init = func {
 	setprop("/systems/ventilation/avionics/inletvalve", "0");
 	setprop("/systems/ventilation/lavatory/extractfan", 0);
 	setprop("/systems/ventilation/lavatory/extractvalve", "0");
+	setprop("/systems/pressurization/ambientpsi", "0");
+	setprop("/systems/pressurization/cabinpsi", "0");
 	pneu_timer.start();
 }
 
