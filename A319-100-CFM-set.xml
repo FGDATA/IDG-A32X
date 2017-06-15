@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
-		<description>Airbus A319-112 (CFM56)</description>
+		<description>Airbus A319-112 (CFM56-5B6)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A319-100-CFM</aero>
 		<model>
