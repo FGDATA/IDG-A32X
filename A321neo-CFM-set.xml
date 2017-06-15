@@ -8,7 +8,7 @@
 			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
 		</sound>
 	
-		<description>Airbus A321-251N (LEAP-1A)</description>
+		<description>Airbus A321-251N (LEAP-1A26)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A321-200-CFM</aero>
 		<model>
