@@ -453,8 +453,9 @@ var initInputB = func(key) {
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs == 2 or tfs == 4) {
-				if (scratchpad >= 1.0 and scratchpad <= 45.0) {
+			var maxblock = getprop("/options/maxblock");
+			if (tfs == 2 or tfs == 4 or tfs == 5) {
+				if (scratchpad >= 1.0 and scratchpad <= maxblock) {
 					setprop("/FMGC/internal/block", scratchpad);
 					setprop("/FMGC/internal/block-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");

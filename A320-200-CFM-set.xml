@@ -103,9 +103,10 @@
 		
 	</sim>
 	
-	<options>
+	<options n="0">
 		<EIS2 type="bool">0</EIS2>
 		<eng>CFM</eng>
+		<maxblock>52.3</maxblock>
 	</options>
 	
 	<sharklet type="bool">0</sharklet>
