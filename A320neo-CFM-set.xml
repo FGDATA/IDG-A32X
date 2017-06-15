@@ -7,7 +7,7 @@
 		<sound>
 			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
 		</sound>
-	
+                <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-251N (LEAP-1A)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-CFM</aero>
@@ -103,9 +103,10 @@
 		
 	</sim>
 	
-	<options>
+	<options n="0">
 		<EIS2 type="bool">1</EIS2>
 		<eng>CFM</eng>
+		<maxblock>52.3</maxblock>
 	</options>
 	
 	<sharklet type="bool">1</sharklet>

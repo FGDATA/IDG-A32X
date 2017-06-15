@@ -7,7 +7,7 @@
 		<sound>
 			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
-	
+                <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A319-131 (IAE V2500)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A319-100-IAE</aero>
@@ -103,9 +103,10 @@
 		
 	</sim>
 	
-	<options>
+	<options n="0">
 		<EIS2 type="bool">0</EIS2>
 		<eng>IAE</eng>
+		<maxblock>52.3</maxblock>
 	</options>
 	
 	<sharklet type="bool">0</sharklet>
