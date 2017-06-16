@@ -55,13 +55,17 @@
             </item>
             <item>
                 <name>PARKING BRAKE</name>
-                <value>AS RQRD</value>
+                <value>AS RQRD/ON</value>
             </item>
         </page>
     </checklist>
-    <checklist>
+<checklist>
         <title>ENG START PROCEDURE</title>
-        <item>
+            <item>
+                <name>Fuel pumps</name>
+                <value>ON/AS RQRD</value>
+            </item>
+            <item>
                 <name>Eng Mstr Swtch</name>
                 <value>OFF</value>
             </item>
@@ -94,10 +98,10 @@
             <item>
                 <name>wait 30 sec</name>
             </item>
-        </checklist>
-    <checklist>
-        <title>AFTER START</title>
-        <item>
+    </checklist>
+<checklist>
+    <title>AFTER START</title>
+            <item>
                 <name>ANTI-ICE</name>
                 <value>AS RQRD</value>
             </item>
@@ -128,6 +132,278 @@
             <item>
                 <name>Eng Start Selector</name>
                 <value>NORM</value>
+            </item>
+        </checklist>
+<checklist>
+    <title>BEFORE TAXI/TAKEOFF (1/2)</title>
+            <item>
+                <name>FLIGHT CONTROLS</name>
+                <value>CHECKED (BOTH)</value>
+            </item>
+            <item>
+                <name>FLT INST</name>
+                <value>CHECKED (BOTH)</value>
+            </item>
+            <item>
+                <name>BRIEFING</name>
+                <value>CONFIRMING</value>
+            </item>
+            <item>
+                <name>FLAP SETTING</name>
+                <value>CONF____(BOTH)</value>
+            </item>
+            <item>
+                <name>V1. VR. V1/FLEX TEMP</name>
+                <value>____(BOTH)</value>
+            </item>
+            <item>
+                <name>BUMP/DE-RATE</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>ATC+TCAS</name>
+                <value>SET</value>
+            </item>
+            <item>
+                <name>CABIN</name>
+                <value>READY</value>
+            </item>
+            <item>
+                <name>ECAM MEMO</name>
+                <value>TO NO BLUE</value>
+            </item>
+            <item>
+                <name>AUTO BRK MAX</name>
+            </item>
+            <item>
+                <name>SIGNS ON</name>
+            </item>
+            <item>
+                <name>SPLRS ARM</name>
+            </item>
+            <item>
+                <name>FLAPS TO</name>
+            </item>
+            <item>
+                <name>TO CONFIG NORM</name>
+            </item>
+            <item>
+                <name>LAPTOP</name>
+                <value>STOWED</value>
+            </item>
+</checklist>
+<checklist>
+    <title>BEFORE TAXI/TAKEOFF (2/2)</title>
+            <item>
+                <name>...getting closer to RWY...</name>
+            </item>
+            <item>
+                <name>STROBE LIGHTS</name>
+                <value>AS RQRD/ON</value>
+            </item>
+            <item>
+                <name>CABIN CREW</name>
+                <value>ADVISED</value>
+            </item>
+            <item>
+                <name>ENG MODE SEL</name>
+                <value>AS RQRD/NORM</value>
+            </item>
+            <item>
+                <name>PACKS</name>
+                <value>AS RQRD/OFF</value>
+            </item>
+            <item>
+                <name>...lining up...</name>
+            </item>
+            <item>
+                <name>RUNWAY</name>
+                <value>IDENTIFIED/CLEAR</value>
+            </item>
+            <item>
+                <name>LDG LIGHTS</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>NOSE LIGHT</name>
+                <value>TO</value>
+            </item>
+    </checklist>
+<checklist>
+    <title>AFTER TAKEOFF/CLIMB</title>
+            <item>
+                <name>LDG GEAR</name>
+                <value>UP</value>
+            </item>
+            <item>
+                <name>FLAPS</name>
+                <value>ZERO/RETRACTED</value>
+            </item>
+            <item>
+                <name>PACKS</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>BARO REF</name>
+                <value>SET STD 1013/29.92(BOTH)</value>
+            </item>
+            <item>
+                <name>passing 10.000ft/FL100</name>
+            </item>
+            <item>
+                <name>LDG LIGHTS</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>PASSENGER SIGNS</name>
+                <value>AUTO/OFF</value>
+            </item>
+        </checklist>
+<checklist>
+    <title>APPROACH</title>
+            <item>
+                <name>BRIEFINGS</name>
+                <value>CONFIRMED</value>
+            </item>
+            <item>
+                <name>ECAM STATUS</name>
+                <value>CHECKED</value>
+            </item>
+            <item>
+                <name>V.BUGS</name>
+                <value>SET (BOTH)</value>
+            </item>
+            <item>
+                <name>SEAT BELTS</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>BARO / MDA /DH</name>
+                <value>____SET (BOTH)</value>
+            </item>
+            <item>
+                <name>ENG MODE SEL</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>AUTOBRAKE</name>
+                <value>AS RQRD</value>
+            </item>
+        </checklist>
+<checklist>
+    <title>LANDING</title>
+            <item>
+                <name>CABIN CREW</name>
+                <value>SECURED AND ADVISED</value>
+            </item>
+            <item>
+                <name>A/THR</name>
+                <value>SPEED/OFF</value>
+            </item>
+            <item>
+                <name>GO AROUND ALT</name>
+                <value>____SET</value>
+            </item>
+            <item>
+                <name>ECAM MEMO</name>
+                <value>LDG NO BLUE</value>
+            </item>
+            <item>
+                <name>L/G DOWN</name>
+            </item>
+            <item>
+                <name>SIGNS ON</name>
+            </item>
+            <item>
+                <name>SPLRS ARM</name>
+            </item>
+            <item>
+                <name>FLAPS SET</name>
+            </item>
+        </checklist>
+<checklist>
+    <title>AFTER LANDING</title>
+            <item>
+                <name>FLAPS</name>
+                <value>RETRACTED</value>
+            </item>
+            <item>
+                <name>SPOILERS</name>
+                <value>DOWN/DISARMED</value>
+            </item>
+            <item>
+                <name>APU</name>
+                <value>START</value>
+            </item>
+            <item>
+                <name>RADAR/TCAS/PWS</name>
+                <value>OFF/STBY</value>
+            </item>
+            <item>
+                <name>STROBE LIGHTS</name>
+                <value>AUTO/OFF when entering ramp</value>
+            </item>
+        </checklist>
+<checklist>
+    <title>PARKING</title>
+            <item>
+                <name>APU BLEED</name>
+                <value>ON</value>
+            </item>
+            <item>
+                <name>ENGINES</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>SEAT BELTS</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>EXT LT</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>FUEL PUMPS</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>PARK BRK AND CHOCKS</name>
+                <value>AS RQRD</value>
+            </item>
+            <item>
+                <name>CAPT'S MOBILE PHONE</name>
+                <value>ON</value>
+            </item>
+        </checklist>
+<checklist>
+    <title>SECURING THE AIRCRAFT</title>
+            <item>
+                <name>ADIRS</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>OXYGEN</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>APU BLEED</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>EMER EXIT LT</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>NO SMOKING</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>APU AND BAT</name>
+                <value>OFF</value>
+            </item>
+            <item>
+                <name>LAPTOP</name>
+                <value>SECURED</value>
             </item>
         </checklist>
 </PropertyList>

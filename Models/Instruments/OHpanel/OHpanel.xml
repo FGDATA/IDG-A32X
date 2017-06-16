@@ -3285,8 +3285,8 @@
 						</greater-than-equals>
 					</or>
 				</condition>
-				<command>property-toggle</command>
-				<property>/systems/pressurization/ditchingpb</property>
+				<command>nasal</command>
+				<script>setprop("/systems/pressurization/ditchingpb", 1);</script>
 			</binding>
 			<binding>
 				<command>nasal</command>

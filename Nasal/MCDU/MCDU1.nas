@@ -69,6 +69,10 @@ var lskbutton = func(btn) {
 			radnavInput("L2");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
 			initInputA("L5"); # Does the same thing as on the INIT page
+		} else if (getprop("/MCDU[0]/page") == "CRZ") {
+			initInputA("L5"); 
+		} else if (getprop("/MCDU[0]/page") == "DES") {
+			initInputA("L5"); 
 		} else {
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
@@ -102,6 +106,10 @@ var lskbutton = func(btn) {
 			perfTOInput("L5");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
 			perfCLBInput("L5");
+		} else if (getprop("/MCDU[0]/page") == "CRZ") {
+			perfCRZInput("L5");
+		} else if (getprop("/MCDU[0]/page") == "DES") {
+			perfDESInput("L5");
 		} else {
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
@@ -113,6 +121,8 @@ var lskbutton = func(btn) {
 			perfCLBInput("L6");
 		} else if (getprop("/MCDU[0]/page") == "CRZ") {
 			perfCRZInput("L6");
+		} else if (getprop("/MCDU[0]/page") == "DES") {
+			perfDESInput("L6");
 		} else {
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
@@ -173,6 +183,8 @@ var rskbutton = func(btn) {
 			perfTOInput("R6");
 		} else if (getprop("/MCDU[0]/page") == "CLB") {
 			perfCLBInput("R6");
+		} else if (getprop("/MCDU[0]/page") == "CRZ") {
+			perfCRZInput("R6");
 		} else {
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
@@ -688,9 +700,15 @@ var perfCRZInput = func(key) {
 	if (key == "L6") {
 		setprop("/MCDU[0]/page", "CLB");
 	}
-	# if (key == "R6") {
-	 #	setprop("/MCDU[0]/page", "DES");
-	# }
+	if (key == "R6") {
+		setprop("/MCDU[0]/page", "DES");
+	}
+}
+
+var perfDESInput = func(key) {
+	if (key == "L6") {
+		setprop("/MCDU[0]/page", "CRZ");
+	}
 }
 
 var arrowbutton = func(btn) {
