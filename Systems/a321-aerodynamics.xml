@@ -125,7 +125,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>fcs/flap-pos-deg</property>
-				<value> 0.00080 </value>
+				<value> 0.00090 </value>
 			</product>
 		</function>
 
@@ -135,7 +135,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>fcs/flap-pos-deg</property>
-				<value> 0.00080 </value>
+				<value> 0.00120 </value>
 			</product>
 		</function>
 
@@ -174,16 +174,6 @@
 						 1.57    1.230
 					</tableData>
 				</table>
-			</product>
-		</function>
-
-		<function name="aero/force/Drag_elevator">
-			<description>Drag due to Elevator Deflection</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<abs><property>fcs/elevator-pos-norm</property></abs>
-				<value>0.035</value>
 			</product>
 		</function>
 
