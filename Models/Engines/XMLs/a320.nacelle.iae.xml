@@ -12,9 +12,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>Reverser</object-name>
-		<object-name>Nozzle</object-name>
 		<property alias="../../params/reverser-pos-norm" />
-		<factor>0.25</factor>
+		<factor>0.50</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
