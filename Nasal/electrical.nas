@@ -1,4 +1,5 @@
-# Electrical system for A320 by Joshua Davidson (it0uchpods) and Johnathan Redpath (legoboyvdlp).
+# A3XX Electrical System
+# Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #############
 # Init Vars #
@@ -173,7 +174,7 @@ var master_elec = func {
 	}
 	
 	# Left DC bus yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -181,7 +182,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
-	} else if (stateL == 3 and gen1_sw and !gen1_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -202,7 +203,7 @@ var master_elec = func {
 	}
 	
 	# Right DC bus yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -210,7 +211,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
-	} else if (stateR == 3 and gen2_sw and !gen2_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -231,11 +232,11 @@ var master_elec = func {
 	}
 	
 	# Left AC bus yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
-	} else if (stateL == 3 and gen1_sw and !gen1_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 	} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
@@ -246,11 +247,11 @@ var master_elec = func {
 	}
 	
 	# Right AC bus yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
-	} else if (stateR == 3 and gen2_sw and !gen2_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
@@ -261,22 +262,6 @@ var master_elec = func {
 	}
 	
 	# HZ/Volts yes?
-	if (extpwr_on and gen_ext_sw) {
-		setprop("/systems/electrical/extra/ext-volts", ac_volt_std);
-		setprop("/systems/electrical/extra/ext-hz", ac_hz_std);
-	} else {
-		setprop("/systems/electrical/extra/ext-volts", 0);
-		setprop("/systems/electrical/extra/ext-hz", 0);
-	}
-	
-	if (gen_apu and !genapu_fail) {
-		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
-		setprop("/systems/electrical/extra/apu-hz", ac_hz_std);
-	} else {
-		setprop("/systems/electrical/extra/apu-volts", 0);
-		setprop("/systems/electrical/extra/apu-hz", 0);
-	}
-	
 	if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/systems/electrical/extra/gen1-volts", ac_volt_std);
 		setprop("/systems/electrical/bus/gen1-hz", ac_hz_std);
@@ -291,6 +276,22 @@ var master_elec = func {
 	} else {
 		setprop("/systems/electrical/extra/gen2-volts", 0);
 		setprop("/systems/electrical/bus/gen2-hz", 0);
+	}
+	
+	if (extpwr_on and gen_ext_sw) {
+		setprop("/systems/electrical/extra/ext-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/ext-hz", ac_hz_std);
+	} else {
+		setprop("/systems/electrical/extra/ext-volts", 0);
+		setprop("/systems/electrical/extra/ext-hz", 0);
+	}
+	
+	if (gen_apu and !genapu_fail) {
+		setprop("/systems/electrical/extra/apu-volts", ac_volt_std);
+		setprop("/systems/electrical/extra/apu-hz", ac_hz_std);
+	} else {
+		setprop("/systems/electrical/extra/apu-volts", 0);
+		setprop("/systems/electrical/extra/apu-hz", 0);
 	}
 	
 	var ac1 = getprop("/systems/electrical/bus/ac1");
