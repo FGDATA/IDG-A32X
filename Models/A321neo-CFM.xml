@@ -78,7 +78,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A321/hstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/A321neo/hstab.xml</path>
 		<offsets>
 			<x-m>36.8212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -87,7 +87,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A321/vstab.xml</path>
+		<path>Aircraft/A320Family/Models/Fuselages/A321neo/vstab.xml</path>
 		<offsets>
 			<x-m>34.9235728</x-m>
 		</offsets>

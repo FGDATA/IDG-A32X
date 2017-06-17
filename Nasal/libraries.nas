@@ -79,6 +79,24 @@ setlistener("/sim/sounde/btn1", func {
 	}, 0.05);
 });
 
+setlistener("/sim/sounde/oh-btn", func {
+	if (!getprop("/sim/sounde/oh-btn")) {
+		return;
+	}
+	settimer(func {
+		props.globals.getNode("/sim/sounde/oh-btn").setBoolValue(0);
+	}, 0.05);
+});
+
+setlistener("/sim/sounde/btn3", func {
+	if (!getprop("/sim/sounde/btn3")) {
+		return;
+	}
+	settimer(func {
+		props.globals.getNode("/sim/sounde/btn3").setBoolValue(0);
+	}, 0.05);
+});
+
 setlistener("/sim/sounde/knb1", func {
 	if (!getprop("/sim/sounde/knb1")) {
 		return;
@@ -108,7 +126,7 @@ setlistener("/controls/switches/no-smoking-sign", func {
 	props.globals.getNode("/sim/sounde/no-smoking-sign").setBoolValue(1);
 	settimer(func {
 		props.globals.getNode("/sim/sounde/no-smoking-sign").setBoolValue(0);
-	}, 2);
+	}, 1);
 });
 
 #########

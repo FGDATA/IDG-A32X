@@ -714,6 +714,30 @@
 	</switch>
 	
 	<switch>
+		<name>ButtonOH</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/button2.wav</path>
+		<condition>
+			<property>/sim/sounde/oh-btn</property>
+		</condition>
+		<volume>
+			<factor>0.75</factor>
+		</volume>
+	</switch>
+	
+	<switch>
+		<name>Button3</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/button3.wav</path>
+		<condition>
+			<property>/sim/sounde/btn3</property>
+		</condition>
+		<volume>
+			<factor>0.75</factor>
+		</volume>
+	</switch>
+	
+	<switch>
 		<name>Knob</name>
 		<mode>once</mode>
 		<path>Aircraft/A320Family/Sounds/Cockpit/knob.wav</path>
@@ -733,7 +757,7 @@
 			<property>/sim/sounde/switch1</property>
 		</condition>
 		<volume>
-			<factor>0.60</factor>
+			<factor>0.75</factor>
 		</volume>
 	</switch>
 	

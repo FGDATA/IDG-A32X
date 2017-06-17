@@ -69,9 +69,9 @@ var lskbutton = func(btn) {
 			radnavInput("L2");
 		} else if (getprop("/MCDU[1]/page") == "CLB") {
 			initInputA("L5"); # Does the same thing as on the INIT page
-		} else if (getprop("/MCDU[0]/page") == "CRZ") {
+		} else if (getprop("/MCDU[1]/page") == "CRZ") {
 			initInputA("L5"); 
-		} else if (getprop("/MCDU[0]/page") == "DES") {
+		} else if (getprop("/MCDU[1]/page") == "DES") {
 			initInputA("L5"); 
 		} else {
 			setprop("/MCDU[1]/scratchpad-msg", "1");
@@ -121,7 +121,7 @@ var lskbutton = func(btn) {
 			perfCLBInput("L6");
 		} else if (getprop("/MCDU[1]/page") == "CRZ") {
 			perfCRZInput("L6");
-		} else if (getprop("/MCDU[0]/page") == "DES") {
+		} else if (getprop("/MCDU[1]/page") == "DES") {
 			perfDESInput("L6");
 		} else {
 			setprop("/MCDU[1]/scratchpad-msg", "1");
@@ -577,7 +577,7 @@ var perfTOInput = func(key) {
 			setprop("/MCDU[1]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs == 9) {
+			if (tfs >= 7 or tfs <= 9) {
 				var thracc = split("/", scratchpad);
 				var thrred = size(thracc[0]);
 				var acc = size(thracc[1]);

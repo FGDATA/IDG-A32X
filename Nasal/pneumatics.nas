@@ -1,4 +1,4 @@
-# A3XX Pneumatics System
+# A3XX Pneumatic System
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #############

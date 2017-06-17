@@ -626,26 +626,26 @@
 		<object-name>Line6G</object-name>
 		<object-name>Line7G</object-name>
 		<object-name>Line8G</object-name>
-        <diffuse>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </diffuse>
-        <ambient>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </ambient>
-        <specular>
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-        </specular>
-        <emission>
-            <red>0.2</red>
-            <green>0.4</green>
-            <blue>0.2</blue>
-        </emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
     </animation>
 	
 	<!-- Blue -->
