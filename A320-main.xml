@@ -646,6 +646,8 @@
 	<modes>
 		<altimeter>
 			<inhg>0</inhg>
+			<std>0</std>
+			<oldqnh>29.92</oldqnh>
 		</altimeter>
 		<pfd>
 			<minimums-mode>DH</minimums-mode>

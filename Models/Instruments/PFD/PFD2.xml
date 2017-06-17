@@ -833,7 +833,7 @@
         <alignment>left-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
-        <format type="string">%2.0f</format>
+        <format type="string">%4.0f</format>
         <property>instrumentation/altimeter/setting-hpa</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
@@ -869,14 +869,42 @@
         </font-resolution>
     </text>
 	
+    <text>
+        <name>std-indicator</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.05</y-m>
+            <z-m>-0.055</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text>STD</text>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
     <animation>
         <type>select</type>
         <object-name>qnh-indicator-inhg</object-name>
         <condition>
-            <equals>
-                <property>/modes/altimeter/inhg</property>
-                <value>1</value>
-            </equals>
+			<and>
+				<equals>
+					<property>/modes/altimeter/inhg</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/modes/altimeter/std</property>
+					<value>0</value>
+				</equals>
+			</and>
         </condition>
     </animation>
 
@@ -884,9 +912,37 @@
         <type>select</type>
         <object-name>qnh-indicator-hpa</object-name>
         <condition>
+			<and>
+				<equals>
+					<property>/modes/altimeter/inhg</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/modes/altimeter/std</property>
+					<value>0</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>qnh-indicator</object-name>
+        <condition>
             <equals>
-                <property>/modes/altimeter/inhg</property>
+                <property>/modes/altimeter/std</property>
                 <value>0</value>
+            </equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>std-indicator</object-name>
+        <condition>
+            <equals>
+                <property>/modes/altimeter/std</property>
+                <value>1</value>
             </equals>
         </condition>
     </animation>
@@ -2768,7 +2824,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
         <format type="string">%s</format>
-        <property>/it-autoflight/internal/alt-mng</property>
+		<property>/it-autoflight/internal/alt-mng</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -3063,6 +3119,7 @@
 		<object-name>pitch-mode-armed-fma</object-name>
 		<object-name>pitch-mode-armed2-fma</object-name>
 		<object-name>athr-flexb-fma</object-name>
+        <object-name>std-indicator</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.886</green>
