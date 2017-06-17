@@ -2244,7 +2244,7 @@
 		<type>rotate</type>
 		<object-name>trim_wheel</object-name>
 		<property>/controls/flight/elevator-trim</property>
-		<factor>-100</factor>
+		<factor>-150</factor>
 		<center>
 			<x-m>-0.2373</x-m>
 			<y-m>0</y-m>
