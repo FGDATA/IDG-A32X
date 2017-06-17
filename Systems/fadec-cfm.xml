@@ -16,11 +16,11 @@
                     <property>/controls/engines/engine[0]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
                     <entry><ind>0.01</ind><dep>0.00</dep></entry>
-                    <entry><ind>0.60</ind><dep>0.83</dep></entry>
-                    <entry><ind>0.65</ind><dep>0.83</dep></entry>
-                    <entry><ind>0.78</ind><dep>0.90</dep></entry>
-                    <entry><ind>0.83</ind><dep>0.90</dep></entry>
-                    <entry><ind>0.95</ind><dep>0.95</dep></entry>
+                    <entry><ind>0.60</ind><dep>0.80</dep></entry>
+                    <entry><ind>0.65</ind><dep>0.80</dep></entry>
+                    <entry><ind>0.78</ind><dep>0.84</dep></entry>
+                    <entry><ind>0.83</ind><dep>0.84</dep></entry>
+                    <entry><ind>0.95</ind><dep>0.88</dep></entry>
                 </table>
             </expression>
         </input>
@@ -38,11 +38,11 @@
                     <property>/controls/engines/engine[1]/throttle-pos</property>
                     <entry><ind>0.00</ind><dep>0.00</dep></entry>
                     <entry><ind>0.01</ind><dep>0.00</dep></entry>
-                    <entry><ind>0.60</ind><dep>0.83</dep></entry>
-                    <entry><ind>0.65</ind><dep>0.83</dep></entry>
-                    <entry><ind>0.78</ind><dep>0.90</dep></entry>
-                    <entry><ind>0.83</ind><dep>0.90</dep></entry>
-                    <entry><ind>0.95</ind><dep>0.95</dep></entry>
+                    <entry><ind>0.60</ind><dep>0.80</dep></entry>
+                    <entry><ind>0.65</ind><dep>0.80</dep></entry>
+                    <entry><ind>0.78</ind><dep>0.84</dep></entry>
+                    <entry><ind>0.83</ind><dep>0.84</dep></entry>
+                    <entry><ind>0.95</ind><dep>0.88</dep></entry>
                 </table>
             </expression>
         </input>
@@ -55,11 +55,32 @@
         <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/engines/thrust-limit</property>
+						<value>FLX</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MCT</value>
+					</equals>
+				</and>
+			</condition>
+            <expression>
+                <table>
+                    <property>/engines/flx-thr</property>
+                    <entry><ind>0.00</ind><dep> 22.4</dep></entry>
+                    <entry><ind>1.00</ind><dep>105.8</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <input>
             <expression>
                 <table>
                     <property>/controls/engines/engine[0]/throttle-man</property>
                     <entry><ind>0.00</ind><dep> 22.4</dep></entry>
-                    <entry><ind>0.95</ind><dep>101.7</dep></entry>
+                    <entry><ind>1.00</ind><dep>105.8</dep></entry>
                 </table>
             </expression>
         </input>
@@ -72,11 +93,32 @@
         <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/engines/thrust-limit</property>
+						<value>FLX</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MCT</value>
+					</equals>
+				</and>
+			</condition>
+            <expression>
+                <table>
+                    <property>/engines/flx-thr</property>
+                    <entry><ind>0.00</ind><dep> 22.4</dep></entry>
+                    <entry><ind>1.00</ind><dep>105.8</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <input>
             <expression>
                 <table>
                     <property>/controls/engines/engine[1]/throttle-man</property>
                     <entry><ind>0.00</ind><dep> 22.4</dep></entry>
-                    <entry><ind>0.95</ind><dep>101.7</dep></entry>
+                    <entry><ind>1.00</ind><dep>105.8</dep></entry>
                 </table>
             </expression>
         </input>
