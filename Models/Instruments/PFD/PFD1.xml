@@ -213,25 +213,87 @@
 		<object-name>pitch-mode-armed-box</object-name>
 		<object-name>roll-mode-box</object-name>
 		<object-name>roll-mode-armed-box</object-name>
+        <object-name>pitch-mode-fma</object-name>
+        <object-name>roll-mode-fma</object-name>
+        <object-name>pitch-mode-armed-fma</object-name>
+        <object-name>pitch-mode-armed2-fma</object-name>
+        <object-name>roll-mode-armed-fma</object-name>
         <condition>
-			<or>
-				<equals>
-					<property>/it-autoflight/output/fd1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/fd2</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/ap1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/ap2</property>
-					<value>1</value>
-				</equals>
-			</or>
+			<and>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<not-equals>
+					<property>/modes/pfd/fma/pitch-mode</property>
+					<value>LAND</value>
+				</not-equals>
+				<not-equals>
+					<property>/modes/pfd/fma/pitch-mode</property>
+					<value>FLARE</value>
+				</not-equals>
+				<not-equals>
+					<property>/modes/pfd/fma/pitch-mode</property>
+					<value>ROLLOUT</value>
+				</not-equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+		<object-name>land-mode-box</object-name>
+		<object-name>land-mode-fma</object-name>
+		<object-name>landmask</object-name>
+        <condition>
+			<and>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<or>
+					<equals>
+						<property>/modes/pfd/fma/pitch-mode</property>
+						<value>LAND</value>
+					</equals>
+					<equals>
+						<property>/modes/pfd/fma/pitch-mode</property>
+						<value>FLARE</value>
+					</equals>
+					<equals>
+						<property>/modes/pfd/fma/pitch-mode</property>
+						<value>ROLLOUT</value>
+					</equals>
+				</or>
+			</and>
         </condition>
     </animation>
 	
@@ -1550,6 +1612,30 @@
     </text>
 	
     <text>
+        <name>land-mode-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.00521</y-m>
+            <z-m>0.0710781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/modes/pfd/fma/pitch-mode</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <text>
         <name>roll-mode-fma</name>
         <offsets>
             <x-m>0.00091828</x-m>
@@ -1647,35 +1733,6 @@
 	
     <animation>
         <type>select</type>
-        <object-name>pitch-mode-fma</object-name>
-        <object-name>roll-mode-fma</object-name>
-        <object-name>pitch-mode-armed-fma</object-name>
-        <object-name>pitch-mode-armed2-fma</object-name>
-        <object-name>roll-mode-armed-fma</object-name>
-        <condition>
-			<or>
-				<equals>
-					<property>/it-autoflight/output/ap1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/ap2</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/fd1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/fd2</property>
-					<value>1</value>
-				</equals>
-			</or>
-        </condition>
-    </animation>
-	
-    <animation>
-        <type>select</type>
         <object-name>throttle-mode-box</object-name>
         <condition>
 			<and>
@@ -1724,6 +1781,7 @@
     <animation>
         <type>select</type>
         <object-name>pitch-mode-box</object-name>
+        <object-name>land-mode-box</object-name>
         <condition>
             <equals>
                 <property>/modes/pfd/fma/pitch-mode-box</property>
@@ -3149,6 +3207,7 @@
 		<object-name>mach-value</object-name>
 		<object-name>thrust-mode-fma</object-name>
         <object-name>pitch-mode-fma</object-name>
+        <object-name>land-mode-fma</object-name>
         <object-name>roll-mode-fma</object-name>
 		<object-name>athr-thrlvr-fma</object-name>
 		<diffuse>

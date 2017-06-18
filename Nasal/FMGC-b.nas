@@ -353,7 +353,6 @@ var vertical = func {
 		thrustmode();
 	} else if (vertset == 6) {
 		setprop("/it-autoflight/output/vert", 6);
-		setprop("/it-autoflight/mode/vert", "LAND");
 		setprop("/it-autoflight/mode/arm", " ");
 		thrustmode();
 		mng_sys_stop();
@@ -629,6 +628,9 @@ var thrustmode = func {
 	var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var alt = getprop("/it-autoflight/internal/alt");
 	var vertm = getprop("/it-autoflight/output/vert");
+	var gearagl = getprop("/position/gear-agl-ft");
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
 	if (vertm == 4) {
 		if (calt < alt) {
 			setprop("/it-autoflight/output/thr-mode", 2);
@@ -724,18 +726,26 @@ var make_appr_active = func {
 
 # Autoland Stage 1 Logic (Land)
 var aland = func {
-	var ap1 = getprop("/it-autoflight/output/ap1");
-	var ap2 = getprop("/it-autoflight/output/ap2");
+	if (getprop("/position/gear-agl-ft") <= 300) {
+		setprop("/it-autoflight/mode/vert", "LAND");
+	}
 	if (getprop("/position/gear-agl-ft") <= 100) {
-		setprop("/it-autoflight/input/lat", 4);
 		setprop("/it-autoflight/input/vert", 6);
 	}
 }
 
 var aland1 = func {
 	var aglal = getprop("/position/gear-agl-ft");
+	if (aglal <= 80 and aglal > 5) {
+		setprop("/it-autoflight/input/lat", 4);
+	}
 	if (aglal <= 50 and aglal > 5) {
 		setprop("/it-autoflight/mode/vert", "FLARE");
+	}
+	if (aglal <= 18 and aglal > 5) {
+		thrustmodet.stop();
+		setprop("/it-autoflight/output/thr-mode", 1);
+		setprop("/it-autoflight/mode/thr", "RETARD");
 	}
 	var gear1 = getprop("/gear/gear[1]/wow");
 	var gear2 = getprop("/gear/gear[2]/wow");
