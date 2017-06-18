@@ -628,9 +628,6 @@ var thrustmode = func {
 	var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var alt = getprop("/it-autoflight/internal/alt");
 	var vertm = getprop("/it-autoflight/output/vert");
-	var gearagl = getprop("/position/gear-agl-ft");
-	var ap1 = getprop("/it-autoflight/output/ap1");
-	var ap2 = getprop("/it-autoflight/output/ap2");
 	if (vertm == 4) {
 		if (calt < alt) {
 			setprop("/it-autoflight/output/thr-mode", 2);
@@ -742,7 +739,9 @@ var aland1 = func {
 	if (aglal <= 50 and aglal > 5) {
 		setprop("/it-autoflight/mode/vert", "FLARE");
 	}
-	if (aglal <= 18 and aglal > 5) {
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
+	if (aglal <= 18 and aglal > 5 and (ap1 or ap2)) {
 		thrustmodet.stop();
 		setprop("/it-autoflight/output/thr-mode", 1);
 		setprop("/it-autoflight/mode/thr", "RETARD");
