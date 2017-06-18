@@ -49,11 +49,11 @@
 			</text>
 			<text>
 				<halign>left</halign>
-				<label>Q - Disengage/Decrease Reverse Thrust</label>
+				<label>F1 - Disengage/Decrease Reverse Thrust</label>
 			</text>
 			<text>
 				<halign>left</halign>
-				<label>W - Engage/Increase Reverse Thrust</label>
+				<label>F2 - Engage/Increase Reverse Thrust</label>
 			</text>
 			<text>
 				<halign>left</halign>
