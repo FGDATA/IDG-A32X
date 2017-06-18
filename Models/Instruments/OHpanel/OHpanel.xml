@@ -3480,13 +3480,9 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[1]</property>
 			</binding>
-		</action>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-				<property>controls/lighting/landing-lights[2]</property>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
 			</binding>
 		</action>
 	</animation>
