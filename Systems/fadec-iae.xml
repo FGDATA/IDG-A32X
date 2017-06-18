@@ -272,6 +272,108 @@
 		<output>/engines/engine[1]/epr-cmd</output>
     </filter>
 	
+    <filter>
+        <name>EPR A/THR CMD 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+                    <property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+                    <entry><ind>0.000</ind><dep>0.03</dep></entry>
+                    <entry><ind>0.141</ind><dep>0.20</dep></entry>
+                    <entry><ind>1.000</ind><dep>1.00</dep></entry>
+                </table>
+            </expression>
+			<scale>/engines/epr-scale</scale>
+        </input>
+		<output>/engines/engine[0]/epr-athr-cmd</output>
+    </filter>
+	
+    <filter>
+        <name>EPR A/THR CMD 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+				<sum>
+					<property>/engines/engine[0]/epr-athr-cmd</property>
+					<property>/engines/epr-scale-b</property>
+				</sum>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/epr-athr</output>
+    </filter>
+	
+    <filter>
+        <name>EPR A/THR CMD 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+                <table>
+                    <property>/controls/engines/engine[1]/throttle-cmd-pid</property>
+                    <entry><ind>0.000</ind><dep>0.03</dep></entry>
+                    <entry><ind>0.141</ind><dep>0.20</dep></entry>
+                    <entry><ind>1.000</ind><dep>1.00</dep></entry>
+                </table>
+            </expression>
+			<scale>/engines/epr-scale</scale>
+        </input>
+		<output>/engines/engine[1]/epr-athr-cmd</output>
+    </filter>
+	
+    <filter>
+        <name>EPR A/THR CMD 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+				<sum>
+					<property>/engines/engine[1]/epr-athr-cmd</property>
+					<property>/engines/epr-scale-b</property>
+				</sum>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/epr-athr</output>
+    </filter>
+	
+    <filter>
+        <name>EPR A/THR DIFFERENCE 1</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+				<dif>
+					<property>/engines/engine[0]/epr-actual</property>
+					<property>/engines/engine[0]/epr-athr</property>
+				</dif>
+            </expression>
+        </input>
+		<output>/engines/engine[0]/epr-diff</output>
+    </filter>
+	
+    <filter>
+        <name>EPR A/THR DIFFERENCE 2</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <input>
+            <expression>
+				<dif>
+					<property>/engines/engine[1]/epr-actual</property>
+					<property>/engines/engine[1]/epr-athr</property>
+				</dif>
+            </expression>
+        </input>
+		<output>/engines/engine[1]/epr-diff</output>
+    </filter>
+	
 	<filter>
 		<name>Throttle 1</name>
 		<debug>false</debug>

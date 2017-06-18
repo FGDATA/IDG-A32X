@@ -350,17 +350,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>1</value>
-				</equals>
-			</condition>
-		</enable>
-		<input>
-			<property>/controls/engines/engine[0]/throttle-cmd-pid</property>
-		</input>
+		<input>/controls/engines/engine[0]/throttle-cmd-pid</input>
 		<output>/controls/engines/engine[0]/throttle-cmd</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
@@ -607,17 +597,7 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>1</value>
-				</equals>
-			</condition>
-		</enable>
-		<input>
-			<property>/controls/engines/engine[1]/throttle-cmd-pid</property>
-		</input>
+		<input>/controls/engines/engine[1]/throttle-cmd-pid</input>
 		<output>/controls/engines/engine[1]/throttle-cmd</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
