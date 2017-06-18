@@ -2188,7 +2188,7 @@ refs 3
 13 0.0309113 0.963318
 kids 0
 OBJECT poly
-name "faceflap"
+name "flap"
 loc 0.000631075 -0.0851298 -0.51126
 texture "eicasIAE-extra.png"
 crease 45.000000

@@ -4,7 +4,35 @@ MATERIAL "DefaultWhite.001" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 64
 MATERIAL "ac3dmat9" rgb 0 0.356863 0.717647  amb 0 0 0  emis 0 0.356863 0.717647  spec 0 0 0  shi 0  trans 0
 MATERIAL "Material.001" rgb 0.8 0.5614 0  amb 1 1 1  emis 0.8 0.8 0.8  spec 0.5 0.5 0.5  shi 50  trans 0
 OBJECT world
-kids 13
+kids 14
+OBJECT poly
+name "flap"
+loc 2.10118e-005 -0.0851298 -0.51126
+texture "eicasCFM-extra.png"
+crease 45.000000
+numvert 6
+0 0.0772339 0.510549
+0 0.0772339 0.503023
+0 0.0772339 0.439425
+0 0.0635567 0.488756
+0 0.0635567 0.439425
+0 0.0635567 0.510549
+numsurf 2
+SURF 0x10
+mat 0
+refs 4
+3 0.637093 0.368235
+1 0.550181 0.453556
+0 0.50433 0.453556
+5 0.50433 0.368235
+SURF 0x10
+mat 0
+refs 4
+4 0.937623 0.368235
+2 0.937623 0.453557
+1 0.550181 0.453556
+3 0.637093 0.368235
+kids 0
 OBJECT poly
 name "egt2"
 loc 0.000794735 0.027279 -0.0217698
