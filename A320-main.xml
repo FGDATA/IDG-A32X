@@ -553,6 +553,7 @@
 		<pfd n="0">
 			<sidestick-pos userarchive="y" type="bool">0</sidestick-pos>
 		</pfd>
+		<old-gpws type="bool">0</old-gpws>
 	</options>
 	
 	<instrumentation n="0">
@@ -590,7 +591,7 @@
 		</nav-compass>
 
 		<!-- See http://wiki.flightgear.org/index.php/GPWS -->
-		<mk-viii>
+		<mk-viii n="0">
 			<serviceable type="bool">true</serviceable>
 			<configuration-module>
 				<category-1 type="int">255</category-1>

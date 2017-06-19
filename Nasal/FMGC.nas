@@ -167,22 +167,22 @@ var phasecheck = maketimer(0.2, func {
 	var flap = getprop("/controls/flight/flap-pos");
 	if (flap == 0) {
 		setprop("/FMGC/internal/overspeed", 338);
-		setprop("/FMGC/internal/minspeed", 204);
+		setprop("/FMGC/internal/minspeed", 202);
 	} else if (flap == 1) {
 		setprop("/FMGC/internal/overspeed", 216);
-		setprop("/FMGC/internal/minspeed", 188);
+		setprop("/FMGC/internal/minspeed", 184);
 	} else if (flap == 2) {
 		setprop("/FMGC/internal/overspeed", 207);
-		setprop("/FMGC/internal/minspeed", 171);
+		setprop("/FMGC/internal/minspeed", 169);
 	} else if (flap == 3) {
 		setprop("/FMGC/internal/overspeed", 189);
-		setprop("/FMGC/internal/minspeed", 159);
+		setprop("/FMGC/internal/minspeed", 156);
 	} else if (flap == 4) {
 		setprop("/FMGC/internal/overspeed", 174);
-		setprop("/FMGC/internal/minspeed", 149);
+		setprop("/FMGC/internal/minspeed", 147);
 	} else if (flap == 5) {
 		setprop("/FMGC/internal/overspeed", 163);
-		setprop("/FMGC/internal/minspeed", 139);
+		setprop("/FMGC/internal/minspeed", 135);
 	}
 });
 

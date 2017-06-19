@@ -75,6 +75,168 @@
 		
 <!-- Custom GPWS -->
 	    <gpws>
+			<name>2500O</name>
+			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-2500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>2500</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2400</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>2000O</name>
+			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-2000.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>2000</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>1900</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>10ftalandO</name>
+			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-10ft.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>10</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>8</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>5O</name>
+			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-5.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>5</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>3</value>
+					</greater-than>
+					<less-than>
+						<property>/it-autoflight/internal/vert-speed-fpm</property>
+						<value>0</value>
+					</less-than>
+					<equals>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</equals>
+					<equals>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
 			<name>2500</name>
 			<path>Aircraft/A320Family/Sounds/GPWS/altitude-2500.wav</path>
 			<mode>once</mode>
@@ -82,6 +244,10 @@
 				<and>
 					<equals>
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<less-than-equals>
@@ -114,6 +280,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
 					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
 						<value>2000</value>
@@ -142,6 +312,10 @@
 				<and>
 					<equals>
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<greater-than>
@@ -188,6 +362,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
 					<greater-than>
 						<property>/controls/flight/flaps</property>
 						<value>0.640</value>
@@ -231,6 +409,10 @@
 						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
 					<less-than-equals> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350. Should be working within the next few builds -->
 						<property>/position/gear-agl-ft</property>
 						<value>350</value>
@@ -253,7 +435,84 @@
 		</gpws>
 	
 <!-- Retard Warning -->
-
+		<retard>
+			<name>retardO</name>
+			<path>Aircraft/A320Family/Sounds/GPWS-OLD/retard.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<and>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<or>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>18</value>
+							</less-than>
+							<equals>
+								<property>/it-autoflight/output/ap1</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap2</property>
+								<value>0</value>
+							</equals>
+						</and>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>8</value>
+							</less-than>
+							<or>
+								<equals>
+									<property>/it-autoflight/output/ap1</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/it-autoflight/output/ap2</property>
+									<value>1</value>
+								</equals>
+							</or>
+						</and>
+					</or>
+					<greater-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<less-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<less-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<not>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</not>
+					<less-than>
+						<property>velocities/airspeed-kt</property>
+						<value>160</value>
+					</less-than>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</retard>
 			
 		<retard>
 			<name>retard</name>
@@ -265,6 +524,10 @@
 						<property>/controls/flight/flaps</property>
 						<value>0.640</value>
 					</greater-than>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
 					<or>
 						<and>
 							<less-than>

@@ -8,6 +8,7 @@ Brought to you by:
 Present pack includes the following Airbus variants:
 - A319-112
 - A319-131
+- A320-111
 - A320-214
 - A320-232
 - A320-251N
