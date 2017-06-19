@@ -20,7 +20,6 @@ var APinit = func {
 	setprop("/it-autoflight/input/lat", 5);
 	setprop("/it-autoflight/input/lat-arm", 0);
 	setprop("/it-autoflight/input/vert", 7);
-	setprop("/it-autoflight/input/bank-limit", 25);
 	setprop("/it-autoflight/input/trk", 0);
 	setprop("/it-autoflight/input/toga", 0);
 	setprop("/it-autoflight/input/spd-managed", 0);
