@@ -9,9 +9,11 @@ var MCDU_init = func {
 
 var MCDU_reset = func {
 	setprop("/it-autoflight/settings/togaspd", 157);
+	setprop("/MCDU[1]/last-scratchpad", "");
 	setprop("/MCDU[1]/last-fmgc-page", "STATUS");
 	setprop("/MCDU[1]/page", "MCDU");
-	setprop("/MCDU[1]/scratchpad", "");
+	setprop("/MCDU[1]/scratchpad", "SELECT DESIRED SYSTEM");
+	setprop("/MCDU[1]/scratchpad-msg", 0);
 	setprop("/MCDUC/flight-num", "");
 	setprop("/MCDUC/thracc-set", 0);
 	setprop("/MCDUC/reducacc-set", 0);
@@ -50,13 +52,15 @@ var lskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[1]/page") == "MCDU") {
 			setprop("/MCDU[1]/page", getprop("/MCDU[1]/last-fmgc-page"));
-			setprop("/MCDU[1]/scratchpad-msg", "1");
-			setprop("/MCDU[1]/scratchpad", "GPS PRIMARY");
+			setprop("/MCDU[1]/scratchpad", "");
 		} else if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("L1");
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("L1");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -74,6 +78,9 @@ var lskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "DES") {
 			initInputA("L5"); 
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -85,6 +92,9 @@ var lskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("L3");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -96,6 +106,9 @@ var lskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("L4");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -111,6 +124,9 @@ var lskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "DES") {
 			perfDESInput("L5");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -124,6 +140,9 @@ var lskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "DES") {
 			perfDESInput("L6");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -141,6 +160,9 @@ var rskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("R1");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -150,6 +172,9 @@ var rskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("R2");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -159,6 +184,9 @@ var rskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("R3");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -168,6 +196,9 @@ var rskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("R4");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -175,6 +206,9 @@ var rskbutton = func(btn) {
 		if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("R5");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -186,6 +220,9 @@ var rskbutton = func(btn) {
 		} else if (getprop("/MCDU[1]/page") == "CRZ") {
 			perfCRZInput("R6");
 		} else {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		}
@@ -210,6 +247,9 @@ var radnavInput = func(key) {
 					or scratchpad == 109.10 or scratchpad == 109.15 or scratchpad == 109.30 or scratchpad == 109.35 or scratchpad == 109.50 or scratchpad == 109.55 or scratchpad == 109.70 or scratchpad == 109.75 or scratchpad == 109.90 or scratchpad == 109.95 
 					or scratchpad == 110.10 or scratchpad == 110.15 or scratchpad == 110.30 or scratchpad == 110.35 or scratchpad == 110.50 or scratchpad == 110.55 or scratchpad == 110.70 or scratchpad == 110.75 or scratchpad == 110.90 or scratchpad == 110.95 
 					or scratchpad == 111.10 or scratchpad == 111.15 or scratchpad == 111.30 or scratchpad == 111.35 or scratchpad == 111.50 or scratchpad == 111.55 or scratchpad == 111.70 or scratchpad == 111.75 or scratchpad == 111.90 or scratchpad == 111.95) {
+						if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+							setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+						}
 						setprop("/MCDU[1]/scratchpad-msg", "1");
 						setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 					} else {
@@ -222,10 +262,16 @@ var radnavInput = func(key) {
 					setprop("/FMGC/internal/vor1freq-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -242,10 +288,16 @@ var radnavInput = func(key) {
 					setprop("/FMGC/internal/vor1crs-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -266,14 +318,23 @@ var radnavInput = func(key) {
 						setprop("/FMGC/internal/vor1freq-set", 1);
 						setprop("/MCDU[1]/scratchpad", "");
 					} else {
+						if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+							setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+						}
 						setprop("/MCDU[1]/scratchpad-msg", "1");
 						setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 					}
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -290,10 +351,16 @@ var radnavInput = func(key) {
 					setprop("/FMGC/internal/vor1crs-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -310,6 +377,9 @@ var radnavInput = func(key) {
 					or scratchpad == 109.10 or scratchpad == 109.15 or scratchpad == 109.30 or scratchpad == 109.35 or scratchpad == 109.50 or scratchpad == 109.55 or scratchpad == 109.70 or scratchpad == 109.75 or scratchpad == 109.90 or scratchpad == 109.95 
 					or scratchpad == 110.10 or scratchpad == 110.15 or scratchpad == 110.30 or scratchpad == 110.35 or scratchpad == 110.50 or scratchpad == 110.55 or scratchpad == 110.70 or scratchpad == 110.75 or scratchpad == 110.90 or scratchpad == 110.95 
 					or scratchpad == 111.10 or scratchpad == 111.15 or scratchpad == 111.30 or scratchpad == 111.35 or scratchpad == 111.50 or scratchpad == 111.55 or scratchpad == 111.70 or scratchpad == 111.75 or scratchpad == 111.90 or scratchpad == 111.95) {
+						if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+							setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+						}
 						setprop("/MCDU[1]/scratchpad-msg", "1");
 						setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 					} else {
@@ -322,10 +392,16 @@ var radnavInput = func(key) {
 					setprop("/FMGC/internal/vor2freq-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -342,10 +418,16 @@ var radnavInput = func(key) {
 					setprop("/FMGC/internal/vor2crs-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -367,6 +449,9 @@ var initInputA = func(key) {
 				setprop("/MCDUC/flight-num-set", 1);
 				setprop("/MCDU[1]/scratchpad", "");
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -381,16 +466,26 @@ var initInputA = func(key) {
 			var cis = size(scratchpad);
 			if (cis >= 1 and cis <= 3) {
 				if (ci == nil) {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
+					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				} else if (ci >= 0 and ci <= 120) {
 					setprop("/FMGC/internal/cost-index", ci);
 					setprop("/FMGC/internal/cost-index-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -406,6 +501,10 @@ var initInputA = func(key) {
 			var crzs = size(scratchpad);
 			if (crzs >= 1 and crzs <= 3) {
 				if (crz == nil) {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
+					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				} else if (crz > 0 and crz <= 430) {
 					setprop("/FMGC/internal/cruise-ft", crz * 100);
@@ -413,10 +512,16 @@ var initInputA = func(key) {
 					setprop("/FMGC/internal/cruise-lvl-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -441,10 +546,16 @@ var initInputA = func(key) {
 					setprop("/MCDU[1]/scratchpad", "");
 					fmgc.updateARPT();
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -472,10 +583,16 @@ var initInputB = func(key) {
 					setprop("/FMGC/internal/block-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -498,10 +615,16 @@ var perfTOInput = func(key) {
 					setprop("/FMGC/internal/v1-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -519,10 +642,16 @@ var perfTOInput = func(key) {
 					setprop("/FMGC/internal/vr-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -542,16 +671,25 @@ var perfTOInput = func(key) {
 					setprop("/it-autoflight/settings/togaspd", scratchpad + 10);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
 		}
 	} else if (key == "L4") {
 		if (scratchpad == "CLR") {
+			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
 			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 		} else {
@@ -561,10 +699,16 @@ var perfTOInput = func(key) {
 					setprop("/FMGC/internal/trans-alt", scratchpad);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -587,10 +731,16 @@ var perfTOInput = func(key) {
 					setprop("/MCDUC/thracc-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -613,10 +763,16 @@ var perfTOInput = func(key) {
 					setprop("/FMGC/internal/flap-ths-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -636,10 +792,16 @@ var perfTOInput = func(key) {
 					setprop("/FMGC/internal/flex-cmd", flex_calc);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -656,6 +818,9 @@ var perfTOInput = func(key) {
 				setprop("/MCDUC/reducacc-set", 1);
 				setprop("/MCDU[1]/scratchpad", "");
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -675,16 +840,26 @@ var perfCLBInput = func(key) {
 			var cis = size(scratchpad);
 			if (cis >= 1 and cis <= 3) {
 				if (ci == nil) {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
+					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				} else if (ci >= 0 and ci <= 120) {
 					setprop("/FMGC/internal/cost-index", ci);
 					setprop("/FMGC/internal/cost-index-set", 1);
 					setprop("/MCDU[1]/scratchpad", "");
 				} else {
+					if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+					}
 					setprop("/MCDU[1]/scratchpad-msg", "1");
 					setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 				}
 			} else {
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+				}
 				setprop("/MCDU[1]/scratchpad-msg", "1");
 				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
@@ -742,160 +917,176 @@ var arrowbutton = func(btn) {
 }
 
 var pagebutton = func(btn) {
-	if (btn == "radnav") {
-		setprop("/MCDU[1]/page", "RADNAV");
-	} else if (btn == "perf") {
-		if (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) {
-			setprop("/MCDU[1]/page", "TO");
-		} else if (getprop("/FMGC/status/phase") == 2) {
-			setprop("/MCDU[1]/page", "CLB");
-		} else if (getprop("/FMGC/status/phase") == 3) {
-			setprop("/MCDU[1]/page", "CRZ");
+	if (getprop("/MCDU[1]/page") != "MCDU") {
+		if (btn == "radnav") {
+			setprop("/MCDU[1]/page", "RADNAV");
+		} else if (btn == "perf") {
+			if (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) {
+				setprop("/MCDU[1]/page", "TO");
+			} else if (getprop("/FMGC/status/phase") == 2) {
+				setprop("/MCDU[1]/page", "CLB");
+			} else if (getprop("/FMGC/status/phase") == 3) {
+				setprop("/MCDU[1]/page", "CRZ");
+			}
+		} else if (btn == "init") {
+			setprop("/MCDU[1]/page", "INITA");
+		} else if (btn == "data") {
+			setprop("/MCDU[1]/page", "DATA");
+		} else if (btn == "mcdu") {
+			setprop("/MCDU[1]/last-fmgc-page", getprop("/MCDU[1]/page"));
+			setprop("/MCDU[1]/scratchpad", "SELECT DESIRED SYSTEM");
+			setprop("/MCDU[1]/page", "MCDU");
 		}
-	} else if (btn == "init") {
-		setprop("/MCDU[1]/page", "INITA");
-	} else if (btn == "data") {
-		setprop("/MCDU[1]/page", "DATA");
-	} else if (btn == "mcdu") {
-		setprop("/MCDU[1]/last-fmgc-page", getprop("/MCDU[1]/page"));
-		setprop("/MCDU[1]/page", "MCDU");
 	}
 }
 
 var button = func(btn) {
-	var scratchpad = getprop("/MCDU[1]/scratchpad");
-	if (btn == "A") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "A");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "B") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "B");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "C") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "C");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "D") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "D");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "E") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "E");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "F") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "F");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "G") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "G");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "H") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "H");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "I") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "I");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "J") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "J");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "K") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "K");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "L") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "L");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "M") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "M");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "N") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "N");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "O") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "O");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "P") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "P");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "Q") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "Q");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "R") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "R");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "S") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "S");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "T") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "T");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "U") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "U");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "V") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "V");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "W") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "W");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "X") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "X");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "Y") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "Y");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "Z") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "Z");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "SLASH") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "/");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "SP") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ " ");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "CLR") {
+	if (getprop("/MCDU[1]/scratchpad-msg") == 0 and getprop("/MCDU[1]/page") != "MCDU") {
 		var scratchpad = getprop("/MCDU[1]/scratchpad");
-		if (size(scratchpad) == 0) {
-			setprop("/MCDU[1]/scratchpad-msg", "1");
-			setprop("/MCDU[1]/scratchpad", "CLR");
-		} else if (getprop("/MCDU[1]/scratchpad-msg") == 1) {
-			setprop("/MCDU[1]/scratchpad", "");
+		if (btn == "A") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "A");
 			setprop("/MCDU[1]/scratchpad-msg", "0");
-		} else if (size(scratchpad) > 0) {
-			setprop("/MCDU[1]/scratchpad", left(scratchpad, size(scratchpad)-1));
+		} else if (btn == "B") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "B");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "C") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "C");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "D") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "D");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "E") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "E");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "F") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "F");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "G") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "G");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "H") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "H");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "I") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "I");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "J") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "J");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "K") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "K");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "L") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "L");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "M") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "M");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "N") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "N");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "O") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "O");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "P") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "P");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "Q") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "Q");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "R") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "R");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "S") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "S");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "T") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "T");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "U") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "U");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "V") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "V");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "W") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "W");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "X") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "X");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "Y") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "Y");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "Z") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "Z");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "SLASH") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "/");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "SP") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ " ");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "CLR") {
+			var scratchpad = getprop("/MCDU[1]/scratchpad");
+			if (size(scratchpad) == 0) {
+				setprop("/MCDU[1]/scratchpad-msg", "1");
+				setprop("/MCDU[1]/scratchpad", "CLR");
+			} else if (getprop("/MCDU[1]/scratchpad-msg") == 1) {
+				setprop("/MCDU[1]/scratchpad", "");
+				setprop("/MCDU[1]/scratchpad-msg", "0");
+			} else if (size(scratchpad) > 0) {
+				setprop("/MCDU[1]/scratchpad", left(scratchpad, size(scratchpad)-1));
+				setprop("/MCDU[1]/scratchpad-msg", "0");
+			}
+		} else if (btn == "0") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "0");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "1") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "1");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "2") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "2");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "3") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "3");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "4") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "4");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "5") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "5");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "6") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "6");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "7") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "7");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "8") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "8");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "9") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "9");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "DOT") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ ".");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+		} else if (btn == "PLUSMINUS") {
+			setprop("/MCDU[1]/scratchpad", scratchpad ~ "-");
 			setprop("/MCDU[1]/scratchpad-msg", "0");
 		}
-	} else if (btn == "0") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "0");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "1") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "1");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "2") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "2");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "3") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "3");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "4") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "4");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "5") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "5");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "6") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "6");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "7") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "7");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "8") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "8");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "9") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "9");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "DOT") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ ".");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
-	} else if (btn == "PLUSMINUS") {
-		setprop("/MCDU[1]/scratchpad", scratchpad ~ "-");
-		setprop("/MCDU[1]/scratchpad-msg", "0");
+	} else {
+		if (btn == "CLR") {
+			var scratchpad = getprop("/MCDU[1]/scratchpad");
+			if (size(scratchpad) == 0) {
+				setprop("/MCDU[1]/scratchpad-msg", "1");
+				setprop("/MCDU[1]/scratchpad", "CLR");
+			} else if (getprop("/MCDU[1]/scratchpad-msg") == 1) {
+				setprop("/MCDU[1]/scratchpad", getprop("/MCDU[1]/last-scratchpad"));
+				setprop("/MCDU[1]/scratchpad-msg", "0");
+			}
+		}
 	}
 }
 
