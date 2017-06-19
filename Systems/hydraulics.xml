@@ -1068,7 +1068,7 @@
 			<condition>
 				<and>
 					<greater-than-equals>
-						<property>/systems/hydraulic/yellow-psi</property>
+						<property>/systems/hydraulic/blue-psi</property>
 						<value>1500</value>
 					</greater-than-equals>
 					<not-equals>
@@ -1104,7 +1104,7 @@
 			<condition>
 				<and>
 					<greater-than-equals>
-						<property>/systems/hydraulic/yellow-psi</property>
+						<property>/systems/hydraulic/blue-psi</property>
 						<value>1500</value>
 					</greater-than-equals>
 					<not-equals>
@@ -1142,7 +1142,7 @@
 			<condition>
 				<or>
 					<less-than>
-						<property>/systems/hydraulic/yellow-psi</property>
+						<property>/systems/hydraulic/blue-psi</property>
 						<value>1500</value>
 					</less-than>
 					<equals>
@@ -1157,7 +1157,7 @@
 			<condition>
 				<and>
 					<greater-than-equals>
-						<property>/systems/hydraulic/yellow-psi</property>
+						<property>/systems/hydraulic/blue-psi</property>
 						<value>1500</value>
 					</greater-than-equals>
 					<equals>
