@@ -3682,7 +3682,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/CSTR</property>
+				<property>/instrumentation/efis[1]/inputs/CSTR</property>
 			</binding>
 		</action>
 	</animation>
@@ -3708,7 +3708,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/wpt</property>
+				<property>/instrumentation/efis[1]/inputs/wpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3738,11 +3738,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/VORD</property>
+				<property>/instrumentation/efis[1]/inputs/VORD</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/DME</property>
+				<property>/instrumentation/efis[1]/inputs/DME</property>
 			</binding>
 		</action>
 	</animation>
@@ -3768,7 +3768,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/NDB</property>
+				<property>/instrumentation/efis[1]/inputs/NDB</property>
 			</binding>
 		</action>
 	</animation>
@@ -3794,7 +3794,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/arpt</property>
+				<property>/instrumentation/efis[1]/inputs/arpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3814,7 +3814,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>cstr.001</object-name>
-		<property>/instrumentation/efis/inputs/CSTR</property>
+		<property>/instrumentation/efis[1]/inputs/CSTR</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3838,7 +3838,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>wpt.001</object-name>
-		<property>/instrumentation/efis/inputs/wpt</property>
+		<property>/instrumentation/efis[1]/inputs/wpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3862,7 +3862,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>vord.001</object-name>
-		<property>/instrumentation/efis/inputs/VORD</property>
+		<property>/instrumentation/efis[1]/inputs/VORD</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3886,7 +3886,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ndb.001</object-name>
-		<property>/instrumentation/efis/inputs/NDB</property>
+		<property>/instrumentation/efis[1]/inputs/NDB</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3910,7 +3910,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>arpt.001</object-name>
-		<property>/instrumentation/efis/inputs/arpt</property>
+		<property>/instrumentation/efis[1]/inputs/arpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3951,7 +3951,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>libraries.mode_inc();</script>
+                <script>libraries.mode2_inc();</script>
             </binding>
 		</action>
 		<action>
@@ -3960,7 +3960,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>libraries.mode_dec();</script>
+                <script>libraries.mode2_dec();</script>
             </binding>
 		</action>
     </animation>
@@ -3997,7 +3997,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>libraries.ctl_func("range",1);</script>
+                <script>libraries.ctl2_func("range",1);</script>
             </binding>
 		</action>
 		<action>
@@ -4006,7 +4006,7 @@
 			<repeatable type="bool">false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>libraries.ctl_func("range",-1);</script>
+                <script>libraries.ctl2_func("range",-1);</script>
             </binding>
 		</action>
     </animation>
@@ -4042,14 +4042,14 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis/input/vor-adf-1</property>
+                <property>/instrumentation/efis[1]/input/vor-adf-1</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis/input/lh-vor-adf</property>
+                <property>/instrumentation/efis[1]/input/lh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
@@ -4088,14 +4088,14 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis/input/vor-adf-2</property>
+                <property>/instrumentation/efis[1]/input/vor-adf-2</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis/input/rh-vor-adf</property>
+                <property>/instrumentation/efis[1]/input/rh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
@@ -4129,7 +4129,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-mode-right</object-name>
-        <property>/instrumentation/efis/mfd/pnl_mode-num</property>
+        <property>/instrumentation/efis[1]/mfd/pnl_mode-num</property>
         <interpolation>
             <entry><ind>0</ind><dep>  0</dep></entry>
             <entry><ind>1</ind><dep> 45</dep></entry>
@@ -4172,7 +4172,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range-right</object-name>
-        <property>/instrumentation/efis/inputs/range-nm</property>
+        <property>/instrumentation/efis[1]/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
