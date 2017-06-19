@@ -18,6 +18,24 @@
 			</livery>
 		</model>
 		
+		<!--previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a319-1.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a319-2.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a319-3.png</path>
+			</preview>
+		</previews!-->
+		
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>

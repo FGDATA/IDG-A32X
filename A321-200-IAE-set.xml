@@ -17,6 +17,19 @@
 				<file>Airbus</file>
 			</livery>
 		</model>
+		
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a321-1.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a321-2.png</path>
+			</preview>
+		</previews>
 
 		<view>
 			<name>Pilot View</name>

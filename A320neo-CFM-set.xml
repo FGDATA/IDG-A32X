@@ -18,6 +18,29 @@
 			</livery>
 		</model>
 
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a320n-1.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a320n-2.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a320n-3.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a320n-4.png</path>
+			</preview>
+		</previews>
+		
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
