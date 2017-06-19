@@ -24,19 +24,6 @@
 			</pushback>
 		</model>
 		
-		<previews>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/splash1.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/splash2.png</path>
-			</preview>
-		</previews>
-
 		<startup>
 			<splash-texture>Aircraft/A320Family/Splash/SplashOld.png</splash-texture>
 		</startup>
