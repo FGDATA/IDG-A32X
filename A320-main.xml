@@ -554,6 +554,7 @@
 			<sidestick-pos userarchive="y" type="bool">0</sidestick-pos>
 		</pfd>
 		<old-gpws type="bool">0</old-gpws>
+		<steep-ils type="bool">0</steep-ils>
 	</options>
 	
 	<instrumentation n="0">

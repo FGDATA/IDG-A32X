@@ -516,7 +516,24 @@
 		<input>/instrumentation/nav[0]/gs-rate-of-climb-fpm</input>
 		<output>/it-autoflight/internal/nav1-rate-of-climb-fpm</output>
 		<gain>1.0</gain>
-		<min>-1500</min>
+		<min>
+			<condition>
+				<equals>
+					<property>/options/steep-ils</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<value>-1500</value>
+		</min>
+		<min>
+			<condition>
+				<equals>
+					<property>/options/steep-ils</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>-2200</value>
+		</min>
 		<max>0</max>
 	</filter>
 	
