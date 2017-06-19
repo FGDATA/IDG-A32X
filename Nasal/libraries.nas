@@ -211,6 +211,15 @@ var librariesLoop = maketimer(0.1, func {
 	} else {
 		setprop("/systems/shake/effect", 0);
 	}
+	
+	var trueSpeedKts = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
+	if(trueSpeedKts > 370) {
+		setprop("/it-autoflight/internal/bank-limit", 15);
+	} else if(trueSpeedKts > 300) {
+		setprop("/it-autoflight/internal/bank-limit", 20);
+	} else {
+		setprop("/it-autoflight/internal/bank-limit", 25);
+	}
 });
 
 var variousReset = func {
