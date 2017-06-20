@@ -72,7 +72,7 @@
 		</config>
 	</pi-simple-controller>
 	
-	<pid-controller>
+	<pi-simple-controller>
 		<name>VORLOC TRK</name>
 		<debug>false</debug>
 		<enable>
@@ -131,20 +131,16 @@
 			<Kp>
 				<property>/it-autoflight/config/cmd/vorloc</property>
 			</Kp>
-			<beta>1.0</beta>	
-			<alpha>0.1</alpha>	
-			<gamma>0.0</gamma>		
-			<Ti>10.0</Ti>      
-			<Td>0.00001</Td>   	
-			<u_min>
+			<Ki>0.0001</Ki>
+			<min>
 				<property>/it-autoflight/internal/bank-limit</property>
 				<scale>-1</scale>
-			</u_min>
-			<u_max>
+			</min>
+			<max>
 				<property>/it-autoflight/internal/bank-limit</property>
-			</u_max>
+			</max>
 		</config>
-	</pid-controller>
+	</pi-simple-controller>
 
 	<filter>
 		<name>ROLL DEG SYNC</name>

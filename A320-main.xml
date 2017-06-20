@@ -308,7 +308,7 @@
 		<cmd>
 			<roll-kp>-0.9</roll-kp>
 			<roll-scale>1.6</roll-scale>
-			<vorloc>-4.0</vorloc>
+			<vorloc>-2.8</vorloc>
 			<vs>0.01</vs>
 			<fpa>0.30</fpa>
 		</cmd>
