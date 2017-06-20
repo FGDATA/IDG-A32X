@@ -6,6 +6,8 @@
 #################################
 
 var APinit = func {
+	setprop("/instrumentation/efis[0]/mfd/true-north", 0);
+	setprop("/instrumentation/efis[1]/mfd/true-north", 0);
 	setprop("/it-autoflight/custom/trk-fpa", 0);
 	setprop("/it-autoflight/input/kts-mach", 0);
 	setprop("/it-autoflight/input/ap1", 0);
@@ -400,6 +402,8 @@ var toggle_trkfpa = func {
 			setprop("/it-autoflight/input/vert", 5);
 		}
 		setprop("/it-autoflight/input/trk", 1);
+		setprop("/instrumentation/efis[0]/mfd/true-north", 1);
+		setprop("/instrumentation/efis[1]/mfd/true-north", 1);
 		var hed = getprop("/it-autoflight/internal/heading-error-deg");
 		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
 			setprop("/it-autoflight/input/lat", 3);
@@ -410,6 +414,8 @@ var toggle_trkfpa = func {
 			setprop("/it-autoflight/input/vert", 1);
 		}
 		setprop("/it-autoflight/input/trk", 0);
+		setprop("/instrumentation/efis[0]/mfd/true-north", 0);
+		setprop("/instrumentation/efis[1]/mfd/true-north", 0);
 		var hed = getprop("/it-autoflight/internal/heading-error-deg");
 		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
 			setprop("/it-autoflight/input/lat", 3);
