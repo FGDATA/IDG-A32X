@@ -4,13 +4,15 @@
 	<sim>
 		<model>
 			<livery>
-				<name>United Airlines (Battleship livery)</name>
-				<texture>Liveries/A319/IAE/UAL.png</texture>
+				<name>Aeropostale</name>
+				<texture>Liveries/A320/CFM-100/A320-APT.png</texture>
 			</livery>
 		</model>
 	</sim>
+	
 	<options>
-			<EIS2 type="bool">1</EIS2>
+		<EIS2 type="bool">0</EIS2>
 	</options>
+	
 	<sharklet type="bool">0</sharklet>
 </PropertyList>
