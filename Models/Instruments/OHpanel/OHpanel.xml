@@ -3587,6 +3587,79 @@
 		</center>
 	</animation>
 
+	<!-- Anti-ice -->
+	<!-- Window Heat and Probe Button -->
+	<!-- 0.5 is auto, 1 is on -->
+	<animation>
+		<type>select</type>
+		<object-name>PrbWinHeatBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/switches/windowprobeheat</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>PrbWinHeatBtn2</object-name>
+		<condition>
+			<less-than-equals>
+					<property>/controls/switches/windowprobeheat</property>
+					<value>0.5</value>
+			</less-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Window Probe Heat Toggle</name>
+		<type>pick</type>
+		<object-name>PrbWinHeatBtn2</object-name>
+		<object-name>PrbWinHeatBtn2O</object-name>
+		<object-name>PrbWinHeatBtn1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-cycle</command>
+				<property>/controls/switches/windowprobeheat</property>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- APU -->
 	<animation>
 		<name>APU master switch pick</name>
