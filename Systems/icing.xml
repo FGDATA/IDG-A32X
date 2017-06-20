@@ -1,0 +1,50 @@
+<PropertyList>
+	<sim>
+		<model>
+			<icing>
+				<iceable>
+					<name>Wing</name>
+					<salvage-control>/controls/deice/surface-deice-wingtail-light</salvage-control>
+					<sensitivity type="double">0.8</sensitivity>
+					<output-property>/fdm/jsbsim/ice/wing</output-property>
+				</iceable>
+				<iceable>
+					<name>Stabilizer</name>
+					<salvage-control>/controls/deice/surface-deice-wingtail-light</salvage-control>
+					<sensitivity type="double">1.0</sensitivity>
+					<output-property>/fdm/jsbsim/ice/stabilizer</output-property>
+				</iceable>
+				<iceable>
+					<name>LeftEngine</name>
+					<salvage-control>/controls/deice/prop-deice</salvage-control>
+					<sensitivity type="double">0.5</sensitivity>
+					<output-property>/fdm/jsbsim/ice/propeller</output-property>
+				</iceable>
+				<iceable>
+					<name>Right</name>Engine</name>
+					<salvage-control>/controls/deice/prop-deice</salvage-control>
+					<sensitivity type="double">0.5</sensitivity>
+					<output-property>/fdm/jsbsim/ice/propeller</output-property>
+				</iceable>
+				<iceable>
+					<name>Windshield</name>
+					<salvage-control>/controls/deice/windshield-deice</salvage-control>
+					<sensitivity type="double">0.5</sensitivity>
+				<!-- not relevant for fdm, ignore output-property -->
+				</iceable>
+				<iceable>
+					<name>Fuselage</name>
+					<!-- no salvage control, no deicing of the fuselage -->
+					<sensitivity type="double">0.3</sensitivity>
+					<output-property>/fdm/jsbsim/ice/fuselage</output-property>
+				</iceable>
+				<iceable>
+					<name>Pitot tube</name>
+					<sensitivity type="double">1</sensitivity>
+					<salvage-control>/controls/anti-ice/pitot-heat</salvage-control>
+					<output-property>/systems/pitot/icing</output-property>
+				</iceable>
+			</icing>
+		</model>	
+	</sim>
+</PropertyList>
