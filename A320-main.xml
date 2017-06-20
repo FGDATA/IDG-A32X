@@ -3,6 +3,7 @@
 <PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
 
 	<sim>
+		
 		<author>Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)</author>
 		
 		<status>Pre V1.0</status>
@@ -21,44 +22,6 @@
 				<kd type="double">0</kd>
 				<position-norm type="double">0</position-norm>
 			</pushback>
-			<icing>
-				<iceable>
-					<name>Wing</name>
-					<salvage-control>/controls/deice/wing</salvage-control>
-					<sensitivity type="double">0.8</sensitivity>
-					<output-property>/fdm/jsbsim/ice/wing</output-property>
-				</iceable>
-				<iceable>
-					<name>LeftEngine</name>
-					<salvage-control>/controls/deice/lengine</salvage-control>
-					<sensitivity type="double">0.5</sensitivity>
-					<output-property>/fdm/jsbsim/ice/lengine</output-property>
-				</iceable>
-				<iceable>
-					<name>RightEngine</name>
-					<salvage-control>/controls/deice/rengine</salvage-control>
-					<sensitivity type="double">0.5</sensitivity>
-					<output-property>/fdm/jsbsim/ice/rengine</output-property>
-				</iceable>
-				<iceable>
-					<name>Windshield</name>
-					<salvage-control>/controls/deice/windowprobeheat</salvage-control>
-					<sensitivity type="double">0.5</sensitivity>
-				<!-- not relevant for fdm, ignore output-property -->
-				</iceable>
-				<iceable>
-					<name>Fuselage</name>
-					<!-- no salvage control, no deicing of the fuselage -->
-					<sensitivity type="double">0.3</sensitivity>
-					<output-property>/fdm/jsbsim/ice/fuselage</output-property>
-				</iceable>
-				<iceable>
-					<name>Pitot tube</name>
-					<sensitivity type="double">1</sensitivity>
-					<salvage-control>/controls/deice/windowprobeheat</salvage-control>
-					<output-property>/systems/pitot/icing</output-property>
-				</iceable>
-			</icing>
 		</model>
 		
 		<startup>
@@ -266,6 +229,7 @@
 		</fuel>
 	</consumables>
 	
+
 	<payload>
 		<weight n="0">
 			<name>Cockpit Crew</name>
@@ -323,45 +287,45 @@
 		</weight>
 	</payload>
 	
-	<it-autoflight>
-		<config>
-			<altitude-dial-mode>0</altitude-dial-mode>
-			<roll>
-				<umin>-0.45</umin>
-				<umax>0.45</umax>
-				<kp>0.045</kp>
-				<kp-vloc>0.07</kp-vloc>
-				<ti>10.0</ti>
-				<td>0.00001</td>
-			</roll>
-			<pitch>
-				<umin>-0.20</umin>
-				<umax>0.20</umax>
-				<kp>-0.06</kp>
-				<ti>10.0</ti>
-				<td>0.00001</td>
-			</pitch>
-			<cmd>
-				<roll-kp>-0.9</roll-kp>
-				<roll-scale>1.6</roll-scale>
-				<vorloc>-4.0</vorloc>
-				<vs>0.01</vs>
-				<fpa>0.30</fpa>
-			</cmd>
-			<autoland>
-				<kp-pitch>0.035</kp-pitch>
-				<kp-rudder>-0.05</kp-rudder>
-			</autoland>
-		</config>
-		<output>
-			<ap1>0</ap1>
-			<ap2>0</ap2>
-		</output>
-		<custom>
-			<hdg-input>0</hdg-input>
-			<trk-fpa>0</trk-fpa>
-		</custom>
-	</it-autoflight>
+<it-autoflight>
+	<config>
+		<altitude-dial-mode>0</altitude-dial-mode>
+		<roll>
+			<umin>-0.45</umin>
+			<umax>0.45</umax>
+			<kp>0.045</kp>
+			<kp-vloc>0.07</kp-vloc>
+			<ti>10.0</ti>
+			<td>0.00001</td>
+		</roll>
+		<pitch>
+			<umin>-0.20</umin>
+			<umax>0.20</umax>
+			<kp>-0.06</kp>
+			<ti>10.0</ti>
+			<td>0.00001</td>
+		</pitch>
+		<cmd>
+			<roll-kp>-0.9</roll-kp>
+			<roll-scale>1.6</roll-scale>
+			<vorloc>-4.0</vorloc>
+			<vs>0.01</vs>
+			<fpa>0.30</fpa>
+		</cmd>
+		<autoland>
+			<kp-pitch>0.035</kp-pitch>
+			<kp-rudder>-0.05</kp-rudder>
+		</autoland>
+	</config>
+	<output>
+		<ap1>0</ap1>
+		<ap2>0</ap2>
+	</output>
+	<custom>
+		<hdg-input>0</hdg-input>
+		<trk-fpa>0</trk-fpa>
+	</custom>
+</it-autoflight>
 
 	<it-fbw n="0">
 		<alpha-hld type="bool">0</alpha-hld>
@@ -824,10 +788,6 @@
 		<canvas_nd>
 			<file>Aircraft/A320Family/Models/Instruments/ND/canvas/ND.nas</file>
 		</canvas_nd>
-		<icing> <!-- leave icing in this -->
-			<file>Aircraft/A320Family/Nasal/icing.nas</file>
-			<file>Aircraft/A320Family/Nasal/PitotIcing.nas</file>
-		</icing>
 	</nasal>
 
 </PropertyList>
