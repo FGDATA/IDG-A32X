@@ -86,9 +86,7 @@
 			<property>/it-autoflight/internal/target-fpm-d</property>
 		</output>
 		<config>
-			<Kp>
-				<property>/it-autoflight/config/cmd/fpa</property>
-			</Kp>
+			<Kp>120</Kp>
 			<beta>1.0</beta>
 			<alpha>0.1</alpha>
 			<gamma>0.0</gamma>

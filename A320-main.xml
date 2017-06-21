@@ -322,7 +322,7 @@
 			<max-lb type="double">3300.320</max-lb>
 		</weight>
 	</payload>
-
+	
 	<it-autoflight>
 		<config>
 			<altitude-dial-mode>0</altitude-dial-mode>
