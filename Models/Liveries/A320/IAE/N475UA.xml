@@ -2,14 +2,14 @@
   <sim>
     <model>
       <livery>
-        <name type="string">United Airlines (Blue Tulip livery)</name>
-        <texture>Liveries/A320/IAE/UAL.png</texture>
+        <name type="string">United Airlines (Retro livery)</name>
+        <texture>Liveries/A320/IAE/N475UA.png</texture>
       </livery>
     </model>
   </sim>
   
 	<options>
-		<EIS2 type="bool">0</EIS2>
+		<EIS2 type="bool">1</EIS2>
 	</options>
   
 	<sharklet type="bool">0</sharklet>
