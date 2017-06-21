@@ -98,7 +98,7 @@
         <gain>1.0</gain>
         <input>
             <condition>
-                <property>instrumentation/efis/mfd/true-north</property>
+                <property>/it-autoflight/custom/trk-fpa</property>
             </condition>
             <property>/orientation/track-deg</property>
         </input>
