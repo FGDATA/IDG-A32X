@@ -540,6 +540,19 @@
  <!-- =============================================================== -->
  <!-- Flight Director                                                 -->
  <!-- =============================================================== -->
+ 
+	<filter>
+		<name>IT-CONTROLLER: TARGET ROLL CMD</name>
+		<debug>false</debug>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+		<input>
+			<property>/it-autoflight/internal/target-roll-deg</property>
+		</input>
+		<output>/it-autoflight/internal/target-roll-fd</output>
+		<type>noise-spike</type>
+		<max-rate-of-change>15</max-rate-of-change>
+	</filter>
 	
 	<filter>
 		<name>FD: ROLL</name>
@@ -561,7 +574,7 @@
 			</condition>
 			<expression>
 				<dif>
-					<property>/it-autoflight/internal/target-roll</property>
+					<property>/it-autoflight/internal/target-roll-fd</property>
 					<property>/orientation/roll-deg</property>
 				</dif>
 			</expression>
