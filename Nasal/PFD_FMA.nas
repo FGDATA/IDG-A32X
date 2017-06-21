@@ -52,14 +52,32 @@ setlistener("/it-autoflight/output/thr-mode", func {
 	speedmach();
 });
 
+var hdgmde = func {
+	var lat = getprop("/it-autoflight/mode/lat");
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	var trk = getprop("/it-autoflight/custom/trk-fpa");
+	if (lat == "HDG" and trk == 0) {
+		if (newlat != "HDG") {
+			setprop("/modes/pfd/fma/roll-mode", "HDG");
+		}
+	} else if (lat == "HDG" and trk == 1) {
+		if (newlat != "TRACK") {
+			setprop("/modes/pfd/fma/roll-mode", "TRACK");
+		}
+	}
+}
+
+# HDG/TRK
+setlistener("/it-autoflight/custom/trk-fpa", func {
+	hdgmde();
+});
+
 # Master Lateral
 setlistener("/it-autoflight/mode/lat", func {
 	var lat = getprop("/it-autoflight/mode/lat");
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
 	if (lat == "HDG") {
-		if (newlat != "HDG") {
-			setprop("/modes/pfd/fma/roll-mode", "HDG");
-		}
+		hdgmde();
 	} else if (lat == "LNAV") {
 		if (newlat != "NAV") {
 			setprop("/modes/pfd/fma/roll-mode", "NAV");
