@@ -660,7 +660,7 @@
     	<type>textranslate</type>
     	<object-name>alt-tape-2</object-name>
     	<property>instrumentation/altimeter/indicated-altitude-ft</property>
-    	<factor>0.009765625</factor>
+    	<factor>0.009999725</factor>
     	<axis>
     		<y>1</y>
     	</axis>

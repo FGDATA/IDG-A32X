@@ -1738,6 +1738,12 @@
 		<object-name>vs-sel</object-name>
 		<property>/it-autoflight/input/vs</property>
 		<factor>11.25</factor>
+		<condition>
+			<equals>
+				<property>/it-autoflight/output/vert</property>
+				<value>1</value>
+			</equals>
+		</condition>
 		<axis>
 			<x1-m>-0.4608</x1-m>
 			<y1-m>0.0924</y1-m>
