@@ -111,6 +111,9 @@
 		<object-name>YellowElecPump2O</object-name>
 		<object-name>YellowEngPump1F</object-name>
 		<object-name>YellowEngPump2O</object-name>
+		<object-name>PrbWinHeatBtn2</object-name>
+		<object-name>PrbWinHeatBtn2O</object-name>
+		<object-name>PrbWinHeatBtn1</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>

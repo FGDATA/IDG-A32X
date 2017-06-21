@@ -53,6 +53,8 @@ var pneu_init = func {
 	setprop("/systems/ventilation/lavatory/extractvalve", "0");
 	setprop("/systems/pressurization/ambientpsi", "0");
 	setprop("/systems/pressurization/cabinpsi", "0");
+	setprop("/controls/deice/eng1-on", 0);
+	setprop("/controls/deice/eng2-on", 0);
 	pneu_timer.start();
 }
 
@@ -83,6 +85,8 @@ var master_pneu = func {
 	var bleedeng2_fail = getprop("/systems/failures/bleed-eng2");
 	var pack1_fail = getprop("/systems/failures/pack1");
 	var pack2_fail = getprop("/systems/failures/pack2");
+	var engantiice1 = getprop("/controls/deice/eng1-on");
+	var engantiice2 = getprop("/controls/deice/eng2-on");
 	
 	# Air Sources/PSI
 	if (rpmapu >= 94.9 and bleedapu_sw and !bleedapu_fail) {
@@ -152,6 +156,52 @@ var master_pneu = func {
 	} else {
 		setprop("/systems/pneumatic/groundair", 0);
 	}
+	
+	if (engantiice1 and bleed1 > 20) { # shut down anti-ice if bleed is lost else turn it on
+		setprop("/controls/deice/lengine", 0); 
+		setprop("/controls/deice/eng1-on", 0);
+	}
+	
+	if (engantiice1) { # else turn it on
+		setprop("/controls/deice/lengine", 1); 
+	}
+	
+	if (engantiice2 and bleed2 > 20) {
+		setprop("/controls/deice/rengine", 0);
+		setprop("/controls/deice/eng2-on", 0);
+	}
+	
+	if (engantiice2) {
+		setprop("/controls/deice/rengine", 1);
+	}
+	
+	var flashfault1 = func {
+		setprop("/controls/deice/eng1-fault", 1);
+		settimer(func {
+			setprop("/controls/deice/eng1-fault", 0);
+		}, 0.5);
+	}
+	
+	var flashfault2 = func {
+		setprop("/controls/deice/eng2-fault", 1);
+		settimer(func {
+			setprop("/controls/deice/eng2-fault", 0);
+		}, 0.5);
+	}
+	
+	setlistener("/controls/deice/eng1-on", func {
+		var eng1on = getprop("/controls/deice/eng1-on");
+		if (eng1on) {
+			flashfault1();
+		}
+	});
+	
+	setlistener("/controls/deice/eng2-on", func {
+		var eng2on = getprop("/controls/deice/eng2-on");
+		if (eng2on) {
+			flashfault2();
+		}
+	});
 	
 	var total_psi = getprop("/systems/pneumatic/total-psi");
 	

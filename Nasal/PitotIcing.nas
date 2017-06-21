@@ -1,80 +1,35 @@
-#############################################################################
-# This file is part of FlightGear, the free flight simulator
-# http://www.flightgear.org/
-#
-# Copyright (C) 2009 Torsten Dreyer, Torsten (at) t3r _dot_ de
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License as
-# published by the Free Software Foundation; either version 2 of the
-# License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# General Public License for more details.
-#############################################################################
+######################################################
+# Fail the pitot tude due to icing of the pitot tube #
+# Code by Jonathan Redpath 							 #
+######################################################
 
-#########################################################################################
-# Fail the airspeed indicator due to icing of the pitot tube
-# Maintainer: Torsten Dreyer (Torsten at t3r dot de)
-#
-# inputs
-# /instrumentation/airspeed-indicator[n]/icing
-#
-# outputs
-# /instrumentation/airspeed-indicator/serviceable          
-# /instrumentation/airspeed-indicator/indicated-speed-kt
-#########################################################################################
+var PitotIcingReset = func {
+	setprop("/systems/pitot/icing", 0.0);
+	setprop("/systems/pitot/failed", 1);
+	pitot_timer.start();
+}
 
-var PitotIcingHandler = {};
-PitotIcingHandler.new = func {
-  var m = {};
-  m.parents = [PitotIcingHandler];
+PitotIcing = func {
+	var icing = getprop("/systems/pitot/icing");
+	var failed = getprop("/systems/pitot/failed");
 
-  m.failAtIcelevel = arg[1];
-
-  m.baseNodeName = "/systems/pitot[" ~ arg[0] ~ "]";
-
-  print( "creating PitotIcingHandler for " ~ m.baseNodeName );
-
-  m.baseN = props.globals.getNode( m.baseNodeName );
-
-  m.icingN = m.baseN.initNode( "icing", 0.0 );
-
-  m.serviceableN = m.baseN.initNode( "serviceable", 1, "BOOL" );
-
-  setlistener( m.icingN, func { m.listener() } );
-
-  return m;
+	if( icing > 0.03 ) {
+		if( !failed ) {
+			setprop("/systems/pitot/failed", 1);
+		}
+	} else if( icing > 0.03 ) {
+		if( failed ) {
+			setprop("/systems/pitot/failed", 0);
+		}
+	}
 };
 
-#########################################################################################
-# The handler. Check if ice is above threshold, then fail the device
-#########################################################################################
+###################
+# Update Function #
+###################
 
-PitotIcingHandler.listener = func {
+var update_pitotIcing = func {
+	PitotIcing();
+}
 
-  if( me.icingN.getValue() < me.failAtIcelevel ) {
-    # everything is fine
-
-    if( me.serviceableN.getBoolValue() == 0 ) {
-      # if the inidcator failed before, re-enable it
-      print( me.baseNodeName ~ " is functional again" );
-      me.serviceableN.setBoolValue( 1 );
-    }
-
-  } else {
-    # pitot is iced
-
-    if( me.serviceableN.getBoolValue() != 0 ) {
-      # if the indicator was servicable before, fail it now
-      print( me.baseNodeName ~ " is failing" );
-      me.serviceableN.setBoolValue( 0 );
-    }
-
-  }
-};
-
-# Fail pitot at 0.03" of ice
-PitotIcingHandler.new( 0, 0.03 );
+var pitot_timer = maketimer(0.2, update_pitotIcing);
