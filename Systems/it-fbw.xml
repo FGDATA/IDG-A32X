@@ -24,7 +24,11 @@
 							<value>0</value>
 						</eq>
 						<eq>
-							<property>/gear/gear[0]/wow</property>
+							<property>/gear/gear[1]/wow</property>
+							<value>0</value>
+						</eq>
+						<eq>
+							<property>/gear/gear[2]/wow</property>
 							<value>0</value>
 						</eq>
 						<eq>
@@ -84,6 +88,14 @@
 							<property>/it-fbw/spd-hold</property>
 							<value>0</value>
 						</eq>
+						<lt>
+							<property>/orientation/roll-deg</property>
+							<value>40</value>
+						</lt>
+						<gt>
+							<property>/orientation/roll-deg</property>
+							<value>-40</value>
+						</gt>
 						<or>
 							<eq>
 								<property>/it-fbw/law</property>
