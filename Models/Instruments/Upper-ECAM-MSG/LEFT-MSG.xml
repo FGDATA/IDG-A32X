@@ -1,0 +1,1602 @@
+<?xml version="1.0"?>
+
+<!--
+#############################################
+# A3XX ECAM by Joshua Davidson (it0uchpods) #
+#############################################
+-->
+
+<PropertyList>
+
+	<path>EMPTY.ac</path>
+	
+ <!-- =============================================================== -->
+ <!-- White Text                                                      -->
+ <!-- =============================================================== -->
+	
+	<text>
+		<name>Line1W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line1W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line1c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line2W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.035</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line2W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line2c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line3W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.041</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line3</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line3W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line3c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line4W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.047</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line4</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line4W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line4c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line5W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.053</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line5</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line5W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line5c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line6W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.059</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line6</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line6W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line6c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line7W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.065</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line7</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line7W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line7c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line8W</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.071</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line8</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line8W</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line8c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+ <!-- =============================================================== -->
+ <!-- Green Text                                                      -->
+ <!-- =============================================================== -->
+	
+	<text>
+		<name>Line1G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line1G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line1c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line2G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.035</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line2G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line2c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line3G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.041</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line3</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line3G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line3c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line4G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.047</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line4</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line4G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line4c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line5G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.053</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line5</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line5G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line5c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line6G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.059</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line6</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line6G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line6c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line7G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.065</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line7</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line7G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line7c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line8G</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.071</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line8</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line8G</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line8c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+ <!-- =============================================================== -->
+ <!-- Blue Text                                                       -->
+ <!-- =============================================================== -->
+	
+	<text>
+		<name>Line1B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line1B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line1c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line2B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.035</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line2B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line2c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line3B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.041</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line3</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line3B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line3c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line4B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.047</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line4</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line4B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line4c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line5B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.053</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line5</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line5B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line5c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line6B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.059</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line6</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line6B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line6c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line7B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.065</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line7</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line7B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line7c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line8B</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.071</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line8</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line8B</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line8c</property>
+				<value>b</value>
+			</equals>
+		</condition>
+	</animation>
+	
+ <!-- =============================================================== -->
+ <!-- Amber Text                                                      -->
+ <!-- =============================================================== -->
+	
+	<text>
+		<name>Line1A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line1A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line1c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line2A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.035</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line2A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line2c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line3A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.041</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line3</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line3A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line3c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line4A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.047</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line4</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line4A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line4c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line5A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.053</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line5</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line5A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line5c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line6A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.059</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line6</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line6A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line6c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line7A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.065</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line7</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line7A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line7c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line8A</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.071</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line8</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line8A</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line8c</property>
+				<value>a</value>
+			</equals>
+		</condition>
+	</animation>
+	
+ <!-- =============================================================== -->
+ <!-- Red Text                                                        -->
+ <!-- =============================================================== -->
+	
+	<text>
+		<name>Line1R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.029</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line1R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line1c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line2R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.035</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line2R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line2c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line3R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.041</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line3</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line3R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line3c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line4R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.047</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line4</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line4R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line4c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line5R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.053</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line5</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line5R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line5c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line6R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.059</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line6</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line6R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line6c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line7R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.065</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line7</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line7R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line7c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>Line8R</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.078</y-m>
+			<z-m>-0.071</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/ECAM/msg/line8</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Line8R</object-name>
+		<condition>
+			<equals>
+				<property>/ECAM/msg/line8c</property>
+				<value>r</value>
+			</equals>
+		</condition>
+	</animation>
+	
+ <!-- =============================================================== -->
+ <!-- Colors                                                          -->
+ <!-- =============================================================== -->
+
+	<!-- White -->
+    <animation>
+        <type>material</type>
+		<object-name>Line1W</object-name>
+		<object-name>Line2W</object-name>
+		<object-name>Line3W</object-name>
+		<object-name>Line4W</object-name>
+		<object-name>Line5W</object-name>
+		<object-name>Line6W</object-name>
+		<object-name>Line7W</object-name>
+		<object-name>Line8W</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+	
+	<!-- Green -->
+	<animation>
+        <type>material</type>
+		<object-name>Line1G</object-name>
+		<object-name>Line2G</object-name>
+		<object-name>Line3G</object-name>
+		<object-name>Line4G</object-name>
+		<object-name>Line5G</object-name>
+		<object-name>Line6G</object-name>
+		<object-name>Line7G</object-name>
+		<object-name>Line8G</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+    </animation>
+	
+	<!-- Blue -->
+	<animation>
+        <type>material</type>
+		<object-name>Line1B</object-name>
+		<object-name>Line2B</object-name>
+		<object-name>Line3B</object-name>
+		<object-name>Line4B</object-name>
+		<object-name>Line5B</object-name>
+		<object-name>Line6B</object-name>
+		<object-name>Line7B</object-name>
+		<object-name>Line8B</object-name>
+        <diffuse>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </emission>
+    </animation>
+	
+	<!-- Amber -->
+	<animation>
+		<type>material</type>
+		<object-name>Line1A</object-name>
+		<object-name>Line2A</object-name>
+		<object-name>Line3A</object-name>
+		<object-name>Line4A</object-name>
+		<object-name>Line5A</object-name>
+		<object-name>Line6A</object-name>
+		<object-name>Line7A</object-name>
+		<object-name>Line8A</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0.4</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0.4</green>
+            <blue>0</blue>
+        </emission>
+	</animation>
+	
+	<!-- Red -->
+	<animation>
+		<type>material</type>
+		<object-name>Line1R</object-name>
+		<object-name>Line2R</object-name>
+		<object-name>Line3R</object-name>
+		<object-name>Line4R</object-name>
+		<object-name>Line5R</object-name>
+		<object-name>Line6R</object-name>
+		<object-name>Line7R</object-name>
+		<object-name>Line8R</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+	</animation>
+	
+</PropertyList>
