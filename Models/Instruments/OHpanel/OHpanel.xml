@@ -73,6 +73,10 @@
 		<object-name>CFuelTank1Btn2O</object-name>
 		<object-name>CFuelTank2Btn1F</object-name>
 		<object-name>CFuelTank2Btn2O</object-name>
+		<object-name>Eng1AntiIceBtn1F</object-name>
+		<object-name>Eng1AntiIceBtn2O</object-name>
+		<object-name>Eng2AntiIceBtn1F</object-name>
+		<object-name>Eng2AntiIceBtn2O</object-name>
 		<object-name>Eng1BleedBtn1F</object-name>
 		<object-name>Eng1BleedBtn2O</object-name>
 		<object-name>Eng2BleedBtn1F</object-name>
@@ -100,6 +104,7 @@
 		<object-name>LFuelTank2Btn1F</object-name>
 		<object-name>LFuelTank2Btn2O</object-name>
 		<object-name>IrsOnBatLightOB</object-name>
+		<object-name>PrbWinHeatBtn2O</object-name>
 		<object-name>PTU1F</object-name>
 		<object-name>PTU2O</object-name>
 		<object-name>RamAirBtn2O</object-name>
@@ -107,13 +112,12 @@
 		<object-name>RFuelTank1Btn2O</object-name>
 		<object-name>RFuelTank2Btn1F</object-name>
 		<object-name>RFuelTank2Btn2O</object-name>
+		<object-name>WingAntiIceBtn1F</object-name>
+		<object-name>WingAntiIceBtn2O</object-name>
 		<object-name>YellowElecPump1F</object-name>
 		<object-name>YellowElecPump2O</object-name>
 		<object-name>YellowEngPump1F</object-name>
 		<object-name>YellowEngPump2O</object-name>
-		<object-name>PrbWinHeatBtn2</object-name>
-		<object-name>PrbWinHeatBtn2O</object-name>
-		<object-name>PrbWinHeatBtn1</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -3594,176 +3598,18 @@
 	<!-- Eng and Wing -->
 	
 	<animation>
-		<type>select</type>
-		<object-name>WingAntiIceBtn2O</object-name>
-		<condition>
-			<or>
-				<equals>
-					<property>/controls/deice/wing</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>WingAntiIceBtn1F</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>WingAntiIceBtn1</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>0</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>WingAntiIceBtn2</object-name>
-		<condition>
-			<equals>
-					<property>/controls/deice/wing</property>
-					<value>0</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng1AntiIceBtn2O</object-name>
-		<condition>
-			<or>
-				<equals>
-					<property>/controls/deice/lengine</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng1AntiIceBtn1F</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng1AntiIceBtn1</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>0</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng1AntiIceBtn2</object-name>
-		<condition>
-			<equals>
-					<property>/controls/deice/lengine</property>
-					<value>0</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng2AntiIceBtn2O</object-name>
-		<condition>
-			<or>
-				<equals>
-					<property>/controls/deice/rengine</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng2AntiIceBtn1F</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng2AntiIceBtn1</object-name>
-		<condition>
-				<equals>
-					<property>/controls/switches/annun-test</property>
-					<value>0</value>
-				</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>Eng2AntiIceBtn2</object-name>
-		<condition>
-			<equals>
-					<property>/controls/deice/rengine</property>
-					<value>0</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
 		<name>Wing Anti-ice Pick</name>
 		<type>pick</type>
-		<object-name>WingAntiIceBtn2O</object-name>
-		<object-name>WingAntiIceBtn2</object-name>
-		<object-name>WingAntiIceBtn1F</object-name>
 		<object-name>WingAntiIceBtn1</object-name>
+		<object-name>WingAntiIceBtn1F</object-name>
+		<object-name>WingAntiIceBtn2</object-name>
+		<object-name>WingAntiIceBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
 					<or>
-						<greater-than-equals>
-							<property>/systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
 						<greater-than-equals>
 							<property>/systems/electrical/bus/dc1</property>
 							<value>25</value>
@@ -3783,28 +3629,48 @@
 			</binding>
 		</action>
 	</animation>
+		
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn1F</object-name>
+		<condition>
+			<equals>
+				<property>/controls/switches/annun-test</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/deice/wing</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 	
 	<animation>
 		<name>Left Engine Anti-ice Pick</name>
 		<type>pick</type>
-		<object-name>Eng1AntiIceBtn2O</object-name>
-		<object-name>Eng1AntiIceBtn2</object-name>
-		<object-name>Eng1AntiIceBtn1F</object-name>
 		<object-name>Eng1AntiIceBtn1</object-name>
+		<object-name>Eng1AntiIceBtn1F</object-name>
+		<object-name>Eng1AntiIceBtn2</object-name>
+		<object-name>Eng1AntiIceBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
 					<or>
-						<greater-than-equals>
-							<property>/systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
 						<greater-than-equals>
 							<property>/systems/electrical/bus/dc1</property>
 							<value>25</value>
@@ -3826,26 +3692,46 @@
 	</animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn1F</object-name>
+		<condition>
+			<equals>
+				<property>/controls/switches/annun-test</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/deice/lengine</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
 		<name>Right Engine Anti-ice Pick</name>
 		<type>pick</type>
-		<object-name>Eng2AntiIceBtn2O</object-name>
-		<object-name>Eng2AntiIceBtn2</object-name>
-		<object-name>Eng2AntiIceBtn1F</object-name>
 		<object-name>Eng2AntiIceBtn1</object-name>
+		<object-name>Eng2AntiIceBtn1F</object-name>
+		<object-name>Eng2AntiIceBtn2</object-name>
+		<object-name>Eng2AntiIceBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
 					<or>
-						<greater-than-equals>
-							<property>/systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
 						<greater-than-equals>
 							<property>/systems/electrical/bus/dc1</property>
 							<value>25</value>
@@ -3866,15 +3752,24 @@
 		</action>
 	</animation>
 	
-	<!-- Window Heat and Probe Button -->
-	<!-- 0.5 is auto, 1 is on -->
 	<animation>
 		<type>select</type>
-		<object-name>PrbWinHeatBtn2O</object-name>
+		<object-name>Eng2AntiIceBtn1F</object-name>
+		<condition>
+			<equals>
+				<property>/controls/switches/annun-test</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2AntiIceBtn2O</object-name>
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/switches/windowprobeheat</property>
+					<property>/controls/deice/rengine</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -3885,37 +3780,21 @@
 		</condition>
 	</animation>
 	
-	<animation>
-		<type>select</type>
-		<object-name>PrbWinHeatBtn2</object-name>
-		<condition>
-			<less-than-equals>
-					<property>/controls/switches/windowprobeheat</property>
-					<value>0.5</value>
-			</less-than-equals>
-		</condition>
-	</animation>
+	<!-- Window Heat and Probe Button -->
+	<!-- 0.5 is auto, 1 is on -->
 	
 	<animation>
 		<name>Window Probe Heat Toggle</name>
 		<type>pick</type>
+		<object-name>PrbWinHeatBtn1</object-name>
 		<object-name>PrbWinHeatBtn2</object-name>
 		<object-name>PrbWinHeatBtn2O</object-name>
-		<object-name>PrbWinHeatBtn1</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
 					<or>
-						<greater-than-equals>
-							<property>/systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
 						<greater-than-equals>
 							<property>/systems/electrical/bus/dc1</property>
 							<value>25</value>
@@ -3938,13 +3817,30 @@
 		</action>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>PrbWinHeatBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/switches/windowprobeheat</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<!-- APU -->
 	<animation>
 		<name>APU master switch pick</name>
 		<type>pick</type>
 		<object-name>APUMasterBtn1</object-name>
-		<object-name>APUMasterBtn2</object-name>
 		<object-name>APUMasterBtn1F</object-name>
+		<object-name>APUMasterBtn2</object-name>
 		<object-name>APUMasterBtn2O</object-name>
 		<action>
 			<button>0</button>
