@@ -4,7 +4,7 @@
 	<sim>
 		<model>
 			<livery>
-				<name>Airbus A320</name>
+				<name>Airbus A320 (MSN 001)</name>
 				<texture>Liveries/A320/CFM-100/Airbus.png</texture>
 			</livery>
 		</model>
