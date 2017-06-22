@@ -20,7 +20,7 @@
 				</not-equals>
 				<less-than>
 					<property>/engines/engine[0]/n2</property>
-					<value>5</value>
+					<value>2</value>
 				</less-than>
 			</and>
 		</condition>
@@ -38,9 +38,31 @@
 				</not-equals>
 				<less-than>
 					<property>/engines/engine[1]/n2</property>
-					<value>5</value>
+					<value>2</value>
 				</less-than>
 			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XX.3</object-name>
+		<condition>
+			<less-than>
+				<property>/engines/engine[0]/n2</property>
+				<value>2</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XX.4</object-name>
+		<condition>
+			<less-than>
+				<property>/engines/engine[1]/n2</property>
+				<value>2</value>
+			</less-than>
 		</condition>
 	</animation>
 	
@@ -61,7 +83,7 @@
 				</equals>
 				<greater-than-equals>
 					<property>/engines/engine[0]/n2</property>
-					<value>5</value>
+					<value>2</value>
 				</greater-than-equals>
 			</or>
 		</condition>
@@ -84,9 +106,31 @@
 				</equals>
 				<greater-than-equals>
 					<property>/engines/engine[1]/n2</property>
-					<value>5</value>
+					<value>2</value>
 				</greater-than-equals>
 			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>osgtext-green3</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/engines/engine[0]/n2</property>
+				<value>2</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>osgtext-green4</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/engines/engine[1]/n2</property>
+				<value>2</value>
+			</greater-than-equals>
 		</condition>
 	</animation>
 	
@@ -173,6 +217,8 @@
 		<object-name>osgtext-green</object-name>
 		<object-name>osgtext-green1</object-name>
 		<object-name>osgtext-green2</object-name>
+		<object-name>osgtext-green3</object-name>
+		<object-name>osgtext-green4</object-name>
 		<object-name>rev1.g</object-name>
 		<object-name>rev2.g</object-name>
 		<diffuse>
@@ -201,6 +247,8 @@
 		<type>material</type> <!-- Amber -->
 		<object-name>XX.1</object-name>
 		<object-name>XX.2</object-name>
+		<object-name>XX.3</object-name>
+		<object-name>XX.4</object-name>
         <diffuse>
             <red>1</red>
             <green>0.4</green>
@@ -571,7 +619,7 @@
 	<!-- N2 -->
 	
 	<text>
-		<name>osgtext-green1</name>
+		<name>osgtext-green3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -595,7 +643,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green2</name>
+		<name>osgtext-green4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -619,7 +667,7 @@
 	</text>
 	
 	<text>
-		<name>XX.1</name>
+		<name>XX.3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -643,7 +691,7 @@
 	</text>
 	
 	<text>
-		<name>XX.2</name>
+		<name>XX.4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -719,7 +767,7 @@
 	<!-- FF -->
 	
 	<text>
-		<name>osgtext-green1</name>
+		<name>osgtext-green3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -743,7 +791,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green2</name>
+		<name>osgtext-green4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -767,7 +815,7 @@
 	</text>
 	
 	<text>
-		<name>XX.1</name>
+		<name>XX.3</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -791,7 +839,7 @@
 	</text>
 	
 	<text>
-		<name>XX.2</name>
+		<name>XX.4</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
