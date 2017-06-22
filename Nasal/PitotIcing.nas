@@ -17,7 +17,7 @@ PitotIcing = func {
 		if( !failed ) {
 			setprop("/systems/pitot/failed", 1);
 		}
-	} else if( icing > 0.03 ) {
+	} else if( icing < 0.03 ) {
 		if( failed ) {
 			setprop("/systems/pitot/failed", 0);
 		}

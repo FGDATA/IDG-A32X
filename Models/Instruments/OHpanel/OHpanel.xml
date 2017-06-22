@@ -3591,6 +3591,281 @@
 	</animation>
 
 	<!-- Anti-ice -->
+	<!-- Eng and Wing -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/deice/wing</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn1F</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn1</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>WingAntiIceBtn2</object-name>
+		<condition>
+			<equals>
+					<property>/controls/deice/wing</property>
+					<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/deice/lengine</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn1F</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn1</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1AntiIceBtn2</object-name>
+		<condition>
+			<equals>
+					<property>/controls/deice/lengine</property>
+					<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2AntiIceBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/deice/rengine</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2AntiIceBtn1F</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2AntiIceBtn1</object-name>
+		<condition>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2AntiIceBtn2</object-name>
+		<condition>
+			<equals>
+					<property>/controls/deice/rengine</property>
+					<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>Wing Anti-ice Pick</name>
+		<type>pick</type>
+		<object-name>WingAntiIceBtn2O</object-name>
+		<object-name>WingAntiIceBtn2</object-name>
+		<object-name>WingAntiIceBtn1F</object-name>
+		<object-name>WingAntiIceBtn1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/deice/wing</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Left Engine Anti-ice Pick</name>
+		<type>pick</type>
+		<object-name>Eng1AntiIceBtn2O</object-name>
+		<object-name>Eng1AntiIceBtn2</object-name>
+		<object-name>Eng1AntiIceBtn1F</object-name>
+		<object-name>Eng1AntiIceBtn1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/deice/lengine</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Right Engine Anti-ice Pick</name>
+		<type>pick</type>
+		<object-name>Eng2AntiIceBtn2O</object-name>
+		<object-name>Eng2AntiIceBtn2</object-name>
+		<object-name>Eng2AntiIceBtn1F</object-name>
+		<object-name>Eng2AntiIceBtn1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/battery1-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/battery2-amps</property>
+							<value>120</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/deice/rengine</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Window Heat and Probe Button -->
 	<!-- 0.5 is auto, 1 is on -->
 	<animation>

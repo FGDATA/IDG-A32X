@@ -7,9 +7,15 @@ var icingInit = func {
 	setprop("/systems/icing/severity", "0"); # maximum severity: we will make it random
 	setprop("/systems/icing/factor", 0.0); # the factor is how many inches we add per second
 	setprop("/systems/icing/max-spread-degc", 0.0);
+	setprop("/systems/icing/melt-w-heat-factor", -0.00005000);
 	setprop("/systems/icing/icingcond", 0);
 	setprop("/controls/switches/windowprobeheat", 0);
 	setprop("/controls/switches/windowprobeheatfault", 0);
+	setprop("/controls/deice/wing", 0);
+	setprop("/controls/deice/lengine", 0);
+	setprop("/controls/deice/rengine", 0);
+	setprop("/controls/deice/windowprobeheat", 0);
+	
 	icing_timer.start();
 }
 
@@ -22,7 +28,13 @@ var icingModel = func {
 	var factor = getprop("/systems/icing/factor");
 	var maxSpread = getprop("/systems/icing/max-spread-degc");
 	var icingCond = getprop("/systems/icing/icingcond");
-
+	var pause = getprop("/sim/freeze/master");
+	var melt = getprop("/systems/icing/melt-w-heat-factor");
+	var wing = getprop("/controls/deice/wing");
+	var lengine = getprop("/controls/deice/lengine");
+	var rengine = getprop("/controls/deice/rengine");
+	var windowprobe = getprop("/controls/deice/windowprobeheat");
+	
 	if (severity == "0") {
 		setprop("/systems/icing/factor", -0.00000166);
 	} else if (severity == "1") {
@@ -54,54 +66,69 @@ var icingModel = func {
 	var icing1 = getprop("/sim/model/icing/iceable[0]/ice-inches");
 	var sensitive1 = getprop("/sim/model/icing/iceable[0]/sensitivity");
 	var v = icing1 + (factor * sensitive1);
-	if (icing1 < 0.0) {
+	var a = icing1 + melt;
+	if (icing1 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[0]/ice-inches", 0.0);
-	} else {
+	} else if (wing) {
+		setprop("/sim/model/icing/iceable[0]/ice-inches", a);
+	} else if (!pause and !wing) {
 		setprop("/sim/model/icing/iceable[0]/ice-inches", v);
 	}
 	
 	var icing2 = getprop("/sim/model/icing/iceable[1]/ice-inches");
 	var sensitive2 = getprop("/sim/model/icing/iceable[1]/sensitivity");
 	var u = icing2 + (factor * sensitive2);
-	if (icing2 < 0.0) {
+	var b = icing2 + melt;
+	if (icing2 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[1]/ice-inches", 0.0);
-	} else {
+	} else if (lengine) {
+		setprop("/sim/model/icing/iceable[1]/ice-inches", b);
+	} else if (!pause and !lengine) {
 		setprop("/sim/model/icing/iceable[1]/ice-inches", u);
 	}
 	
 	var icing3 = getprop("/sim/model/icing/iceable[2]/ice-inches");
 	var sensitive3 = getprop("/sim/model/icing/iceable[2]/sensitivity");
 	var t = icing3 + (factor * sensitive3);
-	if (icing3 < 0.0) {
+	var c = icing3 + melt;
+	if (icing3 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[2]/ice-inches", 0.0);
-	} else {
+	} else if (rengine) {
+		setprop("/sim/model/icing/iceable[2]/ice-inches", c);
+	} else if (!pause and !rengine) {
 		setprop("/sim/model/icing/iceable[2]/ice-inches", t);
 	}
 	
 	var icing4 = getprop("/sim/model/icing/iceable[3]/ice-inches");
 	var sensitive4 = getprop("/sim/model/icing/iceable[3]/sensitivity");
 	var s = icing4 + (factor * sensitive4);
-	if (icing4 < 0.0) {
+	var d = icing4 + melt;
+	if (icing4 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[3]/ice-inches", 0.0);
-	} else {
+	} else if (windowprobe) {
+		setprop("/sim/model/icing/iceable[3]/ice-inches", d);
+	} else if (!pause and !windowprobe) {
 		setprop("/sim/model/icing/iceable[3]/ice-inches", s);
 	}
 	
 	var icing5 = getprop("/sim/model/icing/iceable[4]/ice-inches");
 	var sensitive5 = getprop("/sim/model/icing/iceable[4]/sensitivity");
 	var r = icing5 + (factor * sensitive5);
-	if (icing5 < 0.0) {
+	if (icing5 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[4]/ice-inches", 0.0);
-	} else {
+	} else if (!pause) {
 		setprop("/sim/model/icing/iceable[4]/ice-inches", r);
 	}
 	
 	var icing6 = getprop("/sim/model/icing/iceable[5]/ice-inches");
 	var sensitive6 = getprop("/sim/model/icing/iceable[5]/sensitivity");
 	var q = icing6 + (factor * sensitive6);
-	if (icing6 < 0.0) {
+	var e = icing6 + melt;
+	if (icing6 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[5]/ice-inches", 0.0);
-	} else {
+	} else if (windowprobe) {
+		setprop("/sim/model/icing/iceable[5]/ice-inches", e);
+	} else if (!pause and !windowprobe) {
 		setprop("/sim/model/icing/iceable[5]/ice-inches", q);
 	}
 	
