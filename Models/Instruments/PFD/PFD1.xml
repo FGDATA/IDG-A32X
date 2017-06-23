@@ -36,8 +36,14 @@
 		<object-name>sidestick-pos</object-name>
 		<condition>
 			<or>
-				<equals><property>/engines/engine[0]/state</property><value>3</value></equals>
-				<equals><property>/engines/engine[1]/state</property><value>3</value></equals>
+				<equals>
+					<property>/engines/engine[0]/state</property>
+					<value>3</value>
+				</equals>
+				<equals>
+					<property>/engines/engine[1]/state</property>
+					<value>3</value>
+				</equals>
 				<and>
 					<property>/options/pfd/sidestick-pos</property>
 					<equals>
