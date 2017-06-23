@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Suprise Aircraft</name>
+				<texture>Liveries/A318/CFM/Suprise.png</texture>
+			</livery>
+			<nose>
+				<texture>Liveries/A318/CFM/Suprise-nose.png</texture>
+			</nose>
+		</model>
+	</sim>
+</PropertyList>

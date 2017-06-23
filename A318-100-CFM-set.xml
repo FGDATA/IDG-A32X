@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList include="A320-main.xml">
+
+	<sim>
+	
+		<sound>
+			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
+		</sound>
+                <checklists include="A3XX-Checklists.xml"/>
+		<description>Airbus A318-112 (CFM56-5B6)</description>
+		<flight-model>jsb</flight-model>
+		<aero>A319-100-CFM</aero>
+		<model>
+			<path>Aircraft/A320Family/Models/A318-100-CFM.xml</path>
+			<livery>
+				<file>White</file>
+			</livery>
+		</model>
+		
+		<!--previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a318-1.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a318-2.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/a318-3.png</path>
+			</preview>
+		</previews!-->
+
+		<view>
+			<name>Pilot View</name>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.42</x-offset-m>
+				<y-offset-m archive="y">2.29</y-offset-m>
+				<z-offset-m archive="y">-11.61</z-offset-m>
+				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="103">
+			<name>Copilot View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.42</x-offset-m>
+				<y-offset-m archive="y">2.29</y-offset-m>
+				<z-offset-m archive="y">-11.61</z-offset-m>
+				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>Overhead Panel View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.3635023</y-offset-m>
+				<z-offset-m archive="y">-11.51</z-offset-m>
+				<pitch-offset-deg archive="y">40</pitch-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="105">
+			<name>Left Engine View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">-6.49</z-offset-m>
+				<heading-offset-deg>129</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="106">
+			<name>Right Wing View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">0</z-offset-m>
+				<heading-offset-deg>257</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		<view n="107">
+			<name>Aft View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-2.81</x-offset-m>
+				<y-offset-m archive="y">2.44</y-offset-m>
+				<z-offset-m archive="y">6.8</z-offset-m>
+				<heading-offset-deg>63</heading-offset-deg>
+				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
+			</config>
+		</view>
+		
+		<systems n="0">
+            <autopilot n="0">
+                <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
+            </autopilot>
+		</systems>
+		
+	</sim>
+	
+	<options n="0">
+		<EIS2 type="bool">1</EIS2>
+		<eng>CFM</eng>
+		<maxblock>52.3</maxblock>
+	</options>
+	
+	<sharklet type="bool">0</sharklet>
+	
+	<MCDUC n="0">
+		<type>A318-112</type>
+		<eng>CFM56-5B9</eng>
+	</MCDUC>
+	
+	<nasal>
+		<specific>
+			<file>Aircraft/A320Family/Nasal/a318livery-cfm.nas</file>
+		</specific>
+	</nasal>
+
+</PropertyList>
