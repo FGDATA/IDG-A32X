@@ -42,6 +42,22 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<path>Aircraft/A320Family/Models/Instruments/OHpanel/OHpanelEPR.xml</path>
+		<condition>
+			<equals>
+				<property>/options/eng</property>
+				<value>IAE</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>-0.006166</x-m>
+			<y-m>0</y-m>
+			<z-m>0.752541</z-m>
+			<pitch-deg>62</pitch-deg>
+		</offsets>
+	</model>
+	
 	<!-- VOR Instrument -->
 	
 	<model>
