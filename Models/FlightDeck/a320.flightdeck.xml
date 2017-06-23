@@ -58,6 +58,28 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<path>Aircraft/A320Family/Models/Instruments/OHpanel/SteepAppr.xml</path>
+		<condition>
+			<and>
+				<equals>
+					<property>/options/eng</property>
+					<value>CFM</value>
+				</equals>
+				<equals>
+					<property>/options/steep-ils-avail</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+		<offsets>
+			<x-m>-0.006166</x-m>
+			<y-m>0</y-m>
+			<z-m>0.752541</z-m>
+			<pitch-deg>62</pitch-deg>
+		</offsets>
+	</model>
+	
 	<!-- VOR Instrument -->
 	
 	<model>
