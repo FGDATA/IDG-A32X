@@ -69,6 +69,8 @@
 						<property>/it-autoflight/output/ap1</property>
 						<value>0</value>
 					</equals>
+					<not><property>/gear/gear[1]/wow</property></not>
+					<not><property>/gear/gear[2]/wow</property></not>
 				</and>
 			</or>
 		</condition>
