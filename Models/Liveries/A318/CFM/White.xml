@@ -12,4 +12,10 @@
 			</nose>
 		</model>
 	</sim>
+	
+	<options>
+		<steep-ils type="bool">0</steep-ils>
+		<steep-ils-avail type="bool">0</steep-ils-avail>
+	</options>
+	
 </PropertyList>

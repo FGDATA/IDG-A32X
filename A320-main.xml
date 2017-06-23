@@ -583,6 +583,7 @@
 		</pfd>
 		<old-gpws type="bool">0</old-gpws>
 		<steep-ils type="bool">0</steep-ils>
+		<steep-ils-avail type="bool">0</steep-ils-avail>
 	</options>
 	
 	<instrumentation n="0">

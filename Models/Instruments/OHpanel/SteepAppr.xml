@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/SteepAppr.ac</path>
+
+	<!-- ANIMATIONS -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>SteepApprBtn2O</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Steep Approach -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>SteepApprBtn1</object-name>
+		<object-name>SteepApprBtn2</object-name>
+		<object-name>SteepApprBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/options/steep-ils</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>SteepApprBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/options/steep-ils</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<!-- Panel lighting -->
+	<animation>
+		<name>Panel lighting select</name>
+		<type>select</type>
+		<object-name>MarkingLts</object-name>
+		<condition>
+			<or>
+				<not>
+					<property>controls/lighting/dome-norm</property>
+				</not>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/overhead-panel-norm</property>
+						<value>0.25</value>
+					</greater-than>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/overhead-panel-norm</property>
+						<value>0.5</value>
+					</greater-than>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel lighting</name>
+		<type>material</type>
+		<object-name>MarkingLts</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
+		</emission>
+	</animation>
+
+</PropertyList>
