@@ -35,7 +35,6 @@
 		<object-name>sidestick-max</object-name>
 		<object-name>sidestick-pos</object-name>
 		<condition>
-			<or>
 				<and>
 					<property>/options/pfd/sidestick-pos</property>
 					<equals>
@@ -59,7 +58,6 @@
 						<not><property>/gear/gear[2]/wow</property></not>
 					</or>
 				</and>
-			</or>
 		</condition>
 	</animation>
 	
