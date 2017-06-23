@@ -77,7 +77,7 @@
 	<animation>
 		<name>Panel lighting select</name>
 		<type>select</type>
-		<object-name>MarkingLtsA318</object-name>
+		<object-name>MarkingLts</object-name>
 		<condition>
 			<or>
 				<not>
@@ -109,7 +109,7 @@
 	<animation>
 		<name>Panel lighting</name>
 		<type>material</type>
-		<object-name>MarkingLtsA318</object-name>
+		<object-name>MarkingLts</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
