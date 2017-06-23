@@ -215,9 +215,9 @@ var librariesLoop = maketimer(0.1, func {
 	}
 	
 	var trueSpeedKts = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
-	if(trueSpeedKts > 370) {
+	if(trueSpeedKts > 420) {
 		setprop("/it-autoflight/internal/bank-limit", 15);
-	} else if(trueSpeedKts > 300) {
+	} else if(trueSpeedKts > 340) {
 		setprop("/it-autoflight/internal/bank-limit", 20);
 	} else {
 		setprop("/it-autoflight/internal/bank-limit", 25);
