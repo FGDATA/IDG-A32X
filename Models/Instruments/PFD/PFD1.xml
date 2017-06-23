@@ -33,59 +33,31 @@
 	<animation>
 		<type>select</type>
 		<object-name>sidestick-max</object-name>
-        <object-name>sidestick-pos</object-name>
+		<object-name>sidestick-pos</object-name>
 		<condition>
-			<and>
-				<or>
-					<property>/gear/gear[1]/wow</property>
-					<property>/gear/gear[2]/wow</property>
-					<and>
-						<property>/options/pfd/sidestick-pos</property>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</or>
-				<or>
-					<and>
-						<or>
-							<equals>
-								<property>/FMGC/status/phase</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/FMGC/status/phase</property>
-								<value>1</value>
-							</equals>
-						</or>
+				<and>
+					<property>/options/pfd/sidestick-pos</property>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<or>
 						<equals>
 							<property>/engines/engine[0]/state</property>
 							<value>3</value>
 						</equals>
-					</and>
-					<and>
-						<or>
-							<equals>
-								<property>/FMGC/status/phase</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/FMGC/status/phase</property>
-								<value>1</value>
-							</equals>
-						</or>
 						<equals>
 							<property>/engines/engine[1]/state</property>
 							<value>3</value>
 						</equals>
-					</and>
-				</or>
-			</and>
+						<not><property>/gear/gear[1]/wow</property></not>
+						<not><property>/gear/gear[2]/wow</property></not>
+					</or>
+				</and>
 		</condition>
 	</animation>
 	
@@ -695,7 +667,6 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>alt-tape-2</object-name>
-		<property>octal</property>
     	<property>instrumentation/altimeter/indicated-altitude-ft</property>
     	<factor>0.009999725</factor>
     	<axis>
