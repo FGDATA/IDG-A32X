@@ -26,7 +26,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<z> -25.2091 </z>
 	</location -->
 	<location name="AERORP" unit="IN">
-		<x> 700.00 </x>
+		<x> 680.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -81,7 +81,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<z> -41.7398 </z>
 	</location -->
 	<location name="CG" unit="IN">
-		<x> 652.00 </x>
+		<x> 620.00 </x>
 		<y> 0 </y>
 		<z> 0.00 </z>
 	</location>
@@ -89,7 +89,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="Cockpit Crew">
 		<weight unit="LBS">400</weight> <!-- MAX: 400lbs, two pilots-->
 		<location name="POINTMASS" unit="IN">
-			<x>200</x>
+			<x>150</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -97,7 +97,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="Cabin Crew">
 		<weight unit="LBS">600</weight> <!-- MAX: 1320lbs, up to six flight-attendants-->
 		<location name="POINTMASS" unit="IN">
-			<x>696</x>
+			<x>666</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -105,7 +105,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0A (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>470.1711</x>
+			<x>460.1711</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -113,7 +113,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0B (60 seats)">
 		<weight unit="LBS">6600</weight> <!-- MAX: 13200lbs, 60 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>809.5669</x>
+			<x>789.5669</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -121,7 +121,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="PAX 0C (54 seats)">
 		<weight unit="LBS">5940</weight> <!-- MAX: 11880lbs, 54 seats -->
 		<location name="POINTMASS" unit="IN">
-			<x>1163.2729</x>
+			<x>1123.2729</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
@@ -129,7 +129,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="Cargo Hold 1">
 		<weight unit="LBS">2000</weight> <!-- MAX: 7500.126lbs -->
 		<location name="POINTMASS" unit="IN">
-			<x>383.4792</x>
+			<x>363.4792</x>
 			<y>0</y>
 			<z>-29.5</z>	<!-- 1.5m and now half of it for the center point of the load -->
 		</location>
@@ -138,7 +138,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="Cargo Hold 3">
 		<weight unit="LBS">2000</weight> <!-- MAX: 5384.414lbs -->
 		<location name="POINTMASS" unit="IN">
-			<x>849.1324</x>
+			<x>821.1324</x>
 			<y>0</y>
 			<z>-29.5</z>
 		</location>
@@ -146,7 +146,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<pointmass name="Cargo Hold 4">
 		<weight unit="LBS">1500</weight> <!-- MAX: 4651.754lbs -->
 		<location name="POINTMASS" unit="IN">
-			<x>931.0653</x>
+			<x>911.0653</x>
 			<y>0</y>
 			<z>-29.5</z>
 		</location>
@@ -167,7 +167,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<!-- REF-1 page 165 + 271  -->
 	<contact type="BOGEY" name="NOSE_LG">
 		<location unit="IN">
-			<x> 197.6772 </x>
+			<x> 275.6772 </x>
 			<y> 0 </y>
 			<z> -137.9617 </z> 
 		</location>
