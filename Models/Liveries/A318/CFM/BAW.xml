@@ -4,11 +4,11 @@
 	<sim>
 		<model>
 			<livery>
-				<name>White</name>
-				<texture>Liveries/A318/CFM/White.png</texture>
+				<name>British Airways</name>
+				<texture>Liveries/A318/CFM/BAW.png</texture>
 			</livery>
 			<nose>
-				<texture>Liveries/A318/CFM/White-nose.png</texture>
+				<texture>Liveries/A318/CFM/BAW-nose.png</texture>
 			</nose>
 		</model>
 	</sim>
