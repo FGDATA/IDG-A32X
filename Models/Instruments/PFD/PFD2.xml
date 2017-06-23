@@ -35,57 +35,46 @@
 		<object-name>sidestick-max</object-name>
 		<object-name>sidestick-pos</object-name>
 		<condition>
-			<or>
-				<property>/gear/gear[1]/wow</property>
-				<property>/gear/gear[2]/wow</property>
-				<and>
-					<property>/options/pfd/sidestick-pos</property>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-				</and>
-				<and>
+			<and>
+				<or>
 					<property>/gear/gear[1]/wow</property>
 					<property>/gear/gear[2]/wow</property>
-					<or>
+				</or>
+				<or>
+					<and>
+						<or>
+							<equals>
+								<property>/FMGC/status/phase</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/FMGC/status/phase</property>
+								<value>1</value>
+							</equals>
+						</or>
 						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>0</value>
+							<property>/engines/engine[0]/state</property>
+							<value>3</value>
 						</equals>
+					</and>
+					<and>
+						<or>
+							<equals>
+								<property>/FMGC/status/phase</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/FMGC/status/phase</property>
+								<value>1</value>
+							</equals>
+						</or>
 						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>1</value>
+							<property>/engines/engine[1]/state</property>
+							<value>3</value>
 						</equals>
-					</or>
-					<equals>
-						<property>/engines/engine[0]/state</property>
-						<value>3</value>
-					</equals>
-				</and>
-				<and>
-					<property>/gear/gear[1]/wow</property>
-					<property>/gear/gear[2]/wow</property>
-					<or>
-						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/FMGC/status/phase</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/engines/engine[1]/state</property>
-						<value>3</value>
-					</equals>
-				</and>
-			</or>
+					</and>
+				</or>
+			</and>
 		</condition>
 	</animation>
 	
