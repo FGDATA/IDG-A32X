@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>White</name>
+				<texture>Liveries/A318/CFM/White.png</texture>
+			</livery>
+			<nose>
+				<texture>Liveries/A318/CFM/White-nose.png</texture>
+			</nose>
+		</model>
+	</sim>
+</PropertyList>
