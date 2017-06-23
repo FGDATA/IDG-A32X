@@ -36,14 +36,6 @@
 		<object-name>sidestick-pos</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/engines/engine[0]/state</property>
-					<value>3</value>
-				</equals>
-				<equals>
-					<property>/engines/engine[1]/state</property>
-					<value>3</value>
-				</equals>
 				<and>
 					<property>/options/pfd/sidestick-pos</property>
 					<equals>
@@ -54,8 +46,18 @@
 						<property>/it-autoflight/output/ap1</property>
 						<value>0</value>
 					</equals>
-					<not><property>/gear/gear[1]/wow</property></not>
-					<not><property>/gear/gear[2]/wow</property></not>
+					<or>
+						<equals>
+							<property>/engines/engine[0]/state</property>
+							<value>3</value>
+						</equals>
+						<equals>
+							<property>/engines/engine[1]/state</property>
+							<value>3</value>
+						</equals>
+						<not><property>/gear/gear[1]/wow</property></not>
+						<not><property>/gear/gear[2]/wow</property></not>
+					</or>
 				</and>
 			</or>
 		</condition>
