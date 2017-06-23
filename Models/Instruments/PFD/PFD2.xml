@@ -695,7 +695,6 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>alt-tape-2</object-name>
-		<property>octal</property>
     	<property>instrumentation/altimeter/indicated-altitude-ft</property>
     	<factor>0.009999725</factor>
     	<axis>
