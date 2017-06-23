@@ -3,5 +3,50 @@
 <PropertyList>
 
 	<path>res/ohpanelEPR.ac</path>
+	
+	<!-- Panel lighting -->
+	<animation>
+		<name>Panel lighting select</name>
+		<type>select</type>
+		<object-name>MarkingLts</object-name>
+		<condition>
+			<or>
+				<not>
+					<property>controls/lighting/dome-norm</property>
+				</not>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/overhead-panel-norm</property>
+						<value>0.25</value>
+					</greater-than>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/overhead-panel-norm</property>
+						<value>0.5</value>
+					</greater-than>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel lighting</name>
+		<type>material</type>
+		<object-name>MarkingLts</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
+		</emission>
+	</animation>
 
 </PropertyList>
