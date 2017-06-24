@@ -161,7 +161,29 @@ var phasecheck = maketimer(0.2, func {
 		mcdu2.MCDU_reset();
 		setprop("/it-autoflight/input/fd1", fd1);
 		setprop("/it-autoflight/input/fd2", fd2);
-		press_init();
+		setprop("/systems/pressurization/mode", "GN");
+		setprop("/systems/pressurization/vs", "0");
+		setprop("/systems/pressurization/targetvs", "0");
+		setprop("/systems/pressurization/vs-norm", "0");
+		setprop("/systems/pressurization/auto", 1);
+		setprop("/systems/pressurization/deltap", "0");
+		setprop("/systems/pressurization/outflowpos", "0");
+		setprop("/systems/pressurization/deltap-norm", "0");
+		setprop("/systems/pressurization/outflowpos-norm", "0");
+		var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+		setprop("/systems/pressurization/cabinalt", altitude);
+		setprop("/systems/pressurization/targetalt", altitude); 
+		setprop("/systems/pressurization/diff-to-target", "0");
+		setprop("/systems/pressurization/ditchingpb", 0);
+		setprop("/systems/pressurization/targetvs", "0");
+		setprop("/systems/ventilation/cabin/fans", 0); # aircon fans
+		setprop("/systems/ventilation/avionics/fan", 0);
+		setprop("/systems/ventilation/avionics/extractvalve", "0");
+		setprop("/systems/ventilation/avionics/inletvalve", "0");
+		setprop("/systems/ventilation/lavatory/extractfan", 0);
+		setprop("/systems/ventilation/lavatory/extractvalve", "0");
+		setprop("/systems/pressurization/ambientpsi", "0");
+		setprop("/systems/pressurization/cabinpsi", "0");
 	}
 	
 	var flap = getprop("/controls/flight/flap-pos");
