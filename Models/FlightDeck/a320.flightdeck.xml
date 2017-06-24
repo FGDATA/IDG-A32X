@@ -2286,7 +2286,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>trim_wheel</object-name>
+		<object-name>trim_2_lts</object-name>
 		<property>/controls/flight/elevator-trim</property>
 		<factor>-150</factor>
 		<center>
@@ -2301,6 +2301,23 @@
 		</axis>
 	</animation>
     
+	<animation>
+		<type>rotate</type>
+		<object-name>trim_1</object-name>
+		<property>/controls/flight/elevator-trim</property>
+		<factor>-1000</factor>
+		<center>
+			<x-m>-0.2373</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3811</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
     <!-- Radio quadrant -->
     
     <animation>
