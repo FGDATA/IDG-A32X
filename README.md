@@ -4,8 +4,10 @@ A very advanced simulation of the Airbus A320 Family for FlightGear.
 Brought to you by:
 - Joshua Davidson (it0uchpods)
 - Jonathan Redpath (legoboyvdlp)
+- Charlie Schwehm (Wecsje)
 
-Present pack includes the following Airbus variants:
+Present pack includes the following Airbus A320 Family variants:
+- A318-112
 - A319-112
 - A319-131
 - A320-111
