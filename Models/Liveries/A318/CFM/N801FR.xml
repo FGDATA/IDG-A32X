@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Frontier Airlines (Grizwald the Grizzly Bear)</name>
+				<texture>Liveries/A318/CFM/N801FR.png</texture>
+			</livery>
+			<nose>
+				<texture>Liveries/A318/CFM/N801FR-nose.png</texture>
+			</nose>
+		</model>
+	</sim>
+	
+	<options>
+		<steep-ils type="bool">0</steep-ils>
+		<steep-ils-avail type="bool">0</steep-ils-avail>
+	</options>
+	
+</PropertyList>
