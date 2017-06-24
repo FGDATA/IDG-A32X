@@ -46,40 +46,14 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 </metrics>
 
 <mass_balance>
-	<ixx unit="SLUG*FT2">    611903 </ixx>
-	<iyy unit="SLUG*FT2">   1735389 </iyy>
-	<izz unit="SLUG*FT2">   2301293 </izz> 
-<!--
-___________________A320_________A330__________A340
-BOW_____________178000________270000________283925
-SPAN______________144___________198___________209
-LENGTH____________153___________209___________209
-ROLL MOI_________1725000______5727777_______10613448
-PITCH MOI________2550000______19040141_______13904249
-YAW MOI_________3950000______23089847_______24848934
+	<ixx unit="SLUG*FT2">1248922</ixx>
+	<iyy unit="SLUG*FT2">1800728</iyy>
+	<izz unit="SLUG*FT2">2894800</izz>
 
-	<ixx unit="SLUG*FT2">   2262183 </ixx>
-	<iyy unit="SLUG*FT2">   3172439 </iyy>
-	<izz unit="SLUG*FT2">   3337024 </izz>
-
-	<ixx unit="SLUG*FT2">1725000</ixx>
-	<iyy unit="SLUG*FT2">2550000</iyy>
-	<izz unit="SLUG*FT2">3950000</izz> -->
-
-	<ixy unit="SLUG*FT2">         0 </ixy>
-	<ixz unit="SLUG*FT2">         0 </ixz>
-	<iyz unit="SLUG*FT2">         0 </iyz>
-	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
-
-	<!-- 	#### PB: That makes no sense, the whole aircraft is 1479.1339 inches long. 650inches eqauls to about 43.95% MAC with the Airbus limits according to the AMM between 45% and 49%
-		Also: The z-axis is -41.73 inches under the zero line of the plane while the pressure point is only -25,91 under the same line and slightly ahead, that causes the plane to behave quite unstable
-	-->
-	<!-- location name="CG" unit="IN">
-		<! - -x> 642.122 </x- - >
-		<x> 650.122 </x><! - - At zero load of fuel and cargo/pax the CG goes to 642 - - >
-		<y> 0 </y>
-		<z> -41.7398 </z>
-	</location -->
+	<ixy unit="SLUG*FT2">   0</ixy>
+	<ixz unit="SLUG*FT2">5800</ixz>
+	<iyz unit="SLUG*FT2">   0</iyz>
+	<emptywt unit="LBS">80431</emptywt>
 	<location name="CG" unit="IN">
 		<x> 652.00 </x>
 		<y> 0 </y>
