@@ -18,23 +18,33 @@
 			</livery>
 		</model>
 		
-		<!--previews>
+		<previews>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a321n-1.png</path>
+				<path>Splash/A321N/a321n-1.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a321n-2.png</path>
+				<path>Splash/A321N/a321n-2.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a321n-3.png</path>
+				<path>Splash/A321N/a321n-3.png</path>
 			</preview>
-		</previews!-->
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A321N/a321n-4.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A321N/a321n-5.png</path>
+			</preview>
+		</previews>
 
 		<view>
 			<name>Pilot View</name>

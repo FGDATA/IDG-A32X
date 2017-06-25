@@ -22,22 +22,42 @@
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320n-1.png</path>
+				<path>Splash/A320N/a320n-1.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320n-2.png</path>
+				<path>Splash/A320N/a320n-2.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320n-3.png</path>
+				<path>Splash/A320N/a320n-3.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320n-4.png</path>
+				<path>Splash/A320N/a320n-4.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320N/a320n-5.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320N/a320n-6.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320N/a320n-7.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320N/a320n-8.png</path>
 			</preview>
 		</previews>
 		
