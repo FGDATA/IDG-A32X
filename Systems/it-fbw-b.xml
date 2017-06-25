@@ -137,7 +137,7 @@
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>5</Ti>
-			<Td>0.004</Td>
+			<Td>0.005</Td>
 			<u_min>-1</u_min>
 			<u_max>1</u_max>
 		</config>

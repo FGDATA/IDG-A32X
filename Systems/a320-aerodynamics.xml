@@ -3,7 +3,6 @@
 
 <aerodynamics>
 	<property value="0.0">ice/wing</property>
-	
 	<axis name="LIFT">
 
 		<function name="aero/force/Lift_alpha">
@@ -71,7 +70,7 @@
 				<value>0.04</value>
 			</product>
 		</function>
-		
+
 		<function name="aero/coefficient/CLicew">
 			<description>Lift_decrease_due_to_ice_on_wing</description>
 				<product>
@@ -204,6 +203,20 @@
 			</product>
 		</function>
 
+	</axis>
+
+	<axis name="SIDE">
+
+		<function name="aero/force/Side_beta">
+			<description>Side force due to beta</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>aero/beta-rad</property>
+				<value>-1</value>
+			</product>
+		</function>
+
 		<function name="aero/force/Drag_wingice">
 				<description>Drag_due_to_ice_on_wing</description>
 				<product>
@@ -220,20 +233,6 @@
 					</table>
 				</product>
 		</function>
-	</axis>
-
-	<axis name="SIDE">
-
-		<function name="aero/force/Side_beta">
-			<description>Side force due to beta</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>aero/beta-rad</property>
-				<value>-1</value>
-			</product>
-		</function>
-
 	</axis>
 
 	<axis name="ROLL">
@@ -257,7 +256,7 @@
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<value>-1.1</value>
+				<value>-0.95</value>
 			</product>
 		</function>
 
@@ -306,7 +305,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>aero/alpha-rad</property>
-				<value>-0.5</value>
+				<value>-0.6</value>
 			</product>
 		</function>
 
@@ -335,7 +334,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>velocities/q-aero-rad_sec</property>
-				<value>-150</value>
+				<value>-140</value>
 			</product>
 		</function>
 
