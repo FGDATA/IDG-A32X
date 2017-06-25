@@ -897,15 +897,15 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0350</y-m>
-    		<z-m>0.0591</z-m>
+    		<y-m>-0.0351</y-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -919,15 +919,15 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0335</y-m>
-    		<z-m>0.0591</z-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -941,15 +941,15 @@
     	<object-name>n1limy1</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0350</y-m>
-    		<z-m>0.0591</z-m>
+    		<y-m>-0.0351</y-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -963,15 +963,15 @@
     	<object-name>n1limy2</object-name>
     	<property>/controls/engines/n1-limit</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0335</y-m>
-    		<z-m>0.0591</z-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -985,15 +985,15 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0350</y-m>
-    		<z-m>0.0591</z-m>
+    		<y-m>-0.0351</y-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1007,15 +1007,15 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>-13</dep></entry>
-			<entry><ind> 50</ind><dep> 53</dep></entry>
-			<entry><ind>100</ind><dep>152</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-127</dep></entry>
+			<entry><ind> 50.0</ind><dep> -58</dep></entry>
+			<entry><ind>100.0</ind><dep>  42</dep></entry>
+			<entry><ind>110.0</ind><dep>  65</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0335</y-m>
-    		<z-m>0.0591</z-m>
+    		<z-m>0.05912</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1031,9 +1031,9 @@
     	<object-name>egt1</object-name>
     	<property>/engines/engine/egt-actual</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>   0</dep></entry>
-			<entry><ind>500</ind><dep>  90</dep></entry>
-			<entry><ind>1000</ind><dep>180</dep></entry>
+			<entry><ind>   0</ind><dep>-90</dep></entry>
+			<entry><ind> 500</ind><dep>  0</dep></entry>
+			<entry><ind>1000</ind><dep> 90</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1052,13 +1052,13 @@
     	<object-name>egt2</object-name>
     	<property>/engines/engine[1]/egt-actual</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>   0</dep></entry>
-			<entry><ind>500</ind><dep>  90</dep></entry>
-			<entry><ind>1000</ind><dep>180</dep></entry>
+			<entry><ind>   0</ind><dep>-90</dep></entry>
+			<entry><ind> 500</ind><dep>  0</dep></entry>
+			<entry><ind>1000</ind><dep> 90</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>0.0334</y-m>
+    		<y-m>0.0335</y-m>
     		<z-m>0.0271</z-m>
     	</center>
     	<axis>
