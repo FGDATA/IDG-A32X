@@ -29,21 +29,6 @@
 				<splash type="bool">true</splash>
 				<path>Splash/A318/a318-2.png</path>
 			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A318/a318-3.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A318/a318-4.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A318/a318-5.png</path>
-			</preview>
 		</previews>
 
 		<view>

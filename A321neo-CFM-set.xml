@@ -29,21 +29,6 @@
 				<splash type="bool">true</splash>
 				<path>Splash/A321N/a321n-2.png</path>
 			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A321N/a321n-3.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A321N/a321n-4.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A321N/a321n-5.png</path>
-			</preview>
 		</previews>
 
 		<view>
