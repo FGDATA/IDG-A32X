@@ -1095,7 +1095,7 @@
     	<object-name>epr1</object-name>
     	<property>/engines/engine/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
@@ -1119,7 +1119,7 @@
     	<object-name>epr2</object-name>
     	<property>/engines/engine[1]/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
@@ -1143,7 +1143,7 @@
     	<object-name>eprlimy1</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
@@ -1167,7 +1167,7 @@
     	<object-name>eprlimy2</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
@@ -1191,7 +1191,7 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
@@ -1215,7 +1215,7 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>0.990</ind><dep>-113</dep></entry>
 			<entry><ind>1.000</ind><dep>-105</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
