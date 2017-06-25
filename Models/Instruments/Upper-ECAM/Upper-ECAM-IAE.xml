@@ -723,7 +723,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0580</y-m>
-			<z-m>-0.001</z-m>
+			<z-m>-0.002</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -747,7 +747,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0025</y-m>
-			<z-m>-0.001</z-m>
+			<z-m>-0.002</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -771,7 +771,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0580</y-m>
-			<z-m>-0.001</z-m>
+			<z-m>-0.002</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -795,7 +795,7 @@
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0025</y-m>
-			<z-m>-0.001</z-m>
+			<z-m>-0.002</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -1095,18 +1095,17 @@
     	<object-name>epr1</object-name>
     	<property>/engines/engine/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.05978</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1120,18 +1119,17 @@
     	<object-name>epr2</object-name>
     	<property>/engines/engine[1]/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.00417</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1145,18 +1143,17 @@
     	<object-name>eprlimy1</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.05978</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1170,18 +1167,17 @@
     	<object-name>eprlimy2</object-name>
     	<property>/controls/engines/epr-limit</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.00417</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1195,18 +1191,17 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.05978</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1220,18 +1215,17 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.985</ind><dep> -4</dep></entry>
-			<entry><ind>1.000</ind><dep> 04</dep></entry>
-			<entry><ind>1.100</ind><dep> 33</dep></entry>
-			<entry><ind>1.200</ind><dep> 64</dep></entry>
-			<entry><ind>1.400</ind><dep>124</dep></entry>
-			<entry><ind>1.600</ind><dep>177</dep></entry>
-			<entry><ind>1.650</ind><dep>191</dep></entry>
+			<entry><ind>0.990</ind><dep>-117</dep></entry>
+			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>1.200</ind><dep> -45</dep></entry>
+			<entry><ind>1.400</ind><dep>  15</dep></entry>
+			<entry><ind>1.600</ind><dep>  67</dep></entry>
+			<entry><ind>1.650</ind><dep>  81</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.06029</z-m>
+    		<y-m>-0.00417</y-m>
+    		<z-m>0.06028</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1247,14 +1241,14 @@
     	<object-name>egt1</object-name>
     	<property>/engines/engine/egt-actual</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>  0</dep></entry>
-			<entry><ind>400</ind><dep> 78</dep></entry>
-			<entry><ind>800</ind><dep>160</dep></entry>
+			<entry><ind>  0</ind><dep>-107</dep></entry>
+			<entry><ind>400</ind><dep> -29</dep></entry>
+			<entry><ind>800</ind><dep>  51</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.0319</z-m>
+    		<y-m>-0.05978</y-m>
+    		<z-m>0.03176</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1268,14 +1262,14 @@
     	<object-name>egt2</object-name>
     	<property>/engines/engine[1]/egt-actual</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>  0</dep></entry>
-			<entry><ind>400</ind><dep> 78</dep></entry>
-			<entry><ind>800</ind><dep>160</dep></entry>
+			<entry><ind>  0</ind><dep>-107</dep></entry>
+			<entry><ind>400</ind><dep> -29</dep></entry>
+			<entry><ind>800</ind><dep>  51</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.0319</z-m>
+    		<y-m>-0.00417</y-m>
+    		<z-m>0.03176</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1291,15 +1285,15 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>  0</dep></entry>
-			<entry><ind> 40</ind><dep> 47</dep></entry>
-			<entry><ind>100</ind><dep>159</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-107</dep></entry>
+			<entry><ind> 40.0</ind><dep> -61</dep></entry>
+			<entry><ind>100.0</ind><dep>  46</dep></entry>
+			<entry><ind>110.0</ind><dep>  59</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0598</y-m>
-    		<z-m>0.00205</z-m>
+    		<y-m>-0.05978</y-m>
+    		<z-m>0.00187</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
@@ -1313,15 +1307,15 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 22</ind><dep>  0</dep></entry>
-			<entry><ind> 40</ind><dep> 47</dep></entry>
-			<entry><ind>100</ind><dep>159</dep></entry>
-			<entry><ind>110</ind><dep>170</dep></entry>
+			<entry><ind> 22.4</ind><dep>-107</dep></entry>
+			<entry><ind> 40.0</ind><dep> -61</dep></entry>
+			<entry><ind>100.0</ind><dep>  46</dep></entry>
+			<entry><ind>110.0</ind><dep>  59</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
-    		<y-m>-0.0042</y-m>
-    		<z-m>0.00205</z-m>
+    		<y-m>-0.00417</y-m>
+    		<z-m>0.00187</z-m>
     	</center>
     	<axis>
     		<x>-1</x>
