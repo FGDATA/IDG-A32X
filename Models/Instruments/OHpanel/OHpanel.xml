@@ -3242,6 +3242,46 @@
 				</binding>
 			</mod-up>
 		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.increaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.decreaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
 	</animation>
 	
 	<animation>
