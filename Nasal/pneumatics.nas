@@ -16,7 +16,6 @@ var pneu_init = func {
 	setprop("/controls/pneumatic/switches/ram-air", 0);
 	setprop("/controls/pneumatic/switches/pack-flo", 9); # LO: 7, NORM: 9, HI: 11.
 	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later, once I get the knob animated. -JD
-	setprop("/controls/pressurization/auto", 1);
 	setprop("/systems/pneumatic/bleed1", 0);
 	setprop("/systems/pneumatic/bleed2", 0);
 	setprop("/systems/pneumatic/bleedapu", 0);
@@ -30,6 +29,7 @@ var pneu_init = func {
 	setprop("/systems/pneumatic/eng1-starter", 0);
 	setprop("/systems/pneumatic/eng2-starter", 0);
 	setprop("/FMGC/internal/dep-arpt", "");
+	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	setprop("/systems/pressurization/mode", "GN");
 	setprop("/systems/pressurization/vs", "0");
 	setprop("/systems/pressurization/targetvs", "0");
@@ -39,20 +39,23 @@ var pneu_init = func {
 	setprop("/systems/pressurization/outflowpos", "0");
 	setprop("/systems/pressurization/deltap-norm", "0");
 	setprop("/systems/pressurization/outflowpos-norm", "0");
-	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+	setprop("/systems/pressurization/outflowpos-man", "0.5");
+	setprop("/systems/pressurization/outflowpos-man-sw", "0");
+	setprop("/systems/pressurization/outflowpos-norm-cmd", "0");
 	setprop("/systems/pressurization/cabinalt", altitude);
 	setprop("/systems/pressurization/targetalt", altitude); 
 	setprop("/systems/pressurization/diff-to-target", "0");
 	setprop("/systems/pressurization/ditchingpb", 0);
 	setprop("/systems/pressurization/targetvs", "0");
+	setprop("/systems/pressurization/ambientpsi", "0");
+	setprop("/systems/pressurization/cabinpsi", "0");
+	setprop("/systems/pressurization/manvs-cmd", "0");
 	setprop("/systems/ventilation/cabin/fans", 0); # aircon fans
 	setprop("/systems/ventilation/avionics/fan", 0);
 	setprop("/systems/ventilation/avionics/extractvalve", "0");
 	setprop("/systems/ventilation/avionics/inletvalve", "0");
 	setprop("/systems/ventilation/lavatory/extractfan", 0);
 	setprop("/systems/ventilation/lavatory/extractvalve", "0");
-	setprop("/systems/pressurization/ambientpsi", "0");
-	setprop("/systems/pressurization/cabinpsi", "0");
 	setprop("/controls/deice/eng1-on", 0);
 	setprop("/controls/deice/eng2-on", 0);
 	pneu_timer.start();
@@ -217,6 +220,7 @@ var master_pneu = func {
 	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var airport_arr_elev_ft = getprop("autopilot/route-manager/destination/field-elevation-ft");
 	var vs = getprop("/systems/pressurization/vs-norm");
+	var manvs = getprop("/systems/pressurization/manvs-cmd");
 	var ditch = getprop("/systems/pressurization/ditchingpb");
 	var outflowpos = getprop("/systems/pressurization/outflowpos");
 	var cabinalt = getprop("/systems/pressurization/cabinalt");
@@ -240,8 +244,10 @@ var master_pneu = func {
 		setprop("/systems/pressurization/vs", targetvs);
 	}
 	
-	if (cabinalt != targetalt and !wowl and !wowr and !pause) {
+	if (cabinalt != targetalt and !wowl and !wowr and !pause and auto) {
 		setprop("/systems/pressurization/cabinalt", cabinalt + ((vs / 60) / 10));
+	} else if (!auto and !pause) {
+		setprop("/systems/pressurization/cabinalt", cabinalt + ((manvs / 60) / 10));
 	}
 	
 	if (ditch and auto) {
