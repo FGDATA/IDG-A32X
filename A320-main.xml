@@ -104,7 +104,7 @@
 				<path>Aircraft/A320Family/Systems/hydraulics.xml</path>
 			</autopilot>
 			<autopilot n="2">
-				<path>Aircraft/A320Family/Systems/it-fbw-b.xml</path>
+				<path>Aircraft/A320Family/Systems/it-fbw.xml</path>
 			</autopilot>
 			<autopilot n="3">
 				<path>Aircraft/A320Family/Systems/fmgc-b.xml</path>

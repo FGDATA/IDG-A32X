@@ -159,7 +159,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/aileron-left-cmd</input>
 		<output>/controls/flight/aileron-left</output>
-		<max-rate-of-change>3.5</max-rate-of-change>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 	
 	<!-- Aileron R -->
@@ -276,7 +276,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/aileron-right-cmd</input>
 		<output>/controls/flight/aileron-right</output>
-		<max-rate-of-change>3.5</max-rate-of-change>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->
@@ -1441,15 +1441,25 @@
             <expression>
 				<product>
 					<sum>
-						<property>/controls/flight/aileron-left</property>
-						<property>/controls/flight/aileron-right</property>
 						<product>
-							<property>/controls/flight/spoiler-l-sum</property>
-							<value>-1.0</value>
+							<sum>
+								<property>/controls/flight/aileron-left</property>
+								<property>/controls/flight/aileron-right</property>
+							</sum>
+							<value>1.75</value>
 						</product>
-						<property>/controls/flight/spoiler-r-sum</property>
+						<product>
+							<sum>
+								<product>
+									<property>/controls/flight/spoiler-l-sum</property>
+									<value>-1.0</value>
+								</product>
+								<property>/controls/flight/spoiler-r-sum</property>
+							</sum>
+							<value>0.25</value>
+						</product>
 					</sum>
-					<value>0.3571</value>
+					<value>0.444444</value>
 				</product>
             </expression>
 		</input>
@@ -1523,7 +1533,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/elevator-left-cmd</input>
 		<output>/controls/flight/elevator-left</output>
-		<max-rate-of-change>3.5</max-rate-of-change>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -1587,7 +1597,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/elevator-right-cmd</input>
 		<output>/controls/flight/elevator-right</output>
-		<max-rate-of-change>3.5</max-rate-of-change>
+		<max-rate-of-change>2.5</max-rate-of-change>
 	</filter>
 	
 	<filter>
