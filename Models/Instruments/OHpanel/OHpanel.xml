@@ -3201,6 +3201,113 @@
 	<!-- Cabin Pressurization -->
 	<animation>
 		<type>pick</type>
+		<object-name>ManVSCTLSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.increaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.decreaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.increaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.decreaseManVS();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/systems/pressurization/outflowpos-man-sw</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/systems/pressurization/outflowpos-man-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Man VS rotate</name>
+		<type>rotate</type>
+		<object-name>ManVSCTLSwitch</object-name>
+		<property>/systems/pressurization/outflowpos-man-sw</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-35</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.0128</x-m>
+			<y-m> 0.0433</y-m>
+			<z-m>-0.2186</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>CabinPressModeBtn</object-name>
 		<object-name>CabinPressModeBtn1F</object-name>
 		<object-name>CabinPressModeBtn2M</object-name>
@@ -3267,6 +3374,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>DitchBtn1</object-name>
+		<object-name>DitchBtn2</object-name>
 		<object-name>DitchBtn2O</object-name>
 		<action>
 			<button>0</button>
@@ -4140,6 +4248,7 @@
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>Seatbelt sign rotate</name>
 		<type>rotate</type>

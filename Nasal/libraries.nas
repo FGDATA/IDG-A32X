@@ -398,3 +398,19 @@ var toggleSTD = func {
 		setprop("/modes/altimeter/std", 1);
 	}
 }
+
+var increaseManVS = func {
+	var manvs = getprop("/systems/pressurization/outflowpos-man");
+	var auto = getprop("/systems/pressurization/auto");
+	if (manvs <= 1 and manvs >= 0 and !auto) {
+		setprop("/systems/pressurization/outflowpos-man", manvs + 0.001);
+	}
+}
+
+var decreaseManVS = func {
+	var manvs = getprop("/systems/pressurization/outflowpos-man");
+	var auto = getprop("/systems/pressurization/auto");
+	if (manvs <= 1 and manvs >= 0 and !auto) {
+		setprop("/systems/pressurization/outflowpos-man", manvs - 0.001);
+	}
+}
