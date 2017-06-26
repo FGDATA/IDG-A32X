@@ -32,7 +32,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/aileron</input>
 		<output>/controls/flight/aileron-input</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
+		<max-rate-of-change>3.5</max-rate-of-change>
 	</filter>
 
 	<filter>
@@ -86,7 +86,7 @@
 			<property>/controls/flight/elevator</property>
 		</input>
 		<output>/controls/flight/elevator-input</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
+		<max-rate-of-change>3.5</max-rate-of-change>
 	</filter>
 
  <!-- =============================================================== -->
