@@ -42,7 +42,7 @@
 
 	<aerosurface_scale name="Left Aileron Control">
 		<input>fcs/roll-trim-sum</input>
-		<gain>0.022</gain>
+		<gain>0.02</gain>
 		<range>
 		<min>-15</min>
 		<max>15</max>
@@ -52,7 +52,7 @@
 
 	<aerosurface_scale name="Right Aileron Control">
 		<input>-fcs/roll-trim-sum</input>
-		<gain>0.022</gain>
+		<gain>0.02</gain>
 		<range>
 		<min>-15</min>
 		<max>15</max>

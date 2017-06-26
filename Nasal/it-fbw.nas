@@ -30,6 +30,9 @@ var fctlInit = func {
 	setprop("/systems/fctl/fac2", 0);
 }
 
+setprop("/it-fbw/roll-back", 0);
+setprop("/it-fbw/spd-hold", 0);
+
 ###################
 # Update Function #
 ###################
@@ -96,47 +99,16 @@ var update_loop = func {
 
 	var ail = getprop("/controls/flight/aileron");
 	
-	if (getprop("/it-fbw/law") == 0) {
-		if (ail > 0.4 or ail < -0.4) {
-			setprop("/it-fbw/roll-lim-max", "67");
-			setprop("/it-fbw/roll-lim-min", "-67");
-		} else if (ail < 0.05 and ail > -0.05) {
-			setprop("/it-fbw/roll-lim-max", "33");
-			setprop("/it-fbw/roll-lim-min", "-33");
-		} else {
-			if (getprop("/it-fbw/roll-deg") > 33) {
-				setprop("/it-fbw/roll-deg", "33");
-			} else if (getprop("/it-fbw/roll-deg") < -33) {
-				setprop("/it-fbw/roll-deg", "-33");
-			}
+	if (ail > 0.4 or ail < -0.4) {
+		setprop("/it-fbw/roll-lim", "67");
+		if (getprop("/it-fbw/roll-back") == 0 and (getprop("/orientation/roll-deg") > 33.5 or getprop("/orientation/roll-deg") < -33.5)) {
+			setprop("/it-fbw/roll-back", 1);
 		}
-	} else if (getprop("/it-fbw/law") == 1) {
-		setprop("/it-fbw/roll-lim-max", "160");
-		setprop("/it-fbw/roll-lim-min", "-160");
-	} else {
-		setprop("/it-fbw/roll-lim-max", "33");
-		setprop("/it-fbw/roll-lim-min", "-33");
-	}
-
-	var elev = getprop("/controls/flight/elevator");
-	
-	if (getprop("/it-fbw/law") == 0) {
-		if (getprop("/position/gear-agl-ft") <= 2) {
-			setprop("/it-fbw/pitch-lim-max", "15");
-			setprop("/it-fbw/pitch-lim-min", "-5");
-		} else if (getprop("/controls/flight/flap-lever") == 4) {
-			setprop("/it-fbw/pitch-lim-max", "25");
-			setprop("/it-fbw/pitch-lim-min", "-15");
-		} else {
-			setprop("/it-fbw/pitch-lim-max", "30");
-			setprop("/it-fbw/pitch-lim-min", "-15");
+	} else if (ail < 0.05 and ail > -0.05) {
+		setprop("/it-fbw/roll-lim", "33");
+		if (getprop("/it-fbw/roll-back") == 1 and getprop("/orientation/roll-deg") <= 33.5 and getprop("/orientation/roll-deg") >= -33.5) {
+			setprop("/it-fbw/roll-back", 0);
 		}
-	} else if (getprop("/it-fbw/law") == 1) {
-		setprop("/it-fbw/pitch-lim-max", "160");
-		setprop("/it-fbw/pitch-lim-min", "-160");
-	} else {
-		setprop("/it-fbw/pitch-lim-max", "15");
-		setprop("/it-fbw/pitch-lim-min", "-15");
 	}
 
 	if (getprop("/it-fbw/override") == 0) {

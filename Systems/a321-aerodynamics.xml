@@ -70,7 +70,7 @@
 				<value>0.04</value>
 			</product>
 		</function>
-		
+
 		<function name="aero/coefficient/CLicew">
 			<description>Lift_decrease_due_to_ice_on_wing</description>
 				<product>
@@ -203,6 +203,20 @@
 			</product>
 		</function>
 
+	</axis>
+
+	<axis name="SIDE">
+
+		<function name="aero/force/Side_beta">
+			<description>Side force due to beta</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>aero/beta-rad</property>
+				<value>-1</value>
+			</product>
+		</function>
+
 		<function name="aero/force/Drag_wingice">
 				<description>Drag_due_to_ice_on_wing</description>
 				<product>
@@ -219,20 +233,6 @@
 					</table>
 				</product>
 		</function>
-	</axis>
-
-	<axis name="SIDE">
-
-		<function name="aero/force/Side_beta">
-			<description>Side force due to beta</description>
-			<product>
-				<property>aero/qbar-psf</property>
-				<property>metrics/Sw-sqft</property>
-				<property>aero/beta-rad</property>
-				<value>-1</value>
-			</product>
-		</function>
-
 	</axis>
 
 	<axis name="ROLL">

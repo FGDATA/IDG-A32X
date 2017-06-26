@@ -22,17 +22,37 @@
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320-1.png</path>
+				<path>Splash/A320/a320-1.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320-2.png</path>
+				<path>Splash/A320/a320-2.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/a320-3.png</path>
+				<path>Splash/A320/a320-3.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320/a320-4.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320/a320-5.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320/a320-6.png</path>
+			</preview>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/A320/a320-7.png</path>
 			</preview>
 		</previews>
 

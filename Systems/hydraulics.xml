@@ -282,7 +282,7 @@
  <!-- =============================================================== -->
  <!-- Spoiler Control                                                 -->
  <!-- =============================================================== -->
- 
+	
 	<!-- Spoiler L1 -->
 	
 	<filter>
@@ -343,7 +343,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-l1-cmd</input>
 		<output>/controls/flight/spoiler-l1</output>
-		<max-rate-of-change>0.5</max-rate-of-change>
+		<max-rate-of-change>0.6</max-rate-of-change>
 	</filter>
  
 	<!-- Spoiler L2 -->
@@ -468,7 +468,7 @@
                 <table>
                     <property>/controls/flight/spoiler-left-fbw-cmd</property> 
                     <entry><ind>-0.1</ind><dep>  0</dep></entry>
-                    <entry><ind>-1.0</ind><dep>0.3</dep></entry>
+                    <entry><ind>-1.0</ind><dep>0.5</dep></entry>
                 </table>
             </expression>
 		</input>
@@ -482,7 +482,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-l2-cmd</input>
 		<output>/controls/flight/spoiler-l2</output>
-		<max-rate-of-change>0.4</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler L3 -->
@@ -611,7 +611,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-l3-cmd</input>
 		<output>/controls/flight/spoiler-l3</output>
-		<max-rate-of-change>0.6</max-rate-of-change>
+		<max-rate-of-change>0.4</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler L4 -->
@@ -740,7 +740,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-l4-cmd</input>
 		<output>/controls/flight/spoiler-l4</output>
-		<max-rate-of-change>0.6</max-rate-of-change>
+		<max-rate-of-change>0.7</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler L5 -->
@@ -916,7 +916,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-r1-cmd</input>
 		<output>/controls/flight/spoiler-r1</output>
-		<max-rate-of-change>0.5</max-rate-of-change>
+		<max-rate-of-change>0.6</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler R2 -->
@@ -1041,7 +1041,7 @@
                 <table>
                     <property>/controls/flight/spoiler-right-fbw-cmd</property> 
                     <entry><ind>0.1</ind><dep>  0</dep></entry>
-                    <entry><ind>1.0</ind><dep>0.3</dep></entry>
+                    <entry><ind>1.0</ind><dep>0.5</dep></entry>
                 </table>
             </expression>
 		</input>
@@ -1055,7 +1055,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-r2-cmd</input>
 		<output>/controls/flight/spoiler-r2</output>
-		<max-rate-of-change>0.4</max-rate-of-change>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler R3 -->
@@ -1184,7 +1184,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-r3-cmd</input>
 		<output>/controls/flight/spoiler-r3</output>
-		<max-rate-of-change>0.6</max-rate-of-change>
+		<max-rate-of-change>0.4</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler R4 -->
@@ -1313,7 +1313,7 @@
 		<type>noise-spike</type>
 		<input>/controls/flight/spoiler-r4-cmd</input>
 		<output>/controls/flight/spoiler-r4</output>
-		<max-rate-of-change>0.6</max-rate-of-change>
+		<max-rate-of-change>0.7</max-rate-of-change>
 	</filter>
 	
 	<!-- Spoiler R5 -->
@@ -1441,15 +1441,25 @@
             <expression>
 				<product>
 					<sum>
-						<property>/controls/flight/aileron-left</property>
-						<property>/controls/flight/aileron-right</property>
 						<product>
-							<property>/controls/flight/spoiler-l-sum</property>
-							<value>-1.0</value>
+							<sum>
+								<property>/controls/flight/aileron-left</property>
+								<property>/controls/flight/aileron-right</property>
+							</sum>
+							<value>1.75</value>
 						</product>
-						<property>/controls/flight/spoiler-r-sum</property>
+						<product>
+							<sum>
+								<product>
+									<property>/controls/flight/spoiler-l-sum</property>
+									<value>-1.0</value>
+								</product>
+								<property>/controls/flight/spoiler-r-sum</property>
+							</sum>
+							<value>0.25</value>
+						</product>
 					</sum>
-					<value>0.3571</value>
+					<value>0.444444</value>
 				</product>
             </expression>
 		</input>
