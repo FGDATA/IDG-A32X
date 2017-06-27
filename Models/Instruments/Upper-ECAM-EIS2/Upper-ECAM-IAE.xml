@@ -20,7 +20,7 @@
 				</not-equals>
 				<less-than>
 					<property>/engines/engine[0]/n2</property>
-					<value>2</value>
+					<value>3.5</value>
 				</less-than>
 			</and>
 		</condition>
@@ -38,7 +38,7 @@
 				</not-equals>
 				<less-than>
 					<property>/engines/engine[1]/n2</property>
-					<value>2</value>
+					<value>3.5</value>
 				</less-than>
 			</and>
 		</condition>
@@ -51,7 +51,7 @@
 		<condition>
 			<less-than>
 				<property>/engines/engine[0]/n1</property>
-				<value>15</value>
+				<value>3.5</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -63,7 +63,7 @@
 		<condition>
 			<less-than>
 				<property>/engines/engine[1]/n1</property>
-				<value>15</value>
+				<value>3.5</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -74,7 +74,7 @@
 		<condition>
 			<less-than>
 				<property>/engines/engine[0]/n2</property>
-				<value>2</value>
+				<value>3.5</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -85,7 +85,7 @@
 		<condition>
 			<less-than>
 				<property>/engines/engine[1]/n2</property>
-				<value>2</value>
+				<value>3.5</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -107,7 +107,7 @@
 				</equals>
 				<greater-than-equals>
 					<property>/engines/engine[0]/n2</property>
-					<value>2</value>
+					<value>3.5</value>
 				</greater-than-equals>
 			</or>
 		</condition>
@@ -130,7 +130,7 @@
 				</equals>
 				<greater-than-equals>
 					<property>/engines/engine[1]/n2</property>
-					<value>2</value>
+					<value>3.5</value>
 				</greater-than-equals>
 			</or>
 		</condition>
@@ -143,7 +143,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>/engines/engine[0]/n1</property>
-				<value>15</value>
+				<value>3.5</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -155,7 +155,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>/engines/engine[1]/n1</property>
-				<value>15</value>
+				<value>3.5</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -166,7 +166,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>/engines/engine[0]/n2</property>
-				<value>2</value>
+				<value>3.5</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -177,7 +177,7 @@
 		<condition>
 			<greater-than-equals>
 				<property>/engines/engine[1]/n2</property>
-				<value>2</value>
+				<value>3.5</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -965,7 +965,7 @@
 	<!-- FF -->
 	
 	<text>
-		<name>osgtext-green5</name>
+		<name>osgtext-green1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.069</y-m>
@@ -989,7 +989,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green6</name>
+		<name>osgtext-green2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.069</y-m>
@@ -1013,7 +1013,7 @@
 	</text>
 	
 	<text>
-		<name>XX.5</name>
+		<name>XX.1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.069</y-m>
@@ -1037,7 +1037,7 @@
 	</text>
 	
 	<text>
-		<name>XX.6</name>
+		<name>XX.2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.069</y-m>
