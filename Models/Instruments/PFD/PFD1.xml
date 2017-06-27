@@ -10,7 +10,7 @@
         <type>translate</type>
         <object-name>sidestick-pos</object-name>
         <property>controls/flight/elevator-input-fast</property>
-        <factor>0.0198</factor>
+        <factor>0.0259</factor>
         <axis>
             <x>0</x>
             <y>0</y>
@@ -22,7 +22,7 @@
         <type>translate</type>
         <object-name>sidestick-pos</object-name>
         <property>controls/flight/aileron-input-fast</property>
-        <factor>0.0220</factor>
+        <factor>0.0275</factor>
         <axis>
             <x>0</x>
             <y>1</y>
