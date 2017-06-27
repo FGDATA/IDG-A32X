@@ -3,7 +3,7 @@
     <model>
       <livery>
         <name type="string">A3XX Project</name>
-        <texture>Liveries/A320/CFM-NEO/A3XX.png</texture>
+        <texture>Liveries/A321/IAE/A3XX.png</texture>
       </livery>
     </model>
   </sim>
