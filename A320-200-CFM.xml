@@ -65,13 +65,20 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
                 <z>0</z>
             </location>
         </pointmass>
-        <pointmass name="Cabin Crew">
-            <weight unit="LBS">600</weight>
-            <!-- MAX: 1320lbs, up to six flight-attendants-->
+        <pointmass name="Engine 1">
+            <weight unit="LBS">5200.7</weight>
             <location name="POINTMASS" unit="IN">
-                <x>696</x>
-                <y>0</y>
-                <z>0</z>
+                <x>530.86</x>
+                <y>-5.755</y>
+                <z>-78.56019</z>
+            </location>
+        </pointmass>
+        <pointmass name="Engine 2">
+            <weight unit="LBS">5200.7</weight>
+            <location name="POINTMASS" unit="IN">
+                <x>530.86</x>
+                <y>5.755</y>
+                <z>-78.56019</z>
             </location>
         </pointmass>
         <pointmass name="PAX 0A (60 seats)">
