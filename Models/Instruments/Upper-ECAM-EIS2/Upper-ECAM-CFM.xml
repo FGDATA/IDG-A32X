@@ -10,127 +10,195 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>XX.1</object-name>
-		<object-name>XX1</object-name>
+		<object-name>XX.n11</object-name>
+		<object-name>XXn11</object-name>
 		<condition>
-			<and>
-				<not-equals>
-					<property>/controls/engines/engine-start-switch</property>
-					<value>2</value>
-				</not-equals>
-				<less-than>
-					<property>/engines/engine[0]/n2</property>
-					<value>3.5</value>
-				</less-than>
-			</and>
+			<equals>
+				<property>/systems/fadec/eng1/n1</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>XX.2</object-name>
-		<object-name>XX2</object-name>
+		<object-name>XX.n12</object-name>
+		<object-name>XXn12</object-name>
 		<condition>
-			<and>
-				<not-equals>
-					<property>/controls/engines/engine-start-switch</property>
-					<value>2</value>
-				</not-equals>
-				<less-than>
-					<property>/engines/engine[1]/n2</property>
-					<value>3.5</value>
-				</less-than>
-			</and>
+			<equals>
+				<property>/systems/fadec/eng2/n1</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>XX.3</object-name>
+		<object-name>XX.egt1</object-name>
+		<object-name>XXegt1</object-name>
 		<condition>
-			<less-than>
-				<property>/engines/engine[0]/n2</property>
-				<value>3.5</value>
-			</less-than>
+			<equals>
+				<property>/systems/fadec/eng1/egt</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>XX.4</object-name>
+		<object-name>XX.egt2</object-name>
+		<object-name>XXegt2</object-name>
 		<condition>
-			<less-than>
-				<property>/engines/engine[1]/n2</property>
-				<value>3.5</value>
-			</less-than>
+			<equals>
+				<property>/systems/fadec/eng2/egt</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>osgtext-green1</object-name>
+		<object-name>XX.n21</object-name>
+		<object-name>XXn21</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng1/n2</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XX.n22</object-name>
+		<object-name>XXn22</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng2/n2</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XX.ff1</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng1/ff</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XX.ff2</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng2/ff</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>txt.n11</object-name>
 		<object-name>n11</object-name>
-		<object-name>egt1</object-name>
 		<object-name>n1limy1</object-name>
 		<object-name>thrpos1</object-name>
 		<object-name>rev1.g</object-name>
 		<object-name>rev1.y</object-name>
 		<condition>
-			<or>
-				<equals>
-					<property>/controls/engines/engine-start-switch</property>
-					<value>2</value>
-				</equals>
-				<greater-than-equals>
-					<property>/engines/engine[0]/n2</property>
-					<value>3.5</value>
-				</greater-than-equals>
-			</or>
+			<equals>
+				<property>/systems/fadec/eng1/n1</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>osgtext-green2</object-name>
+		<object-name>txt.n12</object-name>
 		<object-name>n12</object-name>
-		<object-name>egt2</object-name>
 		<object-name>n1limy2</object-name>
 		<object-name>thrpos2</object-name>
 		<object-name>rev2.g</object-name>
 		<object-name>rev2.y</object-name>
 		<condition>
-			<or>
-				<equals>
-					<property>/controls/engines/engine-start-switch</property>
-					<value>2</value>
-				</equals>
-				<greater-than-equals>
-					<property>/engines/engine[1]/n2</property>
-					<value>3.5</value>
-				</greater-than-equals>
-			</or>
+			<equals>
+				<property>/systems/fadec/eng2/n1</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>osgtext-green3</object-name>
+		<object-name>txt.egt1</object-name>
+		<object-name>egt1</object-name>
 		<condition>
-			<greater-than-equals>
-				<property>/engines/engine[0]/n2</property>
-				<value>3.5</value>
-			</greater-than-equals>
+			<equals>
+				<property>/systems/fadec/eng1/egt</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>osgtext-green4</object-name>
+		<object-name>txt.egt2</object-name>
+		<object-name>egt2</object-name>
 		<condition>
-			<greater-than-equals>
-				<property>/engines/engine[1]/n2</property>
-				<value>3.5</value>
-			</greater-than-equals>
+			<equals>
+				<property>/systems/fadec/eng2/egt</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>txt.n21</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng1/n2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>txt.n22</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng2/n2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>txt.ff1</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng1/ff</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>txt.ff2</object-name>
+		<condition>
+			<equals>
+				<property>/systems/fadec/eng2/ff</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
@@ -215,10 +283,14 @@
 	<animation>
 		<type>material</type>
 		<object-name>osgtext-green</object-name>
-		<object-name>osgtext-green1</object-name>
-		<object-name>osgtext-green2</object-name>
-		<object-name>osgtext-green3</object-name>
-		<object-name>osgtext-green4</object-name>
+		<object-name>txt.n11</object-name>
+		<object-name>txt.n12</object-name>
+		<object-name>txt.egt1</object-name>
+		<object-name>txt.egt2</object-name>
+		<object-name>txt.n21</object-name>
+		<object-name>txt.n22</object-name>
+		<object-name>txt.ff1</object-name>
+		<object-name>txt.ff2</object-name>
 		<object-name>rev1.g</object-name>
 		<object-name>rev2.g</object-name>
 		<diffuse>
@@ -245,10 +317,14 @@
 	
 	<animation>
 		<type>material</type> <!-- Amber -->
-		<object-name>XX.1</object-name>
-		<object-name>XX.2</object-name>
-		<object-name>XX.3</object-name>
-		<object-name>XX.4</object-name>
+		<object-name>XX.n11</object-name>
+		<object-name>XX.n12</object-name>
+		<object-name>XX.egt1</object-name>
+		<object-name>XX.egt2</object-name>
+		<object-name>XX.n21</object-name>
+		<object-name>XX.n22</object-name>
+		<object-name>XX.ff1</object-name>
+		<object-name>XX.ff2</object-name>
         <diffuse>
             <red>1</red>
             <green>0.4</green>
@@ -327,7 +403,7 @@
 	<!-- N1 -->
 	
 	<text>
-		<name>osgtext-green1</name>
+		<name>txt.n11</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0265</y-m>
@@ -351,7 +427,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green2</name>
+		<name>txt.n12</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0420</y-m>
@@ -375,7 +451,7 @@
 	</text>
 	
 	<text>
-		<name>XX.1</name>
+		<name>XX.n11</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0265</y-m>
@@ -399,7 +475,7 @@
 	</text>
 	
 	<text>
-		<name>XX.2</name>
+		<name>XX.n12</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0420</y-m>
@@ -521,7 +597,7 @@
 	<!-- EGT -->
 	
 	<text>
-		<name>osgtext-green1</name>
+		<name>txt.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -545,7 +621,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green2</name>
+		<name>txt.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0334</y-m>
@@ -569,7 +645,7 @@
 	</text>
 	
 	<text>
-		<name>XX.1</name>
+		<name>XX.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -593,7 +669,7 @@
 	</text>
 	
 	<text>
-		<name>XX.2</name>
+		<name>XX.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0334</y-m>
@@ -619,7 +695,7 @@
 	<!-- N2 -->
 	
 	<text>
-		<name>osgtext-green3</name>
+		<name>txt.n21</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -643,7 +719,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green4</name>
+		<name>txt.n22</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -667,7 +743,7 @@
 	</text>
 	
 	<text>
-		<name>XX.3</name>
+		<name>XX.n21</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -691,7 +767,7 @@
 	</text>
 	
 	<text>
-		<name>XX.4</name>
+		<name>XX.n22</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -767,7 +843,7 @@
 	<!-- FF -->
 	
 	<text>
-		<name>osgtext-green1</name>
+		<name>txt.ff1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -791,7 +867,7 @@
 	</text>
 	
 	<text>
-		<name>osgtext-green2</name>
+		<name>txt.ff2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -815,7 +891,7 @@
 	</text>
 	
 	<text>
-		<name>XX.1</name>
+		<name>XX.ff1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>-0.0349</y-m>
@@ -839,7 +915,7 @@
 	</text>
 	
 	<text>
-		<name>XX.2</name>
+		<name>XX.ff2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
 			<y-m>0.0336</y-m>
@@ -939,7 +1015,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>n1limy1</object-name>
-    	<property>/controls/engines/n1-limit</property>
+    	<property>/systems/thrust/n1/toga-lim</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -961,7 +1037,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>n1limy2</object-name>
-    	<property>/controls/engines/n1-limit</property>
+    	<property>/systems/thrust/n1/toga-lim</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>

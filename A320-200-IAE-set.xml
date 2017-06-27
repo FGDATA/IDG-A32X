@@ -158,6 +158,9 @@
 		<specific>
 			<file>Aircraft/A320Family/Nasal/a320livery-iae.nas</file>
 		</specific>
+		<fadec>
+			<file>Aircraft/A320Family/Nasal/fadec-iae.nas</file>
+		</fadec>
 	</nasal>
 
 </PropertyList>

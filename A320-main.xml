@@ -812,7 +812,7 @@
 			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
 		</systems>
 		<thrust>
-			<file>Aircraft/A320Family/Nasal/fadec.nas</file>
+			<file>Aircraft/A320Family/Nasal/fadec-common.nas</file>
 		</thrust>
 		<fbw>
 			<file>Aircraft/A320Family/Nasal/it-fbw.nas</file>

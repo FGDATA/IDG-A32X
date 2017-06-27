@@ -4,6 +4,120 @@
 
 	<path>res/ohpanelEPR.ac</path>
 	
+	<!-- No button lights without power! -->
+	<animation>
+		<object-name>Eng1N1Btn2O</object-name>
+		<object-name>Eng2N1Btn2O</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- N1 Mode switches -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Eng1N1Btn</object-name>
+		<object-name>Eng1N1Btn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/fadec/n1mode1</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1N1Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[2]/off</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/fadec/n1mode1</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Eng2N1Btn</object-name>
+		<object-name>Eng2N1Btn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/fadec/n1mode2</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2N1Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/adirs/adr[2]/off</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/fadec/n1mode2</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<!-- Panel lighting -->
 	<animation>
 		<name>Panel lighting select</name>

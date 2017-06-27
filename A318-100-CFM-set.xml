@@ -133,6 +133,9 @@
 		<specific>
 			<file>Aircraft/A320Family/Nasal/a318livery-cfm.nas</file>
 		</specific>
+		<fadec>
+			<file>Aircraft/A320Family/Nasal/fadec-cfm.nas</file>
+		</fadec>
 	</nasal>
 
 </PropertyList>
