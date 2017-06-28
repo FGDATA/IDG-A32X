@@ -516,9 +516,8 @@
 				<legend>Push</legend>
 				<pref-width>75</pref-width>
 				<binding>
-					<command>property-assign</command>
-					<property>/it-autoflight/input/lat</property>
-					<value>1</value>
+					<command>nasal</command>
+					<script>libraries.mcpHDGKnbPush();</script>
 				</binding>
 			</button>
 			
@@ -526,9 +525,8 @@
 				<legend>Pull</legend>
 				<pref-width>75</pref-width>
 				<binding>
-					<command>property-assign</command>
-					<property>/it-autoflight/input/lat</property>
-					<value>3</value>
+					<command>nasal</command>
+					<script>libraries.mcpHDGKnbPull();</script>
 				</binding>
 			</button>
 			
