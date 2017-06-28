@@ -33,6 +33,7 @@ var FMGCinit = func {
 	setprop("/it-autoflight/settings/reduc-agl-ft", 3000);
 	setprop("/FMGC/internal/decel", 0);
 	setprop("/FMGC/internal/loc-source", "NAV0");
+	setprop("/FMGC/internal/optalt", 0);
 	phasecheck.start();
 	various.start();
 	various2.start();
