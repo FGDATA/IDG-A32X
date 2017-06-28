@@ -224,7 +224,7 @@ var librariesLoop = maketimer(0.1, func {
 	}
 	
 	if (getprop("/it-autoflight/custom/show-hdg") == 0) {
-		setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magentic-deg"));
+		setprop("/it-autoflight/input/hdg", getprop("/orientation/heading-magnetic-deg"));
 	}
 });
 
