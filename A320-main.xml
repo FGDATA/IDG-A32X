@@ -333,19 +333,19 @@
 		<config>
 			<altitude-dial-mode>0</altitude-dial-mode>
 			<roll>
-				<umin>-0.45</umin>
-				<umax>0.45</umax>
-				<kp>0.045</kp>
-				<kp-vloc>0.07</kp-vloc>
-				<ti>10.0</ti>
-				<td>0.00001</td>
+				<umin>-0.4</umin>
+				<umax>0.4</umax>
+				<kp>0.08</kp>
+				<kp-vloc>0.09</kp-vloc>
+				<ti>5.0</ti>
+				<td>0.001</td>
 			</roll>
 			<pitch>
-				<umin>-0.20</umin>
-				<umax>0.20</umax>
-				<kp>-0.06</kp>
-				<ti>10.0</ti>
-				<td>0.00001</td>
+				<umin>-0.3</umin>
+				<umax>0.3</umax>
+				<kp>-0.1</kp>
+				<ti>5.0</ti>
+				<td>0.001</td>
 			</pitch>
 			<cmd>
 				<roll-kp>-0.9</roll-kp>
@@ -363,8 +363,12 @@
 			<ap2>0</ap2>
 		</output>
 		<custom>
-			<hdg-input>0</hdg-input>
+			<show-hdg>0</show-hdg>
 			<trk-fpa>0</trk-fpa>
+			<hdg-knb>0</hdg-knb>
+			<spd-knb>0</spd-knb>
+			<alt-knb>0</alt-knb>
+			<vs-knb>0</vs-knb>
 		</custom>
 	</it-autoflight>
 

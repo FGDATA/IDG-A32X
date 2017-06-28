@@ -26,10 +26,24 @@
 		<max-rate-of-change>5</max-rate-of-change>
 	</filter>
 	
-
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/it-autoflight/internal/aileron-cmd</property>
+		</input>
 		<input>/controls/flight/aileron</input>
 		<output>/controls/flight/aileron-input</output>
 		<max-rate-of-change>2.0</max-rate-of-change>
@@ -83,8 +97,21 @@
             </expression>
 		</input>
 		<input>
-			<property>/controls/flight/elevator</property>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/it-autoflight/internal/elevator-cmd</property>
 		</input>
+		<input>/controls/flight/elevator</input>
 		<output>/controls/flight/elevator-input</output>
 		<max-rate-of-change>2.0</max-rate-of-change>
 	</filter>
@@ -227,14 +254,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -281,14 +300,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -306,51 +317,26 @@
 		</input>
 		<input>
 			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/gear/gear[1]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/gear/gear[2]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>2</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/flight/aileron-input</property>
-		</input>
-		<input>
-			<condition>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
+						<property>/gear/gear[1]/wow</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap2</property>
+						<property>/gear/gear[2]/wow</property>
 						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>2</value>
 					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/aileron-fmgc</property>
+			<property>/controls/flight/aileron-input</property>
 		</input>
 		<input>
 			<condition>
@@ -378,20 +364,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/roll-back</property>
-						<value>0</value>
-					</equals>
-				</and>
+				<equals>
+					<property>/it-fbw/roll-back</property>
+					<value>0</value>
+				</equals>
 			</condition>
 			<expression>
 				<product>
@@ -406,44 +382,10 @@
 		</input>
 		<input>
 			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<expression>
-				<product>
-					<property>/controls/flight/aileron-fmgc</property>
-					<table>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-						<entry><ind>0.2</ind><dep>1.00</dep></entry>
-						<entry><ind>0.9</ind><dep>0.25</dep></entry>
-					</table>
-				</product>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-fbw/roll-back</property>
-						<value>1</value>
-					</equals>
-				</and>
+				<equals>
+					<property>/it-fbw/roll-back</property>
+					<value>1</value>
+				</equals>
 			</condition>
 			<value>0</value>
 		</input>
@@ -612,14 +554,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -680,14 +614,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -731,14 +657,6 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -799,14 +717,6 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value> 
-					</equals>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -872,14 +782,6 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
 					</equals>
@@ -911,55 +813,30 @@
 		</input>
 		<input>
 			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/gear/gear[1]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/gear/gear[2]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>2</value>
-						</equals>
-						<greater-than-equals>
-							<property>/orientation/roll-deg</property>
-							<value>40</value>
-						</greater-than-equals>
-						<less-than-equals>
-							<property>/orientation/roll-deg</property>
-							<value>-40</value>
-						</less-than-equals>
-					</or>
-				</and>
-			</condition>
-			<property>/controls/flight/elevator-input</property>
-		</input>
-		<input>
-			<condition>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
+						<property>/gear/gear[1]/wow</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap2</property>
+						<property>/gear/gear[2]/wow</property>
 						<value>1</value>
 					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>2</value>
+					</equals>
+					<greater-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>40</value>
+					</greater-than-equals>
+					<less-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>-40</value>
+					</less-than-equals>
 				</or>
 			</condition>
-			<property>/controls/flight/elevator-fmgc</property>
+			<property>/controls/flight/elevator-input</property>
 		</input>
 		<input>
 			<condition>
@@ -983,14 +860,6 @@
 						<property>/controls/flight/elevator-fbw</property>
 						<value>0.01</value>
 					</greater-than>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
 					<less-than>
 						<property>/orientation/roll-deg</property>
 						<value>40</value>
@@ -1047,14 +916,6 @@
 						<property>/controls/flight/elevator-fbw</property>
 						<value>-0.01</value>
 					</less-than>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
 					<less-than>
 						<property>/orientation/roll-deg</property>
 						<value>40</value>
@@ -1110,14 +971,6 @@
 			<condition>
 				<and>
 					<and>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>0</value>
-						</equals>
 						<or>
 							<equals>
 								<property>/it-fbw/law</property>

@@ -244,7 +244,7 @@
 			<value>0</value>
 		</reference>
 		<output>
-			<property>/it-autoflight/internal/aileron-cmd</property>
+			<property>/it-autoflight/internal/aileron-cmd</property> <!-- Inputs to the FBW -->
 		</output>
 		<config>
 			<Kp>
@@ -282,75 +282,6 @@
 			</u_max>
 		</config>
 	</pid-controller>
-	
-	<filter>
-		<name>IT-CONTROLLER: ROLL CMD</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<property>/controls/flight/aileron-fbw</property>
-		</input>
-		<input>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<property>/it-autoflight/internal/aileron-cmd</property>
-		</input>
-		<output>/controls/flight/aileron-fmgc</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>10</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<value>0.5</value>
-		</max-rate-of-change>
-	</filter>
 	
  <!-- =============================================================== -->
  <!-- Yaw Control                                                     -->

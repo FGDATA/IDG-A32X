@@ -55,6 +55,7 @@ var APinit = func {
 	setprop("/it-autoflight/mode/vert", "T/O CLB");
 	setprop("/it-autoflight/input/spd-kts", 100);
 	setprop("/it-autoflight/input/spd-mach", 0.50);
+	setprop("/it-autoflight/custom/show-hdg", 0);
 	update_armst.start();
 	thrustmode();
 }
@@ -185,6 +186,7 @@ var lateral = func {
 			setprop("/it-autoflight/output/lat", 1);
 			setprop("/it-autoflight/mode/lat", "LNAV");
 			setprop("/it-autoflight/mode/arm", " ");
+			setprop("/it-autoflight/custom/show-hdg", 0);
 		} else {
 			gui.popupTip("Please make sure you have a route set, and that it is Activated!");
 		}
@@ -212,9 +214,11 @@ var lateral = func {
 		lnavwptt.stop();
 		setprop("/it-autoflight/output/lat", 4);
 		setprop("/it-autoflight/mode/lat", "ALGN");
+		setprop("/it-autoflight/custom/show-hdg", 0);
 	} else if (latset == 5) {
 		lnavwptt.stop();
 		setprop("/it-autoflight/output/lat", 5);
+		setprop("/it-autoflight/custom/show-hdg", 0);
 	}
 }
 
@@ -222,11 +226,12 @@ var lat_arm = func {
 	var latset = getprop("/it-autoflight/input/lat");
 	if (latset == 0) {
 		setprop("/it-autoflight/input/lat-arm", 0);
-		setprop("/it-autoflight/mode/arm", "HDG");
+		setprop("/it-autoflight/custom/show-hdg", 1);
 	} else if (latset == 1) {
 		if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1) {
 			setprop("/it-autoflight/input/lat-arm", 1);
 			setprop("/it-autoflight/mode/arm", "LNV");
+			setprop("/it-autoflight/custom/show-hdg", 0);
 		} else {
 			gui.popupTip("Please make sure you have a route set, and that it is Activated!");
 		}
@@ -234,7 +239,7 @@ var lat_arm = func {
 		var hdgnow = int(getprop("/orientation/heading-magnetic-deg")+0.5);
 		setprop("/it-autoflight/input/hdg", hdgnow);
 		setprop("/it-autoflight/input/lat-arm", 0);
-		setprop("/it-autoflight/mode/arm", "HDG");
+		setprop("/it-autoflight/custom/show-hdg", 1);
 	}
 }
 
@@ -700,6 +705,7 @@ var make_loc_active = func {
 	setprop("/it-autoflight/output/loc-armed", 0);
 	setprop("/it-autoflight/output/lat", 2);
 	setprop("/it-autoflight/mode/lat", "LOC");
+	setprop("/it-autoflight/custom/show-hdg", 0);
 	if (getprop("/it-autoflight/output/appr-armed") == 1) {
 		# Do nothing because G/S is armed
 	} else {

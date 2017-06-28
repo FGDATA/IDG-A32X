@@ -512,10 +512,16 @@
         <type>select</type>
         <object-name>lat.dash</object-name>
         <condition>
-			<not-equals>
-				<property>/it-autoflight/output/lat</property>
-				<value>0</value>
-			</not-equals>
+			<and>
+				<not-equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>0</value>
+				</not-equals>
+				<equals>
+					<property>/it-autoflight/custom/show-hdg</property>
+					<value>0</value>
+				</equals>
+			</and>
         </condition>
     </animation>
 	
@@ -533,27 +539,6 @@
 	<animation>
 		<type>select</type>
 		<object-name>vs.ind</object-name>
-        <condition>
-			<equals>
-				<property>/it-autoflight/output/vert</property>
-				<value>1</value>
-			</equals>
-        </condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>fpa.ind</object-name>
-        <condition>
-			<equals>
-				<property>/it-autoflight/output/vert</property>
-				<value>5</value>
-			</equals>
-        </condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
 		<object-name>vs.ind.001</object-name>
         <condition>
 			<equals>
@@ -565,6 +550,7 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>fpa.ind</object-name>
 		<object-name>fpa.ind.001</object-name>
         <condition>
 			<equals>
@@ -659,6 +645,14 @@
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/spd-knb</property>
+				<step>1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
 		<action>
 			<button>4</button>
@@ -701,6 +695,14 @@
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/spd-knb</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
 	</animation>
     
@@ -711,9 +713,8 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
-				<property>/it-autoflight/input/lat</property>
-				<value>1</value>
+				<command>nasal</command>
+				<script>libraries.mcpHDGKnbPush();</script>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -724,9 +725,8 @@
 			<button>1</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
-				<property>/it-autoflight/input/lat</property>
-				<value>3</value>
+				<command>nasal</command>
+				<script>libraries.mcpHDGKnbPull();</script>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -738,9 +738,19 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<equals>
+					<not-equals>
 						<property>/it-autoflight/output/lat</property>
 						<value>0</value>
+					</not-equals>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.hdgInput();</script>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/custom/show-hdg</property>
+						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
@@ -750,15 +760,33 @@
 				<max>361</max>
 				<wrap>true</wrap>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/hdg-knb</property>
+				<step>1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
 		<action>
 			<button>4</button>
 			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<equals>
+					<not-equals>
 						<property>/it-autoflight/output/lat</property>
 						<value>0</value>
+					</not-equals>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.hdgInput();</script>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/it-autoflight/custom/show-hdg</property>
+						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
@@ -766,6 +794,14 @@
 				<step>-1</step>
 				<min>1</min>
 				<max>361</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/hdg-knb</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>10000</max>
 				<wrap>true</wrap>
 			</binding>
 		</action>
@@ -829,6 +865,14 @@
 				<min>0</min>
 				<max>50000</max>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/alt-knb</property>
+				<step>1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
 		<action>
 			<button>4</button>
@@ -858,6 +902,14 @@
 				<step>-1000</step>
 				<min>0</min>
 				<max>50000</max>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/alt-knb</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
 			</binding>
 		</action>
     </animation>
@@ -972,6 +1024,14 @@
 				<step>0.1</step>
 				<max>20.9</max>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/vs-knb</property>
+				<step>1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
 		<action>
 			<button>4</button>
@@ -1010,9 +1070,16 @@
 				<step>-0.1</step>
 				<min>-20.9</min>
 			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>/it-autoflight/custom/vs-knb</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>10000</max>
+				<wrap>true</wrap>
+			</binding>
 		</action>
     </animation>
-
 	
 	<!-- Button Pick Animations -->
 	
@@ -1282,50 +1349,6 @@
 	<animation>
 		<type>select</type>
 		<object-name>hdg.ind</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/custom/trk-fpa</property>
-					<value>0</value>
-				</equals>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>trk.ind</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>/it-autoflight/output/lat</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/custom/trk-fpa</property>
-					<value>1</value>
-				</equals>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>hdg-text</object-name>
-		<condition>
-			<equals>
-				<property>/it-autoflight/output/lat</property>
-				<value>0</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
 		<object-name>hdg2.ind</object-name>
 		<condition>
 			<equals>
@@ -1337,10 +1360,22 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>trk.ind</object-name>
 		<object-name>trk2.ind</object-name>
 		<condition>
 			<equals>
 				<property>/it-autoflight/custom/trk-fpa</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg-text</object-name>
+		<condition>
+			<equals>
+				<property>/it-autoflight/custom/show-hdg</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1701,7 +1736,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-sel</object-name>
-		<property>/it-autoflight/input/hdg-sel</property>
+		<property>/it-autoflight/custom/hdg-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1716,7 +1751,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>spd-sel</object-name>
-		<property>/it-autoflight/input/spd-kts</property>
+		<property>/it-autoflight/custom/spd-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1730,23 +1765,8 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>spd-sel</object-name>
-		<property>/it-autoflight/input/spd-mach</property>
-		<factor>0.01</factor>
-		<axis>
-			<x1-m>-0.4608</x1-m>
-			<y1-m>-0.0874</y1-m>
-			<z1-m>0.1526</z1-m>
-			<x2-m>-0.4807</x2-m>
-			<y2-m>-0.0874</y2-m>
-			<z2-m>0.1478</z2-m>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
 		<object-name>alt-sel</object-name>
-		<property>/it-autoflight/input/alt</property>
+		<property>/it-autoflight/custom/alt-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4738</x1-m>
@@ -1761,14 +1781,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>vs-sel</object-name>
-		<property>/it-autoflight/input/vs</property>
+		<property>/it-autoflight/custom/vs-knb</property>
 		<factor>11.25</factor>
-		<condition>
-			<equals>
-				<property>/it-autoflight/output/vert</property>
-				<value>1</value>
-			</equals>
-		</condition>
 		<axis>
 			<x1-m>-0.4608</x1-m>
 			<y1-m>0.0924</y1-m>
