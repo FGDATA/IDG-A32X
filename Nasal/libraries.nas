@@ -223,7 +223,7 @@ var librariesLoop = maketimer(0.1, func {
 		setprop("/it-autoflight/internal/bank-limit", 25);
 	}
 	
-	if (getprop("/it-autoflight/custom/show-hdg") == 0) {
+	if (getprop("/it-autoflight/custom/show-hdg") == 0 and getprop("/it-autoflight/output/lat") != 4) {
 		setprop("/it-autoflight/input/hdg", math.round(getprop("/orientation/heading-magnetic-deg")));
 	}
 });
