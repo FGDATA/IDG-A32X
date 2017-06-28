@@ -788,7 +788,7 @@
 		<format type="string">/%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/it-autoflight/settings/reduc-agl-ft</property>
+		<property>/FMGC/internal/reduc-agl-ft</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
