@@ -335,8 +335,8 @@
 			<roll>
 				<umin>-0.4</umin>
 				<umax>0.4</umax>
-				<kp>0.08</kp>
-				<kp-vloc>0.09</kp-vloc>
+				<kp>0.1</kp>
+				<kp-vloc>0.11</kp-vloc>
 				<ti>5.0</ti>
 				<td>0.001</td>
 			</roll>

@@ -142,9 +142,9 @@
 				<sum>
 					<table>
 						<property>/controls/flight/aileron-input</property> 
-						<entry><ind>-1</ind><dep>-15.0</dep></entry>
+						<entry><ind>-1</ind><dep>-12.0</dep></entry>
 						<entry><ind> 0</ind><dep>  0.0</dep></entry>
-						<entry><ind> 1</ind><dep> 15.0</dep></entry>
+						<entry><ind> 1</ind><dep> 12.0</dep></entry>
 					</table>
 					<product>
 						<table>
@@ -154,7 +154,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/aileron-input</property> 
-							<entry><ind>-1</ind><dep>15.0</dep></entry>
+							<entry><ind>-1</ind><dep>12.0</dep></entry>
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						</table>
 					</product>
@@ -167,7 +167,7 @@
 						<table>
 							<property>/controls/flight/aileron-input</property> 
 							<entry><ind>0</ind><dep>  0.0</dep></entry>
-							<entry><ind>1</ind><dep>-15.0</dep></entry>
+							<entry><ind>1</ind><dep>-12.0</dep></entry>
 						</table>
 					</product>
 				</sum>
@@ -184,9 +184,9 @@
 				<sum>
 					<table>
 						<property>/controls/flight/aileron-input</property> 
-						<entry><ind>-1</ind><dep>-15.0</dep></entry>
+						<entry><ind>-1</ind><dep>-12.0</dep></entry>
 						<entry><ind> 0</ind><dep>  0.0</dep></entry>
-						<entry><ind> 1</ind><dep> 15.0</dep></entry>
+						<entry><ind> 1</ind><dep> 12.0</dep></entry>
 					</table>
 					<product>
 						<table>
@@ -196,7 +196,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/aileron-input</property> 
-							<entry><ind>-1</ind><dep>15.0</dep></entry>
+							<entry><ind>-1</ind><dep>12.0</dep></entry>
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						</table>
 					</product>
@@ -209,7 +209,7 @@
 						<table>
 							<property>/controls/flight/aileron-input</property> 
 							<entry><ind>0</ind><dep>  0.0</dep></entry>
-							<entry><ind>1</ind><dep>-15.0</dep></entry>
+							<entry><ind>1</ind><dep>-12.0</dep></entry>
 						</table>
 					</product>
 				</sum>
