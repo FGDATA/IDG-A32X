@@ -37,8 +37,10 @@
 		<condition>
 			<or>
 				<and>
-					<property>/gear/gear[1]/wow</property>
-					<property>/gear/gear[2]/wow</property>
+					<or>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</or>
 					<not-equals>
 						<property>/FMGC/status/phase</property>
 						<value>0</value>
@@ -49,8 +51,10 @@
 					</not-equals>
 				</and>
 				<and>
-					<property>/gear/gear[1]/wow</property>
-					<property>/gear/gear[2]/wow</property>
+					<or>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</or>
 					<or>
 						<equals>
 							<property>/FMGC/status/phase</property>
@@ -67,8 +71,10 @@
 					</equals>
 				</and>
 				<and>
-					<property>/gear/gear[1]/wow</property>
-					<property>/gear/gear[2]/wow</property>
+					<or>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</or>
 					<or>
 						<equals>
 							<property>/FMGC/status/phase</property>
