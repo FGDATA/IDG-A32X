@@ -4736,13 +4736,13 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FlapsLever</object-name>
-		<property>controls/flight/flaps</property>
+		<property>controls/flight/flap-lever</property>
 		<interpolation>
-			<entry><ind>0.000</ind><dep>0 </dep></entry>
-			<entry><ind>0.290</ind><dep>15</dep></entry>
-			<entry><ind>0.596</ind><dep>30</dep></entry>
-			<entry><ind>0.645</ind><dep>45</dep></entry>
-			<entry><ind>1.000</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>15</dep></entry>
+			<entry><ind>2</ind><dep>30</dep></entry>
+			<entry><ind>3</ind><dep>45</dep></entry>
+			<entry><ind>4</ind><dep>60</dep></entry>
 		</interpolation> 
 		<center>
 			<x-m>-0.0020</x-m>
