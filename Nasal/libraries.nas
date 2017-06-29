@@ -17,6 +17,11 @@ print("If you are reading this, you are awesome!");
 print("-----------------------------------------------------------------------");
 print(" ");
 
+# Dimmers
+setprop("/controls/lighting/ndl-norm", 0);
+setprop("/controls/lighting/ndr-norm", 0);
+setprop("/controls/lighting/upper-norm", 0);
+
 ##########
 # Lights #
 ##########
