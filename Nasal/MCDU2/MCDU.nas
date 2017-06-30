@@ -283,6 +283,8 @@ var pagebutton = func(btn) {
 			setprop("/MCDU[1]/last-fmgc-page", getprop("/MCDU[1]/page"));
 			setprop("/MCDU[1]/scratchpad", "SELECT DESIRED SYSTEM");
 			setprop("/MCDU[1]/page", "MCDU");
+		} else if (btn == "f-pln") {
+			setprop("/MCDU[1]/page", "F-PLNA");
 		}
 	}
 }

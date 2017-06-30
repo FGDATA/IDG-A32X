@@ -827,6 +827,7 @@
 		</fmgc>
 		<mcdu1>
 			<file>Aircraft/A320Family/Nasal/MCDU1/MCDU.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/F-PLNA.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU1/INITA.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU1/INITB.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU1/PERFCLB.nas</file>
@@ -837,6 +838,7 @@
 		</mcdu1>
 		<mcdu2>
 			<file>Aircraft/A320Family/Nasal/MCDU2/MCDU.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/F-PLNA.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU2/INITA.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU2/INITB.nas</file>
 			<file>Aircraft/A320Family/Nasal/MCDU2/PERFCLB.nas</file>

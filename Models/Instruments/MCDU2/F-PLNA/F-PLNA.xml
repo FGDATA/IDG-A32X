@@ -14,20 +14,20 @@
 		<name>page</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.0</y-m>
+			<y-m>0.031</y-m>
 			<z-m>0.083</z-m>
 		</offsets>
-		<alignment>center-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">DATA INDEX    1/2</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/flight-num</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
+		<character-size>0.0045</character-size>
 		<font-resolution>
 			<width type="int">64</width>
 			<height type="int">64</height>
@@ -58,32 +58,10 @@
 		</font-resolution>
 	</text>
 	
-	<text>
-		<name>position</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>-0.045</y-m>
-			<z-m>0.0755</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">POSITION</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
+	<!-- White -->
 	
 	<text>
-		<name>positionmon</name>
+		<name>left1w</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -92,10 +70,10 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">&lt;MONITOR</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/F-PLNA/left-1</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -106,31 +84,19 @@
 		</font-resolution>
 	</text>
 	
+	<animation>
+		<type>select</type>
+		<object-name>left1w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-1c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<text>
-		<name>irs</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>-0.045</y-m>
-			<z-m>0.065</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">IRS</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>irs2</name>
+		<name>left2w</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -139,10 +105,10 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">&lt;MONITOR</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/F-PLNA/left-2</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -153,31 +119,19 @@
 		</font-resolution>
 	</text>
 	
+	<animation>
+		<type>select</type>
+		<object-name>left2w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-2c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<text>
-		<name>gps</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>-0.045</y-m>
-			<z-m>0.0545</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">GPS</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>gps2</name>
+		<name>left3w</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -186,10 +140,10 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">&lt;MONITOR</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/F-PLNA/left-3</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -200,56 +154,19 @@
 		</font-resolution>
 	</text>
 	
-	<text>
-		<name>print</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.041</y-m>
-			<z-m>0.0325</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">PRINT</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
+	<animation>
+		<type>select</type>
+		<object-name>left3w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-3c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
 	
 	<text>
-		<name>print2</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.043</y-m>
-			<z-m>0.0285</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">FUNCTION&gt;</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0050</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	
-	<text>
-		<name>status</name>
+		<name>left4w</name>
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
@@ -258,10 +175,10 @@
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">&lt;A/C STATUS</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/F-PLNA/left-4</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -272,43 +189,31 @@
 		</font-resolution>
 	</text>
 	
+	<animation>
+		<type>select</type>
+		<object-name>left4w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-4c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<text>
-		<name>aoc</name>
+		<name>left5w</name>
 		<offsets>
 			<x-m>-0.001</x-m>
-			<y-m>0.041</y-m>
-			<z-m>0.0230</z-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0285</z-m>
 		</offsets>
-		<alignment>right-center</alignment>
+		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">AOC</format>
+		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0040</character-size>
-		<font-resolution>
-			<width type="int">64</width>
-			<height type="int">64</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>aoc2</name>
-		<offsets>
-			<x-m>-0.001</x-m>
-			<y-m>0.043</y-m>
-			<z-m>0.0190</z-m>
-		</offsets>
-		<alignment>right-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">FUNCTION&gt;</format>
-		<truncate type="bool">false</truncate>
-		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>autopilot/serviceable</property>
+		<property>/MCDUC/F-PLNA/left-5</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -318,23 +223,276 @@
 			<height type="int">64</height>
 		</font-resolution>
 	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left5w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-5c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left6w</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0190</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-6</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left6w</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-6c</property>
+				<value>w</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Green -->
+	
+	<text>
+		<name>left1g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-1</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left1g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-1c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left2g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-2</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left2g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-2c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left3g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-3</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left3g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-3c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left4g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-4</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left4g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-4c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left5g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0285</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-5</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left5g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-5c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>left6g</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0190</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>/MCDUC/F-PLNA/left-6</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>left6g</object-name>
+		<condition>
+			<equals>
+				<property>/MCDUC/F-PLNA/left-6c</property>
+				<value>g</value>
+			</equals>
+		</condition>
+	</animation>
 	
 	<!-- Colors -->
 	<!-- White -->
     <animation>
         <type>material</type>
 		<object-name>page</object-name>
-		<object-name>position</object-name>
-		<object-name>positionmon</object-name>
-        <object-name>irs</object-name>
-        <object-name>irs2</object-name>
-		<object-name>gps</object-name>
-		<object-name>gps2</object-name>
-		<object-name>print</object-name>
-		<object-name>print2</object-name>
-		<object-name>status</object-name>
-		<object-name>aoc</object-name>
-		<object-name>aoc2</object-name>
+		<object-name>left1w</object-name>
+		<object-name>left2w</object-name>
+		<object-name>left3w</object-name>
+		<object-name>left4w</object-name>
+		<object-name>left5w</object-name>
+		<object-name>left6w</object-name>
         <diffuse>
             <red>1</red>
             <green>1</green>
@@ -356,5 +514,62 @@
             <blue>1</blue>
         </emission>
     </animation>
+	
+	<!-- Green -->
+	<animation>
+        <type>material</type>
+		<object-name>left1g</object-name>
+		<object-name>left2g</object-name>
+		<object-name>left3g</object-name>
+		<object-name>left4g</object-name>
+		<object-name>left5g</object-name>
+		<object-name>left6g</object-name>
+        <diffuse>
+            <red>0.2</red>
+            <green>0.4</green>
+            <blue>0.2</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.2</red>
+            <green>0.4</green>
+            <blue>0.2</blue>
+        </emission>
+    </animation>
+	
+	<!-- Blue -->
+	<!--animation>
+        <type>material</type>
+
+        <diffuse>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </emission>
+    </animation-->
 	
 </PropertyList>

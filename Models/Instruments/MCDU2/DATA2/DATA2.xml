@@ -20,7 +20,31 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string">DATA INDEX    2/2 &lt;--&gt;</format>
+		<format type="string">DATA INDEX    2/2</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>page</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.04</y-m>
+			<z-m>0.083</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;-&gt;</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
@@ -39,7 +63,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.0760</z-m>
+			<z-m>0.0755</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -63,7 +87,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.0720</z-m>
+			<z-m>0.0715</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -87,7 +111,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0725</z-m>
+			<z-m>0.0715</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -111,7 +135,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.066</z-m>
+			<z-m>0.065</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -135,7 +159,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.0605</z-m>
+			<z-m>0.061</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -159,7 +183,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0605</z-m>
+			<z-m>0.061</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -255,7 +279,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.033</z-m>
+			<z-m>0.0325</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -279,7 +303,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.029</z-m>
+			<z-m>0.0285</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -303,7 +327,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>-0.045</y-m>
-			<z-m>0.0410</z-m>
+			<z-m>0.0395</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -327,7 +351,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.0455</z-m>
+			<z-m>0.0435</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -351,7 +375,7 @@
 		<offsets>
 			<x-m>-0.001</x-m>
 			<y-m>0.045</y-m>
-			<z-m>0.0410</z-m>
+			<z-m>0.0395</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>

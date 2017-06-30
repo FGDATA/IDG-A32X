@@ -27,6 +27,28 @@
 	</model>
 	
 	<model>
+		<name>F-PLNA</name>
+		<path>F-PLNA/F-PLNA.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/ac2</property>
+					<value>110</value>
+				</greater-than-equals>
+				<equals>
+					<property>/MCDU[1]/page</property>
+					<value>F-PLNA</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
 		<name>STATUS</name>
 		<path>STATUS/STATUS.xml</path>
 		<offsets>
@@ -353,6 +375,25 @@
 			<binding>
 				<command>nasal</command>
 				<script>mcdu2.pagebutton("perf");</script>
+				<condition>
+					<greater-than-equals>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>110</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>f-pln</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu2.pagebutton("f-pln");</script>
 				<condition>
 					<greater-than-equals>
 						<property>/systems/electrical/bus/ac2</property>
