@@ -21,6 +21,16 @@ var hyd_init = func {
 	setprop("/systems/hydraulic/spoiler3and4-inhibit", 0);
 	setprop("/systems/hydraulic/spoiler-inhibit", 0);
 	setprop("/controls/gear/brake-parking", 0);
+	setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", 0);
+	setprop("/systems/hydraulic/brakes/pressure-left-psi", 0);
+	setprop("/systems/hydraulic/brakes/pressure-right-psi", 0);
+	setprop("/systems/hydraulic/brakes/askidnwssw", 1);
+	setprop("/systems/hydraulic/brakes/mode", 0);
+	setprop("/systems/hydraulic/brakes/lbrake", 0);
+	setprop("/systems/hydraulic/brakes/rbrake", 0);
+	setprop("/systems/hydraulic/brakes/nose-rubber", 0); # this stops the nose from spinning when you raise the gear
+	setprop("/systems/hydraulic/brakes/counter", 0);
+	setprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1", 0);
 	hyd_timer.start();
 }
 
@@ -155,6 +165,69 @@ var master_hyd = func {
 	} else {
 			setprop("/systems/hydraulic/spoiler-inhibit", 0);
 	}
+	
+	var accum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
+	var lpsi = getprop("/systems/hydraulic/brakes/pressure-left-psi");
+	var rpsi = getprop("/systems/hydraulic/brakes/pressure-right-psi");
+	var parking = getprop("/controls/gear/brake-parking");
+	var askidnws_sw = getprop("/systems/hydraulic/brakes/askidnwssw");
+	var brake_mode = getprop("/systems/hydraulic/brakes/mode");
+	var brake_l = getprop("/systems/hydraulic/brakes/lbrake");
+	var brake_r = getprop("/systems/hydraulic/brakes/rbrake");
+	var brake_nose = getprop("/systems/hydraulic/brakes/nose-rubber");
+	var counter = getprop("/systems/hydraulic/brakes/counter");
+	
+	if (!parking and askidnws_sw and green_psi > 2500) {
+		# set mode to on
+		setprop("/systems/hydraulic/brakes/mode", 1); 
+	} else if ((!parking and askidnws_sw and yellow_psi > 2500) or (!parking and askidnws_sw and accum > 0)) {
+		# set mode to altn
+		setprop("/systems/hydraulic/brakes/mode", 2); 
+	} else {
+		# set mode to off
+		setprop("/systems/hydraulic/brakes/mode", 0);
+	}
+	
+	if (brake_mode == 2 and yellow_psi > 2500 and accum < 700) {
+		setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", accum + 50);
+	} 
+	
+	setlistener("/controls/gear/brake-left", func {
+		var presentAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
+		var pastAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1");
+		var brake_mode = getprop("/systems/hydraulic/brakes/mode");
+		var yellow_psi = getprop("/systems/hydraulic/yellow-psi");
+		var brake = getprop("/controls/gear/brake-left");
+		if (brake > 0) {
+			if (brake_mode == 2 and yellow_psi < 1000) {
+				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1", presentAccum);
+			}
+		}
+		if (brake == 0) {
+			if (brake_mode == 2 and yellow_psi < 1000 and presentAccum >= 0) {
+				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", pastAccum - 50);
+			}
+		}
+	});
+	
+	setlistener("/controls/gear/brake-right", func {
+		var presentAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
+		var pastAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1");
+		var brake_mode = getprop("/systems/hydraulic/brakes/mode");
+		var yellow_psi = getprop("/systems/hydraulic/yellow-psi");
+		var brake2 = getprop("/controls/gear/brake-right");
+		if (brake2 > 0) {
+			if (brake_mode == 2 and yellow_psi < 1000) {
+				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1", presentAccum);
+			}
+		}
+		if (brake2 == 0) {
+			if (brake_mode == 2 and yellow_psi < 1000 and presentAccum >= 0) {
+				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", pastAccum - 50);
+			}
+		}
+	});
+
 }
 
 #######################
@@ -177,3 +250,10 @@ var update_hydraulic = func {
 }
 
 var hyd_timer = maketimer(0.2, update_hydraulic);
+
+
+# FIXME:
+# Josh, please disable braking when:
+# /systems/hydraulic/brakes/accumulator-pressure-psi is equal to 0 and when /systems/hydraulic/brakes/mode is equal to 2
+# Thanks!
+
