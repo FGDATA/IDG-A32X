@@ -826,10 +826,24 @@
 			<file>Aircraft/A320Family/Nasal/FMGC-b.nas</file>
 		</fmgc>
 		<mcdu1>
-			<file>Aircraft/A320Family/Nasal/MCDU/MCDU1.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/MCDU.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/INITA.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/INITB.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/PERFCLB.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/PERFCRZ.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/PERFDES.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/PERFTO.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU1/RADNAV.nas</file>
 		</mcdu1>
 		<mcdu2>
-			<file>Aircraft/A320Family/Nasal/MCDU/MCDU2.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/MCDU.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/INITA.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/INITB.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/PERFCLB.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/PERFCRZ.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/PERFDES.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/PERFTO.nas</file>
+			<file>Aircraft/A320Family/Nasal/MCDU2/RADNAV.nas</file>
 		</mcdu2>
 		<canvas_nd>
 			<file>Aircraft/A320Family/Models/Instruments/ND/canvas/ND.nas</file>
