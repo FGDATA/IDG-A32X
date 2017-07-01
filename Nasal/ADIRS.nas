@@ -1,11 +1,10 @@
-# A320Family ADIRS system
-# Jonathan Redpath
-# Minor Modifications by Joshua Davidson
-
+# A3XX ADIRS system
+# Jonathan Redpath and Joshua Davidson
 
 #####################
 # Initializing Vars #
 #####################
+
 # Initializing these vars here to prevent nasal nil used in numeric context, since the electrical system doesn't until fdm init is done. -JD
 setprop("/systems/electrical/bus/dc1", 0);
 setprop("/systems/electrical/bus/dc2", 0);
@@ -42,9 +41,9 @@ var ADIRSreset = func {
 	setprop("/controls/adirs/ir[0]/align",0);
 	setprop("/controls/adirs/ir[1]/align",0);
 	setprop("/controls/adirs/ir[2]/align",0);
-	setprop("/controls/adirs/ir[0]/knob","0");
-	setprop("/controls/adirs/ir[1]/knob","0");
-	setprop("/controls/adirs/ir[2]/knob","0");
+	setprop("/controls/adirs/ir[0]/knob", 0);
+	setprop("/controls/adirs/ir[1]/knob", 0);
+	setprop("/controls/adirs/ir[2]/knob", 0);
 	setprop("/controls/adirs/ir[0]/fault",0);
 	setprop("/controls/adirs/ir[1]/fault",0);
 	setprop("/controls/adirs/ir[2]/fault",0);
