@@ -115,7 +115,7 @@ var phasecheck = maketimer(0.2, func {
 	var locarm = getprop("/it-autopilot/output/loc-armed");
 	var apprarm = getprop("/it-autopilot/output/appr-armed");
 	
-	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and flaps < 4 and (mode == "SRS")) {
+	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and (mode == "SRS")) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
@@ -153,16 +153,22 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
-	if ((wowl and wowr) and (gs < 20) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
+	if ((wowl and wowr) and (gs < 40) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
 		setprop("/FMGC/status/phase", "7");
 		var fd1 = getprop("/it-autoflight/input/fd1");
 		var fd2 = getprop("/it-autoflight/input/fd2");
+		var spd = getprop("/it-autoflight/input/spd-kts");
+		var hdg = getprop("/it-autoflight/input/hdg");
+		var alt = getprop("/it-autoflight/input/alt");
 		APinit();
 		FMGCinit();
 		mcdu1.MCDU_reset();
 		mcdu2.MCDU_reset();
 		setprop("/it-autoflight/input/fd1", fd1);
 		setprop("/it-autoflight/input/fd2", fd2);
+		setprop("/it-autoflight/input/spd-kts", spd);
+		setprop("/it-autoflight/input/hdg", hdg);
+		setprop("/it-autoflight/input/alt", alt);
 		setprop("/systems/pressurization/mode", "GN");
 		setprop("/systems/pressurization/vs", "0");
 		setprop("/systems/pressurization/targetvs", "0");
