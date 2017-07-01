@@ -87,12 +87,20 @@
 						<property>/it-fbw/law</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>0</value>
+					</equals>
 				</and>
 			</condition>
             <expression>
 				<sum>
 					<property>/controls/flight/elevator</property>
-					<value>0.15</value>
+					<table>
+						<property>/position/gear-agl-ft</property> 
+						<entry><ind> 0</ind><dep>0.15</dep></entry>
+						<entry><ind>50</ind><dep>0.10</dep></entry>
+					</table>
 				</sum>
             </expression>
 		</input>

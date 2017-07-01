@@ -1886,6 +1886,10 @@
         <condition>
 			<and>
 				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/modes/pfd/fma/throttle-mode-box</property>
 					<value>1</value>
 				</equals>
