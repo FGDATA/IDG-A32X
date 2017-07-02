@@ -109,7 +109,6 @@
 		</max-rate-of-change>
 	</filter>
 
-	<!-- Engine 1 -->
 	<!-- Auto throttle --> 
 	<pid-controller>
 		<name>IAS THR</name>
@@ -155,7 +154,7 @@
 			<property>/it-autoflight/internal/kts</property>
 		</reference>
 		<output>
-			<property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
 		<config>
 			<Kp>0.05</Kp>
@@ -165,9 +164,7 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[0]/throttle-man</property>
-			</u_max>
+			<u_max>1.000</u_max>
 		</config>
 	</pid-controller>
 
@@ -219,7 +216,7 @@
 			<scale>500.0</scale>
 		</reference>
 		<output>
-			<property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
 		<config>
 			<Kp>0.05</Kp>
@@ -229,9 +226,7 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[0]/throttle-man</property>
-			</u_max>
+			<u_max>1.000</u_max>
 		</config>
 	</pid-controller>
 
@@ -274,7 +269,7 @@
 			<value>0</value>
 		</reference>
 		<output>
-			<property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
 		<config>
 			<Kp>0.008</Kp>
@@ -284,9 +279,7 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[0]/throttle-man</property>
-			</u_max>
+			<u_max>1.000</u_max>
 		</config>
 	</pid-controller>
 
@@ -329,7 +322,7 @@
 			<value>900</value>
 		</reference>
 		<output>
-			<property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
 		<config>
 			<Kp>0.008</Kp>
@@ -339,265 +332,51 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[0]/throttle-man</property>
-			</u_max>
+			<u_max>1.000</u_max>
 		</config>
 	</pid-controller>
 	
+	<!-- Engine 1 -->
 	<filter>
-		<name>Thrust Filter</name>
+		<name>Thrust Filter CMD 1</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>/controls/engines/throttle-cmd-pid</input>
+		<output>/controls/engines/engine[0]/throttle-cmd-cmd</output>
+		<max>
+			<property>/controls/engines/engine[0]/throttle-man</property>
+		</max>
+	</filter>
+	
+	<filter>
+		<name>Thrust Filter 1</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<input>/controls/engines/engine[0]/throttle-cmd-pid</input>
+		<input>/controls/engines/engine[0]/throttle-cmd-cmd</input>
 		<output>/controls/engines/engine[0]/throttle-cmd</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
-
+	
 	<!-- Engine 2 -->
-	<!-- Auto throttle --> 
-	<pid-controller>
-		<name>IAS THR</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<and>
-							<equals>
-								<property>/it-autoflight/output/fd1</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/fd2</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap1</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap2</property>
-								<value>0</value>
-							</equals>
-						</and>
-						<equals>
-							<property>/it-autoflight/output/thr-mode</property>
-							<value>0</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/velocities/airspeed-kt</property>
-		</input>
-		<reference>
-			<property>/it-autoflight/internal/kts</property>
-		</reference>
-		<output>
-			<property>/controls/engines/engine[1]/throttle-cmd-pid</property>
-		</output>
-		<config>
-			<Kp>0.05</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[1]/throttle-man</property>
-			</u_max>
-		</config>
-	</pid-controller>
-
-	<!-- Auto throttle (Mach Hold)-->
-
-	<pid-controller>
-		<name>MACH THR</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
-					<or>
-						<and>
-							<equals>
-								<property>/it-autoflight/output/fd1</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/fd2</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap1</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap2</property>
-								<value>0</value>
-							</equals>
-						</and>
-						<equals>
-							<property>/it-autoflight/output/thr-mode</property>
-							<value>0</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/velocities/mach</property>
-			<scale>500.0</scale>
-		</input>
-		<reference>
-			<property>/it-autoflight/internal/mach</property>
-			<scale>500.0</scale>
-		</reference>
-		<output>
-			<property>/controls/engines/engine[1]/throttle-cmd-pid</property>
-		</output>
-		<config>
-			<Kp>0.05</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[1]/throttle-man</property>
-			</u_max>
-		</config>
-	</pid-controller>
-
-	<!-- IDLE THR -->
-	<pid-controller>
-		<name>IDLE</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>1</value>
-					</equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-		<property>/velocities/airspeed-kt</property>
-		</input>
-		<reference>
-			<value>0</value>
-		</reference>
-		<output>
-			<property>/controls/engines/engine[1]/throttle-cmd-pid</property>
-		</output>
-		<config>
-			<Kp>0.008</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[1]/throttle-man</property>
-			</u_max>
-		</config>
-	</pid-controller>
-
-	<!-- CLB THR -->
-	<pid-controller>
-		<name>CLB</name>
-		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>2</value>
-					</equals>
-				</and>
-			</condition>
-		</enable>
-		<input>
-			<property>/velocities/airspeed-kt</property>
-		</input>
-		<reference>
-			<value>900</value>
-		</reference>
-		<output>
-			<property>/controls/engines/engine[1]/throttle-cmd-pid</property>
-		</output>
-		<config>
-			<Kp>0.008</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/engine[1]/throttle-man</property>
-			</u_max>
-		</config>
-	</pid-controller>
+	<filter>
+		<name>Thrust Filter CMD 2</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>/controls/engines/throttle-cmd-pid</input>
+		<output>/controls/engines/engine[1]/throttle-cmd-cmd</output>
+		<max>
+			<property>/controls/engines/engine[1]/throttle-man</property>
+		</max>
+	</filter>
 	
 	<filter>
-		<name>Thrust Filter</name>
+		<name>Thrust Filter 2</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<input>/controls/engines/engine[1]/throttle-cmd-pid</input>
+		<input>/controls/engines/engine[1]/throttle-cmd-cmd</input>
 		<output>/controls/engines/engine[1]/throttle-cmd</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.1</max-rate-of-change>
