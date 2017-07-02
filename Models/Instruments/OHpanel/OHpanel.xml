@@ -87,6 +87,13 @@
 		<object-name>FuelXfeedBtn2O</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
 		<object-name>GalleyPwrBtn2O</object-name>
+		<object-name>GPWSBtn1F</object-name>
+		<object-name>GPWSBtn2O</object-name>
+		<object-name>GPWSFlpBtn2O</object-name>
+		<object-name>GPWSFlp3Btn2O</object-name>
+		<object-name>GPWSGSBtn2O</object-name>
+		<object-name>GPWSTerrBtn1F</object-name>
+		<object-name>GPWSTerrBtn2O</object-name>
 		<object-name>GreenEngPump1F</object-name>
 		<object-name>GreenEngPump2O</object-name>
 		<object-name>HotAirBtn1F</object-name>
@@ -834,41 +841,135 @@
 	<!--animation>
 		<name>GPWS system pick</name>
 		<type>pick</type>
-		<object-name>GPWSBtn1</object-name>
-		<object-name>GPWSBtn2</object-name>
+		<object-name>GPWSTerrBtn1</object-name>
+		<object-name>GPWSTerrBtn2</object-name>
+		<object-name>GPWSTerrBtn1F</object-name>
+		<object-name>GPWSTerrBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+				<property>/instrumentation/mk-viii/inputs/discretes/terr-inhibit</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation-->
+	
+	<animation>
+		<type>select</type>
+		<object-name>GPWSTerrBtn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/serviceable</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GPWSTerrBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/terr-inhibit</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>GPWS system pick</name>
+		<type>pick</type>
+		<object-name>GPWSBtn1</object-name>
+		<object-name>GPWSBtn2</object-name>
+		<object-name>GPWSBtn1F</object-name>
+		<object-name>GPWSBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>GPWS system fault</name>
-		<type>textranslate</type>
-		<object-name>GPWSBtn1</object-name>
-		<property>instrumentation/mk-viii/serviceable</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.5</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>GPWSBtn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/serviceable</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
+	
 	<animation>
-		<name>GPWS system off</name>
-		<type>textranslate</type>
-		<object-name>GPWSBtn2</object-name>
-		<property>instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>GPWSBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -876,25 +977,48 @@
 		<type>pick</type>
 		<object-name>GPWSGSBtn1</object-name>
 		<object-name>GPWSGSBtn2</object-name>
+		<object-name>GPWSGSBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
+				<property>/instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>GPWS glideslope off</name>
-		<type>textranslate</type>
-		<object-name>GPWSGSBtn2</object-name>
-		<property>instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>GPWSGSBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
@@ -902,25 +1026,48 @@
 		<type>pick</type>
 		<object-name>GPWSFlpBtn1</object-name>
 		<object-name>GPWSFlpBtn2</object-name>
+		<object-name>GPWSFlpBtn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+				<property>/instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>GPWS flaps off</name>
-		<type>textranslate</type>
-		<object-name>GPWSFlpBtn2</object-name>
-		<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
+		<type>select</type>
+		<object-name>GPWSFlpBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -928,26 +1075,49 @@
 		<type>pick</type>
 		<object-name>GPWSFlp3Btn1</object-name>
 		<object-name>GPWSFlp3Btn2</object-name>
+		<object-name>GPWSFlp3Btn2O</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+				<property>/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>GPWS flaps off</name>
-		<type>textranslate</type>
-		<object-name>GPWSFlp3Btn2</object-name>
-		<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
-		<factor>0.5</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-		</axis>
-	</animation-->
+		<type>select</type>
+		<object-name>GPWSFlp3Btn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 
 	<!-- Fire controls -->
 	<!--animation>

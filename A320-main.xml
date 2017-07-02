@@ -799,6 +799,7 @@
 	<nasal>
 		<libraries>
 			<file>Aircraft/A320Family/Nasal/libraries.nas</file>
+			<file>Aircraft/A320Family/Nasal/buttons.nas</file>
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/A320Family/Nasal/gpws.nas</file>
 			<file>Aircraft/A320Family/Nasal/efis.nas</file>
