@@ -190,44 +190,7 @@ var master_hyd = func {
 	
 	if (brake_mode == 2 and yellow_psi > 2500 and accum < 700) {
 		setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", accum + 50);
-	} 
-	
-	setlistener("/controls/gear/brake-left", func {
-		var presentAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
-		var pastAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1");
-		var brake_mode = getprop("/systems/hydraulic/brakes/mode");
-		var yellow_psi = getprop("/systems/hydraulic/yellow-psi");
-		var brake = getprop("/controls/gear/brake-left");
-		if (brake > 0) {
-			if (brake_mode == 2 and yellow_psi < 1000) {
-				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1", presentAccum);
-			}
-		}
-		if (brake == 0) {
-			if (brake_mode == 2 and yellow_psi < 1000 and presentAccum >= 0) {
-				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", pastAccum - 50);
-			}
-		}
-	});
-	
-	setlistener("/controls/gear/brake-right", func {
-		var presentAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
-		var pastAccum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1");
-		var brake_mode = getprop("/systems/hydraulic/brakes/mode");
-		var yellow_psi = getprop("/systems/hydraulic/yellow-psi");
-		var brake2 = getprop("/controls/gear/brake-right");
-		if (brake2 > 0) {
-			if (brake_mode == 2 and yellow_psi < 1000) {
-				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi-1", presentAccum);
-			}
-		}
-		if (brake2 == 0) {
-			if (brake_mode == 2 and yellow_psi < 1000 and presentAccum >= 0) {
-				setprop("/systems/hydraulic/brakes/accumulator-pressure-psi", pastAccum - 50);
-			}
-		}
-	});
-
+	}
 }
 
 #######################
