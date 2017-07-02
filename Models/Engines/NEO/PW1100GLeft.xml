@@ -3,6 +3,11 @@
 <PropertyList>
 
 	<path>res/PW_PurePower_1100G.ac</path>
+	
+	<offsets>
+		<heading-deg>-1</heading-deg>
+		<pitch-deg>2.2</pitch-deg>
+	</offsets>
 
 	<params>
 		<n1>/engines/engine[0]/n1</n1>
