@@ -3,8 +3,11 @@
     <model>
       <livery>
         <name type="string">A3XX Project</name>
-        <texture>Liveries/A320/CFM-NEO/A3XX.png</texture>
+        <texture>Liveries/A320/PW-NEO/A3XX.png</texture>
       </livery>
+		<eng>
+			<texture>Liveries/A320/PW-NEO/A3XX-eng.png</texture>
+		</eng>
     </model>
   </sim>
 </PropertyList>

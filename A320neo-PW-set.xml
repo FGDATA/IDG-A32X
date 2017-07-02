@@ -8,11 +8,11 @@
 			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
-		<description>Airbus A320-251N (LEAP-1A26)</description>
+		<description>Airbus A321-271N (PurePower 1127G)</description>
 		<flight-model>jsb</flight-model>
-		<aero>A320neo-CFM</aero>
+		<aero>A320neo-PW</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A320neo-CFM.xml</path>
+			<path>Aircraft/A320Family/Models/A320neo-PW.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
@@ -124,7 +124,7 @@
 		</view>
 		
 		<systems n="0">
-            <autopilot n="0">
+            <autopilot n="0"> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
                 <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
             </autopilot>
 		</systems>
@@ -133,22 +133,22 @@
 	
 	<options n="0">
 		<EIS2 type="bool">1</EIS2>
-		<eng>CFM</eng>
+		<eng>CFM</eng> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM ECAM, and no N1 mode switches -->
 		<maxblock>52.3</maxblock>
 	</options>
 	
 	<sharklet type="bool">1</sharklet>
 	
 	<MCDUC n="0">
-		<type>A320-251N</type>
-		<eng>LEAP-1A26</eng>
+		<type>A320-271N</type>
+		<eng>PW1133-JM</eng>
 	</MCDUC>
 	
 	<nasal>
 		<specific>
-			<file>Aircraft/A320Family/Nasal/a320livery-neocfm.nas</file>
+			<file>Aircraft/A320Family/Nasal/a320livery-neopw.nas</file>
 		</specific>
-		<fadec>
+		<fadec> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
 			<file>Aircraft/A320Family/Nasal/fadec-cfm.nas</file>
 		</fadec>
 	</nasal>
