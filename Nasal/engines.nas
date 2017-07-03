@@ -67,11 +67,13 @@ setlistener("/controls/engines/engine[0]/man-start", func {
 var start_one_mancheck = func {
 	if (getprop("/controls/engines/engine[0]/man-start") == 1) {
 		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28) and (getprop("/controls/engines/engine[0]/cutoff-switch") == 1)) {
+			setprop("/systems/pneumatic/eng1-starter", 1);
 			setprop("/engines/engine[0]/state", 1);
 			setprop("/controls/engines/engine[0]/starter", 1);
 		}
 	} else {
 		if (getprop("/engines/engine[0]/state") == 1 or getprop("/engines/engine[0]/state") == 2) {
+			setprop("/systems/pneumatic/eng1-starter", 0);
 			setprop("/engines/engine[0]/state", 0);
 			setprop("/controls/engines/engine[0]/starter", 0);
 		}
@@ -113,11 +115,13 @@ setlistener("/controls/engines/engine[1]/man-start", func {
 var start_two_mancheck = func {
 	if (getprop("/controls/engines/engine[1]/man-start") == 1) {
 		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28) and (getprop("/controls/engines/engine[1]/cutoff-switch") == 1)) {
+			setprop("/systems/pneumatic/eng2-starter", 1);
 			setprop("/engines/engine[1]/state", 1);
 			setprop("/controls/engines/engine[1]/starter", 1);
 		}
 	} else {
 		if (getprop("/engines/engine[1]/state") == 1 or getprop("/engines/engine[1]/state") == 2) {
+			setprop("/systems/pneumatic/eng2-starter", 0);
 			setprop("/engines/engine[1]/state", 0);
 			setprop("/controls/engines/engine[1]/starter", 0);
 		}
