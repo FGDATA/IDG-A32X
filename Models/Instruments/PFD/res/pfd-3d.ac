@@ -3,7 +3,101 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 0 0 0  emis 0.658824 0.670588 0.67451  spec 0
 MATERIAL "white" rgb 1 1 1  amb 1 1 1  emis 0.798 0.798 0.798  spec 0 0 0  shi 0  trans 0
 MATERIAL "ac3dmat0" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 48
+kids 53
+OBJECT poly
+name "fbwmask"
+loc 0.000382955 0.0573058 0.00520964
+crease 45.000000
+numvert 4
+0 0.00259959 -0.00100451
+0 0.00259959 0.00100451
+0 -0.00336058 0.00100451
+0 -0.00336058 -0.00100451
+numsurf 1
+SURF 0x30
+mat 2
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "banklimXX"
+loc 0.00099002 0.012811 -0.0336226
+texture "banklimXX.png"
+crease 45.000000
+numvert 4
+0 -0.00101332 -0.0018114
+0 -0.00101332 0.00106828
+0 0.0018626 0.00106829
+0 0.00186259 -0.0018114
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
+OBJECT poly
+name "banklimXX"
+loc 0.00099002 0.012811 0.0443929
+texture "banklimXX.png"
+crease 45.000000
+numvert 4
+0 0.00186259 -0.00181141
+0 0.00186259 0.00106828
+0 -0.00101332 0.00106828
+0 -0.00101332 -0.00181141
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "banklim"
+loc 0.00099002 0.0133653 -0.0334266
+texture "banklim.png"
+crease 45.000000
+numvert 4
+0 -0.000722769 -0.00255431
+0 0.00171136 -0.00152109
+0 0.000463212 0.00141935
+0 -0.00197092 0.00038613
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "banklim"
+loc 0.00099002 0.0127372 0.0437205
+texture "banklim.png"
+crease 45.000000
+numvert 4
+0 0.00109136 -0.00168599
+0 -0.00134277 -0.000652768
+0 -9.46289e-005 0.00228769
+0 0.00233951 0.00125446
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+0 1 1
+1 0 1
+2 0 0
+3 1 0
+kids 0
 OBJECT poly
 name "fpd"
 loc 0.00031928 0.00206621 -0.013179
@@ -117,7 +211,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ap-mode-box"
-loc 0.000380651 0.0723146 -0.0618702
+loc 0.000380651 0.0716448 -0.0618702
 data 6
 Circle
 texture "box.png"
@@ -171,7 +265,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fd-mode-box"
-loc 0.000380651 0.0652178 -0.0618702
+loc 0.000380651 0.064548 -0.0618702
 data 6
 Circle
 texture "box.png"
@@ -225,7 +319,7 @@ refs 4
 kids 0
 OBJECT poly
 name "athr-mode-box"
-loc 0.000380651 0.0581517 -0.0618702
+loc 0.000380651 0.0574819 -0.0618702
 data 6
 Circle
 texture "box.png"
