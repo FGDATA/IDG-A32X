@@ -3955,7 +3955,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/deice/wing</property>
+				<property>/controls/switches/wing</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -3968,10 +3968,16 @@
 		<type>select</type>
 		<object-name>WingAntiIceBtn1F</object-name>
 		<condition>
-			<equals>
-				<property>/controls/switches/annun-test</property>
-				<value>1</value>
-			</equals>
+			<or>
+				<equals>
+					<property>/controls/switches/wingfault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -3981,7 +3987,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/deice/wing</property>
+					<property>/controls/switches/wing</property>
 					<value>1</value>
 				</equals>
 				<equals>
