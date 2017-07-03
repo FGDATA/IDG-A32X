@@ -522,6 +522,7 @@
 			<no-smoking-sign type="bool">1</no-smoking-sign>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
 			<annun-test>0</annun-test>
+			<windowprobeheat type="double">0.5</windowprobeheat>
 		</switches>
 	</controls>
 	

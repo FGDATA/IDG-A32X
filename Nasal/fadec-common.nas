@@ -225,7 +225,7 @@ var thrust_loop = func {
 			if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
 				setprop("/systems/thrust/lvrclb", "1");
 			} else {
-				if (getprop("/position/gear-agl-ft") >= getprop("/systems/thrust/clbreduc-ft")) {
+				if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft") and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
 					setprop("/systems/thrust/lvrclb", "1");
 				} else {
 					setprop("/systems/thrust/lvrclb", "0");

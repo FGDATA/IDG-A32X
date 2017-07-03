@@ -99,8 +99,9 @@ setlistener("/it-autoflight/mode/lat", func {
 			setprop("/modes/pfd/fma/roll-mode", "NAV");
 		}
 	} else if (lat == "LOC") {
-		if (newlat != "LOC") {
-			setprop("/modes/pfd/fma/roll-mode", "LOC");
+		if (newlat != "LOC*" and newlat != "LOC") {
+			setprop("/modes/pfd/fma/roll-mode", "LOC*");
+			locupdate.start();
 		}
 	} else if (lat == "ALGN") {
 		if (newlat != "LAND") {
@@ -109,6 +110,20 @@ setlistener("/it-autoflight/mode/lat", func {
 	} else if (lat == "T/O") {
 		if (newlat != "RWY") {
 			setprop("/modes/pfd/fma/roll-mode", "RWY");
+		}
+	}
+});
+
+var locupdate = maketimer(0.5, func {
+	var lat = getprop("/it-autoflight/mode/lat");
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	var nav_defl = getprop("/it-autoflight/internal/nav-heading-error-deg");
+	if (lat == "LOC") {
+		if (nav_defl > -1 and nav_defl < 1) {
+			locupdate.stop();
+			if (newlat != "LOC") {
+				setprop("/modes/pfd/fma/roll-mode", "LOC");
+			}
 		}
 	}
 });
@@ -142,8 +157,9 @@ setlistener("/it-autoflight/mode/vert", func {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 		}
 	} else if (vert == "G/S") {
-		if (newvert != "G/S") {
-			setprop("/modes/pfd/fma/pitch-mode", "G/S");
+		if (newvert != "G/S*" and newvert != "G/S") {
+			setprop("/modes/pfd/fma/pitch-mode", "G/S*");
+			gsupdate.start();
 		}
 		if (newvertarm != " ") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
@@ -221,6 +237,20 @@ setlistener("/it-autoflight/mode/vert", func {
 		}
 	}
 	altvert();
+});
+
+var gsupdate = maketimer(0.5, func {
+	var vert = getprop("/it-autoflight/mode/vert");
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	var gs_defl = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
+	if (vert == "G/S") {
+		if (gs_defl > -0.06 and gs_defl < 0.06) {
+			gsupdate.stop();
+			if (newvert != "G/S") {
+				setprop("/modes/pfd/fma/pitch-mode", "G/S");
+			}
+		}
+	}
 });
 
 var altvert = func {

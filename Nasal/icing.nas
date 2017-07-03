@@ -11,6 +11,8 @@ var icingInit = func {
 	setprop("/systems/icing/icingcond", 0);
 	setprop("/controls/switches/windowprobeheat", 0);
 	setprop("/controls/switches/windowprobeheatfault", 0);
+	setprop("/controls/switches/wing", 0);
+	setprop("/controls/switches/wingfault", 0);
 	setprop("/controls/deice/wing", 0);
 	setprop("/controls/deice/lengine", 0);
 	setprop("/controls/deice/rengine", 0);
@@ -34,6 +36,11 @@ var icingModel = func {
 	var lengine = getprop("/controls/deice/lengine");
 	var rengine = getprop("/controls/deice/rengine");
 	var windowprobe = getprop("/controls/deice/windowprobeheat");
+	var wingBtn = getprop("/controls/switches/wing");
+	var wingAnti = getprop("/controls/deice/wing");
+	var PSI = getprop("/systems/pneumatic/total-psi");
+	var wowl = getprop("/gear/gear[1]/wow");
+	var wowr = getprop("/gear/gear[2]/wow");
 	
 	if (severity == "0") {
 		setprop("/systems/icing/factor", -0.00000166);
@@ -139,7 +146,41 @@ var icingModel = func {
 	} else {
 		setprop("/systems/icing/icingcond", 0);
 	}
-
+	
+	# Switching on the wing anti-ice
+	setlistener("/controls/switches/wing", func {
+		var wingBtn = getprop("/controls/switches/wing");
+		var wingAnti = getprop("/controls/deice/wing");
+		var PSI = getprop("/systems/pneumatic/total-psi");
+		var wowl = getprop("/gear/gear[1]/wow");
+		var wowr = getprop("/gear/gear[2]/wow");
+		if (wowl or wowr and wingBtn and PSI >= 10) {
+			setprop("/controls/switches/wingfault", 1);
+			settimer(func() {
+				setprop("/controls/switches/wingfault", 0);
+				setprop("/controls/deice/wing", 1);
+			}, 0.5);
+			settimer(func() {
+				setprop("/controls/switches/wingfault", 1);
+				setprop("/controls/switches/wing", 0);
+				setprop("/controls/deice/wing", 0);
+				setprop("/controls/switches/wingfault", 0);
+			}, 30.5);
+		} else if (wingBtn and PSI >= 10 and !wowl and !wowr) {
+			setprop("/controls/switches/wingfault", 1);
+			settimer(func() {
+				setprop("/controls/switches/wingfault", 0);
+				setprop("/controls/deice/wing", 1);
+			}, 0.5);
+		} else if (!wingBtn and PSI >= 10 and !wowl and !wowr) {
+			setprop("/controls/switches/wingfault", 1);
+			settimer(func() {
+				setprop("/controls/switches/wingfault", 0);
+				setprop("/controls/deice/wing", 0);
+			}, 0.5);
+		}
+	});
+	
 	setlistener("/controls/switches/windowprobeheat", func {
 		var windowprb = getprop("/controls/switches/windowprobeheat");
 		var fault = getprop("/controls/switches/windowprobeheatfault");
@@ -162,6 +203,13 @@ var icingModel = func {
 				setprop("/controls/deice/windowprobeheat", 0);
 		}
 	});
+	
+	# If we have low pressure we have a fault
+	if (PSI < 10) {
+		setprop("/controls/switches/wingfault", 1);
+	} else {
+		setprop("/controls/switches/wingfault", 0);
+	}
 }
 
 ###################

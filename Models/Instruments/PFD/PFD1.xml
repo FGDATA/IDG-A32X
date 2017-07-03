@@ -1218,7 +1218,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0326226</y-m>
-            <z-m>0.0591781</z-m>
+            <z-m>0.0584781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -1242,7 +1242,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0436226</y-m>
-            <z-m>0.0591781</z-m>
+            <z-m>0.0584781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -2050,7 +2050,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0734781</z-m>
+            <z-m>0.0727781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -2074,7 +2074,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0662781</z-m>
+            <z-m>0.0655781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -2098,7 +2098,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0591781</z-m>
+            <z-m>0.0584781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -2122,7 +2122,7 @@
         <offsets>
             <x-m>0.00091828</x-m>
             <y-m>0.0656226</y-m>
-            <z-m>0.0591781</z-m>
+            <z-m>0.0584781</z-m>
         </offsets>
         <alignment>center-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
@@ -3208,6 +3208,115 @@
         </condition>
     </animation>
 	
+    <animation>
+        <type>select</type>
+        <object-name>banklim</object-name>
+        <condition>
+			<equals>
+				<property>/it-fbw/law</property>
+				<value>0</value>
+			</equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>banklimXX</object-name>
+        <condition>
+			<not-equals>
+				<property>/it-fbw/law</property>
+				<value>0</value>
+			</not-equals>
+        </condition>
+    </animation>
+	
+    <text>
+        <name>usemanpitchtrim</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.00521</y-m>
+            <z-m>0.0570781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">USE MAN PITCH TRIM</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>autopilot/serviceable</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0051</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <animation>
+        <type>select</type>
+        <object-name>usemanpitchtrim</object-name>
+        <condition>
+			<equals>
+				<property>/it-fbw/law</property>
+				<value>2</value>
+			</equals>
+        </condition>
+    </animation>
+	
+    <text>
+        <name>manpitchtrimonly</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.00521</y-m>
+            <z-m>0.0570781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">MAN PITCH TRIM ONLY</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>autopilot/serviceable</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0051</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+	
+    <animation>
+        <type>select</type>
+        <object-name>manpitchtrimonly</object-name>
+        <condition>
+			<equals>
+				<property>/it-fbw/law</property>
+				<value>3</value>
+			</equals>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>fbwmask</object-name>
+        <condition>
+			<or>
+				<equals>
+					<property>/it-fbw/law</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>/it-fbw/law</property>
+					<value>3</value>
+				</equals>
+			</or>
+        </condition>
+    </animation>
+	
 	<!-- Colors -->
 	<!-- White -->
     <animation>
@@ -3428,6 +3537,7 @@
 		<type>material</type>
 		<object-name>athr-afloor-fma</object-name>
 		<object-name>athr-togalk-fma</object-name>
+		<object-name>usemanpitchtrim</object-name>
 		<diffuse>
 			<red>1</red>
 			<green>0.45</green>
@@ -3504,6 +3614,32 @@
 			<red>1</red>
 			<green>0</green>
 			<blue>1</blue>
+		</emission>
+	</animation>
+	
+	<!-- Red -->
+	<animation>
+		<type>material</type>
+		<object-name>manpitchtrimonly</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
 		</emission>
 	</animation>
 	

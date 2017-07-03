@@ -79,8 +79,10 @@
 		<object-name>Eng2AntiIceBtn2O</object-name>
 		<object-name>Eng1BleedBtn1F</object-name>
 		<object-name>Eng1BleedBtn2O</object-name>
+		<object-name>Eng1ManStartBtn2O</object-name>
 		<object-name>Eng2BleedBtn1F</object-name>
 		<object-name>Eng2BleedBtn2O</object-name>
+		<object-name>Eng2ManStartBtn2O</object-name>
 		<object-name>FuelModeBtn1F</object-name>
 		<object-name>FuelModeBtn2O</object-name>
 		<object-name>FuelXfeedBtn1A</object-name>
@@ -3955,7 +3957,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/deice/wing</property>
+				<property>/controls/switches/wing</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -3968,10 +3970,16 @@
 		<type>select</type>
 		<object-name>WingAntiIceBtn1F</object-name>
 		<condition>
-			<equals>
-				<property>/controls/switches/annun-test</property>
-				<value>1</value>
-			</equals>
+			<or>
+				<equals>
+					<property>/controls/switches/wingfault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -3981,7 +3989,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/deice/wing</property>
+					<property>/controls/switches/wing</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -4322,7 +4330,214 @@
 			</or>
 		</condition>
 	</animation>
-
+	
+	<!-- Manual Start -->
+	<animation>
+		<type>pick</type>
+		<object-name>Eng1ManStartBtn1</object-name>
+		<object-name>Eng1ManStartBtn2</object-name>
+		<object-name>Eng1ManStartBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>/controls/OH/protectors/eng1-manstart</property>
+							<value>1</value>
+						</equals>
+						<or>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
+					</and>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[0]/man-start</property>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/controls/OH/protectors/eng1-manstart</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Eng1ManStartBtn1</object-name>
+		<object-name>Eng1ManStartBtn2</object-name>
+		<object-name>Eng1ManStartBtn2O</object-name>
+		<object-name>Eng1ManStartProt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/OH/protectors/eng1-manstart</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/OH/protectors/eng1-manstart</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Eng1ManStartProt</object-name>
+		<property>/controls/OH/protectors/eng1-manstart</property>
+		<factor>-145</factor>
+		<axis>
+			<x1-m>-0.00641</x1-m>
+			<y1-m>0.18647</y1-m>
+			<z1-m>-0.20418</z1-m>
+			<x2-m>-0.00353</x2-m>
+			<y2-m>0.20925</y2-m>
+			<z2-m>-0.20418</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng1ManStartBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/engines/engine[0]/man-start</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Eng2ManStartBtn1</object-name>
+		<object-name>Eng2ManStartBtn2</object-name>
+		<object-name>Eng2ManStartBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>/controls/OH/protectors/eng2-manstart</property>
+							<value>1</value>
+						</equals>
+						<or>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
+					</and>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[1]/man-start</property>
+			</binding>
+			<binding>
+				<condition>
+					<equals>
+						<property>/controls/OH/protectors/eng2-manstart</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Eng2ManStartBtn1</object-name>
+		<object-name>Eng2ManStartBtn2</object-name>
+		<object-name>Eng2ManStartBtn2O</object-name>
+		<object-name>Eng2ManStartProt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/OH/protectors/eng2-manstart</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/OH/protectors/eng2-manstart</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Eng2ManStartProt</object-name>
+		<property>/controls/OH/protectors/eng2-manstart</property>
+		<factor>-145</factor>
+		<axis>
+			<x1-m>-0.00226</x1-m>
+			<y1-m>0.21793</y1-m>
+			<z1-m>-0.20418</z1-m>
+			<x2-m>0.00062</x2-m>
+			<y2-m>0.24071</y2-m>
+			<z2-m>-0.20418</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Eng2ManStartBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/engines/engine[1]/man-start</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
 	<!-- Interior lights -->
 	<animation>
 		<name>Overhead panel light pick</name>
