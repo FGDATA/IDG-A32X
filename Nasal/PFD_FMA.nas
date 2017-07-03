@@ -1,33 +1,59 @@
 # Airbus PFD FMA
-# Joshua Davidson (it0uchpods/411)
+# Joshua Davidson (it0uchpods)
 
 setprop("/FMGC/internal/cruise-ft", 10000);
 setprop("/it-autoflight/internal/alt", 10000);
 
-# Speed or Mach?
-var speedmach = func {
-	if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7) or (getprop("/it-autoflight/output/vert") == 8)) {
-		if (getprop("/it-autoflight/output/fd1") == 0 and getprop("/it-autoflight/output/fd2") == 0 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
-			speedmach_b();
-		} else {
-			var thr = getprop("/it-autoflight/output/thr-mode");
-			var newthr = getprop("/modes/pfd/fma/throttle-mode");
-			if (thr == 0) {
-				speedmach_b();
-			} else if (thr == 1) {
-				if (newthr != "THR IDLE") {
-					setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
-				}
-			} else if (thr == 2) {
-				if (newthr != "THR CLB") {
-					setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
-				}
-			}
+setlistener("sim/signals/fdm-initialized", func {
+	speedmach.start();
+});
+
+# Master Thrust
+var speedmach = maketimer(0.05, func {
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var newthr = getprop("/modes/pfd/fma/throttle-mode");
+	if (state1 == "TOGA" or state2 == "TOGA") {
+		if (newthr != " ") {
+			setprop("/modes/pfd/fma/throttle-mode", " ");
+		}
+	} else if (state1 == "MCT" or state2 == "MCT") {
+		if (newthr != "  ") {
+			setprop("/modes/pfd/fma/throttle-mode", "  ");
+		}
+	} else if (state1 == "MAN THR" or state2 == "MAN THR") {
+		if (newthr != "   ") {
+			setprop("/modes/pfd/fma/throttle-mode", "   ");
 		}
 	} else {
-		speedmach_b();
+		if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7) or (getprop("/it-autoflight/output/vert") == 8)) {
+			if (getprop("/it-autoflight/output/fd1") == 0 and getprop("/it-autoflight/output/fd2") == 0 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
+				speedmach_b();
+			} else {
+				var thr = getprop("/it-autoflight/output/thr-mode");
+				if (thr == 0) {
+					speedmach_b();
+				} else if (thr == 1) {
+					if (newthr != "THR IDLE") {
+						setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
+					}
+				} else if (thr == 2) {
+					if (state1 == "CL" or state2 == "CL") {
+						if (newthr != "THR CLB") {
+							setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
+						}
+					} else {
+						if (newthr != "THR LVR") {
+							setprop("/modes/pfd/fma/throttle-mode", "THR LVR");
+						}
+					}
+				}
+			}
+		} else {
+			speedmach_b();
+		}
 	}
-}
+});
 
 var speedmach_b = func {
 	var newthr = getprop("/modes/pfd/fma/throttle-mode");
@@ -42,16 +68,7 @@ var speedmach_b = func {
 	}
 }
 
-# Update Speed or Mach
-setlistener("/it-autoflight/input/kts-mach", func {
-	speedmach();
-});
-
-# Master Thrust
-setlistener("/it-autoflight/output/thr-mode", func {
-	speedmach();
-});
-
+# HDG/TRK
 var hdgmde = func {
 	var lat = getprop("/it-autoflight/mode/lat");
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
@@ -67,7 +84,6 @@ var hdgmde = func {
 	}
 }
 
-# HDG/TRK
 setlistener("/it-autoflight/custom/trk-fpa", func {
 	hdgmde();
 });
@@ -389,22 +405,18 @@ var boxchk_b = func {
 
 # Update AP FD ATHR
 setlistener("/it-autoflight/output/ap1", func {
-	speedmach();
 	ap();
 	boxchk();
 });
 setlistener("/it-autoflight/output/ap2", func {
-	speedmach();
 	ap();
 	boxchk();
 });
 setlistener("/it-autoflight/output/fd1", func {
-	speedmach();
 	fd();
 	boxchk();
 });
 setlistener("/it-autoflight/output/fd2", func {
-	speedmach();
 	fd();
 	boxchk();
 });

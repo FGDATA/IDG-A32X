@@ -506,6 +506,17 @@
 			<strobe type="bool">0</strobe>
 			<taxi-light-switch type="float">0</taxi-light-switch>
 		</lighting>
+		<OH>
+			<protectors>
+				<ditching type="bool">0</ditching>
+				<eng1-manstart type="bool">0</eng1-manstart>
+				<eng2-manstart type="bool">0</eng2-manstart>
+				<eng1-n1 type="bool">0</eng1-n1>
+				<eng2-n1 type="bool">0</eng2-n1>
+				<IDG1 type="bool">0</IDG1>
+				<IDG2 type="bool">0</IDG2>
+			</protectors>
+		</OH>
 		<switches>
 			<!-- Smoking is bad :P -->
 			<no-smoking-sign type="bool">1</no-smoking-sign>
@@ -690,7 +701,8 @@
 			<ILS2>0</ILS2>
 			<stallvls>-10</stallvls>
 			<fma>
-				<athr-box>I  .</athr-box>
+				<man-box>O.</man-box>
+				<flex-box>O..</flex-box>
 			</fma>
 		</pfd>
 	</modes>
@@ -798,6 +810,7 @@
 	<nasal>
 		<libraries>
 			<file>Aircraft/A320Family/Nasal/libraries.nas</file>
+			<file>Aircraft/A320Family/Nasal/buttons.nas</file>
 			<file>Aircraft/A320Family/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/A320Family/Nasal/gpws.nas</file>
 			<file>Aircraft/A320Family/Nasal/efis.nas</file>

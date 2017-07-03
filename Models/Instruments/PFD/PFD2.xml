@@ -1886,6 +1886,10 @@
         <condition>
 			<and>
 				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/modes/pfd/fma/throttle-mode-box</property>
 					<value>1</value>
 				</equals>
@@ -2137,29 +2141,6 @@
         </font-resolution>
     </text>
 	
-    <text>
-        <name>athr-thrlvr-fma</name>
-        <offsets>
-            <x-m>0.00091828</x-m>
-            <y-m>-0.0546226</y-m>
-            <z-m>0.0710781</z-m>
-        </offsets>
-        <alignment>center-center</alignment>
-        <axis-alignment>yz-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">THR LVR</format>
-		<property>autopilot/serviceable</property>
-        <font type="string">helvetica_medium.txf</font>
-        <draw-text type="bool">true</draw-text>
-        <draw-alignment type="bool">false</draw-alignment>
-        <draw-boundingbox type="bool">false</draw-boundingbox>
-        <character-size>0.0055</character-size>
-        <font-resolution>
-            <width type="int">32</width>
-            <height type="int">32</height>
-        </font-resolution>
-    </text>
-	
     <animation>
         <type>select</type>
         <object-name>thrust-mode-fma</object-name>
@@ -2170,68 +2151,22 @@
 					<value>1</value>
 				</equals>
 				<or>
-					<and>
-						<equals>
-							<property>/it-autoflight/output/thr-mode</property>
-							<value>2</value>
-						</equals>
-						<or>
-							<equals>
-								<property>/it-autoflight/output/fd1</property>
-								<value>1</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/fd2</property>
-								<value>1</value>
-							</equals>
-						</or>
-						<or>
-							<equals>
-								<property>/systems/thrust/state1</property>
-								<value>CL</value>
-							</equals>
-							<equals>
-								<property>/systems/thrust/state2</property>
-								<value>CL</value>
-							</equals>
-						</or>
-					</and>
-					<and>
-						<or>
-							<not-equals>
-								<property>/it-autoflight/output/thr-mode</property>
-								<value>2</value>
-							</not-equals>
-							<and>
-								<equals>
-									<property>/it-autoflight/output/fd1</property>
-									<value>0</value>
-								</equals>
-								<equals>
-									<property>/it-autoflight/output/fd2</property>
-									<value>0</value>
-								</equals>
-							</and>
-						</or>
-						<or>
-							<equals>
-								<property>/systems/thrust/state1</property>
-								<value>MAN</value>
-							</equals>
-							<equals>
-								<property>/systems/thrust/state2</property>
-								<value>MAN</value>
-							</equals>
-							<equals>
-								<property>/systems/thrust/state1</property>
-								<value>CL</value>
-							</equals>
-							<equals>
-								<property>/systems/thrust/state2</property>
-								<value>CL</value>
-							</equals>
-						</or>
-					</and>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MAN</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MAN</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>CL</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>CL</value>
+					</equals>
 				</or>
 			</and>
         </condition>
@@ -2343,41 +2278,6 @@
 						<value>TOGA</value>
 					</equals>
 				</or>
-			</and>
-        </condition>
-    </animation>
-	
-    <animation>
-        <type>select</type>
-        <object-name>athr-thrlvr-fma</object-name>
-        <condition>
-			<and>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/it-autoflight/output/thr-mode</property>
-					<value>2</value>
-				</equals>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/fd1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/fd2</property>
-						<value>1</value>
-					</equals>
-				</or>
-				<less-than>
-					<property>/controls/engines/engine[0]/throttle</property>
-					<value>0.60</value>
-				</less-than>
-				<less-than>
-					<property>/controls/engines/engine[1]/throttle</property>
-					<value>0.60</value>
-				</less-than>
 			</and>
         </condition>
     </animation>
@@ -2533,7 +2433,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/athr-box</property>
+        <property>/modes/pfd/fma/man-box</property>
         <draw-text type="bool">false</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">true</draw-boundingbox>
@@ -2557,7 +2457,31 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/athr-box</property>
+        <property>/modes/pfd/fma/man-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.020</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+	
+    <text>
+        <name>athr-box-c-fma</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0546226</y-m>
+            <z-m>0.0670781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/modes/pfd/fma/flex-box</property>
         <draw-text type="bool">false</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">true</draw-boundingbox>
@@ -2625,14 +2549,22 @@
 						<property>/systems/thrust/state2</property>
 						<value>TOGA</value>
 					</equals>
-					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>MCT</value>
-					</equals>
-					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>MCT</value>
-					</equals>
+					<and>
+						<or>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>MCT</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>MCT</value>
+							</equals>
+						</or>
+						<not-equals>
+							<property>/controls/engines/thrust-limit</property>
+							<value>FLX</value>
+						</not-equals>
+					</and>
 				</or>
 			</and>
         </condition>
@@ -2723,6 +2655,7 @@
         <type>select</type>
         <object-name>athr-flex-fma</object-name>
         <object-name>athr-flexb-fma</object-name>
+        <object-name>athr-box-c-fma</object-name>
         <condition>
 			<and>
 				<equals>
@@ -2846,7 +2779,6 @@
         <type>select</type>
         <object-name>thrust-mode-fma</object-name>
         <object-name>athr-lvrclb-fma</object-name>
-        <object-name>athr-thrlvr-fma</object-name>
         <object-name>athr-thr-fma</object-name>
         <object-name>athr-mct-fma</object-name>
         <object-name>athr-toga-fma</object-name>
@@ -3291,6 +3223,7 @@
 		<object-name>athr-flex-fma</object-name>
 		<object-name>athr-thr-fma</object-name>
 		<object-name>athr-box-fma</object-name>
+		<object-name>athr-box-c-fma</object-name>
 		<object-name>athr-lvrclb-fma</object-name>
 		<object-name>vs-num</object-name>
 		<object-name>vs-num-lower</object-name>
@@ -3358,7 +3291,6 @@
         <object-name>pitch-mode-fma</object-name>
         <object-name>land-mode-fma</object-name>
         <object-name>roll-mode-fma</object-name>
-		<object-name>athr-thrlvr-fma</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.843</green>

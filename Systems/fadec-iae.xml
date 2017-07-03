@@ -274,7 +274,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/controls/engines/engine[0]/throttle-cmd-pid</property>
+                    <property>/controls/engines/engine[0]/throttle-cmd-cmd</property>
                     <entry><ind>0.000</ind><dep>0.03</dep></entry>
                     <entry><ind>1.000</ind><dep>1.00</dep></entry>
                 </table>
@@ -308,7 +308,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/controls/engines/engine[1]/throttle-cmd-pid</property>
+                    <property>/controls/engines/engine[1]/throttle-cmd-cmd</property>
                     <entry><ind>0.000</ind><dep>0.03</dep></entry>
                     <entry><ind>1.000</ind><dep>1.00</dep></entry>
                 </table>

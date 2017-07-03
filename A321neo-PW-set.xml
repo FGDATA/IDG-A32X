@@ -7,52 +7,38 @@
 		<sound>
 			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
 		</sound>
-                <checklists include="A3XX-Checklists.xml"/>
-		<description>Airbus A320-251N (LEAP-1A26)</description>
+	
+		<description>Airbus A321-271N (PurePower 1133G)</description>
 		<flight-model>jsb</flight-model>
-		<aero>A320neo-CFM</aero>
+                <checklists include="A3XX-Checklists.xml"/>
+		<aero>A321neo-PW</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A320neo-CFM.xml</path>
+			<path>Aircraft/A320Family/Models/A321neo-PW.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
 		</model>
-
+		
 		<previews>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/A320N/a320n-1.png</path>
+				<path>Splash/A321N/a321n-1.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/A320N/a320n-2.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A320N/a320n-3.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A320N/a320n-4.png</path>
-			</preview>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/A320N/a320n-5.png</path>
+				<path>Splash/A321N/a321n-2.png</path>
 			</preview>
 		</previews>
-		
+
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.42</x-offset-m>
 				<y-offset-m archive="y">2.29</y-offset-m>
-				<z-offset-m archive="y">-13.75</z-offset-m>
+				<z-offset-m archive="y">-17.99</z-offset-m>
 				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
 			</config>
@@ -65,7 +51,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0.42</x-offset-m>
 				<y-offset-m archive="y">2.29</y-offset-m>
-				<z-offset-m archive="y">-13.75</z-offset-m>
+				<z-offset-m archive="y">-17.99</z-offset-m>
 				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
 				<default-field-of-view-deg type="double">60</default-field-of-view-deg>
 			</config>
@@ -78,7 +64,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0</x-offset-m>
 				<y-offset-m archive="y">2.3635023</y-offset-m>
-				<z-offset-m archive="y">-13.73</z-offset-m>
+				<z-offset-m archive="y">-18</z-offset-m>
 				<pitch-offset-deg archive="y">40</pitch-offset-deg>
 				<default-field-of-view-deg type="double">85</default-field-of-view-deg>
 			</config>
@@ -124,7 +110,7 @@
 		</view>
 		
 		<systems n="0">
-            <autopilot n="0">
+            <autopilot n="0"> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
                 <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
             </autopilot>
 		</systems>
@@ -133,22 +119,22 @@
 	
 	<options n="0">
 		<EIS2 type="bool">1</EIS2>
-		<eng>CFM</eng>
-		<maxblock>52.3</maxblock>
+		<eng>CFM</eng> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM ECAM, and no N1 mode switches -->
+		<maxblock>52.0</maxblock>
 	</options>
 	
 	<sharklet type="bool">1</sharklet>
 	
 	<MCDUC n="0">
-		<type>A320-251N</type>
-		<eng>LEAP-1A26</eng>
+		<type>A321-271N</type>
+		<eng>PW1133-JM</eng>
 	</MCDUC>
 	
 	<nasal>
 		<specific>
-			<file>Aircraft/A320Family/Nasal/a320livery-neocfm.nas</file>
+			<file>Aircraft/A320Family/Nasal/a321livery-neopw.nas</file>
 		</specific>
-		<fadec>
+		<fadec> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
 			<file>Aircraft/A320Family/Nasal/fadec-cfm.nas</file>
 		</fadec>
 	</nasal>

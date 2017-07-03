@@ -2,7 +2,12 @@
 
 <PropertyList>
 
-	<path>res/a320.nacelle.cfmleapx.ac</path>
+	<path>res/PW_PurePower_1100G.ac</path>
+	
+	<offsets>
+		<heading-deg>-1</heading-deg>
+		<pitch-deg>2.2</pitch-deg>
+	</offsets>
 
 	<params>
 		<n1>/engines/engine[1]/n1</n1>
@@ -11,15 +16,9 @@
 		<reverser-pos-norm>/sim/multiplay/generic/float[3]</reverser-pos-norm>
 	</params>
 
-	<offsets>
-		<heading-deg>-1</heading-deg>
-		<pitch-deg>2.2</pitch-deg>
-	</offsets>
-
 	<animation>
 		<type>translate</type>
-		<object-name>Reverser</object-name>
-		<object-name>Nozzle</object-name>
+		<object-name>ReverserPW1100G</object-name>
 		<property alias="../../params/reverser-pos-norm" />
 		<factor>0.25</factor>
 		<axis>
@@ -28,19 +27,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
-	<animation>
-		<name>Chrome shader</name>
-		<type>shader</type>
-		<shader>chrome</shader>
-		<texture>../Models/chrome.png</texture>
-		<object-name>Nozzle</object-name>
-	</animation>
-
-	<model>
-		<path>Aircraft/A320Family/Models/Engines/NEO/res/cfmleapx.ac</path>
-	</model>
-
+	
 	<model>
 		<path>Aircraft/A320Family/Models/Engines/NEO/res/a320.pylon.cfmleapx.right.ac</path>
 	</model>
@@ -54,7 +41,7 @@
 			</params>
 		</overlay>
 		<offsets>
-			<x-m>4.875</x-m>
+			<x-m>5.137</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
 		</offsets>
@@ -64,7 +51,7 @@
 		<name>Engine fire</name>
 		<path>Aircraft/A320Family/Models/Effects/enginefire.xml</path>
 		<offsets>
-			<x-m>2.774</x-m>
+			<x-m>3.316</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
 		</offsets>
@@ -74,10 +61,10 @@
 	</model>
 
 	<animation>
-		<name>Fan</name>
+		<name>Fan Animation</name>
 		<type>spin</type>
-		<object-name>fan</object-name>
-		<object-name>cone</object-name>
+		<object-name>Cone</object-name>
+		<object-name>Fan</object-name>
 		<factor>-67</factor>
 		<property alias="../../params/n1" />
 		<axis>
