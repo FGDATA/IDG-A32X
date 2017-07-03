@@ -327,26 +327,6 @@
 				<live>true</live>
 			</checkbox>
 			
-			<checkbox>
-				<label>Always Show Sidestick Position</label>
-				<halign>left</halign>
-				<property>/options/pfd/sidestick-pos</property>
-				<binding>
-					<command>property-toggle</command>
-					<property>/options/pfd/sidestick-pos</property>
-				</binding>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>
-					acconfig.saveSettings();
-					</script>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
 			<group>
 				<layout>hbox</layout>
 			
