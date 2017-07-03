@@ -114,11 +114,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/adirs/adr[2]/off</property>
+					<property>/controls/fadec/n1mode1</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/fadec/n1mode1</property>
+					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
 			</or>
@@ -215,11 +215,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/adirs/adr[2]/off</property>
+					<property>/controls/fadec/n1mode2</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/fadec/n1mode2</property>
+					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
 			</or>
