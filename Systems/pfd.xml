@@ -277,20 +277,66 @@
         <name>Ground Horizon</name>
         <type>gain</type>
         <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
+        <update-interval-secs type="double">0.01</update-interval-secs>
         <input>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
 			<expression>
-				<sum>
-					<property>/orientation/pitch-deg</property>
+				<dif>
 					<table>
 						<property>/position/gear-agl-ft</property> 
-						<entry><ind>  2</ind><dep> 0</dep></entry>
-						<entry><ind>150</ind><dep>16</dep></entry>
+						<entry><ind>  1</ind><dep>  0</dep></entry>
+						<entry><ind>150</ind><dep> 16</dep></entry>
 					</table>
-				</sum>
+					<table>
+						<property>/orientation/pitch-deg</property>
+						<entry><ind> 0</ind><dep>  0</dep></entry>
+						<entry><ind>16</ind><dep>-16</dep></entry>
+					</table>
+				</dif>
+			</expression>
+		</input>
+        <input>
+			<condition>
+				<or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<expression>
+				<dif>
+					<table>
+						<property>/position/gear-agl-ft</property> 
+						<entry><ind>  1</ind><dep>  0</dep></entry>
+						<entry><ind>150</ind><dep> 16</dep></entry>
+					</table>
+					<table>
+						<property>/orientation/pitch-deg</property>
+						<entry><ind>-16</ind><dep> 16</dep></entry>
+						<entry><ind>  0</ind><dep>  0</dep></entry>
+						<entry><ind> 16</ind><dep>-16</dep></entry>
+					</table>
+				</dif>
 			</expression>
 		</input>
 		<output>/instrumentation/pfd/horizon-ground</output>
+		<min>-16</min>
 		<max>16</max>
     </filter>
     

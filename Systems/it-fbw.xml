@@ -170,6 +170,21 @@
 				</sum>
             </expression>
 		</input>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/it-autoflight/internal/elevator-cmd</property>
+		</input>
 		<input>/controls/flight/elevator</input>
 		<output>/controls/flight/elevator-input</output>
 		<max-rate-of-change>2.0</max-rate-of-change>

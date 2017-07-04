@@ -122,10 +122,10 @@
                 <path>Aircraft/A320Family/Systems/libraries.xml</path>
             </autopilot>
 			<autopilot n="8">
-				<path>Systems/fl2070_sound.xml</path>
+				<path>Aircraft/A320Family/Systems/fl2070_sound.xml</path>
 			</autopilot>
 			<property-rule n="100">
-				<path>Systems/pfd.xml</path>
+				<path>Aircraft/A320Family/Systems/pfd.xml</path>
 			</property-rule>
 		</systems>
 
