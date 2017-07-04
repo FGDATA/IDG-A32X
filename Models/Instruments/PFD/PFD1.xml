@@ -165,7 +165,8 @@
         <transform>
 			<property>/instrumentation/pfd/heading-deg</property>
             <subtype>textranslate</subtype>
-			<factor>0.0035142857142857</factor>
+			<bias>0.0000001</bias>
+			<factor>0.00356999976056338</factor>
             <axis>
                 <x>1</x>
                 <y>0</y>
