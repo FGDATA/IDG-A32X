@@ -3,7 +3,26 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 0 0 0  emis 0.658824 0.670588 0.67451  spec 0
 MATERIAL "white" rgb 1 1 1  amb 1 1 1  emis 0.798 0.798 0.798  spec 0 0 0  shi 0  trans 0
 MATERIAL "ac3dmat0" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 53
+kids 54
+OBJECT poly
+name "horizonhdg"
+loc -0.000614104 0.000830183 0.00541043
+texture "horizonhdg.png"
+crease 45.000000
+numvert 4
+0 -0.0443777 -0.0369368
+0 -0.0443777 0.0369368
+0 0.0443777 0.0369368
+0 0.0443777 -0.0369368
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 0.5875 0.5875
+2 0.4125 0.5875
+1 0.4125 0.4125
+0 0.5875 0.4125
+kids 0
 OBJECT poly
 name "fbwmask"
 loc 0.000382955 0.0573058 0.00520964
