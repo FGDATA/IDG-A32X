@@ -277,7 +277,6 @@
         <name>Ground Horizon</name>
         <type>gain</type>
         <gain>1</gain>
-        <update-interval-secs type="double">0.01</update-interval-secs>
         <input>
 			<condition>
 				<and>
@@ -337,6 +336,16 @@
 		</input>
 		<output>/instrumentation/pfd/horizon-ground</output>
 		<min>-16</min>
+		<max>16</max>
+    </filter>
+	
+    <filter>
+        <name>Horizon Heading Pitch</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <input>/orientation/pitch-deg</input>
+		<output>/instrumentation/pfd/horizon-pitch</output>
+		<min>-15</min>
 		<max>16</max>
     </filter>
     
