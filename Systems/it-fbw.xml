@@ -91,6 +91,14 @@
 						<property>/gear/gear[0]/wow</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
 				</and>
 			</condition>
             <expression>
@@ -98,26 +106,69 @@
 					<property>/controls/flight/elevator</property>
 					<table>
 						<property>/position/gear-agl-ft</property> 
-						<entry><ind> 0</ind><dep>0.15</dep></entry>
-						<entry><ind>50</ind><dep>0.10</dep></entry>
+						<entry><ind> 5</ind><dep>0.10</dep></entry>
+						<entry><ind>50</ind><dep>0.05</dep></entry>
 					</table>
 				</sum>
             </expression>
 		</input>
 		<input>
 			<condition>
-				<or>
+				<and>
 					<equals>
 						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
 						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
-				</or>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than>
+					<greater-than-equals>
+						<property>/controls/flight/flap-pos</property>
+						<value>4</value>
+					</greater-than-equals>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<less-than>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<equals>
+						<property>/FMGC/status/to-state</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
 			</condition>
-			<property>/it-autoflight/internal/elevator-cmd</property>
+            <expression>
+				<sum>
+					<property>/controls/flight/elevator</property>
+					<value>0.15</value>
+				</sum>
+            </expression>
 		</input>
 		<input>/controls/flight/elevator</input>
 		<output>/controls/flight/elevator-input</output>
