@@ -12,7 +12,7 @@
         <layout>hbox</layout>
         <text>
             <halign>left</halign>
-            <label>System Failures (1)</label>
+            <label>System Failures</label>
         </text>
         <button>
             <halign>right</halign>

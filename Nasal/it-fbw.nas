@@ -55,20 +55,21 @@ var update_loop = func {
 	var sec3_fail = getprop("/systems/failures/sec3");
 	var fac1_fail = getprop("/systems/failures/fac1");
 	var fac2_fail = getprop("/systems/failures/fac2");
+	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	
-	if (elac1_sw and !elac1_fail) {
+	if (elac1_sw and !elac1_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/elac1", 1);
 	} else {
 		setprop("/systems/fctl/elac1", 0);
 	}
 	
-	if (elac2_sw and !elac2_fail) {
+	if (elac2_sw and !elac2_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/elac2", 1);
 	} else {
 		setprop("/systems/fctl/elac2", 0);
 	}
 	
-	if (sec1_sw and !sec1_fail) {
+	if (sec1_sw and !sec1_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/sec1", 1);
 		setprop("/systems/failures/spoiler-l3", 0);
 		setprop("/systems/failures/spoiler-r3", 0);
@@ -82,7 +83,7 @@ var update_loop = func {
 		setprop("/systems/failures/spoiler-r4", 1);
 	}
 	
-	if (sec2_sw and !sec2_fail) {
+	if (sec2_sw and !sec2_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/sec2", 1);
 		setprop("/systems/failures/spoiler-l5", 0);
 		setprop("/systems/failures/spoiler-r5", 0);
@@ -92,7 +93,7 @@ var update_loop = func {
 		setprop("/systems/failures/spoiler-r5", 1);
 	}
 	
-	if (sec3_sw and !sec3_fail) {
+	if (sec3_sw and !sec3_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/sec3", 1);
 		setprop("/systems/failures/spoiler-l2", 0);
 		setprop("/systems/failures/spoiler-r2", 0);
@@ -102,7 +103,7 @@ var update_loop = func {
 		setprop("/systems/failures/spoiler-r2", 1);
 	}
 	
-	if (fac1_sw and !fac1_fail) {
+	if (fac1_sw and !fac1_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/fac1", 1);
 		setprop("/systems/failures/rudder", 0);
 	} else {
@@ -112,7 +113,7 @@ var update_loop = func {
 		}
 	}
 	
-	if (fac2_sw and !fac2_fail) {
+	if (fac2_sw and !fac2_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/fac2", 1);
 	} else {
 		setprop("/systems/fctl/fac2", 0);
@@ -136,16 +137,20 @@ var update_loop = func {
 			if (law == 0) {
 				setprop("/it-fbw/degrade-law", 1);
 			}
-		} else if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/systems/hydraulic/blue-psi") >= 1500 and getprop("/systems/hydraulic/green-psi") < 1500 and getprop("/systems/hydraulic/yellow-psi") < 1500) {
+		}
+		if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/systems/hydraulic/blue-psi") >= 1500 and getprop("/systems/hydraulic/green-psi") < 1500 and getprop("/systems/hydraulic/yellow-psi") < 1500) {
 			if (law == 0 or law == 1) {
 				setprop("/it-fbw/degrade-law", 2);
 			}
-		} else if (getprop("/controls/gear/gear-down") == 1) {
-			if (law == 1) {
-				setprop("/it-fbw/degrade-law", 2);
-			}
-		} else if (getprop("/systems/electrical/bus/ac-ess") < 110 or (getprop("/systems/hydraulic/blue-psi") < 1500 and getprop("/systems/hydraulic/green-psi") < 1500 and getprop("/systems/hydraulic/yellow-psi") < 1500)) {
+		}
+		if (getprop("/systems/electrical/bus/ac-ess") < 110 or (getprop("/systems/hydraulic/blue-psi") < 1500 and getprop("/systems/hydraulic/green-psi") < 1500 and getprop("/systems/hydraulic/yellow-psi") < 1500)) {
 			setprop("/it-fbw/degrade-law", 3);
+		}
+	}
+	
+	if (getprop("/controls/gear/gear-down") == 1) {
+		if (law == 1) {
+			setprop("/it-fbw/degrade-law", 2);
 		}
 	}
 	
