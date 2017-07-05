@@ -888,6 +888,10 @@
 					<value>1</value>
 				</equals>
 				<equals>
+					<property>/controls/fctl/elac1</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
@@ -952,6 +956,10 @@
 			<or>
 				<equals>
 					<property>/systems/failures/sec1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/fctl/sec1</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1022,6 +1030,10 @@
 					<value>1</value>
 				</equals>
 				<equals>
+					<property>/controls/fctl/fac1</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
@@ -1086,6 +1098,10 @@
 			<or>
 				<equals>
 					<property>/systems/failures/elac2</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/fctl/elac2</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1156,6 +1172,10 @@
 					<value>1</value>
 				</equals>
 				<equals>
+					<property>/controls/fctl/sec2</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
@@ -1223,6 +1243,10 @@
 					<value>1</value>
 				</equals>
 				<equals>
+					<property>/controls/fctl/sec3</property>
+					<value>1</value>
+				</equals>
+				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
@@ -1287,6 +1311,10 @@
 			<or>
 				<equals>
 					<property>/systems/failures/fac2</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/fctl/fac2</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1358,6 +1386,10 @@
 					<value>0</value>
 				</equals>
 				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/terr-inhibit</property>
+					<value>0</value>
+				</equals>
+				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
@@ -1422,6 +1454,10 @@
 			<or>
 				<equals>
 					<property>/instrumentation/mk-viii/serviceable</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 					<value>0</value>
 				</equals>
 				<equals>
