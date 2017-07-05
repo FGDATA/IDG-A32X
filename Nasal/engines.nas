@@ -44,9 +44,9 @@ var eng_init = func {
 setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[0]/cutoff-switch") == 0) {
 		if (getprop("/controls/engines/engine[0]/man-start") == 0) {
+			setprop("/systems/pneumatic/eng1-starter", 1);
 			start_one_check();
 		} else if (getprop("/controls/engines/engine[0]/man-start") == 1) {
-			setprop("/systems/pneumatic/eng1-starter", 1);
 			eng_one_man_startt.start();
 		}
 	} else if (getprop("/controls/engines/engine[0]/cutoff-switch") == 1) {
@@ -93,9 +93,9 @@ var start_one_check_b = func {
 setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[1]/cutoff-switch") == 0) {
 		if (getprop("/controls/engines/engine[1]/man-start") == 0) {
+			setprop("/systems/pneumatic/eng2-starter", 1);
 			start_two_check();
 		} else if (getprop("/controls/engines/engine[1]/man-start") == 1) {
-			setprop("/systems/pneumatic/eng2-starter", 1);
 			eng_two_man_startt.start();
 		}
 	} else if (getprop("/controls/engines/engine[1]/cutoff-switch") == 1) {
