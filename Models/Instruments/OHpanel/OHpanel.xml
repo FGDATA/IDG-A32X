@@ -1765,10 +1765,16 @@
 		<object-name>GreenEngPump1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pump-green</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pump-green</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/hydraulic/eng1-pump</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1870,10 +1876,16 @@
 		<object-name>BlueElecPump1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pump-blue</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pump-blue</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/hydraulic/elec-pump-blue</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1937,10 +1949,16 @@
 		<object-name>PTU1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/ptu</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/ptu</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/hydraulic/ptu</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2004,10 +2022,16 @@
 		<object-name>YellowEngPump1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pump-yellow-eng</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pump-yellow-eng</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/hydraulic/eng2-pump</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2071,10 +2095,16 @@
 		<object-name>YellowElecPump1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pump-yellow-elec</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pump-yellow-elec</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/hydraulic/elec-pump-yellow</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2659,10 +2689,16 @@
 		<object-name>GalleyPwrBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-galley</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-galley</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/galley</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2714,10 +2750,16 @@
 		<object-name>BatteryBtn11F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-batt1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-batt1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/battery1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2769,10 +2811,16 @@
 		<object-name>BatteryBtn21F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-batt2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-batt2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/battery2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -2889,10 +2937,16 @@
 		<object-name>Gen1Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-gen1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-gen1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<and>
 					<equals>
 						<property>/controls/electrical/switches/gen1</property>
@@ -2965,10 +3019,16 @@
 		<object-name>ACESSFeedBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-ac-ess</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-ac-ess</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/ac-ess-feed</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -3039,10 +3099,16 @@
 		<object-name>APUGenBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-genapu</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-genapu</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen-apu</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -3254,10 +3320,16 @@
 		<object-name>Gen2Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elec-gen2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elec-gen2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<and>
 					<equals>
 						<property>/controls/electrical/switches/gen2</property>
@@ -3444,10 +3516,16 @@
 		<object-name>ACPack1Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pack1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pack1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatic/switches/pack1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<and>
 					<equals>
 						<property>/controls/pneumatic/switches/pack1</property>
@@ -3521,10 +3599,16 @@
 		<object-name>Eng1BleedBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/bleed-eng1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/bleed-eng1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatic/switches/bleed1</property>
+						<value>0</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -3596,10 +3680,16 @@
 		<object-name>APUBleedBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/bleed-apu</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/bleed-apu</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatic/switches/bleedapu</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -3663,10 +3753,16 @@
 		<object-name>Eng2BleedBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/bleed-eng2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/bleed-eng2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatic/switches/bleed2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -3804,10 +3900,16 @@
 		<object-name>ACPack2Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/pack2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/pack2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatic/switches/pack2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<and>
 					<equals>
 						<property>/controls/pneumatic/switches/pack2</property>
