@@ -883,14 +883,16 @@
 		<object-name>ELAC1Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elac1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/elac1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elac1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/elac1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -954,14 +956,16 @@
 		<object-name>SEC1Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/sec1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/sec1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/sec1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/sec1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1025,14 +1029,16 @@
 		<object-name>FAC1Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/fac1</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/fac1</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/fac1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/fac1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1096,14 +1102,16 @@
 		<object-name>ELAC2Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/elac2</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/elac2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/elac2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/elac2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1167,14 +1175,16 @@
 		<object-name>SEC2Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/sec2</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/sec2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/sec2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/sec2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1238,14 +1248,16 @@
 		<object-name>SEC3Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/sec3</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/sec3</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/sec3</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/sec3</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1309,14 +1321,16 @@
 		<object-name>FAC2Btn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/systems/failures/fac2</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>/controls/fctl/fac2</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/fac2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/fctl/fac2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1381,14 +1395,16 @@
 		<object-name>GPWSTerrBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/instrumentation/mk-viii/serviceable</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>/instrumentation/mk-viii/inputs/discretes/terr-inhibit</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/serviceable</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/terr-inhibit</property>
+						<value>0</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>
@@ -1452,14 +1468,16 @@
 		<object-name>GPWSBtn1F</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/instrumentation/mk-viii/serviceable</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/instrumentation/mk-viii/serviceable</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>

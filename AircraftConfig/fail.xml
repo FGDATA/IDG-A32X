@@ -54,56 +54,6 @@
 			</group>
 			
 			<checkbox>
-				<label>Aileron Left</label>
-				<halign>left</halign>
-				<property>/systems/failures/aileron-left</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Aileron Right</label>
-				<halign>left</halign>
-				<property>/systems/failures/aileron-right</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Elevator Left</label>
-				<halign>left</halign>
-				<property>/systems/failures/elevator-left</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Elevator Right</label>
-				<halign>left</halign>
-				<property>/systems/failures/elevator-right</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Rudder</label>
-				<halign>left</halign>
-				<property>/systems/failures/rudder</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
 				<label>ELAC1</label>
 				<halign>left</halign>
 				<property>/systems/failures/elac1</property>

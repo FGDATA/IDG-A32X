@@ -70,32 +70,55 @@ var update_loop = func {
 	
 	if (sec1_sw and !sec1_fail) {
 		setprop("/systems/fctl/sec1", 1);
+		setprop("/systems/failures/spoiler-l3", 0);
+		setprop("/systems/failures/spoiler-r3", 0);
+		setprop("/systems/failures/spoiler-l4", 0);
+		setprop("/systems/failures/spoiler-r4", 0);
 	} else {
 		setprop("/systems/fctl/sec1", 0);
+		setprop("/systems/failures/spoiler-l3", 1);
+		setprop("/systems/failures/spoiler-r3", 1);
+		setprop("/systems/failures/spoiler-l4", 1);
+		setprop("/systems/failures/spoiler-r4", 1);
 	}
 	
 	if (sec2_sw and !sec2_fail) {
 		setprop("/systems/fctl/sec2", 1);
+		setprop("/systems/failures/spoiler-l5", 0);
+		setprop("/systems/failures/spoiler-r5", 0);
 	} else {
 		setprop("/systems/fctl/sec2", 0);
+		setprop("/systems/failures/spoiler-l5", 1);
+		setprop("/systems/failures/spoiler-r5", 1);
 	}
 	
 	if (sec3_sw and !sec3_fail) {
 		setprop("/systems/fctl/sec3", 1);
+		setprop("/systems/failures/spoiler-l2", 0);
+		setprop("/systems/failures/spoiler-r2", 0);
 	} else {
 		setprop("/systems/fctl/sec3", 0);
+		setprop("/systems/failures/spoiler-l2", 1);
+		setprop("/systems/failures/spoiler-r2", 1);
 	}
 	
 	if (fac1_sw and !fac1_fail) {
 		setprop("/systems/fctl/fac1", 1);
+		setprop("/systems/failures/rudder", 0);
 	} else {
 		setprop("/systems/fctl/fac1", 0);
+		if (!fac2_sw or fac2_fail) {
+			setprop("/systems/failures/rudder", 1);
+		}
 	}
 	
 	if (fac2_sw and !fac2_fail) {
 		setprop("/systems/fctl/fac2", 1);
 	} else {
 		setprop("/systems/fctl/fac2", 0);
+		if (!fac1_sw or fac1_fail) {
+			setprop("/systems/failures/rudder", 1);
+		}
 	}
 	
 	var elac1 = getprop("/systems/fctl/elac1");
