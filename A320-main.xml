@@ -710,6 +710,33 @@
 
 	<input>
 		<keyboard>
+			<key n="49">
+				<name>1</name>
+				<desc>Captain View</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>0</value>
+				</binding>
+			</key>
+			<key n="50">
+				<name>2</name>
+				<desc>First Officer View</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>9</value>
+				</binding>
+			</key>
+			<key n="51">
+				<name>3</name>
+				<desc>Overhead View</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>10</value>
+				</binding>
+			</key>
 			<key n="127">
 				<name>DEL</name>
 				<desc>Simple Engage/Disengage reversers</desc>
