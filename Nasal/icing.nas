@@ -26,6 +26,7 @@ var icingModel = func {
 	var temperature = getprop("/environment/temperature-degc");
 	var speed = getprop("/velocities/airspeed-kt");
 	var visibility = getprop("/environment/effective-visibility-m");
+	var visibLclWx = getprop("/environment/visibility-m");
 	var severity = getprop("/systems/icing/severity");
 	var factor = getprop("/systems/icing/factor");
 	var maxSpread = getprop("/systems/icing/max-spread-degc");
@@ -141,7 +142,8 @@ var icingModel = func {
 	
 	# Do we create ice?
 	var spread = temperature - dewpoint;
-	if((spread < maxSpread and temperature < 0) or (temperature < 0 and visibility < 1000)) { # freezing fog or low temp and below dp
+	# freezing fog or low temp and below dp or in advanced wx cloud
+	if ((spread < maxSpread and temperature < 0) or (temperature < 0 and visibility < 1000) or (visibLclWx < 5000 and temperature < 0)) { 
 		setprop("/systems/icing/icingcond", 1);
 	} else {
 		setprop("/systems/icing/icingcond", 0);
