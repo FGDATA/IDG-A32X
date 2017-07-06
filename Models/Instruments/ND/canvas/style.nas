@@ -1522,7 +1522,7 @@ canvas.NDStyles["Airbus"] = {
 					nd.symbols.vorL.show();
 					nd.symbols.vorLId.show();
 					nd.symbols.dmeLDist.show();
-					if(nd.get_switch('toggle_rh_vor_adf') < 0){
+					if(nd.get_switch('toggle_lh_vor_adf') < 0){
 						var adf = 'instrumentation/adf/';
 						var navident = getprop(adf~ "ident");
 						var frq = getprop(adf~ "frequencies/selected-khz");
