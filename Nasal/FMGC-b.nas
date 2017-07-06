@@ -57,6 +57,7 @@ var APinit = func {
 	setprop("/it-autoflight/input/spd-mach", 0.50);
 	setprop("/it-autoflight/custom/show-hdg", 0);
 	update_armst.start();
+	lnavwptt.start();
 	thrustmode();
 }
 
@@ -170,7 +171,6 @@ var lateral = func {
 	if (latset == 0) {
 		alandt.stop();
 		alandt1.stop();
-		lnavwptt.stop();
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
 		setprop("/it-autoflight/output/lat", 0);
@@ -180,7 +180,6 @@ var lateral = func {
 		if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1) {
 			alandt.stop();
 			alandt1.stop();
-			lnavwptt.start();
 			setprop("/it-autoflight/output/loc-armed", 0);
 			setprop("/it-autoflight/output/appr-armed", 0);
 			setprop("/it-autoflight/output/lat", 1);
@@ -202,7 +201,6 @@ var lateral = func {
 	} else if (latset == 3) {
 		alandt.stop();
 		alandt1.stop();
-		lnavwptt.stop();
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
 		var hdg5sec = int(getprop("/it-autoflight/internal/heading-5-sec-ahead")+0.5);
@@ -211,12 +209,10 @@ var lateral = func {
 		setprop("/it-autoflight/mode/lat", "HDG");
 		setprop("/it-autoflight/mode/arm", " ");
 	} else if (latset == 4) {
-		lnavwptt.stop();
 		setprop("/it-autoflight/output/lat", 4);
 		setprop("/it-autoflight/mode/lat", "ALGN");
 		setprop("/it-autoflight/custom/show-hdg", 0);
 	} else if (latset == 5) {
-		lnavwptt.stop();
 		setprop("/it-autoflight/output/lat", 5);
 		setprop("/it-autoflight/custom/show-hdg", 0);
 	}
@@ -431,7 +427,7 @@ var toggle_trkfpa = func {
 }
 
 var lnavwpt = func {
-	if (getprop("/autopilot/route-manager/route/num") > 0) {
+	if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1) {
 		if (getprop("/autopilot/route-manager/wp/dist") <= 1.0) {
 			var wptnum = getprop("/autopilot/route-manager/current-wp");
 			if ((wptnum + 1) < getprop("/autopilot/route-manager/route/num")) {
