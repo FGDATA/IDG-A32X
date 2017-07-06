@@ -42,6 +42,8 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/cruise-lvl-set", 0);
 	setprop("/FMGC/internal/flap-ths-set", 0);
 	setprop("/FMGC/internal/flex-set", 0);
+	setprop("/FMGC/internal/ils1freq-set", 0);
+	setprop("/FMGC/internal/ils1crs-set", 0);
 	setprop("/FMGC/internal/vor1freq-set", 0);
 	setprop("/FMGC/internal/vor1crs-set", 0);
 	setprop("/FMGC/internal/vor2freq-set", 0);

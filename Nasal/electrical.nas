@@ -79,6 +79,8 @@ var elec_init = func {
     setprop("/systems/electrical/outputs/mk-viii", 0);
     setprop("/systems/electrical/outputs/nav", 0);
     setprop("/systems/electrical/outputs/nav[1]", 0);
+    setprop("/systems/electrical/outputs/nav[2]", 0);
+    setprop("/systems/electrical/outputs/nav[3]", 0);
     setprop("/systems/electrical/outputs/pitot-head", 0);
     setprop("/systems/electrical/outputs/stobe-lights", 0);
     setprop("/systems/electrical/outputs/tacan", 0);
@@ -416,6 +418,8 @@ var master_elec = func {
 		setprop("/systems/electrical/outputs/mk-viii", 0);
 		setprop("/systems/electrical/outputs/nav", 0);
 		setprop("/systems/electrical/outputs/nav[1]", 0);
+		setprop("/systems/electrical/outputs/nav[2]", 0);
+		setprop("/systems/electrical/outputs/nav[3]", 0);
 		setprop("/systems/electrical/outputs/pitot-head", 0);
 		setprop("/systems/electrical/outputs/stobe-lights", 0);
 		setprop("/systems/electrical/outputs/tacan", 0);
@@ -448,6 +452,8 @@ var master_elec = func {
 		setprop("/systems/electrical/outputs/mk-viii", dc_volt_std);
 		setprop("/systems/electrical/outputs/nav", dc_volt_std);
 		setprop("/systems/electrical/outputs/nav[1]", dc_volt_std);
+		setprop("/systems/electrical/outputs/nav[2]", dc_volt_std);
+		setprop("/systems/electrical/outputs/nav[3]", dc_volt_std);
 		setprop("/systems/electrical/outputs/pitot-head", dc_volt_std);
 		setprop("/systems/electrical/outputs/stobe-lights", dc_volt_std);
 		setprop("/systems/electrical/outputs/tacan", dc_volt_std);

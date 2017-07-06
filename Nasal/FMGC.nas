@@ -17,7 +17,8 @@ setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 setprop("/it-autoflight/output/fma-pwr", 0);
 setprop("/instrumentation/nav[0]/nav-id", "XXX");
 setprop("/instrumentation/nav[1]/nav-id", "XXX");
-setprop("/FMGC/internal/ils-mcdu", "XXX/999.99");
+setprop("/FMGC/internal/ils1-mcdu", "XXX/999.99");
+setprop("/FMGC/internal/ils2-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor1-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor2-mcdu", "999.99/XXX");
 
@@ -230,6 +231,8 @@ var various = maketimer(1, func {
 var various2 = maketimer(0.5, func {
 	nav0();
 	nav1();
+	nav2();
+	nav3();
 	var latmode = getprop("/it-autoflight/output/lat");
 	if (latmode == 0) {
 		setprop("/it-autoflight/custom/show-hdg", 1);
@@ -240,13 +243,11 @@ var nav0 = func {
 	var freqnav0uf = getprop("/instrumentation/nav[0]/frequencies/selected-mhz");
 	var freqnav0 = sprintf("%.2f", freqnav0uf);
 	var namenav0 = getprop("/instrumentation/nav[0]/nav-id");
-	if (freqnav0 >= 108.10 and freqnav0 <= 117.95) {
+	if (freqnav0 >= 108.10 and freqnav0 <= 111.95) {
 		if (namenav0 != "") {
-			setprop("/FMGC/internal/ils-mcdu", namenav0 ~ "/" ~ freqnav0);
-			setprop("/FMGC/internal/vor1-mcdu", namenav0 ~ "/" ~ freqnav0);
+			setprop("/FMGC/internal/ils1-mcdu", namenav0 ~ "/" ~ freqnav0);
 		} else {
-			setprop("/FMGC/internal/ils-mcdu", freqnav0);
-			setprop("/FMGC/internal/vor1-mcdu", freqnav0);
+			setprop("/FMGC/internal/ils1-mcdu", freqnav0);
 		}
 	}
 }
@@ -255,11 +256,37 @@ var nav1 = func {
 	var freqnav1uf = getprop("/instrumentation/nav[1]/frequencies/selected-mhz");
 	var freqnav1 = sprintf("%.2f", freqnav1uf);
 	var namenav1 = getprop("/instrumentation/nav[1]/nav-id");
-	if (freqnav1 >= 108.10 and freqnav1 <= 117.95) {
+	if (freqnav1 >= 108.10 and freqnav1 <= 111.95) {
 		if (namenav1 != "") {
-			setprop("/FMGC/internal/vor2-mcdu", namenav1 ~ "/" ~ freqnav1);
+			setprop("/FMGC/internal/ils2-mcdu", namenav1 ~ "/" ~ freqnav1);
 		} else {
-			setprop("/FMGC/internal/vor2-mcdu", freqnav1);
+			setprop("/FMGC/internal/ils2-mcdu", freqnav1);
+		}
+	}
+}
+
+var nav2 = func {
+	var freqnav2uf = getprop("/instrumentation/nav[2]/frequencies/selected-mhz");
+	var freqnav2 = sprintf("%.2f", freqnav2uf);
+	var namenav2 = getprop("/instrumentation/nav[2]/nav-id");
+	if (freqnav2 >= 108.00 and freqnav2 <= 117.95) {
+		if (namenav2 != "") {
+			setprop("/FMGC/internal/vor1-mcdu", namenav2 ~ "/" ~ freqnav2);
+		} else {
+			setprop("/FMGC/internal/vor1-mcdu", freqnav2);
+		}
+	}
+}
+
+var nav3 = func {
+	var freqnav3uf = getprop("/instrumentation/nav[3]/frequencies/selected-mhz");
+	var freqnav3 = sprintf("%.2f", freqnav3uf);
+	var namenav3 = getprop("/instrumentation/nav[3]/nav-id");
+	if (freqnav3 >= 108.00 and freqnav3 <= 117.95) {
+		if (namenav3 != "") {
+			setprop("/FMGC/internal/vor2-mcdu", namenav3 ~ "/" ~ freqnav3);
+		} else {
+			setprop("/FMGC/internal/vor2-mcdu", freqnav3);
 		}
 	}
 }

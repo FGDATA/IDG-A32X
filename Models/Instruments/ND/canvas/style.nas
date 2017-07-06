@@ -1182,7 +1182,11 @@ canvas.NDStyles["Airbus"] = {
 				predicate: func(nd) (nd.in_mode('toggle_display_mode', ['APP','VOR']) and !nd.get_switch('toggle_centered')),
 				is_true: func(nd) {
 					nd.symbols.vorCrsPtr.show();
-					nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					if (is_ils) {
+						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					} else {
+						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					}
 
 				},
 				is_false: func(nd) nd.symbols.vorCrsPtr.hide(),
@@ -1198,7 +1202,11 @@ canvas.NDStyles["Airbus"] = {
 					var is_ils = (nd.get_switch('toggle_display_mode') == 'APP');
 					var type = (is_ils ? 'ils' : 'vor');
 					var path = nd.get_nav_path(type, 0);
-					nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					if (is_ils) {
+						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					} else {
+						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+					}
 					var line = nd.symbols.vorCrsPtr2.getElementById('vorCrsPtr2_line');
 					if(!is_ils){
 						line.setColor(0,0.62,0.84);

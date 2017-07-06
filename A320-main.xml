@@ -604,6 +604,42 @@
 	
 	<instrumentation n="0">
 	
+		<dme n="0">
+			<frequencies>
+				<selected-mhz type="double">111.15</selected-mhz>
+				<source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		
+		<dme n="1">
+			<frequencies>
+				<selected-mhz type="double">109.55</selected-mhz>
+				<source type="string">/instrumentation/nav[1]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		
+		<dme n="2">
+			<frequencies>
+				<selected-mhz type="double">112.8</selected-mhz>
+				<source type="string">/instrumentation/nav[2]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		
+		<dme n="3">
+			<frequencies>
+				<selected-mhz type="double">114.8</selected-mhz>
+				<source type="string">/instrumentation/nav[3]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+	
 		<efis n="0">
 			<ecam>
 				<display-mode type="string">FCTL</display-mode>
@@ -615,6 +651,60 @@
 				<display-mode type="string">FCTL</display-mode>
 			</ecam>
 		</efis>
+		
+		<nav n="0">
+			<frequencies>
+				<selected-mhz type="double">111.15</selected-mhz>
+				<standby-mhz type="double">110.95</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		
+		<nav n="1">
+			<frequencies>
+				<selected-mhz type="double">109.55</selected-mhz>
+				<standby-mhz type="double">110.55</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		
+		<nav n="2">
+			<cdi>
+				<serviceable type="bool">true</serviceable>
+			</cdi>
+			<frequencies>
+				<selected-mhz type="double">112.8</selected-mhz>
+				<standby-mhz type="double">112.6</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		
+		<nav n="3">
+			<cdi>
+				<serviceable type="bool">true</serviceable>
+			</cdi>
+			<frequencies>
+				<selected-mhz type="double">114.8</selected-mhz>
+				<standby-mhz type="double">114.6</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
 		
 		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
 			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->

@@ -83,8 +83,8 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 
     me.update_sub(); # init some map properties based on switches
 
-    var vor1_path = me.get_nav_path('vor', 0);
-    var vor2_path = me.get_nav_path('vor', 1);
+    var vor1_path = "/instrumentation/nav[2]";
+    var vor2_path = "/instrumentation/nav[3]";
     # predicate for the draw controller
     var is_tuned = func(freq) {
         var nav1=getprop(vor1_path~ "frequencies/selected-mhz");
@@ -367,10 +367,10 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
         else
             me.map.setTranslation(512,824);
     }
-    var vor1_path = me.get_nav_path('vor', 0);
-    var vor2_path = me.get_nav_path('vor', 1);
-    var dme1_path = me.get_nav_path('dme', 0);
-    var dme2_path = me.get_nav_path('dme', 1);
+    var vor1_path = "/instrumentation/nav[2]";
+    var vor2_path = "/instrumentation/nav[3]";
+    var dme1_path = "/instrumentation/dme[2]";
+    var dme2_path = "/instrumentation/dme[3]";
 
     if(me.get_switch('toggle_rh_vor_adf') == 1) {
         me.symbols.vorR.setText("VOR R");
