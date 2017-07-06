@@ -48,12 +48,15 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/vor1crs-set", 0);
 	setprop("/FMGC/internal/vor2freq-set", 0);
 	setprop("/FMGC/internal/vor2crs-set", 0);
+	setprop("/FMGC/internal/adf1freq-set", 0);
+	setprop("/FMGC/internal/adf2freq-set", 0);
 }
 
 var lskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[1]/page") == "MCDU") {
 			setprop("/MCDU[1]/page", getprop("/MCDU[1]/last-fmgc-page"));
+			setprop("/MCDU[1]/scratchpad-msg", "0");
 			setprop("/MCDU[1]/scratchpad", "");
 		} else if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("L1");
@@ -125,6 +128,8 @@ var lskbutton = func(btn) {
 			perfCRZInput("L5");
 		} else if (getprop("/MCDU[1]/page") == "DES") {
 			perfDESInput("L5");
+		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
+			radnavInput("L5");
 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
@@ -207,6 +212,8 @@ var rskbutton = func(btn) {
 	} else if (btn == "5") {
 		if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("R5");
+		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
+			radnavInput("R5");
 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));

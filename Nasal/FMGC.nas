@@ -233,6 +233,8 @@ var various2 = maketimer(0.5, func {
 	nav1();
 	nav2();
 	nav3();
+	adf0();
+	adf1();
 	var latmode = getprop("/it-autoflight/output/lat");
 	if (latmode == 0) {
 		setprop("/it-autoflight/custom/show-hdg", 1);
@@ -258,7 +260,7 @@ var nav1 = func {
 	var namenav1 = getprop("/instrumentation/nav[1]/nav-id");
 	if (freqnav1 >= 108.10 and freqnav1 <= 111.95) {
 		if (namenav1 != "") {
-			setprop("/FMGC/internal/ils2-mcdu", namenav1 ~ "/" ~ freqnav1);
+			setprop("/FMGC/internal/ils2-mcdu", freqnav1 ~ "/" ~ namenav1);
 		} else {
 			setprop("/FMGC/internal/ils2-mcdu", freqnav1);
 		}
@@ -284,9 +286,35 @@ var nav3 = func {
 	var namenav3 = getprop("/instrumentation/nav[3]/nav-id");
 	if (freqnav3 >= 108.00 and freqnav3 <= 117.95) {
 		if (namenav3 != "") {
-			setprop("/FMGC/internal/vor2-mcdu", namenav3 ~ "/" ~ freqnav3);
+			setprop("/FMGC/internal/vor2-mcdu", freqnav3 ~ "/" ~ namenav3);
 		} else {
 			setprop("/FMGC/internal/vor2-mcdu", freqnav3);
+		}
+	}
+}
+
+var adf0 = func {
+	var freqadf0uf = getprop("/instrumentation/adf[0]/frequencies/selected-khz");
+	var freqadf0 = sprintf("%.2f", freqadf0uf);
+	var nameadf0 = getprop("/instrumentation/adf[0]/ident");
+	if (freqadf0 >= 190 and freqadf0 <= 1750) {
+		if (nameadf0 != "") {
+			setprop("/FMGC/internal/adf1-mcdu", nameadf0 ~ "/" ~ freqadf0);
+		} else {
+			setprop("/FMGC/internal/adf1-mcdu", freqadf0);
+		}
+	}
+}
+
+var adf1 = func {
+	var freqadf1uf = getprop("/instrumentation/adf[1]/frequencies/selected-khz");
+	var freqadf1 = sprintf("%.2f", freqadf1uf);
+	var nameadf1 = getprop("/instrumentation/adf[1]/ident");
+	if (freqadf1 >= 190 and freqadf1 <= 1750) {
+		if (nameadf1 != "") {
+			setprop("/FMGC/internal/adf2-mcdu", freqadf1 ~ "/" ~ nameadf1);
+		} else {
+			setprop("/FMGC/internal/adf2-mcdu", freqadf1);
 		}
 	}
 }

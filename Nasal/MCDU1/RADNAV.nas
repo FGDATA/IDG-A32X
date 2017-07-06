@@ -138,6 +138,33 @@ var radnavInput = func(key) {
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 			}
 		}
+	} else if (key == "L5") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/adf1freq-set", 0);
+			setprop("/MCDU[0]/scratchpad-msg", "0");
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 4) {
+				if (scratchpad >= 190 and scratchpad <= 1750) {
+					setprop("/instrumentation/adf[0]/frequencies/selected-khz", scratchpad);
+					setprop("/FMGC/internal/adf1freq-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+					}
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+				}
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
 	} else if (key == "R1") {
 		if (scratchpad == "CLR") {
 			setprop("/FMGC/internal/vor2freq-set", 0);
@@ -191,6 +218,33 @@ var radnavInput = func(key) {
 				if (scratchpad >= 0 and scratchpad <= 360) {
 					setprop("/instrumentation/nav[1]/radials/selected-deg", scratchpad);
 					setprop("/FMGC/internal/vor2crs-set", 1);
+					setprop("/MCDU[0]/scratchpad", "");
+				} else {
+					if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+						setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+					}
+					setprop("/MCDU[0]/scratchpad-msg", "1");
+					setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				}
+			} else {
+				if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+				}
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
+	} else if (key == "R5") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/adf2freq-set", 0);
+			setprop("/MCDU[0]/scratchpad-msg", "0");
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tfs = size(scratchpad);
+			if (tfs == 3 or tfs == 4) {
+				if (scratchpad >= 190 and scratchpad <= 1750) {
+					setprop("/instrumentation/adf[1]/frequencies/selected-khz", scratchpad);
+					setprop("/FMGC/internal/adf2freq-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
 					if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
