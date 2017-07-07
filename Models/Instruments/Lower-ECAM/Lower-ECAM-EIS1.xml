@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<path>res-EIS1/empty.ac</path>
+	
+	<model>
+		<condition>
+			<equals>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>ENG</value>
+			</equals>
+		</condition>
+		<path>eng-eis1.xml</path>
+	</model>
+	
+	<model>
+		<path>osgtxt-common.xml</path>
+	</model>
+
+</PropertyList>

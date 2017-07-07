@@ -226,6 +226,8 @@ var various = maketimer(1, func {
 	} else {
 		setprop("/it-autoflight/settings/reduc-agl-ft", getprop("/FMGC/internal/reduc-agl-ft"));
 	}
+	
+	setprop("/FMGC/internal/gw", math.round(getprop("fdm/jsbsim/inertia/weight-lbs"), 100));
 });
 
 var various2 = maketimer(0.5, func {

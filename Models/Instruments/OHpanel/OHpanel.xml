@@ -4950,10 +4950,16 @@
 		<object-name>APUStartBtn2O</object-name>
 		<condition>
 			<or>
-				<equals>
-					<property>/controls/APU/start</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/controls/APU/start</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>/systems/apu/rpm</property>
+						<value>94.9</value>
+					</less-than-equals>
+				</and>
 				<equals>
 					<property>/controls/switches/annun-test</property>
 					<value>1</value>

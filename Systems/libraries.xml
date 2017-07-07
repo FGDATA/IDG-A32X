@@ -54,6 +54,40 @@
 		</input>
 		<output>/engines/engine[1]/fuel-flow_actual</output>
 	</filter>
+	
+	<filter>
+		<name>OIL PSI 1</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/engines/engine[0]/n2</property> 
+					<entry><ind>34</ind><dep>  2</dep></entry>
+					<entry><ind>58</ind><dep>167</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/engines/engine[0]/oil-psi-actual</output>
+	</filter>
+
+	<filter>
+		<name>OIL PSI 2</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/engines/engine[1]/n2</property> 
+					<entry><ind>34</ind><dep>  2</dep></entry>
+					<entry><ind>58</ind><dep>167</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/engines/engine[1]/oil-psi-actual</output>
+	</filter>
 
 	<filter>
 		<name>Altitude PFD</name>
@@ -467,8 +501,6 @@
 		</input>
 		<output>/systems/pressurization/manvs-cmd</output>
 	</filter>
-	
-
 	
 	<filter>
         <name>VS-target</name>

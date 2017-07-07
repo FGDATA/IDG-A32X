@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<path>res-EIS1/eng/eng.ac</path>
+	
+	<!-- Analog Gauges -->
+	
+	<!-- Oil Qty -->
+	<animation>
+    	<type>rotate</type>
+    	<object-name>qt1</object-name>
+    	<property>/engines/engine[0]/oil-qt-actual</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>-101</dep></entry>
+			<entry><ind>25</ind><dep>  40</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.05558</y-m>
+    		<z-m>0.02672</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<animation>
+    	<type>rotate</type>
+    	<object-name>qt2</object-name>
+    	<property>/engines/engine[1]/oil-qt-actual</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>-101</dep></entry>
+			<entry><ind>25</ind><dep>  40</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>0.00083</y-m>
+    		<z-m>0.02672</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<!-- Oil PSI -->
+	<animation>
+    	<type>rotate</type>
+    	<object-name>psi1</object-name>
+    	<object-name>psi1r</object-name>
+    	<property>/engines/engine[0]/oil-psi-actual</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-105</dep></entry>
+			<entry><ind>300</ind><dep>  38</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.05558</y-m>
+    		<z-m>-0.00178</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>psi1</object-name>
+		<object-name>txt.psi1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/engines/engine[0]/oil-psi-actual</property>
+				<value>60</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>psi1r</object-name>
+		<object-name>txt.psi1r</object-name>
+		<condition>
+			<less-than>
+				<property>/engines/engine[0]/oil-psi-actual</property>
+				<value>60</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+    	<type>rotate</type>
+    	<object-name>psi2</object-name>
+    	<object-name>psi2r</object-name>
+    	<property>/engines/engine[1]/oil-psi-actual</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-105</dep></entry>
+			<entry><ind>300</ind><dep>  38</dep></entry>
+		</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>0.00083</y-m>
+    		<z-m>-0.00178</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>psi2</object-name>
+		<object-name>txt.psi2</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/engines/engine[1]/oil-psi-actual</property>
+				<value>60</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>psi2r</object-name>
+		<object-name>txt.psi2r</object-name>
+		<condition>
+			<less-than>
+				<property>/engines/engine[1]/oil-psi-actual</property>
+				<value>60</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<!-- Text -->
+	
+	<!-- Oil Qty -->
+	<text>
+		<name>txt.qty1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>-0.05158</y-m>
+			<z-m>0.023</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>/engines/engine/oil-qt-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>txt.qty2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>0.00483</y-m>
+			<z-m>0.023</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>/engines/engine[1]/oil-qt-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Oil PSI -->
+	<text>
+		<name>txt.psi1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>-0.05158</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/engines/engine/oil-psi-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>txt.psi2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>0.00483</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/engines/engine[1]/oil-psi-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>txt.psi1r</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>-0.05158</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/engines/engine/oil-psi-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>txt.psi2r</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+    		<y-m>0.00483</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/engines/engine[1]/oil-psi-actual</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Colors -->
+	
+	<!-- Green -->
+	<animation>
+		<type>material</type>
+		<object-name>txt.qty1</object-name>
+		<object-name>txt.qty2</object-name>
+		<object-name>txt.psi1</object-name>
+		<object-name>txt.psi2</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+	
+	<!-- Red -->
+	<animation>
+		<type>material</type>
+		<object-name>txt.psi1r</object-name>
+		<object-name>txt.psi2r</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+
+</PropertyList>

@@ -642,13 +642,7 @@
 	
 		<efis n="0">
 			<ecam>
-				<display-mode type="string">FCTL</display-mode>
-			</ecam>
-		</efis>
-	
-		<efis n="1">
-			<ecam>
-				<display-mode type="string">FCTL</display-mode>
+				<display-mode type="string">ENG</display-mode>
 			</ecam>
 		</efis>
 		

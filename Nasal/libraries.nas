@@ -22,6 +22,12 @@ setprop("/controls/lighting/ndl-norm", 0);
 setprop("/controls/lighting/ndr-norm", 0);
 setprop("/controls/lighting/upper-norm", 0);
 
+# Oil Qty
+var qty1 = math.round((rand() * 5 ) + 20, 0.1);
+var qty2 = math.round((rand() * 5 ) + 20, 0.1);
+setprop("/engines/engine[0]/oil-qt-actual", qty1);
+setprop("/engines/engine[1]/oil-qt-actual", qty2);
+
 ##########
 # Lights #
 ##########
