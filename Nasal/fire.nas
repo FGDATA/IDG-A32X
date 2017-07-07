@@ -36,7 +36,7 @@ var fire_init = func {
 ##############
 # Main Loops #
 ##############
-var master_fuel = func {
+var master_fire = func {
 	var level = getprop("/systems/fire/cargo/bottlelevel");
 	var fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
 	var aftsquib = getprop("/systems/fire/cargo/aftsquib");
@@ -136,7 +136,7 @@ var master_fuel = func {
 			setprop("/controls/fire/cargo/fwddischLight", 0);
 			setprop("/controls/fire/cargo/aftdischLight", 0);
 			setprop("/systems/fire/cargo/test", 0);
-			setprop("/controls/fire/cargo/test");
+			setprop("/controls/fire/cargo/test", 0);
 			setprop("/controls/fire/cargo/test/state", 0);
 		}, 0.5);
 	}
