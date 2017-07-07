@@ -198,7 +198,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	fmgc.FMGCinit();
 	mcdu1.MCDU_init();
 	mcdu2.MCDU_init();
-	icing.PitotIcingReset();
 	icing.icingInit();
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);

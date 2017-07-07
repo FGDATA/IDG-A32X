@@ -10,6 +10,7 @@ var hyd_init = func {
 	setprop("/controls/hydraulic/eng2-pump", 1);
 	setprop("/controls/hydraulic/elec-pump-blue", 1);
 	setprop("/controls/hydraulic/elec-pump-yellow", 0);
+	setprop("/controls/hydraulic/hand-pump-yellow", 0);
 	setprop("/controls/hydraulic/ptu", 1);
 	setprop("/controls/hydraulic/rat-man", 0);
 	setprop("/controls/hydraulic/rat", 0);
@@ -43,6 +44,7 @@ var master_hyd = func {
 	var eng2_pump_sw = getprop("/controls/hydraulic/eng2-pump");
 	var elec_pump_blue_sw = getprop("/controls/hydraulic/elec-pump-blue");
 	var elec_pump_yellow_sw = getprop("/controls/hydraulic/elec-pump-yellow");
+	var yellow_hand_pump = getprop("/controls/hydraulic/hand-pump-yellow");
 	var ptu_sw = getprop("/controls/hydraulic/ptu");
 	var rat_man_sw = getprop("/controls/hydraulic/rat-man");
 	var blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -64,8 +66,9 @@ var master_hyd = func {
 	var yellow_pump_eng_fail = getprop("/systems/failures/pump-yellow-eng");
 	var yellow_pump_elec_fail = getprop("/systems/failures/pump-yellow-elec");
 	var ptu_fail = getprop("/systems/failures/ptu");
+	var dc2 = getprop("/systems/electrical/bus/dc2");
 	
-	if (psi_diff > 500 or psi_diff < -500 and ptu_sw) {
+	if (psi_diff > 500 or psi_diff < -500 and ptu_sw and dc2 > 28) {
 		setprop("/systems/hydraulic/ptu-active", 1);
 	} else if (psi_diff < 20 and psi_diff > -20) {
 		setprop("/systems/hydraulic/ptu-active", 0);
@@ -135,6 +138,12 @@ var master_hyd = func {
 	} else if ((ptu_active and stateR != 3 and !ptu_fail) and !yellow_leak) {
 		if (yellow_psi < 2900) {
 			setprop("/systems/hydraulic/yellow-psi", yellow_psi + 100);
+		} else {
+			setprop("/systems/hydraulic/yellow-psi", 3000);
+		}
+	} else if (yellow_hand_pump and !yellow_leak and (getprop("/gear/gear[0]/wow") or getprop("/gear/gear[1]/wow") or getprop("/gear/gear[2]/wow"))) {
+		if (yellow_psi < 2900) {
+			setprop("/systems/hydraulic/yellow-psi", yellow_psi + 50);
 		} else {
 			setprop("/systems/hydraulic/yellow-psi", 3000);
 		}

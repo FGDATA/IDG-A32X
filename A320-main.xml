@@ -977,7 +977,6 @@
 		</canvas_nd>
 		<icing> <!-- leave icing in this -->
 			<file>Aircraft/A320Family/Nasal/icing.nas</file>
-			<file>Aircraft/A320Family/Nasal/PitotIcing.nas</file>
 		</icing>
 	</nasal>
 
