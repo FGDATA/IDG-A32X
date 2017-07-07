@@ -1024,6 +1024,21 @@
 		</volume>
 	</switch>
 	
+	<cvrtone>
+		<name>CVRtone</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/700hz.wav</path>
+		<condition>
+			<equals>
+				<property>controls/CVR/tone</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</cvrtone>
+	
 	<relay>
 		<name>RelayBatt</name>
 		<mode>once</mode>
