@@ -14,6 +14,16 @@
 	</model>
 	
 	<model>
+		<condition>
+			<equals>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>APU</value>
+			</equals>
+		</condition>
+		<path>apu.xml</path>
+	</model>
+	
+	<model>
 		<path>osgtxt-common.xml</path>
 	</model>
 

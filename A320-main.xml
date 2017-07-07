@@ -809,7 +809,7 @@
 				<binding>
 					<command>property-assign</command>
 					<property>/sim/current-view/view-number</property>
-					<value>9</value>
+					<value>8</value>
 				</binding>
 			</key>
 			<key n="51">
@@ -818,7 +818,7 @@
 				<binding>
 					<command>property-assign</command>
 					<property>/sim/current-view/view-number</property>
-					<value>10</value>
+					<value>9</value>
 				</binding>
 			</key>
 			<key n="127">

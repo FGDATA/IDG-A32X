@@ -180,11 +180,11 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
-	} else if (gen_apu and !genapu_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
-	} else if (extpwr_on and gen_ext_sw) {
+	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/dc1", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
@@ -209,11 +209,11 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
-	} else if (gen_apu and !genapu_fail) {
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
-	} else if (extpwr_on and gen_ext_sw) {
+	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/dc2", dc_volt_std);
 		setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 		setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
@@ -236,9 +236,9 @@ var master_elec = func {
 	# Left AC bus yes?
 	if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
-	} else if (gen_apu and !genapu_fail) {
-		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 	} else if (extpwr_on and gen_ext_sw) {
+		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
 	} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
@@ -251,9 +251,9 @@ var master_elec = func {
 	# Right AC bus yes?
 	if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
-	} else if (gen_apu and !genapu_fail) {
-		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 	} else if (extpwr_on and gen_ext_sw) {
+		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+	} else if (gen_apu and !genapu_fail) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
