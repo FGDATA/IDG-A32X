@@ -95,10 +95,14 @@ var update_loop = func {
 	
 	if (sec3_sw and !sec3_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/sec3", 1);
+		setprop("/systems/failures/spoiler-l1", 0);
+		setprop("/systems/failures/spoiler-r1", 0);
 		setprop("/systems/failures/spoiler-l2", 0);
 		setprop("/systems/failures/spoiler-r2", 0);
 	} else {
 		setprop("/systems/fctl/sec3", 0);
+		setprop("/systems/failures/spoiler-l1", 1);
+		setprop("/systems/failures/spoiler-r1", 1);
 		setprop("/systems/failures/spoiler-l2", 1);
 		setprop("/systems/failures/spoiler-r2", 1);
 	}
