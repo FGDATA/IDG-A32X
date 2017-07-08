@@ -939,6 +939,7 @@
 			<file>Aircraft/A320Family/Nasal/fuel.nas</file>
 			<file>Aircraft/A320Family/Nasal/engines.nas</file>
 			<file>Aircraft/A320Family/Nasal/ADIRS.nas</file>
+			<file>Aircraft/A320Family/Nasal/fire.nas</file>
 		</systems>
 		<thrust>
 			<file>Aircraft/A320Family/Nasal/fadec-common.nas</file>
@@ -977,7 +978,6 @@
 		</canvas_nd>
 		<icing> <!-- leave icing in this -->
 			<file>Aircraft/A320Family/Nasal/icing.nas</file>
-			<file>Aircraft/A320Family/Nasal/PitotIcing.nas</file>
 		</icing>
 	</nasal>
 
