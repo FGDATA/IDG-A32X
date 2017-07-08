@@ -106,8 +106,8 @@
 					<property>/controls/flight/elevator</property>
 					<table>
 						<property>/position/gear-agl-ft</property> 
-						<entry><ind> 5</ind><dep>0.10</dep></entry>
-						<entry><ind>50</ind><dep>0.05</dep></entry>
+						<entry><ind> 5</ind><dep>0.12</dep></entry>
+						<entry><ind>50</ind><dep>0.07</dep></entry>
 					</table>
 				</sum>
             </expression>
@@ -571,9 +571,9 @@
 				<sum>
 					<table>
 						<property>/controls/flight/elevator-input</property> 
-						<entry><ind> 1</ind><dep>-7.0</dep></entry>
+						<entry><ind> 1</ind><dep>-6.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
-						<entry><ind>-1</ind><dep> 7.0</dep></entry>
+						<entry><ind>-1</ind><dep> 6.0</dep></entry>
 					</table>
 					<product>
 						<table>
@@ -583,7 +583,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>7.0</dep></entry>
+							<entry><ind>1</ind><dep>6.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -596,7 +596,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-7.0</dep></entry>
+							<entry><ind>-1</ind><dep>-6.0</dep></entry>
 						</table>
 					</product>
 				</sum>
@@ -612,9 +612,9 @@
             <expression>
 				<table>
 					<property>/controls/flight/elevator-input</property> 
-					<entry><ind> 1</ind><dep>-7.0</dep></entry>
+					<entry><ind> 1</ind><dep>-6.0</dep></entry>
 					<entry><ind> 0</ind><dep> 0.0</dep></entry>
-					<entry><ind>-1</ind><dep> 7.0</dep></entry>
+					<entry><ind>-1</ind><dep> 6.0</dep></entry>
 				</table>
             </expression>
         </input>

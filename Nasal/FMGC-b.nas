@@ -148,11 +148,10 @@ var fmabox = func {
 		setprop("/it-autoflight/input/trk", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		setprop("/it-autoflight/input/vert", 1);
-		setprop("/it-autoflight/input/vs", 0);
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
 		setprop("/it-autoflight/input/trk", 0);
-		setprop("/it-autoflight/input/vs", 0);
+		setprop("/it-autoflight/input/vert", 1);
 		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
 }
@@ -476,11 +475,11 @@ setlistener("/it-autoflight/input/kts-mach", func {
 		}
 	} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
 		if (mach >= 0.50 and mach <= 0.95) {
-			setprop("/it-autoflight/input/spd-kts", math.round(mach, 0.001));
+			setprop("/it-autoflight/input/spd-mach", math.round(mach, 0.001));
 		} else if (mach < 0.50) {
-			setprop("/it-autoflight/input/spd-kts", 0.50);
+			setprop("/it-autoflight/input/spd-mach", 0.50);
 		} else if (mach > 0.95) {
-			setprop("/it-autoflight/input/spd-kts", 0.95);
+			setprop("/it-autoflight/input/spd-mach", 0.95);
 		}
 	}
 });
