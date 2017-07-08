@@ -1726,6 +1726,21 @@
 		</emission>
 	</animation-->
 	
+	<animation>
+		<name>Cargo Smoke Test</name>
+		<type>pick</type>
+		<object-name>CargoSmkTest</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/fire/cargo/test</property>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Hydraulic -->
 	<animation>
 		<name>Green Eng Pump pick</name>
@@ -4655,7 +4670,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/deice/lengine</property>
+				<property>/controls/switches/leng</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -4668,10 +4683,16 @@
 		<type>select</type>
 		<object-name>Eng1AntiIceBtn1F</object-name>
 		<condition>
-			<equals>
-				<property>/controls/switches/annun-test</property>
-				<value>1</value>
-			</equals>
+			<or>
+				<equals>
+					<property>/controls/switches/lengfault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -4681,7 +4702,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/deice/lengine</property>
+					<property>/controls/switches/leng</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -4716,7 +4737,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/deice/rengine</property>
+				<property>/controls/switches/reng</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -4729,10 +4750,16 @@
 		<type>select</type>
 		<object-name>Eng2AntiIceBtn1F</object-name>
 		<condition>
-			<equals>
-				<property>/controls/switches/annun-test</property>
-				<value>1</value>
-			</equals>
+			<or>
+				<equals>
+					<property>/controls/switches/rengfault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -4742,7 +4769,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/deice/rengine</property>
+					<property>/controls/switches/reng</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -5538,6 +5565,20 @@
 				<value>1</value>
 			</equals>
 		</condition>
+	</animation>
+	
+	<!-- CVR -->
+	<animation>
+		<type>pick</type>
+		<object-name>CVRTest</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.CVR_test();</script>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

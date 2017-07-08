@@ -13,6 +13,38 @@ var variousReset = func {
 	setprop("/instrumentation/mk-viii/inputs/discretes/glideslope-cancel", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-override", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override", 0);
+	# cockpit voice recorder stuff
+	setprop("/controls/CVR/power", 0);
+	setprop("/controls/CVR/test", 0);
+	setprop("/controls/CVR/tone", 0);
+	setprop("/controls/CVR/gndctl", 0);
+	setprop("/controls/CVR/erase", 0);
+}
+
+var CVR_test = func {
+	var parkBrake = getprop("/controls/gear/brake-parking");
+	if (parkBrake) {
+		setprop("controls/CVR/tone", 1);
+		settimer(func() {
+			setprop("controls/CVR/tone", 0);
+		}, 15);
+	}
+}
+
+var CVR_master = func {
+	var stateL = getprop("/engines/engine[0]/state");
+	var stateR = getprop("/engines/engine[1]/state");
+	var wowl = getprop("/gear/gear[1]/wow");
+	var wowr = getprop("/gear/gear[2]/wow");
+	var gndCtl = getprop("/systems/CVR/gndctl");
+	var acPwr = getprop("/systems/electrical/bus/ac-ess");
+	if (acPwr > 0 and wowl and wowr and (gndCtl or (stateL == 3 or stateR == 3))) {
+		setprop("/controls/CVR/power", 1);
+	} else if (!wowl and !wowr and acPwr > 0) {
+		setprop("/controls/CVR/power", 1);
+	} else {
+		setprop("/controls/CVR/power", 0);
+	}
 }
 
 var mcpSPDKnbPull = func {
@@ -110,3 +142,10 @@ var decreaseManVS = func {
 		setprop("/systems/pressurization/outflowpos-man", manvs - 0.001);
 	}
 }
+
+
+var update_CVR = func {
+	CVR_master();
+}
+
+var CVR = maketimer(0.1, update_CVR);

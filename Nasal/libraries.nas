@@ -192,13 +192,14 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.pneu_init();
 	systems.hyd_init();
 	systems.fuel_init();
+	systems.fire_init();
 	systems.eng_init();
   	fmgc.APinit();			
 	librariesLoop.start();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_init();
 	mcdu2.MCDU_init();
-	icing.PitotIcingReset();
+	libraries.CVR.start();
 	icing.icingInit();
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);

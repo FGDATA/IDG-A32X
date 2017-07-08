@@ -103,7 +103,7 @@ var systemsReset = func {
 	fmgc.FMGCinit();
 	mcdu1.MCDU_reset();
 	mcdu2.MCDU_reset();
-	icing.PitotIcingReset();
+	icing.icingInit();
 	fmgc.APinit();
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
