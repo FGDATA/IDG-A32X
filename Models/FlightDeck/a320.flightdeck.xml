@@ -413,7 +413,7 @@
 	
 	<model>
 		<name>LECAM</name>
-		<path>Aircraft/A320Family/Models/Instruments/Lower-ECAM/Lower-ECAM-EIS1.xml</path>
+		<path>Aircraft/A320Family/Models/Instruments/Lower-ECAM/Lower-ECAM.xml</path>
 		<offsets>
 			<x-m>-0.53631</x-m>
 			<y-m>0</y-m>
