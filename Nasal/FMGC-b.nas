@@ -151,7 +151,7 @@ var fmabox = func {
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
 		setprop("/it-autoflight/input/trk", 0);
-		setprop("/it-autoflight/input/vert", 1);
+		setprop("/it-autoflight/input/vs", int(getprop("/velocities/vertical-speed-fps")*0.6)*100);
 		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
 }
