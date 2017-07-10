@@ -599,6 +599,95 @@
 							<entry><ind>-1</ind><dep>-6.0</dep></entry>
 						</table>
 					</product>
+					<!-- The following stuff is for load factor protection -->
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>-15.00000</ind><dep>0</dep></entry>
+							<entry><ind>-14.99999</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>-0.999999</ind><dep>0</dep></entry>
+							<entry><ind>-1.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>1</dep></entry>
+							<entry><ind>1</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>0</ind><dep>0.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>-15.00000</ind><dep>0</dep></entry>
+							<entry><ind>-14.99999</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>0.000001</ind><dep>0</dep></entry>
+							<entry><ind>0.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>0</dep></entry>
+							<entry><ind>1</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>0</ind><dep>0.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>1</dep></entry>
+							<entry><ind>30.00000</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>2.499999</ind><dep>0</dep></entry>
+							<entry><ind>2.500000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>1</dep></entry>
+							<entry><ind>1</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep> 0.0</dep></entry>
+							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>1</dep></entry>
+							<entry><ind>30.00000</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>1.999999</ind><dep>0</dep></entry>
+							<entry><ind>2.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>0</dep></entry>
+							<entry><ind>1</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep> 0.0</dep></entry>
+							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+						</table>
+					</product>
 				</sum>
             </expression>
         </input>
@@ -610,12 +699,103 @@
 				</equals>
 			</condition>
             <expression>
-				<table>
-					<property>/controls/flight/elevator-input</property> 
-					<entry><ind> 1</ind><dep>-6.0</dep></entry>
-					<entry><ind> 0</ind><dep> 0.0</dep></entry>
-					<entry><ind>-1</ind><dep> 6.0</dep></entry>
-				</table>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator-input</property> 
+						<entry><ind> 1</ind><dep>-6.0</dep></entry>
+						<entry><ind> 0</ind><dep> 0.0</dep></entry>
+						<entry><ind>-1</ind><dep> 6.0</dep></entry>
+					</table>
+					<!-- The following stuff is for load factor protection -->
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>-15.00000</ind><dep>0</dep></entry>
+							<entry><ind>-14.99999</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>-0.999999</ind><dep>0</dep></entry>
+							<entry><ind>-1.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>1</dep></entry>
+							<entry><ind>1</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>0</ind><dep>0.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>-15.00000</ind><dep>0</dep></entry>
+							<entry><ind>-14.99999</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>0.000001</ind><dep>0</dep></entry>
+							<entry><ind>0.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>0</dep></entry>
+							<entry><ind>1</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>0</ind><dep>0.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>1</dep></entry>
+							<entry><ind>30.00000</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>2.499999</ind><dep>0</dep></entry>
+							<entry><ind>2.500000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>1</dep></entry>
+							<entry><ind>1</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep> 0.0</dep></entry>
+							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>1</dep></entry>
+							<entry><ind>30.00000</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/accelerations/pilot-g</property>
+							<entry><ind>1.999999</ind><dep>0</dep></entry>
+							<entry><ind>2.000000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/flap-lever</property>
+							<entry><ind>0</ind><dep>0</dep></entry>
+							<entry><ind>1</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep> 0.0</dep></entry>
+							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+						</table>
+					</product>
+				</sum>
             </expression>
         </input>
 		<output>/it-fbw/pitch-rate</output>
