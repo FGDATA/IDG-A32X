@@ -117,6 +117,9 @@
             <autopilot n="0">
                 <path>Aircraft/A320Family/Systems/fadec-iae.xml</path>
             </autopilot>
+			<autopilot n="8">
+				<path>Aircraft/A320Family/Systems/v2500-sound.xml</path>
+			</autopilot>
 		</systems>
 		
 	</sim>
