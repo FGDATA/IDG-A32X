@@ -3635,6 +3635,57 @@
 			<z-m>-0.10202</z-m>
 		</center>
 	</animation>
+	
+	<animation>
+		<name>X-Bleed pick</name>
+		<type>pick</type>
+		<object-name>XbleedKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/pneumatic/switches/xbleed</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/pneumatic/switches/xbleed</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>X-Bleed rotate</name>
+		<type>rotate</type>
+		<object-name>XbleedKnb</object-name>
+		<property>/controls/pneumatic/switches/xbleed</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 55</dep></entry>
+			<entry><ind>1</ind><dep>  0</dep></entry>
+			<entry><ind>2</ind><dep>-55</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.05215</y-m>
+			<z-m>-0.16802</z-m>
+		</center>
+	</animation>
 
 	<animation>
 		<name>AC pack 1 pick</name>

@@ -15,7 +15,7 @@ var pneu_init = func {
 	setprop("/controls/pneumatic/switches/hot-air", 1);
 	setprop("/controls/pneumatic/switches/ram-air", 0);
 	setprop("/controls/pneumatic/switches/pack-flo", 9); # LO: 7, NORM: 9, HI: 11.
-	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later, once I get the knob animated. -JD
+	setprop("/controls/pneumatic/switches/xbleed", 1); # SHUT: 0, AUTO: 1, OPEN: 2. # I will simulate later. -JD
 	setprop("/systems/pneumatic/bleed1", 0);
 	setprop("/systems/pneumatic/bleed2", 0);
 	setprop("/systems/pneumatic/bleedapu", 0);
