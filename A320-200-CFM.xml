@@ -20,41 +20,41 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
         <vtailarea unit="FT2">  248.79 </vtailarea>
         <vtailarm  unit="FT" >   57.33 </vtailarm>
 
-        <location name="AERORP" unit="IN">
-            <x> 700.00 </x>
-            <y> 0 </y>
-            <z> 0.00 </z>
-        </location>
+	   <location name="AERORP" unit="IN">
+			<x> 690.00 </x>
+			<y> 0 </y>
+			<z> 0.00 </z>
+		</location>
 
-        <location name="EYEPOINT" unit="IN">
-            <x> 80 </x>
-            <y> -30 </y>
-            <z> 70 </z>
-        </location>
+		<location name="EYEPOINT" unit="IN">
+			<x> 80 </x>
+			<y> -30 </y>
+			<z> 70 </z>
+		</location>
 
-        <location name="VRP" unit="IN">
-            <x> 661.1 </x>
-            <y> 0 </y>
-            <z> -37 </z>
-        </location>
+		<location name="VRP" unit="IN">
+			<x> 661.1 </x>
+			<y> 0 </y>
+			<z> -37 </z>
+		</location>
 
-    </metrics>
+	</metrics>
 
-    <mass_balance>
+	<mass_balance>
 		<ixx unit="SLUG*FT2"> 611903</ixx>
 		<iyy unit="SLUG*FT2">1735389</iyy>
 		<izz unit="SLUG*FT2">2301293</izz>
 
-        <ixy unit="SLUG*FT2">0</ixy>
-        <ixz unit="SLUG*FT2">0</ixz>
-        <iyz unit="SLUG*FT2">0</iyz>
-        <emptywt unit="LBS">80431</emptywt>
+		<ixy unit="SLUG*FT2">0</ixy>
+		<ixz unit="SLUG*FT2">0</ixz>
+		<iyz unit="SLUG*FT2">0</iyz>
+		<emptywt unit="LBS">80431</emptywt>
 
-        <location name="CG" unit="IN">
-            <x> 652.00 </x>
-            <y> 0 </y>
-            <z> 0.00 </z>
-        </location>
+		<location name="CG" unit="IN">
+			<x> 656.00 </x>
+			<y> 0 </y>
+			<z> 0.00 </z>
+		</location>
 
         <pointmass name="Cockpit Crew">
             <weight unit="LBS">400</weight>
