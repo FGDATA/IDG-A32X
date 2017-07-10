@@ -19,6 +19,7 @@ var variousReset = func {
 	setprop("/controls/CVR/tone", 0);
 	setprop("/controls/CVR/gndctl", 0);
 	setprop("/controls/CVR/erase", 0);
+	setprop("/controls/switches/cabinfan", 1);
 }
 
 var CVR_test = func {

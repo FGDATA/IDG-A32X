@@ -69,6 +69,7 @@
 		<object-name>BlueElecPump2O</object-name>
 		<object-name>CabinPressModeBtn1F</object-name>
 		<object-name>CabinPressModeBtn2M</object-name>
+		<object-name>CabinFansBtn2O</object-name>
 		<object-name>CFuelTank1Btn1F</object-name>
 		<object-name>CFuelTank1Btn2O</object-name>
 		<object-name>CFuelTank2Btn1F</object-name>
@@ -3484,6 +3485,156 @@
 			<z-m>-0.10197</z-m>
 		</center>
 	</animation>
+	
+	<animation>
+		<name>Cockpit Temp pick</name>
+		<type>pick</type>
+		<object-name>CockpitACKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/cockpit-temp</property>
+				<step>0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/cockpit-temp</property>
+				<step>-0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Cockpit Temp rotate</name>
+		<type>rotate</type>
+		<object-name>CockpitACKnb</object-name>
+		<property>/controls/pneumatic/switches/cockpit-temp</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 135</dep></entry>
+			<entry><ind>1</ind><dep>-135</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.05105</y-m>
+			<z-m>-0.10202</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>FWD Temp pick</name>
+		<type>pick</type>
+		<object-name>FwdCabinACKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/fwd-temp</property>
+				<step>0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/fwd-temp</property>
+				<step>-0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>FWD Temp rotate</name>
+		<type>rotate</type>
+		<object-name>FwdCabinACKnb</object-name>
+		<property>/controls/pneumatic/switches/fwd-temp</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 135</dep></entry>
+			<entry><ind>1</ind><dep>-135</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.00045</y-m>
+			<z-m>-0.10202</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>AFT Temp pick</name>
+		<type>pick</type>
+		<object-name>AftCabinACKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/aft-temp</property>
+				<step>0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/pneumatic/switches/aft-temp</property>
+				<step>-0.1</step>
+				<min>0</min>
+				<max>1</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>AFT Temp rotate</name>
+		<type>rotate</type>
+		<object-name>AftCabinACKnb</object-name>
+		<property>/controls/pneumatic/switches/aft-temp</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 135</dep></entry>
+			<entry><ind>1</ind><dep>-135</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.05275</y-m>
+			<z-m>-0.10202</z-m>
+		</center>
+	</animation>
 
 	<animation>
 		<name>AC pack 1 pick</name>
@@ -3970,24 +4121,30 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<or>
-						<greater-than-equals>
-							<property>/systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/bus/dc1</property>
-							<value>25</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/electrical/bus/dc2</property>
-							<value>25</value>
-						</greater-than-equals>
-					</or>
+					<and>
+						<equals>
+							<property>/controls/OH/protectors/ramair</property>
+							<value>1</value>
+						</equals>
+						<or>
+							<greater-than-equals>
+								<property>/systems/electrical/battery1-amps</property>
+								<value>120</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/electrical/battery2-amps</property>
+								<value>120</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>/systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
+					</and>
 				</condition>
 				<command>property-toggle</command>
 				<property>/controls/pneumatic/switches/ram-air</property>
@@ -3997,6 +4154,48 @@
 				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>RamAirBtn</object-name>
+		<object-name>RamAirBtn2O</object-name>
+		<object-name>RamAirBtnProt</object-name>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/OH/protectors/ramair</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/OH/protectors/ramair</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RamAirBtnProt</object-name>
+		<property>/controls/OH/protectors/ramair</property>
+		<factor>-145</factor>
+		<axis>
+			<x1-m>-0.00619</x1-m>
+			<y1-m>-0.05762</y1-m>
+			<z1-m>-0.15269</z1-m>
+			<x2-m>-0.00619</x2-m>
+			<y2-m>-0.03467</y2-m>
+			<z2-m>-0.15269</z2-m>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -4825,6 +5024,55 @@
 				<equals>
 					<property>/controls/switches/windowprobeheat</property>
 					<value>1</value>
+				</equals>
+				<equals>
+					<property>/controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Cabin Fans -->
+	<animation>
+		<name>Cabin Fans Toggle</name>
+		<type>pick</type>
+		<object-name>CabinFansBtn</object-name>
+		<object-name>CabinFansBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>/systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>/controls/switches/cabinfan</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>CabinFansBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/switches/cabinfan</property>
+					<value>0</value>
 				</equals>
 				<equals>
 					<property>/controls/switches/annun-test</property>

@@ -515,8 +515,16 @@
 				<eng2-n1 type="bool">0</eng2-n1>
 				<IDG1 type="bool">0</IDG1>
 				<IDG2 type="bool">0</IDG2>
+				<ramair type="bool">0</ramair>
 			</protectors>
 		</OH>
+		<pneumatic n="0">
+			<switches n="0">
+				<aft-temp type="double">0.5</aft-temp>
+				<cockpit-temp type="double">0.5</cockpit-temp>
+				<fwd-temp type="double">0.5</fwd-temp>
+			</switches>
+		</pneumatic>
 		<switches>
 			<!-- Smoking is bad :P -->
 			<no-smoking-sign type="bool">1</no-smoking-sign>
