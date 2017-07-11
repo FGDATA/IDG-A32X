@@ -152,7 +152,7 @@ var update_loop = func {
 		}
 	}
 	
-	if (getprop("/controls/gear/gear-down") == 1) {
+	if (getprop("/controls/gear/gear-down") == 1 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
 		if (law == 1) {
 			setprop("/it-fbw/degrade-law", 2);
 		}
