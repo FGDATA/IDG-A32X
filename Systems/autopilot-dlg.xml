@@ -95,6 +95,26 @@
 			<text>
 				<border>1</border>
 				<label>99999</label>
+				<visible>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/roll-mode</property>
 				<live>1</live>
@@ -103,6 +123,26 @@
 			<text>
 				<border>1</border>
 				<label>99999999</label>
+				<visible>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/pitch-mode</property>
 				<live>1</live>
@@ -124,6 +164,26 @@
 			<text>
 				<border>1</border>
 				<label>999</label>
+				<visible>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/roll-mode-armed</property>
 				<live>1</live>
@@ -132,6 +192,26 @@
 			<text>
 				<border>1</border>
 				<label>999</label>
+				<visible>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/pitch-mode2-armed</property>
 				<live>1</live>
@@ -140,6 +220,26 @@
 			<text>
 				<border>1</border>
 				<label>999</label>
+				<visible>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/pitch-mode-armed</property>
 				<live>1</live>
