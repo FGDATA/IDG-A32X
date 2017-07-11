@@ -5,13 +5,22 @@
 # Initializing Vars #
 #####################
 
-# Initializing these vars here to prevent nasal nil used in numeric context, since the electrical system doesn't until fdm init is done. -JD
 setprop("/systems/electrical/bus/dc1", 0);
 setprop("/systems/electrical/bus/dc2", 0);
 setprop("/systems/electrical/bus/dc-ess", 0);
 setprop("/systems/electrical/bus/ac1", 0);
 setprop("/systems/electrical/bus/ac2", 0);
 setprop("/systems/electrical/bus/ac-ess", 0);
+var ttn = 0;
+var knob = 0;
+
+setlistener("/sim/signals/fdm-initialized", func {
+	var roll = getprop("/orientation/roll-deg");
+	var pitch = getprop("/orientation/pitch-deg");
+	var gs = getprop("/velocities/groundspeed-kt");
+	var data_knob = getprop("/controls/adirs/display/dataknob");
+	var selected_ir = getprop("/controls/adirs/display/selected");
+});
 
 var adirs_init = func {
 	setprop("/controls/adirs/mcducbtn",0);
@@ -53,15 +62,15 @@ var ADIRSreset = func {
 }
 
 var ir_align_loop = func(i) {
-	var ttn = getprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/ttn");
+	ttn = getprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/ttn");
 	if ((ttn >= 0) and (ttn < 0.99)) { # Make it less sensitive
 		ir_align_finish(i);
 	} else {
 		setprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/ttn", ttn - 1);
 	}
-	var roll = getprop("/orientation/roll-deg");
-	var pitch = getprop("/orientation/pitch-deg");
-	var gs = getprop("/velocities/groundspeed-kt");
+	roll = getprop("/orientation/roll-deg");
+	pitch = getprop("/orientation/pitch-deg");
+	gs = getprop("/velocities/groundspeed-kt");
 	if (gs > 2) {
 		setprop("/instrumentation/adirs/ir[" ~ i ~ "]/display/status", "STS-XCESS MOTION");
 		ir_align_abort(i);
@@ -72,7 +81,6 @@ var ir_align_loop = func(i) {
 var ir0_align_loop_timer = maketimer(1, func{ir_align_loop(0)});
 var ir1_align_loop_timer = maketimer(1, func{ir_align_loop(1)});
 var ir2_align_loop_timer = maketimer(1, func{ir_align_loop(2)});
-
 
 var ir_align_start = func(i) {
 	if (((i == 0) and !ir0_align_loop_timer.isRunning) or
@@ -115,7 +123,7 @@ var ir_align_abort = func(i) {
 }
 
 var ir_knob_move = func(i) {
-	var knob = getprop("/controls/adirs/ir[" ~ i ~ "]/knob");
+	knob = getprop("/controls/adirs/ir[" ~ i ~ "]/knob");
 	if (knob == 1) {
 		setprop("/controls/adirs/ir[" ~ i ~ "]/align", 0);
 		setprop("/controls/adirs/ir[" ~ i ~ "]/fault", 0);
@@ -188,8 +196,8 @@ setlistener("/controls/adirs/ir[2]/knob", onbat_light_b);
 
 
 var adirs_display = func() {
-	var data_knob = getprop("/controls/adirs/display/dataknob");
-	var selected_ir = getprop("/controls/adirs/display/selected");
+	data_knob = getprop("/controls/adirs/display/dataknob");
+	selected_ir = getprop("/controls/adirs/display/selected");
 	if ( selected_ir == 1 ) {
 		setprop("/controls/adirs/display/text", "");
 	} else {
@@ -204,8 +212,8 @@ var adirs_display = func() {
 				setprop("/controls/adirs/display/text", "- - - - - - - - ");
 			}
 		} else if ( data_knob == 3 ) {
-			var lat = abs(getprop("/position/latitude-deg"));
-			var lon = abs(getprop("/position/longitude-deg"));
+			lat = abs(getprop("/position/latitude-deg"));
+			lon = abs(getprop("/position/longitude-deg"));
 			setprop("/controls/adirs/display/text", substr(getprop("/position/latitude-string"), -1, 1) ~
 								sprintf("%2i", lat) ~ "'" ~
 								sprintf("%2.1f", (lat - math.floor(lat)) * 60) ~
@@ -224,8 +232,8 @@ var adirs_display = func() {
 			if ( ((selected_ir == 2) and getprop("/instrumentation/adirs/ir[0]/aligned")) or
 				((selected_ir == 3) and getprop("/instrumentation/adirs/ir[2]/aligned")) or
 				((selected_ir == 4) and getprop("/instrumentation/adirs/ir[1]/aligned")) ) {
-					var lat = getprop("/position/latitude-deg");
-					var lon = getprop("/position/longitude-deg");
+					lat = getprop("/position/latitude-deg");
+					lon = getprop("/position/longitude-deg");
 					if ((lat > 82) or (lat < -60) or (lon < -90 and lon > -120 and lat > 73)) { 
 						setprop("/controls/adirs/display/text", sprintf("   %3.1f", getprop("/orientation/heading-deg")) ~ "- - - - "); # this is true heading
 					} else {
@@ -244,13 +252,10 @@ var adirs_display = func() {
 			}	
 		} else if ( data_knob == 6 ) {
 			if ( selected_ir == 2 ) {
-				# var ir0dispstat = getprop("/instrumentation/adirs/ir[0]/display/status");
 				setprop("/controls/adirs/display/text","- - - - - - - - ");
 			} else if ( selected_ir == 3 ) {
-				# var ir1dispstat = getprop("/instrumentation/adirs/ir[1]/display/status");
 				setprop("/controls/adirs/display/text","- - - - - - - - ");
 			} else if ( selected_ir == 4 ) {
-				# var ir2dispstat = getprop("/instrumentation/adirs/ir[2]/display/status");
 				setprop("/controls/adirs/display/text","- - - - - - - - ");
 			}
 		}
@@ -269,8 +274,7 @@ var skip_ADIRS = func {
 }
 
 var adirs_skip = setlistener("/controls/adirs/skip", func {
-	var skipping = getprop("/controls/adirs/skip");
-	if (skipping == 1) {
+	if (getprop("/controls/adirs/skip") == 1) {
 		skip_ADIRS();
 	}
 });

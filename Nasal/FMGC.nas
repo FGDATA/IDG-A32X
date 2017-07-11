@@ -22,6 +22,84 @@ setprop("/FMGC/internal/ils2-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor1-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor2-mcdu", "999.99/XXX");
 
+setlistener("/sim/signals/fdm-initialized", func {
+	var gear1 = getprop("/gear/gear[1]/wow");
+	var gear2 = getprop("/gear/gear[2]/wow");
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var flaps = getprop("/controls/flight/flap-pos");
+	var dep = getprop("/FMGC/internal/dep-arpt");
+	var arr = getprop("/FMGC/internal/arr-arpt");
+	var n1_left = getprop("/engines/engine[0]/n1");
+	var n1_right = getprop("/engines/engine[1]/n1");
+	var flaps = getprop("/controls/flight/flap-pos");
+	var modelat = getprop("/modes/pfd/fma/roll-mode");
+	var mode = getprop("/modes/pfd/fma/pitch-mode");
+	var gs = getprop("/velocities/groundspeed-kt");
+	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+	var aglalt = getprop("/position/gear-agl-ft");
+	var cruiseft = getprop("/FMGC/internal/cruise-ft");
+	var cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 200;
+	var newcruise = getprop("/it-autoflight/internal/alt");
+	var phase = getprop("/FMGC/status/phase");
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var wowl = getprop("/gear/gear[1]/wow");
+	var wowr = getprop("/gear/gear[2]/wow");
+	var targetalt = getprop("/it-autoflight/internal/alt");
+	var targetvs = getprop("/it-autoflight/input/vs");
+	var targetfpa = getprop("/it-autoflight/input/fpa");
+	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
+	var reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
+	var locarm = getprop("/it-autopilot/output/loc-armed");
+	var apprarm = getprop("/it-autopilot/output/appr-armed");
+	var gear0 = getprop("/gear/gear[0]/wow");
+	var fd1 = getprop("/it-autoflight/input/fd1");
+	var fd2 = getprop("/it-autoflight/input/fd2");
+	var spd = getprop("/it-autoflight/input/spd-kts");
+	var hdg = getprop("/it-autoflight/input/hdg");
+	var alt = getprop("/it-autoflight/input/alt");
+	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+	var flap = getprop("/controls/flight/flap-pos");
+	var freqnav0uf = getprop("/instrumentation/nav[0]/frequencies/selected-mhz");
+	var freqnav0 = sprintf("%.2f", freqnav0uf);
+	var namenav0 = getprop("/instrumentation/nav[0]/nav-id");
+	var freqnav1uf = getprop("/instrumentation/nav[1]/frequencies/selected-mhz");
+	var freqnav1 = sprintf("%.2f", freqnav1uf);
+	var namenav1 = getprop("/instrumentation/nav[1]/nav-id");
+	var freqnav2uf = getprop("/instrumentation/nav[2]/frequencies/selected-mhz");
+	var freqnav2 = sprintf("%.2f", freqnav2uf);
+	var namenav2 = getprop("/instrumentation/nav[2]/nav-id");
+	var freqnav3uf = getprop("/instrumentation/nav[3]/frequencies/selected-mhz");
+	var freqnav3 = sprintf("%.2f", freqnav3uf);
+	var namenav3 = getprop("/instrumentation/nav[3]/nav-id");
+	var freqadf0uf = getprop("/instrumentation/adf[0]/frequencies/selected-khz");
+	var freqadf0 = sprintf("%.2f", freqadf0uf);
+	var nameadf0 = getprop("/instrumentation/adf[0]/ident");
+	var freqadf1uf = getprop("/instrumentation/adf[1]/frequencies/selected-khz");
+	var freqadf1 = sprintf("%.2f", freqadf1uf);
+	var nameadf1 = getprop("/instrumentation/adf[1]/ident");
+	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+	var mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
+	var ktsmach = getprop("/it-autoflight/input/kts-mach");
+	var mngktsmach = getprop("/FMGC/internal/mng-kts-mach");
+	var mng_spd = getprop("/FMGC/internal/mng-spd");
+	var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+	var kts_sel = getprop("/it-autoflight/input/spd-kts");
+	var mach_sel = getprop("/it-autoflight/input/spd-mach");
+	var srsSPD = getprop("/it-autoflight/settings/togaspd");
+	var overspeed = getprop("/FMGC/internal/overspeed");
+	var minspeed = getprop("/FMGC/internal/minspeed");
+	var mach_switchover = getprop("/FMGC/internal/mach-switchover");
+	var decel = getprop("/FMGC/internal/decel");
+	var mng_alt_spd_cmd = getprop("/FMGC/internal/mng-alt-spd");
+	var mng_alt_spd = 0;
+	var mng_alt_mach_cmd = getprop("/FMGC/internal/mng-alt-mach");
+	var mng_alt_mach = 0;
+	var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+	var mng_spd = getprop("/FMGC/internal/mng-spd");
+});
+
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
@@ -53,11 +131,11 @@ setlistener("/gear/gear[2]/wow", func {
 });
 
 var flarecheck = func {
-	var gear1 = getprop("/gear/gear[1]/wow");
-	var gear2 = getprop("/gear/gear[2]/wow");
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
-	var flaps = getprop("/controls/flight/flap-pos");
+	gear1 = getprop("/gear/gear[1]/wow");
+	gear2 = getprop("/gear/gear[2]/wow");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
+	flaps = getprop("/controls/flight/flap-pos");
 	if (gear1 == 1 and gear2 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 4) {
 		setprop("/FMGC/status/to-state", 1);
 	}
@@ -74,8 +152,8 @@ var flarecheck = func {
 ###############
 
 var updateARPT = func {
-	var dep = getprop("/FMGC/internal/dep-arpt");
-	var arr = getprop("/FMGC/internal/arr-arpt");
+	dep = getprop("/FMGC/internal/dep-arpt");
+	arr = getprop("/FMGC/internal/arr-arpt");
 	setprop("/autopilot/route-manager/departure/airport", dep);
 	setprop("/autopilot/route-manager/destination/airport", arr);
 	if (getprop("/autopilot/route-manager/active") != 1) {
@@ -92,30 +170,30 @@ setlistener("/FMGC/internal/cruise-ft", func {
 ############################
 
 var phasecheck = maketimer(0.2, func {
-	var n1_left = getprop("/engines/engine[0]/n1");
-	var n1_right = getprop("/engines/engine[1]/n1");
-	var flaps = getprop("/controls/flight/flap-pos");
-	var modelat = getprop("/modes/pfd/fma/roll-mode");
-	var mode = getprop("/modes/pfd/fma/pitch-mode");
-	var gs = getprop("/velocities/groundspeed-kt");
-	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-	var aglalt = getprop("/position/gear-agl-ft");
-	var cruiseft = getprop("/FMGC/internal/cruise-ft");
-	var cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 200;
-	var newcruise = getprop("/it-autoflight/internal/alt");
-	var phase = getprop("/FMGC/status/phase");
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
-	var wowl = getprop("/gear/gear[1]/wow");
-	var wowr = getprop("/gear/gear[2]/wow");
-	var targetalt = getprop("/it-autoflight/internal/alt");
-	var targetvs = getprop("/it-autoflight/input/vs");
-	var targetfpa = getprop("/it-autoflight/input/fpa");
-	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
-	var reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
-	var locarm = getprop("/it-autopilot/output/loc-armed");
-	var apprarm = getprop("/it-autopilot/output/appr-armed");
-	var gear0 = getprop("/gear/gear[0]/wow");
+	n1_left = getprop("/engines/engine[0]/n1");
+	n1_right = getprop("/engines/engine[1]/n1");
+	flaps = getprop("/controls/flight/flap-pos");
+	modelat = getprop("/modes/pfd/fma/roll-mode");
+	mode = getprop("/modes/pfd/fma/pitch-mode");
+	gs = getprop("/velocities/groundspeed-kt");
+	alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+	aglalt = getprop("/position/gear-agl-ft");
+	cruiseft = getprop("/FMGC/internal/cruise-ft");
+	cruiseft_b = getprop("/FMGC/internal/cruise-ft") - 200;
+	newcruise = getprop("/it-autoflight/internal/alt");
+	phase = getprop("/FMGC/status/phase");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
+	wowl = getprop("/gear/gear[1]/wow");
+	wowr = getprop("/gear/gear[2]/wow");
+	targetalt = getprop("/it-autoflight/internal/alt");
+	targetvs = getprop("/it-autoflight/input/vs");
+	targetfpa = getprop("/it-autoflight/input/fpa");
+	vertmode = getprop("/modes/pfd/fma/pitch-mode");
+	reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
+	locarm = getprop("/it-autopilot/output/loc-armed");
+	apprarm = getprop("/it-autopilot/output/appr-armed");
+	gear0 = getprop("/gear/gear[0]/wow");
 	
 	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and (mode == "SRS") and gear0 == 1 and phase == 0) {
 		setprop("/FMGC/status/phase", "1");
@@ -157,11 +235,11 @@ var phasecheck = maketimer(0.2, func {
 	
 	if ((wowl and wowr) and (gs < 40) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
 		setprop("/FMGC/status/phase", "7");
-		var fd1 = getprop("/it-autoflight/input/fd1");
-		var fd2 = getprop("/it-autoflight/input/fd2");
-		var spd = getprop("/it-autoflight/input/spd-kts");
-		var hdg = getprop("/it-autoflight/input/hdg");
-		var alt = getprop("/it-autoflight/input/alt");
+		fd1 = getprop("/it-autoflight/input/fd1");
+		fd2 = getprop("/it-autoflight/input/fd2");
+		spd = getprop("/it-autoflight/input/spd-kts");
+		hdg = getprop("/it-autoflight/input/hdg");
+		alt = getprop("/it-autoflight/input/alt");
 		APinit();
 		FMGCinit();
 		mcdu1.MCDU_reset();
@@ -180,7 +258,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/systems/pressurization/outflowpos", "0");
 		setprop("/systems/pressurization/deltap-norm", "0");
 		setprop("/systems/pressurization/outflowpos-norm", "0");
-		var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+		altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		setprop("/systems/pressurization/cabinalt", altitude);
 		setprop("/systems/pressurization/targetalt", altitude); 
 		setprop("/systems/pressurization/diff-to-target", "0");
@@ -196,7 +274,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/systems/pressurization/cabinpsi", "0");
 	}
 	
-	var flap = getprop("/controls/flight/flap-pos");
+	flap = getprop("/controls/flight/flap-pos");
 	if (flap == 0) {
 		setprop("/FMGC/internal/overspeed", 338);
 		setprop("/FMGC/internal/minspeed", 202);
@@ -237,8 +315,7 @@ var various2 = maketimer(0.5, func {
 	nav3();
 	adf0();
 	adf1();
-	var latmode = getprop("/it-autoflight/output/lat");
-	if (latmode == 0) {
+	if (getprop("/it-autoflight/output/lat") == 0) {
 		setprop("/it-autoflight/custom/show-hdg", 1);
 	}
 });
@@ -328,29 +405,29 @@ var adf1 = func {
 var ManagedSPD = maketimer(0.25, func {
 	if (getprop("/FMGC/internal/cruise-lvl-set") == 1 and getprop("/FMGC/internal/cost-index-set") == 1) {
 		if (getprop("/it-autoflight/input/spd-managed") == 1) {
-			var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-			var mode = getprop("/modes/pfd/fma/pitch-mode");
-			var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
-			var mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
-			var ktsmach = getprop("/it-autoflight/input/kts-mach");
-			var mngktsmach = getprop("/FMGC/internal/mng-kts-mach");
-			var mng_spd = getprop("/FMGC/internal/mng-spd");
-			var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
-			var kts_sel = getprop("/it-autoflight/input/spd-kts");
-			var mach_sel = getprop("/it-autoflight/input/spd-mach");
-			var srsSPD = getprop("/it-autoflight/settings/togaspd");
-			var phase = getprop("/FMGC/status/phase"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
-			var flap = getprop("/controls/flight/flap-pos");
-			var overspeed = getprop("/FMGC/internal/overspeed");
-			var minspeed = getprop("/FMGC/internal/minspeed");
-			var mach_switchover = getprop("/FMGC/internal/mach-switchover");
-			var decel = getprop("/FMGC/internal/decel");
+			altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+			mode = getprop("/modes/pfd/fma/pitch-mode");
+			ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+			mach = getprop("/instrumentation/airspeed-indicator/indicated-mach");
+			ktsmach = getprop("/it-autoflight/input/kts-mach");
+			mngktsmach = getprop("/FMGC/internal/mng-kts-mach");
+			mng_spd = getprop("/FMGC/internal/mng-spd");
+			mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+			kts_sel = getprop("/it-autoflight/input/spd-kts");
+			mach_sel = getprop("/it-autoflight/input/spd-mach");
+			srsSPD = getprop("/it-autoflight/settings/togaspd");
+			phase = getprop("/FMGC/status/phase"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
+			flap = getprop("/controls/flight/flap-pos");
+			overspeed = getprop("/FMGC/internal/overspeed");
+			minspeed = getprop("/FMGC/internal/minspeed");
+			mach_switchover = getprop("/FMGC/internal/mach-switchover");
+			decel = getprop("/FMGC/internal/decel");
 			
-			var mng_alt_spd_cmd = getprop("/FMGC/internal/mng-alt-spd");
-			var mng_alt_spd = math.round(mng_alt_spd_cmd, 1);
+			mng_alt_spd_cmd = getprop("/FMGC/internal/mng-alt-spd");
+			mng_alt_spd = math.round(mng_alt_spd_cmd, 1);
 			
-			var mng_alt_mach_cmd = getprop("/FMGC/internal/mng-alt-mach");
-			var mng_alt_mach = math.round(mng_alt_mach_cmd, 0.001);
+			mng_alt_mach_cmd = getprop("/FMGC/internal/mng-alt-mach");
+			mng_alt_mach = math.round(mng_alt_mach_cmd, 0.001);
 			
 			if (mach > mng_alt_mach and phase == 2) {
 				setprop("/FMGC/internal/mach-switchover", 1);
@@ -367,42 +444,42 @@ var ManagedSPD = maketimer(0.25, func {
 				if (mng_spd_cmd != srsSPD) {
 					setprop("/FMGC/internal/mng-spd-cmd", srsSPD);
 				}
-			} else if (phase == 2 and alt <= 10050) {
+			} else if (phase == 2 and altitude <= 10050) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
 				if (mng_spd_cmd != 250) {
 					setprop("/FMGC/internal/mng-spd-cmd", 250);
 				}
-			} else if ((phase == 2 or phase == 3) and alt > 10100 and !mach_switchover) {
+			} else if ((phase == 2 or phase == 3) and altitude > 10100 and !mach_switchover) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
 				if (mng_spd_cmd != mng_alt_spd) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_spd);
 				}
-			} else if ((phase == 2 or phase == 3) and alt > 10100 and mach_switchover) {
+			} else if ((phase == 2 or phase == 3) and altitude > 10100 and mach_switchover) {
 				if (!mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 1);
 				}
 				if (mng_spd_cmd != mng_alt_mach) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_mach);
 				}
-			} else if (phase == 4 and alt > 11100 and !mach_switchover) {
+			} else if (phase == 4 and altitude > 11100 and !mach_switchover) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
 				if (mng_spd_cmd != mng_alt_spd) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_spd);
 				}
-			} else if (phase == 4 and alt > 11100 and mach_switchover) {
+			} else if (phase == 4 and altitude > 11100 and mach_switchover) {
 				if (!mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 1);
 				}
 				if (mng_spd_cmd != mng_alt_mach) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_mach);
 				}
-			} else if ((phase == 4 or phase == 5 or phase == 6) and alt <= 11050) {
+			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude <= 11050) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
@@ -413,7 +490,7 @@ var ManagedSPD = maketimer(0.25, func {
 				}
 			}
 			
-			var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
+			mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
 			
 			if (mng_spd_cmd > overspeed) {
 				setprop("/FMGC/internal/mng-spd", overspeed);
@@ -427,7 +504,7 @@ var ManagedSPD = maketimer(0.25, func {
 				setprop("/it-autoflight/input/kts-mach", 1);
 			}
 			
-			var mng_spd = getprop("/FMGC/internal/mng-spd");
+			mng_spd = getprop("/FMGC/internal/mng-spd");
 			
 			if (kts_sel != mng_spd and !ktsmach) {
 				setprop("/it-autoflight/input/spd-kts", mng_spd);
