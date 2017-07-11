@@ -221,11 +221,16 @@ var adirs_display = func() {
 				setprop("/controls/adirs/display/text", "- - - - - - - - ");
 			}
 		} else if ( data_knob == 5 ) {
-			# Time to Nav
 			if ( ((selected_ir == 2) and getprop("/instrumentation/adirs/ir[0]/aligned")) or
 				((selected_ir == 3) and getprop("/instrumentation/adirs/ir[2]/aligned")) or
 				((selected_ir == 4) and getprop("/instrumentation/adirs/ir[1]/aligned")) ) {
-					setprop("/controls/adirs/display/text", sprintf("   %3.1f", getprop("/orientation/heading-deg")) ~ "- - - - ");
+					var lat = getprop("/position/latitude-deg");
+					var lon = getprop("/position/longitude-deg");
+					if ((lat > 82) or (lat < -60) or (lon < -90 and lon > -120 and lat > 73)) { 
+						setprop("/controls/adirs/display/text", sprintf("   %3.1f", getprop("/orientation/heading-deg")) ~ "- - - - "); # this is true heading
+					} else {
+						setprop("/controls/adirs/display/text", sprintf("   %3.1f", getprop("/orientation/heading-magnetic-deg")) ~ "- - - - ");
+					}
 			} else {
 				if ( (selected_ir == 2) and getprop("/controls/adirs/ir[0]/align") ) {
 					setprop("controls/adirs/display/text", "- - - - " ~ sprintf(" TTN %2i", (getprop("/instrumentation/adirs/ir[0]/display/ttn") / 60)));
