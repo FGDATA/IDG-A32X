@@ -32,6 +32,12 @@ setprop("/systems/apu/rpm", 0);
 setprop("/systems/apu/egt", 42);
 setprop("/controls/engines/engine[0]/reverser", 0);
 setprop("/controls/engines/engine[1]/reverser", 0);
+setprop("/controls/engines/engine[0]/igniter-a", 0);
+setprop("/controls/engines/engine[1]/igniter-a", 0);
+setprop("/controls/engines/engine[0]/igniter-b", 0);
+setprop("/controls/engines/engine[1]/igniter-b", 0);
+setprop("/controls/engines/engine[0]/last-igniter", "B");
+setprop("/controls/engines/engine[1]/last-igniter", "B");
 
 var eng_init = func {
 	setprop("/controls/engines/engine[0]/man-start", 0);
@@ -54,6 +60,8 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 		eng_one_auto_startt.stop();
 		eng_one_man_startt.stop();
 		eng_one_n2_checkt.stop();
+		setprop("/controls/engines/engine[0]/igniter-a", 0);
+		setprop("/controls/engines/engine[0]/igniter-b", 0);
 		setprop("/controls/engines/engine[0]/man-start", 0);
 		setprop("/systems/pneumatic/eng1-starter", 0);
 		setprop("/controls/engines/engine[0]/starter", 0);
@@ -70,10 +78,12 @@ setlistener("/controls/engines/engine[0]/man-start", func {
 
 var start_one_mancheck = func {
 	if (getprop("/controls/engines/engine[0]/man-start") == 1) {
-		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28) and (getprop("/controls/engines/engine[0]/cutoff-switch") == 1)) {
+		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/engines/engine[0]/cutoff-switch") == 1)) {
 			setprop("/systems/pneumatic/eng1-starter", 1);
-			setprop("/engines/engine[0]/state", 1);
-			setprop("/controls/engines/engine[0]/starter", 1);
+			if (getprop("/systems/pneumatic/total-psi") >= 28) {
+				setprop("/engines/engine[0]/state", 1);
+				setprop("/controls/engines/engine[0]/starter", 1);
+			}
 		}
 	} else {
 		if (getprop("/engines/engine[0]/state") == 1 or getprop("/engines/engine[0]/state") == 2) {
@@ -85,7 +95,7 @@ var start_one_mancheck = func {
 }
 
 var start_one_check = func {
-	settimer(start_one_check_b, 0.3);
+	settimer(start_one_check_b, 0.5);
 }
 
 var start_one_check_b = func {
@@ -106,6 +116,8 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 		eng_two_auto_startt.stop();
 		eng_two_man_startt.stop();
 		eng_two_n2_checkt.stop();
+		setprop("/controls/engines/engine[1]/igniter-a", 0);
+		setprop("/controls/engines/engine[1]/igniter-b", 0);
 		setprop("/controls/engines/engine[1]/man-start", 0);
 		setprop("/systems/pneumatic/eng2-starter", 0);
 		setprop("/controls/engines/engine[1]/starter", 0);
@@ -121,10 +133,12 @@ setlistener("/controls/engines/engine[1]/man-start", func {
 
 var start_two_mancheck = func {
 	if (getprop("/controls/engines/engine[1]/man-start") == 1) {
-		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/systems/pneumatic/total-psi") >= 28) and (getprop("/controls/engines/engine[1]/cutoff-switch") == 1)) {
+		if ((getprop("/controls/engines/engine-start-switch") == 2) and (getprop("/controls/engines/engine[1]/cutoff-switch") == 1)) {
 			setprop("/systems/pneumatic/eng2-starter", 1);
-			setprop("/engines/engine[1]/state", 1);
-			setprop("/controls/engines/engine[1]/starter", 1);
+			if (getprop("/systems/pneumatic/total-psi") >= 28) {
+				setprop("/engines/engine[1]/state", 1);
+				setprop("/controls/engines/engine[1]/starter", 1);
+			}
 		}
 	} else {
 		if (getprop("/engines/engine[1]/state") == 1 or getprop("/engines/engine[1]/state") == 2) {
@@ -136,7 +150,7 @@ var start_two_mancheck = func {
 }
 
 var start_two_check = func {
-	settimer(start_two_check_b, 0.3);
+	settimer(start_two_check_b, 0.5);
 }
 
 var start_two_check_b = func {
@@ -157,21 +171,32 @@ var auto_start_one = func {
 
 var eng_one_auto_start = func {
 	if (getprop("/engines/engine[0]/n2") >= 24.1) {
+		eng_one_auto_startt.stop();
 		setprop("/engines/engine[0]/state", 2);
 		setprop("/controls/engines/engine[0]/cutoff", 0);
+		if (getprop("/controls/engines/engine[0]/last-igniter") == "B") {
+			setprop("/controls/engines/engine[0]/igniter-a", 1);
+			setprop("/controls/engines/engine[0]/igniter-b", 0);
+			setprop("/controls/engines/engine[0]/last-igniter", "A");
+		} else if (getprop("/controls/engines/engine[0]/last-igniter") == "A") {
+			setprop("/controls/engines/engine[0]/igniter-a", 0);
+			setprop("/controls/engines/engine[0]/igniter-b", 1);
+			setprop("/controls/engines/engine[0]/last-igniter", "B");
+		}
 		interpolate(engines[0].getNode("egt-actual"), egt_start, egt_lightup_time);
 		eng_one_n2_checkt.start();
-		eng_one_auto_startt.stop();
 	}
 }
 
 var eng_one_man_start = func {
 	if (getprop("/engines/engine[0]/n2") >= 16.7) {
+		eng_one_man_startt.stop();
 		setprop("/engines/engine[0]/state", 2);
 		setprop("/controls/engines/engine[0]/cutoff", 0);
+		setprop("/controls/engines/engine[0]/igniter-a", 1);
+		setprop("/controls/engines/engine[0]/igniter-b", 1);
 		interpolate(engines[0].getNode("egt-actual"), egt_start, egt_lightup_time);
 		eng_one_n2_checkt.start();
-		eng_one_man_startt.stop();
 	}
 }
 
@@ -179,10 +204,12 @@ var eng_one_n2_check = func {
 	if (getprop("/engines/engine[0]/egt-actual") >= egt_start) {
 		interpolate(engines[0].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[0]/n2") >= 55.8) {
+	if (getprop("/engines/engine[0]/n2") >= 43.0) {
+		eng_one_n2_checkt.stop();
+		setprop("/controls/engines/engine[0]/igniter-a", 0);
+		setprop("/controls/engines/engine[0]/igniter-b", 0);
 		setprop("/systems/pneumatic/eng1-starter", 0);
 		setprop("/engines/engine[0]/state", 3);
-		eng_one_n2_checkt.stop();
 	}
 }
 
@@ -198,21 +225,32 @@ var auto_start_two = func {
 
 var eng_two_auto_start = func {
 	if (getprop("/engines/engine[1]/n2") >= 24.1) {
+		eng_two_auto_startt.stop();
 		setprop("/engines/engine[1]/state", 2);
 		setprop("/controls/engines/engine[1]/cutoff", 0);
+		if (getprop("/controls/engines/engine[1]/last-igniter") == "B") {
+			setprop("/controls/engines/engine[1]/igniter-a", 1);
+			setprop("/controls/engines/engine[1]/igniter-b", 0);
+			setprop("/controls/engines/engine[1]/last-igniter", "A");
+		} else if (getprop("/controls/engines/engine[1]/last-igniter") == "A") {
+			setprop("/controls/engines/engine[1]/igniter-a", 0);
+			setprop("/controls/engines/engine[1]/igniter-b", 1);
+			setprop("/controls/engines/engine[1]/last-igniter", "B");
+		}
 		interpolate(engines[1].getNode("egt-actual"), egt_start, egt_lightup_time);
 		eng_two_n2_checkt.start();
-		eng_two_auto_startt.stop();
 	}
 }
 
 var eng_two_man_start = func {
 	if (getprop("/engines/engine[1]/n2") >= 16.7) {
+		eng_two_man_startt.stop();
 		setprop("/engines/engine[1]/state", 2);
 		setprop("/controls/engines/engine[1]/cutoff", 0);
+		setprop("/controls/engines/engine[1]/igniter-a", 1);
+		setprop("/controls/engines/engine[1]/igniter-b", 1);
 		interpolate(engines[1].getNode("egt-actual"), egt_start, egt_lightup_time);
 		eng_two_n2_checkt.start();
-		eng_two_man_startt.stop();
 	}
 }
 
@@ -220,10 +258,12 @@ var eng_two_n2_check = func {
 	if (getprop("/engines/engine[1]/egt-actual") >= egt_start) {
 		interpolate(engines[1].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[1]/n2") >= 55.8) {
+	if (getprop("/engines/engine[1]/n2") >= 43.0) {
+		eng_two_n2_checkt.stop();
+		setprop("/controls/engines/engine[1]/igniter-a", 0);
+		setprop("/controls/engines/engine[1]/igniter-b", 0);
 		setprop("/systems/pneumatic/eng2-starter", 0);
 		setprop("/engines/engine[1]/state", 3);
-		eng_two_n2_checkt.stop();
 	}
 }
 
