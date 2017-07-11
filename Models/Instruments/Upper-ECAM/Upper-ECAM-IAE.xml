@@ -1207,8 +1207,8 @@
     	<object-name>epr1</object-name>
     	<property>/engines/engine/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1231,8 +1231,8 @@
     	<object-name>epr2</object-name>
     	<property>/engines/engine[1]/epr-actual</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1255,8 +1255,8 @@
     	<object-name>eprlimy1</object-name>
     	<property>/systems/thrust/epr/toga-lim</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1279,8 +1279,8 @@
     	<object-name>eprlimy2</object-name>
     	<property>/systems/thrust/epr/toga-lim</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1303,8 +1303,8 @@
     	<object-name>thrpos1</object-name>
     	<property>/engines/engine[0]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1327,8 +1327,8 @@
     	<object-name>thrpos2</object-name>
     	<property>/engines/engine[1]/epr-cmd</property>
 		<interpolation>
-			<entry><ind>0.990</ind><dep>-113</dep></entry>
-			<entry><ind>1.000</ind><dep>-105</dep></entry>
+			<entry><ind>0.990</ind><dep>-119</dep></entry>
+			<entry><ind>1.000</ind><dep>-113</dep></entry>
 			<entry><ind>1.200</ind><dep> -45</dep></entry>
 			<entry><ind>1.400</ind><dep>  15</dep></entry>
 			<entry><ind>1.600</ind><dep>  67</dep></entry>
@@ -1397,10 +1397,10 @@
     	<object-name>n11</object-name>
     	<property>/engines/engine/n1</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1419,10 +1419,10 @@
     	<object-name>n12</object-name>
     	<property>/engines/engine[1]/n1</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1441,10 +1441,10 @@
     	<object-name>n1limy1</object-name>
     	<property>/systems/thrust/n1/toga-lim</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1463,10 +1463,10 @@
     	<object-name>n1limy2</object-name>
     	<property>/systems/thrust/n1/toga-lim</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1485,10 +1485,10 @@
     	<object-name>n1pos1</object-name>
     	<property>/engines/engine[0]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
@@ -1507,10 +1507,10 @@
     	<object-name>n1pos2</object-name>
     	<property>/engines/engine[1]/n1-cmd</property>
 		<interpolation>
-			<entry><ind> 22.4</ind><dep>-107</dep></entry>
-			<entry><ind> 40.0</ind><dep> -61</dep></entry>
-			<entry><ind>100.0</ind><dep>  46</dep></entry>
-			<entry><ind>110.0</ind><dep>  59</dep></entry>
+			<entry><ind> 22.4</ind><dep>-111</dep></entry>
+			<entry><ind> 40.0</ind><dep> -66</dep></entry>
+			<entry><ind>100.0</ind><dep>  53</dep></entry>
+			<entry><ind>110.0</ind><dep>  70</dep></entry>
 		</interpolation>
     	<center>
     		<x-m>0</x-m>
