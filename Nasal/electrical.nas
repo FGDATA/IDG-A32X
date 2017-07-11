@@ -12,6 +12,53 @@ var dc_volt_min = 25;
 var dc_amps_std = 150;
 var ac_hz_std = 400;
 
+setlistener("/sim/signals/fdm-initialized", func {
+	var galley_sw = getprop("/controls/electrical/switches/galley");
+	var idg1_sw = getprop("/controls/electrical/switches/idg1");
+	var idg2_sw = getprop("/controls/electrical/switches/idg2");
+	var gen1_sw = getprop("/controls/electrical/switches/gen1");
+	var gen2_sw = getprop("/controls/electrical/switches/gen2");
+	var gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
+	var gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
+	var apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
+	var ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
+	var battery1_sw = getprop("/controls/electrical/switches/battery1");
+	var battery2_sw = getprop("/controls/electrical/switches/battery2");
+	var battery1_volts = getprop("/systems/electrical/battery1-volts");
+	var battery2_volts = getprop("/systems/electrical/battery2-volts");
+	var rpmapu = getprop("/systems/apu/rpm");
+	var extpwr_on = getprop("/controls/switches/cart");
+	var stateL = getprop("/engines/engine[0]/state");
+	var stateR = getprop("/engines/engine[1]/state");
+	var xtieL = getprop("/controls/electrical/xtie/xtieL");
+	var xtieR = getprop("/controls/electrical/xtie/xtieR");
+	var ac1 = getprop("/systems/electrical/bus/ac1");
+	var ac2 = getprop("/systems/electrical/bus/ac2");
+	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var dc1 = getprop("/systems/electrical/bus/dc1");
+	var dc2 = getprop("/systems/electrical/bus/dc2");
+	var dcbat = getprop("/systems/electrical/bus/dcbat");
+	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
+	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
+	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
+	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
+	var emergen = getprop("/controls/electrical/switches/emer-gen");
+	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+	var rat = getprop("/controls/hydraulic/rat");
+	var manrat = getprop("/controls/hydraulic/rat-man");
+	var ac_ess_fail = getprop("/systems/failures/elec-ac-ess");
+	var batt1_fail = getprop("/systems/failures/elec-batt1");
+	var batt2_fail = getprop("/systems/failures/elec-batt2");
+	var gallery_fail = getprop("/systems/failures/elec-galley");
+	var genapu_fail = getprop("/systems/failures/elec-genapu");
+	var gen1_fail = getprop("/systems/failures/elec-gen1");
+	var gen2_fail = getprop("/systems/failures/elec-gen2");
+	var bat1_volts = getprop("/systems/electrical/battery1-volts");
+	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+});
+
 var elec_init = func {
 	setprop("/controls/switches/annun-test", 0);
 	setprop("/controls/electrical/switches/galley", 1);
@@ -95,48 +142,48 @@ var elec_init = func {
 ######################
 
 var master_elec = func {
-	var galley_sw = getprop("/controls/electrical/switches/galley");
-	var idg1_sw = getprop("/controls/electrical/switches/idg1");
-	var idg2_sw = getprop("/controls/electrical/switches/idg2");
-	var gen1_sw = getprop("/controls/electrical/switches/gen1");
-	var gen2_sw = getprop("/controls/electrical/switches/gen2");
-	var gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
-	var gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
-	var apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
-	var ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
-	var battery1_sw = getprop("/controls/electrical/switches/battery1");
-	var battery2_sw = getprop("/controls/electrical/switches/battery2");
-	var battery1_volts = getprop("/systems/electrical/battery1-volts");
-	var battery2_volts = getprop("/systems/electrical/battery2-volts");
-	var rpmapu = getprop("/systems/apu/rpm");
-	var extpwr_on = getprop("/controls/switches/cart");
-	var stateL = getprop("/engines/engine[0]/state");
-	var stateR = getprop("/engines/engine[1]/state");
-	var xtieL = getprop("/controls/electrical/xtie/xtieL");
-	var xtieR = getprop("/controls/electrical/xtie/xtieR");
-	var ac1 = getprop("/systems/electrical/bus/ac1");
-	var ac2 = getprop("/systems/electrical/bus/ac2");
-	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
-	var dc1 = getprop("/systems/electrical/bus/dc1");
-	var dc2 = getprop("/systems/electrical/bus/dc2");
-	var dcbat = getprop("/systems/electrical/bus/dcbat");
-	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
-	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
-	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
-	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
-	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
-	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
-	var emergen = getprop("/controls/electrical/switches/emer-gen");
-	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
-	var rat = getprop("/controls/hydraulic/rat");
-	var manrat = getprop("/controls/hydraulic/rat-man");
-	var ac_ess_fail = getprop("/systems/failures/elec-ac-ess");
-	var batt1_fail = getprop("/systems/failures/elec-batt1");
-	var batt2_fail = getprop("/systems/failures/elec-batt2");
-	var gallery_fail = getprop("/systems/failures/elec-galley");
-	var genapu_fail = getprop("/systems/failures/elec-genapu");
-	var gen1_fail = getprop("/systems/failures/elec-gen1");
-	var gen2_fail = getprop("/systems/failures/elec-gen2");
+	galley_sw = getprop("/controls/electrical/switches/galley");
+	idg1_sw = getprop("/controls/electrical/switches/idg1");
+	idg2_sw = getprop("/controls/electrical/switches/idg2");
+	gen1_sw = getprop("/controls/electrical/switches/gen1");
+	gen2_sw = getprop("/controls/electrical/switches/gen2");
+	gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
+	gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
+	apu_ext_crosstie_sw = getprop("/controls/electrical/switches/apu-ext-crosstie");
+	ac_ess_feed_sw = getprop("/controls/electrical/switches/ac-ess-feed");
+	battery1_sw = getprop("/controls/electrical/switches/battery1");
+	battery2_sw = getprop("/controls/electrical/switches/battery2");
+	battery1_volts = getprop("/systems/electrical/battery1-volts");
+	battery2_volts = getprop("/systems/electrical/battery2-volts");
+	rpmapu = getprop("/systems/apu/rpm");
+	extpwr_on = getprop("/controls/switches/cart");
+	stateL = getprop("/engines/engine[0]/state");
+	stateR = getprop("/engines/engine[1]/state");
+	xtieL = getprop("/controls/electrical/xtie/xtieL");
+	xtieR = getprop("/controls/electrical/xtie/xtieR");
+	ac1 = getprop("/systems/electrical/bus/ac1");
+	ac2 = getprop("/systems/electrical/bus/ac2");
+	ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	dc1 = getprop("/systems/electrical/bus/dc1");
+	dc2 = getprop("/systems/electrical/bus/dc2");
+	dcbat = getprop("/systems/electrical/bus/dcbat");
+	dc_ess = getprop("/systems/electrical/bus/dc-ess");
+	gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
+	gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	galley_shed = getprop("/systems/electrical/extra/galleyshed");
+	bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
+	bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
+	emergen = getprop("/controls/electrical/switches/emer-gen");
+	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+	rat = getprop("/controls/hydraulic/rat");
+	manrat = getprop("/controls/hydraulic/rat-man");
+	ac_ess_fail = getprop("/systems/failures/elec-ac-ess");
+	batt1_fail = getprop("/systems/failures/elec-batt1");
+	batt2_fail = getprop("/systems/failures/elec-batt2");
+	gallery_fail = getprop("/systems/failures/elec-galley");
+	genapu_fail = getprop("/systems/failures/elec-genapu");
+	gen1_fail = getprop("/systems/failures/elec-gen1");
+	gen2_fail = getprop("/systems/failures/elec-gen2");
 	
 	if (rpmapu >= 94.9 and gen_apu_sw) {
 		setprop("/systems/electrical/gen-apu", 1);
@@ -150,8 +197,8 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-ext", 0);
 	}
 	
-	var gen_apu = getprop("/systems/electrical/gen-apu");
-	var gen_ext = getprop("/systems/electrical/gen-ext");
+	gen_apu = getprop("/systems/electrical/gen-apu");
+	gen_ext = getprop("/systems/electrical/gen-ext");
 	
 	# Left cross tie yes?
 	if (extpwr_on and gen_ext_sw) {
@@ -296,8 +343,8 @@ var master_elec = func {
 		setprop("/systems/electrical/extra/apu-hz", 0);
 	}
 	
-	var ac1 = getprop("/systems/electrical/bus/ac1");
-	var ac2 = getprop("/systems/electrical/bus/ac2");
+	ac1 = getprop("/systems/electrical/bus/ac1");
+	ac2 = getprop("/systems/electrical/bus/ac2");
 	
 	if (!ac_ess_fail and (ac1 >= 110 or ac2 >= 110)) {
 		setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
@@ -305,7 +352,7 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/ac-ess", 0);
 	}
 	
-	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	
 	if (ac_ess >= 110 and !gallery_fail) {
 		if (galley_sw == 1 and !galley_shed) { 
@@ -478,18 +525,18 @@ var update_electrical = func {
 var elec_timer = maketimer(0.2, update_electrical);
 
 var charge1 = maketimer(6, func {
-	var bat1_volts = getprop("/systems/electrical/battery1-volts");
+	bat1_volts = getprop("/systems/electrical/battery1-volts");
 	setprop("/systems/electrical/battery1-volts", bat1_volts + 0.1);
 });
 var charge2 = maketimer(6, func {
-	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
 });
 var decharge1 = maketimer(69, func { # interval is at 69 seconds, to allow about 30 min from 25.9
-	var bat1_volts = getprop("/systems/electrical/battery1-volts");
+	bat1_volts = getprop("/systems/electrical/battery1-volts");
 	setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
 });
 var decharge2 = maketimer(69, func {
-	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });

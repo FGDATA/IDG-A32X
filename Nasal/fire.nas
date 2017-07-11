@@ -5,6 +5,29 @@
 # Init Vars #
 #############
 
+setlistener("/sim/signals/fdm-initialized", func {
+	var level = getprop("/systems/fire/cargo/bottlelevel");
+	var fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
+	var aftsquib = getprop("/systems/fire/cargo/aftsquib");
+	var fwddet = getprop("/systems/fire/cargo/fwddet");
+	var aftdet = getprop("/systems/fire/cargo/aftdet");
+	var test = getprop("/controls/fire/cargo/test");
+	var guard1 = getprop("/controls/fire/cargo/fwdguard");
+	var guard2 = getprop("/controls/fire/cargo/aftguard");
+	var dischpb1 = getprop("/controls/fire/cargo/fwddisch"); 
+	var dischpb2 = getprop("/controls/fire/cargo/aftdisch");
+	var smokedet1 = getprop("/controls/fire/cargo/fwdsmokeLight");
+	var smokedet2 = getprop("/controls/fire/cargo/aftsmokeLight");
+	var bottleIsEmpty = getprop("/controls/fire/cargo/bottleempty");
+	var WeCanExt = getprop("/controls/fire/cargo/status");
+	var test2 = getprop("/systems/fire/cargo/test");
+	var state = getprop("/controls/fire/cargo/test/state");
+	var dc1 = getprop("/systems/electrical/bus/dc1");
+	var dc2 = getprop("/systems/electrical/bus/dc2");
+	var dcbat = getprop("/systems/electrical/bus/dcbat");
+	var pause = getprop("/sim/freeze/master");
+});
+
 var fire_init = func {
 	setprop("/systems/fire/cargo/fwddet", 0);
 	setprop("/systems/fire/cargo/aftdet", 0);
@@ -37,26 +60,26 @@ var fire_init = func {
 # Main Loops #
 ##############
 var master_fire = func {
-	var level = getprop("/systems/fire/cargo/bottlelevel");
-	var fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
-	var aftsquib = getprop("/systems/fire/cargo/aftsquib");
-	var fwddet = getprop("/systems/fire/cargo/fwddet");
-	var aftdet = getprop("/systems/fire/cargo/aftdet");
-	var test = getprop("/controls/fire/cargo/test");
-	var guard1 = getprop("/controls/fire/cargo/fwdguard");
-	var guard2 = getprop("/controls/fire/cargo/aftguard");
-	var dischpb1 = getprop("/controls/fire/cargo/fwddisch"); 
-	var dischpb2 = getprop("/controls/fire/cargo/aftdisch");
-	var smokedet1 = getprop("/controls/fire/cargo/fwdsmokeLight");
-	var smokedet2 = getprop("/controls/fire/cargo/aftsmokeLight");
-	var bottleIsEmpty = getprop("/controls/fire/cargo/bottleempty");
-	var WeCanExt = getprop("/controls/fire/cargo/status");
-	var test2 = getprop("/systems/fire/cargo/test");
-	var state = getprop("/controls/fire/cargo/test/state");
-	var dc1 = getprop("/systems/electrical/bus/dc1");
-	var dc2 = getprop("/systems/electrical/bus/dc2");
-	var dcbat = getprop("/systems/electrical/bus/dcbat");
-	var pause = getprop("/sim/freeze/master");
+	level = getprop("/systems/fire/cargo/bottlelevel");
+	fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
+	aftsquib = getprop("/systems/fire/cargo/aftsquib");
+	fwddet = getprop("/systems/fire/cargo/fwddet");
+	aftdet = getprop("/systems/fire/cargo/aftdet");
+	test = getprop("/controls/fire/cargo/test");
+	guard1 = getprop("/controls/fire/cargo/fwdguard");
+	guard2 = getprop("/controls/fire/cargo/aftguard");
+	dischpb1 = getprop("/controls/fire/cargo/fwddisch"); 
+	dischpb2 = getprop("/controls/fire/cargo/aftdisch");
+	smokedet1 = getprop("/controls/fire/cargo/fwdsmokeLight");
+	smokedet2 = getprop("/controls/fire/cargo/aftsmokeLight");
+	bottleIsEmpty = getprop("/controls/fire/cargo/bottleempty");
+	WeCanExt = getprop("/controls/fire/cargo/status");
+	test2 = getprop("/systems/fire/cargo/test");
+	state = getprop("/controls/fire/cargo/test/state");
+	dc1 = getprop("/systems/electrical/bus/dc1");
+	dc2 = getprop("/systems/electrical/bus/dc2");
+	dcbat = getprop("/systems/electrical/bus/dcbat");
+	pause = getprop("/sim/freeze/master");
 	
 	###################
 	# Detection Logic #
@@ -86,9 +109,8 @@ var master_fire = func {
 		}
 	}
 	
-	if (dischpb1 and fwdsqib and !bottleIsEmpty and !puase) {
-		var bottle = getprop("/systems/fire/cargo/bottlelevel");
-		setprop("/systems/fire/cargo/bottlelevel", bottle - 0.166);
+	if (dischpb1 and fwdsquib and !bottleIsEmpty and !pause) {
+		setprop("/systems/fire/cargo/bottlelevel", getprop("/systems/fire/cargo/bottlelevel") - 0.166);
 	}
 	
 	if (dischpb2) {
@@ -97,30 +119,24 @@ var master_fire = func {
 		}
 	}
 	
-	if (dischpb1 and fwdsqib and !bottleIsEmpty and !puase) {
-		var bottle = getprop("/systems/fire/cargo/bottlelevel");
-		setprop("/systems/fire/cargo/bottlelevel", bottle - 0.166);
-	}
-	
 	#################
 	# Test Sequence #
 	#################
 	
-	setlistener("/controls/fire/cargo/test", func {
-		var test = getprop("/controls/fire/cargo/test");
-		if (test) {
-			setprop("/systems/fire/cargo/test", 1);
-		}
-	});
+	if (getprop("/controls/fire/cargo/test")) {
+		setprop("/systems/fire/cargo/test", 1);
+	} else {
+		setprop("/systems/fire/cargo/test", 0);
+	}
 	
 	if (test2 and state == 0) {
-			setprop("/controls/fire/cargo/fwdsmokeLight", 1);
-			setprop("/controls/fire/cargo/warnfwd", 1);
-			settimer(func(){
-				setprop("/controls/fire/cargo/fwdsmokeLight", 0);
-				setprop("/controls/fire/cargo/warnfwd", 0);
-				setprop("/controls/fire/cargo/test/state", 1);
-			}, 0.5);
+		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnfwd", 1);
+		settimer(func(){
+			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
+			setprop("/controls/fire/cargo/warnfwd", 0);
+			setprop("/controls/fire/cargo/test/state", 1);
+		}, 0.5);
 	} else if (test2 and state == 1) {
 		setprop("/controls/fire/cargo/aftsmokeLight", 1);
 		setprop("/controls/fire/cargo/warnaft", 1);
