@@ -317,8 +317,8 @@ var taxi_c = func {
 var taxi_d = func {
 	# Start engine 1.
 	setprop("/controls/engines/engine[0]/cutoff-switch", 0);
-	var eng_one_chk = setlistener("/engines/engine[0]/state", func {
-		if (getprop("/engines/engine[0]/state") == 3) {
+	var eng_one_chk = setlistener("/engines/engine[0]/n2", func {
+		if (getprop("/engines/engine[0]/n2") >= 58.0) {
 			removelistener(eng_one_chk);
 			taxi_e();
 		}
