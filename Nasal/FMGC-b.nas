@@ -10,6 +10,9 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
 	var locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
 	var signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
+	var VS = getprop("/velocities/vertical-speed-fps");
+	var TAS = getprop("/velocities/uBody-fps");
+	var FPangle = 0;
 });
 
 var APinit = func {
@@ -350,7 +353,6 @@ var vertical = func {
 		var altinput = getprop("/it-autoflight/input/alt");
 		setprop("/it-autoflight/internal/alt", altinput);
 		var fpanow = (int(10*getprop("/it-autoflight/internal/fpa")))*0.1;
-		print(fpanow);
 		setprop("/it-autoflight/input/fpa", fpanow);
 		setprop("/it-autoflight/output/vert", 5);
 		setprop("/it-autoflight/mode/vert", "FPA");
@@ -465,12 +467,12 @@ var alt_on = func {
 }
 
 var fpa_calc = func {
-	var VS = getprop("/velocities/vertical-speed-fps");
-	var TAS = getprop("/velocities/uBody-fps");
+	VS = getprop("/velocities/vertical-speed-fps");
+	TAS = getprop("/velocities/uBody-fps");
 	if (TAS < 10) TAS = 10;
 	if (VS < -200) VS =-200;
 	if (abs(VS/TAS) <= 1) {
-		var FPangle = math.asin(VS/TAS);
+		FPangle = math.asin(VS/TAS);
 		FPangle *=90;
 		setprop("/it-autoflight/internal/fpa", FPangle);
 	}
