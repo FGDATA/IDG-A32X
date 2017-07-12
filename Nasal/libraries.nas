@@ -209,31 +209,15 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var librariesLoop = maketimer(0.1, func {
-	var groundpwr = getprop("/controls/switches/cart");
-	var groundair = getprop("/controls/pneumatic/switches/groundair");
-	var gs = getprop("/velocities/groundspeed-kt");
-	var parkbrake = getprop("controls/gear/brake-parking");
-	
-	if ((groundair or groundpwr) and ((gs > 2) or !parkbrake)) {
+	if ((getprop("/controls/pneumatic/switches/groundair") or getprop("/controls/switches/cart")) and ((getprop("/velocities/groundspeed-kt") > 2) or getprop("controls/gear/brake-parking") == 0)) {
 		setprop("/controls/switches/cart", 0);
 		setprop("/controls/pneumatic/switches/groundair", 0);
 	}
 	
-	var V = getprop("/velocities/groundspeed-kt");
-
-	if (V > 15) {
+	if (getprop("/velocities/groundspeed-kt") > 15) {
 		setprop("/systems/shake/effect", 1);
 	} else {
 		setprop("/systems/shake/effect", 0);
-	}
-	
-	var trueSpeedKts = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
-	if(trueSpeedKts > 420) {
-		setprop("/it-autoflight/internal/bank-limit", 15);
-	} else if(trueSpeedKts > 340) {
-		setprop("/it-autoflight/internal/bank-limit", 20);
-	} else {
-		setprop("/it-autoflight/internal/bank-limit", 25);
 	}
 	
 	if (getprop("/it-autoflight/custom/show-hdg") == 0 and getprop("/it-autoflight/output/lat") != 4) {
