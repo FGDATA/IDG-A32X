@@ -600,7 +600,7 @@
 		<name>txt.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0600</y-m>
+			<y-m>-0.0575</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
@@ -624,7 +624,7 @@
 		<name>txt.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
+			<y-m>-0.002</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
@@ -648,7 +648,7 @@
 		<name>XX.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0600</y-m>
+			<y-m>-0.0575</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
@@ -672,7 +672,7 @@
 		<name>XX.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0035</y-m>
+			<y-m>-0.002</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
