@@ -981,7 +981,7 @@ var mng_des_spd = func {
 	setprop("/it-autoflight/output/thr-mode", 1);
 	setprop("/it-autoflight/mode/thr", " PITCH");
 	setprop("/it-autoflight/output/mng-vert", 4);
-	setprop("/it-autoflight/mode/mng", "MNG DES");
+	setprop("/it-autoflight/mode/vert", "MNG DES");
 	mng_altcaptt.start();
 }
 var mng_des_pth = func {
@@ -989,7 +989,7 @@ var mng_des_pth = func {
 	setprop("/it-autoflight/output/thr-mode", 0);
 	setprop("/it-autoflight/mode/thr", "THRUST");
 	setprop("/it-autoflight/output/mng-vert", 1);
-	setprop("/it-autoflight/mode/mng", "MNG DES");
+	setprop("/it-autoflight/mode/vert", "MNG DES");
 	mng_altcaptt.start();
 }
 var mng_des_fpm = func {
