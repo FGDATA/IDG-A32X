@@ -1,5 +1,9 @@
 # A3XX CFM FADEC by Joshua Davidson (it0uchpods)
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/systems/fadec/n1mode1", 0); # Doesn't do anything, just here for other logic #
 	setprop("/systems/fadec/n1mode2", 0); # Doesn't do anything, just here for other logic #

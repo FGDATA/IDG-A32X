@@ -1,6 +1,10 @@
 # A320 Main Libraries
 # Joshua Davidson (it0uchpods)
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 # :)
 print("          ____ ___   ___  ______              _ _       ");
 print("    /\   |___ \__ \ / _ \|  ____|            (_) |      ");
@@ -10,11 +14,10 @@ print(" / ____ \ ___) / /_| |_| | | | (_| | | | | | | | | |_| |");
 print("/_/    \_\____/____|\___/|_|  \__,_|_| |_| |_|_|_|\__, |");
 print("                                                   __/ |");
 print("                                                  |___/ ");
-print("-----------------------------------------------------------------------");
-print("(c) 2016-2017 Joshua Davidson, and Jonathan Redpath");
-print("Report all bugs on GitHub Issues tab, or the forums. :)");
-print("If you are reading this, you are awesome!");
-print("-----------------------------------------------------------------------");
+print("-----------------------------------------------------------------------------");
+print("(c) 2016-2017 A3XX Development Team - All Rights Reserved.");
+print("Any questions, please contact Joshua Davidson at joshuadavidson2000@gmail.com");
+print("-----------------------------------------------------------------------------");
 print(" ");
 
 # Dimmers

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
- A320 engine fire
- Adapted from the FlightGear 737-900ER available from United Free World (http://unitedfreeworld.com)
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
 -->
 
 <PropertyList>

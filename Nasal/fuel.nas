@@ -1,6 +1,10 @@
 # A3XX Fuel System
 # Joshua Davidson (it0uchpods)
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 #############
 # Init Vars #
 #############

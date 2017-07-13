@@ -1,6 +1,10 @@
 # A3XX ADIRS system
 # Jonathan Redpath and Joshua Davidson
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 #####################
 # Initializing Vars #
 #####################

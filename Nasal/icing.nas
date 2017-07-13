@@ -1,7 +1,9 @@
-##################################
-# Icing Model for the A320Family #
-# Code by Jonathan Redpath 		 #
-##################################
+# A3XX Icing System
+# Jonathan Redpath (legoboyvdlp)
+
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
 
 var icingInit = func {
 	setprop("/systems/icing/severity", "0"); # maximum severity: we will make it random

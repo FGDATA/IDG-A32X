@@ -1,6 +1,12 @@
 <!-- A3XX Aerodynamics -->
 <!-- Joshua Davidson (it0uchpods) -->
 
+<!--
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+-->
+
 <aerodynamics>
 	<property value="0.0">ice/wing</property>
 	<axis name="LIFT">

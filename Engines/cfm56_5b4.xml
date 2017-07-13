@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 
+<!--
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+-->
+
 <turbine_engine name="CFM56_5B4">
   <milthrust>     27000 </milthrust>
   <bypassratio>     8.1 </bypassratio>

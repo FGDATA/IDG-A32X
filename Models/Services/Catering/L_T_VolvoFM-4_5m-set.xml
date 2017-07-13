@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+<!--
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+-->
+
 <PropertyList>
 
-<!-- Catering Truck with loader platform moving to 4.5m -->
-<!-- A330-xxx version v0.9                              -->
-
-	<!-- if the model ever makes it to the sceneryDB shared models use this one                -->
-	<!-- <path>Models/Airport/Vehicles/catering/Catering_Loader_Truck_VolvoFM-stowed.ac</path>
-	<texture-path>Models/Airport/Vehicles/catering/gate_gourmet_sa</texture-path>
-	-->
 	<path>Catering_Loader_Truck_VolvoFM-stowed.ac</path>
 	
 	<animation>
@@ -246,8 +245,6 @@
 <!-- warning light -->
 	<model>
 	<name>warning</name>
-	<!-- if the model ever makes it to the sceneryDB shared models use this one -->
-	<!-- <path>Models/Airport/Vehicles/catering/warning-light.xml</path> -->
 	<path>warning-light.xml</path>
 		<condition>
 			<greater-than>

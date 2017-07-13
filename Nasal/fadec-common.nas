@@ -1,6 +1,10 @@
 # A3XX FADEC/Throttle Control System by Joshua Davidson (it0uchpods)
 # V2.0.0
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 setprop("/systems/thrust/alpha-floor", 0);
 setprop("/systems/thrust/toga-lk", 0);
 

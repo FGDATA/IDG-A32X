@@ -1,21 +1,11 @@
-##########################################################################
-# GPWS nasal wrapper
-# 2010, Thorsten Brehm
-#
-# For more documentation see http://wiki.flightgear.org/index.php/GPWS
-##########################################################################
+# GPWS Wrapper by Thorsten Brehm.
 
-##########################################################################
-# Configuration settings
-##########################################################################
-# Minimum landing flap position
-# 340 requires at least flap position 25 (=83%) for landing
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 var gpws_min_landing_flaps = 0.645;
 
-##############################################
-# GPWS specific class
-# ie: var Gpws = GPWS.new("instrumentation/mk-viii");
-##############################################
 var GPWS = 
 {
     new : func(prop1)
@@ -49,7 +39,6 @@ var GPWS =
         return m;
     },
 
-#### self-test buttons ####
     clicked_selftest : func
     {
         if (!me.self_test.getBoolValue())
@@ -73,7 +62,6 @@ var GPWS =
         me.self_test.setBoolValue(0);
     },
 
-#### flap-override button ####
     clicked_flap_override : func
     {
         if (!me.flap_override.getBoolValue())
@@ -88,7 +76,6 @@ var GPWS =
         me.flap_override.setBoolValue(0);
     },
 
-#### gear-override button ####
     clicked_gear_override : func
     {
         # toggle
@@ -96,7 +83,6 @@ var GPWS =
         me.update_gear_state();
     },
 
-#### glide-slope button ####
     clicked_gs_override : func
     {
         # toggle g/s inhibit.
@@ -107,21 +93,18 @@ var GPWS =
         me.gs_inhibit.setBoolValue(0);
     },
 
-#### gpws inhibit button ####
     clicked_gpws_inhibit : func
     {
         # toggle
         me.gpws_inhibit.setBoolValue(!me.gpws_inhibit.getBoolValue());
     },
 
-#### terrain inhibit button ####
     clicked_terrain_inhibit : func
     {
         # toggle
         me.terrain_inhibit.setBoolValue(!me.terrain_inhibit.getBoolValue());
     },
 
-#### decode alerts to time critical warnings ####
     tcw_feeder : func
     {
         var tcwmsg="";
@@ -131,7 +114,6 @@ var GPWS =
         me.tcw_out.setValue(tcwmsg);
     },
 
-#### custom input feeders ####
     update_gear_state : func()
     {
         # Simulate gear override button using a custom landing gear feeder.
@@ -164,9 +146,6 @@ var GPWS =
     },
 };
 
-##############################################
-# helper
-##############################################
 var gpws_test_bit = func(value,bitValue)
 {
     if (bitValue>1) value=int(value/bitValue);
@@ -174,9 +153,6 @@ var gpws_test_bit = func(value,bitValue)
     return (value!=int(value/2)*2);
 }
 
-##############################################
-# timer callbacks
-##############################################
 var gpws_input_feeder = func
 {
     Gpws.tcw_feeder();
@@ -185,8 +161,4 @@ var gpws_input_feeder = func
     settimer(gpws_input_feeder,0.3);
 }
 
-##############################################
-# main
-##############################################
 var Gpws = GPWS.new("instrumentation/mk-viii");
-

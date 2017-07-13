@@ -1,6 +1,10 @@
 # A3XX Fire System
 # Jonathan Redpath
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 #############
 # Init Vars #
 #############

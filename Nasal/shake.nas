@@ -1,5 +1,9 @@
 # A3XX Shaking
 
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+
 var shakeEffectA3XX = props.globals.initNode("/systems/shake/effect",0,"BOOL");
 var shakeA3XX = props.globals.initNode("/systems/shake/shaking",0,"DOUBLE");
 var rSpeed = 0;

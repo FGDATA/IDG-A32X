@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 
+<!--
+##############################################################
+# Copyright (c) A3XX Development Team - All Rights Reserved. #
+##############################################################
+-->
+
 <turbine_engine name="V2527_A5">
   <milthrust>     26600 </milthrust>
   <bypassratio>    10.1 </bypassratio>
