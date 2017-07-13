@@ -393,7 +393,7 @@ var doIdleThrust = func {
 var toggleFastRevThrust = func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
-	if ((state1 == "IDLE") and (state2 == "IDLE") and (getprop("/controls/engines/engine[0]/reverser") == "0") and (getprop("/controls/engines/engine[1]/reverser") == "0") and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
+	if (state1 == "IDLE" and state2 == "IDLE" and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		interpolate("/engines/engine[0]/reverser-pos-norm", 1, 1.4);
 		interpolate("/engines/engine[1]/reverser-pos-norm", 1, 1.4);
 		setprop("/controls/engines/engine[0]/reverser", 1);
@@ -415,7 +415,7 @@ var toggleFastRevThrust = func {
 }
 
 var doRevThrust = func {
-	if ((getprop("/controls/engines/engine[0]/reverser") == "1") and (getprop("/controls/engines/engine[1]/reverser") == "1")  and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
+	if (getprop("/controls/engines/engine[0]/reverser") == "1" and getprop("/controls/engines/engine[1]/reverser") == "1" and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
 		if (pos1 < 0.5) {
@@ -427,7 +427,7 @@ var doRevThrust = func {
 	}
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
-	if ((state1 == "IDLE") and (state2 == "IDLE") and (getprop("/controls/engines/engine[0]/reverser") == "0") and (getprop("/controls/engines/engine[1]/reverser") == "0") and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
+	if (state1 == "IDLE" and state2 == "IDLE" and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		setprop("/controls/engines/engine[0]/throttle-rev", 0);
 		setprop("/controls/engines/engine[1]/throttle-rev", 0);
 		interpolate("/engines/engine[0]/reverser-pos-norm", 1, 1.4);
@@ -440,7 +440,7 @@ var doRevThrust = func {
 }
 
 var unRevThrust = func {
-	if ((getprop("/controls/engines/engine[0]/reverser") == "1") or (getprop("/controls/engines/engine[1]/reverser") == "1")) {
+	if (getprop("/controls/engines/engine[0]/reverser") == "1" or getprop("/controls/engines/engine[1]/reverser") == "1") {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
 		if (pos1 > 0.0) {
