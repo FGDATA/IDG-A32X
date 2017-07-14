@@ -816,7 +816,7 @@
     <animation>
         <type>pick</type>
         <object-name>alt-sel</object-name>
-		<action>
+		<!--action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
@@ -828,8 +828,9 @@
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/btn1", 1);</script>
 			</binding>
-		</action>
+		</action-->
 		<action>
+			<button>0</button>
 			<button>1</button>
 			<repeatable>false</repeatable>
 			<binding>

@@ -781,6 +781,9 @@
 			<button>
 				<legend>ALT Push</legend>
 				<pref-width>75</pref-width>
+				<enable>
+					<property>/systems/unused/unused-button</property>
+				</enable>
 				<binding>
 					<command>property-assign</command>
 					<property>/it-autoflight/input/vert</property>
