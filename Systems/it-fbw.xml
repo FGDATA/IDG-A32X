@@ -478,10 +478,16 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/systems/failures/aileron-left</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/aileron-left</property>
+						<value>0</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>3</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -496,10 +502,16 @@
 		</input>
 		<input>
 			<condition>
-				<equals>
-					<property>/systems/failures/aileron-left</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/aileron-left</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>3</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -510,6 +522,7 @@
 				</table>
 			</expression>
 		</input>
+		<input>0</input>
 		<output>/controls/flight/spoiler-left-fbw-cmd</output>
 		<min>-1</min>
 		<max>1</max>
@@ -521,10 +534,16 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/systems/failures/aileron-right</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/aileron-right</property>
+						<value>0</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>3</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -539,10 +558,16 @@
 		</input>
 		<input>
 			<condition>
-				<equals>
-					<property>/systems/failures/aileron-right</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/systems/failures/aileron-right</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>3</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -553,6 +578,7 @@
 				</table>
 			</expression>
 		</input>
+		<input>0</input>
 		<output>/controls/flight/spoiler-right-fbw-cmd</output>
 		<min>-1</min>
 		<max>1</max>
