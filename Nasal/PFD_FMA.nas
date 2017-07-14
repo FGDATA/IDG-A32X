@@ -1,9 +1,9 @@
 # Airbus PFD FMA
 # Joshua Davidson (it0uchpods)
 
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 setprop("/FMGC/internal/cruise-ft", 10000);
 setprop("/it-autoflight/internal/alt", 10000);

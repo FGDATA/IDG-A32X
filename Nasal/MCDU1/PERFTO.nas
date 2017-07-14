@@ -1,10 +1,8 @@
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+# A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath
 
-##################################################################
-# A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath #
-##################################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 var perfTOInput = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");

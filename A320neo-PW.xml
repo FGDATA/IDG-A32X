@@ -2,9 +2,9 @@
 <?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 
 <!--
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 -->
 
 <fdm_config name="A320family" version="2.0" release="BETA"

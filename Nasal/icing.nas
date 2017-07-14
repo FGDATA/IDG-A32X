@@ -1,9 +1,9 @@
 # A3XX Icing System
 # Jonathan Redpath (legoboyvdlp)
 
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 var icingInit = func {
 	setprop("/systems/icing/severity", "0"); # maximum severity: we will make it random

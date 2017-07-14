@@ -1,8 +1,8 @@
 # GPWS Wrapper by Thorsten Brehm.
 
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 var gpws_min_landing_flaps = 0.645;
 

@@ -1,8 +1,8 @@
 # A3XX IAE FADEC by Joshua Davidson (it0uchpods)
 
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/controls/fadec/n1mode1", 0);

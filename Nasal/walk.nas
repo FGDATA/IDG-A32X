@@ -1,6 +1,6 @@
-##############################################################
-# Copyright (c) A3XX Development Team - All Rights Reserved. #
-##############################################################
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
 
 # view nodes and offsets --------------------------------------------
 var zNoseNode = props.globals.getNode("sim/view/config/y-offset-m", 1);
