@@ -1,10 +1,4 @@
-var ND_AIRBUS_SUPPORT = contains(canvas.NDStyles, 'Airbus_v2');
-
-if(!ND_AIRBUS_SUPPORT){
-    io.include('A3XX_ND.nas');
-}# else {
-#    io.include('ND_config.nas');
-#}
+io.include('A3XX_ND.nas');
 
 io.include('A3XX_ND_drivers.nas');
 canvas.NDStyles['Airbus'].options.defaults.route_driver = A3XXRouteDriver.new();
