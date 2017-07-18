@@ -30,95 +30,95 @@
         <signals>  <!-- Now Custom Stuff -->
             <signal>
                 <type>float</type>
-                <property>/gear/gear[0]/compression-ft</property>
+                <property>gear/gear[0]/compression-ft</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/gear/gear[1]/compression-ft</property>
+                <property>gear/gear[1]/compression-ft</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/gear/gear[2]/compression-ft</property>
+                <property>gear/gear[2]/compression-ft</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/velocities/groundspeed-kt</property>
+                <property>velocities/groundspeed-kt</property>
             </signal>
             <signal>
                 <type>float</type>
-				<property>/position/gear-agl-ft</property>
+				<property>position/gear-agl-ft</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/engines/engine[0]/reverser-pos-norm</property>
+                <property>engines/engine[0]/reverser-pos-norm</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/engines/engine[1]/reverser-pos-norm</property>
+                <property>engines/engine[1]/reverser-pos-norm</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/elevator-left</property>
+                <property>controls/flight/elevator-left</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/elevator-right</property>
+                <property>controls/flight/elevator-right</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/aileron-left</property>
+                <property>controls/flight/aileron-left</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/aileron-right</property>
+                <property>controls/flight/aileron-right</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-l1</property>
+                <property>controls/flight/spoiler-l1</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-l2</property>
+                <property>controls/flight/spoiler-l2</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-l3</property>
+                <property>controls/flight/spoiler-l3</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-l4</property>
+                <property>controls/flight/spoiler-l4</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-l5</property>
+                <property>controls/flight/spoiler-l5</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-r1</property>
+                <property>controls/flight/spoiler-r1</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-r2</property>
+                <property>controls/flight/spoiler-r2</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-r3</property>
+                <property>controls/flight/spoiler-r3</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-r4</property>
+                <property>controls/flight/spoiler-r4</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/spoiler-r5</property>
+                <property>controls/flight/spoiler-r5</property>
             </signal>
             <signal>
                 <type>float</type>
-                <property>/controls/flight/rudder-fdm</property>
+                <property>controls/flight/rudder-fdm</property>
             </signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs/slat-pos-norm</property>
+				<property>fdm/jsbsim/fcs/slat-pos-norm</property>
 			</signal>
         </signals>
     </config>

@@ -797,7 +797,7 @@
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<property type="string">/FMGC/internal/tropo</property>
+		<property type="string">FMGC/internal/tropo</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
 		<property>autopilot/serviceable</property>
