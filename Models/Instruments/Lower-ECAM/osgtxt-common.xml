@@ -21,7 +21,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/environment/temperature-degc</property>
+		<property>environment/temperature-degc</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -63,7 +63,7 @@
 		<object-name>tatplus</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/environment/temperature-degc</property>
+				<property>environment/temperature-degc</property>
 				<value>0</value>
 			</greater-than-equals>
 		</condition>
@@ -80,7 +80,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/environment/temperature-degc</property>
+		<property>environment/temperature-degc</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -122,7 +122,7 @@
 		<object-name>satplus</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/environment/temperature-degc</property>
+				<property>environment/temperature-degc</property>
 				<value>0</value>
 			</greater-than-equals>
 		</condition>
@@ -139,7 +139,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%5.0f</format>
-		<property>/FMGC/internal/gw</property>
+		<property>FMGC/internal/gw</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>

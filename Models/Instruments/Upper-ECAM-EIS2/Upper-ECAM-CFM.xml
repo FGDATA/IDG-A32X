@@ -20,7 +20,7 @@
 		<object-name>XXn11</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/n1</property>
+				<property>systems/fadec/eng1/n1</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -32,7 +32,7 @@
 		<object-name>XXn12</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/n1</property>
+				<property>systems/fadec/eng2/n1</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -44,7 +44,7 @@
 		<object-name>XXegt1</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/egt</property>
+				<property>systems/fadec/eng1/egt</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -56,7 +56,7 @@
 		<object-name>XXegt2</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/egt</property>
+				<property>systems/fadec/eng2/egt</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -68,7 +68,7 @@
 		<object-name>XXn21</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/n2</property>
+				<property>systems/fadec/eng1/n2</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -80,7 +80,7 @@
 		<object-name>XXn22</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/n2</property>
+				<property>systems/fadec/eng2/n2</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -91,7 +91,7 @@
 		<object-name>XX.ff1</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/ff</property>
+				<property>systems/fadec/eng1/ff</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -102,7 +102,7 @@
 		<object-name>XX.ff2</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/ff</property>
+				<property>systems/fadec/eng2/ff</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -118,7 +118,7 @@
 		<object-name>rev1.y</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/n1</property>
+				<property>systems/fadec/eng1/n1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -134,7 +134,7 @@
 		<object-name>rev2.y</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/n1</property>
+				<property>systems/fadec/eng2/n1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -146,7 +146,7 @@
 		<object-name>egt1</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/egt</property>
+				<property>systems/fadec/eng1/egt</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -158,7 +158,7 @@
 		<object-name>egt2</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/egt</property>
+				<property>systems/fadec/eng2/egt</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -169,7 +169,7 @@
 		<object-name>txt.n21</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/n2</property>
+				<property>systems/fadec/eng1/n2</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -180,7 +180,7 @@
 		<object-name>txt.n22</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/n2</property>
+				<property>systems/fadec/eng2/n2</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -191,7 +191,7 @@
 		<object-name>txt.ff1</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng1/ff</property>
+				<property>systems/fadec/eng1/ff</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -202,7 +202,7 @@
 		<object-name>txt.ff2</object-name>
 		<condition>
 			<equals>
-				<property>/systems/fadec/eng2/ff</property>
+				<property>systems/fadec/eng2/ff</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -213,7 +213,7 @@
 		<object-name>thrpos1</object-name>
 		<condition>
 			<less-than>
-				<property>/engines/engine[0]/reverser-pos-norm</property>
+				<property>engines/engine[0]/reverser-pos-norm</property>
 				<value>0.01</value>
 			</less-than>
 		</condition>
@@ -224,7 +224,7 @@
 		<object-name>thrpos2</object-name>
 		<condition>
 			<less-than>
-				<property>/engines/engine[1]/reverser-pos-norm</property>
+				<property>engines/engine[1]/reverser-pos-norm</property>
 				<value>0.01</value>
 			</less-than>
 		</condition>
@@ -236,11 +236,11 @@
 		<condition>
 			<and>
 				<greater-than>
-					<property>/engines/engine[0]/reverser-pos-norm</property>
+					<property>engines/engine[0]/reverser-pos-norm</property>
 					<value>0.01</value>
 				</greater-than>
 				<less-than>
-					<property>/engines/engine[0]/reverser-pos-norm</property>
+					<property>engines/engine[0]/reverser-pos-norm</property>
 					<value>0.9500000001</value>
 				</less-than>
 			</and>
@@ -253,11 +253,11 @@
 		<condition>
 			<and>
 				<greater-than>
-					<property>/engines/engine[1]/reverser-pos-norm</property>
+					<property>engines/engine[1]/reverser-pos-norm</property>
 					<value>0.01</value>
 				</greater-than>
 				<less-than>
-					<property>/engines/engine[1]/reverser-pos-norm</property>
+					<property>engines/engine[1]/reverser-pos-norm</property>
 					<value>0.9500000001</value>
 				</less-than>
 			</and>
@@ -269,7 +269,7 @@
         <object-name>rev1.g</object-name>
 		<condition>
 			<greater-than>
-				<property>/engines/engine[0]/reverser-pos-norm</property>
+				<property>engines/engine[0]/reverser-pos-norm</property>
 				<value>0.95</value>
 			</greater-than>
 		</condition>
@@ -280,7 +280,7 @@
         <object-name>rev2.g</object-name>
 		<condition>
 			<greater-than>
-				<property>/engines/engine[1]/reverser-pos-norm</property>
+				<property>engines/engine[1]/reverser-pos-norm</property>
 				<value>0.95</value>
 			</greater-than>
 		</condition>
@@ -419,7 +419,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>/engines/engine/n1</property>
+		<property>engines/engine/n1</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -443,7 +443,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>/engines/engine[1]/n1</property>
+		<property>engines/engine[1]/n1</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -613,7 +613,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/engines/engine/egt-actual</property>
+		<property>engines/engine/egt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -637,7 +637,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/engines/engine[1]/egt-actual</property>
+		<property>engines/engine[1]/egt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -711,7 +711,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>/engines/engine/n2</property>
+		<property>engines/engine/n2</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -735,7 +735,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>/engines/engine[1]/n2</property>
+		<property>engines/engine[1]/n2</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -809,7 +809,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/controls/engines/thrust-limit</property>
+		<property>controls/engines/thrust-limit</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -833,7 +833,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
-		<property>/controls/engines/n1-limit</property>
+		<property>controls/engines/n1-limit</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -859,7 +859,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/engines/engine/fuel-flow_actual</property>
+		<property>engines/engine/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -883,7 +883,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/engines/engine[1]/fuel-flow_actual</property>
+		<property>engines/engine[1]/fuel-flow_actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -977,7 +977,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>n11</object-name>
-    	<property>/engines/engine/n1</property>
+    	<property>engines/engine/n1</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -999,7 +999,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>n12</object-name>
-    	<property>/engines/engine[1]/n1</property>
+    	<property>engines/engine[1]/n1</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -1021,7 +1021,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>n1limy1</object-name>
-    	<property>/systems/thrust/n1/toga-lim</property>
+    	<property>systems/thrust/n1/toga-lim</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -1043,7 +1043,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>n1limy2</object-name>
-    	<property>/systems/thrust/n1/toga-lim</property>
+    	<property>systems/thrust/n1/toga-lim</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -1065,7 +1065,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>thrpos1</object-name>
-    	<property>/engines/engine[0]/n1-cmd</property>
+    	<property>engines/engine[0]/n1-cmd</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -1087,7 +1087,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>thrpos2</object-name>
-    	<property>/engines/engine[1]/n1-cmd</property>
+    	<property>engines/engine[1]/n1-cmd</property>
 		<interpolation>
 			<entry><ind> 22.4</ind><dep>-127</dep></entry>
 			<entry><ind> 50.0</ind><dep> -58</dep></entry>
@@ -1111,7 +1111,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>egt1</object-name>
-    	<property>/engines/engine/egt-actual</property>
+    	<property>engines/engine/egt-actual</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>-90</dep></entry>
 			<entry><ind> 500</ind><dep>  0</dep></entry>
@@ -1132,7 +1132,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>egt2</object-name>
-    	<property>/engines/engine[1]/egt-actual</property>
+    	<property>engines/engine[1]/egt-actual</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>-90</dep></entry>
 			<entry><ind> 500</ind><dep>  0</dep></entry>
@@ -1163,7 +1163,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/controls/flight/flap-txt</property>
+		<property>controls/flight/flap-txt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1181,7 +1181,7 @@
 		<object-name>flap</object-name>
 		<condition>
 			<greater-than>
-				<property>/controls/flight/flap-pos</property>
+				<property>controls/flight/flap-pos</property>
 				<value>0</value>
 			</greater-than>
 		</condition>
@@ -1190,7 +1190,7 @@
     <!--animation>
     	<type>rotate</type>
     	<object-name>flap</object-name>
-    	<property>/surface-positions/flap-pos-norm</property>
+    	<property>surface-positions/flap-pos-norm</property>
     	<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
 				<entry><ind>0.29</ind><dep>7</dep></entry>
@@ -1211,7 +1211,7 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>flap</object-name>
-    	<property>/surface-positions/flap-pos-norm</property>
+    	<property>surface-positions/flap-pos-norm</property>
     	<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
 				<entry><ind>0.29</ind><dep>0.068</dep></entry>
@@ -1229,7 +1229,7 @@
     <!--animation>
     	<type>textranslate</type>
     	<object-name>slat</object-name>
-    	<property>/surface-positions/flap-pos-norm</property>
+    	<property>surface-positions/flap-pos-norm</property>
     	<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
 				<entry><ind>0.29</ind><dep>0.11</dep></entry>

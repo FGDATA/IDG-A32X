@@ -52,7 +52,7 @@
 
         <counter>
             <particles-per-sec>
-				<property>/velocities/speed-down-fps</property>
+				<property>velocities/speed-down-fps</property>
 				<factor>1</factor>
                 <spread>50</spread>
             </particles-per-sec>

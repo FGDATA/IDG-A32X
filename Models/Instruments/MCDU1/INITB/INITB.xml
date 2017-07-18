@@ -227,7 +227,7 @@
 		<format type="string">%2.1f</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/block</property>
+		<property>FMGC/internal/block</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -242,7 +242,7 @@
 		<type>select</type>
 		<object-name>block2</object-name>
 		<condition>
-			<property>/FMGC/internal/block-set</property>
+			<property>FMGC/internal/block-set</property>
 		</condition>
 	</animation>
 	

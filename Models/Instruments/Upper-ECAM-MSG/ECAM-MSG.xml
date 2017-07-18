@@ -21,11 +21,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/ECAM/left-msg</property>
+					<property>ECAM/left-msg</property>
 					<value>MSG</value>
 				</equals>
 				<equals>
-					<property>/ECAM/left-msg</property>
+					<property>ECAM/left-msg</property>
 					<value>TO-MEMO</value>
 				</equals>
 			</or>
@@ -36,7 +36,7 @@
 		<path>TO-MEMO.xml</path>
 		<condition>
 			<equals>
-				<property>/ECAM/left-msg</property>
+				<property>ECAM/left-msg</property>
 				<value>TO-MEMO</value>
 			</equals>
 		</condition>

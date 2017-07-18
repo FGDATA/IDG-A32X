@@ -16,7 +16,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>qt1</object-name>
-    	<property>/engines/engine[0]/oil-qt-actual</property>
+    	<property>engines/engine[0]/oil-qt-actual</property>
 		<interpolation>
 			<entry><ind> 0</ind><dep>-90</dep></entry>
 			<entry><ind>25</ind><dep> 90</dep></entry>
@@ -36,7 +36,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>qt2</object-name>
-    	<property>/engines/engine[1]/oil-qt-actual</property>
+    	<property>engines/engine[1]/oil-qt-actual</property>
 		<interpolation>
 			<entry><ind> 0</ind><dep>-90</dep></entry>
 			<entry><ind>25</ind><dep> 90</dep></entry>
@@ -58,7 +58,7 @@
     	<type>rotate</type>
     	<object-name>psi1</object-name>
     	<object-name>psi1r</object-name>
-    	<property>/engines/engine[0]/oil-psi-actual</property>
+    	<property>engines/engine[0]/oil-psi-actual</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>-90</dep></entry>
 			<entry><ind>150</ind><dep>  0</dep></entry>
@@ -82,7 +82,7 @@
 		<object-name>txt.psi1</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/engines/engine[0]/oil-psi-actual</property>
+				<property>engines/engine[0]/oil-psi-actual</property>
 				<value>60</value>
 			</greater-than-equals>
 		</condition>
@@ -94,7 +94,7 @@
 		<object-name>txt.psi1r</object-name>
 		<condition>
 			<less-than>
-				<property>/engines/engine[0]/oil-psi-actual</property>
+				<property>engines/engine[0]/oil-psi-actual</property>
 				<value>60</value>
 			</less-than>
 		</condition>
@@ -104,7 +104,7 @@
     	<type>rotate</type>
     	<object-name>psi2</object-name>
     	<object-name>psi2r</object-name>
-    	<property>/engines/engine[1]/oil-psi-actual</property>
+    	<property>engines/engine[1]/oil-psi-actual</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>-90</dep></entry>
 			<entry><ind>150</ind><dep>  0</dep></entry>
@@ -128,7 +128,7 @@
 		<object-name>txt.psi2</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/engines/engine[1]/oil-psi-actual</property>
+				<property>engines/engine[1]/oil-psi-actual</property>
 				<value>60</value>
 			</greater-than-equals>
 		</condition>
@@ -140,7 +140,7 @@
 		<object-name>txt.psi2r</object-name>
 		<condition>
 			<less-than>
-				<property>/engines/engine[1]/oil-psi-actual</property>
+				<property>engines/engine[1]/oil-psi-actual</property>
 				<value>60</value>
 			</less-than>
 		</condition>
@@ -160,7 +160,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/engines/engine/oil-qt-actual</property>
+		<property>engines/engine/oil-qt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -184,7 +184,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/engines/engine[1]/oil-qt-actual</property>
+		<property>engines/engine[1]/oil-qt-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -209,7 +209,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/engines/engine/oil-psi-actual</property>
+		<property>engines/engine/oil-psi-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -233,7 +233,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/engines/engine[1]/oil-psi-actual</property>
+		<property>engines/engine[1]/oil-psi-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -257,7 +257,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/engines/engine/oil-psi-actual</property>
+		<property>engines/engine/oil-psi-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -281,7 +281,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/engines/engine[1]/oil-psi-actual</property>
+		<property>engines/engine[1]/oil-psi-actual</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>

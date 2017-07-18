@@ -10,10 +10,6 @@
 
 	<path>../Models/a320.nacelle.cfm.ac</path>
 
-	<params>
-		<reverser-pos-norm>engines/engine[0]/reverser-pos-norm</reverser-pos-norm>
-	</params>
-
 	<!-- Chrome shader -->
 	<animation>
 		<name>Chrome shader</name>

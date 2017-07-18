@@ -14,7 +14,7 @@
 		<type>select</type>
 		<object-name>v1box</object-name>
 		<condition>
-			<not><property>/FMGC/internal/v1-set</property></not>
+			<not><property>FMGC/internal/v1-set</property></not>
 		</condition>
 	</animation>
 	
@@ -22,7 +22,7 @@
 		<type>select</type>
 		<object-name>vrbox</object-name>
 		<condition>
-			<not><property>/FMGC/internal/vr-set</property></not>
+			<not><property>FMGC/internal/vr-set</property></not>
 		</condition>
 	</animation>
 	
@@ -30,7 +30,7 @@
 		<type>select</type>
 		<object-name>v2box</object-name>
 		<condition>
-			<not><property>/FMGC/internal/v2-set</property></not>
+			<not><property>FMGC/internal/v2-set</property></not>
 		</condition>
 	</animation>
 	

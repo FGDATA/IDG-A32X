@@ -55,7 +55,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line1</property>
+		<property>ECAM/msg/line1</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -79,7 +79,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line2</property>
+		<property>ECAM/msg/line2</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -103,7 +103,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line3</property>
+		<property>ECAM/msg/line3</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -127,7 +127,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line4</property>
+		<property>ECAM/msg/line4</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -151,7 +151,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line5</property>
+		<property>ECAM/msg/line5</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -175,7 +175,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/ECAM/msg/line6</property>
+		<property>ECAM/msg/line6</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -217,7 +217,7 @@
 		<object-name>Line7G</object-name>
 		<condition>
 			<not-equals>
-				<property>/systems/unused/ecam1</property>
+				<property>systems/unused/ecam1</property>
 				<value>1</value>
 			</not-equals>
 		</condition>
@@ -253,11 +253,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/controls/switches/no-smoking-sign</property>
+					<property>controls/switches/no-smoking-sign</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/switches/seatbelt-sign</property>
+					<property>controls/switches/seatbelt-sign</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -293,7 +293,7 @@
 		<object-name>Line9G</object-name>
 		<condition>
 			<not-equals>
-				<property>/systems/unused/ecam1</property>
+				<property>systems/unused/ecam1</property>
 				<value>1</value>
 			</not-equals>
 		</condition>
@@ -328,7 +328,7 @@
 		<object-name>Line10G</object-name>
 		<condition>
 			<equals>
-				<property>/controls/flight/speedbrake-arm</property>
+				<property>controls/flight/speedbrake-arm</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -364,19 +364,19 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>2</value>
 				</equals>
 				<equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>3</value>
 				</equals>
 				<equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>4</value>
 				</equals>
 			</or>
@@ -413,32 +413,32 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/controls/switches/no-smoking-sign</property>
+					<property>controls/switches/no-smoking-sign</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/switches/seatbelt-sign</property>
+					<property>controls/switches/seatbelt-sign</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/flight/speedbrake-arm</property>
+					<property>controls/flight/speedbrake-arm</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/controls/flight/flap-pos</property>
+						<property>controls/flight/flap-pos</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/controls/flight/flap-pos</property>
+						<property>controls/flight/flap-pos</property>
 						<value>2</value>
 					</equals>
 					<equals>
-						<property>/controls/flight/flap-pos</property>
+						<property>controls/flight/flap-pos</property>
 						<value>3</value>
 					</equals>
 					<equals>
-						<property>/controls/flight/flap-pos</property>
+						<property>controls/flight/flap-pos</property>
 						<value>4</value>
 					</equals>
 				</or>
@@ -479,7 +479,7 @@
 		<object-name>Line1B</object-name>
 		<condition>
 			<equals>
-				<property>/systems/unused/ecam1</property>
+				<property>systems/unused/ecam1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -515,11 +515,11 @@
 		<condition>
 			<or>
 				<not-equals>
-					<property>/controls/switches/no-smoking-sign</property>
+					<property>controls/switches/no-smoking-sign</property>
 					<value>1</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/switches/seatbelt-sign</property>
+					<property>controls/switches/seatbelt-sign</property>
 					<value>1</value>
 				</not-equals>
 			</or>
@@ -555,7 +555,7 @@
 		<object-name>Line3B</object-name>
 		<condition>
 			<equals>
-				<property>/systems/unused/ecam1</property>
+				<property>systems/unused/ecam1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -590,7 +590,7 @@
 		<object-name>Line4B</object-name>
 		<condition>
 			<not-equals>
-				<property>/controls/flight/speedbrake-arm</property>
+				<property>controls/flight/speedbrake-arm</property>
 				<value>1</value>
 			</not-equals>
 		</condition>
@@ -626,19 +626,19 @@
 		<condition>
 			<and>
 				<not-equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>1</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>3</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/flight/flap-pos</property>
+					<property>controls/flight/flap-pos</property>
 					<value>4</value>
 				</not-equals>
 			</and>

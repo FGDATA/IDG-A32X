@@ -84,7 +84,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/v1</property>
+		<property>FMGC/internal/v1</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -99,7 +99,7 @@
 		<type>select</type>
 		<object-name>v12</object-name>
 		<condition>
-			<property>/FMGC/internal/v1-set</property>
+			<property>FMGC/internal/v1-set</property>
 		</condition>
 	</animation>
 	
@@ -236,7 +236,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/vr</property>
+		<property>FMGC/internal/vr</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -251,7 +251,7 @@
 		<type>select</type>
 		<object-name>vr2</object-name>
 		<condition>
-			<property>/FMGC/internal/vr-set</property>
+			<property>FMGC/internal/vr-set</property>
 		</condition>
 	</animation>
 	
@@ -436,7 +436,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/to-flap</property>
+		<property>FMGC/internal/to-flap</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -460,7 +460,7 @@
 		<format type="string">/UP%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/to-ths</property>
+		<property>FMGC/internal/to-ths</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -475,7 +475,7 @@
 		<type>select</type>
 		<object-name>flapsmcdu2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/flap-ths-set</property></not>
+			<not><property>FMGC/internal/flap-ths-set</property></not>
 		</condition>
 	</animation>
 	
@@ -483,7 +483,7 @@
 		<type>select</type>
 		<object-name>flapsmcdu3</object-name>
 		<condition>
-			<property>/FMGC/internal/flap-ths-set</property>
+			<property>FMGC/internal/flap-ths-set</property>
 		</condition>
 	</animation>
 	
@@ -524,7 +524,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/v2</property>
+		<property>FMGC/internal/v2</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -539,7 +539,7 @@
 		<type>select</type>
 		<object-name>v22</object-name>
 		<condition>
-			<property>/FMGC/internal/v2-set</property>
+			<property>FMGC/internal/v2-set</property>
 		</condition>
 	</animation>
 	
@@ -628,7 +628,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/trans-alt</property>
+		<property>FMGC/internal/trans-alt</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -676,7 +676,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/eng-out-reduc</property>
+		<property>FMGC/internal/eng-out-reduc</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -700,7 +700,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/eng-out-reduc</property>
+		<property>FMGC/internal/eng-out-reduc</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -715,7 +715,7 @@
 		<type>select</type>
 		<object-name>eoaccel2</object-name>
 		<condition>
-			<not><property>/MCDUC/reducacc-set</property></not>
+			<not><property>MCDUC/reducacc-set</property></not>
 		</condition>
 	</animation>
 	
@@ -723,7 +723,7 @@
 		<type>select</type>
 		<object-name>eoaccel3</object-name>
 		<condition>
-			<property>/MCDUC/reducacc-set</property>
+			<property>MCDUC/reducacc-set</property>
 		</condition>
 	</animation>
 	
@@ -764,7 +764,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/systems/thrust/clbreduc-ft</property>
+		<property>systems/thrust/clbreduc-ft</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -788,7 +788,7 @@
 		<format type="string">/%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/reduc-agl-ft</property>
+		<property>FMGC/internal/reduc-agl-ft</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -812,7 +812,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/systems/thrust/clbreduc-ft</property>
+		<property>systems/thrust/clbreduc-ft</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -836,7 +836,7 @@
 		<format type="string">/%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/it-autoflight/settings/reduc-agl-ft</property>
+		<property>it-autoflight/settings/reduc-agl-ft</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -851,7 +851,7 @@
 		<type>select</type>
 		<object-name>thred</object-name>
 		<condition>
-			<not><property>/MCDUC/thracc-set</property></not>
+			<not><property>MCDUC/thracc-set</property></not>
 		</condition>
 	</animation>
 	
@@ -859,7 +859,7 @@
 		<type>select</type>
 		<object-name>thred2</object-name>
 		<condition>
-			<property>/MCDUC/thracc-set</property>
+			<property>MCDUC/thracc-set</property>
 		</condition>
 	</animation>
 	
@@ -924,7 +924,7 @@
 		<format type="string">%sC</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/flex</property>
+		<property>FMGC/internal/flex</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -939,7 +939,7 @@
 		<type>select</type>
 		<object-name>flex2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/flex-set</property></not>
+			<not><property>FMGC/internal/flex-set</property></not>
 		</condition>
 	</animation>
 	
@@ -947,7 +947,7 @@
 		<type>select</type>
 		<object-name>flex3</object-name>
 		<condition>
-			<property>/FMGC/internal/flex-set</property>
+			<property>FMGC/internal/flex-set</property>
 		</condition>
 	</animation>
 	

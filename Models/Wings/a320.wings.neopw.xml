@@ -35,7 +35,7 @@
 		<name>Left aileron</name>
 		<type>rotate</type>
 		<object-name>AileronL</object-name>
-		<property>/sim/multiplay/generic/float[6]</property>
+		<property>sim/multiplay/generic/float[6]</property>
 		<factor>40</factor>
 		<axis>
 			<x1-m>8.7295</x1-m>
@@ -50,7 +50,7 @@
 		<name>Right aileron</name>
 		<type>rotate</type>
 		<object-name>AileronR</object-name>
-		<property>/sim/multiplay/generic/float[7]</property>
+		<property>sim/multiplay/generic/float[7]</property>
 		<factor>-40</factor>
 		<axis>
 			<x1-m>7.6792</x1-m>
@@ -309,7 +309,7 @@
 		<name>Left spoiler 1</name>
 		<type>rotate</type>
 		<object-name>SpoilerL1</object-name>
-		<property>/controls/flight/spoiler-l1</property>
+		<property>controls/flight/spoiler-l1</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -327,7 +327,7 @@
 		<name>Left spoiler 2</name>
 		<type>rotate</type>
 		<object-name>SpoilerL2</object-name>
-		<property>/controls/flight/spoiler-l2</property>
+		<property>controls/flight/spoiler-l2</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -345,7 +345,7 @@
 		<name>Left spoiler 3</name>
 		<type>rotate</type>
 		<object-name>SpoilerL3</object-name>
-		<property>/controls/flight/spoiler-l3</property>
+		<property>controls/flight/spoiler-l3</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -363,7 +363,7 @@
 		<name>Left spoiler 4</name>
 		<type>rotate</type>
 		<object-name>SpoilerL4</object-name>
-		<property>/controls/flight/spoiler-l4</property>
+		<property>controls/flight/spoiler-l4</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -381,7 +381,7 @@
 		<name>Left spoiler 5</name>
 		<type>rotate</type>
 		<object-name>SpoilerL5</object-name>
-		<property>/controls/flight/spoiler-l5</property>
+		<property>controls/flight/spoiler-l5</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -399,7 +399,7 @@
 		<name>Right spoiler 1</name>
 		<type>rotate</type>
 		<object-name>SpoilerR1</object-name>
-		<property>/controls/flight/spoiler-r1</property>
+		<property>controls/flight/spoiler-r1</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -417,7 +417,7 @@
 		<name>Right spoiler 2</name>
 		<type>rotate</type>
 		<object-name>SpoilerR2</object-name>
-		<property>/controls/flight/spoiler-r2</property>
+		<property>controls/flight/spoiler-r2</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -435,7 +435,7 @@
 		<name>Right spoiler 3</name>
 		<type>rotate</type>
 		<object-name>SpoilerR3</object-name>
-		<property>/controls/flight/spoiler-r3</property>
+		<property>controls/flight/spoiler-r3</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -453,7 +453,7 @@
 		<name>Right spoiler 4</name>
 		<type>rotate</type>
 		<object-name>SpoilerR4</object-name>
-		<property>/controls/flight/spoiler-r4</property>
+		<property>controls/flight/spoiler-r4</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -471,7 +471,7 @@
 		<name>Right spoiler 5</name>
 		<type>rotate</type>
 		<object-name>SpoilerR5</object-name>
-		<property>/controls/flight/spoiler-r5</property>
+		<property>controls/flight/spoiler-r5</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>1.0</ind><dep>30</dep></entry>
@@ -489,7 +489,7 @@
 		<name>SlatsL</name>
 		<type>translate</type>
 		<object-name>SlatR1</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -506,7 +506,7 @@
 		<name>SlatsL</name>
 		<type>translate</type>
 		<object-name>SlatR1</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -523,7 +523,7 @@
 		<name>SlatsL1</name>
 		<type>translate</type>
 		<object-name>SlatR2</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -540,7 +540,7 @@
 		<name>SlatsL1</name>
 		<type>translate</type>
 		<object-name>SlatR2</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -557,7 +557,7 @@
 		<name>SlatsL2</name>
 		<type>translate</type>
 		<object-name>SlatR3</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -574,7 +574,7 @@
 		<name>SlatsL2</name>
 		<type>translate</type>
 		<object-name>SlatR3</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -591,7 +591,7 @@
 		<name>SlatsL3</name>
 		<type>translate</type>
 		<object-name>SlatR4</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -608,7 +608,7 @@
 		<name>SlatsL3</name>
 		<type>translate</type>
 		<object-name>SlatR4</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -625,7 +625,7 @@
 		<name>SlatsL4</name>
 		<type>translate</type>
 		<object-name>SlatR5</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -642,7 +642,7 @@
 		<name>SlatsL4</name>
 		<type>translate</type>
 		<object-name>SlatR5</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -659,7 +659,7 @@
 		<name>SlatsL</name>
 		<type>translate</type>
 		<object-name>SlatL1</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -676,7 +676,7 @@
 		<name>SlatsL</name>
 		<type>translate</type>
 		<object-name>SlatL1</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -693,7 +693,7 @@
 		<name>SlatsL1</name>
 		<type>translate</type>
 		<object-name>SlatL2</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -710,7 +710,7 @@
 		<name>SlatsL1</name>
 		<type>translate</type>
 		<object-name>SlatL2</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -727,7 +727,7 @@
 		<name>SlatsL2</name>
 		<type>translate</type>
 		<object-name>SlatL3</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -744,7 +744,7 @@
 		<name>SlatsL2</name>
 		<type>translate</type>
 		<object-name>SlatL3</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -761,7 +761,7 @@
 		<name>SlatsL3</name>
 		<type>translate</type>
 		<object-name>SlatL4</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -778,7 +778,7 @@
 		<name>SlatsL3</name>
 		<type>translate</type>
 		<object-name>SlatL4</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>
@@ -795,7 +795,7 @@
 		<name>SlatsL4</name>
 		<type>translate</type>
 		<object-name>SlatL5</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.18</dep></entry>
@@ -812,7 +812,7 @@
 		<name>SlatsL4</name>
 		<type>translate</type>
 		<object-name>SlatL5</object-name>
-		<property>/sim/multiplay/generic/float[11]</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
 			<entry><ind>0.666</ind><dep>0.03</dep></entry>

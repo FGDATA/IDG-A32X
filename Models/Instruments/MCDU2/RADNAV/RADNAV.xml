@@ -70,7 +70,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/vor1-mcdu</property>
+		<property>FMGC/internal/vor1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -93,7 +93,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/vor1-mcdu</property>
+		<property>FMGC/internal/vor1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -108,7 +108,7 @@
 		<type>select</type>
 		<object-name>vor1freq2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/vor1freq-set</property></not>
+			<not><property>FMGC/internal/vor1freq-set</property></not>
 		</condition>
 	</animation>
 	
@@ -116,7 +116,7 @@
 		<type>select</type>
 		<object-name>vor1freq3</object-name>
 		<condition>
-			<property>/FMGC/internal/vor1freq-set</property>
+			<property>FMGC/internal/vor1freq-set</property>
 		</condition>
 	</animation>
 	
@@ -156,7 +156,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/vor2-mcdu</property>
+		<property>FMGC/internal/vor2-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -179,7 +179,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/vor2-mcdu</property>
+		<property>FMGC/internal/vor2-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -194,7 +194,7 @@
 		<type>select</type>
 		<object-name>vor2freq2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/vor2freq-set</property></not>
+			<not><property>FMGC/internal/vor2freq-set</property></not>
 		</condition>
 	</animation>
 	
@@ -202,7 +202,7 @@
 		<type>select</type>
 		<object-name>vor2freq3</object-name>
 		<condition>
-			<property>/FMGC/internal/vor2freq-set</property>
+			<property>FMGC/internal/vor2freq-set</property>
 		</condition>
 	</animation>
 	
@@ -265,7 +265,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/instrumentation/nav[2]/radials/selected-deg</property>
+		<property>instrumentation/nav[2]/radials/selected-deg</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -280,7 +280,7 @@
 		<type>select</type>
 		<object-name>crs12</object-name>
 		<condition>
-			<not><property>/FMGC/internal/vor1crs-set</property></not>
+			<not><property>FMGC/internal/vor1crs-set</property></not>
 		</condition>
 	</animation>
 	
@@ -288,7 +288,7 @@
 		<type>select</type>
 		<object-name>crs13</object-name>
 		<condition>
-			<property>/FMGC/internal/vor1crs-set</property>
+			<property>FMGC/internal/vor1crs-set</property>
 		</condition>
 	</animation>
 	
@@ -351,7 +351,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/instrumentation/nav[3]/radials/selected-deg</property>
+		<property>instrumentation/nav[3]/radials/selected-deg</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -366,7 +366,7 @@
 		<type>select</type>
 		<object-name>crs22</object-name>
 		<condition>
-			<not><property>/FMGC/internal/vor2crs-set</property></not>
+			<not><property>FMGC/internal/vor2crs-set</property></not>
 		</condition>
 	</animation>
 	
@@ -374,7 +374,7 @@
 		<type>select</type>
 		<object-name>crs23</object-name>
 		<condition>
-			<property>/FMGC/internal/vor2crs-set</property>
+			<property>FMGC/internal/vor2crs-set</property>
 		</condition>
 	</animation>
 	
@@ -414,7 +414,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/ils1-mcdu</property>
+		<property>FMGC/internal/ils1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -437,7 +437,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/ils1-mcdu</property>
+		<property>FMGC/internal/ils1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -452,7 +452,7 @@
 		<type>select</type>
 		<object-name>ilsfreq2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/ils1freq-set</property></not>
+			<not><property>FMGC/internal/ils1freq-set</property></not>
 		</condition>
 	</animation>
 	
@@ -460,7 +460,7 @@
 		<type>select</type>
 		<object-name>ilsfreq3</object-name>
 		<condition>
-			<property>/FMGC/internal/ils1freq-set</property>
+			<property>FMGC/internal/ils1freq-set</property>
 		</condition>
 	</animation>
 	
@@ -570,7 +570,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/instrumentation/nav[0]/radials/selected-deg</property>
+		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -585,7 +585,7 @@
 		<type>select</type>
 		<object-name>ilscrs12</object-name>
 		<condition>
-			<not><property>/FMGC/internal/ils1crs-set</property></not>
+			<not><property>FMGC/internal/ils1crs-set</property></not>
 		</condition>
 	</animation>
 	
@@ -593,7 +593,7 @@
 		<type>select</type>
 		<object-name>ilscrs13</object-name>
 		<condition>
-			<property>/FMGC/internal/ils1crs-set</property>
+			<property>FMGC/internal/ils1crs-set</property>
 		</condition>
 	</animation>
 	
@@ -727,7 +727,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/adf1-mcdu</property>
+		<property>FMGC/internal/adf1-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -742,7 +742,7 @@
 		<type>select</type>
 		<object-name>adf1freq2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/adf1freq-set</property></not>
+			<not><property>FMGC/internal/adf1freq-set</property></not>
 		</condition>
 	</animation>
 	
@@ -750,7 +750,7 @@
 		<type>select</type>
 		<object-name>adf1freq3</object-name>
 		<condition>
-			<property>/FMGC/internal/adf1freq-set</property>
+			<property>FMGC/internal/adf1freq-set</property>
 		</condition>
 	</animation>
 	
@@ -813,7 +813,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/adf2-mcdu</property>
+		<property>FMGC/internal/adf2-mcdu</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -828,7 +828,7 @@
 		<type>select</type>
 		<object-name>adf2freq2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/adf2freq-set</property></not>
+			<not><property>FMGC/internal/adf2freq-set</property></not>
 		</condition>
 	</animation>
 	
@@ -836,7 +836,7 @@
 		<type>select</type>
 		<object-name>adf2freq3</object-name>
 		<condition>
-			<property>/FMGC/internal/adf2freq-set</property>
+			<property>FMGC/internal/adf2freq-set</property>
 		</condition>
 	</animation>
 	

@@ -16,10 +16,10 @@
 	</offsets>
 
 	<params>
-		<n1>/engines/engine[1]/n1</n1>
-		<on-fire>/engines/engine[1]/on-fire</on-fire>
-		<contrail>/engines/engine[1]/contrail</contrail>
-		<reverser-pos-norm>/sim/multiplay/generic/float[3]</reverser-pos-norm>
+		<n1>engines/engine[1]/n1</n1>
+		<on-fire>engines/engine[1]/on-fire</on-fire>
+		<contrail>engines/engine[1]/contrail</contrail>
+		<reverser-pos-norm>sim/multiplay/generic/float[3]</reverser-pos-norm>
 	</params>
 
 	<animation>

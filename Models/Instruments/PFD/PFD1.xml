@@ -44,55 +44,55 @@
 			<or>
 				<and>
 					<or>
-						<property>/gear/gear[1]/wow</property>
-						<property>/gear/gear[2]/wow</property>
+						<property>gear/gear[1]/wow</property>
+						<property>gear/gear[2]/wow</property>
 					</or>
 					<not-equals>
-						<property>/FMGC/status/phase</property>
+						<property>FMGC/status/phase</property>
 						<value>0</value>
 					</not-equals>
 					<not-equals>
-						<property>/FMGC/status/phase</property>
+						<property>FMGC/status/phase</property>
 						<value>1</value>
 					</not-equals>
 				</and>
 				<and>
 					<or>
-						<property>/gear/gear[1]/wow</property>
-						<property>/gear/gear[2]/wow</property>
+						<property>gear/gear[1]/wow</property>
+						<property>gear/gear[2]/wow</property>
 					</or>
 					<or>
 						<equals>
-							<property>/FMGC/status/phase</property>
+							<property>FMGC/status/phase</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/FMGC/status/phase</property>
+							<property>FMGC/status/phase</property>
 							<value>1</value>
 						</equals>
 					</or>
 					<equals>
-						<property>/engines/engine[0]/state</property>
+						<property>engines/engine[0]/state</property>
 						<value>3</value>
 					</equals>
 				</and>
 				<and>
 					<or>
-						<property>/gear/gear[1]/wow</property>
-						<property>/gear/gear[2]/wow</property>
+						<property>gear/gear[1]/wow</property>
+						<property>gear/gear[2]/wow</property>
 					</or>
 					<or>
 						<equals>
-							<property>/FMGC/status/phase</property>
+							<property>FMGC/status/phase</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/FMGC/status/phase</property>
+							<property>FMGC/status/phase</property>
 							<value>1</value>
 						</equals>
 					</or>
 					<equals>
-						<property>/engines/engine[1]/state</property>
+						<property>engines/engine[1]/state</property>
 						<value>3</value>
 					</equals>
 				</and>
@@ -133,7 +133,7 @@
         <type>texmultiple</type>
         <object-name>horizon</object-name>
         <transform>
-            <property>/orientation/pitch-deg</property>
+            <property>orientation/pitch-deg</property>
             <subtype>textranslate</subtype>
             <factor>0.003955078</factor>
             <axis>
@@ -142,7 +142,7 @@
             </axis>
         </transform>
         <transform>
-            <property>/orientation/roll-deg</property>
+            <property>orientation/roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
                 <x>0.50</x>
@@ -160,7 +160,7 @@
         <type>texmultiple</type>
         <object-name>horizonhdg</object-name>
         <transform>
-            <property>/instrumentation/pfd/horizon-pitch</property>
+            <property>instrumentation/pfd/horizon-pitch</property>
             <subtype>textranslate</subtype>
             <factor>0.003955078</factor>
             <axis>
@@ -169,7 +169,7 @@
             </axis>
         </transform>
         <transform>
-			<property>/instrumentation/pfd/heading-deg</property>
+			<property>instrumentation/pfd/heading-deg</property>
             <subtype>textranslate</subtype>
 			<bias>0.0000001</bias>
 			<factor>0.00356999976056338</factor>
@@ -179,7 +179,7 @@
             </axis>
         </transform>
         <transform>
-            <property>/orientation/roll-deg</property>
+            <property>orientation/roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
                 <x>0.50</x>
@@ -196,7 +196,7 @@
 	<animation>
         <type>texrotate</type>
 		<object-name>sky</object-name>
-    	<property>/orientation/roll-deg</property>
+    	<property>orientation/roll-deg</property>
 		<center>
 			<x>0.50</x>
 			<y>0.50</y>
@@ -212,7 +212,7 @@
         <type>texmultiple</type>
 		<object-name>ground</object-name>
         <transform>
-            <property>/instrumentation/pfd/horizon-ground</property>
+            <property>instrumentation/pfd/horizon-ground</property>
             <subtype>textranslate</subtype>
             <factor>0.003955078</factor>
             <axis>
@@ -221,7 +221,7 @@
             </axis>
         </transform>
         <transform>
-            <property>/orientation/roll-deg</property>
+            <property>orientation/roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
                 <x>0.50</x>
@@ -258,7 +258,7 @@
     <animation>
         <type>translate</type>
         <object-name>slipskid</object-name>
-        <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+        <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
         <factor>-0.002</factor>
         <axis>
             <x>0</x>
@@ -274,13 +274,13 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/fd1</property>
+					<property>it-autoflight/output/fd1</property>
 					<value>1</value>
 				</equals>
-				<not><property>/gear/gear[1]/wow</property></not>
-				<not><property>/gear/gear[2]/wow</property></not>
+				<not><property>gear/gear[1]/wow</property></not>
+				<not><property>gear/gear[2]/wow</property></not>
 				<equals>
-					<property>/it-autoflight/custom/trk-fpa</property>
+					<property>it-autoflight/custom/trk-fpa</property>
 					<value>0</value>
 				</equals>
 				<less-than>
@@ -302,13 +302,13 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/fd1</property>
+					<property>it-autoflight/output/fd1</property>
 					<value>1</value>
 				</equals>
-				<not><property>/gear/gear[1]/wow</property></not>
-				<not><property>/gear/gear[2]/wow</property></not>
+				<not><property>gear/gear[1]/wow</property></not>
+				<not><property>gear/gear[2]/wow</property></not>
 				<equals>
-					<property>/it-autoflight/custom/trk-fpa</property>
+					<property>it-autoflight/custom/trk-fpa</property>
 					<value>1</value>
 				</equals>
 				<less-than>
@@ -338,32 +338,32 @@
 			<and>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/fd1</property>
+						<property>it-autoflight/output/fd1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/fd2</property>
+						<property>it-autoflight/output/fd2</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
+						<property>it-autoflight/output/ap1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap2</property>
+						<property>it-autoflight/output/ap2</property>
 						<value>1</value>
 					</equals>
 				</or>
 				<not-equals>
-					<property>/modes/pfd/fma/pitch-mode</property>
+					<property>modes/pfd/fma/pitch-mode</property>
 					<value>LAND</value>
 				</not-equals>
 				<not-equals>
-					<property>/modes/pfd/fma/pitch-mode</property>
+					<property>modes/pfd/fma/pitch-mode</property>
 					<value>FLARE</value>
 				</not-equals>
 				<not-equals>
-					<property>/modes/pfd/fma/pitch-mode</property>
+					<property>modes/pfd/fma/pitch-mode</property>
 					<value>ROLLOUT</value>
 				</not-equals>
 			</and>
@@ -379,33 +379,33 @@
 			<and>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/fd1</property>
+						<property>it-autoflight/output/fd1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/fd2</property>
+						<property>it-autoflight/output/fd2</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
+						<property>it-autoflight/output/ap1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap2</property>
+						<property>it-autoflight/output/ap2</property>
 						<value>1</value>
 					</equals>
 				</or>
 				<or>
 					<equals>
-						<property>/modes/pfd/fma/pitch-mode</property>
+						<property>modes/pfd/fma/pitch-mode</property>
 						<value>LAND</value>
 					</equals>
 					<equals>
-						<property>/modes/pfd/fma/pitch-mode</property>
+						<property>modes/pfd/fma/pitch-mode</property>
 						<value>FLARE</value>
 					</equals>
 					<equals>
-						<property>/modes/pfd/fma/pitch-mode</property>
+						<property>modes/pfd/fma/pitch-mode</property>
 						<value>ROLLOUT</value>
 					</equals>
 				</or>
@@ -424,7 +424,7 @@
     <animation>
         <type>translate</type>
         <object-name>fd_pitch</object-name>
-        <property>/it-autoflight/fd/pitch-bar</property>
+        <property>it-autoflight/fd/pitch-bar</property>
         <factor>0.0006</factor>
         <axis>
             <x>0</x>
@@ -436,7 +436,7 @@
     <animation>
         <type>translate</type>
         <object-name>fd_roll</object-name>
-        <property>/it-autoflight/fd/roll-bar</property>
+        <property>it-autoflight/fd/roll-bar</property>
         <factor>0.0002</factor>
         <axis>
             <x>0</x>
@@ -448,7 +448,7 @@
     <animation>
         <type>translate</type>
         <object-name>fpv</object-name>
-        <property>/instrumentation/pfd/track-diff</property>
+        <property>instrumentation/pfd/track-diff</property>
         <factor>0.00260</factor>
         <axis>
             <x>0</x>
@@ -460,7 +460,7 @@
     <animation>
         <type>translate</type>
         <object-name>fpv</object-name>
-        <property>/orientation/pitch-deg</property>
+        <property>orientation/pitch-deg</property>
         <factor>0.001955078</factor>
         <axis>
             <x>0</x>
@@ -472,7 +472,7 @@
     <animation>
         <type>translate</type>
         <object-name>fpd</object-name>
-        <property>/instrumentation/pfd/track-diff</property>
+        <property>instrumentation/pfd/track-diff</property>
         <factor>0.00260</factor>
         <axis>
             <x>0</x>
@@ -484,7 +484,7 @@
     <animation>
         <type>translate</type>
         <object-name>fpd</object-name>
-        <property>/orientation/pitch-deg</property>
+        <property>orientation/pitch-deg</property>
         <factor>0.001955078</factor>
         <axis>
             <x>0</x>
@@ -496,7 +496,7 @@
     <animation>
         <type>translate</type>
         <object-name>fpd</object-name>
-        <property>/it-autoflight/fd/pitch-bar</property>
+        <property>it-autoflight/fd/pitch-bar</property>
         <factor>0.001955078</factor>
         <axis>
             <x>0</x>
@@ -508,7 +508,7 @@
     <animation>
         <type>rotate</type>
         <object-name>fpd</object-name>
-        <property>/it-autoflight/fd/roll-bar</property>
+        <property>it-autoflight/fd/roll-bar</property>
         <center>
             <x-m>0.0</x-m>
             <y-m>-0.005</y-m>
@@ -524,7 +524,7 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>spd-tape</object-name>
-    	<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>    0</dep></entry>
 			<entry><ind> 20</ind><dep>0.040</dep></entry>
@@ -557,7 +557,7 @@
         <type>texmultiple</type>
         <object-name>vls-tape</object-name>
         <transform>
-            <property>/modes/pfd/stallvls</property>
+            <property>modes/pfd/stallvls</property>
             <subtype>textranslate</subtype>
             <factor>0.002001953</factor>
             <axis>
@@ -582,7 +582,7 @@
         <type>texmultiple</type>
         <object-name>stall-tape</object-name>
         <transform>
-            <property>/modes/pfd/stallvls</property>
+            <property>modes/pfd/stallvls</property>
             <subtype>textranslate</subtype>
             <factor>0.002001953</factor>
             <axis>
@@ -612,7 +612,7 @@
 		<object-name>vls-tape</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/position/gear-agl-ft</property>
+				<property>position/gear-agl-ft</property>
 				<value>5</value>
 			</greater-than-equals>
 		</condition>
@@ -656,7 +656,7 @@
 			</axis>
 		</transform>
 		<transform>
-			<property>/controls/flight/flap-pos</property>
+			<property>controls/flight/flap-pos</property>
 			<subtype>textranslate</subtype>
 			<interpolation>
 				<entry><ind>0</ind><dep>0</dep></entry>
@@ -679,7 +679,7 @@
         <object-name>vfe-tape</object-name>
         <condition>
             <greater-than>
-                <property>/controls/flight/flap-lever</property>
+                <property>controls/flight/flap-lever</property>
                 <value>0</value>
             </greater-than>
         </condition>
@@ -761,7 +761,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/instrumentation/altimeter/indicated-altitude-ft-pfd</property>
+		<property>instrumentation/altimeter/indicated-altitude-ft-pfd</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -829,7 +829,7 @@
     <animation>
     	<type>texrotate</type>
     	<object-name>vsi</object-name>
-    	<property>/it-autoflight/internal/vert-speed-fpm-filtered</property>
+    	<property>it-autoflight/internal/vert-speed-fpm-filtered</property>
 		<interpolation>
 			<entry><ind>-3300</ind><dep> 58</dep></entry>
 			<entry><ind>-3000</ind><dep> 57</dep></entry>
@@ -871,7 +871,7 @@
         <object-name>hdg-bug</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/it-autoflight/input/hdg</property>
+            <property>it-autoflight/input/hdg</property>
             <factor>0.002783031</factor>
             <axis>
                 <x>-1</x>
@@ -892,7 +892,7 @@
         <object-name>hdg-bug</object-name>
         <condition>
             <equals>
-                <property>/it-autoflight/output/lat</property>
+                <property>it-autoflight/output/lat</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -924,7 +924,7 @@
         <object-name>trk-ind</object-name>
         <condition>
             <greater-than>
-                <property>/velocities/groundspeed-kt</property>
+                <property>velocities/groundspeed-kt</property>
                 <value>80</value>
             </greater-than>
         </condition>
@@ -935,7 +935,7 @@
         <object-name>loc-crs</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/instrumentation/nav/radials/selected-deg</property>
+            <property>instrumentation/nav/radials/selected-deg</property>
             <factor>0.002832031</factor>
             <axis>
                 <x>-1</x>
@@ -955,7 +955,7 @@
         <type>select</type>
         <object-name>loc-crs</object-name>
         <condition>
-			<property>/modes/pfd/ILS1</property>
+			<property>modes/pfd/ILS1</property>
         </condition>
     </animation>
 	
@@ -965,7 +965,7 @@
         <type>select</type>
         <object-name>gsscale</object-name>
         <condition>
-			<property>/modes/pfd/ILS1</property>
+			<property>modes/pfd/ILS1</property>
         </condition>
     </animation>
 
@@ -976,7 +976,7 @@
             <and>
                 <property>instrumentation/nav/gs-in-range</property>
                 <property>instrumentation/nav/has-gs</property>
-				<property>/modes/pfd/ILS1</property>
+				<property>modes/pfd/ILS1</property>
             </and>
         </condition>
     </animation>
@@ -999,7 +999,7 @@
         <type>select</type>
         <object-name>locscale</object-name>
         <condition>
-			<property>/modes/pfd/ILS1</property>
+			<property>modes/pfd/ILS1</property>
         </condition>
     </animation>
 
@@ -1010,7 +1010,7 @@
             <and>
                 <property>instrumentation/nav/in-range</property>
                 <property>instrumentation/nav/nav-loc</property>
-				<property>/modes/pfd/ILS1</property>
+				<property>modes/pfd/ILS1</property>
             </and>
         </condition>
     </animation>
@@ -1038,7 +1038,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%0.3f</format>
-		<property>/velocities/mach</property>
+		<property>velocities/mach</property>
 		<truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1151,11 +1151,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/modes/altimeter/inhg</property>
+					<property>modes/altimeter/inhg</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/modes/altimeter/std</property>
+					<property>modes/altimeter/std</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1168,11 +1168,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/modes/altimeter/inhg</property>
+					<property>modes/altimeter/inhg</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/modes/altimeter/std</property>
+					<property>modes/altimeter/std</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1184,7 +1184,7 @@
         <object-name>qnh-indicator</object-name>
         <condition>
             <equals>
-                <property>/modes/altimeter/std</property>
+                <property>modes/altimeter/std</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -1195,7 +1195,7 @@
         <object-name>std-indicator</object-name>
         <condition>
             <equals>
-                <property>/modes/altimeter/std</property>
+                <property>modes/altimeter/std</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -1269,7 +1269,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/minimums-mode</property>
+        <property>modes/pfd/minimums-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1293,7 +1293,7 @@
         <format type="string">%4.0f</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+        <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1317,7 +1317,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%3.0f</format>
-        <property>/it-autoflight/input/spd-kts</property>
+        <property>it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1341,7 +1341,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%5.0f</format>
-        <property>/it-autoflight/input/spd-kts</property>
+        <property>it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1365,7 +1365,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%3.0f</format>
-        <property>/it-autoflight/input/spd-kts</property>
+        <property>it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1389,7 +1389,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%5.0f</format>
-        <property>/it-autoflight/input/spd-kts</property>
+        <property>it-autoflight/input/spd-kts</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1413,7 +1413,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/input/spd-mach</property>
+        <property>it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1437,7 +1437,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/input/spd-mach</property>
+        <property>it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1461,7 +1461,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/input/spd-mach</property>
+        <property>it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1485,7 +1485,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%1.2f</format>
-        <property>/it-autoflight/input/spd-mach</property>
+        <property>it-autoflight/input/spd-mach</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1504,7 +1504,7 @@
     	<object-name>trgt-spd-mng</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/FMGC/internal/target-ias-pfd</property>
+            <property>FMGC/internal/target-ias-pfd</property>
             <factor>0.002001953</factor>
             <axis>
                 <y>-1</y>
@@ -1529,7 +1529,7 @@
         <object-name>trgt-spd-man</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>0</value>
 			</equals>
         </condition>
@@ -1540,7 +1540,7 @@
         <object-name>trgt-spd-mng</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>1</value>
 			</equals>
         </condition>
@@ -1554,18 +1554,18 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>70</value>
 				</greater-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1580,18 +1580,18 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>70</value>
 				</greater-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -1606,18 +1606,18 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>-70</value>
 				</less-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1632,18 +1632,18 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>-70</value>
 				</less-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -1658,18 +1658,18 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>70</value>
 				</greater-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1684,18 +1684,18 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>70</value>
 				</greater-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -1710,18 +1710,18 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>-70</value>
 				</less-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1736,18 +1736,18 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/input/spd-kts</property>
-							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<property>it-autoflight/input/spd-kts</property>
+							<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						</dif>
 					</expression>
 					<value>-70</value>
 				</less-than-equals>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -1768,7 +1768,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/throttle-mode</property>
+        <property>modes/pfd/fma/throttle-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1792,7 +1792,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/pitch-mode</property>
+        <property>modes/pfd/fma/pitch-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1816,7 +1816,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/pitch-mode</property>
+        <property>modes/pfd/fma/pitch-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1840,7 +1840,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/roll-mode</property>
+        <property>modes/pfd/fma/roll-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1864,7 +1864,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/pitch-mode-armed</property>
+        <property>modes/pfd/fma/pitch-mode-armed</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1888,7 +1888,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/pitch-mode2-armed</property>
+        <property>modes/pfd/fma/pitch-mode2-armed</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1912,7 +1912,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/roll-mode-armed</property>
+        <property>modes/pfd/fma/roll-mode-armed</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -1929,44 +1929,44 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/modes/pfd/fma/throttle-mode-box</property>
+					<property>modes/pfd/fma/throttle-mode-box</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>MAN THR</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>MAN THR</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>MCT</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>MCT</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
 				<or>
 					<not-equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>IDLE</value>
 					</not-equals>
 					<not-equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>IDLE</value>
 					</not-equals>
 				</or>
@@ -1980,7 +1980,7 @@
         <object-name>land-mode-box</object-name>
         <condition>
             <equals>
-                <property>/modes/pfd/fma/pitch-mode-box</property>
+                <property>modes/pfd/fma/pitch-mode-box</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -1992,11 +1992,11 @@
         <condition>
 			<or>
 				<equals>
-					<property>/modes/pfd/fma/pitch-mode-armed-box</property>
+					<property>modes/pfd/fma/pitch-mode-armed-box</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/modes/pfd/fma/pitch-mode2-armed-box</property>
+					<property>modes/pfd/fma/pitch-mode2-armed-box</property>
 					<value>1</value>
 				</equals>
 			</or>
@@ -2008,7 +2008,7 @@
         <object-name>roll-mode-box</object-name>
         <condition>
             <equals>
-                <property>/modes/pfd/fma/roll-mode-box</property>
+                <property>modes/pfd/fma/roll-mode-box</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -2019,7 +2019,7 @@
         <object-name>roll-mode-armed-box</object-name>
         <condition>
             <equals>
-                <property>/modes/pfd/fma/roll-mode-armed-box</property>
+                <property>modes/pfd/fma/roll-mode-armed-box</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -2031,16 +2031,16 @@
         <condition>
 			<and>
 				<equals>
-					<property>/modes/pfd/fma/ap-mode-box</property>
+					<property>modes/pfd/fma/ap-mode-box</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/ap1</property>
+						<property>it-autoflight/output/ap1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/ap2</property>
+						<property>it-autoflight/output/ap2</property>
 						<value>1</value>
 					</equals>
 				</or>
@@ -2054,16 +2054,16 @@
         <condition>
 			<and>
 				<equals>
-					<property>/modes/pfd/fma/fd-mode-box</property>
+					<property>modes/pfd/fma/fd-mode-box</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/fd1</property>
+						<property>it-autoflight/output/fd1</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/fd2</property>
+						<property>it-autoflight/output/fd2</property>
 						<value>1</value>
 					</equals>
 				</or>
@@ -2077,11 +2077,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/modes/pfd/fma/athr-mode-box</property>
+					<property>modes/pfd/fma/athr-mode-box</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -2101,7 +2101,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/ap-mode</property>
+        <property>modes/pfd/fma/ap-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -2125,7 +2125,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/fd-mode</property>
+        <property>modes/pfd/fma/fd-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -2149,7 +2149,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/at-mode</property>
+        <property>modes/pfd/fma/at-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -2173,7 +2173,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/at-mode</property>
+        <property>modes/pfd/fma/at-mode</property>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">false</draw-boundingbox>
@@ -2190,24 +2190,24 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>CL</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>CL</value>
 					</equals>
 				</or>
@@ -2221,57 +2221,57 @@
         <condition>
 			<and>
 				<equals>
-					<property>/systems/thrust/alpha-floor</property>
+					<property>systems/thrust/alpha-floor</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/toga-lk</property>
+					<property>systems/thrust/toga-lk</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>CL</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>CL</value>
 					</equals>
 				</or>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>MAN THR</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>MAN THR</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>MCT</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>MCT</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
 			</and>
@@ -2284,40 +2284,40 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/alpha-floor</property>
+						<property>systems/thrust/alpha-floor</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/toga-lk</property>
+						<property>systems/thrust/toga-lk</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN THR</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN THR</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>TOGA</value>
 					</equals>
 				</or>
@@ -2428,7 +2428,7 @@
         <axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/FMGC/internal/flex</property>
+		<property>FMGC/internal/flex</property>
         <font type="string">helvetica_medium.txf</font>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
@@ -2476,7 +2476,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/man-box</property>
+        <property>modes/pfd/fma/man-box</property>
         <draw-text type="bool">false</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">true</draw-boundingbox>
@@ -2500,7 +2500,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/man-box</property>
+        <property>modes/pfd/fma/man-box</property>
         <draw-text type="bool">false</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">true</draw-boundingbox>
@@ -2524,7 +2524,7 @@
         <format type="string">%s</format>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_medium.txf</font>
-        <property>/modes/pfd/fma/flex-box</property>
+        <property>modes/pfd/fma/flex-box</property>
         <draw-text type="bool">false</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
         <draw-boundingbox type="bool">true</draw-boundingbox>
@@ -2541,32 +2541,32 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN THR</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN THR</value>
 					</equals>
 				</or>
@@ -2580,31 +2580,31 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>TOGA</value>
 					</equals>
 					<and>
 						<or>
 							<equals>
-								<property>/systems/thrust/state1</property>
+								<property>systems/thrust/state1</property>
 								<value>MCT</value>
 							</equals>
 							<equals>
-								<property>/systems/thrust/state2</property>
+								<property>systems/thrust/state2</property>
 								<value>MCT</value>
 							</equals>
 						</or>
 						<not-equals>
-							<property>/controls/engines/thrust-limit</property>
+							<property>controls/engines/thrust-limit</property>
 							<value>FLX</value>
 						</not-equals>
 					</and>
@@ -2619,16 +2619,16 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN THR</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN THR</value>
 					</equals>
 				</or>
@@ -2642,16 +2642,16 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>TOGA</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>TOGA</value>
 					</equals>
 				</or>
@@ -2665,28 +2665,28 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
-					<property>/controls/engines/thrust-limit</property>
+					<property>controls/engines/thrust-limit</property>
 					<value>FLX</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MCT</value>
 					</equals>
 				</or>
@@ -2702,28 +2702,28 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/engines/thrust-limit</property>
+					<property>controls/engines/thrust-limit</property>
 					<value>FLX</value>
 				</equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MCT</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MCT</value>
 					</equals>
 				</or>
@@ -2737,32 +2737,32 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>TOGA</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state1</property>
+					<property>systems/thrust/state1</property>
 					<value>MCT</value>
 				</not-equals>
 				<not-equals>
-					<property>/systems/thrust/state2</property>
+					<property>systems/thrust/state2</property>
 					<value>MCT</value>
 				</not-equals>
 				<or>
 					<equals>
-						<property>/systems/thrust/state1</property>
+						<property>systems/thrust/state1</property>
 						<value>MAN THR</value>
 					</equals>
 					<equals>
-						<property>/systems/thrust/state2</property>
+						<property>systems/thrust/state2</property>
 						<value>MAN THR</value>
 					</equals>
 				</or>
@@ -2799,19 +2799,19 @@
         <condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/output/athr</property>
+					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/lvrclb</property>
+					<property>systems/thrust/lvrclb</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/alpha-floor</property>
+					<property>systems/thrust/alpha-floor</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/toga-lk</property>
+					<property>systems/thrust/toga-lk</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -2830,11 +2830,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/systems/thrust/alpha-floor</property>
+					<property>systems/thrust/alpha-floor</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/toga-lk</property>
+					<property>systems/thrust/toga-lk</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -2893,11 +2893,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/systems/thrust/alpha-floor</property>
+					<property>systems/thrust/alpha-floor</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/toga-lk</property>
+					<property>systems/thrust/toga-lk</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -2910,11 +2910,11 @@
         <condition>
 			<and>
 				<equals>
-					<property>/systems/thrust/alpha-floor</property>
+					<property>systems/thrust/alpha-floor</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/systems/thrust/toga-lk</property>
+					<property>systems/thrust/toga-lk</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -2934,7 +2934,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/it-autoflight/internal/alt</property>
+		<property>it-autoflight/internal/alt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -2958,7 +2958,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
         <format type="string">%s</format>
-        <property>/it-autoflight/internal/alt</property>
+        <property>it-autoflight/internal/alt</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -2982,7 +2982,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/it-autoflight/internal/alt-mng</property>
+		<property>it-autoflight/internal/alt-mng</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -3006,7 +3006,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
         <format type="string">%s</format>
-		<property>/it-autoflight/internal/alt-mng</property>
+		<property>it-autoflight/internal/alt-mng</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -3027,14 +3027,14 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/internal/alt</property>
-							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>it-autoflight/internal/alt</property>
+							<property>instrumentation/altimeter/indicated-altitude-ft</property>
 						</dif>
 					</expression>
 					<value>4300</value>
 				</greater-than-equals>
 				<not-equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>8</value>
 				</not-equals>
 			</and>
@@ -3049,14 +3049,14 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/internal/alt</property>
-							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>it-autoflight/internal/alt</property>
+							<property>instrumentation/altimeter/indicated-altitude-ft</property>
 						</dif>
 					</expression>
 					<value>-4300</value>
 				</less-than-equals>
 				<not-equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>8</value>
 				</not-equals>
 			</and>
@@ -3071,14 +3071,14 @@
 				<greater-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/internal/alt</property>
-							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>it-autoflight/internal/alt</property>
+							<property>instrumentation/altimeter/indicated-altitude-ft</property>
 						</dif>
 					</expression>
 					<value>4300</value>
 				</greater-than-equals>
 				<equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>8</value>
 				</equals>
 			</and>
@@ -3093,14 +3093,14 @@
 				<less-than-equals>
 					<expression>
 						<dif>
-							<property>/it-autoflight/internal/alt</property>
-							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>it-autoflight/internal/alt</property>
+							<property>instrumentation/altimeter/indicated-altitude-ft</property>
 						</dif>
 					</expression>
 					<value>-4300</value>
 				</less-than-equals>
 				<equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>8</value>
 				</equals>
 			</and>
@@ -3112,7 +3112,7 @@
         <object-name>target-alt-sel</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/it-autoflight/internal/alt</property>
+            <property>it-autoflight/internal/alt</property>
             <factor>0.000019141</factor>
             <axis>
                 <y>-1</y>
@@ -3122,7 +3122,7 @@
         </transform>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
             <factor>0.000019141</factor>
             <axis>
                 <y>1</y>
@@ -3137,7 +3137,7 @@
         <object-name>target-alt-mng</object-name>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/it-autoflight/internal/mng-alt</property>
+            <property>it-autoflight/internal/mng-alt</property>
             <factor>0.000019141</factor>
             <axis>
                 <y>-1</y>
@@ -3147,7 +3147,7 @@
         </transform>
         <transform>
             <subtype>textranslate</subtype>
-            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
             <factor>0.000019141</factor>
             <axis>
                 <y>1</y>
@@ -3162,7 +3162,7 @@
         <object-name>target-alt-sel</object-name>
         <condition>
 			<not-equals>
-				<property>/it-autoflight/output/vert</property>
+				<property>it-autoflight/output/vert</property>
 				<value>8</value>
 			</not-equals>
         </condition>
@@ -3173,7 +3173,7 @@
         <object-name>target-alt-mng</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/output/vert</property>
+				<property>it-autoflight/output/vert</property>
 				<value>8</value>
 			</equals>
         </condition>
@@ -3192,7 +3192,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+		<property>it-autoflight/internal/vert-speed-fpm-pfd</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -3216,7 +3216,7 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.0f</format>
-		<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+		<property>it-autoflight/internal/vert-speed-fpm-pfd</property>
         <truncate type="bool">false</truncate>
         <font type="string">helvetica_bold.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -3234,7 +3234,7 @@
         <object-name>vs-num</object-name>
         <condition>
 			<greater-than-equals>
-				<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+				<property>it-autoflight/internal/vert-speed-fpm-pfd</property>
 				<value>2</value>
 			</greater-than-equals>
         </condition>
@@ -3245,7 +3245,7 @@
         <object-name>vs-num-lower</object-name>
         <condition>
 			<less-than-equals>
-				<property>/it-autoflight/internal/vert-speed-fpm-pfd</property>
+				<property>it-autoflight/internal/vert-speed-fpm-pfd</property>
 				<value>-2</value>
 			</less-than-equals>
         </condition>
@@ -3256,7 +3256,7 @@
         <object-name>banklim</object-name>
         <condition>
 			<equals>
-				<property>/it-fbw/law</property>
+				<property>it-fbw/law</property>
 				<value>0</value>
 			</equals>
         </condition>
@@ -3267,7 +3267,7 @@
         <object-name>banklimXX</object-name>
         <condition>
 			<not-equals>
-				<property>/it-fbw/law</property>
+				<property>it-fbw/law</property>
 				<value>0</value>
 			</not-equals>
         </condition>
@@ -3302,7 +3302,7 @@
         <object-name>usemanpitchtrim</object-name>
         <condition>
 			<equals>
-				<property>/it-fbw/law</property>
+				<property>it-fbw/law</property>
 				<value>2</value>
 			</equals>
         </condition>
@@ -3337,7 +3337,7 @@
         <object-name>manpitchtrimonly</object-name>
         <condition>
 			<equals>
-				<property>/it-fbw/law</property>
+				<property>it-fbw/law</property>
 				<value>3</value>
 			</equals>
         </condition>
@@ -3349,11 +3349,11 @@
         <condition>
 			<or>
 				<equals>
-					<property>/it-fbw/law</property>
+					<property>it-fbw/law</property>
 					<value>2</value>
 				</equals>
 				<equals>
-					<property>/it-fbw/law</property>
+					<property>it-fbw/law</property>
 					<value>3</value>
 				</equals>
 			</or>

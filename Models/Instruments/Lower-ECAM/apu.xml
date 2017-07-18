@@ -16,7 +16,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>N</object-name>
-    	<property>/systems/apu/rpm</property>
+    	<property>systems/apu/rpm</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>-126</dep></entry>
 			<entry><ind>100</ind><dep>  54</dep></entry>
@@ -37,7 +37,7 @@
 	<animation>
     	<type>rotate</type>
     	<object-name>EGT</object-name>
-    	<property>/systems/apu/egt</property>
+    	<property>systems/apu/egt</property>
 		<interpolation>
 			<entry><ind> 275</ind><dep>-114</dep></entry>
 			<entry><ind> 300</ind><dep>-106</dep></entry>
@@ -71,7 +71,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/apu/rpm</property>
+		<property>systems/apu/rpm</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -121,7 +121,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/systems/apu/egt</property>
+		<property>systems/apu/egt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -190,7 +190,7 @@
 		<object-name>txt.bleedpsi</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/apu/rpm</property>
+				<property>systems/apu/rpm</property>
 				<value>94.9</value>
 			</greater-than-equals>
 		</condition>
@@ -226,11 +226,11 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>/systems/apu/rpm</property>
+					<property>systems/apu/rpm</property>
 					<value>3.5</value>
 				</greater-than-equals>
 				<equals>
-					<property>/controls/APU/master</property>
+					<property>controls/APU/master</property>
 					<value>1</value>					
 				</equals>
 			</or>
@@ -248,7 +248,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/systems/pneumatic/bleedapu</property>
+		<property>systems/pneumatic/bleedapu</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -290,7 +290,7 @@
 		<object-name>XX.bleedpsi</object-name>
 		<condition>
 			<less-than>
-				<property>/systems/apu/rpm</property>
+				<property>systems/apu/rpm</property>
 				<value>94.9</value>
 			</less-than>
 		</condition>
@@ -307,7 +307,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/electrical/extra/apu-load</property>
+		<property>systems/electrical/extra/apu-load</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -331,7 +331,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/electrical/extra/apu-volts</property>
+		<property>systems/electrical/extra/apu-volts</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -355,7 +355,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/electrical/extra/apu-volts</property>
+		<property>systems/electrical/extra/apu-volts</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -373,7 +373,7 @@
 		<object-name>txt.volts</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/extra/apu-volts</property>
+				<property>systems/electrical/extra/apu-volts</property>
 				<value>110</value>
 			</greater-than-equals>
 		</condition>
@@ -384,7 +384,7 @@
 		<object-name>txt.volts.a</object-name>
 		<condition>
 			<less-than>
-				<property>/systems/electrical/extra/apu-volts</property>
+				<property>systems/electrical/extra/apu-volts</property>
 				<value>110</value>
 			</less-than>
 		</condition>
@@ -401,7 +401,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/electrical/extra/apu-hz</property>
+		<property>systems/electrical/extra/apu-hz</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -425,7 +425,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/systems/electrical/extra/apu-hz</property>
+		<property>systems/electrical/extra/apu-hz</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -443,7 +443,7 @@
 		<object-name>txt.hz</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/extra/apu-hz</property>
+				<property>systems/electrical/extra/apu-hz</property>
 				<value>380</value>
 			</greater-than-equals>
 		</condition>
@@ -454,7 +454,7 @@
 		<object-name>txt.hz.a</object-name>
 		<condition>
 			<less-than>
-				<property>/systems/electrical/extra/apu-hz</property>
+				<property>systems/electrical/extra/apu-hz</property>
 				<value>380</value>
 			</less-than>
 		</condition>
@@ -467,11 +467,11 @@
 		<condition>
 			<and>
 				<greater-than>
-					<property>/systems/pneumatic/bleedapu</property>
+					<property>systems/pneumatic/bleedapu</property>
 					<value>0</value>
 				</greater-than>
 				<equals>
-					<property>/controls/pneumatic/switches/bleedapu</property>
+					<property>controls/pneumatic/switches/bleedapu</property>
 					<value>1</value>					
 				</equals>
 			</and>
@@ -489,11 +489,11 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>/systems/apu/rpm</property>
+					<property>systems/apu/rpm</property>
 					<value>3.5</value>
 				</greater-than-equals>
 				<equals>
-					<property>/controls/APU/master</property>
+					<property>controls/APU/master</property>
 					<value>1</value>					
 				</equals>
 			</or>
@@ -507,11 +507,11 @@
 		<condition>
 			<and>
 				<less-than>
-					<property>/systems/apu/rpm</property>
+					<property>systems/apu/rpm</property>
 					<value>3.5</value>
 				</less-than>
 				<equals>
-					<property>/controls/APU/master</property>
+					<property>controls/APU/master</property>
 					<value>0</value>					
 				</equals>
 			</and>

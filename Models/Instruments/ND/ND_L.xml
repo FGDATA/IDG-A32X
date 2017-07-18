@@ -15,7 +15,7 @@
         <object-name>ND.screen</object-name>
         <condition>
             <and>
-                <property>/systems/unused/something</property>
+                <property>systems/unused/something</property>
             </and>
         </condition>
     </animation-->

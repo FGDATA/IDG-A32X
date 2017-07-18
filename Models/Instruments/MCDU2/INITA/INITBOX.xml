@@ -14,7 +14,7 @@
 		<type>select</type>
 		<object-name>fromtobox</object-name>
 		<condition>
-			<not><property>/FMGC/internal/tofrom-set</property></not>
+			<not><property>FMGC/internal/tofrom-set</property></not>
 		</condition>
 	</animation>
 	
@@ -23,8 +23,8 @@
 		<object-name>costindexbox</object-name>
 		<condition>
 			<and>
-				<property>/FMGC/internal/tofrom-set</property>
-				<not><property>/FMGC/internal/cost-index-set</property></not>
+				<property>FMGC/internal/tofrom-set</property>
+				<not><property>FMGC/internal/cost-index-set</property></not>
 			</and>
 		</condition>
 	</animation>
@@ -34,8 +34,8 @@
 		<object-name>cruisetempbox</object-name>
 		<condition>
 			<and>
-				<property>/FMGC/internal/tofrom-set</property>
-				<not><property>/FMGC/internal/cruise-lvl-set</property></not>
+				<property>FMGC/internal/tofrom-set</property>
+				<not><property>FMGC/internal/cruise-lvl-set</property></not>
 			</and>
 		</condition>
 	</animation>
@@ -44,7 +44,7 @@
 		<type>select</type>
 		<object-name>fltnumbox</object-name>
 		<condition>
-			<not><property>/MCDUC/flight-num-set</property></not>
+			<not><property>MCDUC/flight-num-set</property></not>
 		</condition>
 	</animation>
 	

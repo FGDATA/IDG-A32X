@@ -13,9 +13,9 @@
 	<model>
 		<condition>
 			<and>
-				<not><property>/options/EIS2</property></not>
+				<not><property>options/EIS2</property></not>
 				<equals>
-					<property>/instrumentation/efis/ecam/display-mode</property>
+					<property>instrumentation/efis/ecam/display-mode</property>
 					<value>ENG</value>
 				</equals>
 			</and>
@@ -26,9 +26,9 @@
 	<model>
 		<condition>
 			<and>
-				<property>/options/EIS2</property>
+				<property>options/EIS2</property>
 				<equals>
-					<property>/instrumentation/efis/ecam/display-mode</property>
+					<property>instrumentation/efis/ecam/display-mode</property>
 					<value>ENG</value>
 				</equals>
 			</and>
@@ -39,7 +39,7 @@
 	<model>
 		<condition>
 			<equals>
-				<property>/instrumentation/efis/ecam/display-mode</property>
+				<property>instrumentation/efis/ecam/display-mode</property>
 				<value>APU</value>
 			</equals>
 		</condition>

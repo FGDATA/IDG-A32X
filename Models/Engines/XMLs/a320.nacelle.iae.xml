@@ -10,10 +10,6 @@
 
 	<path>../Models/a320.nacelle.iae.ac</path>
 
-	<params>
-		<reverser-pos-norm>engines/engine[0]/reverser-pos-norm</reverser-pos-norm>
-	</params>
-
 	<!-- Reverse thrust animation -->
 	<animation>
 		<type>translate</type>

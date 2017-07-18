@@ -17,11 +17,11 @@
     <animation>
     	<type>rotate</type>
     	<object-name>lb_psi</object-name>
-    	<property>/systems/hydraulic/brakes/pressure-left-psi</property>
+    	<property>systems/hydraulic/brakes/pressure-left-psi</property>
     	<factor>0.03</factor>
 		<condition>
 			<equals>
-				<property>/systems/hydraulic/brakes/mode</property>
+				<property>systems/hydraulic/brakes/mode</property>
 				<value>2</value>
 			</equals>
 		</condition>
@@ -40,11 +40,11 @@
     <animation>
     	<type>rotate</type>
     	<object-name>rb_psi</object-name>
-    	<property>/systems/hydraulic/brakes/pressure-right-psi</property>
+    	<property>systems/hydraulic/brakes/pressure-right-psi</property>
     	<factor>-0.03</factor>
 		<condition>
 			<equals>
-				<property>/systems/hydraulic/brakes/mode</property>
+				<property>systems/hydraulic/brakes/mode</property>
 				<value>2</value>
 			</equals>
 		</condition>
@@ -63,7 +63,7 @@
     <animation>
     	<type>rotate</type>
     	<object-name>accum_psi</object-name>
-    	<property>/systems/hydraulic/brakes/accumulator-pressure-psi</property>
+    	<property>systems/hydraulic/brakes/accumulator-pressure-psi</property>
     	<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>700</ind><dep>66</dep></entry>

@@ -23,7 +23,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/flight-num</property>
+		<property>MCDUC/flight-num</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -73,7 +73,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-1</property>
+		<property>MCDUC/F-PLNA/left-1</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -89,7 +89,7 @@
 		<object-name>left1w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-1c</property>
+				<property>MCDUC/F-PLNA/left-1c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -108,7 +108,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-2</property>
+		<property>MCDUC/F-PLNA/left-2</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -124,7 +124,7 @@
 		<object-name>left2w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-2c</property>
+				<property>MCDUC/F-PLNA/left-2c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -143,7 +143,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-3</property>
+		<property>MCDUC/F-PLNA/left-3</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -159,7 +159,7 @@
 		<object-name>left3w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-3c</property>
+				<property>MCDUC/F-PLNA/left-3c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -178,7 +178,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-4</property>
+		<property>MCDUC/F-PLNA/left-4</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -194,7 +194,7 @@
 		<object-name>left4w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-4c</property>
+				<property>MCDUC/F-PLNA/left-4c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -213,7 +213,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-5</property>
+		<property>MCDUC/F-PLNA/left-5</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -229,7 +229,7 @@
 		<object-name>left5w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-5c</property>
+				<property>MCDUC/F-PLNA/left-5c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -248,7 +248,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-6</property>
+		<property>MCDUC/F-PLNA/left-6</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -264,7 +264,7 @@
 		<object-name>left6w</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-6c</property>
+				<property>MCDUC/F-PLNA/left-6c</property>
 				<value>w</value>
 			</equals>
 		</condition>
@@ -285,7 +285,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-1</property>
+		<property>MCDUC/F-PLNA/left-1</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -301,7 +301,7 @@
 		<object-name>left1g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-1c</property>
+				<property>MCDUC/F-PLNA/left-1c</property>
 				<value>g</value>
 			</equals>
 		</condition>
@@ -320,7 +320,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-2</property>
+		<property>MCDUC/F-PLNA/left-2</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -336,7 +336,7 @@
 		<object-name>left2g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-2c</property>
+				<property>MCDUC/F-PLNA/left-2c</property>
 				<value>g</value>
 			</equals>
 		</condition>
@@ -355,7 +355,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-3</property>
+		<property>MCDUC/F-PLNA/left-3</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -371,7 +371,7 @@
 		<object-name>left3g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-3c</property>
+				<property>MCDUC/F-PLNA/left-3c</property>
 				<value>g</value>
 			</equals>
 		</condition>
@@ -390,7 +390,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-4</property>
+		<property>MCDUC/F-PLNA/left-4</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -406,7 +406,7 @@
 		<object-name>left4g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-4c</property>
+				<property>MCDUC/F-PLNA/left-4c</property>
 				<value>g</value>
 			</equals>
 		</condition>
@@ -425,7 +425,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-5</property>
+		<property>MCDUC/F-PLNA/left-5</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -441,7 +441,7 @@
 		<object-name>left5g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-5c</property>
+				<property>MCDUC/F-PLNA/left-5c</property>
 				<value>g</value>
 			</equals>
 		</condition>
@@ -460,7 +460,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/F-PLNA/left-6</property>
+		<property>MCDUC/F-PLNA/left-6</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -476,7 +476,7 @@
 		<object-name>left6g</object-name>
 		<condition>
 			<equals>
-				<property>/MCDUC/F-PLNA/left-6c</property>
+				<property>MCDUC/F-PLNA/left-6c</property>
 				<value>g</value>
 			</equals>
 		</condition>

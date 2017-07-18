@@ -296,7 +296,7 @@
         <path>Aircraft/A320Family/Models/Services/Fuel-Truck/Fuel_Truck_Short_VolvoFM.ac</path>
         <condition>
             <equals>
-                <property>/services/fuel-truck/enable</property>
+                <property>services/fuel-truck/enable</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -312,7 +312,7 @@
         <object-name>fuel_pipe</object-name>
         <condition>
             <equals>
-                <property>/services/fuel-truck/connect</property>
+                <property>services/fuel-truck/connect</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -323,7 +323,7 @@
         <object-name>fuel_pipe_disconnected</object-name>
         <condition>
             <equals>
-                <property>/services/fuel-truck/connect</property>
+                <property>services/fuel-truck/connect</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -336,7 +336,7 @@
         <path>Aircraft/A320Family/Models/Services/De-Icing/volvo_deicing_truck.xml</path>
         <condition>
             <equals>
-                <property>/services/deicing_truck/enable</property>
+                <property>services/deicing_truck/enable</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -355,7 +355,7 @@
         <path>Aircraft/A320Family/Models/Services/Catering/L_T_VolvoFM-4_5m-set.xml</path>
         <condition>
             <equals>
-                <property>/services/catering/enable</property>
+                <property>services/catering/enable</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -374,7 +374,7 @@
         <path>Aircraft/A320Family/Models/Services/Baggage/cargo_ramp.ac</path>
         <condition>
             <equals>
-                <property>/services/baggage/enable</property>
+                <property>services/baggage/enable</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -392,7 +392,7 @@
         <path>Aircraft/A320Family/Models/Services/External-Power/ext-pwr-box.ac</path>
         <condition>
             <equals>
-                <property>/controls/switches/cart</property>
+                <property>controls/switches/cart</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -410,7 +410,7 @@
         <path>Aircraft/A320Family/Models/Services/Chocks/chock_nose.ac</path>
         <condition>
             <equals>
-                <property>/services/chokes/nose</property>
+                <property>services/chokes/nose</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -425,7 +425,7 @@
         <path>Aircraft/A320Family/Models/Services/Chocks/chock_left.ac</path>
         <condition>
             <equals>
-                <property>/services/chokes/left</property>
+                <property>services/chokes/left</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -441,7 +441,7 @@
         <path>Aircraft/A320Family/Models/Services/Chocks/chock_right.ac</path>
         <condition>
             <equals>
-                <property>/services/chokes/right</property>
+                <property>services/chokes/right</property>
                 <value>1</value>
             </equals>
         </condition>
@@ -464,7 +464,7 @@
 	  <heading-deg>-8</heading-deg>
 	 </offsets>
 	 <condition>
-	  <property>/services/stairs/l1</property>
+	  <property>services/stairs/l1</property>
 	 </condition>
 	</model>
 
@@ -478,7 +478,7 @@
 	  <heading-deg>6</heading-deg>
 	 </offsets>
 	 <condition>
-	  <property>/services/stairs/l4</property>
+	  <property>services/stairs/l4</property>
 	 </condition>
 	</model>
 
@@ -492,7 +492,7 @@
     <object-name>Right strobe light</object-name>
     <condition>
         <not>
-            <property>/sim/rendering/shaders/skydome</property>
+            <property>sim/rendering/shaders/skydome</property>
         </not>
     </condition>
 </animation>
@@ -508,7 +508,7 @@
     <object-name>Nosegear landing light ALS</object-name>
     <object-name>Starboard landing light ALS</object-name>
     <condition>
-            <property>/sim/rendering/shaders/skydome</property>
+            <property>sim/rendering/shaders/skydome</property>
     </condition>
 </animation>
  <animation>
@@ -517,7 +517,7 @@
    <condition>
     <and>
 	 <not>
-		<property>/sim/model/lights/nose-ldglight</property>
+		<property>sim/model/lights/nose-ldglight</property>
 		<value>0</value>
 	</not>
      <greater-than>

@@ -36,7 +36,7 @@
 		<object-name>fan</object-name>
 		<object-name>holder</object-name>
 		<condition>    		
-          			<property>/controls/hydraulic/rat-deployed</property>
+          			<property>controls/hydraulic/rat-deployed</property>
 		</condition>
 	</animation>
 

@@ -21,7 +21,7 @@
 		<name>Rudder</name>
 		<type>rotate</type>
 		<object-name>Rudder</object-name>
-		<property>/sim/multiplay/generic/float[8]</property>
+		<property>sim/multiplay/generic/float[8]</property>
 		<factor>25</factor>
 		<axis>
 			<x1-m>4.013</x1-m>

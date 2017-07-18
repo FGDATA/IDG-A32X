@@ -14,7 +14,7 @@
 		<type>select</type>
 		<object-name>blockbox</object-name>
 		<condition>
-			<not><property>/FMGC/internal/block-set</property></not>
+			<not><property>FMGC/internal/block-set</property></not>
 		</condition>
 	</animation>
 	

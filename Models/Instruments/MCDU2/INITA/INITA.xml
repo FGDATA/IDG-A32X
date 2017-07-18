@@ -132,7 +132,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/dep-arpt</property>
+		<property>FMGC/internal/dep-arpt</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -156,7 +156,7 @@
 		<format type="string">/%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/arr-arpt</property>
+		<property>FMGC/internal/arr-arpt</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -171,7 +171,7 @@
 		<type>select</type>
 		<object-name>fromto2</object-name>
 		<condition>
-			<property>/FMGC/internal/tofrom-set</property>
+			<property>FMGC/internal/tofrom-set</property>
 		</condition>
 	</animation>
 	
@@ -345,8 +345,8 @@
 		<object-name>alignirs-arrow</object-name>
 		<condition>
 			<and>
-				<property>/FMGC/internal/tofrom-set</property>
-				<not><property>/controls/adirs/mcducbtn</property></not>
+				<property>FMGC/internal/tofrom-set</property>
+				<not><property>controls/adirs/mcducbtn</property></not>
 			</and>
 		</condition>
 	</animation>
@@ -411,7 +411,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/MCDUC/flight-num</property>
+		<property>MCDUC/flight-num</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -426,7 +426,7 @@
 		<type>select</type>
 		<object-name>fltnmbr2</object-name>
 		<condition>
-			<property>/MCDUC/flight-num-set</property>
+			<property>MCDUC/flight-num-set</property>
 		</condition>
 	</animation>
 	
@@ -489,7 +489,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/cost-index</property>
+		<property>FMGC/internal/cost-index</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -504,15 +504,15 @@
 		<type>select</type>
 		<object-name>costindex2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/tofrom-set</property></not>
-			<not><property>/FMGC/internal/cost-index-set</property></not>
+			<not><property>FMGC/internal/tofrom-set</property></not>
+			<not><property>FMGC/internal/cost-index-set</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>costindex3</object-name>
 		<condition>
-			<property>/FMGC/internal/cost-index-set</property>
+			<property>FMGC/internal/cost-index-set</property>
 		</condition>
 	</animation>
 	
@@ -645,7 +645,7 @@
 		<format type="string">FL%s/---</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/cruise-fl</property>
+		<property>FMGC/internal/cruise-fl</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -660,15 +660,15 @@
 		<type>select</type>
 		<object-name>crzfltemp2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/tofrom-set</property></not>
-			<not><property>/FMGC/internal/cruise-lvl-set</property></not>
+			<not><property>FMGC/internal/tofrom-set</property></not>
+			<not><property>FMGC/internal/cruise-lvl-set</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>crzfltemp3</object-name>
 		<condition>
-			<property>/FMGC/internal/cruise-lvl-set</property>
+			<property>FMGC/internal/cruise-lvl-set</property>
 		</condition>
 	</animation>
 	

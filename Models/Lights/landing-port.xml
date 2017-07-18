@@ -30,7 +30,7 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac-ess</property>
+					<property>systems/electrical/bus/ac-ess</property>
 					<value>110</value>
 				</greater-than-equals>
 				<property>controls/lighting/landing-lights[2]</property>

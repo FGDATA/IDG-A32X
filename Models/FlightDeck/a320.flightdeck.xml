@@ -12,7 +12,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<property>/systems/shake/shaking</property>
+		<property>systems/shake/shaking</property>
 		<axis>
 			<x1-m>   0</x1-m>
 			<y1-m>   0</y1-m>
@@ -39,7 +39,7 @@
 		<path>Aircraft/A320Family/Models/Instruments/OHpanel/OHpanelEPR.xml</path>
 		<condition>
 			<equals>
-				<property>/options/eng</property>
+				<property>options/eng</property>
 				<value>IAE</value>
 			</equals>
 		</condition>
@@ -56,11 +56,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/options/eng</property>
+					<property>options/eng</property>
 					<value>CFM</value>
 				</equals>
 				<equals>
-					<property>/options/steep-ils-avail</property>
+					<property>options/steep-ils-avail</property>
 					<value>1</value>
 				</equals>
 			</and>
@@ -134,16 +134,16 @@
 			<and>
 				<or>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac1</property>
+						<property>systems/electrical/bus/ac1</property>
 						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac2</property>
+						<property>systems/electrical/bus/ac2</property>
 						<value>110</value>
 					</greater-than-equals>
 				</or>
 				<not-equals>
-					<property>/modes/cpt-du-xfr</property>
+					<property>modes/cpt-du-xfr</property>
 					<value>2</value>
 				</not-equals>
 			</and>
@@ -153,7 +153,7 @@
     <animation>
         <type>translate</type>
         <object-name>PFD1</object-name>
-        <property>/modes/cpt-du-xfr</property>
+        <property>modes/cpt-du-xfr</property>
         <factor>0.18845</factor>
         <axis>
             <x>0</x>
@@ -174,19 +174,19 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
+					<property>systems/electrical/bus/ac1</property>
 					<value>25</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
+					<property>systems/electrical/bus/ac2</property>
 					<value>25</value>
 				</greater-than-equals>
 				<not-equals>
-					<property>/modes/fo-du-xfr</property>
+					<property>modes/fo-du-xfr</property>
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/electrical/switches/emer-gen</property>
+					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
 			</and>
@@ -196,7 +196,7 @@
     <animation>
         <type>translate</type>
         <object-name>PFD2</object-name>
-        <property>/modes/fo-du-xfr</property>
+        <property>modes/fo-du-xfr</property>
         <factor>-0.19505</factor>
         <axis>
             <x>0</x>
@@ -219,19 +219,19 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
+					<property>systems/electrical/bus/ac1</property>
 					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
+					<property>systems/electrical/bus/ac2</property>
 					<value>110</value>
 				</greater-than-equals>
 				<not-equals>
-					<property>/modes/cpt-du-xfr</property>
+					<property>modes/cpt-du-xfr</property>
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/electrical/switches/emer-gen</property>
+					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
 			</and>
@@ -241,7 +241,7 @@
     <animation>
         <type>translate</type>
         <object-name>ND1</object-name>
-        <property>/modes/cpt-du-xfr</property>
+        <property>modes/cpt-du-xfr</property>
         <factor>-0.18845</factor>
         <axis>
             <x>0</x>
@@ -262,19 +262,19 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
+					<property>systems/electrical/bus/ac1</property>
 					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
+					<property>systems/electrical/bus/ac2</property>
 					<value>110</value>
 				</greater-than-equals>
 				<not-equals>
-					<property>/modes/fo-du-xfr</property>
+					<property>modes/fo-du-xfr</property>
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>/controls/electrical/switches/emer-gen</property>
+					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
 			</and>
@@ -284,7 +284,7 @@
     <animation>
         <type>translate</type>
         <object-name>ND2</object-name>
-        <property>/modes/fo-du-xfr</property>
+        <property>modes/fo-du-xfr</property>
         <factor>0.19505</factor>
         <axis>
             <x>0</x>
@@ -306,18 +306,18 @@
 		</offsets>
 		<condition>
 			<and>
-				<not><property>/options/EIS2</property></not>
+				<not><property>options/EIS2</property></not>
 				<equals>
-					<property>/options/eng</property>
+					<property>options/eng</property>
 					<value>CFM</value>
 				</equals>
 				<or>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac1</property>
+						<property>systems/electrical/bus/ac1</property>
 						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac2</property>
+						<property>systems/electrical/bus/ac2</property>
 						<value>110</value>
 					</greater-than-equals>
 				</or>
@@ -336,18 +336,18 @@
 		</offsets>
 		<condition>
 			<and>
-				<not><property>/options/EIS2</property></not>
+				<not><property>options/EIS2</property></not>
 				<equals>
-					<property>/options/eng</property>
+					<property>options/eng</property>
 					<value>IAE</value>
 				</equals>
 				<or>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac1</property>
+						<property>systems/electrical/bus/ac1</property>
 						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac2</property>
+						<property>systems/electrical/bus/ac2</property>
 						<value>110</value>
 					</greater-than-equals>
 				</or>
@@ -366,18 +366,18 @@
 		</offsets>
 		<condition>
 			<and>
-				<property>/options/EIS2</property>
+				<property>options/EIS2</property>
 				<equals>
-					<property>/options/eng</property>
+					<property>options/eng</property>
 					<value>CFM</value>
 				</equals>
 				<or>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac1</property>
+						<property>systems/electrical/bus/ac1</property>
 						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac2</property>
+						<property>systems/electrical/bus/ac2</property>
 						<value>110</value>
 					</greater-than-equals>
 				</or>
@@ -396,18 +396,18 @@
 		</offsets>
 		<condition>
 			<and>
-				<property>/options/EIS2</property>
+				<property>options/EIS2</property>
 				<equals>
-					<property>/options/eng</property>
+					<property>options/eng</property>
 					<value>IAE</value>
 				</equals>
 				<or>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac1</property>
+						<property>systems/electrical/bus/ac1</property>
 						<value>110</value>
 					</greater-than-equals>
 					<greater-than-equals>
-						<property>/systems/electrical/bus/ac2</property>
+						<property>systems/electrical/bus/ac2</property>
 						<value>110</value>
 					</greater-than-equals>
 				</or>
@@ -430,15 +430,15 @@
 			<and>
 				<property>sim/current-view/internal</property>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac1</property>
+					<property>systems/electrical/bus/ac1</property>
 					<value>110</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/ac2</property>
+					<property>systems/electrical/bus/ac2</property>
 					<value>110</value>
 				</greater-than-equals>
 				<not-equals>
-					<property>/controls/electrical/switches/emer-gen</property>
+					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
 			</and>
@@ -453,11 +453,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -470,11 +470,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -486,7 +486,7 @@
 		<object-name>spd.fmgc</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -497,7 +497,7 @@
         <object-name>spd.dash</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>1</value>
 			</equals>
         </condition>
@@ -508,7 +508,7 @@
 		<object-name>lat.fmgc</object-name>
 		<condition>
             <equals>
-                <property>/it-autoflight/output/lat</property>
+                <property>it-autoflight/output/lat</property>
                 <value>1</value>
             </equals>
 		</condition>
@@ -520,11 +520,11 @@
         <condition>
 			<and>
 				<not-equals>
-					<property>/it-autoflight/output/lat</property>
+					<property>it-autoflight/output/lat</property>
 					<value>0</value>
 				</not-equals>
 				<equals>
-					<property>/it-autoflight/custom/show-hdg</property>
+					<property>it-autoflight/custom/show-hdg</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -536,7 +536,7 @@
 		<object-name>ver.fmgc</object-name>
 		<condition>
 			<equals>
-				<property>/flight-management/control/ver-ctrl</property>
+				<property>flight-management/control/ver-ctrl</property>
 				<value>fmgc</value>
 			</equals>
 		</condition>
@@ -548,7 +548,7 @@
 		<object-name>vs.ind.001</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/custom/trk-fpa</property>
+				<property>it-autoflight/custom/trk-fpa</property>
 				<value>0</value>
 			</equals>
         </condition>
@@ -560,7 +560,7 @@
 		<object-name>fpa.ind.001</object-name>
         <condition>
 			<equals>
-				<property>/it-autoflight/custom/trk-fpa</property>
+				<property>it-autoflight/custom/trk-fpa</property>
 				<value>1</value>
 			</equals>
         </condition>
@@ -571,7 +571,7 @@
 		<object-name>lvlch.ind</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/vert</property>
+				<property>it-autoflight/output/vert</property>
 				<value>4</value>
 			</equals>
 		</condition>
@@ -617,17 +617,17 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/it-autoflight/input/kts-mach</property>
+							<property>it-autoflight/input/kts-mach</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/it-autoflight/input/spd-managed</property>
+							<property>it-autoflight/input/spd-managed</property>
 							<value>0</value>
 						</equals>
 					</and>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/spd-kts</property>
+				<property>it-autoflight/input/spd-kts</property>
 				<step>1</step>
 				<min>100</min>
 				<max>380</max>
@@ -636,24 +636,24 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/it-autoflight/input/kts-mach</property>
+							<property>it-autoflight/input/kts-mach</property>
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/it-autoflight/input/spd-managed</property>
+							<property>it-autoflight/input/spd-managed</property>
 							<value>0</value>
 						</equals>
 					</and>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/spd-mach</property>
+				<property>it-autoflight/input/spd-mach</property>
 				<step>0.001</step>
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/spd-knb</property>
+				<property>it-autoflight/custom/spd-knb</property>
 				<step>1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -667,17 +667,17 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/it-autoflight/input/kts-mach</property>
+							<property>it-autoflight/input/kts-mach</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/it-autoflight/input/spd-managed</property>
+							<property>it-autoflight/input/spd-managed</property>
 							<value>0</value>
 						</equals>
 					</and>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/spd-kts</property>
+				<property>it-autoflight/input/spd-kts</property>
 				<step>-1</step>
 				<min>100</min>
 				<max>380</max>
@@ -686,24 +686,24 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/it-autoflight/input/kts-mach</property>
+							<property>it-autoflight/input/kts-mach</property>
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/it-autoflight/input/spd-managed</property>
+							<property>it-autoflight/input/spd-managed</property>
 							<value>0</value>
 						</equals>
 					</and>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/spd-mach</property>
+				<property>it-autoflight/input/spd-mach</property>
 				<step>-0.001</step>
 				<min>0.50</min>
 				<max>0.95</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/spd-knb</property>
+				<property>it-autoflight/custom/spd-knb</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -745,7 +745,7 @@
 			<binding>
 				<condition>
 					<not-equals>
-						<property>/it-autoflight/output/lat</property>
+						<property>it-autoflight/output/lat</property>
 						<value>0</value>
 					</not-equals>
 				</condition>
@@ -755,12 +755,12 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/show-hdg</property>
+						<property>it-autoflight/custom/show-hdg</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/hdg</property>
+				<property>it-autoflight/input/hdg</property>
 				<step>1</step>
 				<min>1</min>
 				<max>361</max>
@@ -768,7 +768,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/hdg-knb</property>
+				<property>it-autoflight/custom/hdg-knb</property>
 				<step>1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -781,7 +781,7 @@
 			<binding>
 				<condition>
 					<not-equals>
-						<property>/it-autoflight/output/lat</property>
+						<property>it-autoflight/output/lat</property>
 						<value>0</value>
 					</not-equals>
 				</condition>
@@ -791,12 +791,12 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/show-hdg</property>
+						<property>it-autoflight/custom/show-hdg</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/hdg</property>
+				<property>it-autoflight/input/hdg</property>
 				<step>-1</step>
 				<min>1</min>
 				<max>361</max>
@@ -804,7 +804,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/hdg-knb</property>
+				<property>it-autoflight/custom/hdg-knb</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -821,7 +821,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vert</property>
+				<property>it-autoflight/input/vert</property>
 				<value>8</value>
 			</binding>
 			<binding>
@@ -835,7 +835,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vert</property>
+				<property>it-autoflight/input/vert</property>
 				<value>4</value>
 			</binding>
 			<binding>
@@ -849,12 +849,12 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/config/altitude-dial-mode</property>
+						<property>it-autoflight/config/altitude-dial-mode</property>
 						<value>0</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/alt</property>
+				<property>it-autoflight/input/alt</property>
 				<step>100</step>
 				<min>0</min>
 				<max>50000</max>
@@ -862,19 +862,19 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/config/altitude-dial-mode</property>
+						<property>it-autoflight/config/altitude-dial-mode</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/alt</property>
+				<property>it-autoflight/input/alt</property>
 				<step>1000</step>
 				<min>0</min>
 				<max>50000</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/alt-knb</property>
+				<property>it-autoflight/custom/alt-knb</property>
 				<step>1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -887,12 +887,12 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/config/altitude-dial-mode</property>
+						<property>it-autoflight/config/altitude-dial-mode</property>
 						<value>0</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/alt</property>
+				<property>it-autoflight/input/alt</property>
 				<step>-100</step>
 				<min>0</min>
 				<max>50000</max>
@@ -900,19 +900,19 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/config/altitude-dial-mode</property>
+						<property>it-autoflight/config/altitude-dial-mode</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/alt</property>
+				<property>it-autoflight/input/alt</property>
 				<step>-1000</step>
 				<min>0</min>
 				<max>50000</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/alt-knb</property>
+				<property>it-autoflight/custom/alt-knb</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -930,45 +930,45 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/trk-fpa</property>
+						<property>it-autoflight/custom/trk-fpa</property>
 						<value>0</value>
 					</equals>
 				</condition>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vert</property>
+				<property>it-autoflight/input/vert</property>
 				<value>1</value>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/trk-fpa</property>
+						<property>it-autoflight/custom/trk-fpa</property>
 						<value>0</value>
 					</equals>
 				</condition>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vs</property>
+				<property>it-autoflight/input/vs</property>
 				<value>0</value>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/trk-fpa</property>
+						<property>it-autoflight/custom/trk-fpa</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vert</property>
+				<property>it-autoflight/input/vert</property>
 				<value>5</value>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/custom/trk-fpa</property>
+						<property>it-autoflight/custom/trk-fpa</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/fpa</property>
+				<property>it-autoflight/input/fpa</property>
 				<value>0.0</value>
 			</binding>
 			<binding>
@@ -1010,30 +1010,30 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/output/vert</property>
+						<property>it-autoflight/output/vert</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/vs</property>
+				<property>it-autoflight/input/vs</property>
 				<step>100</step>
 				<max>8000</max>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/output/vert</property>
+						<property>it-autoflight/output/vert</property>
 						<value>5</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/fpa</property>
+				<property>it-autoflight/input/fpa</property>
 				<step>0.1</step>
 				<max>20.9</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/vs-knb</property>
+				<property>it-autoflight/custom/vs-knb</property>
 				<step>1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -1056,30 +1056,30 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/output/vert</property>
+						<property>it-autoflight/output/vert</property>
 						<value>1</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/vs</property>
+				<property>it-autoflight/input/vs</property>
 				<step>-100</step>
 				<min>-6000</min>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/it-autoflight/output/vert</property>
+						<property>it-autoflight/output/vert</property>
 						<value>5</value>
 					</equals>
 				</condition>
 				<command>property-adjust</command>
-				<property>/it-autoflight/input/fpa</property>
+				<property>it-autoflight/input/fpa</property>
 				<step>-0.1</step>
 				<min>-20.9</min>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>/it-autoflight/custom/vs-knb</property>
+				<property>it-autoflight/custom/vs-knb</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>10000</max>
@@ -1098,7 +1098,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/lat</property>
+				<property>it-autoflight/input/lat</property>
 				<value>2</value>
 			</binding>
 			<binding>
@@ -1116,7 +1116,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/vert</property>
+				<property>it-autoflight/input/vert</property>
 				<value>2</value>
 			</binding>
 			<binding>
@@ -1147,7 +1147,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/it-autoflight/input/kts-mach</property>
+				<property>it-autoflight/input/kts-mach</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -1185,7 +1185,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/it-autoflight/config/altitude-dial-mode</property>
+				<property>it-autoflight/config/altitude-dial-mode</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -1204,7 +1204,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/input/ap1</property>
+				<property>it-autoflight/input/ap1</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1221,7 +1221,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/input/ap2</property>
+				<property>it-autoflight/input/ap2</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1238,7 +1238,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/input/athr</property>
+				<property>it-autoflight/input/athr</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1255,7 +1255,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/athr</property>
+				<property>it-autoflight/input/athr</property>
 				<value>0</value>
 			</binding>
 			<binding>
@@ -1272,7 +1272,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/it-autoflight/input/athr</property>\
+				<property>it-autoflight/input/athr</property>\
 				<value>0</value>
 			</binding>
 			<binding>
@@ -1309,7 +1309,7 @@
 		<object-name>ils2lt</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
+				<property>systems/electrical/outputs/efis</property>
 				<value>9</value>
 			</greater-than-equals>
 		</condition>
@@ -1325,11 +1325,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>0</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1342,11 +1342,11 @@
 		<condition>
 			<and>
 				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
+					<property>it-autoflight/input/kts-mach</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/input/spd-managed</property>
+					<property>it-autoflight/input/spd-managed</property>
 					<value>0</value>
 				</equals>
 			</and>
@@ -1359,7 +1359,7 @@
 		<object-name>hdg2.ind</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/custom/trk-fpa</property>
+				<property>it-autoflight/custom/trk-fpa</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -1371,7 +1371,7 @@
 		<object-name>trk2.ind</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/custom/trk-fpa</property>
+				<property>it-autoflight/custom/trk-fpa</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1382,7 +1382,7 @@
 		<object-name>hdg-text</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/custom/show-hdg</property>
+				<property>it-autoflight/custom/show-hdg</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1394,11 +1394,11 @@
 		<condition>
 			<and>
 				<not-equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>1</value>
 				</not-equals>
 				<not-equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>5</value>
 				</not-equals>
 			</and>
@@ -1410,7 +1410,7 @@
 		<object-name>vs-text</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/vert</property>
+				<property>it-autoflight/output/vert</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1421,7 +1421,7 @@
 		<object-name>fpa-text</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/vert</property>
+				<property>it-autoflight/output/vert</property>
 				<value>5</value>
 			</equals>
 		</condition>
@@ -1433,11 +1433,11 @@
             <condition>
 				<and>
 					<equals>
-						<property>/modes/altimeter/inhg</property>
+						<property>modes/altimeter/inhg</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/modes/altimeter/std</property>
+						<property>modes/altimeter/std</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -1450,11 +1450,11 @@
             <condition>
 				<and>
 					<equals>
-						<property>/modes/altimeter/inhg</property>
+						<property>modes/altimeter/inhg</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/modes/altimeter/std</property>
+						<property>modes/altimeter/std</property>
 						<value>0</value>
 					</equals>
 				</and>
@@ -1466,7 +1466,7 @@
             <object-name>qnh-std</object-name>
             <condition>
                 <equals>
-                    <property>/modes/altimeter/std</property>
+                    <property>modes/altimeter/std</property>
                     <value>1</value>
                 </equals>
             </condition>
@@ -1482,7 +1482,7 @@
         <object-name>transponder-code</object-name>
         <condition>
             <greater-than-equals>
-                <property>/systems/electrical/outputs/efis</property>
+                <property>systems/electrical/outputs/efis</property>
                 <value>9</value>
             </greater-than-equals>
         </condition>
@@ -1569,7 +1569,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">string-value</type>
         <format type="string">%s</format>
-        <property>/sim/time/gmt-string</property>
+        <property>sim/time/gmt-string</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -1595,7 +1595,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.0f</format>
-		<property>/it-autoflight/input/spd-kts</property>
+		<property>it-autoflight/input/spd-kts</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1621,7 +1621,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%1.3f</format>
-		<property>/it-autoflight/input/spd-mach</property>
+		<property>it-autoflight/input/spd-mach</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1647,7 +1647,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/it-autoflight/input/hdg</property>
+		<property>it-autoflight/input/hdg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1673,7 +1673,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/it-autoflight/input/alt</property>
+		<property>it-autoflight/input/alt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1699,7 +1699,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%4.0f</format>
-		<property>/it-autoflight/input/vs</property>
+		<property>it-autoflight/input/vs</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1725,7 +1725,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/it-autoflight/input/fpa</property>
+		<property>it-autoflight/input/fpa</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1743,7 +1743,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>hdg-sel</object-name>
-		<property>/it-autoflight/custom/hdg-knb</property>
+		<property>it-autoflight/custom/hdg-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1758,7 +1758,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>spd-sel</object-name>
-		<property>/it-autoflight/custom/spd-knb</property>
+		<property>it-autoflight/custom/spd-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1773,7 +1773,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>alt-sel</object-name>
-		<property>/it-autoflight/custom/alt-knb</property>
+		<property>it-autoflight/custom/alt-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4738</x1-m>
@@ -1788,7 +1788,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>vs-sel</object-name>
-		<property>/it-autoflight/custom/vs-knb</property>
+		<property>it-autoflight/custom/vs-knb</property>
 		<factor>11.25</factor>
 		<axis>
 			<x1-m>-0.4608</x1-m>
@@ -1803,7 +1803,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>alt-sel-mode</object-name>
-		<property>/it-autoflight/config/altitude-dial-mode</property>
+		<property>it-autoflight/config/altitude-dial-mode</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>90</dep></entry>
@@ -1825,7 +1825,7 @@
 		<object-name>fd1lt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/fd1</property>
+				<property>it-autoflight/output/fd1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1835,7 +1835,7 @@
 		<object-name>ils1lt</object-name>
 		<condition>
 			<equals>
-				<property>/modes/pfd/ILS1</property>
+				<property>modes/pfd/ILS1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1848,24 +1848,24 @@
 			<and>
 				<or>
 					<equals>
-						<property>/it-autoflight/output/lat</property>
+						<property>it-autoflight/output/lat</property>
 						<value>2</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/loc-armed</property>
+						<property>it-autoflight/output/loc-armed</property>
 						<value>1</value>
 					</equals>
 				</or>
 				<equals>
-					<property>/it-autoflight/output/appr-armed</property>
+					<property>it-autoflight/output/appr-armed</property>
 					<value>0</value>
 				</equals>
 				<not-equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>2</value>
 				</not-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/outputs/efis</property>
+					<property>systems/electrical/outputs/efis</property>
 					<value>15</value>
 				</greater-than-equals>
 			</and>
@@ -1877,7 +1877,7 @@
 		<object-name>ap1lt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/ap1</property>
+				<property>it-autoflight/output/ap1</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1887,7 +1887,7 @@
 		<object-name>ap2lt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/ap2</property>
+				<property>it-autoflight/output/ap2</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1897,7 +1897,7 @@
 		<object-name>athrlt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/athr</property>
+				<property>it-autoflight/output/athr</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1908,7 +1908,7 @@
 		<object-name>expedlt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/unused/exped</property>
+				<property>it-autoflight/unused/exped</property>
 				<value>999</value>
 			</equals>
 		</condition>
@@ -1920,11 +1920,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/it-autoflight/output/appr-armed</property>
+					<property>it-autoflight/output/appr-armed</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/it-autoflight/output/vert</property>
+					<property>it-autoflight/output/vert</property>
 					<value>2</value>
 				</equals>
 			</or>
@@ -1936,7 +1936,7 @@
 		<object-name>fd2lt</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/output/fd2</property>
+				<property>it-autoflight/output/fd2</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1946,7 +1946,7 @@
 		<object-name>ils2lt</object-name>
 		<condition>
 			<equals>
-				<property>/modes/pfd/ILS2</property>
+				<property>modes/pfd/ILS2</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -1969,7 +1969,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.2f</format>
-		<property>/instrumentation/altimeter/setting-inhg</property>
+		<property>instrumentation/altimeter/setting-inhg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1994,7 +1994,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/instrumentation/altimeter/setting-hpa</property>
+		<property>instrumentation/altimeter/setting-hpa</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -2046,7 +2046,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.2f</format>
-		<property>/instrumentation/altimeter/setting-inhg</property>
+		<property>instrumentation/altimeter/setting-inhg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -2072,7 +2072,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>/instrumentation/altimeter/setting-hpa</property>
+		<property>instrumentation/altimeter/setting-hpa</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -2137,11 +2137,11 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/modes/altimeter/inhg</property>
+							<property>modes/altimeter/inhg</property>
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/modes/altimeter/std</property>
+							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
 					</and>
@@ -2155,11 +2155,11 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/modes/altimeter/inhg</property>
+							<property>modes/altimeter/inhg</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/modes/altimeter/std</property>
+							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
 					</and>
@@ -2177,11 +2177,11 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/modes/altimeter/inhg</property>
+							<property>modes/altimeter/inhg</property>
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/modes/altimeter/std</property>
+							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
 					</and>
@@ -2195,11 +2195,11 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/modes/altimeter/inhg</property>
+							<property>modes/altimeter/inhg</property>
 							<value>0</value>
 						</equals>
 						<equals>
-							<property>/modes/altimeter/std</property>
+							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
 					</and>
@@ -2230,7 +2230,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>gear_lever</object-name>
-		<property>/controls/gear/gear-down</property>
+		<property>controls/gear/gear-down</property>
 		<factor>40</factor>
 		<center>
 			<x-m>-0.5810</x-m>
@@ -2252,7 +2252,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/controls/gear/gear-down</property>
+				<property>controls/gear/gear-down</property>
 			</binding>
 		</action>
 	</animation>
@@ -2295,7 +2295,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>trim_2_lts</object-name>
-		<property>/controls/flight/elevator-trim</property>
+		<property>controls/flight/elevator-trim</property>
 		<factor>-150</factor>
 		<center>
 			<x-m>-0.2373</x-m>
@@ -2312,7 +2312,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>trim_1</object-name>
-		<property>/controls/flight/elevator-trim</property>
+		<property>controls/flight/elevator-trim</property>
 		<factor>-1000</factor>
 		<center>
 			<x-m>-0.2373</x-m>
@@ -2457,7 +2457,7 @@
     <animation>
         <type>rotate</type>
         <object-name>wx-switch</object-name>
-        <property>/instrumentation/efis/inputs/wxr</property>
+        <property>instrumentation/efis/inputs/wxr</property>
         <!--offset-deg>-5</offset-deg-->
         <factor>10</factor>
         <center>
@@ -2479,11 +2479,11 @@
             <button>0</button>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/efis/inputs/wxr</property>
+                <property>instrumentation/efis/inputs/wxr</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/instrumentation/efis/inputs/wxr</property>
+                <property>instrumentation/efis/inputs/wxr</property>
             </binding>
         </action>
     </animation>
@@ -3238,7 +3238,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/input/fd1</property>
+				<property>it-autoflight/input/fd1</property>
 			</binding>
 		</action>
     </animation>
@@ -3251,7 +3251,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/it-autoflight/input/fd2</property>
+				<property>it-autoflight/input/fd2</property>
 			</binding>
 		</action>
     </animation>
@@ -3266,7 +3266,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/modes/pfd/ILS1</property>
+				<property>modes/pfd/ILS1</property>
 			</binding>
 		</action>
 	</animation>
@@ -3279,7 +3279,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/modes/pfd/ILS2</property>
+				<property>modes/pfd/ILS2</property>
 			</binding>
 		</action>
 	</animation>
@@ -3704,7 +3704,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/inputs/CHRONO</property>
+				<property>instrumentation/efis/inputs/CHRONO</property>
 				<value>1</value>
 				<value>2</value>
 				<value>0</value>
@@ -3720,7 +3720,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/inputs/CHRONO</property>
+				<property>instrumentation/efis/inputs/CHRONO</property>
 				<value>1</value>
 				<value>2</value>
 				<value>0</value>
@@ -3738,7 +3738,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/CSTR</property>
+				<property>instrumentation/efis/inputs/CSTR</property>
 			</binding>
 		</action>
 	</animation>
@@ -3751,7 +3751,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/CSTR</property>
+				<property>instrumentation/efis[1]/inputs/CSTR</property>
 			</binding>
 		</action>
 	</animation>
@@ -3764,7 +3764,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/wpt</property>
+				<property>instrumentation/efis/inputs/wpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3777,7 +3777,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/wpt</property>
+				<property>instrumentation/efis[1]/inputs/wpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3790,11 +3790,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/VORD</property>
+				<property>instrumentation/efis/inputs/VORD</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/DME</property>
+				<property>instrumentation/efis/inputs/DME</property>
 			</binding>
 		</action>
 	</animation>
@@ -3807,11 +3807,11 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/VORD</property>
+				<property>instrumentation/efis[1]/inputs/VORD</property>
 			</binding>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/DME</property>
+				<property>instrumentation/efis[1]/inputs/DME</property>
 			</binding>
 		</action>
 	</animation>
@@ -3824,7 +3824,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/NDB</property>
+				<property>instrumentation/efis/inputs/NDB</property>
 			</binding>
 		</action>
 	</animation>
@@ -3837,7 +3837,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/NDB</property>
+				<property>instrumentation/efis[1]/inputs/NDB</property>
 			</binding>
 		</action>
 	</animation>
@@ -3850,7 +3850,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis/inputs/arpt</property>
+				<property>instrumentation/efis/inputs/arpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3863,7 +3863,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/arpt</property>
+				<property>instrumentation/efis[1]/inputs/arpt</property>
 			</binding>
 		</action>
 	</animation>
@@ -3871,7 +3871,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>cstr</object-name>
-		<property>/instrumentation/efis/inputs/CSTR</property>
+		<property>instrumentation/efis/inputs/CSTR</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3883,7 +3883,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>cstr.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/CSTR</property>
+		<property>instrumentation/efis[1]/inputs/CSTR</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3895,7 +3895,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>wpt</object-name>
-		<property>/instrumentation/efis/inputs/wpt</property>
+		<property>instrumentation/efis/inputs/wpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3907,7 +3907,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>wpt.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/wpt</property>
+		<property>instrumentation/efis[1]/inputs/wpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3919,7 +3919,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>vord</object-name>
-		<property>/instrumentation/efis/inputs/VORD</property>
+		<property>instrumentation/efis/inputs/VORD</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3931,7 +3931,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>vord.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/VORD</property>
+		<property>instrumentation/efis[1]/inputs/VORD</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3943,7 +3943,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ndb</object-name>
-		<property>/instrumentation/efis/inputs/NDB</property>
+		<property>instrumentation/efis/inputs/NDB</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3955,7 +3955,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ndb.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/NDB</property>
+		<property>instrumentation/efis[1]/inputs/NDB</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3967,7 +3967,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>arpt</object-name>
-		<property>/instrumentation/efis/inputs/arpt</property>
+		<property>instrumentation/efis/inputs/arpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -3979,7 +3979,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>arpt.001</object-name>
-		<property>/instrumentation/efis[1]/inputs/arpt</property>
+		<property>instrumentation/efis[1]/inputs/arpt</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -4088,14 +4088,14 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/input/vor-adf-1</property>
+				<property>instrumentation/efis/input/vor-adf-1</property>
 				<value>0</value> <!-- OFF -->
 				<value>1</value> <!-- VOR -->
 				<value>2</value> <!-- ADF -->
 			</binding>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/input/lh-vor-adf</property>
+				<property>instrumentation/efis/input/lh-vor-adf</property>
 				<value>0</value> <!-- OFF -->
 				<value>1</value> <!-- VOR -->
 				<value>-1</value> <!-- ADF -->
@@ -4111,14 +4111,14 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/vor-adf-1</property>
+                <property>instrumentation/efis[1]/input/vor-adf-1</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/lh-vor-adf</property>
+                <property>instrumentation/efis[1]/input/lh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
@@ -4134,14 +4134,14 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/input/vor-adf-2</property>
+				<property>instrumentation/efis/input/vor-adf-2</property>
 				<value>0</value> <!-- OFF -->
 				<value>1</value> <!-- VOR -->
 				<value>2</value> <!-- ADF -->
 			</binding>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/input/rh-vor-adf</property>
+				<property>instrumentation/efis/input/rh-vor-adf</property>
 				<value>0</value> <!-- OFF -->
 				<value>1</value> <!-- VOR -->
 				<value>-1</value> <!-- ADF -->
@@ -4157,14 +4157,14 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/vor-adf-2</property>
+                <property>instrumentation/efis[1]/input/vor-adf-2</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>2</value> <!-- ADF -->
             </binding>
             <binding>
                 <command>property-cycle</command>
-                <property>/instrumentation/efis[1]/input/rh-vor-adf</property>
+                <property>instrumentation/efis[1]/input/rh-vor-adf</property>
                 <value>0</value> <!-- OFF -->
                 <value>1</value> <!-- VOR -->
                 <value>-1</value> <!-- ADF -->
@@ -4177,7 +4177,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-mode</object-name>
-        <property>/instrumentation/efis/mfd/pnl_mode-num</property>
+        <property>instrumentation/efis/mfd/pnl_mode-num</property>
         <interpolation>
             <entry><ind>0</ind><dep>  0</dep></entry>
             <entry><ind>1</ind><dep> 45</dep></entry>
@@ -4198,7 +4198,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-mode-right</object-name>
-        <property>/instrumentation/efis[1]/mfd/pnl_mode-num</property>
+        <property>instrumentation/efis[1]/mfd/pnl_mode-num</property>
         <interpolation>
             <entry><ind>0</ind><dep>  0</dep></entry>
             <entry><ind>1</ind><dep> 45</dep></entry>
@@ -4219,7 +4219,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range</object-name>
-        <property>/instrumentation/efis/inputs/range-nm</property>
+        <property>instrumentation/efis/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -4241,7 +4241,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range-right</object-name>
-        <property>/instrumentation/efis[1]/inputs/range-nm</property>
+        <property>instrumentation/efis[1]/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -4270,29 +4270,29 @@
 				<and>
 					<or>
 						<equals>
-							<property>/controls/electrical/switches/battery1</property>
+							<property>controls/electrical/switches/battery1</property>
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/controls/electrical/switches/battery2</property>
+							<property>controls/electrical/switches/battery2</property>
 							<value>1</value>
 						</equals>
 					</or>
 					<less-than>
-						<property>/systems/electrical/bus/dc1</property>
+						<property>systems/electrical/bus/dc1</property>
 						<value>25</value>
 					</less-than>
 					<less-than>
-						<property>/systems/electrical/bus/dc2</property>
+						<property>systems/electrical/bus/dc2</property>
 						<value>25</value>
 					</less-than>
 				</and>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/dc1</property>
+					<property>systems/electrical/bus/dc1</property>
 					<value>25</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/dc2</property>
+					<property>systems/electrical/bus/dc2</property>
 					<value>25</value>
 				</greater-than-equals>
 			</or>
@@ -4331,7 +4331,7 @@
     <animation>
 		<type>textranslate</type>
 		<object-name>abs_low</object-name>
-		<property>/hydraulics/brakes/indicator/low</property>
+		<property>hydraulics/brakes/indicator/low</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4343,7 +4343,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>abs_med</object-name>
-		<property>/hydraulics/brakes/indicator/med</property>
+		<property>hydraulics/brakes/indicator/med</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4355,7 +4355,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>abs_max</object-name>
-		<property>/hydraulics/brakes/indicator/max</property>
+		<property>hydraulics/brakes/indicator/max</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4367,7 +4367,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>dec_low</object-name>
-		<property>/hydraulics/brakes/indicator/low-dec</property>
+		<property>hydraulics/brakes/indicator/low-dec</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4379,7 +4379,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>dec_med</object-name>
-		<property>/hydraulics/brakes/indicator/med-dec</property>
+		<property>hydraulics/brakes/indicator/med-dec</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4391,7 +4391,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>dec_max</object-name>
-		<property>/hydraulics/brakes/indicator/max-dec</property>
+		<property>hydraulics/brakes/indicator/max-dec</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4412,7 +4412,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/hydraulics/brakes/autobrake-setting</property>
+				<property>hydraulics/brakes/autobrake-setting</property>
 				<value>1</value>
 				<value>0</value>
 			</binding>
@@ -4431,7 +4431,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/hydraulics/brakes/autobrake-setting</property>
+				<property>hydraulics/brakes/autobrake-setting</property>
 				<value>2</value>
 				<value>0</value>
 			</binding>
@@ -4450,7 +4450,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/hydraulics/brakes/autobrake-setting</property>
+				<property>hydraulics/brakes/autobrake-setting</property>
 				<value>3</value>
 				<value>0</value>
 			</binding>
@@ -4478,7 +4478,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ngear_unlk</object-name>
-		<property>/indicators/gear-panel/gear[0]/unlk</property>
+		<property>indicators/gear-panel/gear[0]/unlk</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4490,7 +4490,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ngear_down</object-name>
-		<property>/indicators/gear-panel/gear[0]/down</property>
+		<property>indicators/gear-panel/gear[0]/down</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4502,7 +4502,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>lgear_unlk</object-name>
-		<property>/indicators/gear-panel/gear[1]/unlk</property>
+		<property>indicators/gear-panel/gear[1]/unlk</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4514,7 +4514,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>lgear_down</object-name>
-		<property>/indicators/gear-panel/gear[1]/down</property>
+		<property>indicators/gear-panel/gear[1]/down</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4526,7 +4526,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>rgear_unlk</object-name>
-		<property>/indicators/gear-panel/gear[2]/unlk</property>
+		<property>indicators/gear-panel/gear[2]/unlk</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4538,7 +4538,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>rgear_down</object-name>
-		<property>/indicators/gear-panel/gear[2]/down</property>
+		<property>indicators/gear-panel/gear[2]/down</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4666,7 +4666,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
-		<property>/controls/flight/speedbrake</property>
+		<property>controls/flight/speedbrake</property>
 		<factor>0.045</factor>
 		<axis>
 			<x>1</x>
@@ -4678,7 +4678,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
-		<property>/controls/flight/speedbrake-arm</property>
+		<property>controls/flight/speedbrake-arm</property>
 		<factor>-0.005</factor>
 		<axis>
 			<x>1</x>
@@ -4695,7 +4695,7 @@
             <repeatable type="bool">false</repeatable>
             <binding>
 				<command>property-cycle</command>
-				<property>/controls/flight/speedbrake-arm</property>
+				<property>controls/flight/speedbrake-arm</property>
 				<value>0</value>
 				<value>1</value>
             </binding>
@@ -4795,7 +4795,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ParkBrk</object-name>
-		<property>/controls/gear/brake-parking</property>
+		<property>controls/gear/brake-parking</property>
 		<factor>-90</factor>
 		<center>
 			<x-m>0.1270</x-m>
@@ -4817,7 +4817,7 @@
             <repeatable type="bool">false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/gear/brake-parking</property>
+                <property>controls/gear/brake-parking</property>
             </binding>
         </action>
     </animation>
@@ -4832,7 +4832,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis/nd/terrain-on-nd</property>
+				<property>instrumentation/efis/nd/terrain-on-nd</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -4842,7 +4842,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>terr_on_nd</object-name>
-		<property>/instrumentation/efis/nd/terrain-on-nd</property>
+		<property>instrumentation/efis/nd/terrain-on-nd</property>
 		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
@@ -4918,7 +4918,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RudderTrim</object-name>
-		<property>/controls/switches/rudder-trim</property>
+		<property>controls/switches/rudder-trim</property>
 		<factor>-30</factor>
 		<center>
 			<x-m>0.0380</x-m>
@@ -4946,7 +4946,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.2f</format>
-        <property>/instrumentation/comm/frequencies/selected-mhz</property>
+        <property>instrumentation/comm/frequencies/selected-mhz</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -4973,7 +4973,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.2f</format>
-        <property>/instrumentation/comm/frequencies/standby-mhz</property>
+        <property>instrumentation/comm/frequencies/standby-mhz</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -4999,7 +4999,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.2f</format>
-        <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
+        <property>instrumentation/comm[1]/frequencies/selected-mhz</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -5025,7 +5025,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%2.2f</format>
-        <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+        <property>instrumentation/comm[1]/frequencies/standby-mhz</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -5051,7 +5051,7 @@
         <axis-alignment>xy-plane</axis-alignment>
         <type type="string">number-value</type>
         <format type="string">%4.0f</format>
-        <property>/instrumentation/transponder/id-code</property>
+        <property>instrumentation/transponder/id-code</property>
         <truncate type="bool">false</truncate>
         <font type="string">led.txf</font>
         <draw-text type="bool">true</draw-text>
@@ -5077,7 +5077,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>/controls/flight/rudder-trim-deg</property>
+		<property>controls/flight/rudder-trim-deg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -5093,7 +5093,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>master-warning</object-name>
-		<property>/warnings/master-warning-light</property>
+		<property>warnings/master-warning-light</property>
 		<factor>-0.25</factor>
 		<axis>
 			<x>1</x>
@@ -5127,17 +5127,17 @@
 			<blue>1</blue>
 		</emission>
 		<condition>
-			<property>/warnings/master-warning-state</property>
+			<property>warnings/master-warning-state</property>
 		</condition>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
 		<object-name>master-caution</object-name>
-		<property>/warnings/master-caution-light</property>
+		<property>warnings/master-caution-light</property>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
+				<property>systems/electrical/outputs/efis</property>
 				<value>9</value>
 			</greater-than-equals>
 		</condition>
@@ -5174,9 +5174,9 @@
 			<blue>1</blue>
 		</emission>
 		<condition>
-			<property>/warnings/master-caution-state</property>
+			<property>warnings/master-caution-state</property>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
+				<property>systems/electrical/outputs/efis</property>
 				<value>9</value>
 			</greater-than-equals>
 		</condition>
@@ -5185,11 +5185,11 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>autoland-light</object-name>
-		<property>/autoland/warn</property>
+		<property>autoland/warn</property>
 		<factor>-0.25</factor>
 		<condition>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
+				<property>systems/electrical/outputs/efis</property>
 				<value>9</value>
 			</greater-than-equals>
 		</condition>
@@ -5225,9 +5225,9 @@
 			<blue>0.5</blue>
 		</emission>
 		<condition>
-			<property>/autoland/warn</property>
+			<property>autoland/warn</property>
 			<greater-than-equals>
-				<property>/systems/electrical/outputs/efis</property>
+				<property>systems/electrical/outputs/efis</property>
 				<value>9</value>
 			</greater-than-equals>
 		</condition>

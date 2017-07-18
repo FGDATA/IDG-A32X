@@ -124,7 +124,7 @@
 		<object-name>actmode2</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -134,7 +134,7 @@
 		<object-name>actmode3</object-name>
 		<condition>
 			<equals>
-				<property>/it-autoflight/input/spd-managed</property>
+				<property>it-autoflight/input/spd-managed</property>
 				<value>0</value>
 			</equals>
 		</condition>
@@ -296,7 +296,7 @@
 		<format type="string">%s</format>
 		<truncate type="bool">false</truncate>
 		<font type="string">BoeingCDU-Large.ttf</font>
-		<property>/FMGC/internal/cost-index</property>
+		<property>FMGC/internal/cost-index</property>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -311,14 +311,14 @@
 		<type>select</type>
 		<object-name>ci2</object-name>
 		<condition>
-			<not><property>/FMGC/internal/cost-index-set</property></not>
+			<not><property>FMGC/internal/cost-index-set</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>ci3</object-name>
 		<condition>
-			<property>/FMGC/internal/cost-index-set</property>
+			<property>FMGC/internal/cost-index-set</property>
 		</condition>
 	</animation>
 	

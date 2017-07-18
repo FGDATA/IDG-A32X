@@ -17,11 +17,11 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/dc1</property>
+					<property>systems/electrical/bus/dc1</property>
 					<value>25</value>
 				</greater-than-equals>
 				<greater-than-equals>
-					<property>/systems/electrical/bus/dc2</property>
+					<property>systems/electrical/bus/dc2</property>
 					<value>25</value>
 				</greater-than-equals>
 			</or>
@@ -41,28 +41,28 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/controls/OH/protectors/eng1-n1</property>
+							<property>controls/OH/protectors/eng1-n1</property>
 							<value>1</value>
 						</equals>
 						<or>
 							<greater-than-equals>
-								<property>/systems/electrical/bus/dc1</property>
+								<property>systems/electrical/bus/dc1</property>
 								<value>25</value>
 							</greater-than-equals>
 							<greater-than-equals>
-								<property>/systems/electrical/bus/dc2</property>
+								<property>systems/electrical/bus/dc2</property>
 								<value>25</value>
 							</greater-than-equals>
 						</or>
 					</and>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/fadec/n1mode1</property>
+				<property>controls/fadec/n1mode1</property>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/controls/OH/protectors/eng1-n1</property>
+						<property>controls/OH/protectors/eng1-n1</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -82,13 +82,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/controls/OH/protectors/eng1-n1</property>
+				<property>controls/OH/protectors/eng1-n1</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>/controls/OH/protectors/eng1-n1</property>
+					<property>controls/OH/protectors/eng1-n1</property>
 					<value>0</value>
 				</binding>
 				<binding>
@@ -102,7 +102,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Eng1N1Prot</object-name>
-		<property>/controls/OH/protectors/eng1-n1</property>
+		<property>controls/OH/protectors/eng1-n1</property>
 		<factor>-145</factor>
 		<axis>
 			<x1-m>0.00201</x1-m>
@@ -120,11 +120,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/fadec/n1mode1</property>
+					<property>controls/fadec/n1mode1</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/switches/annun-test</property>
+					<property>controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
 			</or>
@@ -142,28 +142,28 @@
 				<condition>
 					<and>
 						<equals>
-							<property>/controls/OH/protectors/eng2-n1</property>
+							<property>controls/OH/protectors/eng2-n1</property>
 							<value>1</value>
 						</equals>
 						<or>
 							<greater-than-equals>
-								<property>/systems/electrical/bus/dc1</property>
+								<property>systems/electrical/bus/dc1</property>
 								<value>25</value>
 							</greater-than-equals>
 							<greater-than-equals>
-								<property>/systems/electrical/bus/dc2</property>
+								<property>systems/electrical/bus/dc2</property>
 								<value>25</value>
 							</greater-than-equals>
 						</or>
 					</and>
 				</condition>
 				<command>property-toggle</command>
-				<property>/controls/fadec/n1mode2</property>
+				<property>controls/fadec/n1mode2</property>
 			</binding>
 			<binding>
 				<condition>
 					<equals>
-						<property>/controls/OH/protectors/eng2-n1</property>
+						<property>controls/OH/protectors/eng2-n1</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -183,13 +183,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>/controls/OH/protectors/eng2-n1</property>
+				<property>controls/OH/protectors/eng2-n1</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>/controls/OH/protectors/eng2-n1</property>
+					<property>controls/OH/protectors/eng2-n1</property>
 					<value>0</value>
 				</binding>
 				<binding>
@@ -203,7 +203,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Eng2N1Prot</object-name>
-		<property>/controls/OH/protectors/eng2-n1</property>
+		<property>controls/OH/protectors/eng2-n1</property>
 		<factor>-145</factor>
 		<axis>
 			<x1-m>0.00616</x1-m>
@@ -221,11 +221,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>/controls/fadec/n1mode2</property>
+					<property>controls/fadec/n1mode2</property>
 					<value>1</value>
 				</equals>
 				<equals>
-					<property>/controls/switches/annun-test</property>
+					<property>controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
 			</or>
