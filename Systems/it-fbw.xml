@@ -644,7 +644,7 @@
 							<entry><ind>-1.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>1</dep></entry>
 							<entry><ind>1</ind><dep>0</dep></entry>
 						</table>
@@ -666,7 +666,7 @@
 							<entry><ind>0.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>0</dep></entry>
 							<entry><ind>1</ind><dep>1</dep></entry>
 						</table>
@@ -688,7 +688,7 @@
 							<entry><ind>2.500000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>1</dep></entry>
 							<entry><ind>1</ind><dep>0</dep></entry>
 						</table>
@@ -710,7 +710,7 @@
 							<entry><ind>2.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>0</dep></entry>
 							<entry><ind>1</ind><dep>1</dep></entry>
 						</table>
@@ -751,7 +751,7 @@
 							<entry><ind>-1.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>1</dep></entry>
 							<entry><ind>1</ind><dep>0</dep></entry>
 						</table>
@@ -773,7 +773,7 @@
 							<entry><ind>0.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>0</dep></entry>
 							<entry><ind>1</ind><dep>1</dep></entry>
 						</table>
@@ -795,7 +795,7 @@
 							<entry><ind>2.500000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>1</dep></entry>
 							<entry><ind>1</ind><dep>0</dep></entry>
 						</table>
@@ -817,7 +817,7 @@
 							<entry><ind>2.000000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/flap-lever</property>
+							<property>/controls/flight/flap-pos</property>
 							<entry><ind>0</ind><dep>0</dep></entry>
 							<entry><ind>1</ind><dep>1</dep></entry>
 						</table>
