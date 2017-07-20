@@ -966,7 +966,7 @@
 					</table>
 					<table>
 						<property>/controls/flight/spoiler-right-fbw-cmd</property> 
-						<entry><ind> 0.1</ind><dep>   0</dep></entry>
+						<entry><ind>-0.1</ind><dep>   0</dep></entry>
 						<entry><ind>-1.0</ind><dep>-0.4</dep></entry>
 					</table>
 				</sum>
