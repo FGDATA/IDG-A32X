@@ -15,7 +15,7 @@ var initInputB = func(key) {
 		} else {
 			var tfs = size(scratchpad);
 			var maxblock = getprop("/options/maxblock");
-			if (tfs == 2 or tfs == 4 or tfs == 5) {
+			if (tfs >= 1 and tfs <= 5) {
 				if (scratchpad >= 1.0 and scratchpad <= maxblock) {
 					setprop("/FMGC/internal/block", scratchpad);
 					setprop("/FMGC/internal/block-set", 1);
