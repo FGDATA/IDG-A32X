@@ -67,11 +67,11 @@ var mcpSPDKnbPull = func {
 		}
 	} else if (getprop("/it-autoflight/input/kts-mach") == 1) {
 		if (mach >= 0.50 and mach <= 0.95) {
-			setprop("/it-autoflight/input/spd-kts", math.round(mach, 0.001));
+			setprop("/it-autoflight/input/spd-mach", math.round(mach, 0.001));
 		} else if (mach < 0.50) {
-			setprop("/it-autoflight/input/spd-kts", 0.50);
+			setprop("/it-autoflight/input/spd-mach", 0.50);
 		} else if (mach > 0.95) {
-			setprop("/it-autoflight/input/spd-kts", 0.95);
+			setprop("/it-autoflight/input/spd-mach", 0.95);
 		}
 	}
 }
