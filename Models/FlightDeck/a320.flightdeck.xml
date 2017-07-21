@@ -636,7 +636,7 @@
 				<property>it-autoflight/input/spd-kts</property>
 				<step>1</step>
 				<min>100</min>
-				<max>380</max>
+				<max>350</max>
 			</binding>
 			<binding>
 				<condition>
@@ -655,7 +655,7 @@
 				<property>it-autoflight/input/spd-mach</property>
 				<step>0.001</step>
 				<min>0.50</min>
-				<max>0.95</max>
+				<max>0.84</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -686,7 +686,7 @@
 				<property>it-autoflight/input/spd-kts</property>
 				<step>-1</step>
 				<min>100</min>
-				<max>380</max>
+				<max>350</max>
 			</binding>
 			<binding>
 				<condition>
@@ -705,7 +705,7 @@
 				<property>it-autoflight/input/spd-mach</property>
 				<step>-0.001</step>
 				<min>0.50</min>
-				<max>0.95</max>
+				<max>0.84</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
