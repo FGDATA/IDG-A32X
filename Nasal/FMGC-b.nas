@@ -510,6 +510,7 @@ var latarms = func {
 	if (getprop("/position/gear-agl-ft") >= 20) {
 		if (getprop("/it-autoflight/input/lat-arm") == 1) {
 			setprop("/it-autoflight/input/lat", getprop("/it-autoflight/input/lat-arm"));
+			setprop("/it-autoflight/input/lat-arm", 0);
 		}
 	}
 }

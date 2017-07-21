@@ -224,7 +224,7 @@ var phasecheck = maketimer(0.2, func {
 	
 	if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/distance-remaining-nm") <= 15) {
 		setprop("/FMGC/internal/decel", 1);
-	} else {
+	} else if (getprop("/FMGC/internal/decel") == 1 and phase != 5) {
 		setprop("/FMGC/internal/decel", 0);
 	}
 	
