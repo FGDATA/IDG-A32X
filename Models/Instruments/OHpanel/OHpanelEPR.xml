@@ -12,6 +12,7 @@
 	
 	<!-- No button lights without power! -->
 	<animation>
+		<type>select</type>
 		<object-name>Eng1N1Btn2O</object-name>
 		<object-name>Eng2N1Btn2O</object-name>
 		<condition>
@@ -29,7 +30,6 @@
 	</animation>
 	
 	<!-- N1 Mode switches -->
-	
 	<animation>
 		<type>pick</type>
 		<object-name>Eng1N1Btn</object-name>

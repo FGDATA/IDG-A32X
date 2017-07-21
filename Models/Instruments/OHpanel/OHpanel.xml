@@ -82,6 +82,8 @@
 		<object-name>CFuelTank2Btn2O</object-name>
 		<object-name>ELAC1Btn1F</object-name>
 		<object-name>ELAC1Btn2O</object-name>
+		<object-name>ELAC2Btn1F</object-name>
+		<object-name>ELAC2Btn2O</object-name>
 		<object-name>Eng1AntiIceBtn1F</object-name>
 		<object-name>Eng1AntiIceBtn2O</object-name>
 		<object-name>Eng2AntiIceBtn1F</object-name>
@@ -94,6 +96,8 @@
 		<object-name>Eng2ManStartBtn2O</object-name>
 		<object-name>FAC1Btn1F</object-name>
 		<object-name>FAC1Btn2O</object-name>
+		<object-name>FAC2Btn1F</object-name>
+		<object-name>FAC2Btn2O</object-name>
 		<object-name>FuelModeBtn1F</object-name>
 		<object-name>FuelModeBtn2O</object-name>
 		<object-name>FuelXfeedBtn1A</object-name>
@@ -134,6 +138,10 @@
 		<object-name>RFuelTank2Btn2O</object-name>
 		<object-name>SEC1Btn1F</object-name>
 		<object-name>SEC1Btn2O</object-name>
+		<object-name>SEC2Btn1F</object-name>
+		<object-name>SEC2Btn2O</object-name>
+		<object-name>SEC3Btn1F</object-name>
+		<object-name>SEC3Btn2O</object-name>
 		<object-name>WingAntiIceBtn1F</object-name>
 		<object-name>WingAntiIceBtn2O</object-name>
 		<object-name>YellowElecPump1F</object-name>
