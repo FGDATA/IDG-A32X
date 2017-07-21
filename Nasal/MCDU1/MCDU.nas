@@ -285,6 +285,8 @@ var pagebutton = func(btn) {
 				setprop("/MCDU[0]/page", "CLB");
 			} else if (getprop("/FMGC/status/phase") == 3) {
 				setprop("/MCDU[0]/page", "CRZ");
+			} else if (getprop("/FMGC/status/phase") == 4) {
+				setprop("/MCDU[0]/page", "DES");
 			}
 		} else if (btn == "init") {
 			setprop("/MCDU[0]/page", "INITA");
