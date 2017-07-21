@@ -507,10 +507,16 @@
 		<type>select</type>
 		<object-name>lat.fmgc</object-name>
 		<condition>
-            <equals>
-                <property>it-autoflight/output/lat</property>
-                <value>1</value>
-            </equals>
+			<or>
+				<equals>
+					<property>it-autoflight/output/lat</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>it-autoflight/input/lat-arm</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
     
