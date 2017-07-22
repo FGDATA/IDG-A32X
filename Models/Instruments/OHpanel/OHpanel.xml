@@ -80,10 +80,15 @@
 		<object-name>CFuelTank1Btn2O</object-name>
 		<object-name>CFuelTank2Btn1F</object-name>
 		<object-name>CFuelTank2Btn2O</object-name>
+		<object-name>CrewOxyBtn2O</object-name>
 		<object-name>ELAC1Btn1F</object-name>
 		<object-name>ELAC1Btn2O</object-name>
 		<object-name>ELAC2Btn1F</object-name>
 		<object-name>ELAC2Btn2O</object-name>
+		<object-name>EmerCallBtn1C</object-name>
+		<object-name>EmerCallBtn2O</object-name>
+		<object-name>EmerElecManOnBtn2O</object-name>
+		<object-name>EmerGenInd1F</object-name>
 		<object-name>Eng1AntiIceBtn1F</object-name>
 		<object-name>Eng1AntiIceBtn2O</object-name>
 		<object-name>Eng2AntiIceBtn1F</object-name>
@@ -94,6 +99,8 @@
 		<object-name>Eng2BleedBtn1F</object-name>
 		<object-name>Eng2BleedBtn2O</object-name>
 		<object-name>Eng2ManStartBtn2O</object-name>
+		<object-name>EvacCommandBtn1E</object-name>
+		<object-name>EvacCommandBtn2O</object-name>
 		<object-name>FAC1Btn1F</object-name>
 		<object-name>FAC1Btn2O</object-name>
 		<object-name>FAC2Btn1F</object-name>
@@ -104,6 +111,8 @@
 		<object-name>FuelXfeedBtn2O</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
 		<object-name>GalleyPwrBtn2O</object-name>
+		<object-name>Gen1LineBtn1S</object-name>
+		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>GPWSBtn1F</object-name>
 		<object-name>GPWSBtn2O</object-name>
 		<object-name>GPWSFlpBtn2O</object-name>
@@ -128,10 +137,13 @@
 		<object-name>LFuelTank2Btn1F</object-name>
 		<object-name>LFuelTank2Btn2O</object-name>
 		<object-name>IrsOnBatLightOB</object-name>
+		<object-name>MaskManOnBtn2O</object-name>
+		<object-name>PassOxyInd1S</object-name>
 		<object-name>PrbWinHeatBtn2O</object-name>
 		<object-name>PTU1F</object-name>
 		<object-name>PTU2O</object-name>
 		<object-name>RamAirBtn2O</object-name>
+		<object-name>RcdrGndCtlBtn2O</object-name>
 		<object-name>RFuelTank1Btn1F</object-name>
 		<object-name>RFuelTank1Btn2O</object-name>
 		<object-name>RFuelTank2Btn1F</object-name>
@@ -162,9 +174,31 @@
 		</condition>
 	</animation>
 	
+	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove once you simulate these buttons. -JD -->
+	<animation>
+		<type>select</type>
+		<object-name>CrewOxyBtn2O</object-name>
+		<object-name>EmerCallBtn1C</object-name>
+		<object-name>EmerCallBtn2O</object-name>
+		<object-name>EmerElecManOnBtn2O</object-name>
+		<object-name>EmerGenInd1F</object-name>
+		<object-name>EvacCommandBtn1E</object-name>
+		<object-name>EvacCommandBtn2O</object-name>
+		<object-name>Gen1LineBtn1S</object-name>
+		<object-name>Gen1LineBtn2O</object-name>
+		<object-name>MaskManOnBtn2O</object-name>
+		<object-name>PassOxyInd1S</object-name>
+		<object-name>RcdrGndCtlBtn2O</object-name>
+		<condition>
+			<equals>
+				<property>controls/switches/annun-test</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<animation>
 		<type>material</type>
-		<object-name>Adirs-coords</object-name>
 		<object-name>Battery-volt</object-name>
 		<object-name>Battery-volt-test</object-name>
 		<emission>
@@ -177,17 +211,6 @@
 			<green>1</green>
 			<blue>1</blue>
 		</diffuse>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>Adirs-coords</object-name>
-		<condition>
-			<greater-than-equals>
-				<property>systems/electrical/bus/dc1</property>
-				<value>25</value>
-			</greater-than-equals>
-		</condition>
 	</animation>
 	
 	<!-- IRS 1 -->
@@ -242,10 +265,10 @@
 		<axis>
 			<x1-m>0.01578</x1-m>
 			<y1-m>-0.29391</y1-m>
-			<z1-m>0.1338</z1-m>
+			<z1-m>0.17819</z1-m>
 			<x2-m>0.00637</x2-m>
 			<y2-m>-0.29509</y2-m>
-			<z2-m>0.1338</z2-m>
+			<z2-m>0.17819</z2-m>
 		</axis>
 	</animation>
 	
@@ -334,10 +357,10 @@
 		<axis>
 			<x1-m>0.00444</x1-m>
 			<y1-m>-0.20312</y1-m>
-			<z1-m>0.1338</z1-m>
+			<z1-m>0.17819</z1-m>
 			<x2-m>-0.00498</x2-m>
 			<y2-m>-0.20429</y2-m>
-			<z2-m>0.1338</z2-m>
+			<z2-m>0.17819</z2-m>
 		</axis>
 	</animation>
 	
@@ -426,10 +449,10 @@
 		<axis>
 			<x1-m>0.01021</x1-m>
 			<y1-m>-0.24926</y1-m>
-			<z1-m>0.1338</z1-m>
+			<z1-m>0.17819</z1-m>
 			<x2-m>0.00082</x2-m>
 			<y2-m>-0.25062</y2-m>
-			<z2-m>0.1338</z2-m>
+			<z2-m>0.17819</z2-m>
 		</axis>
 	</animation>
 	
@@ -464,136 +487,6 @@
 				</equals>
 			</or>
 		</condition>
-	</animation>
-	
-	<!-- IR Display Data Knob -->
-	<animation>
-		<type>pick</type>
-		<object-name>IRDisplayDataKnb</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/adirs/display/dataknob</property>
-				<value>1</value>
-				<value>2</value>
-				<value>3</value>
-				<value>4</value>
-				<value>5</value>
-				<value>6</value>
-				<max>6</max>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/knb1", 1);</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/adirs/display/dataknob</property>
-				<value>6</value>
-				<value>5</value>
-				<value>4</value>
-				<value>3</value>
-				<value>2</value>
-				<value>1</value>
-				<min>1</min>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/knb1", 1);</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>IRDisplayDataKnb</object-name>
-		<property>controls/adirs/display/dataknob</property>
-		<interpolation>
-			<entry><ind>1</ind><dep>-90</dep></entry>
-			<entry><ind>2</ind><dep>-55</dep></entry>
-			<entry><ind>3</ind><dep>-15</dep></entry>
-			<entry><ind>4</ind><dep>30</dep></entry>
-			<entry><ind>5</ind><dep>50</dep></entry>
-			<entry><ind>6</ind><dep>90</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>0.01551</x1-m>
-			<y1-m>-0.29163</y1-m>
-			<z1-m>0.2088</z1-m>
-			<x2-m>0.00609</x2-m>
-			<y2-m>-0.2928</y2-m>
-			<z2-m>0.2088</z2-m>
-		</axis>
-	</animation>
-	
-	<!-- IRS Display Select Knob -->
-	<animation>
-		<type>pick</type>
-		<object-name>IRDisplaySelectKnb</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/adirs/display/selected</property>
-				<value>1</value>
-				<value>2</value>
-				<value>3</value>
-				<value>4</value>
-				<max>4</max>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/knb1", 1);</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>controls/adirs/display/selected</property>
-				<value>4</value>
-				<value>3</value>
-				<value>2</value>
-				<value>1</value>
-				<min>1</min>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/knb1", 1);</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>IRDisplaySelectKnb</object-name>
-		<property>controls/adirs/display/selected</property>
-		<interpolation>
-			<entry><ind>1</ind><dep>-80</dep></entry>
-			<entry><ind>2</ind><dep>-45</dep></entry>
-			<entry><ind>3</ind><dep>5</dep></entry>
-			<entry><ind>4</ind><dep>45</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>0.00746</x1-m>
-			<y1-m>-0.24638</y1-m>
-			<z1-m>0.2072</z1-m>
-			<x2-m>0.0004</x2-m>
-			<y2-m>-0.24726</y2-m>
-			<z2-m>0.2072</z2-m>
-		</axis>
 	</animation>
 	
 	<!-- On Bat Light -->
@@ -5727,33 +5620,6 @@
 	</animation>
 	
 	<!-- Texts -->
-
-	<text>
-		<name>Adirs-coords</name>
-		<offsets>
-			<x-m>0.005</x-m>
-			<y-m>-0.246</y-m>
-			<z-m>0.245</z-m>
-			<pitch-deg>62</pitch-deg>
-			<roll-deg>90</roll-deg>
-			<heading-deg>32</heading-deg>
-		</offsets>
-		<alignment>center-center</alignment>
-		<axis-alignment>xy-plane</axis-alignment>
-		<type type="string">text-value</type>
-		<format type="string">%s</format>
-		<property>controls/adirs/display/text</property>
-		<font type="string">LED-8.txf</font>
-		<draw-text type="bool">true</draw-text>
-		<draw-alignment type="bool">false</draw-alignment>
-		<draw-boundingbox type="bool">false</draw-boundingbox>
-		<character-size>0.0095</character-size>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-
 	<text>
 		<name>Battery-volt</name>
 		<offsets>
