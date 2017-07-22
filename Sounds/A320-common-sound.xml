@@ -1080,20 +1080,29 @@
 	</cvrtone>
 	
 	<relay>
-		<name>RelayBatt</name>
+		<name>RelayBatt1</name>
 		<mode>once</mode>
 		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
 		<condition>
-			<or>
-				<greater-than>
-					<property>/systems/electrical/battery1-amps</property>
-					<value>25</value>
-				</greater-than>
-				<greater-than>
-					<property>/systems/electrical/battery2-amps</property>
-					<value>25</value>
-				</greater-than>
-			</or>
+			<greater-than>
+				<property>/systems/electrical/battery1-amps</property>
+				<value>25</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</relay>
+	
+	<relay>
+		<name>RelayBatt2</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
+		<condition>
+			<greater-than>
+				<property>/systems/electrical/battery2-amps</property>
+				<value>25</value>
+			</greater-than>
 		</condition>
 		<volume>
 			<factor>0.60</factor>
