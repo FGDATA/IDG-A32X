@@ -5746,7 +5746,7 @@
 		</condition>
 	</animation>
 	
-	<!-- CVR -->
+	<!-- Sounds -->
 	<animation>
 		<type>pick</type>
 		<object-name>CVRTest</object-name>
@@ -5756,6 +5756,32 @@
 			<binding>
 				<command>nasal</command>
 				<script>libraries.CVR_test();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>GroundCall</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.MechCall();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>FwdCabinCall</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.CabinCall();</script>
 			</binding>
 		</action>
 	</animation>
