@@ -446,21 +446,14 @@
 	</model>
 	
 	<!-- Flight Control Unit Animations -->
-	
 	<animation>
 		<type>select</type>
 		<object-name>spd.ind</object-name>
 		<condition>
-			<and>
-				<equals>
-					<property>it-autoflight/input/kts-mach</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>it-autoflight/input/spd-managed</property>
-					<value>0</value>
-				</equals>
-			</and>
+			<equals>
+				<property>it-autoflight/input/kts-mach</property>
+				<value>0</value>
+			</equals>
 		</condition>
 	</animation>
 	
@@ -468,16 +461,10 @@
 		<type>select</type>
 		<object-name>mach.ind</object-name>
 		<condition>
-			<and>
-				<equals>
-					<property>it-autoflight/input/kts-mach</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>it-autoflight/input/spd-managed</property>
-					<value>0</value>
-				</equals>
-			</and>
+			<equals>
+				<property>it-autoflight/input/kts-mach</property>
+				<value>1</value>
+			</equals>
 		</condition>
 	</animation>
 	
