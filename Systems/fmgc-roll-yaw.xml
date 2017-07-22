@@ -199,9 +199,13 @@
 		<max-rate-of-change>6</max-rate-of-change>
 	</filter>
 	
-	<pid-controller>
-		<name>IT-CONTROLLER: ROLL</name>
+	<filter>
+		<name>System Command: Roll Rate</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>
+			<property>/it-autoflight/config/roll/gain</property>
+		</gain>
 		<enable>
 			<condition>
 				<or>
@@ -250,44 +254,15 @@
 			<value>0</value>
 		</reference>
 		<output>
-			<property>/it-autoflight/internal/aileron-cmd</property> <!-- Inputs to the FBW -->
-		</output>
-		<config>
-			<Kp>
-				<condition>
-					<not-equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>2</value>
-					</not-equals>
-				</condition>
-				<property>/it-autoflight/config/roll/kp</property>
-			</Kp>
-			<Kp>
-				<condition>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>2</value>
-					</equals>
-				</condition>
-				<property>/it-autoflight/config/roll/kp-vloc</property>
-			</Kp>
-			<beta>1.0</beta>	
-			<alpha>0.1</alpha>	
-			<gamma>0.0</gamma>	
-			<Ti>
-				<property>/it-autoflight/config/roll/ti</property>
-			</Ti>    
-			<Td>
-				<property>/it-autoflight/config/roll/td</property>
-			</Td>    	
-			<u_min>
-				<property>/it-autoflight/config/roll/umin</property>
-			</u_min>
-			<u_max>
-				<property>/it-autoflight/config/roll/umax</property>
-			</u_max>
-		</config>
-	</pid-controller>
+			<property>/it-autoflight/internal/aileron-cmd</property> <!-- Inputs to the FBW Roll Rate -->
+		</output>   	
+		<min>
+			<property>/it-autoflight/config/roll/min</property>
+		</min>
+		<max>
+			<property>/it-autoflight/config/roll/max</property>
+		</max>
+	</filter>
 	
  <!-- =============================================================== -->
  <!-- Yaw Control                                                     -->

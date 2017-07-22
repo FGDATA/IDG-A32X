@@ -336,19 +336,14 @@
 		<config>
 			<altitude-dial-mode>0</altitude-dial-mode>
 			<roll>
-				<umin>-0.4</umin>
-				<umax>0.4</umax>
-				<kp>0.1</kp>
-				<kp-vloc>0.11</kp-vloc>
-				<ti>5.0</ti>
-				<td>0.001</td>
+				<gain>-0.1</gain>
+				<min>-0.4</min>
+				<max>0.4</max>
 			</roll>
 			<pitch>
-				<umin>-0.3</umin>
-				<umax>0.3</umax>
-				<kp>-0.1</kp>
-				<ti>5.0</ti>
-				<td>0.001</td>
+				<gain>0.1</gain>
+				<min>-0.2</min>
+				<max>0.2</max>
 			</pitch>
 			<cmd>
 				<roll-kp>-0.9</roll-kp>

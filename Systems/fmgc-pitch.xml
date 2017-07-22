@@ -625,9 +625,13 @@
 		<max>30</max>
 	</filter>
 
-	<pid-controller>
-		<name>IT-CONTROLLER: PITCH</name>
+	<filter>
+		<name>System Command: Pitch Rate</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>
+			<property>/it-autoflight/config/pitch/gain</property>
+		</gain>
 		<enable>
 			<condition>
 				<or>
@@ -649,28 +653,14 @@
 			<property>/it-autoflight/internal/target-pitch-deg</property>
 		</reference>
 		<output>
-			<property>/it-autoflight/internal/elevator-cmd</property> <!-- Inputs to the FBW -->
+			<property>/it-autoflight/internal/elevator-cmd</property> <!-- Inputs to the FBW Pitch Rate -->
 		</output>
-		<config>
-			<Kp>
-				<property>/it-autoflight/config/pitch/kp</property>
-			</Kp>
-			<beta>1.0</beta>    
-			<alpha>0.1</alpha>  
-			<gamma>0.0</gamma>  
-			<Ti>
-				<property>/it-autoflight/config/pitch/ti</property>
-			</Ti>      
-			<Td>
-				<property>/it-autoflight/config/pitch/td</property>
-			</Td>   
-			<u_min>
-				<property>/it-autoflight/config/pitch/umin</property>
-			</u_min>
-			<u_max>
-				<property>/it-autoflight/config/pitch/umax</property>
-			</u_max>
-		</config>
-	</pid-controller>
+		<min>
+			<property>/it-autoflight/config/pitch/min</property>
+		</min>
+		<max>
+			<property>/it-autoflight/config/pitch/max</property>
+		</max>
+	</filter>
 
 </PropertyList>
