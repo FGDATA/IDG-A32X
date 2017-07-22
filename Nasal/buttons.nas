@@ -17,6 +17,8 @@ var variousReset = func {
 	setprop("/instrumentation/mk-viii/inputs/discretes/glideslope-cancel", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-override", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override", 0);
+	setprop("/controls/switches/cabinCall", 0);
+	setprop("/controls/switches/mechCall", 0);
 	# cockpit voice recorder stuff
 	setprop("/controls/CVR/power", 0);
 	setprop("/controls/CVR/test", 0);
@@ -24,6 +26,21 @@ var variousReset = func {
 	setprop("/controls/CVR/gndctl", 0);
 	setprop("/controls/CVR/erase", 0);
 	setprop("/controls/switches/cabinfan", 1);
+}
+
+
+var CabinCall = func {
+	setprop("/controls/switches/cabinCall", 1);
+	settimer(func() {
+		setprop("/controls/switches/cabinCall", 0);
+	}, 15);
+}
+
+var MechCall = func {
+	setprop("/controls/switches/mechCall", 1);
+	settimer(func() {
+		setprop("/controls/switches/mechCall", 0);
+	}, 15);
 }
 
 var CVR_test = func {
