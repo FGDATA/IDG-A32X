@@ -426,7 +426,9 @@
 			<skip userarchive="y" type="bool">0</skip>
 		</adirs>
 		<APU>
-			<fire-switch type="bool">0</fire-switch>
+			<fire-btn type="bool">0</fire-btn>
+			<fire-btn-cover type="bool">0</fire-btn-cover>
+			<fire-light type="bool">0</fire-light>
 			<master type="bool">0</master>
 			<start type="bool">0</start>
 			<bleed type="bool">0</bleed>
@@ -439,6 +441,9 @@
 			<engine n="0">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
+				<fire-btn type="bool">0</fire-btn>
+				<fire-btn-cover type="bool">0</fire-btn-cover>
+				<fire-light type="bool">0</fire-light>
 				<man-start type="bool">0</man-start>
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
@@ -448,6 +453,9 @@
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
+				<fire-btn type="bool">0</fire-btn>
+				<fire-btn-cover type="bool">0</fire-btn-cover>
+				<fire-light type="bool">0</fire-light>
 				<man-start type="bool">0</man-start>
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
