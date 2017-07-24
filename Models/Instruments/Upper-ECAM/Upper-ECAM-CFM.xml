@@ -606,7 +606,7 @@
 		<name>txt.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0575</y-m>
+			<y-m>-0.0597</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
@@ -630,7 +630,7 @@
 		<name>txt.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.002</y-m>
+			<y-m>-0.004</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
@@ -654,13 +654,13 @@
 		<name>XX.egt1</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.0575</y-m>
+			<y-m>-0.0597</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string"> XX</format>
+		<format type="string">   XX</format>
 		<property>autopilot/serviceable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
@@ -678,13 +678,13 @@
 		<name>XX.egt2</name>
 		<offsets>
 			<x-m>0.0004</x-m>
-			<y-m>-0.002</y-m>
+			<y-m>-0.004</y-m>
 			<z-m>0.0227</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
-		<format type="string"> XX</format>
+		<format type="string">   XX</format>
 		<property>autopilot/serviceable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
