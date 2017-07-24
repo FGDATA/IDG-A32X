@@ -554,4 +554,19 @@
 		</input>
 		<output>/systems/icing/factor</output>
 	</filter>
+	
+	<filter>
+        <name>TAS</name>
+        <type>gain</type>
+        <gain>1</gain>
+        <input> 
+			 <expression>
+                <product>
+                    <property>velocities/uBody-fps</property> 
+                    <value>0.592484</value>
+                </product>
+            </expression>
+		</input>
+		<output>/velocities/TAS</output>
+    </filter>
 </PropertyList>
