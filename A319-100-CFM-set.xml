@@ -80,7 +80,7 @@
 			</config>
 		</view>
 		<view n="102">
-			<name>Left Engine View</name>
+			<name>Left Front View</name>
 			<type>lookfrom</type>
 			<internal archive="y">false</internal>
 			<config>
@@ -93,7 +93,7 @@
 			</config>
 		</view>
 		<view n="103">
-			<name>Right Wing View</name>
+			<name>Right Mid View</name>
 			<type>lookfrom</type>
 			<internal archive="y">false</internal>
 			<config>
@@ -106,7 +106,7 @@
 			</config>
 		</view>
 		<view n="104">
-			<name>Aft View</name>
+			<name>Left Aft View</name>
 			<type>lookfrom</type>
 			<internal archive="y">false</internal>
 			<config>
