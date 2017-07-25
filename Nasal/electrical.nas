@@ -104,6 +104,15 @@ var elec_init = func {
 	setprop("/systems/electrical/gen-apu", 0);
 	setprop("/systems/electrical/gen-ext", 0);
 	setprop("/systems/electrical/on", 0);
+	setprop("/systems/electrical/galley-fault", 0);
+	setprop("/systems/electrical/idg1-fault", 0);
+	setprop("/systems/electrical/gen1-fault", 0);
+	setprop("/systems/electrical/apugen-fault", 0);
+	setprop("/systems/electrical/batt1-fault", 0);
+	setprop("/systems/electrical/batt2-fault", 0);
+	setprop("/systems/electrical/ac-ess-feed-fault", 0);
+	setprop("/systems/electrical/gen1-fault", 0);
+	setprop("/systems/electrical/idg1-fault", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
@@ -511,6 +520,49 @@ var master_elec = func {
 		setprop("/systems/electrical/outputs/taxi-lights", dc_volt_std);
 		setprop("/systems/electrical/outputs/transponder", dc_volt_std);
 		setprop("/systems/electrical/outputs/turn-coordinator", dc_volt_std);
+	}
+	
+	# Fault lights
+	if (gallery_fail and galley_sw) {
+		setprop("/systems/electrical/galley-fault", 1);
+	} else {
+		setprop("/systems/electrical/galley-fault", 0);
+	}
+	
+	if (batt1_fail and battery1_sw) {
+		setprop("/systems/electrical/batt1-fault", 1);
+	} else {
+		setprop("/systems/electrical/batt1-fault", 0);
+	}
+	
+	if (batt2_fail and battery2_sw) {
+		setprop("/systems/electrical/batt2-fault", 1);
+	} else {
+		setprop("/systems/electrical/batt2-fault", 0);
+	}
+	
+	if ((gen1_fail and gen1_sw) or (gen1_sw and stateL != 3)) {
+		setprop("/systems/electrical/gen1-fault", 1);
+	} else {
+		setprop("/systems/electrical/gen1-fault", 0);
+	}
+	
+	if (ac_ess_fail and ac_ess_feed_sw) {
+		setprop("/systems/electrical/ac-ess-feed-fault", 1);
+	} else {
+		setprop("/systems/electrical/ac-ess-feed-fault", 0);
+	}
+	
+	if (genapu_fail and gen_apu_sw) {
+		setprop("/systems/electrical/apugen-fault", 1);
+	} else {
+		setprop("/systems/electrical/apugen-fault", 0);
+	}
+	
+	if ((gen2_fail and gen2_sw) or (gen2_sw and stateR != 3)) {
+		setprop("/systems/electrical/gen2-fault", 1);
+	} else {
+		setprop("/systems/electrical/gen2-fault", 0);
 	}
 }
 

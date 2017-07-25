@@ -1557,82 +1557,6 @@
 			</or>
 		</condition>
 	</animation>
-
-	<!-- Fire controls -->
-	<!--animation>
-		<name>Engine 1 fire pick</name>
-		<type>pick</type>
-		<object-name>Eng1Fire</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[0]/fire-bottle-discharge</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 1 fire emit</name>
-		<type>material</type>
-		<object-name>Eng1Fire</object-name>
-		<emission>
-			<red>0.9</red>
-			<green>0.7</green>
-			<blue>0.7</blue>
-			<factor-prop>controls/engines/engine[0]/fire-bottle-discharge</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<name>APU fire pick</name>
-		<type>pick</type>
-		<object-name>APUFire</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/APU/fire-switch</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>APU fire emit</name>
-		<type>material</type>
-		<object-name>APUFire</object-name>
-		<emission>
-			<red>0.9</red>
-			<green>0.7</green>
-			<blue>0.7</blue>
-			<factor-prop>controls/APU/fire-switch</factor-prop>
-		</emission>
-	</animation>
-
-	<animation>
-		<name>Engine 2 fire pick</name>
-		<type>pick</type>
-		<object-name>Eng2Fire</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/engines/engine[1]/fire-bottle-discharge</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Engine 2 fire emit</name>
-		<type>material</type>
-		<object-name>Eng2Fire</object-name>
-		<emission>
-			<red>0.9</red>
-			<green>0.7</green>
-			<blue>0.7</blue>
-			<factor-prop>controls/engines/engine[1]/fire-bottle-discharge</factor-prop>
-		</emission>
-	</animation-->
 	
 	<animation>
 		<name>Cargo Smoke Test</name>
@@ -1690,7 +1614,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pump-green</property>
+						<property>systems/pneumatic/eng1-pump-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -1801,7 +1725,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pump-blue</property>
+						<property>systems/pneumatic/elec-pump-b-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -1874,7 +1798,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/ptu</property>
+						<property>systems/pneumatic/ptu-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -1947,7 +1871,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pump-yellow-eng</property>
+						<property>systems/pneumatic/eng2-pump-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2020,7 +1944,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pump-yellow-elec</property>
+						<property>systems/pneumatic/elec-pump-y-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2614,7 +2538,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-galley</property>
+						<property>systems/electrical/galley-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2675,7 +2599,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-batt1</property>
+						<property>systems/electrical/batt1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2736,7 +2660,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-batt2</property>
+						<property>systems/electrical/batt2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2802,10 +2726,10 @@
 		<object-name>IDG1Btn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<equals>
+					<property>systems/electrical/idg1-fault</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2862,23 +2786,13 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-gen1</property>
+						<property>systems/electrical/gen1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>controls/electrical/switches/gen1</property>
 						<value>1</value>
 					</equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/electrical/switches/gen1</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>engines/engine[0]/state</property>
-						<value>3</value>
-					</not-equals>
 				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
@@ -2944,7 +2858,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-ac-ess</property>
+						<property>systems/electrical/ac-ess-feed-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -3024,7 +2938,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-genapu</property>
+						<property>systems/electrical/apugen-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -3245,23 +3159,13 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elec-gen2</property>
+						<property>systems/electrical/gen2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>controls/electrical/switches/gen2</property>
 						<value>1</value>
 					</equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/electrical/switches/gen2</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>engines/engine[1]/state</property>
-						<value>3</value>
-					</not-equals>
 				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
@@ -3642,23 +3546,13 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pack1</property>
+						<property>systems/pneumatic/pack1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>controls/pneumatic/switches/pack1</property>
 						<value>1</value>
 					</equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/pneumatic/switches/pack1</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>systems/pneumatic/pack1</property>
-						<value>5</value>
-					</less-than-equals>
 				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
@@ -3725,12 +3619,12 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/bleed-eng1</property>
+						<property>systems/pneumatic/bleed1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>controls/pneumatic/switches/bleed1</property>
-						<value>0</value>
+						<value>1</value>
 					</equals>
 				</and>
 				<equals>
@@ -3806,7 +3700,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/bleed-apu</property>
+						<property>systems/pneumatic/bleedapu-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -3879,7 +3773,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/bleed-eng2</property>
+						<property>systems/pneumatic/bleed2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -3949,10 +3843,16 @@
 		<object-name>HotAirBtn1F</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>systems/unused/unused-oh</property>
-					<value>150</value> <!-- I didn't model faults yet -->
-				</greater-than>
+				<and>
+					<equals>
+						<property>systems/pneumatic/hotair-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/pneumatic/switches/hot-air</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -4026,23 +3926,13 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/pack2</property>
+						<property>systems/pneumatic/pack2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>controls/pneumatic/switches/pack2</property>
 						<value>1</value>
 					</equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/pneumatic/switches/pack2</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>systems/pneumatic/pack2</property>
-						<value>5</value>
-					</less-than-equals>
 				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
