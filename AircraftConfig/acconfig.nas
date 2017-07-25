@@ -66,6 +66,13 @@ var failReset = func {
 	setprop("/systems/failures/pump-green", 0);
 	setprop("/systems/failures/pump-yellow-eng", 0);
 	setprop("/systems/failures/pump-yellow-elec", 0);
+	setprop("/systems/failures/tank2pump1", 0);
+	setprop("/systems/failures/tank2pump2", 0);
+	setprop("/systems/failures/tank3pump1", 0);
+	setprop("/systems/failures/tank3pump2", 0);
+	setprop("/systems/failures/tank4pump1", 0);
+	setprop("/systems/failures/tank4pump2", 0);
+	setprop("/systems/failures/fuelmode", 0);
 }
 
 failReset();

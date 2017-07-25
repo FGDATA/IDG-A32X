@@ -34,6 +34,12 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var tank4feed1 = getprop("/systems/fuel/tank[4]/feed1");
 	var gravityfeedL = getprop("/systems/fuel/gravityfeedL");
 	var gravityfeedR = getprop("/systems/fuel/gravityfeedR");
+	var tank2pump1_fail = getprop("/systems/failures/tank2pump1");
+	var tank2pump2_fail = getprop("/systems/failures/tank2pump2");
+	var tank3pump1_fail = getprop("/systems/failures/tank3pump1");
+	var tank3pump2_fail = getprop("/systems/failures/tank3pump2");
+	var tank4pump1_fail = getprop("/systems/failures/tank4pump1");
+	var tank4pump2_fail = getprop("/systems/failures/tank4pump2");
 });
 
 var fuel_init = func {
@@ -57,6 +63,13 @@ var fuel_init = func {
 	setprop("/systems/fuel/tank[4]/feed0", 0);
 	setprop("/systems/fuel/tank[4]/feed1", 0);
 	setprop("/systems/fuel/only-use-ctr-tank", 0);
+	setprop("/systems/fuel/tank2pump1-fault", 0);
+	setprop("/systems/fuel/tank2pump2-fault", 0);
+	setprop("/systems/fuel/tank3pump1-fault", 0);
+	setprop("/systems/fuel/tank3pump2-fault", 0);
+	setprop("/systems/fuel/tank4pump1-fault", 0);
+	setprop("/systems/fuel/tank4pump2-fault", 0);
+	setprop("/systems/fuel/mode-fault", 0);
 	fuel_timer.start();
 }
 
@@ -78,6 +91,12 @@ var master_fuel = func {
 	gravityfeedL = getprop("/systems/fuel/gravityfeedL");
 	gravityfeedR = getprop("/systems/fuel/gravityfeedR");
 	gload = getprop("/accelerations/pilot-gdamped");
+	tank2pump1_fail = getprop("/systems/failures/tank2pump1");
+	tank2pump2_fail = getprop("/systems/failures/tank2pump2");
+	tank3pump1_fail = getprop("/systems/failures/tank3pump1");
+	tank3pump2_fail = getprop("/systems/failures/tank3pump2");
+	tank4pump1_fail = getprop("/systems/failures/tank4pump1");
+	tank4pump2_fail = getprop("/systems/failures/tank4pump2");
 	
 	if (gload >= 0.7 and gravityfeedL) {
 		setprop("/systems/fuel/gravityfeedL-output", 1);
@@ -94,7 +113,7 @@ var master_fuel = func {
 	gravityfeedL_output = getprop("/systems/fuel/gravityfeedL-output");
 	gravityfeedR_output = getprop("/systems/fuel/gravityfeedR-output");
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank2pump1_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank2pump1_sw and !tank2pump1_fail) {
 		setprop("/systems/fuel/tank[2]/feed0", 1);
 	} else if (gravityfeedL_output) {
 		setprop("/systems/fuel/tank[2]/feed0", 1);
@@ -102,7 +121,7 @@ var master_fuel = func {
 		setprop("/systems/fuel/tank[2]/feed0", 0);
 	}
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank2pump2_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank2pump2_sw and !tank2pump2_fail) {
 		setprop("/systems/fuel/tank[2]/feed1", 1);
 	} else if (gravityfeedL_output) {
 		setprop("/systems/fuel/tank[2]/feed1", 1);
@@ -110,19 +129,19 @@ var master_fuel = func {
 		setprop("/systems/fuel/tank[2]/feed1", 0);
 	}
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank3pump1_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank3pump1_sw and !tank3pump1_fail) {
 		setprop("/systems/fuel/tank[3]/feed0", 1);
 	} else {
 		setprop("/systems/fuel/tank[3]/feed0", 0);
 	}
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank3pump2_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank3pump2_sw and !tank3pump2_fail) {
 		setprop("/systems/fuel/tank[3]/feed1", 1);
 	} else {
 		setprop("/systems/fuel/tank[3]/feed1", 0);
 	}
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank4pump1_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank4pump1_sw and !tank4pump1_fail) {
 		setprop("/systems/fuel/tank[4]/feed0", 1);
 	} else if (gravityfeedR_output) {
 		setprop("/systems/fuel/tank[2]/feed0", 1);
@@ -130,7 +149,7 @@ var master_fuel = func {
 		setprop("/systems/fuel/tank[4]/feed0", 0);
 	}
 	
-	if ((ac1 >= 110 or ac2 >= 110) and tank4pump2_sw) {
+	if ((ac1 >= 110 or ac2 >= 110) and tank4pump2_sw and !tank4pump2_fail) {
 		setprop("/systems/fuel/tank[4]/feed1", 1);
 	} else if (gravityfeedR_output) {
 		setprop("/systems/fuel/tank[2]/feed1", 1);
@@ -170,6 +189,43 @@ var master_fuel = func {
 		setprop("/systems/fuel/only-use-ctr-tank", 1);
 	} else {
 		setprop("/systems/fuel/only-use-ctr-tank", 0);
+	}
+	
+	# Fault lights
+	if (tank2pump1_sw and tank2pump1_fail) {
+		setprop("/systems/fuel/tank2pump1-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank2pump1-fault", 0);
+	}
+	
+	if (tank2pump2_sw and tank2pump2_fail) {
+		setprop("/systems/fuel/tank2pump2-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank2pump2-fault", 0);
+	}
+	
+	if (tank3pump1_sw and tank3pump1_fail) {
+		setprop("/systems/fuel/tank3pump1-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank3pump1-fault", 0);
+	}
+	
+	if (tank3pump2_sw and tank3pump2_fail) {
+		setprop("/systems/fuel/tank3pump2-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank3pump2-fault", 0);
+	}
+	
+	if (tank4pump1_sw and tank4pump1_fail) {
+		setprop("/systems/fuel/tank4pump1-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank4pump1-fault", 0);
+	}
+	
+	if (tank4pump2_sw and tank4pump2_fail) {
+		setprop("/systems/fuel/tank4pump2-fault", 1);
+	} else {
+		setprop("/systems/fuel/tank4pump2-fault", 0);
 	}
 }
 

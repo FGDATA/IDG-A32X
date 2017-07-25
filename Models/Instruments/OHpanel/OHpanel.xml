@@ -107,7 +107,7 @@
 		<object-name>FAC2Btn2O</object-name>
 		<object-name>FuelModeBtn1F</object-name>
 		<object-name>FuelModeBtn2O</object-name>
-		<object-name>FuelXfeedBtn1A</object-name>
+		<object-name>FuelXfeedBtn1O</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
 		<object-name>GalleyPwrBtn2O</object-name>
@@ -1266,7 +1266,7 @@
 	
 	<!-- GPWS -->
 	<!--animation>
-		<name>GPWS system pick</name>
+		<name>GPWS terrain system pick</name>
 		<type>pick</type>
 		<object-name>GPWSTerrBtn1</object-name>
 		<object-name>GPWSTerrBtn2</object-name>
@@ -1983,7 +1983,7 @@
 		<type>pick</type>
 		<object-name>FuelXfeedBtn1</object-name>
 		<object-name>FuelXfeedBtn2</object-name>
-		<object-name>FuelXfeedBtn1A</object-name>
+		<object-name>FuelXfeedBtn1O</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
 		<action>
 			<button>0</button>
@@ -2013,7 +2013,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>FuelXfeedBtn1A</object-name>
+		<object-name>FuelXfeedBtn1O</object-name>
 		<condition>
 			<or>
 				<equals>
@@ -2081,10 +2081,16 @@
 		<object-name>LFuelTank1Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank2pump1-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank2pump1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2146,10 +2152,16 @@
 		<object-name>LFuelTank2Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank2pump2-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank2pump2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2211,10 +2223,16 @@
 		<object-name>CFuelTank1Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank3pump1-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank3pump1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2275,10 +2293,16 @@
 		<object-name>FuelModeBtn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>something</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/mode-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/mode</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2340,10 +2364,16 @@
 		<object-name>CFuelTank2Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank3pump2-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank3pump2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2405,10 +2435,16 @@
 		<object-name>RFuelTank1Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank4pump1-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank4pump1</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2470,10 +2506,16 @@
 		<object-name>RFuelTank2Btn1F</object-name>
 		<condition>
 			<or>
-				<!--equals>
-					<property>controls/adirs/adr[1]/fault</property>
-					<value>1</value>
-				</equals-->
+				<and>
+					<equals>
+						<property>systems/fuel/tank4pump2-fault</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/fuel/tank4pump2</property>
+						<value>1</value>
+					</equals>
+				</and>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>

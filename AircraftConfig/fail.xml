@@ -136,7 +136,7 @@
 					<stretch type="bool">true</stretch>
 				</hrule>
 				<text>
-					<label>ELEC SYS Fail</label>
+					<label>PNEU SYS Fail</label>
 				</text>
 				<hrule>
 					<stretch type="bool">true</stretch>
@@ -144,9 +144,9 @@
 			</group>
 			
 			<checkbox>
-				<label>AC ESS Bus</label>
+				<label>Bleed APU</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-ac-ess</property>
+				<property>/systems/failures/bleed-apu</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -154,9 +154,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>APU GEN</label>
+				<label>Bleed EXT</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-genapu</property>
+				<property>/systems/failures/bleed-ext</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -164,9 +164,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>BATT 1 Fail</label>
+				<label>Bleed ENG 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-batt1</property>
+				<property>/systems/failures/bleed-eng1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -174,9 +174,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>BATT 2 Fail</label>
+				<label>Bleed ENG 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-batt2</property>
+				<property>/systems/failures/bleed-eng2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -184,9 +184,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>ENG 1 GEN</label>
+				<label>Pack 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-gen1</property>
+				<property>/systems/failures/pack1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -194,19 +194,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>ENG 2 GEN</label>
+				<label>Pack 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/elec-gen2</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Galley Bus</label>
-				<halign>left</halign>
-				<property>/systems/failures/elec-galley</property>
+				<property>/systems/failures/pack2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -311,7 +301,7 @@
 					<stretch type="bool">true</stretch>
 				</hrule>
 				<text>
-					<label>PNEU SYS Fail</label>
+					<label>ELEC SYS Fail</label>
 				</text>
 				<hrule>
 					<stretch type="bool">true</stretch>
@@ -319,9 +309,9 @@
 			</group>
 			
 			<checkbox>
-				<label>Bleed APU</label>
+				<label>AC ESS Bus</label>
 				<halign>left</halign>
-				<property>/systems/failures/bleed-apu</property>
+				<property>/systems/failures/elec-ac-ess</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -329,9 +319,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed EXT</label>
+				<label>APU GEN</label>
 				<halign>left</halign>
-				<property>/systems/failures/bleed-ext</property>
+				<property>/systems/failures/elec-genapu</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -339,9 +329,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed ENG 1</label>
+				<label>BATTERY 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/bleed-eng1</property>
+				<property>/systems/failures/elec-batt1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -349,9 +339,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed ENG 2</label>
+				<label>BATTERY 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/bleed-eng2</property>
+				<property>/systems/failures/elec-batt2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -359,9 +349,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Pack 1</label>
+				<label>ENG 1 GEN</label>
 				<halign>left</halign>
-				<property>/systems/failures/pack1</property>
+				<property>/systems/failures/elec-gen1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -369,15 +359,106 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Pack 2</label>
+				<label>ENG 2 GEN</label>
 				<halign>left</halign>
-				<property>/systems/failures/pack2</property>
+				<property>/systems/failures/elec-gen2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
 				<live>true</live>
 			</checkbox>
 			
+			<checkbox>
+				<label>Galley Bus</label>
+				<halign>left</halign>
+				<property>/systems/failures/elec-galley</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+				
+		</group>
+		
+		<vrule/>
+			
+		<group>
+			<layout>vbox</layout>
+			
+			<group>
+				<layout>hbox</layout>
+
+				<hrule>
+					<stretch type="bool">true</stretch>
+				</hrule>
+				<text>
+					<label>FUEL SYS Fail</label>
+				</text>
+				<hrule>
+					<stretch type="bool">true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Tank L Pump 1</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank2pump1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Tank L Pump 2</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank2pump2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Tank C Pump 1</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank3pump1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Tank C Pump 2</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank3pump2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Tank R Pump 1</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank4pump1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Tank R Pump 2</label>
+				<halign>left</halign>
+				<property>/systems/failures/tank4pump2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+		
 			<hrule/>
 			
 			<button>
