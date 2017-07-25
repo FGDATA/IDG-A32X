@@ -32,8 +32,8 @@ var variousReset = func {
 	setprop("/controls/switches/emerCall", 0);
 	setprop("/controls/switches/LrainRpt", 0);
 	setprop("/controls/switches/RrainRpt", 0);
-	setprop("/controls/swithces/wiperLspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
-	setprop("/controls/swithces/wiperRspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
+	setprop("/controls/switches/wiperLspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
+	setprop("/controls/switches/wiperRspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
