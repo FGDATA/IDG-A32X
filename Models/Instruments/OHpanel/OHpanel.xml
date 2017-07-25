@@ -6071,8 +6071,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-cycle</command>
 				<property>/controls/switches/wiperLspd</property>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
 			</binding>
 		</action>
 	</animation>
@@ -6104,8 +6108,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-cycle</command>
 				<property>/controls/switches/wiperRspd</property>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
 			</binding>
 		</action>
 	</animation>
