@@ -588,6 +588,7 @@
 				<IDG1 type="bool">0</IDG1>
 				<IDG2 type="bool">0</IDG2>
 				<ramair type="bool">0</ramair>
+				<maskman type="bool">0</maskman>
 			</protectors>
 		</OH>
 		<pneumatic n="0">

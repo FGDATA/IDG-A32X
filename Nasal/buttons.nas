@@ -26,16 +26,78 @@ var variousReset = func {
 	setprop("/controls/CVR/gndctl", 0);
 	setprop("/controls/CVR/erase", 0);
 	setprop("/controls/switches/cabinfan", 1);
+	setprop("/controls/oxygen/crewOxyPB", 0); # 0 = AUTO 1 = OFF
+	setprop("/controls/switches/emerCallLtO", 0); # ON light, flashes white for 10s
+	setprop("/controls/switches/emerCallLtC", 0); # CALL light, flashes amber for 10s
+	setprop("/controls/switches/emerCall", 0);
+	setprop("/controls/switches/LrainRpt", 0);
+	setprop("/controls/switches/RrainRpt", 0);
+	setprop("/controls/swithces/wiperLspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
+	setprop("/controls/swithces/wiperRspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
 }
 
+setlistener("/sim/signals/fdm-initialized", func {
+	var stateL = getprop("/engines/engine[0]/state");
+	var stateR = getprop("/engines/engine[1]/state");
+	var Lrain = getprop("/controls/switches/LrainRpt");
+	var Rrain = getprop("/controls/switches/RrainRpt");
+	var OnLt = getprop("/controls/switches/emerCallLtO");
+	var CallLt = getprop("/controls/switches/emerCallLtC");
+	var wow = getprop("/gear/gear[1]/wow");
+	rainTimer.start();
+});
+
+# inhibit rain rpt when engines off and on ground
+var rainRepel = func {
+	Lrain = getprop("/controls/switches/LrainRpt");
+	Rrain = getprop("/controls/switches/RrainRpt");
+	wow = getprop("/gear/gear[1]/wow");
+	stateL = getprop("/engines/engine[0]/state");
+	stateR = getprop("/engines/engine[1]/state");
+	if (Lrain and (stateL != 3 and stateR != 3 and wow)) {	
+		setprop("/controls/switches/LrainRpt", 0);
+	}
+	if (Rrain and (stateL != 3 and stateR != 3 and wow)) { 
+		setprop("/controls/switches/RrainRpt", 0);
+	}
+}
+
+var EmerCall = func {
+	setprop("/controls/switches/emerCall", 1);
+	EmerCallTimer1.start();
+	EmerCallTimer2.start();
+	settimer(func() {
+		setprop("/controls/switches/emerCall", 0);
+		EmerCallTimer1.stop();
+		EmerCallTimer2.stop();
+	}, 10);
+}
+
+var EmerCallOnLight = func {
+	OnLt = getprop("/controls/switches/emerCallLtO");
+	if (OnLt) { 
+		setprop("/controls/switches/emerCallLtO", 0);
+	} else if (!OnLt) { 
+		setprop("/controls/switches/emerCallLtO", 1);
+	}
+}
+
+var EmerCallLightCall = func {
+	CallLt = getprop("/controls/switches/emerCallLtC");
+	if (CallLt) { 
+		setprop("/controls/switches/emerCallLtC", 0);
+	} else if (!CallLt) { 
+		setprop("/controls/switches/emerCallLtC", 1);
+	}
+}
 
 var CabinCall = func {
-	setprop("/controls/switches/cabinCall", 1);
+	setprop("/controls/switches/emerCall", 0);
 	settimer(func() {
-		setprop("/controls/switches/cabinCall", 0);
+		setprop("/controls/switches/emerCall", 0);
 	}, 15);
 }
-
+		
 var MechCall = func {
 	setprop("/controls/switches/mechCall", 1);
 	settimer(func() {
@@ -171,3 +233,6 @@ var update_CVR = func {
 }
 
 var CVR = maketimer(0.1, update_CVR);
+var EmerCallTimer1 = maketimer(0.5, EmerCallOnLight);
+var EmerCallTimer2 = maketimer(0.5, EmerCallLightCall);
+var rainTimer = maketimer(0.1, rainRepel);

@@ -72,6 +72,9 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var eng1on = getprop("/controls/deice/eng1-on");
 	var eng2on = getprop("/controls/deice/eng2-on");
 	var total_psi_calc = 0;
+	var masks = getprop("/controls/oxygen/masksDeployMan");
+	var autoMasks = getprop("/controls/oxygen/masksDeploy");
+	var guard = getprop("/controls/oxygen/masksGuard");
 });
 
 var pneu_init = func {
@@ -133,6 +136,10 @@ var pneu_init = func {
 	setprop("/systems/ventilation/lavatory/extractvalve", "0");
 	setprop("/controls/deice/eng1-on", 0);
 	setprop("/controls/deice/eng2-on", 0);
+	setprop("/controls/oxygen/masksDeploy", 0);
+	setprop("/controls/oxygen/masksDeployMan", 0);
+	setprop("/controls/oxygen/masksReset", 0); # this is the TMR RESET pb on the maintenance panel, needs 3D model
+	setprop("/controls/oxygen/masksSys", 0);
 	pneu_timer.start();
 }
 
@@ -387,7 +394,27 @@ var flashfault2 = func {
 	settimer(func {
 		setprop("/controls/deice/eng2-fault", 0);
 	}, 0.5);
+	
+	# Oxygen (Cabin)
+
+	setlistener("/controls/oxygen/masksDeployMan", func {
+		if (guard and masks) {
+			setprop("/controls/oxygen/masksDeployMan", 0);
+		} else if (!guard and masks) {
+			setprop("/controls/oxygen/masksDeployMan", 1);
+			setprop("/controls/oxygen/masksDeploy", 1);
+			setprop("/controls/oxygen/masksSys", 1);
+		}
+	});
+
+	if (cabinalt > 13500) { 
+		setprop("/controls/oxygen/masksDeploy", 1);
+		setprop("/controls/oxygen/masksSys", 1);
+	}
+	
 }
+
+
 
 ###################
 # Update Function #
