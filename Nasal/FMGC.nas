@@ -238,44 +238,7 @@ var phasecheck = maketimer(0.2, func {
 	}
 	
 	if ((wowl and wowr) and (gs < 40) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
-		setprop("/FMGC/status/phase", "7");
-		fd1 = getprop("/it-autoflight/input/fd1");
-		fd2 = getprop("/it-autoflight/input/fd2");
-		spd = getprop("/it-autoflight/input/spd-kts");
-		hdg = getprop("/it-autoflight/input/hdg");
-		alt = getprop("/it-autoflight/input/alt");
-		APinit();
-		FMGCinit();
-		mcdu1.MCDU_reset();
-		mcdu2.MCDU_reset();
-		setprop("/it-autoflight/input/fd1", fd1);
-		setprop("/it-autoflight/input/fd2", fd2);
-		setprop("/it-autoflight/input/spd-kts", spd);
-		setprop("/it-autoflight/input/hdg", hdg);
-		setprop("/it-autoflight/input/alt", alt);
-		setprop("/systems/pressurization/mode", "GN");
-		setprop("/systems/pressurization/vs", "0");
-		setprop("/systems/pressurization/targetvs", "0");
-		setprop("/systems/pressurization/vs-norm", "0");
-		setprop("/systems/pressurization/auto", 1);
-		setprop("/systems/pressurization/deltap", "0");
-		setprop("/systems/pressurization/outflowpos", "0");
-		setprop("/systems/pressurization/deltap-norm", "0");
-		setprop("/systems/pressurization/outflowpos-norm", "0");
-		altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-		setprop("/systems/pressurization/cabinalt", altitude);
-		setprop("/systems/pressurization/targetalt", altitude); 
-		setprop("/systems/pressurization/diff-to-target", "0");
-		setprop("/systems/pressurization/ditchingpb", 0);
-		setprop("/systems/pressurization/targetvs", "0");
-		setprop("/systems/ventilation/cabin/fans", 0); # aircon fans
-		setprop("/systems/ventilation/avionics/fan", 0);
-		setprop("/systems/ventilation/avionics/extractvalve", "0");
-		setprop("/systems/ventilation/avionics/inletvalve", "0");
-		setprop("/systems/ventilation/lavatory/extractfan", 0);
-		setprop("/systems/ventilation/lavatory/extractvalve", "0");
-		setprop("/systems/pressurization/ambientpsi", "0");
-		setprop("/systems/pressurization/cabinpsi", "0");
+		reset_FMGC();
 	}
 	
 	flap = getprop("/controls/flight/flap-pos");
@@ -299,6 +262,47 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/internal/minspeed", 134);
 	}
 });
+
+var reset_FMGC = func {
+	setprop("/FMGC/status/phase", "7");
+	fd1 = getprop("/it-autoflight/input/fd1");
+	fd2 = getprop("/it-autoflight/input/fd2");
+	spd = getprop("/it-autoflight/input/spd-kts");
+	hdg = getprop("/it-autoflight/input/hdg");
+	alt = getprop("/it-autoflight/input/alt");
+	APinit();
+	FMGCinit();
+	mcdu1.MCDU_reset();
+	mcdu2.MCDU_reset();
+	setprop("/it-autoflight/input/fd1", fd1);
+	setprop("/it-autoflight/input/fd2", fd2);
+	setprop("/it-autoflight/input/spd-kts", spd);
+	setprop("/it-autoflight/input/hdg", hdg);
+	setprop("/it-autoflight/input/alt", alt);
+	setprop("/systems/pressurization/mode", "GN");
+	setprop("/systems/pressurization/vs", "0");
+	setprop("/systems/pressurization/targetvs", "0");
+	setprop("/systems/pressurization/vs-norm", "0");
+	setprop("/systems/pressurization/auto", 1);
+	setprop("/systems/pressurization/deltap", "0");
+	setprop("/systems/pressurization/outflowpos", "0");
+	setprop("/systems/pressurization/deltap-norm", "0");
+	setprop("/systems/pressurization/outflowpos-norm", "0");
+	altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+	setprop("/systems/pressurization/cabinalt", altitude);
+	setprop("/systems/pressurization/targetalt", altitude); 
+	setprop("/systems/pressurization/diff-to-target", "0");
+	setprop("/systems/pressurization/ditchingpb", 0);
+	setprop("/systems/pressurization/targetvs", "0");
+	setprop("/systems/ventilation/cabin/fans", 0); # aircon fans
+	setprop("/systems/ventilation/avionics/fan", 0);
+	setprop("/systems/ventilation/avionics/extractvalve", "0");
+	setprop("/systems/ventilation/avionics/inletvalve", "0");
+	setprop("/systems/ventilation/lavatory/extractfan", 0);
+	setprop("/systems/ventilation/lavatory/extractvalve", "0");
+	setprop("/systems/pressurization/ambientpsi", "0");
+	setprop("/systems/pressurization/cabinpsi", "0");
+}
 
 var various = maketimer(1, func {
 	if (getprop("/engines/engine[0]/state") == 3 and getprop("/engines/engine[1]/state") != 3) {

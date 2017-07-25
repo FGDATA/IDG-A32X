@@ -203,10 +203,76 @@
 						</binding>
 					</item>
 					<item>
+						<label>About This Aircraft</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							acconfig.about_dlg.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+				<menu n="101">
+					<label>Tools</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							aircraft.livery.dialog.toggle();
+							</script>
+						</binding>
+					</item>
+					<item>
 						<label>Pushback</label>
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Failures</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							acconfig.fail_dlg.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Reset FMGC</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							fmgc.reset_FMGC();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Skip ADIRS</label>
+						<binding>
+							<command>property-assign</command>
+							<property>/controls/adirs/skip</property>
+							<value>1</value>
+						</binding>
+					</item>
+					<item>
+						<label>Captain's ND</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_nd.showNd();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>First Officer's ND</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_nd.showNd('right');
+							</script>
 						</binding>
 					</item>
 				</menu>
@@ -990,7 +1056,7 @@
 		<canvas_nd>
 			<file>Aircraft/A320Family/Models/Instruments/ND/canvas/ND.nas</file>
 		</canvas_nd>
-		<icing> <!-- leave icing in this -->
+		<icing>
 			<file>Aircraft/A320Family/Nasal/icing.nas</file>
 		</icing>
 	</nasal>

@@ -11,14 +11,15 @@
 
 <PropertyList>
 
-	<name>aircraft-config-welcome</name>
+	<name>aircraft-config-about</name>
 	<layout>vbox</layout>
+	<pref-width>800</pref-width>
 
     <group>
         <layout>hbox</layout>
         <text>
             <halign>left</halign>
-            <label>Welcome!</label>
+            <label>About This Aircraft</label>
         </text>
         <button>
             <halign>right</halign>
@@ -38,24 +39,31 @@
 			<layout>vbox</layout>
 			
 			<text>
-				<halign>center</halign>
-				<label>Welcome to the it0uchpods A3XX Series!</label>
+				<halign>left</halign>
+				<label>it0uchpods Hanger presents: A320Family by A3XX Development Team</label>
 			</text>
 			<text>
-				<halign>center</halign>
-				<label>This is a complex simulation of these amazing Airbus Aircraft.</label>
+				<halign>left</halign>
+				<label>Joshua Davidson (it0uchpods), Jonanthan Redpath (legoboyvdlp), Charlie Schwehm (wecsje)</label>
+			</text>
+			
+			<hrule/>
+			
+			<text>
+				<halign>left</halign>
+				<label>Systems: Joshua Davidson (it0uchpods), Jonanthan Redpath (legoboyvdlp)</label>
 			</text>
 			<text>
-				<halign>center</halign>
-				<label>They are currently still under development, and therefore are not complete yet.</label>
+				<halign>left</halign>
+				<label>Cockpit: Narendran Muraleedharan (omega95), Joshua Davidson (it0uchpods), Jonanthan Redpath (legoboyvdlp)</label>
 			</text>
 			<text>
-				<halign>center</halign>
-				<label>Use the Aircraft Config to select livery, manage panel states, and more!</label>
+				<halign>left</halign>
+				<label>Instruments: Joshua Davidson (it0uchpods), Jonanthan Redpath (legoboyvdlp)</label>
 			</text>
 			<text>
-				<halign>center</halign>
-				<label>Please report bugs on the FlightGear forums! Enjoy!</label>
+				<halign>left</halign>
+				<label>Pre V1.0, Shared Libraries 1.4.4</label>
 			</text>
 			
 		</group>
@@ -65,20 +73,6 @@
 		<group>
 			<layout>hbox</layout>
 			
-			<button>
-				<halign>center</halign>
-				<legend>Open A/C Config</legend>
-				<pref-width>210</pref-width>
-				<binding>
-					<command>nasal</command>
-					<script>
-					acconfig.main_dlg.open();
-					</script>
-				</binding>
-				<binding>
-					<command>dialog-close</command>
-				</binding>
-			</button>
 			<button>
 				<halign>center</halign>
 				<legend>Go Away</legend>
