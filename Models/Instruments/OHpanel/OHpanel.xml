@@ -6009,5 +6009,211 @@
 			</binding>
 		</action>
 	</animation>
-
+	
+	<animation>
+		<type>pick</type>
+		<object-name>LeftRainTest</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/switches/LrainRpt</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>RightRainTest</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/switches/RrainRpt</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>LeftWiperKnb</object-name>
+		<property>/controls/switches/wiperLspd</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-50</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>50</dep></entry>
+			<entry><ind>2</ind><dep>100</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.00608</x1-m>
+			<y1-m>-0.21485</y1-m>
+			<z1-m>-0.26721</z1-m>
+			<x2-m>0.00095</x2-m>
+			<y2-m>-0.21591</y2-m>
+			<z2-m>-0.26721</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>LeftWiperKnb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/switches/wiperLspd</property>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RightWiperKnb</object-name>
+		<property>/controls/switches/wiperLspd</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-50</dep></entry>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>50</dep></entry>
+			<entry><ind>2</ind><dep>100</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.00608</x1-m>
+			<y1-m>-0.21485</y1-m>
+			<z1-m>-0.26721</z1-m>
+			<x2-m>0.00095</x2-m>
+			<y2-m>-0.21591</y2-m>
+			<z2-m>-0.26721</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>RightWiperKnb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/switches/wiperRspd</property>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>PassOxyInd1S</object-name>
+		<condition>
+			<equals>
+				<property>/controls/oxygen/masksSys</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>PassOxyInd1S</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/oxygen/masksSys</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>CrewOxyBtn2O</object-name>
+		<condition>
+			<equals>
+				<property>/controls/oxygen/crewOxyPB</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>CrewOxyBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/oxygen/crewOxyPB</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>MaskManOnGaurd</object-name>
+		<property>/controls/OH/protectors/maskman</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>0.00375</x1-m>
+			<y1-m>-0.27338</y1-m>
+			<z1-m>-0.15783</z1-m>
+			<x2-m>0.00228</x2-m>
+			<y2-m>-0.26147</y2-m>
+			<z2-m>-0.15783</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>MaskManOnGaurd</object-name>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/OH/protectors/maskman</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/OH/protectors/maskman</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
 </PropertyList>
