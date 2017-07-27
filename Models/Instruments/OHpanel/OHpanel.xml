@@ -185,7 +185,6 @@
 		<object-name>EvacCommandBtn2O</object-name>
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
-		<object-name>MaskManOnBtn2O</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
 		<condition>
 			<equals>
