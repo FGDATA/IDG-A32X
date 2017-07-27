@@ -177,7 +177,6 @@
 	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove once you simulate these buttons. -JD -->
 	<animation>
 		<type>select</type>
-		<object-name>CrewOxyBtn2O</object-name>
 		<object-name>EmerCallBtn1C</object-name>
 		<object-name>EmerCallBtn2O</object-name>
 		<object-name>EmerElecManOnBtn2O</object-name>
@@ -187,7 +186,6 @@
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>MaskManOnBtn2O</object-name>
-		<object-name>PassOxyInd1S</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
 		<condition>
 			<equals>
@@ -5978,6 +5976,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.CVR_test();</script>
 			</binding>
@@ -5991,6 +6001,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.MechCall();</script>
 			</binding>
@@ -6004,6 +6026,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.CabinCall();</script>
 			</binding>
@@ -6017,8 +6051,20 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>/controls/switches/LrainRpt</property>
+				<property>controls/switches/LrainRpt</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -6034,8 +6080,20 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>/controls/switches/RrainRpt</property>
+				<property>controls/switches/RrainRpt</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -6047,7 +6105,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>LeftWiperKnb</object-name>
-		<property>/controls/switches/wiperLspd</property>
+		<property>controls/switches/wiperLspd</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-50</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -6072,7 +6130,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/switches/wiperLspd</property>
+				<property>controls/switches/wiperLspd</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -6084,7 +6142,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RightWiperKnb</object-name>
-		<property>/controls/switches/wiperLspd</property>
+		<property>controls/switches/wiperLspd</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-50</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -6109,7 +6167,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/switches/wiperRspd</property>
+				<property>controls/switches/wiperRspd</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -6119,25 +6177,74 @@
 	</animation>
 	
 	<animation>
-		<type>select</type>
-		<object-name>PassOxyInd1S</object-name>
-		<condition>
-			<equals>
-				<property>/controls/oxygen/masksSys</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
 		<type>pick</type>
+		<object-name>PassOxyInd</object-name>
 		<object-name>PassOxyInd1S</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
-				<property>/controls/oxygen/masksSys</property>
+				<property>controls/oxygen/masksSys</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>PassOxyInd1S</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/oxygen/masksSys</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>CrewOxyBtn</object-name>
+		<object-name>CrewOxyBtn2O</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>controls/oxygen/crewOxyPB</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -6150,46 +6257,17 @@
 		<type>select</type>
 		<object-name>CrewOxyBtn2O</object-name>
 		<condition>
-			<equals>
-				<property>/controls/oxygen/crewOxyPB</property>
-				<value>1</value>
-			</equals>
+			<or>
+				<equals>
+					<property>controls/oxygen/crewOxyPB</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>CrewOxyBtn2O</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>/controls/oxygen/crewOxyPB</property>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/oh-btn", 1);</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>MaskManOnGaurd</object-name>
-		<property>/controls/OH/protectors/maskman</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>90</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>0.00375</x1-m>
-			<y1-m>-0.27338</y1-m>
-			<z1-m>-0.15783</z1-m>
-			<x2-m>0.00228</x2-m>
-			<y2-m>-0.26147</y2-m>
-			<z2-m>-0.15783</z2-m>
-		</axis>
 	</animation>
 	
 	<animation>
@@ -6214,6 +6292,21 @@
 				</binding>
 			</mod-up>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>MaskManOnGaurd</object-name>
+		<property>controls/OH/protectors/maskman</property>
+		<factor>-145</factor>
+		<axis>
+			<x1-m>0.00513</x1-m>
+			<y1-m>-0.27292</y1-m>
+			<z1-m>-0.15783</z1-m>
+			<x2-m>0.00374</x2-m>
+			<y2-m>-0.26161</y2-m>
+			<z2-m>-0.15783</z2-m>
+		</axis>
 	</animation>
 	
 </PropertyList>

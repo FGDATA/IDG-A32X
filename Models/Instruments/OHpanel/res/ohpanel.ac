@@ -8,7 +8,7 @@ MATERIAL "OHPanelOnBat" rgb 0.8 0.8 0.8  amb 1 1 1  emis 1 1 1  spec 0.5 0.5 0.5
 MATERIAL "Switch" rgb 0.678431 0.678431 0.678431  amb 0.678431 0.678431 0.678431  emis 0 0 0  spec 0 0 0  shi 32  trans 0.004
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 128  trans 0
 MATERIAL "DefaultWhite.002" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.0015 0.0015 0.0015  shi 50  trans 0
-MATERIAL "RedGuard" rgb 0.8 0 0  amb 1 1 1  emis 1 1 1  spec 0.5 0.5 0.5  shi 12  trans 0
+MATERIAL "ac3dmat1" rgb 0.501961 0.501961 0.501961  amb 0.501961 0.501961 0.501961  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
 kids 321
 OBJECT group
@@ -17133,8 +17133,8 @@ refs 4
 7 0.5 1
 kids 0
 OBJECT poly
-name "MaskManOnGaurd"
-loc -0.00236803 -0.0441595 0.202375
+name "EmerManOnGaurd"
+loc -0.00221982 -0.0441595 0.202375
 texture "redguard.png"
 crease 35.000000
 numvert 92
@@ -17956,7 +17956,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerElecManOnBtn2O"
-loc 7.98515e-005 -0.112692 -0.000865825
+loc 0.000228064 -0.112692 -0.000865825
 data 8
 Cube.135
 texture "buttons4.png"
@@ -18002,7 +18002,7 @@ refs 4
 kids 0
 OBJECT poly
 name "EmerGenTestGaurd"
-loc 0.00863326 -0.0442504 0.292258
+loc 0.00869153 -0.0442504 0.292258
 texture "redguard.png"
 crease 35.000000
 numvert 92
@@ -19018,7 +19018,7 @@ refs 3
 kids 0
 OBJECT poly
 name "MaskManOnGaurd"
-loc 0.00553581 -0.174035 0.267115
+loc 0.00568402 -0.174035 0.267115
 texture "redguard.png"
 crease 35.000000
 numvert 92
@@ -19840,7 +19840,7 @@ refs 4
 kids 0
 OBJECT poly
 name "MaskManOnBtn2O"
-loc 0.00798369 -0.242567 0.063875
+loc 0.0081319 -0.242567 0.063875
 data 8
 Cube.135
 texture "buttons4.png"
@@ -58643,7 +58643,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GPWSFlp3Btn2O"
-loc -0.00150635 -0.15875 -0.0139293
+loc -0.00151277 -0.15875 -0.0139293
 data 8
 Cube.135
 texture "buttons4.png"
