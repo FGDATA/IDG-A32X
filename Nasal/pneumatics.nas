@@ -412,9 +412,22 @@ var flashfault2 = func {
 		setprop("/controls/oxygen/masksSys", 1);
 	}
 	
+	setlistener("/controls/oxygen/masksDeployMan", func {
+		var masks = getprop("/controls/oxygen/masksDeployMan");
+		var autoMasks = getprop("/controls/oxygen/masksDeploy");
+		if (!masks) { 
+			setprop("/controls/oxygen/masksDeployMan", 1);
+		}
+	});
+
+	setlistener("/controls/oxygen/masksDeploy", func {
+		var masks = getprop("/controls/oxygen/masksDeployMan");
+		var autoMasks = getprop("/controls/oxygen/masksDeploy");
+		if (!autoMasks) { 
+			setprop("/controls/oxygen/masksDeploy", 1);
+		}
+	});
 }
-
-
 
 ###################
 # Update Function #

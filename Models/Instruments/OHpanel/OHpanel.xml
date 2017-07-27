@@ -6225,6 +6225,54 @@
 	
 	<animation>
 		<type>pick</type>
+		<object-name>MaskManOnBtn2O</object-name>
+		<object-name>MaskManOnBtn2</object-name>
+		<object-name>MaskManOnBtn1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>controls/oxygen/masksDeployMan</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>MaskManOnBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/oxygen/masksDeployMan</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>CrewOxyBtn</object-name>
 		<object-name>CrewOxyBtn2O</object-name>
 		<action>
