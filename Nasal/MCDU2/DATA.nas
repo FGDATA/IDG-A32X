@@ -8,4 +8,7 @@ var dataInput = func(key) {
 	if (key == "L1") {
 		setprop("/MCDU[1]/page", "POSMON");
 	}
+	if (key == "L2") {
+		setprop("/MCDU[1]/page", "IRSMON");
+	}
 }

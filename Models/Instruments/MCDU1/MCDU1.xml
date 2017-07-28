@@ -181,6 +181,28 @@
 	</model>
 	
 	<model>
+		<name>IRSMON</name>
+		<path>DATA/IRSMON.xml</path>
+		<offsets>
+			<heading-deg>180</heading-deg>
+			<roll-deg>180</roll-deg>
+			<pitch-deg>90</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/bus/ac1</property>
+					<value>110</value>
+				</greater-than-equals>
+				<equals>
+					<property>MCDU[0]/page</property>
+					<value>IRSMON</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
 		<name>TO</name>
 		<path>PERF/TO/TO.xml</path>
 		<offsets>

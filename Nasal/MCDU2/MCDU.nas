@@ -52,6 +52,10 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/vor2crs-set", 0);
 	setprop("/FMGC/internal/adf1freq-set", 0);
 	setprop("/FMGC/internal/adf2freq-set", 0);
+	setprop("/FMGC/internal/navdatabase", "01JAN-28JAN");
+	setprop("/FMGC/internal/navdatabase2", "29JAN-26FEB");
+	setprop("/FMGC/internal/navdatabasecode", "AB20170101");
+	setprop("/FMGC/internal/navdatabasecode2", "AB20170102");
 }
 
 var lskbutton = func(btn) {
@@ -86,7 +90,9 @@ var lskbutton = func(btn) {
 			initInputA("L5"); 
 		} else if (getprop("/MCDU[1]/page") == "DES") {
 			initInputA("L5"); 
-		} else {
+		} else if (getprop("/MCDU[1]/page") == "DATA") {
+			dataInput("L2");
+ 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
 			}
@@ -98,6 +104,8 @@ var lskbutton = func(btn) {
 			initInputA("L3");
 		} else if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("L3");
+		} else if (getprop("/MCDU[1]/page") == "STATUS") {
+			statusInput("L3");
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("L3");
 		} else {

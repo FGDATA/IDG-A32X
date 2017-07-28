@@ -4,11 +4,8 @@
 # Copyright (c) A3XX Development Team #
 #######################################
 
-var dataInput = func(key) {
-	if (key == "L1") {
-		setprop("/MCDU[0]/page", "POSMON");
-	}
-	if (key == "L2") {
-		setprop("/MCDU[0]/page", "IRSMON");
+var statusInput = func(key) {
+	if (key == "L3") {
+		fmgc.switchDatabase();
 	}
 }

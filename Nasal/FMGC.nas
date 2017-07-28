@@ -27,6 +27,10 @@ setprop("/FMGC/internal/vor1-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor2-mcdu", "999.99/XXX");
 
 setlistener("/sim/signals/fdm-initialized", func {
+	var database1 = getprop("/FMGC/internal/navdatabase");
+	var database2 = getprop("/FMGC/internal/navdatabase2");
+	var code1 = getprop("/FMGC/internal/navdatabasecode");
+	var code2 = getprop("/FMGC/internal/navdatabasecode2");
 	var gear1 = getprop("/gear/gear[1]/wow");
 	var gear2 = getprop("/gear/gear[2]/wow");
 	var state1 = getprop("/systems/thrust/state1");
@@ -527,3 +531,14 @@ var ManagedSPD = maketimer(0.25, func {
 		libraries.mcpSPDKnbPull();
 	}
 });
+
+var switchDatabase = func {
+	database1 = getprop("/FMGC/internal/navdatabase");
+	database2 = getprop("/FMGC/internal/navdatabase2");
+	code1 = getprop("/FMGC/internal/navdatabasecode");
+	code2 = getprop("/FMGC/internal/navdatabasecode2");
+	setprop("/FMGC/internal/navdatabase", database2);
+	setprop("/FMGC/internal/navdatabase2", database1);
+	setprop("/FMGC/internal/navdatabasecode", code2);
+	setprop("/FMGC/internal/navdatabasecode2", code1);
+}
