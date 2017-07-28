@@ -64,7 +64,9 @@ var lskbutton = func(btn) {
 			perfTOInput("L1");
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("L1");
-		} else {
+		} else if (getprop("/MCDU[1]/page") == "DATA") {
+			dataInput("L1");
+ 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
 			}
