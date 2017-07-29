@@ -8,46 +8,19 @@
 
 <PropertyList>
 
-	<path>res/empty.ac</path>
+	<path>res/Lower-ECAM.ac</path>
 	
-	<model>
-		<condition>
-			<and>
-				<not><property>options/EIS2</property></not>
-				<equals>
-					<property>instrumentation/efis/ecam/display-mode</property>
-					<value>ENG</value>
-				</equals>
-			</and>
-		</condition>
-		<path>eng-eis1.xml</path>
-	</model>
-	
-	<model>
-		<condition>
-			<and>
-				<property>options/EIS2</property>
-				<equals>
-					<property>instrumentation/efis/ecam/display-mode</property>
-					<value>ENG</value>
-				</equals>
-			</and>
-		</condition>
-		<path>eng-eis2.xml</path>
-	</model>
-	
-	<model>
-		<condition>
-			<equals>
-				<property>instrumentation/efis/ecam/display-mode</property>
-				<value>APU</value>
-			</equals>
-		</condition>
-		<path>apu.xml</path>
-	</model>
-	
-	<model>
-		<path>osgtxt-common.xml</path>
-	</model>
+	<animation>
+		<type>pick</type>
+		<object-name>lecam.screen</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>canvas_ecam.showLowerECAM();</script>
+			</binding>
+		</action>
+	</animation>
 
 </PropertyList>

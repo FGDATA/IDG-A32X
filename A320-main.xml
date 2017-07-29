@@ -127,6 +127,9 @@
             <autopilot n="7">
                 <path>Aircraft/A320Family/Systems/libraries.xml</path>
             </autopilot>
+            <autopilot n="9">
+				<path>Aircraft/A320Family/Systems/lower-ecam.xml</path>
+            </autopilot>
 			<property-rule n="100">
 				<path>Aircraft/A320Family/Systems/pfd.xml</path>
 			</property-rule>
@@ -259,7 +262,7 @@
 						</binding>
 					</item>
 					<item>
-						<label>Captain's ND</label>
+						<label>Show Captain's ND</label>
 						<binding>
 							<command>nasal</command>
 							<script>
@@ -268,11 +271,29 @@
 						</binding>
 					</item>
 					<item>
-						<label>First Officer's ND</label>
+						<label>Show First Officer's ND</label>
 						<binding>
 							<command>nasal</command>
 							<script>
 							canvas_nd.showNd('right');
+							</script>
+						</binding>
+					</item>
+					<!--item>
+						<label>First Upper ECAM</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_ecam.showUpperECAM();
+							</script>
+						</binding>
+					</item-->
+					<item>
+						<label>Show Lower ECAM</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_ecam.showLowerECAM();
 							</script>
 						</binding>
 					</item>
@@ -1062,6 +1083,9 @@
 		<canvas_nd>
 			<file>Aircraft/A320Family/Models/Instruments/ND/canvas/ND.nas</file>
 		</canvas_nd>
+		<canvas_ecam>
+			<file>Aircraft/A320Family/Models/Instruments/Lower-ECAM/Lower-ECAM.nas</file>
+		</canvas_ecam>
 		<icing>
 			<file>Aircraft/A320Family/Nasal/icing.nas</file>
 		</icing>

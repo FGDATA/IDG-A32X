@@ -70,8 +70,8 @@
 			<expression>
 				<table>
 					<property>/engines/engine[0]/n2</property> 
-					<entry><ind>34</ind><dep>  2</dep></entry>
-					<entry><ind>58</ind><dep>167</dep></entry>
+					<entry><ind>11</ind><dep> 2</dep></entry>
+					<entry><ind>58</ind><dep>48</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -87,8 +87,8 @@
 			<expression>
 				<table>
 					<property>/engines/engine[1]/n2</property> 
-					<entry><ind>34</ind><dep>  2</dep></entry>
-					<entry><ind>58</ind><dep>167</dep></entry>
+					<entry><ind>11</ind><dep> 2</dep></entry>
+					<entry><ind>58</ind><dep>48</dep></entry>
 				</table>
 			</expression>
 		</input>
