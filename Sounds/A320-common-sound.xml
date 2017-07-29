@@ -705,7 +705,7 @@
 	<gear>
 		<name>gearding</name>
 		<mode>once</mode>
-		<path>gear-ding.wav</path>
+		<path>nosmoko.wav</path> <!-- since it is trigered by smoking sign logic then the sound must be smoking sign sound -->
 		<condition>
 			<and>
 				<equals>
