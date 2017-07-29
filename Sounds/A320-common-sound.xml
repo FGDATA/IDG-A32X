@@ -1277,7 +1277,7 @@
 	<hydraulics>
 		<name>yellow</name>
 		<mode>looped</mode>
-		<path>Aircraft/A320Family/Sounds/NewSounds/yellowpumploop.wav</path>
+		<path>Aircraft/A320Family/Sounds/NewSounds/yellowpump.wav</path>
 		<condition>
 			<equals>
 				<property>/controls/hydraulic/elec-pump-yellow</property>
