@@ -1184,5 +1184,110 @@
 		</volume>
 	</relay>
 	
+	<announcements>
+		<name>welcomeFA</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/welcome.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/welcomefa</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<announcements>
+		<name>welcomeCA</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/captwelcome.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/welcomecapt</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<announcements>
+		<name>doorsDep</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/doorsdepart.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/doors</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<announcements>
+		<name>PrepTo</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/takeoff.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/prepareto</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<announcements>
+		<name>seatbeltOff</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/belt10k.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/seatbelt-10k</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<announcements>
+		<name>safety</name>
+		<mode>once</mode>
+		<path>Aircraft/A320Family/Sounds/safety.wav</path>
+		<condition>
+			<equals>
+				<property>/sim/sounde/safety</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.60</factor>
+		</volume>
+	</announcements>
+	
+	<hydraulics>
+		<name>yellow</name>
+		<mode>looped</mode>
+		<path>Aircraft/A320Family/Sounds/NewSounds/yellowpump.wav</path>
+		<condition>
+			<equals>
+				<property>/controls/hydraulic/elec-pump-yellow</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>0.20</factor>
+		</volume>
+	</hydraulics>
+
   </fx>
 </PropertyList>
