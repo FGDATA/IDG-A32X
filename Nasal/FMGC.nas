@@ -208,7 +208,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/systems/pressurization/mode", "TO");
 	}
 	
-	if ((aglalt >= reduc_agl_ft) and (alt <= cruiseft) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
+	if ((alt >= reduc_agl_ft) and (alt <= cruiseft) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
