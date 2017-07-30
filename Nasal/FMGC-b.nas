@@ -561,7 +561,7 @@ setlistener("/it-autoflight/mode/lat", func {
 });
 
 var toga_reduc = func {
-	if (getprop("/position/gear-agl-ft") >= getprop("/it-autoflight/settings/reduc-agl-ft")) {
+	if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/it-autoflight/settings/reduc-agl-ft") and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
 		setprop("/it-autoflight/input/vert", 4);
 	}
 }
