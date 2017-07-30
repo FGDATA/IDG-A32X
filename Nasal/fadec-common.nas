@@ -15,20 +15,20 @@ setprop("/systems/thrust/epr/clb-lim", 0.0);
 setprop("/systems/thrust/n1/toga-lim", 95.9);
 setprop("/systems/thrust/n1/flx-lim", 0.0);
 setprop("/engines/flx-thr", 0.0);
+setprop("/controls/engines/thrust-limit", "TOGA");
+setprop("/controls/engines/epr-limit", 1.308);
+setprop("/controls/engines/n1-limit", 95.9);
+setprop("/systems/thrust/state1", "IDLE");
+setprop("/systems/thrust/state2", "IDLE");
+setprop("/systems/thrust/lvrclb", "0");
+setprop("/systems/thrust/clbreduc-ft", "1500");
+setprop("/systems/thrust/toga-lim", 0.0);
+setprop("/systems/thrust/mct-lim", 0.0);
+setprop("/systems/thrust/clb-lim", 0.0);
+setprop("/systems/thrust/lim-flex", 0);
+setprop("/engines/flex-derate", 0);
 
 setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/controls/engines/thrust-limit", "TOGA");
-	setprop("/controls/engines/epr-limit", 1.308);
-	setprop("/controls/engines/n1-limit", 95.9);
-	setprop("/systems/thrust/state1", "IDLE");
-	setprop("/systems/thrust/state2", "IDLE");
-	setprop("/systems/thrust/lvrclb", "0");
-	setprop("/systems/thrust/clbreduc-ft", "1500");
-	setprop("/systems/thrust/toga-lim", 0.0);
-	setprop("/systems/thrust/mct-lim", 0.0);
-	setprop("/systems/thrust/clb-lim", 0.0);
-	setprop("/systems/thrust/lim-flex", 0);
-	setprop("/engines/flex-derate", 0);
 	thrustt.start();
 });
 
