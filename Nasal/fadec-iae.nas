@@ -4,24 +4,25 @@
 # Copyright (c) A3XX Development Team #
 #######################################
 
+setprop("/controls/fadec/n1mode1", 0);
+setprop("/controls/fadec/n1mode2", 0);
+setprop("/systems/fadec/n1mode1", 0); # 0 == EPR, 1 == N1 Rated, 2 == N1 Unrated #
+setprop("/systems/fadec/n1mode2", 0); # 0 == EPR, 1 == N1 Rated, 2 == N1 Unrated #
+setprop("/systems/fadec/eng1/epr", 1);
+setprop("/systems/fadec/eng1/egt", 1);
+setprop("/systems/fadec/eng1/n1", 1);
+setprop("/systems/fadec/eng1/n2", 1);
+setprop("/systems/fadec/eng1/ff", 1);
+setprop("/systems/fadec/eng2/epr", 1);
+setprop("/systems/fadec/eng2/egt", 1);
+setprop("/systems/fadec/eng2/n1", 1);
+setprop("/systems/fadec/eng2/n2", 1);
+setprop("/systems/fadec/eng2/ff", 1);
+setprop("/systems/fadec/power-avail", 0);
+setprop("/systems/fadec/powered1", 0);
+setprop("/systems/fadec/powered2", 0);
+
 setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/controls/fadec/n1mode1", 0);
-	setprop("/controls/fadec/n1mode2", 0);
-	setprop("/systems/fadec/n1mode1", 0); # 0 == EPR, 1 == N1 Rated, 2 == N1 Unrated #
-	setprop("/systems/fadec/n1mode2", 0); # 0 == EPR, 1 == N1 Rated, 2 == N1 Unrated #
-	setprop("/systems/fadec/eng1/epr", 1);
-	setprop("/systems/fadec/eng1/egt", 1);
-	setprop("/systems/fadec/eng1/n1", 1);
-	setprop("/systems/fadec/eng1/n2", 1);
-	setprop("/systems/fadec/eng1/ff", 1);
-	setprop("/systems/fadec/eng2/epr", 1);
-	setprop("/systems/fadec/eng2/egt", 1);
-	setprop("/systems/fadec/eng2/n1", 1);
-	setprop("/systems/fadec/eng2/n2", 1);
-	setprop("/systems/fadec/eng2/ff", 1);
-	setprop("/systems/fadec/power-avail", 0);
-	setprop("/systems/fadec/powered1", 0);
-	setprop("/systems/fadec/powered2", 0);
 	fadecLoop.start();
 });
 

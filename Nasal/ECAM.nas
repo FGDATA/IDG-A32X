@@ -14,13 +14,13 @@
 setprop("/position/gear-agl-ft", 0);
 setprop("/ECAM/noupdate", 0);
 setprop("/ECAM/donotrevert", 0);
+setprop("/ECAM/Lower/page", "eng");
 
 ######################################################
 # w = White, b = Blue, g = Green, a = Amber, r = Red #
 ######################################################
 
 var ECAMinit = func {
-	MSGclr();
 	ECAMloop.start();
 }
 
@@ -44,6 +44,8 @@ var MSGclr = func {
 	setprop("/ECAM/msg/line7c", "w");
 	setprop("/ECAM/msg/line8c", "w");
 }
+
+MSGclr();
 
 var ECAMloop = maketimer(1, func {
 	var noUpdate = getprop("/ECAM/noupdate");

@@ -128,6 +128,9 @@
                 <path>Aircraft/A320Family/Systems/libraries.xml</path>
             </autopilot>
             <autopilot n="9">
+				<path>Aircraft/A320Family/Systems/upper-ecam.xml</path>
+            </autopilot>
+            <autopilot n="10">
 				<path>Aircraft/A320Family/Systems/lower-ecam.xml</path>
             </autopilot>
 			<property-rule n="100">
@@ -289,15 +292,15 @@
 							</script>
 						</binding>
 					</item>
-					<!--item>
-						<label>First Upper ECAM</label>
+					<item>
+						<label>Show Upper ECAM</label>
 						<binding>
 							<command>nasal</command>
 							<script>
 							canvas_ecam.showUpperECAM();
 							</script>
 						</binding>
-					</item-->
+					</item>
 					<item>
 						<label>Show Lower ECAM</label>
 						<binding>
@@ -713,6 +716,7 @@
 		<old-gpws type="bool">0</old-gpws>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
+		<test-canvas type="bool">0</test-canvas> <!-- Enables WIP Canvas Stuff -->
 	</options>
 	
 	<instrumentation n="0">
@@ -752,12 +756,6 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</dme>
-	
-		<efis n="0">
-			<ecam>
-				<display-mode type="string">ENG</display-mode>
-			</ecam>
-		</efis>
 		
 		<nav n="0">
 			<frequencies>
@@ -1094,6 +1092,7 @@
 			<file>Aircraft/A320Family/Models/Instruments/ND/canvas/ND.nas</file>
 		</canvas_nd>
 		<canvas_ecam>
+			<file>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM.nas</file>
 			<file>Aircraft/A320Family/Models/Instruments/Lower-ECAM/Lower-ECAM.nas</file>
 		</canvas_ecam>
 		<icing>

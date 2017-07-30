@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!--
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
+-->
+
+<PropertyList>
+
+	<path>res/Upper-ECAM.ac</path>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>uecam.screen</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>canvas_ecam.showUpperECAM();</script>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

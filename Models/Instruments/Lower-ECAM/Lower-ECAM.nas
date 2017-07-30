@@ -9,6 +9,7 @@ var lowerECAM_apu = nil;
 var lowerECAM_eng1 = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_display = nil;
+var page = "eng";
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
 setprop("/systems/electrical/extra/apu-hz", 0);
@@ -45,9 +46,34 @@ var canvas_lowerECAM_base = {
 		return [];
 	},
 	update: func() {
-
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/electrical/switches/emer-gen") != 1) {
+			page = getprop("/ECAM/Lower/page");
+			if (page == "apu") {
+				lowerECAM_apu.page.show();
+				lowerECAM_eng1.page.hide();
+				lowerECAM_eng.page.hide();
+			} else if (page == "eng") {
+				lowerECAM_apu.page.hide();
+				if (getprop("/options/EIS2") == 1) {
+					lowerECAM_eng1.page.hide();
+					lowerECAM_eng.page.show();
+				} else {
+					lowerECAM_eng1.page.show();
+					lowerECAM_eng.page.hide();
+				}
+			} else {
+				lowerECAM_apu.page.hide();
+				lowerECAM_eng1.page.hide();
+				lowerECAM_eng.page.hide();
+			}
+		} else {
+			lowerECAM_apu.page.hide();
+			lowerECAM_eng1.page.hide();
+			lowerECAM_eng.page.hide();
+		}
+		
+		settimer(func me.update(), 0.02);
 	},
-	
 	updateBottomStatus: func() {
 		me["TAT"].setText(sprintf("%s", math.round(getprop("/environment/temperature-degc"))));
 		me["SAT"].setText(sprintf("%s", math.round(getprop("/environment/temperature-degc"))));
@@ -242,34 +268,10 @@ setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_apu.update();
 	lowerECAM_eng1.update();
 	lowerECAM_eng.update();
-	lowerECAM_apu.page.hide();
-	lowerECAM_eng_choose();
+	canvas_lowerECAM_base.update();
 });
 
 var showLowerECAM = func {
 	var dlg = canvas.Window.new([512, 512], "dialog").set("resize", 1);
 	dlg.setCanvas(lowerECAM_display);
 }
-
-var setLowerECAMPage = func(page) {
-	if (page == "apu") {
-		lowerECAM_apu.page.show();
-		lowerECAM_eng1.page.hide();
-		lowerECAM_eng.page.hide();
-	} else if (page == "eng") {
-		lowerECAM_apu.page.hide();
-		lowerECAM_eng_choose();
-	}
-}
-
-var lowerECAM_eng_choose = func {
-	if (getprop("/options/EIS2") == 1) {
-		lowerECAM_eng1.page.hide();
-		lowerECAM_eng.page.show();
-	} else {
-		lowerECAM_eng1.page.show();
-		lowerECAM_eng.page.hide();
-	}
-}
-
-setlistener("/options/EIS2", lowerECAM_eng_choose);
