@@ -373,7 +373,6 @@ var pagebutton = func(btn) {
 		} else if (btn == "data") {
 			setprop("/MCDU[1]/page", "DATA");
 		} else if (btn == "mcdu") {
-			setprop("/MCDU[1]/active", 0);
 			setprop("/MCDU[1]/last-fmgc-page", getprop("/MCDU[1]/page"));
 			setprop("/MCDU[1]/scratchpad", "SELECT DESIRED SYSTEM");
 			setprop("/MCDU[1]/page", "MCDU");
