@@ -10,10 +10,6 @@
 
 	<path>resCFM/eicasCFM.ac</path>
 	
-	<model>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-MSG/ECAM-MSG.xml</path>
-	</model>
-	
 	<animation>
 		<type>select</type>
 		<object-name>XX.n11</object-name>

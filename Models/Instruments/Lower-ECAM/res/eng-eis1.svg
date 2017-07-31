@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="true"
-     inkscape:zoom="0.5"
-     inkscape:cx="906.40953"
-     inkscape:cy="896.77317"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="1144.2883"
+     inkscape:cy="1131.0045"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
   </sodipodi:namedview>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="286.01636"
      y="947.15186"
      id="text6231"
@@ -63,10 +63,10 @@
        id="tspan3726-1-4-5"
        x="286.01636"
        y="947.15186"
-       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">°C</tspan></text>
+       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#00a0d2;fill-opacity:1;">°C</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:34px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:34px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="500.75214"
      y="974.06525"
      id="text6232"
@@ -75,10 +75,10 @@
        id="tspan3726-1-4-5-7"
        x="500.75214"
        y="974.06525"
-       style="font-size:34px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">H</tspan></text>
+       style="font-size:34px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#00a0d2;fill-opacity:1;">H</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="285.86758"
      y="1008.0583"
      id="text6233"
@@ -87,10 +87,10 @@
        id="tspan3726-1-4-5-3"
        x="285.86758"
        y="1008.0583"
-       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">°C</tspan></text>
+       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#00a0d2;fill-opacity:1;">°C</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="940.17981"
      y="947.52124"
      id="text6234"
@@ -99,7 +99,7 @@
        id="tspan3726-1-4-5-7-7"
        x="940.17981"
        y="947.52124"
-       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">LBS</tspan></text>
+       style="font-size:32px;-inkscape-font-specification:Arial;font-family:Arial;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#00a0d2;fill-opacity:1;">LBS</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:33px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -242,7 +242,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:34px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff">F.USED</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:36px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="339.35202"
      y="169.19514"
      id="text3732"
@@ -251,10 +251,10 @@
        id="tspan3734"
        x="339.35202"
        y="169.19514"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle">LBS</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#00a0d2;fill-opacity:1;">LBS</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="316.43405"
      y="607.48859"
      id="text4945"
@@ -263,7 +263,7 @@
        id="tspan3726-1-4-5-3-5"
        x="316.43405"
        y="607.48859"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial">°C</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial;fill:#00a0d2;fill-opacity:1;">°C</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -278,7 +278,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;fill:#ffffff">VIB    (N1)</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="300.07611"
      y="510.57724"
      id="text5112"
@@ -287,10 +287,10 @@
        id="tspan3726-1-4-5-3-5-9"
        x="300.07611"
        y="510.57724"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial">PSI</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial;fill:#00a0d2;fill-opacity:1;">PSI</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#16699a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-weight:normal;font-size:28px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="307.15253"
      y="335.03955"
      id="text4949"
@@ -299,7 +299,7 @@
        id="tspan3726-1-4-5-3-5-9-4"
        x="307.15253"
        y="335.03955"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial">QT</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36px;font-family:Arial;-inkscape-font-specification:Arial;fill:#00a0d2;fill-opacity:1;">QT</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

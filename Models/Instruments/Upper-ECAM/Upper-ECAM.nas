@@ -199,9 +199,38 @@ var canvas_upperECAM_iae_eis2 = {
 		return ["EPR1-needle","EPR1-thr","EPR1-ylim","EPR1","EPR1-box","EPR1-scale","EPR1-scalenum","EPR1-XX","EPR1-XX2","EGT1-needle","EGT1","EGT1-scale","EGT1-box","EGT1-scale2","EGT1-scaletick","EGT1-XX","N11-needle","N11-thr","N11-ylim","N11","N11-decpnt",
 		"N11-decimal","N11-scale","N11-scale2","N11-scalenum","N11-XX","EPR2-needle","EPR2-thr","EPR2-ylim","EPR2","EPR2-box","EPR2-scale","EPR2-scalenum","EPR2-XX","EPR2-XX2","EGT2-needle","EGT2","EGT2-scale","EGT2-box","EGT2-scale2","EGT2-scaletick","EGT2-XX",
 		"N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal","N12-scale","N12-scale2","N12-scalenum","N12-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX",
-		"FOB-LBS","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","FlapTxt","FlapDots","EPRLim-mode","EPRLim","EPRLim-XX","EPRLim-XX2"];
+		"FOB-LBS","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","FlapTxt","FlapDots","EPRLim-mode","EPRLim","EPRLim-XX","EPRLim-XX2","REV1","REV1-box","REV2","REV2-box"];
 	},
 	update: func() {
+		# Reversers
+		if (getprop("/engines/engine[0]/reverser-pos-norm") >= 0.01 and getprop("/systems/fadec/eng1/epr") == 1) {
+			me["REV1"].show();
+			me["REV1-box"].show();
+		} else {
+			me["REV1"].hide();
+			me["REV1-box"].hide();
+		}
+		
+		if (getprop("/engines/engine[0]/reverser-pos-norm") >= 0.95) {
+			me["REV1"].setColor(0,1,0);
+		} else {
+			me["REV1"].setColor(1,1,0);
+		}
+		
+		if (getprop("/engines/engine[1]/reverser-pos-norm") >= 0.01 and getprop("/systems/fadec/eng2/epr") == 1) {
+			me["REV2"].show();
+			me["REV2-box"].show();
+		} else {
+			me["REV2"].hide();
+			me["REV2-box"].hide();
+		}
+		
+		if (getprop("/engines/engine[1]/reverser-pos-norm") >= 0.95) {
+			me["REV2"].setColor(0,1,0);
+		} else {
+			me["REV2"].setColor(1,1,0);
+		}
+		
 		# EPR
 		me["EPR1"].setText(sprintf("%1.3f", getprop("/engines/engine[0]/epr-actual")));
 		me["EPR2"].setText(sprintf("%1.3f", getprop("/engines/engine[1]/epr-actual")));
@@ -217,7 +246,6 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPR1-scale"].setColor(1,1,1);
 			me["EPR1"].show();
 			me["EPR1-needle"].show();
-			me["EPR1-thr"].show();
 			me["EPR1-ylim"].show();
 			me["EPR1-scalenum"].show();
 			me["EPR1-box"].show();
@@ -227,7 +255,6 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPR1-scale"].setColor(1,0.6,0);
 			me["EPR1"].hide();
 			me["EPR1-needle"].hide();
-			me["EPR1-thr"].hide();
 			me["EPR1-ylim"].hide();
 			me["EPR1-scalenum"].hide();
 			me["EPR1-box"].hide();
@@ -235,11 +262,16 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPR1-XX2"].show();
 		}
 		
+		if (getprop("/engines/engine[0]/reverser-pos-norm") < 0.01 and getprop("/systems/fadec/eng1/epr") == 1) {
+			me["EPR1-thr"].show();
+		} else {
+			me["EPR1-thr"].hide();
+		}
+		
 		if (getprop("/systems/fadec/eng2/epr") == 1) {
 			me["EPR2-scale"].setColor(1,1,1);
 			me["EPR2"].show();
 			me["EPR2-needle"].show();
-			me["EPR2-thr"].show();
 			me["EPR2-ylim"].show();
 			me["EPR2-scalenum"].show();
 			me["EPR2-box"].show();
@@ -249,12 +281,17 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPR2-scale"].setColor(1,0.6,0);
 			me["EPR2"].hide();
 			me["EPR2-needle"].hide();
-			me["EPR2-thr"].hide();
 			me["EPR2-ylim"].hide();
 			me["EPR2-scalenum"].hide();
 			me["EPR2-box"].hide();
 			me["EPR2-XX"].show();
 			me["EPR2-XX2"].show();
+		}
+		
+		if (getprop("/engines/engine[1]/reverser-pos-norm") < 0.01 and getprop("/systems/fadec/eng2/epr") == 1) {
+			me["EPR2-thr"].show();
+		} else {
+			me["EPR2-thr"].hide();
 		}
 		
 		# EGT

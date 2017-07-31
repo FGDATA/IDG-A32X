@@ -307,41 +307,9 @@
 		<condition>
 			<and>
 				<not><property>options/EIS2</property></not>
-				<not><property>options/test-canvas</property></not>
 				<equals>
 					<property>options/eng</property>
 					<value>CFM</value>
-				</equals>
-				<or>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac1</property>
-						<value>110</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac2</property>
-						<value>110</value>
-					</greater-than-equals>
-				</or>
-			</and>
-		</condition>
-	</model>
-	
-	<model>
-		<name>UECAM</name>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-EIS1/Upper-ECAM-IAE.xml</path>
-		<offsets>
-			<x-m>-0.5807</x-m>
-			<y-m>0</y-m>
-			<z-m>-0.0442</z-m>
-			<pitch-deg>-15</pitch-deg>
-		</offsets>
-		<condition>
-			<and>
-				<not><property>options/EIS2</property></not>
-				<not><property>options/test-canvas</property></not>
-				<equals>
-					<property>options/eng</property>
-					<value>IAE</value>
 				</equals>
 				<or>
 					<greater-than-equals>
@@ -369,7 +337,6 @@
 		<condition>
 			<and>
 				<property>options/EIS2</property>
-				<not><property>options/test-canvas</property></not>
 				<equals>
 					<property>options/eng</property>
 					<value>CFM</value>
@@ -390,40 +357,12 @@
 	
 	<model>
 		<name>UECAM</name>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM-EIS2/Upper-ECAM-IAE.xml</path>
-		<offsets>
-			<x-m>-0.5807</x-m>
-			<y-m>0</y-m>
-			<z-m>-0.0442</z-m>
-			<pitch-deg>-15</pitch-deg>
-		</offsets>
-		<condition>
-			<and>
-				<property>options/EIS2</property>
-				<not><property>options/test-canvas</property></not>
-				<equals>
-					<property>options/eng</property>
-					<value>IAE</value>
-				</equals>
-				<or>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac1</property>
-						<value>110</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac2</property>
-						<value>110</value>
-					</greater-than-equals>
-				</or>
-			</and>
-		</condition>
-	</model>
-	
-	<model>
-		<name>UECAM</name>
 		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
 		<condition>
-			<property>options/test-canvas</property>
+			<equals>
+				<property>options/eng</property>
+				<value>IAE</value>
+			</equals>
 		</condition>
 		<offsets>
 			<x-m>-0.5807</x-m>
@@ -441,7 +380,7 @@
 		<offsets>
 			<x-m>-0.53631</x-m>
 			<y-m>0</y-m>
-			<z-m>-0.21132</z-m>
+			<z-m>-0.20932</z-m>
 			<pitch-deg>-15</pitch-deg>
 		</offsets>
 	</model>

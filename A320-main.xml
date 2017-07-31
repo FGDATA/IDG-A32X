@@ -716,7 +716,7 @@
 		<old-gpws type="bool">0</old-gpws>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
-		<test-canvas type="bool">0</test-canvas> <!-- Enables WIP Canvas Stuff -->
+		<test-canvas type="bool">1</test-canvas> <!-- Enables WIP Canvas Stuff -->
 	</options>
 	
 	<instrumentation n="0">
