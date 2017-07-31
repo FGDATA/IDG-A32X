@@ -76,6 +76,7 @@ var MCDU_reset = func {
 var lskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[1]/page") == "MCDU" and getprop("/MCDU[1]/active") != 2) {
+			setprop("/MCDU[1]/scratchpad-msg", "1");
 			setprop("/MCDU[1]/scratchpad", "WAIT FOR SYSTEM RESPONSE");
 			setprop("/MCDU[1]/active", 1);
 			settimer(func(){
