@@ -10,6 +10,7 @@ var MCDU_init = func {
 }
 
 var MCDU_reset = func {
+	setprop("/MCDU[1]/active", 0);
 	setprop("/it-autoflight/settings/togaspd", 157);
 	setprop("/MCDU[1]/last-scratchpad", "");
 	setprop("/MCDU[1]/last-fmgc-page", "STATUS");
@@ -74,10 +75,15 @@ var MCDU_reset = func {
 
 var lskbutton = func(btn) {
 	if (btn == "1") {
-		if (getprop("/MCDU[1]/page") == "MCDU") {
-			setprop("/MCDU[1]/page", getprop("/MCDU[1]/last-fmgc-page"));
-			setprop("/MCDU[1]/scratchpad-msg", "0");
-			setprop("/MCDU[1]/scratchpad", "");
+		if (getprop("/MCDU[1]/page") == "MCDU" and getprop("/MCDU[1]/active") != 2) {
+			setprop("/MCDU[1]/scratchpad", "WAIT FOR SYSTEM RESPONSE");
+			setprop("/MCDU[1]/active", 1);
+			settimer(func(){
+				setprop("/MCDU[1]/page", getprop("/MCDU[1]/last-fmgc-page"));
+				setprop("/MCDU[1]/scratchpad", "");
+				setprop("/MCDU[1]/scratchpad-msg", "0");
+				setprop("/MCDU[1]/active", 2);
+			}, 2);
 		} else if (getprop("/MCDU[1]/page") == "TO") {
 			perfTOInput("L1");
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
@@ -190,6 +196,12 @@ var lskbutton = func(btn) {
 			perfDESInput("L6");
 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC2") {
 			printInput2("L6");
+		} else if ((getprop("/MCDU[1]/page") == "DATA") or (getprop("/MCDU[1]/page") == "PRINTFUNC") or (getprop("/MCDU[1]/page") == "PRINTFUNC2")) {
+			if (getprop("/MCDU[1]/scratchpad") != "AOC DISABLED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+			}
+			setprop("/MCDU[1]/scratchpad-msg", "1");
+			setprop("/MCDU[1]/scratchpad", "AOC DISABLED");
 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
@@ -361,6 +373,7 @@ var pagebutton = func(btn) {
 		} else if (btn == "data") {
 			setprop("/MCDU[1]/page", "DATA");
 		} else if (btn == "mcdu") {
+			setprop("/MCDU[1]/active", 0);
 			setprop("/MCDU[1]/last-fmgc-page", getprop("/MCDU[1]/page"));
 			setprop("/MCDU[1]/scratchpad", "SELECT DESIRED SYSTEM");
 			setprop("/MCDU[1]/page", "MCDU");
