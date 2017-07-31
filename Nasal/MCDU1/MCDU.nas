@@ -10,6 +10,7 @@ var MCDU_init = func {
 }
 
 var MCDU_reset = func {
+	setprop("/MCDU[0]/active", 0);
 	setprop("/it-autoflight/settings/togaspd", 157);
 	setprop("/MCDU[0]/last-scratchpad", "");
 	setprop("/MCDU[0]/last-fmgc-page", "STATUS");
@@ -56,20 +57,43 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/navdatabase2", "29JAN-26FEB");
 	setprop("/FMGC/internal/navdatabasecode", "AB20170101");
 	setprop("/FMGC/internal/navdatabasecode2", "AB20170102");
+	setprop("/FMGC/print/mcdu/page1/L1auto", 0);
+	setprop("/FMGC/print/mcdu/page1/L2auto", 0);
+	setprop("/FMGC/print/mcdu/page1/L3auto", 0);
+	setprop("/FMGC/print/mcdu/page1/R1req", 0);
+	setprop("/FMGC/print/mcdu/page1/R2req", 0);
+	setprop("/FMGC/print/mcdu/page1/R3req", 0);
+	setprop("/FMGC/print/mcdu/page2/L1auto", 0);
+	setprop("/FMGC/print/mcdu/page2/L2auto", 0);
+	setprop("/FMGC/print/mcdu/page2/L3auto", 0);
+	setprop("/FMGC/print/mcdu/page2/L4auto", 0);
+	setprop("/FMGC/print/mcdu/page2/R1req", 0);
+	setprop("/FMGC/print/mcdu/page2/R2req", 0);
+	setprop("/FMGC/print/mcdu/page2/R3req", 0);
+	setprop("/FMGC/print/mcdu/page2/R4req", 0);
 }
 
 var lskbutton = func(btn) {
 	if (btn == "1") {
-		if (getprop("/MCDU[0]/page") == "MCDU") {
-			setprop("/MCDU[0]/page", getprop("/MCDU[0]/last-fmgc-page"));
-			setprop("/MCDU[0]/scratchpad-msg", "0");
-			setprop("/MCDU[0]/scratchpad", "");
+		if (getprop("/MCDU[0]/page") == "MCDU" and getprop("/MCDU[0]/active") != 2) {
+			setprop("/MCDU[0]/scratchpad", "WAIT FOR SYSTEM RESPONSE");
+			setprop("/MCDU[0]/active", 1);
+			settimer(func(){
+				setprop("/MCDU[0]/page", getprop("/MCDU[0]/last-fmgc-page"));
+				setprop("/MCDU[0]/scratchpad", "");
+				setprop("/MCDU[0]/scratchpad-msg", "0");
+				setprop("/MCDU[0]/active", 2);
+			}, 2);
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			perfTOInput("L1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L1");
 		} else if (getprop("/MCDU[0]/page") == "DATA") {
 			dataInput("L1");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("L1");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L1");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -92,7 +116,11 @@ var lskbutton = func(btn) {
 			initInputA("L5"); 
 		} else if (getprop("/MCDU[0]/page") == "DATA") {
 			dataInput("L2");
- 		} else {
+ 		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("L2");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L2");
+		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
 			}
@@ -108,6 +136,10 @@ var lskbutton = func(btn) {
 			statusInput("L3");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L3");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("L3");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L3");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -122,6 +154,8 @@ var lskbutton = func(btn) {
 			perfTOInput("L4");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L4");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L4");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -142,6 +176,10 @@ var lskbutton = func(btn) {
 			perfDESInput("L5");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("L5");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("L5");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L5");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -158,6 +196,8 @@ var lskbutton = func(btn) {
 			perfCRZInput("L6");
 		} else if (getprop("/MCDU[0]/page") == "DES") {
 			perfDESInput("L6");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("L6");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -178,6 +218,10 @@ var rskbutton = func(btn) {
 			initInputA("R1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R1");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("R1");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("R1");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -190,6 +234,10 @@ var rskbutton = func(btn) {
 			initInputB("R2");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R2");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("R2");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("R2");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -202,6 +250,10 @@ var rskbutton = func(btn) {
 			initInputA("R3");
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			perfTOInput("R3");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			printInput("R3");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("R3");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -214,6 +266,8 @@ var rskbutton = func(btn) {
 			perfTOInput("R4");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R4");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			printInput2("R4");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -226,6 +280,8 @@ var rskbutton = func(btn) {
 			perfTOInput("R5");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R5");
+		} else if (getprop("/MCDU[0]/page") == "DATA") {
+			dataInput("R5");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -240,6 +296,12 @@ var rskbutton = func(btn) {
 			perfCLBInput("R6");
 		} else if (getprop("/MCDU[0]/page") == "CRZ") {
 			perfCRZInput("R6");
+		} else if ((getprop("/MCDU[0]/page") == "DATA") or (getprop("/MCDU[0]/page") == "PRINTFUNC") or (getprop("/MCDU[0]/page") == "PRINTFUNC2")) {
+			if (getprop("/MCDU[0]/scratchpad") != "AOC DISABLED") {
+				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+			}
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "AOC DISABLED");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
@@ -266,6 +328,11 @@ var arrowbutton = func(btn) {
 		} else if (getprop("/MCDU[0]/page") == "INITB") {
 			setprop("/MCDU[0]/page", "INITA");
 		}
+		if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			setprop("/MCDU[0]/page", "PRINTFUNC2");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			setprop("/MCDU[0]/page", "PRINTFUNC");
+		}
 	} else if (btn == "right") {
 		if (getprop("/MCDU[0]/page") == "DATA") {
 			setprop("/MCDU[0]/page", "DATA2");
@@ -276,6 +343,11 @@ var arrowbutton = func(btn) {
 			setprop("/MCDU[0]/page", "INITB");
 		} else if (getprop("/MCDU[0]/page") == "INITB") {
 			setprop("/MCDU[0]/page", "INITA");
+		}
+		if (getprop("/MCDU[0]/page") == "PRINTFUNC") {
+			setprop("/MCDU[0]/page", "PRINTFUNC2");
+		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC2") {
+			setprop("/MCDU[0]/page", "PRINTFUNC");
 		}
 	} else if (btn == "up") {
 		# Nothing for now

@@ -1,0 +1,1014 @@
+<?xml version="1.0"?>
+
+<!--
+#######################################
+# Copyright (c) A3XX Development Team #
+#######################################
+-->
+
+<PropertyList>
+
+	<path>EMPTY.ac</path>
+	
+	<text>
+		<name>page</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.083</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PRINT FUNCTION    2/2</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>page</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.04</y-m>
+			<z-m>0.083</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;-&gt;</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>manual</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.043</y-m>
+			<z-m>0.0765</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">MANUAL</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>center1</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PREFLIGHT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print1R</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0435</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PRINT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar1</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>center2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">INFLIGHT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print2R</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0435</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PRINT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>center3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">POSTFLIGHT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print3R</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0435</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PRINT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar3</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print1L</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">NO</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print1L2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">YES</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar4</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0715</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print2L</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">NO</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print2L2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">YES</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar5</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.061</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print3L</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">NO</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print3L2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">YES</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar6</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0505</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print4L</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">NO</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print4L2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.0428</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">YES</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar7</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>print4R</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.0435</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">PRINT</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>printstar8</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.045</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">*</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_medium.txf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>center4</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0</y-m>
+			<z-m>0.0395</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">SEC F-PLN</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>auto</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.043</y-m>
+			<z-m>0.0765</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">AUTO</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>return</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0190</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">&lt;RETURN</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>aoc</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.041</y-m>
+			<z-m>0.0230</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">AOC</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0040</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>aoc2</name>
+		<offsets>
+			<x-m>-0.001</x-m>
+			<y-m>0.043</y-m>
+			<z-m>0.0190</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">FUNCTION&gt;</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">BoeingCDU-Large.ttf</font>
+		<property>autopilot/serviceable</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0050</character-size>
+		<font-resolution>
+			<width type="int">64</width>
+			<height type="int">64</height>
+		</font-resolution>
+	</text>
+
+	<animation>
+		<type>select</type>
+		<object-name>printstar1</object-name>
+		<condition>
+			<and>
+				<not><property>FMGC/print/mcdu/page2/R1req</property></not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar2</object-name>
+		<condition>
+			<and>
+				<not><property>FMGC/print/mcdu/page2/R2req</property></not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar3</object-name>
+		<condition>
+			<and>
+				<not><property>FMGC/print/mcdu/page2/R3req</property></not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar4</object-name>
+		<object-name>print1L</object-name>
+		<condition>
+			<not>
+				<property>FMGC/print/mcdu/page2/L1auto</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar5</object-name>
+		<object-name>print2L</object-name>
+		<condition>
+			<not>
+				<property>FMGC/print/mcdu/page2/L2auto</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar6</object-name>
+		<object-name>print3L</object-name>
+		<condition>
+			<not>
+				<property>FMGC/print/mcdu/page2/L3auto</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar7</object-name>
+		<object-name>print4L</object-name>
+		<condition>
+			<not>
+				<property>FMGC/print/mcdu/page2/L4auto</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>printstar8</object-name>
+		<condition>
+			<and>
+				<not><property>FMGC/print/mcdu/page2/R4auto</property></not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>print1L2</object-name>
+		<condition>
+			<equals>
+				<property>FMGC/print/mcdu/page2/L1auto</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>print2L2</object-name>
+		<condition>
+			<equals>
+				<property>FMGC/print/mcdu/page2/L2auto</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>print3L2</object-name>
+		<condition>
+			<equals>
+				<property>FMGC/print/mcdu/page2/L3auto</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>print4L2</object-name>
+		<condition>
+			<equals>
+				<property>FMGC/print/mcdu/page2/L4auto</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Colors -->
+	<!-- White -->
+    <animation>
+        <type>material</type>
+		<object-name>page</object-name>
+		<object-name>return</object-name>
+		<object-name>manual</object-name>
+		<object-name>auto</object-name>
+		<object-name>aoc</object-name>
+		<object-name>aoc2</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+	
+	<!-- Amber -->
+	 <animation>
+        <type>material</type>
+		<object-name>printstar1</object-name>
+		<object-name>printstar2</object-name>
+		<object-name>printstar3</object-name>
+		<object-name>printstar8</object-name>
+		<object-name>print1R</object-name>
+		<object-name>print2R</object-name>
+		<object-name>print3R</object-name>
+		<object-name>print4R</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0.3</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0.3</green>
+            <blue>0</blue>
+        </emission>
+    </animation>
+	
+	<!-- Blue -->
+	<animation>
+        <type>material</type>
+		<object-name>printstar4</object-name>
+		<object-name>printstar5</object-name>
+		<object-name>printstar6</object-name>
+		<object-name>printstar7</object-name>
+		<object-name>print1L</object-name>
+		<object-name>print2L</object-name>
+		<object-name>print3L</object-name>
+		<object-name>print4L</object-name>
+		<object-name>print1L2</object-name>
+		<object-name>print2L2</object-name>
+		<object-name>print3L2</object-name>
+		<object-name>print4L2</object-name>
+        <diffuse>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0</red>
+            <green>0.5</green>
+            <blue>0.7</blue>
+        </emission>
+    </animation>
+	
+	<!-- Green -->
+	<animation>
+        <type>material</type>
+		<object-name>center1</object-name>
+		<object-name>center2</object-name>
+		<object-name>center3</object-name>
+		<object-name>center4</object-name>
+        <diffuse>
+            <red>0.2</red>
+            <green>0.4</green>
+            <blue>0.2</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.2</red>
+            <green>0.4</green>
+            <blue>0.2</blue>
+        </emission>
+    </animation>
+	
+</PropertyList>
