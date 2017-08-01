@@ -141,20 +141,20 @@ var initInputA = func(key) {
 		if (scratchpad == "CLR") {
 			setprop("/FMGC/internal/tropo", 36090);
 			setprop("/FMGC/internal/tropo-set", 0);
-			setprop("/MCDU[0]/scratchpad-msg", "0");
-			setprop("/MCDU[0]/scratchpad", "");
+			setprop("/MCDU[1]/scratchpad-msg", "0");
+			setprop("/MCDU[1]/scratchpad", "");
 		} else {
 			var tropo = size(scratchpad);
 			if (tropo == 5) {
 				setprop("/FMGC/internal/tropo-set", 1);
 				setprop("/FMGC/internal/tropo", scratchpad);
-				setprop("/MCDU[0]/scratchpad", "");
+				setprop("/MCDU[1]/scratchpad", "");
 			} else {
-				if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
-					setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+				if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
 				}
-				setprop("/MCDU[0]/scratchpad-msg", "1");
-				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+				setprop("/MCDU[1]/scratchpad-msg", "1");
+				setprop("/MCDU[1]/scratchpad", "NOT ALLOWED");
 			}
 		}
 	}
