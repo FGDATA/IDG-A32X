@@ -117,7 +117,7 @@ var master_hyd = func {
 	ptu_fail = getprop("/systems/failures/ptu");
 	dc2 = getprop("/systems/electrical/bus/dc2");
 	
-	if (psi_diff > 500 or psi_diff < -500 and ptu_sw and dc2 > 28) {
+	if ((psi_diff > 500 or psi_diff < -500) and ptu_sw and dc2 > 25) {
 		setprop("/systems/hydraulic/ptu-active", 1);
 	} else if (psi_diff < 20 and psi_diff > -20) {
 		setprop("/systems/hydraulic/ptu-active", 0);
