@@ -15,7 +15,7 @@
 			</condition>
 			<volume>
 				<property>/systems/apu/rpm</property>
-				<factor>0.01</factor>
+				<factor>0.005</factor>
 				<min>0</min>
 			</volume>
 			<pitch>
@@ -34,7 +34,7 @@
 			</condition>
 			<volume>
 				<property>/systems/apu/rpm</property>
-				<factor>0.01</factor>
+				<factor>0.005</factor>
 				<min>0</min>
 			</volume>
 			<pitch>
