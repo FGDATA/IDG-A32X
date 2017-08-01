@@ -603,9 +603,9 @@
 				<sum>
 					<table>
 						<property>/controls/flight/elevator-input</property> 
-						<entry><ind> 1</ind><dep>-6.0</dep></entry>
+						<entry><ind> 1</ind><dep>-5.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
-						<entry><ind>-1</ind><dep> 6.0</dep></entry>
+						<entry><ind>-1</ind><dep> 5.0</dep></entry>
 					</table>
 					<product>
 						<table>
@@ -615,7 +615,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -628,7 +628,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 					<!-- The following stuff is for load factor protection -->
@@ -650,7 +650,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -672,7 +672,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -695,7 +695,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 					<product>
@@ -717,7 +717,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 				</sum>
@@ -734,9 +734,9 @@
 				<sum>
 					<table>
 						<property>/controls/flight/elevator-input</property> 
-						<entry><ind> 1</ind><dep>-6.0</dep></entry>
+						<entry><ind> 1</ind><dep>-5.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
-						<entry><ind>-1</ind><dep> 6.0</dep></entry>
+						<entry><ind>-1</ind><dep> 5.0</dep></entry>
 					</table>
 					<!-- The following stuff is for load factor protection -->
 					<product>
@@ -757,7 +757,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -779,7 +779,7 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind>1</ind><dep>6.0</dep></entry>
+							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
 					</product>
@@ -802,7 +802,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 					<product>
@@ -824,7 +824,7 @@
 						<table>
 							<property>/controls/flight/elevator-input</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
-							<entry><ind>-1</ind><dep>-6.0</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 				</sum>
