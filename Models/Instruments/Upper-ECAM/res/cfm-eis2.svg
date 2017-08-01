@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="true"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="549.20828"
-     inkscape:cy="1150.6695"
+     inkscape:zoom="4"
+     inkscape:cx="1171.8695"
+     inkscape:cy="1166.2036"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1200,4 +1200,18 @@
          height="171.5"
          x="837.5"
          y="516.5" /></flowRegion><flowPara
-       id="flowPara4394"></flowPara></flowRoot></svg>
+       id="flowPara4394" /></flowRoot>  
+  <text
+     sodipodi:linespacing="125%"
+     id="N1Lim-percent"
+     y="106.11967"
+     x="974.1026"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00a0d2;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     inkscape:label="#text4318"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Arial;-inkscape-font-specification:Arial;fill:#00a0d2;fill-opacity:1"
+       y="106.11967"
+       x="974.1026"
+       id="tspan4320"
+       sodipodi:role="line">%</tspan></text>
+</svg>
