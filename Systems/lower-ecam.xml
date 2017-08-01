@@ -170,5 +170,55 @@
 		</input>
 		<output>/ECAM/Lower/Oil-PSI[1]</output>
 	</filter>
+	
+	<filter>
+		<name>ELEV L Indication</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator-left</property>
+					<entry><ind>  -0.5</ind><dep>-1</dep></entry>
+					<entry><ind>0</ind><dep>  0</dep></entry>
+					<entry><ind>0.5</ind><dep>  0.66</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/elevator-ind-left</output>
+	</filter>
+	<filter>
+		<name>ELEV R Indication</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator-right</property>
+					<entry><ind>  -0.5</ind><dep>-1</dep></entry>
+					<entry><ind>0</ind><dep>  0</dep></entry>
+					<entry><ind>0.5</ind><dep>  0.66</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/elevator-ind-right</output>
+	</filter>
+	
+	<filter>
+		<name>ELEV Trim Deg</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator-trim</property>
+					<entry><ind>1</ind><dep>4</dep></entry>
+					<entry><ind>0</ind><dep>  0</dep></entry>
+					<entry><ind>-1</ind><dep>  13.5</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/elevator-trim-deg</output>
+	</filter>
 
 </PropertyList>
