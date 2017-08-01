@@ -891,10 +891,8 @@
             <expression>
                 <table>
                     <property>/engines/engine[0]/n1</property> 
-                    <entry><ind>0</ind><dep>0</dep></entry>
-                    <entry><ind>6</ind><dep>0</dep></entry>
-                    <entry><ind>22.4</ind><dep>434</dep></entry>
-                    <entry><ind>110</ind><dep>620</dep></entry>
+                    <entry><ind> 22.4</ind><dep>434</dep></entry>
+                    <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>
             </expression>
         </input>
@@ -924,10 +922,8 @@
             <expression>
                 <table>
                     <property>/engines/engine[1]/n1</property> 
-                    <entry><ind>0</ind><dep>0</dep></entry>
-                    <entry><ind>6</ind><dep>0</dep></entry>
-                    <entry><ind>22.4</ind><dep>434</dep></entry>
-                    <entry><ind>110</ind><dep>620</dep></entry>
+                    <entry><ind> 22.4</ind><dep>434</dep></entry>
+                    <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>
             </expression>
         </input>

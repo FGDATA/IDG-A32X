@@ -14,13 +14,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -34,28 +31,7 @@
 				</table>
 			</expression>
 		</input>
-		<input>
-			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[0]/epr-actual</property>
-					<entry><ind>0.990</ind><dep>-134</dep></entry>
-					<entry><ind>1.000</ind><dep>-125</dep></entry>
-					<entry><ind>1.200</ind><dep> -50</dep></entry>
-					<entry><ind>1.400</ind><dep>  16</dep></entry>
-					<entry><ind>1.600</ind><dep>  82</dep></entry>
-					<entry><ind>1.650</ind><dep>  98</dep></entry>
-				</table>
-			</expression>
-		</input>
+		<input>0</input>
 		<output>/ECAM/Upper/EPR[0]</output>
 	</filter>
 	
@@ -65,13 +41,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -85,28 +58,7 @@
 				</table>
 			</expression>
 		</input>
-		<input>
-			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[0]/epr-cmd</property>
-					<entry><ind>0.990</ind><dep>-134</dep></entry>
-					<entry><ind>1.000</ind><dep>-125</dep></entry>
-					<entry><ind>1.200</ind><dep> -50</dep></entry>
-					<entry><ind>1.400</ind><dep>  16</dep></entry>
-					<entry><ind>1.600</ind><dep>  82</dep></entry>
-					<entry><ind>1.650</ind><dep>  98</dep></entry>
-				</table>
-			</expression>
-		</input>
+		<input>0</input>
 		<output>/ECAM/Upper/EPRthr[0]</output>
 	</filter>
 	
@@ -116,13 +68,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -136,28 +85,7 @@
 				</table>
 			</expression>
 		</input>
-		<input>
-			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[1]/epr-actual</property>
-					<entry><ind>0.990</ind><dep>-134</dep></entry>
-					<entry><ind>1.000</ind><dep>-125</dep></entry>
-					<entry><ind>1.200</ind><dep> -50</dep></entry>
-					<entry><ind>1.400</ind><dep>  16</dep></entry>
-					<entry><ind>1.600</ind><dep>  82</dep></entry>
-					<entry><ind>1.650</ind><dep>  98</dep></entry>
-				</table>
-			</expression>
-		</input>
+		<input>0</input>
 		<output>/ECAM/Upper/EPR[1]</output>
 	</filter>
 	
@@ -167,13 +95,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -187,28 +112,7 @@
 				</table>
 			</expression>
 		</input>
-		<input>
-			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[1]/epr-cmd</property>
-					<entry><ind>0.990</ind><dep>-134</dep></entry>
-					<entry><ind>1.000</ind><dep>-125</dep></entry>
-					<entry><ind>1.200</ind><dep> -50</dep></entry>
-					<entry><ind>1.400</ind><dep>  16</dep></entry>
-					<entry><ind>1.600</ind><dep>  82</dep></entry>
-					<entry><ind>1.650</ind><dep>  98</dep></entry>
-				</table>
-			</expression>
-		</input>
+		<input>0</input>
 		<output>/ECAM/Upper/EPRthr[1]</output>
 	</filter>
 	
@@ -218,13 +122,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -238,28 +139,7 @@
 				</table>
 			</expression>
 		</input>
-		<input>
-			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/systems/thrust/epr/toga-lim</property>
-					<entry><ind>0.990</ind><dep>-134</dep></entry>
-					<entry><ind>1.000</ind><dep>-125</dep></entry>
-					<entry><ind>1.200</ind><dep> -50</dep></entry>
-					<entry><ind>1.400</ind><dep>  16</dep></entry>
-					<entry><ind>1.600</ind><dep>  82</dep></entry>
-					<entry><ind>1.650</ind><dep>  98</dep></entry>
-				</table>
-			</expression>
-		</input>
+		<input>0</input>
 		<output>/ECAM/Upper/EPRylim</output>
 	</filter>
 	
@@ -269,32 +149,26 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[0]/egt-actual</property>
-					<entry><ind>  0</ind><dep>-90</dep></entry>
-					<entry><ind>400</ind><dep>  0</dep></entry>
-					<entry><ind>800</ind><dep> 90</dep></entry>
+					<entry><ind>   0</ind><dep>-90</dep></entry>
+					<entry><ind> 500</ind><dep>  0</dep></entry>
+					<entry><ind>1000</ind><dep> 90</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -314,32 +188,26 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[1]/egt-actual</property>
-					<entry><ind>  0</ind><dep>-90</dep></entry>
-					<entry><ind>400</ind><dep>  0</dep></entry>
-					<entry><ind>800</ind><dep> 90</dep></entry>
+					<entry><ind>   0</ind><dep>-90</dep></entry>
+					<entry><ind> 500</ind><dep>  0</dep></entry>
+					<entry><ind>1000</ind><dep> 90</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -359,33 +227,27 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[0]/n1</property>
-					<entry><ind> 22.4</ind><dep>-107</dep></entry>
-					<entry><ind> 40.0</ind><dep> -61</dep></entry>
-					<entry><ind>100.0</ind><dep>  65</dep></entry>
-					<entry><ind>110.0</ind><dep>  90</dep></entry>
+					<entry><ind> 22.4</ind><dep>-134</dep></entry>
+					<entry><ind> 50.0</ind><dep> -58</dep></entry>
+					<entry><ind>100.0</ind><dep>  42</dep></entry>
+					<entry><ind>110.0</ind><dep>  59</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -406,33 +268,27 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[0]/n1-cmd</property>
-					<entry><ind> 22.4</ind><dep>-107</dep></entry>
-					<entry><ind> 40.0</ind><dep> -61</dep></entry>
-					<entry><ind>100.0</ind><dep>  65</dep></entry>
-					<entry><ind>110.0</ind><dep>  90</dep></entry>
+					<entry><ind> 22.4</ind><dep>-134</dep></entry>
+					<entry><ind> 50.0</ind><dep> -58</dep></entry>
+					<entry><ind>100.0</ind><dep>  42</dep></entry>
+					<entry><ind>110.0</ind><dep>  59</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -453,33 +309,27 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[1]/n1</property>
-					<entry><ind> 22.4</ind><dep>-107</dep></entry>
-					<entry><ind> 40.0</ind><dep> -61</dep></entry>
-					<entry><ind>100.0</ind><dep>  65</dep></entry>
-					<entry><ind>110.0</ind><dep>  90</dep></entry>
+					<entry><ind> 22.4</ind><dep>-134</dep></entry>
+					<entry><ind> 50.0</ind><dep> -58</dep></entry>
+					<entry><ind>100.0</ind><dep>  42</dep></entry>
+					<entry><ind>110.0</ind><dep>  59</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -500,33 +350,27 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[1]/n1-cmd</property>
-					<entry><ind> 22.4</ind><dep>-107</dep></entry>
-					<entry><ind> 40.0</ind><dep> -61</dep></entry>
-					<entry><ind>100.0</ind><dep>  65</dep></entry>
-					<entry><ind>110.0</ind><dep>  90</dep></entry>
+					<entry><ind> 22.4</ind><dep>-134</dep></entry>
+					<entry><ind> 50.0</ind><dep> -58</dep></entry>
+					<entry><ind>100.0</ind><dep>  42</dep></entry>
+					<entry><ind>110.0</ind><dep>  59</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<input>
 			<condition>
-				<and>
-					<property>/options/EIS2</property>
-					<equals>
-						<property>options/eng</property>
-						<value>IAE</value>
-					</equals>
-				</and>
+				<equals>
+					<property>options/eng</property>
+					<value>IAE</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -539,6 +383,31 @@
 			</expression>
 		</input>
 		<output>/ECAM/Upper/N1thr[1]</output>
+	</filter>
+	
+	<filter>
+		<name>N1 LIMIT</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>options/eng</property>
+					<value>CFM</value>
+				</equals>
+			</condition>
+			<expression>
+				<table>
+					<property>/systems/thrust/n1/toga-lim</property>
+					<entry><ind> 22.4</ind><dep>-134</dep></entry>
+					<entry><ind> 50.0</ind><dep> -58</dep></entry>
+					<entry><ind>100.0</ind><dep>  42</dep></entry>
+					<entry><ind>110.0</ind><dep>  59</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>0</input>
+		<output>/ECAM/Upper/N1ylim</output>
 	</filter>
 
 </PropertyList>

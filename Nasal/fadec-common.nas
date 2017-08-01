@@ -12,12 +12,12 @@ setprop("/systems/thrust/epr/toga-lim", 0.0);
 setprop("/systems/thrust/epr/mct-lim", 0.0);
 setprop("/systems/thrust/epr/flx-lim", 0.0);
 setprop("/systems/thrust/epr/clb-lim", 0.0);
-setprop("/systems/thrust/n1/toga-lim", 95.9);
+setprop("/systems/thrust/n1/toga-lim", 95.8);
 setprop("/systems/thrust/n1/flx-lim", 0.0);
 setprop("/engines/flx-thr", 0.0);
 setprop("/controls/engines/thrust-limit", "TOGA");
 setprop("/controls/engines/epr-limit", 1.308);
-setprop("/controls/engines/n1-limit", 95.9);
+setprop("/controls/engines/n1-limit", 95.8);
 setprop("/systems/thrust/state1", "IDLE");
 setprop("/systems/thrust/state2", "IDLE");
 setprop("/systems/thrust/lvrclb", "0");
@@ -182,11 +182,11 @@ var thrust_lim = func {
 		if ((state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) or getprop("/systems/thrust/alpha-floor") == 1 or getprop("/systems/thrust/toga-lk") == 1) {
 			setprop("/controls/engines/thrust-limit", "TOGA");
 			setprop("/controls/engines/epr-limit", eprtoga);
-			setprop("/controls/engines/n1-limit", 95.9);
+			setprop("/controls/engines/n1-limit", 95.8);
 		} else if ((state1 == "MCT" or state2 == "MCT" or (state1 == "MAN THR" and thr1 < 0.83) or (state2 == "MAN THR" and thr2 < 0.83)) and getprop("/systems/thrust/lim-flex") == 0) {
 			setprop("/controls/engines/thrust-limit", "MCT");
 			setprop("/controls/engines/epr-limit", eprmct);
-			setprop("/controls/engines/n1-limit", 92.6);
+			setprop("/controls/engines/n1-limit", 92.5);
 		} else if ((state1 == "MCT" or state2 == "MCT" or (state1 == "MAN THR" and thr1 < 0.83) or (state2 == "MAN THR" and thr2 < 0.83)) and getprop("/systems/thrust/lim-flex") == 1) {
 			setprop("/controls/engines/thrust-limit", "FLX");
 			setprop("/controls/engines/epr-limit", eprflx);
@@ -194,7 +194,7 @@ var thrust_lim = func {
 		} else if (state1 == "CL" or state2 == "CL" or state1 == "MAN" or state2 == "MAN" or state1 == "IDLE" or state2 == "IDLE") {
 			setprop("/controls/engines/thrust-limit", "CLB");
 			setprop("/controls/engines/epr-limit", eprclb);
-			setprop("/controls/engines/n1-limit", 89.2);
+			setprop("/controls/engines/n1-limit", 89.1);
 		}
 	} else if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0) {
 		setprop("/systems/thrust/lim-flex", 1);
@@ -204,7 +204,7 @@ var thrust_lim = func {
 	} else {
 		setprop("/controls/engines/thrust-limit", "TOGA");
 		setprop("/controls/engines/epr-limit", eprtoga);
-		setprop("/controls/engines/n1-limit", 95.9);
+		setprop("/controls/engines/n1-limit", 95.8);
 	}
 }
 
