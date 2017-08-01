@@ -149,10 +149,32 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[0]/egt-actual</property>
+					<entry><ind>   0</ind><dep>-111</dep></entry>
+					<entry><ind> 500</ind><dep> -35</dep></entry>
+					<entry><ind>1000</ind><dep>  51</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -188,10 +210,32 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[1]/egt-actual</property>
+					<entry><ind>   0</ind><dep>-111</dep></entry>
+					<entry><ind> 500</ind><dep> -35</dep></entry>
+					<entry><ind>1000</ind><dep>  51</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -227,10 +271,33 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[0]/n1</property>
+					<entry><ind> 22.4</ind><dep>-116</dep></entry>
+					<entry><ind> 50.0</ind><dep> -45</dep></entry>
+					<entry><ind>100.0</ind><dep>  69</dep></entry>
+					<entry><ind>110.0</ind><dep>  90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -268,10 +335,33 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[0]/n1-cmd</property>
+					<entry><ind> 22.4</ind><dep>-116</dep></entry>
+					<entry><ind> 50.0</ind><dep> -45</dep></entry>
+					<entry><ind>100.0</ind><dep>  69</dep></entry>
+					<entry><ind>110.0</ind><dep>  90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -309,10 +399,33 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[1]/n1</property>
+					<entry><ind> 22.4</ind><dep>-116</dep></entry>
+					<entry><ind> 50.0</ind><dep> -45</dep></entry>
+					<entry><ind>100.0</ind><dep>  69</dep></entry>
+					<entry><ind>110.0</ind><dep>  90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -350,10 +463,33 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/engines/engine[1]/n1-cmd</property>
+					<entry><ind> 22.4</ind><dep>-116</dep></entry>
+					<entry><ind> 50.0</ind><dep> -45</dep></entry>
+					<entry><ind>100.0</ind><dep>  69</dep></entry>
+					<entry><ind>110.0</ind><dep>  90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -391,10 +527,33 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<equals>
-					<property>/options/eng</property>
-					<value>CFM</value>
-				</equals>
+				<and>
+					<not><property>/options/EIS2</property></not>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/systems/thrust/n1/toga-lim</property>
+					<entry><ind> 22.4</ind><dep>-116</dep></entry>
+					<entry><ind> 50.0</ind><dep> -45</dep></entry>
+					<entry><ind>100.0</ind><dep>  69</dep></entry>
+					<entry><ind>110.0</ind><dep>  90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<property>/options/EIS2</property>
+					<equals>
+						<property>/options/eng</property>
+						<value>CFM</value>
+					</equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
