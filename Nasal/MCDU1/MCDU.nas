@@ -71,6 +71,8 @@ var MCDU_reset = func {
 	setprop("/FMGC/print/mcdu/page2/R2req", 0);
 	setprop("/FMGC/print/mcdu/page2/R3req", 0);
 	setprop("/FMGC/print/mcdu/page2/R4req", 0);
+	setprop("/FMGC/internal/tropo", 36090);
+	setprop("/FMGC/internal/tropo-set", 0);
 }
 
 var lskbutton = func(btn) {
@@ -303,6 +305,8 @@ var rskbutton = func(btn) {
 			}
 			setprop("/MCDU[0]/scratchpad-msg", "1");
 			setprop("/MCDU[0]/scratchpad", "AOC DISABLED");
+		} else if (getprop("/MCDU[0]/page") == "INITA") {
+			initInputA("R6");
 		} else {
 			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
