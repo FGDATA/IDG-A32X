@@ -111,7 +111,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
-	setprop("/FMGC/internal/tropo", 36090);
 	setprop("/FMGC/internal/overspeed", 338);
 	setprop("/FMGC/internal/mng-spd", 157);
 	setprop("/FMGC/internal/mng-spd-cmd", 157);

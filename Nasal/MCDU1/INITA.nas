@@ -137,5 +137,25 @@ var initInputA = func(key) {
 		if (getprop("/controls/adirs/mcducbtn") == 0) {
 			setprop("/controls/adirs/mcducbtn", 1);
 		}
+	} else if (key == "R6") {
+		if (scratchpad == "CLR") {
+			setprop("/FMGC/internal/tropo", 36090);
+			setprop("/FMGC/internal/tropo-set", 0);
+			setprop("/MCDU[0]/scratchpad-msg", "0");
+			setprop("/MCDU[0]/scratchpad", "");
+		} else {
+			var tropo = size(scratchpad);
+			if (tropo == 5) {
+				setprop("/FMGC/internal/tropo-set", 1);
+				setprop("/FMGC/internal/tropo", scratchpad);
+				setprop("/MCDU[0]/scratchpad", "");
+			} else {
+				if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+					setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+				}
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
+			}
+		}
 	}
 }
