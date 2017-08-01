@@ -302,9 +302,9 @@ var canvas_lowerECAM_fctl = {
 		}
 		#Pitch Trim numbers become amber if green+yellow hydraulic pressure decreases
 		if(green_psi<2900 and yellow_psi<2900){
-			me["PT"].setColor(1,1,0);
-			me["PTupdn"].setColor(1,1,0);
-			me["PTcc"].setColor(1,1,0);
+			me["PT"].setColor(1,0.6,0);
+			me["PTupdn"].setColor(1,0.6,0);
+			me["PTcc"].setColor(1,0.6,0);
 		}else{
 			me["PT"].setColor(0,1,0);
 			me["PTupdn"].setColor(0,1,0);
@@ -312,19 +312,21 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		#AILERONS
-		me["ailL"].setTranslation(0,getprop("/controls/flight/aileron-left")*(-100));
-		me["ailR"].setTranslation(0,getprop("/controls/flight/aileron-right")*100);
 		#Becomes amber if no green and blue servojack
 		if(blue_psi<2900 and green_psi<2900){
-			me["ailL"].setColor(1,1,0);
-			me["ailR"].setColor(1,1,0);
-			me["ailLscale"].setColor(1,1,0);
-			me["ailRscale"].setColor(1,1,0);
+			me["ailL"].setColor(1,0.6,0);
+			me["ailR"].setColor(1,0.6,0);
+			me["ailLscale"].setColor(1,0.6,0);
+			me["ailRscale"].setColor(1,0.6,0);
+			me["ailL"].setTranslation(0,100);
+			me["ailR"].setTranslation(0,100);
 		}else{
 			me["ailL"].setColor(0,1,0);
 			me["ailR"].setColor(0,1,0);
 			me["ailLscale"].setColor(1,1,1);
 			me["ailRscale"].setColor(1,1,1);
+			me["ailL"].setTranslation(0,getprop("/controls/flight/aileron-left")*100);
+			me["ailR"].setTranslation(0,getprop("/controls/flight/aileron-right")*(-100));
 		}
 		
 		#ELEVATORS
@@ -332,13 +334,13 @@ var canvas_lowerECAM_fctl = {
 		me["elevR"].setTranslation(0,getprop("/ECAM/Lower/elevator-ind-right")*100);
 		#Index becomes amber when both actuators don't work
 		if(blue_psi<2900 and green_psi<2900){
-			me["elevL"].setColor(1,1,0);
+			me["elevL"].setColor(1,0.6,0);
 		}else{
 			me["elevL"].setColor(0,1,0);
 		}
 		
 		if(blue_psi<2900 and yellow_psi<2900){
-			me["elevR"].setColor(1,1,0);
+			me["elevR"].setColor(1,0.6,0);
 		}else{
 			me["elevR"].setColor(0,1,0);
 		}
@@ -347,7 +349,7 @@ var canvas_lowerECAM_fctl = {
 		me["rudder"].setRotation(getprop("/controls/flight/rudder")*(-0.6));
 		#Indicator becomes amber if green yellow and blue hydraulic pressure is low
 		if(blue_psi<2900 and yellow_psi<2900 and green_psi<2900){
-			me["rudder"].setColor(1,1,0);
+			me["rudder"].setColor(1,0.6,0);
 		}else{
 			me["rudder"].setColor(0,1,0);
 		}
@@ -429,8 +431,8 @@ var canvas_lowerECAM_fctl = {
 		
 		#STBY CODE - SPOILER FAIL
 		if(getprop("/controls/flight/spoiler-r1-failed")){
-			me["spoiler1Rex"].setColor(1,1,0);
-			me["spoiler1Rrt"].setColor(1,1,0);
+			me["spoiler1Rex"].setColor(1,0.6,0);
+			me["spoiler1Rrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-r1")<0.083){
 				me["spoiler1Rf"].show();
 			}else{
@@ -443,8 +445,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler1Rf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-r2-failed")){
-			me["spoiler2Rex"].setColor(1,1,0);
-			me["spoiler2Rrt"].setColor(1,1,0);
+			me["spoiler2Rex"].setColor(1,0.6,0);
+			me["spoiler2Rrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-r2")<0.083){
 				me["spoiler2Rf"].show();
 			}else{
@@ -457,8 +459,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler2Rf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-r3-failed")){
-			me["spoiler3Rex"].setColor(1,1,0);
-			me["spoiler3Rrt"].setColor(1,1,0);
+			me["spoiler3Rex"].setColor(1,0.6,0);
+			me["spoiler3Rrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-r3")<0.083){
 				me["spoiler3Rf"].show();
 			}else{
@@ -471,8 +473,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler3Rf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-r4-failed")){
-			me["spoiler4Rex"].setColor(1,1,0);
-			me["spoiler4Rrt"].setColor(1,1,0);
+			me["spoiler4Rex"].setColor(1,0.6,0);
+			me["spoiler4Rrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-r4")<0.083){
 				me["spoiler4Rf"].show();
 			}else{
@@ -485,8 +487,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler4Rf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-r5-failed")){
-			me["spoiler5Rex"].setColor(1,1,0);
-			me["spoiler5Rrt"].setColor(1,1,0);
+			me["spoiler5Rex"].setColor(1,0.6,0);
+			me["spoiler5Rrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-r5")<0.083){
 				me["spoiler5Rf"].show();
 			}else{
@@ -500,8 +502,8 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 			if(getprop("/controls/flight/spoiler-l1-failed")){
-			me["spoiler1Lex"].setColor(1,1,0);
-			me["spoiler1Lrt"].setColor(1,1,0);
+			me["spoiler1Lex"].setColor(1,0.6,0);
+			me["spoiler1Lrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-l1")<0.083){
 				me["spoiler1Lf"].show();
 			}else{
@@ -514,8 +516,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler1Lf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-l2-failed")){
-			me["spoiler2Lex"].setColor(1,1,0);
-			me["spoiler2Lrt"].setColor(1,1,0);
+			me["spoiler2Lex"].setColor(1,0.6,0);
+			me["spoiler2Lrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-l2")<0.083){
 				me["spoiler2Lf"].show();
 			}else{
@@ -528,8 +530,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler2Lf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-l3-failed")){
-			me["spoiler3Lex"].setColor(1,1,0);
-			me["spoiler3Lrt"].setColor(1,1,0);
+			me["spoiler3Lex"].setColor(1,0.6,0);
+			me["spoiler3Lrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-l3")<0.083){
 				me["spoiler3Lf"].show();
 			}else{
@@ -542,8 +544,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler3Lf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-l4-failed")){
-			me["spoiler4Lex"].setColor(1,1,0);
-			me["spoiler4Lrt"].setColor(1,1,0);
+			me["spoiler4Lex"].setColor(1,0.6,0);
+			me["spoiler4Lrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-l4")<0.083){
 				me["spoiler4Lf"].show();
 			}else{
@@ -556,8 +558,8 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler4Lf"].hide();
 		}
 		if(getprop("/controls/flight/spoiler-l5-failed")){
-			me["spoiler5Lex"].setColor(1,1,0);
-			me["spoiler5Lrt"].setColor(1,1,0);
+			me["spoiler5Lex"].setColor(1,0.6,0);
+			me["spoiler5Lrt"].setColor(1,0.6,0);
 			if(getprop("/controls/flight/spoiler-l5")<0.083){
 				me["spoiler5Lf"].show();
 			}else{
@@ -574,27 +576,27 @@ var canvas_lowerECAM_fctl = {
 		if(getprop("/systems/fctl/elac1")){
 			me["elac1"].setColor(0,1,0);
 		}else{
-			me["elac1"].setColor(1,1,0);
+			me["elac1"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/fctl/elac2")){
 			me["elac2"].setColor(0,1,0);
 		}else{
-			me["elac2"].setColor(1,1,0);
+			me["elac2"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/fctl/sec1")){
 			me["sec1"].setColor(0,1,0);
 		}else{
-			me["sec1"].setColor(1,1,0);
+			me["sec1"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/fctl/sec2")){
 			me["sec2"].setColor(0,1,0);
 		}else{
-			me["sec2"].setColor(1,1,0);
+			me["sec2"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/fctl/sec3")){
 			me["sec3"].setColor(0,1,0);
 		}else{
-			me["sec3"].setColor(1,1,0);
+			me["sec3"].setColor(1,0.6,0);
 		}
 		
 		#HYDRAULIC INDICATORS
@@ -606,12 +608,12 @@ var canvas_lowerECAM_fctl = {
 			me["rudderblue"].setColor(0,1,0);
 			me["spdbrkblue"].setColor(0,1,0);
 		}else{
-			me["ailLblue"].setColor(1,1,0);
-			me["ailRblue"].setColor(1,1,0);
-			me["elevLblue"].setColor(1,1,0);
-			me["elevRblue"].setColor(1,1,0);
-			me["rudderblue"].setColor(1,1,0);
-			me["spdbrkblue"].setColor(1,1,0);
+			me["ailLblue"].setColor(1,0.6,0);
+			me["ailRblue"].setColor(1,0.6,0);
+			me["elevLblue"].setColor(1,0.6,0);
+			me["elevRblue"].setColor(1,0.6,0);
+			me["rudderblue"].setColor(1,0.6,0);
+			me["spdbrkblue"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/hydraulic/green-psi")>2900){
 			me["ailLgreen"].setColor(0,1,0);
@@ -621,12 +623,12 @@ var canvas_lowerECAM_fctl = {
 			me["PTgreen"].setColor(0,1,0);
 			me["spdbrkgreen"].setColor(0,1,0);
 		}else{
-			me["ailLgreen"].setColor(1,1,0);
-			me["ailRgreen"].setColor(1,1,0);
-			me["elevLgreen"].setColor(1,1,0);
-			me["ruddergreen"].setColor(1,1,0);
-			me["PTgreen"].setColor(1,1,0);
-			me["spdbrkgreen"].setColor(1,1,0);
+			me["ailLgreen"].setColor(1,0.6,0);
+			me["ailRgreen"].setColor(1,0.6,0);
+			me["elevLgreen"].setColor(1,0.6,0);
+			me["ruddergreen"].setColor(1,0.6,0);
+			me["PTgreen"].setColor(1,0.6,0);
+			me["spdbrkgreen"].setColor(1,0.6,0);
 		}
 		if(getprop("/systems/hydraulic/yellow-psi")>2900){
 			me["elevRyellow"].setColor(0,1,0);
@@ -634,10 +636,10 @@ var canvas_lowerECAM_fctl = {
 			me["PTyellow"].setColor(0,1,0);
 			me["spdbrkyellow"].setColor(0,1,0);
 		}else{
-			me["elevRyellow"].setColor(1,1,0);
-			me["rudderyellow"].setColor(1,1,0);
-			me["PTyellow"].setColor(1,1,0);
-			me["spdbrkyellow"].setColor(1,1,0);
+			me["elevRyellow"].setColor(1,0.6,0);
+			me["rudderyellow"].setColor(1,0.6,0);
+			me["PTyellow"].setColor(1,0.6,0);
+			me["spdbrkyellow"].setColor(1,0.6,0);
 		}
 		
 		
