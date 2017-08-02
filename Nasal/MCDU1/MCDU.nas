@@ -77,16 +77,22 @@ var MCDU_reset = func {
 
 var lskbutton = func(btn) {
 	if (btn == "1") {
-		if (getprop("/MCDU[0]/page") == "MCDU" and getprop("/MCDU[0]/active") != 2) {
-			setprop("/MCDU[0]/scratchpad-msg", "1");
-			setprop("/MCDU[0]/scratchpad", "WAIT FOR SYSTEM RESPONSE");
-			setprop("/MCDU[0]/active", 1);
-			settimer(func(){
+		if (getprop("/MCDU[0]/page") == "MCDU") {
+			if (getprop("/MCDU[0]/active") != 2) {
+				setprop("/MCDU[0]/scratchpad-msg", "1");
+				setprop("/MCDU[0]/scratchpad", "WAIT FOR SYSTEM RESPONSE");
+				setprop("/MCDU[0]/active", 1);
+				settimer(func(){
+					setprop("/MCDU[0]/page", getprop("/MCDU[0]/last-fmgc-page"));
+					setprop("/MCDU[0]/scratchpad", "");
+					setprop("/MCDU[0]/scratchpad-msg", "0");
+					setprop("/MCDU[0]/active", 2);
+				}, 2);
+			} else {
 				setprop("/MCDU[0]/page", getprop("/MCDU[0]/last-fmgc-page"));
 				setprop("/MCDU[0]/scratchpad", "");
 				setprop("/MCDU[0]/scratchpad-msg", "0");
-				setprop("/MCDU[0]/active", 2);
-			}, 2);
+			}
 		} else if (getprop("/MCDU[0]/page") == "TO") {
 			perfTOInput("L1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
