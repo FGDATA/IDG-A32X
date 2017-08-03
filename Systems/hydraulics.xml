@@ -151,8 +151,8 @@
 					</table>
 					<table>
 						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
-						<entry><ind>1</ind><dep>0.0</dep></entry>
-						<entry><ind>5</ind><dep>0.2</dep></entry>
+						<entry><ind>1</ind><dep>0.00</dep></entry>
+						<entry><ind>5</ind><dep>0.13</dep></entry>
 					</table>
 				</sum>
             </expression>
@@ -268,8 +268,8 @@
 					</table>
 					<table>
 						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
-						<entry><ind>1</ind><dep> 0.0</dep></entry>
-						<entry><ind>5</ind><dep>-0.2</dep></entry>
+						<entry><ind>1</ind><dep> 0.00</dep></entry>
+						<entry><ind>5</ind><dep>-0.13</dep></entry>
 					</table>
 				</sum>
             </expression>

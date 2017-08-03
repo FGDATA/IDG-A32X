@@ -172,32 +172,67 @@
 	</filter>
 	
 	<filter>
-		<name>ELEV L Indication</name>
+		<name>Aileron L Indication</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/aileron-left</property>
+					<entry><ind>-0.5</ind><dep>-0.73</dep></entry>
+					<entry><ind> 0.0</ind><dep> 0.00</dep></entry>
+					<entry><ind> 0.5</ind><dep> 0.83</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/aileron-ind-left</output>
+	</filter>
+	
+	<filter>
+		<name>Aileron R Indication</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/aileron-right</property>
+					<entry><ind>-0.5</ind><dep>-0.83</dep></entry>
+					<entry><ind> 0.0</ind><dep> 0.00</dep></entry>
+					<entry><ind> 0.5</ind><dep> 0.73</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/aileron-ind-right</output>
+	</filter>
+	
+	<filter>
+		<name>Elevator L Indication</name>
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
 			<expression>
 				<table>
 					<property>/controls/flight/elevator-left</property>
-					<entry><ind>  -0.5</ind><dep>-1</dep></entry>
-					<entry><ind>0</ind><dep>  0</dep></entry>
-					<entry><ind>0.5</ind><dep>  0.66</dep></entry>
+					<entry><ind>-0.5</ind><dep>-1.03</dep></entry>
+					<entry><ind> 0.0</ind><dep> 0.00</dep></entry>
+					<entry><ind> 0.5</ind><dep> 0.63</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<output>/ECAM/Lower/elevator-ind-left</output>
 	</filter>
+	
 	<filter>
-		<name>ELEV R Indication</name>
+		<name>Elevator R Indication</name>
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
 			<expression>
 				<table>
 					<property>/controls/flight/elevator-right</property>
-					<entry><ind>  -0.5</ind><dep>-1</dep></entry>
-					<entry><ind>0</ind><dep>  0</dep></entry>
-					<entry><ind>0.5</ind><dep>  0.66</dep></entry>
+					<entry><ind>-0.5</ind><dep>-1.03</dep></entry>
+					<entry><ind> 0.0</ind><dep> 0.00</dep></entry>
+					<entry><ind> 0.5</ind><dep> 0.63</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -205,16 +240,19 @@
 	</filter>
 	
 	<filter>
-		<name>ELEV Trim Deg</name>
+		<name>Elevator Trim Deg</name>
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
 			<expression>
 				<table>
 					<property>/controls/flight/elevator-trim</property>
-					<entry><ind>1</ind><dep>4</dep></entry>
-					<entry><ind>0</ind><dep>  0</dep></entry>
-					<entry><ind>-1</ind><dep>  13.5</dep></entry>
+					<entry><ind> 0.4283</ind><dep>-4.0</dep></entry>
+					<entry><ind> 0.1161</ind><dep>-1.0</dep></entry>
+					<entry><ind> 0.0000</ind><dep> 0.0</dep></entry>
+					<entry><ind>-0.0883</ind><dep> 1.0</dep></entry>
+					<entry><ind>-0.1900</ind><dep> 2.0</dep></entry>
+					<entry><ind>-0.5035</ind><dep> 5.0</dep></entry>
 				</table>
 			</expression>
 		</input>
