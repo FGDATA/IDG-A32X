@@ -20,9 +20,9 @@
  
  <animation>
   <type>scale</type>
-  <x-offset>0.175</x-offset>
-  <y-offset>0.175</y-offset>
-  <z-offset>0.175</z-offset>
+  <x-offset>0.5</x-offset>
+  <y-offset>0.5</y-offset>
+  <z-offset>0.5</z-offset>
  </animation>
  
 <animation>
