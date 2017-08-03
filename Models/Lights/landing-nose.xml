@@ -33,7 +33,10 @@
 					<property>systems/electrical/bus/ac-ess</property>
 					<value>110</value>
 				</greater-than-equals>
-				<property>controls/lighting/landing-lights[1]</property>
+				<greater-than-equals>
+					<property>/sim/model/lights/nose-lights</property>
+					<value>0.5</value>
+				</greater-than-equals>
 				<equals>
 					<property>gear/gear[0]/position-norm</property>
 					<value>1</value>

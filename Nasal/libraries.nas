@@ -24,6 +24,9 @@ setprop("/controls/lighting/ndl-norm", 0);
 setprop("/controls/lighting/ndr-norm", 0);
 setprop("/controls/lighting/upper-norm", 0);
 
+# Lights
+setprop("/sim/model/lights/nose-lights", 1);
+
 # Oil Qty
 var qty1 = math.round((rand() * 5 ) + 20, 0.1);
 var qty2 = math.round((rand() * 5 ) + 20, 0.1);
@@ -53,6 +56,18 @@ setlistener("controls/lighting/nav-lights-switch", func {
 		logo_lights.setBoolValue(0);
 	}
 });
+
+setlistener("controls/lighting/taxi-light-switch", func {
+	var nose_lights = getprop("/sim/model/lights/nose-lights");
+	var settingT = getprop("/controls/lighting/taxi-light-switch");
+	if (settingT == 0) {
+		setprop("/sim/model/lights/nose-lights", 0);
+	} else if (settingT == 0.5) {
+		setprop("/sim/model/lights/nose-lights", 0.85);
+	} else if (settingT == 1) {
+		setprop("/sim/model/lights/nose-lights", 1);
+	}
+}, 1, 0);
  
 setlistener("controls/lighting/landing-lights[1]", func {
 	var landl = getprop("/controls/lighting/landing-lights[1]");
