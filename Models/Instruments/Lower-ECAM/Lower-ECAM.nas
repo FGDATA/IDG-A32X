@@ -660,7 +660,6 @@ var canvas_lowerECAM_fctl = {
 	},
 };
 
-
 setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_display = canvas.new({
 		"name": "lowerECAM",
