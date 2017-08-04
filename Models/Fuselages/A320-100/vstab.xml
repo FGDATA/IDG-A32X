@@ -33,7 +33,7 @@
 		</axis>
 	</animation>
 
-	<!-- Animation for the logo light -->
+	<!-- Animation for the logo light
 	<animation>
 		<name>Logo light illumination</name>
 		<type>material</type>
@@ -41,8 +41,8 @@
 		<object-name>Rudder</object-name>
 		<condition>
 			<equals>
-				<property>controls/lighting/nav-lights-switch</property>
-				<value>2</value>
+				<property>/sim/model/lights/logo-lights</property>
+				<value>1</value>
 			</equals>
 		</condition>
 		<emission>
@@ -50,6 +50,12 @@
 			<green>0.25</green>
 			<blue>0.25</blue>
 		</emission>
-	</animation>
+	</animation> -->
+	
+	<effect>
+        <inherits-from>Aircraft/A320Family/Models/Effects/logo</inherits-from>
+		<object-name>Vstab</object-name>
+		<object-name>Rudder</object-name>
+	</effect>
 
 </PropertyList>

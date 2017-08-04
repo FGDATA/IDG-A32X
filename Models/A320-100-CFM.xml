@@ -226,7 +226,7 @@
 		<name>Nosegear landing light ALS</name>
 		<path>Aircraft/A320Family/Models/Lights/ALS/taxilight.xml</path>
 		<offsets>
-			<x-m>7.35</x-m>
+			<x-m>7.81</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.5</z-m>
 		</offsets>
