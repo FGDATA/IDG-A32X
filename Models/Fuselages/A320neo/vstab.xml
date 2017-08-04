@@ -41,8 +41,8 @@
 		<object-name>Rudder</object-name>
 		<condition>
 			<equals>
-				<property>controls/lighting/nav-lights-switch</property>
-				<value>2</value>
+				<property>/sim/model/lights/logo-lights</property>
+				<value>1</value>
 			</equals>
 		</condition>
 		<emission>
