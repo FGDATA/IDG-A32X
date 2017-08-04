@@ -79,5 +79,12 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	
+	<effect>
+        <inherits-from>Aircraft/A320Family/Models/Effects/enginePW1100L</inherits-from>
+        <object-name>NacellePW1100G</object-name>
+        <object-name>ReverserPW1100G</object-name>
+        <object-name>SpoilersPW1100G</object-name>
+	</effect>
 
 </PropertyList>

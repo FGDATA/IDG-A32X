@@ -92,5 +92,11 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	
+	<effect>
+        <inherits-from>Aircraft/A320Family/Models/Effects/engineLEAPr</inherits-from>
+        <object-name>Nacelle</object-name>
+        <object-name>Reverser</object-name>
+	</effect>
 
 </PropertyList>
