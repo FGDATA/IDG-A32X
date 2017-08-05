@@ -50,7 +50,18 @@
 			</condition>
 			<property>/it-autoflight/internal/aileron-cmd</property>
 		</input>
-		<input>/controls/flight/aileron</input>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/aileron</property>
+					<entry><ind>-1.00</ind><dep>-1</dep></entry>
+					<entry><ind>-0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 0.00</ind><dep> 0</dep></entry>
+					<entry><ind> 0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 1.00</ind><dep> 1</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/controls/flight/aileron-input</output>
 		<max-rate-of-change>2.0</max-rate-of-change>
 	</filter>
@@ -112,8 +123,8 @@
 					<property>/controls/flight/elevator</property>
 					<table>
 						<property>/position/gear-agl-ft</property> 
-						<entry><ind> 5</ind><dep>0.12</dep></entry>
-						<entry><ind>50</ind><dep>0.07</dep></entry>
+						<entry><ind> 5</ind><dep>0.13</dep></entry>
+						<entry><ind>50</ind><dep>0.08</dep></entry>
 					</table>
 				</sum>
             </expression>
@@ -191,7 +202,18 @@
 			</condition>
 			<property>/it-autoflight/internal/elevator-cmd</property>
 		</input>
-		<input>/controls/flight/elevator</input>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator</property>
+					<entry><ind>-1.00</ind><dep>-1</dep></entry>
+					<entry><ind>-0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 0.00</ind><dep> 0</dep></entry>
+					<entry><ind> 0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 1.00</ind><dep> 1</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/controls/flight/elevator-input</output>
 		<max-rate-of-change>2.0</max-rate-of-change>
 	</filter>

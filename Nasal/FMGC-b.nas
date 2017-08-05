@@ -78,6 +78,7 @@ var APinit = func {
 setlistener("/it-autoflight/input/ap1", func {
 	var apmas = getprop("/it-autoflight/input/ap1");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
 		fmabox();
 		setprop("/it-autoflight/output/ap1", 0);
@@ -85,7 +86,7 @@ setlistener("/it-autoflight/input/ap1", func {
 			setprop("/it-autoflight/sound/apoffsound", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 0);	  
 		}
-	} else if (apmas == 1 and ac_ess >= 110) {
+	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
 			fmabox();
 			setprop("/it-autoflight/output/ap1", 1);
@@ -99,6 +100,7 @@ setlistener("/it-autoflight/input/ap1", func {
 setlistener("/it-autoflight/input/ap2", func {
 	var apmas = getprop("/it-autoflight/input/ap2");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
 		fmabox();
 		setprop("/it-autoflight/output/ap2", 0);
@@ -106,7 +108,7 @@ setlistener("/it-autoflight/input/ap2", func {
 			setprop("/it-autoflight/sound/apoffsound2", 1);	
 			setprop("/it-autoflight/sound/enableapoffsound2", 0);	  
 		}
-	} else if (apmas == 1 and ac_ess >= 110) {
+	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
 			fmabox();
 			setprop("/it-autoflight/output/ap2", 1);
