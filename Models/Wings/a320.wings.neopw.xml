@@ -832,23 +832,18 @@
 	</effect>
 	
 	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/slatL1</inherits-from>
+        <inherits-from>Aircraft/A320Family/Models/Effects/slat</inherits-from>
 		<object-name>SlatL1</object-name>
-	</effect>
-	
-	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/slatL2</inherits-from>
 		<object-name>SlatL2</object-name>
-	</effect>
-	
-	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/slatR1</inherits-from>
+		<object-name>SlatL3</object-name>
+		<object-name>SlatL4</object-name>
+		<object-name>SlatL5</object-name>
 		<object-name>SlatR1</object-name>
+		<object-name>SlatR2</object-name>
+		<object-name>SlatR3</object-name>
+		<object-name>SlatR4</object-name>
+		<object-name>SlatR5</object-name>
 	</effect>
 	
-	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/slatR2</inherits-from>
-		<object-name>SlatR2</object-name>
-	</effect>
 
 </PropertyList>

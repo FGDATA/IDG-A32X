@@ -1,5 +1,5 @@
 <PropertyList>
-    <name>slatr2</name>
+    <name>slat</name>
     <inherits-from>Effects/model-combined-deferred</inherits-from>
     <parameters>
         <normalmap-enabled type="int">0</normalmap-enabled>
@@ -12,7 +12,7 @@
         <lightmap-factor type="float" n="0"><use>controls/lighting/wing-lights</use></lightmap-factor>
         <lightmap-color type="vec3d" n="0">1.0 1.0 1.0</lightmap-color>
         <texture n="3">
-            <image>Aircraft/A320Family/Models/Effects/SlatR2.png</image>
+            <image>Aircraft/A320Family/Models/Effects/Slat.png</image>
             <filter>linear-mipmap-linear</filter>
             <wrap-s>clamp</wrap-s>
             <wrap-t>clamp</wrap-t>
