@@ -378,15 +378,19 @@ var logoTimer = maketimer(0.1, func {
 	var setting = getprop("/controls/lighting/nav-lights-switch");
 	var wow = getprop("/gear/gear[2]/wow");
 	var slats = getprop("/controls/flight/slats");
-	if (setting == 2) {
+	if (setting != 2) {
+		logo_lights.setBoolValue(0);
+	} else if (setting == 2) {
 		if (wow or slats == 1) {
 			logo_lights.setBoolValue(1);
 		} else if (!wow and slats < 1) {
 			logo_lights.setBoolValue(0);
 		} else {
 			logo_lights.setBoolValue(0);
-			print("Logo Lights: Unknown Condition"); # this is important for debugging
+			print("Logo Lights: Unknown Condition on line 390"); # this is important for debugging
 		}
+	} else {
+		print("Logo Lights: Unknown Condition on line 393"); # this is important for debugging
 	}
 });
 
@@ -404,6 +408,6 @@ var noseLoop = maketimer(0.1, func {
 		setprop("/sim/model/lights/nose-lights", 1);
 	} else {
 		setprop("/sim/model/lights/nose-lights", 0);
-		print("Nose Lights: Unknown Condition"); # this is important for debugging
+		print("Nose Lights: Unknown Condition on line 411"); # this is important for debugging
 	}
 });
