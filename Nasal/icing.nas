@@ -5,31 +5,7 @@
 # Copyright (c) A3XX Development Team #
 #######################################
 
-var icingInit = func {
-	setprop("/systems/icing/severity", "0"); # maximum severity: we will make it random
-	setprop("/systems/icing/factor", 0.0); # the factor is how many inches we add per second
-	setprop("/systems/icing/max-spread-degc", 0.0);
-	setprop("/systems/icing/melt-w-heat-factor", -0.00005000);
-	setprop("/systems/icing/icingcond", 0);
-	setprop("/controls/switches/windowprobeheat", 0);
-	setprop("/controls/switches/wing", 0);
-	setprop("/controls/switches/wingfault", 0);
-	setprop("/controls/switches/leng", 0);
-	setprop("/controls/switches/lengfault", 0);
-	setprop("/controls/switches/reng", 0);
-	setprop("/controls/switches/rengfault", 0);
-	setprop("/controls/deice/wing", 0);
-	setprop("/controls/deice/lengine", 0);
-	setprop("/controls/deice/rengine", 0);
-	setprop("/controls/deice/windowprobeheat", 0);
-	setprop("/systems/pitot/icing", 0.0);
-	setprop("/systems/pitot/failed", 1);
-	setprop("/controls/deice/WingHasBeenTurnedOff", 0);
-	setprop("/controls/deice/GroundModeFinished", 0);
-	icing_timer.start();
-}
-
-var icingModel = func {
+setlistener("/sim/signals/fdm-initialized", func {
 	var dewpoint = getprop("/environment/dewpoint-degc");
 	var temperature = getprop("/environment/temperature-degc");
 	var speed = getprop("/velocities/airspeed-kt");
@@ -58,6 +34,88 @@ var icingModel = func {
 	var rengAnti = getprop("/controls/deice/rengine");
 	var WingHasBeenTurnedOff = getprop("/controls/deice/WingHasBeenTurnedOff");
 	var GroundModeFinished = getprop("/controls/deice/GroundModeFinished");
+	var icing1 = getprop("/sim/model/icing/iceable[0]/ice-inches");
+	var sensitive1 = getprop("/sim/model/icing/iceable[0]/sensitivity");
+	var v = 0;
+	var a = 0;
+	var icing2 = getprop("/sim/model/icing/iceable[1]/ice-inches");
+	var sensitive2 = getprop("/sim/model/icing/iceable[1]/sensitivity");
+	var u = 0;
+	var b = 0;
+	var icing3 = getprop("/sim/model/icing/iceable[2]/ice-inches");
+	var sensitive3 = getprop("/sim/model/icing/iceable[2]/sensitivity");
+	var t = 0;
+	var c = 0;
+	var icing4 = getprop("/sim/model/icing/iceable[3]/ice-inches");
+	var sensitive4 = getprop("/sim/model/icing/iceable[3]/sensitivity");
+	var s = 0;
+	var d = 0;
+	var icing5 = getprop("/sim/model/icing/iceable[4]/ice-inches");
+	var sensitive5 = getprop("/sim/model/icing/iceable[4]/sensitivity");
+	var r = 0;
+	var icing6 = getprop("/sim/model/icing/iceable[5]/ice-inches");
+	var sensitive6 = getprop("/sim/model/icing/iceable[5]/sensitivity");
+	var q = 0;
+	var e = 0;
+	var spread = 0;
+	var windowprb = getprop("/controls/switches/windowprobeheat");
+	stateL = getprop("/engines/engine[0]/state");
+	stateR = getprop("/engines/engine[1]/state");
+});
+
+var icingInit = func {
+	setprop("/systems/icing/severity", "0"); # maximum severity: we will make it random
+	setprop("/systems/icing/factor", 0.0); # the factor is how many inches we add per second
+	setprop("/systems/icing/max-spread-degc", 0.0);
+	setprop("/systems/icing/melt-w-heat-factor", -0.00005000);
+	setprop("/systems/icing/icingcond", 0);
+	setprop("/controls/switches/windowprobeheat", 0);
+	setprop("/controls/switches/wing", 0);
+	setprop("/controls/switches/wingfault", 0);
+	setprop("/controls/switches/leng", 0);
+	setprop("/controls/switches/lengfault", 0);
+	setprop("/controls/switches/reng", 0);
+	setprop("/controls/switches/rengfault", 0);
+	setprop("/controls/deice/wing", 0);
+	setprop("/controls/deice/lengine", 0);
+	setprop("/controls/deice/rengine", 0);
+	setprop("/controls/deice/windowprobeheat", 0);
+	setprop("/systems/pitot/icing", 0.0);
+	setprop("/systems/pitot/failed", 1);
+	setprop("/controls/deice/WingHasBeenTurnedOff", 0);
+	setprop("/controls/deice/GroundModeFinished", 0);
+	icing_timer.start();
+}
+
+var icingModel = func {
+	dewpoint = getprop("/environment/dewpoint-degc");
+	temperature = getprop("/environment/temperature-degc");
+	speed = getprop("/velocities/airspeed-kt");
+	visibility = getprop("/environment/effective-visibility-m");
+	visibLclWx = getprop("/environment/visibility-m");
+	severity = getprop("/systems/icing/severity");
+	factor = getprop("/systems/icing/factor");
+	maxSpread = getprop("/systems/icing/max-spread-degc");
+	icingCond = getprop("/systems/icing/icingcond");
+	pause = getprop("/sim/freeze/master");
+	melt = getprop("/systems/icing/melt-w-heat-factor");
+	windowprobe = getprop("/controls/deice/windowprobeheat");
+	wingBtn = getprop("/controls/switches/wing");
+	wingFault = getprop("/controls/switches/wingfault");
+	wingAnti = getprop("/controls/deice/wing");
+	PSI = getprop("/systems/pneumatic/total-psi");
+	wowl = getprop("/gear/gear[1]/wow");
+	wowr = getprop("/gear/gear[2]/wow");
+	PitotIcing = getprop("/systems/pitot/icing");
+	PitotFailed = getprop("/systems/pitot/failed");
+	lengBtn = getprop("/controls/switches/leng");
+	lengFault = getprop("/controls/switches/lengfault");
+	rengBtn = getprop("/controls/switches/reng");
+	rengFault = getprop("/controls/switches/rengfault");
+	lengAnti = getprop("/controls/deice/lengine");
+	rengAnti = getprop("/controls/deice/rengine");
+	WingHasBeenTurnedOff = getprop("/controls/deice/WingHasBeenTurnedOff");
+	GroundModeFinished = getprop("/controls/deice/GroundModeFinished");
 	
 	if (temperature >= 0 or !icingCond) {
 		setprop("/systems/icing/severity", "0");
@@ -73,10 +131,10 @@ var icingModel = func {
 		setprop("/systems/icing/severity", "1");
 	}
 	
-	var icing1 = getprop("/sim/model/icing/iceable[0]/ice-inches");
-	var sensitive1 = getprop("/sim/model/icing/iceable[0]/sensitivity");
-	var v = icing1 + (factor * sensitive1);
-	var a = icing1 + melt;
+	icing1 = getprop("/sim/model/icing/iceable[0]/ice-inches");
+	sensitive1 = getprop("/sim/model/icing/iceable[0]/sensitivity");
+	v = icing1 + (factor * sensitive1);
+	a = icing1 + melt;
 	if (icing1 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[0]/ice-inches", 0.0);
 	} else if (wingAnti) {
@@ -85,10 +143,10 @@ var icingModel = func {
 		setprop("/sim/model/icing/iceable[0]/ice-inches", v);
 	}
 	
-	var icing2 = getprop("/sim/model/icing/iceable[1]/ice-inches");
-	var sensitive2 = getprop("/sim/model/icing/iceable[1]/sensitivity");
-	var u = icing2 + (factor * sensitive2);
-	var b = icing2 + melt;
+	icing2 = getprop("/sim/model/icing/iceable[1]/ice-inches");
+	sensitive2 = getprop("/sim/model/icing/iceable[1]/sensitivity");
+	u = icing2 + (factor * sensitive2);
+	b = icing2 + melt;
 	if (icing2 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[1]/ice-inches", 0.0);
 	} else if (lengAnti) {
@@ -97,10 +155,10 @@ var icingModel = func {
 		setprop("/sim/model/icing/iceable[1]/ice-inches", u);
 	}
 	
-	var icing3 = getprop("/sim/model/icing/iceable[2]/ice-inches");
-	var sensitive3 = getprop("/sim/model/icing/iceable[2]/sensitivity");
-	var t = icing3 + (factor * sensitive3);
-	var c = icing3 + melt;
+	icing3 = getprop("/sim/model/icing/iceable[2]/ice-inches");
+	sensitive3 = getprop("/sim/model/icing/iceable[2]/sensitivity");
+	t = icing3 + (factor * sensitive3);
+	c = icing3 + melt;
 	if (icing3 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[2]/ice-inches", 0.0);
 	} else if (rengAnti) {
@@ -109,10 +167,10 @@ var icingModel = func {
 		setprop("/sim/model/icing/iceable[2]/ice-inches", t);
 	}
 	
-	var icing4 = getprop("/sim/model/icing/iceable[3]/ice-inches");
-	var sensitive4 = getprop("/sim/model/icing/iceable[3]/sensitivity");
-	var s = icing4 + (factor * sensitive4);
-	var d = icing4 + melt;
+	icing4 = getprop("/sim/model/icing/iceable[3]/ice-inches");
+	sensitive4 = getprop("/sim/model/icing/iceable[3]/sensitivity");
+	s = icing4 + (factor * sensitive4);
+	d = icing4 + melt;
 	if (icing4 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[3]/ice-inches", 0.0);
 	} else if (windowprobe) {
@@ -121,19 +179,19 @@ var icingModel = func {
 		setprop("/sim/model/icing/iceable[3]/ice-inches", s);
 	}
 	
-	var icing5 = getprop("/sim/model/icing/iceable[4]/ice-inches");
-	var sensitive5 = getprop("/sim/model/icing/iceable[4]/sensitivity");
-	var r = icing5 + (factor * sensitive5);
+	icing5 = getprop("/sim/model/icing/iceable[4]/ice-inches");
+	sensitive5 = getprop("/sim/model/icing/iceable[4]/sensitivity");
+	r = icing5 + (factor * sensitive5);
 	if (icing5 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[4]/ice-inches", 0.0);
 	} else if (!pause) {
 		setprop("/sim/model/icing/iceable[4]/ice-inches", r);
 	}
 	
-	var icing6 = getprop("/sim/model/icing/iceable[5]/ice-inches");
-	var sensitive6 = getprop("/sim/model/icing/iceable[5]/sensitivity");
-	var q = icing6 + (factor * sensitive6);
-	var e = icing6 + melt;
+	icing6 = getprop("/sim/model/icing/iceable[5]/ice-inches");
+	sensitive6 = getprop("/sim/model/icing/iceable[5]/sensitivity");
+	q = icing6 + (factor * sensitive6);
+	e = icing6 + melt;
 	if (icing6 < 0.0 and !pause) {
 		setprop("/sim/model/icing/iceable[5]/ice-inches", 0.0);
 	} else if (windowprobe) {
@@ -143,7 +201,7 @@ var icingModel = func {
 	}
 	
 	# Do we create ice?
-	var spread = temperature - dewpoint;
+	spread = temperature - dewpoint;
 	# freezing fog or low temp and below dp or in advanced wx cloud
 	if ((spread < maxSpread and temperature < 0) or (temperature < 0 and visibility < 1000) or (visibLclWx < 5000 and temperature < 0)) { 
 		setprop("/systems/icing/icingcond", 1);
@@ -260,12 +318,12 @@ var icingModel = func {
 	}
 	
 	setlistener("/controls/switches/windowprobeheat", func {
-		var windowprb = getprop("/controls/switches/windowprobeheat");
+		windowprb = getprop("/controls/switches/windowprobeheat");
 		if (windowprb == 0.5) { # if in auto 
-			var wowl = getprop("/gear/gear[1]/wow");
-			var wowr = getprop("/gear/gear[2]/wow");
-			var stateL = getprop("/engines/engine[0]/state");
-			var stateR = getprop("/engines/engine[1]/state");
+			wowl = getprop("/gear/gear[1]/wow");
+			wowr = getprop("/gear/gear[2]/wow");
+			stateL = getprop("/engines/engine[0]/state");
+			stateR = getprop("/engines/engine[1]/state");
 			if (!wowl or !wowr) {
 				setprop("/controls/deice/windowprobeheat", 1);
 			} else if (stateL == 3 or stateR == 3) {
