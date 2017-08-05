@@ -394,7 +394,7 @@ var logoTimer = maketimer(0.1, func {
 			print("Logo Lights: Unknown Condition on line 390"); # this is important for debugging
 		}
 	} else {
-		print("Logo Lights: Unknown Condition on line 393"); # this is important for debugging
+	 # do nothing
 	}
 });
 
@@ -411,7 +411,6 @@ var noseLoop = maketimer(0.1, func {
 	} else if (settingT == 1 and gear > 0.9) {
 		setprop("/sim/model/lights/nose-lights", 1);
 	} else {
-		setprop("/sim/model/lights/nose-lights", 0);
-		print("Nose Lights: Unknown Condition on line 411"); # this is important for debugging
+		# do nothing
 	}
 });
