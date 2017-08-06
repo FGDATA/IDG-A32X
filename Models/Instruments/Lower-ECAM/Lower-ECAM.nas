@@ -95,7 +95,7 @@ var canvas_lowerECAM_base = {
 			lowerECAM_apu.page.hide();
 			lowerECAM_eng1.page.hide();
 			lowerECAM_eng.page.hide();
-                        lowerECAM_fctl.page.hide();
+			lowerECAM_fctl.page.hide();
 		}
 		
 		settimer(func me.update(), 0.02);

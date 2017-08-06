@@ -549,6 +549,7 @@
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
 				<max-athr-thrust type="float">0.94</max-athr-thrust>
+				<throttle-output type="float">0</throttle-output>
 				<throttle-fdm type="float">0</throttle-fdm>
 			</engine>
 			<engine n="1">
@@ -561,6 +562,7 @@
 				<starter type="bool">0</starter>
 				<starter-switch type="bool">0</starter-switch>
 				<max-athr-thrust type="float">0.94</max-athr-thrust>
+				<throttle-output type="float">0</throttle-output>
 				<throttle-fdm type="float">0</throttle-fdm>
 			</engine>
 		</engines>

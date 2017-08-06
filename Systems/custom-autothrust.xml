@@ -114,6 +114,31 @@
 			<value>0.1</value>
 		</max-rate-of-change>
 	</filter>
+	
+	<filter>
+		<name>Throttle Comparator</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<condition>
+				<greater-than-equals>
+					<property>/controls/engines/engine[0]/throttle-man</property>
+					<property>/controls/engines/engine[1]/throttle-man</property>
+				</greater-than-equals>
+			</condition>
+			<property>/controls/engines/engine[0]/throttle-man</property>
+		</input>
+		<input>
+			<condition>
+				<less-than>
+					<property>/controls/engines/engine[0]/throttle-man</property>
+					<property>/controls/engines/engine[1]/throttle-man</property>
+				</less-than>
+			</condition>
+			<property>/controls/engines/engine[1]/throttle-man</property>
+		</input>
+		<output>/controls/engines/throttle-pid-max</output>
+	</filter>
 
 	<!-- Auto throttle --> 
 	<pid-controller>
@@ -170,7 +195,9 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>0.800</u_max>
+			<u_max>
+				<property>/controls/engines/throttle-pid-max</property>
+			</u_max>
 		</config>
 	</pid-controller>
 
@@ -232,7 +259,9 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>0.800</u_max>
+			<u_max>
+				<property>/controls/engines/throttle-pid-max</property>
+			</u_max>
 		</config>
 	</pid-controller>
 
@@ -285,7 +314,9 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>1.000</u_max>
+			<u_max>
+				<property>/controls/engines/throttle-pid-max</property>
+			</u_max>
 		</config>
 	</pid-controller>
 
@@ -338,7 +369,9 @@
 			<Ti>10.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>0.005</u_min>
-			<u_max>1.000</u_max>
+			<u_max>
+				<property>/controls/engines/throttle-pid-max</property>
+			</u_max>
 		</config>
 	</pid-controller>
 	
