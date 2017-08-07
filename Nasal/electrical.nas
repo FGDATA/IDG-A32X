@@ -59,6 +59,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var gen2_fail = getprop("/systems/failures/elec-gen2");
 	var bat1_volts = getprop("/systems/electrical/battery1-volts");
 	var bat2_volts = getprop("/systems/electrical/battery2-volts");
+	var replay = getprop("/sim/replay/replay-state");
 });
 
 var elec_init = func {
@@ -191,6 +192,7 @@ var master_elec = func {
 	genapu_fail = getprop("/systems/failures/elec-genapu");
 	gen1_fail = getprop("/systems/failures/elec-gen1");
 	gen2_fail = getprop("/systems/failures/elec-gen2");
+	replay = getprop("/sim/replay/replay-state");
 	
 	if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/gen-ext", 1);
@@ -378,7 +380,7 @@ var master_elec = func {
 		setprop("/systems/electrical/extra/galleyshed", 0); 
 	}
 	
-	if ((ac1 == 0) and (ac2 == 0) and (ias > 100) or (manrat)) {
+	if ((ac1 == 0) and (ac2 == 0) and (ias > 100) or (manrat) and replay == 0) {
 		setprop("/controls/hydraulic/rat-deployed", 1);
 		setprop("/controls/hydraulic/rat", 1);
 		setprop("/controls/electrical/switches/emer-gen", 1);
