@@ -42,8 +42,8 @@
      id="namedview371"
      showgrid="true"
      inkscape:zoom="4.0000001"
-     inkscape:cx="1000.9282"
-     inkscape:cy="1042.6228"
+     inkscape:cx="33.928224"
+     inkscape:cy="1102.8728"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -581,7 +581,7 @@
        id="tspan4348"
        sodipodi:role="line">LINE 8</tspan></text>
   <path
-     style="fill:#000000;stroke:#00a0d2;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      inkscape:transform-center-x="106.66224"
      d="m 37.642551,137.15163 c 0,2.9783 -2.41437,5.39267 -5.39267,5.39267 -2.9783,0 -5.39268,-2.41437 -5.39268,-5.39267 0,-2.9783 2.41438,-5.39268 5.39268,-5.39268 2.9783,0 5.39267,2.41438 5.39267,5.39268 z"
      id="N11-thr"
@@ -1105,7 +1105,7 @@
      id="N12-thr"
      d="m 384.57791,137.15163 c 0,2.9783 -2.41437,5.39267 -5.39267,5.39267 -2.9783,0 -5.39268,-2.41437 -5.39268,-5.39267 0,-2.9783 2.41438,-5.39268 5.39268,-5.39268 2.9783,0 5.39267,2.41438 5.39267,5.39268 z"
      inkscape:transform-center-x="106.66224"
-     style="fill:#000000;stroke:#00a0d2;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:#000000;stroke:#ffffff;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      inkscape:label="#g4433"
      id="EGT2-scalenum"

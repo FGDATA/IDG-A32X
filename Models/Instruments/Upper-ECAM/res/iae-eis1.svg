@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="true"
-     inkscape:zoom="0.5"
-     inkscape:cx="300.37097"
-     inkscape:cy="474.50831"
+     inkscape:zoom="2"
+     inkscape:cx="476.79314"
+     inkscape:cy="1163.0004"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -541,7 +541,7 @@
        id="tspan4348"
        sodipodi:role="line">LINE 8</tspan></text>
   <path
-     style="fill:#000000;stroke:#00a0d2;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;stroke:#ffffff;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      inkscape:transform-center-x="106.68099"
      d="m 37.491777,128.51072 c 0,2.9783 -2.41437,5.39267 -5.39267,5.39267 -2.9783,0 -5.39268,-2.41437 -5.39268,-5.39267 0,-2.9783 2.41438,-5.39268 5.39268,-5.39268 2.9783,0 5.39267,2.41438 5.39267,5.39268 z"
      id="EPR1-thr"
@@ -1225,7 +1225,7 @@
      id="EPR2-thr"
      d="m 384.46678,128.51072 c 0,2.9783 -2.41437,5.39267 -5.39267,5.39267 -2.9783,0 -5.39268,-2.41437 -5.39268,-5.39267 0,-2.9783 2.41438,-5.39268 5.39268,-5.39268 2.9783,0 5.39267,2.41438 5.39267,5.39268 z"
      inkscape:transform-center-x="106.68099"
-     style="fill:#000000;stroke:#00a0d2;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     style="fill:#000000;stroke:#ffffff;stroke-width:2.88800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      transform="translate(346.975,-26.409754)"
      inkscape:label="#g4433"
