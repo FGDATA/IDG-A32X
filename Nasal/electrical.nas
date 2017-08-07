@@ -567,7 +567,7 @@ var update_electrical = func {
 # Timers #
 ##########
 
-var elec_timer = maketimer(0.1, update_electrical);
+var elec_timer = maketimer(0.2, update_electrical);
 
 var charge1 = maketimer(6, func {
 	bat1_volts = getprop("/systems/electrical/battery1-volts");
