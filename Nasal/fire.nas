@@ -127,7 +127,7 @@ var master_fire = func {
 	# Test Sequence #
 	#################
 	
-	if (getprop("/controls/fire/cargo/test")) {
+	if (test) {
 		setprop("/systems/fire/cargo/test", 1);
 	} else {
 		setprop("/systems/fire/cargo/test", 0);
@@ -188,5 +188,5 @@ var update_fire = func {
 	master_fire();
 }
 
-var fire_timer = maketimer(0.1, update_fire);
+var fire_timer = maketimer(0.2, update_fire);
 
