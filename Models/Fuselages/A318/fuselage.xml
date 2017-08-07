@@ -50,7 +50,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorl1, "doorl1", "PAX left-front (main)");
+				 libraries.triggerDoor(libraries.doorl1, "doorl1", "PAX left-front (main)");
 				</script>
 			</binding>
 		</action>
@@ -98,7 +98,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorr1, "doorr1", "PAX right-front");
+				 libraries.triggerDoor(libraries.doorr1, "doorr1", "PAX right-front");
 				</script>
 			</binding>
 		</action>
@@ -146,7 +146,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorl3, "doorl3", "PAX left");
+				 libraries.triggerDoor(libraries.doorl3, "doorl3", "PAX left");
 				</script>
 			</binding>
 		</action>
@@ -194,7 +194,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorr3, "doorr3", "PAX right");
+				 libraries.triggerDoor(libraries.doorr3, "doorr3", "PAX right");
 				</script>
 			</binding>
 		</action>
@@ -244,7 +244,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.cargofwd, "cargofwd", "forward cargo");
+				 libraries.triggerDoor(libraries.cargofwd, "cargofwd", "forward cargo");
 				</script>
 			</binding>
 		</action>
@@ -279,7 +279,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.cargoaft, "cargoaft", "aft cargo");
+				 libraries.triggerDoor(libraries.cargoaft, "cargoaft", "aft cargo");
 				</script>
 			</binding>
 		</action>

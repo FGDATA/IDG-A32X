@@ -164,23 +164,23 @@ setlistener("/controls/switches/no-smoking-sign", func {
 #########
 
 # Front doors
-var doorl1 = aircraft.door.new("/sim/model/door-positions/doorl1", 2);
-var doorr1 = aircraft.door.new("/sim/model/door-positions/doorr1", 2);
+var doorl1 = aircraft.door.new("/sim/model/door-positions/doorl1", 4);
+var doorr1 = aircraft.door.new("/sim/model/door-positions/doorr1", 4);
 
 # Middle doors (A321 only)
-var doorl2 = aircraft.door.new("/sim/model/door-positions/doorl2", 2);
-var doorr2 = aircraft.door.new("/sim/model/door-positions/doorr2", 2);
-var doorl3 = aircraft.door.new("/sim/model/door-positions/doorl3", 2);
-var doorr3 = aircraft.door.new("/sim/model/door-positions/doorr3", 2);
+var doorl2 = aircraft.door.new("/sim/model/door-positions/doorl2", 4);
+var doorr2 = aircraft.door.new("/sim/model/door-positions/doorr2", 4);
+var doorl3 = aircraft.door.new("/sim/model/door-positions/doorl3", 4);
+var doorr3 = aircraft.door.new("/sim/model/door-positions/doorr3", 4);
 
 # Rear doors
-var doorl4 = aircraft.door.new("/sim/model/door-positions/doorl4", 2);
-var doorr4 = aircraft.door.new("/sim/model/door-positions/doorr4", 2);
+var doorl4 = aircraft.door.new("/sim/model/door-positions/doorl4", 4);
+var doorr4 = aircraft.door.new("/sim/model/door-positions/doorr4", 4);
 
 # Cargo holds
-var cargobulk = aircraft.door.new("/sim/model/door-positions/cargobulk", 2.5);
-var cargoaft = aircraft.door.new("/sim/model/door-positions/cargoaft", 2.5);
-var cargofwd = aircraft.door.new("/sim/model/door-positions/cargofwd", 2.5);
+var cargobulk = aircraft.door.new("/sim/model/door-positions/cargobulk", 3);
+var cargoaft = aircraft.door.new("/sim/model/door-positions/cargoaft", 10);
+var cargofwd = aircraft.door.new("/sim/model/door-positions/cargofwd", 10);
 
 # Seat armrests in the flight deck (unused)
 var armrests = aircraft.door.new("/sim/model/door-positions/armrests", 2);

@@ -50,7 +50,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorl1, "doorl1", "PAX left-front (main)");
+				 libraries.triggerDoor(libraries.doorl1, "doorl1", "PAX left-front (main)");
 				</script>
 			</binding>
 		</action>
@@ -98,7 +98,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorr1, "doorr1", "PAX right-front");
+				 libraries.triggerDoor(libraries.doorr1, "doorr1", "PAX right-front");
 				</script>
 			</binding>
 		</action>
@@ -146,7 +146,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorl4, "doorl4", "PAX left-back");
+				 libraries.triggerDoor(libraries.doorl4, "doorl4", "PAX left-back");
 				</script>
 			</binding>
 		</action>
@@ -194,7 +194,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(systems.doorr4, "doorr4", "PAX right-back");
+				 libraries.triggerDoor(libraries.doorr4, "doorr4", "PAX right-back");
 				</script>
 			</binding>
 		</action>
