@@ -268,7 +268,7 @@ var icingModel = func {
 	#################
 
 	setlistener("/controls/switches/leng", func {
-		if (lengBtn) {
+		if (lengBtn and stateL == 3) {
 			setprop("/controls/switches/lengfault", 1);
 			settimer(func() {
 				setprop("/controls/switches/lengfault", 0);
@@ -283,12 +283,18 @@ var icingModel = func {
 		}
 	});
 	
+	setlistener("/engines/engine[0]/state", func {
+		if (stateL != 3) {
+			setprop("/controls/switches/leng", 0);
+		}
+	});
+	
 	#################
 	# REng Anti-Ice #
 	#################
 
 	setlistener("/controls/switches/reng", func {
-		if (rengBtn) {
+		if (rengBtn and stateR == 3) {
 			setprop("/controls/switches/rengfault", 1);
 			settimer(func() {
 				setprop("/controls/switches/rengfault", 0);
@@ -300,6 +306,12 @@ var icingModel = func {
 				setprop("/controls/switches/rengfault", 0);
 				setprop("/controls/deice/rengine", 0);
 			}, 0.5);
+		}
+	});
+	
+	setlistener("/engines/engine[1]/state", func {
+		if (stateR != 3) {
+			setprop("/controls/switches/reng", 0);
 		}
 	});
 	

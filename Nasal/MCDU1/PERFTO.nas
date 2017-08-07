@@ -153,8 +153,6 @@ var perfTOInput = func(key) {
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 			}
 		}
-	} else if (key == "R6") {
-		setprop("/MCDU[0]/page", "CLB");
 	} else if (key == "R3") {
 		if (scratchpad == "CLR") {
 			setprop("/FMGC/internal/to-flap", 0);
@@ -236,5 +234,7 @@ var perfTOInput = func(key) {
 				setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 			}
 		}
-	}
+	} else if (key == "R6") {
+		setprop("/MCDU[0]/page", "CLB");
+	} 
 }
