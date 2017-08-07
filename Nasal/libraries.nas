@@ -383,7 +383,7 @@ var logoTimer = maketimer(0.1, func {
 	wow = getprop("/gear/gear[2]/wow");
 	slats = getprop("/controls/flight/slats");
 	if (setting == 0 and logo_lights == 1) {
-		 setprop("/sim/model/lights/logo-lights", 1);
+		 setprop("/sim/model/lights/logo-lights", 0);
 	} else if (setting == 1 or setting == 2) {
 		if (wow or slats == 1) {
 			setprop("/sim/model/lights/logo-lights", 1);
