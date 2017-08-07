@@ -46,8 +46,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
-	var bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
-	var bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
 	var emergen = getprop("/controls/electrical/switches/emer-gen");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
 	var rat = getprop("/controls/hydraulic/rat");
@@ -99,8 +97,6 @@ var elec_init = func {
 	setprop("/systems/electrical/extra/ext-hz", 0);
 	setprop("/systems/electrical/extra/apu-hz", 0);
 	setprop("/systems/electrical/extra/galleyshed", 0);
-	setprop("/systems/electrical/extra/battery/bat1-contact", 0);
-	setprop("/systems/electrical/extra/battery/bat2-contact", 0);
 	setprop("/systems/electrical/gen-apu", 0);
 	setprop("/systems/electrical/gen-ext", 0);
 	setprop("/systems/electrical/on", 0);
@@ -184,8 +180,6 @@ var master_elec = func {
 	gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
 	gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
 	galley_shed = getprop("/systems/electrical/extra/galleyshed");
-	bat1_con = getprop("/systems/electrical/extra/battery/bat1-contact");
-	bat2_con = getprop("/systems/electrical/extra/battery/bat2-contact");
 	emergen = getprop("/controls/electrical/switches/emer-gen");
 	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
 	rat = getprop("/controls/hydraulic/rat");
@@ -198,38 +192,39 @@ var master_elec = func {
 	gen1_fail = getprop("/systems/failures/elec-gen1");
 	gen2_fail = getprop("/systems/failures/elec-gen2");
 	
-	if (rpmapu >= 94.9 and gen_apu_sw) {
+	if (extpwr_on and gen_ext_sw) {
+		setprop("/systems/electrical/gen-ext", 1);
+	} else {
+		setprop("/systems/electrical/gen-ext", 0);
+	} 
+	
+	if (rpmapu >= 94.9 and gen_apu_sw and !extpwr_on and !gen_ext_sw) {
 		setprop("/systems/electrical/gen-apu", 1);
 	} else {
 		setprop("/systems/electrical/gen-apu", 0);
 	}
 	
-	if (extpwr_on and gen_ext_sw) {
-		setprop("/systems/electrical/gen-ext", 1);
-	} else {
-		setprop("/systems/electrical/gen-ext", 0);
-	}
 	
 	gen_apu = getprop("/systems/electrical/gen-apu");
 	gen_ext = getprop("/systems/electrical/gen-ext");
 	
 	# Left cross tie yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateL == 3 and gen1_sw and !gen1_fail) {
+		setprop("/controls/electrical/xtie/xtieR", 1);
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/controls/electrical/xtie/xtieR", 1);
 	} else if (rpmapu >= 94.9 and gen_apu_sw and !genapu_fail) {
-		setprop("/controls/electrical/xtie/xtieR", 1);
-	} else if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/controls/electrical/xtie/xtieR", 1);
 	} else {
 		setprop("/controls/electrical/xtie/xtieR", 0);
 	}
 	
 	# Right cross tie yes?
-	if (extpwr_on and gen_ext_sw) {
+	if (stateR == 3 and gen2_sw and !gen2_fail) {
+		setprop("/controls/electrical/xtie/xtieL", 1);
+	} else if (extpwr_on and gen_ext_sw) {
 		setprop("/controls/electrical/xtie/xtieL", 1);
 	} else if (rpmapu >= 94.9 and gen_apu_sw and !genapu_fail) {
-		setprop("/controls/electrical/xtie/xtieL", 1);
-	} else if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/controls/electrical/xtie/xtieL", 1);
 	} else {
 		setprop("/controls/electrical/xtie/xtieL", 0);
@@ -413,39 +408,33 @@ var master_elec = func {
 	}
 	
 	if (battery1_volts > 27.9 or (dcbat == 0)) {
-		setprop("/systems/electrical/extra/battery/bat1-contact", 0);
 		charge1.stop();
 	} else if (batt1_fail) {
-		setprop("/systems/electrical/extra/battery/bat1-contact", 0);
 		charge1.stop();
 	}
 	
 	if (battery2_volts > 27.9 or (dcbat == 0)) {
-		setprop("/systems/electrical/extra/battery/bat2-contact", 0);
 		charge2.stop();
 	} else if (batt2_fail) {
-		setprop("/systems/electrical/extra/battery/bat2-contact", 0);
 		charge2.stop();
 	}
 	
 	if ((dcbat > 0) and battery1_sw and !batt1_fail) {
-		setprop("/systems/electrical/extra/battery/bat1-contact", 1);
 		decharge1.stop();
 		charge1.start();
 	}
 	
 	if ((dcbat > 0) and battery2_sw and !batt2_fail) {
-		setprop("/systems/electrical/extra/battery/bat2-contact", 1);
 		decharge1.stop();
 		charge2.start();
 	}
 
 	
-	if (!bat1_con and (dcbat == 0) and battery1_sw and !batt1_fail) {
+	if ((dcbat == 0) and battery1_sw and !batt1_fail) {
 		decharge1.start();
 	}
 	
-	if (!bat2_con and (dcbat == 0) and battery2_sw and !batt2_fail) {
+	if ((dcbat == 0) and battery2_sw and !batt2_fail) {
 		decharge2.start();
 	}
 		
@@ -578,7 +567,7 @@ var update_electrical = func {
 # Timers #
 ##########
 
-var elec_timer = maketimer(0.2, update_electrical);
+var elec_timer = maketimer(0.1, update_electrical);
 
 var charge1 = maketimer(6, func {
 	bat1_volts = getprop("/systems/electrical/battery1-volts");
