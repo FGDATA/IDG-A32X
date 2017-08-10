@@ -59,8 +59,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var e = 0;
 	var spread = 0;
 	var windowprb = getprop("/controls/switches/windowprobeheat");
-	stateL = getprop("/engines/engine[0]/state");
-	stateR = getprop("/engines/engine[1]/state");
+	var stateL = getprop("/engines/engine[0]/state");
+	var stateR = getprop("/engines/engine[1]/state");
 });
 
 var icingInit = func {
@@ -116,6 +116,8 @@ var icingModel = func {
 	rengAnti = getprop("/controls/deice/rengine");
 	WingHasBeenTurnedOff = getprop("/controls/deice/WingHasBeenTurnedOff");
 	GroundModeFinished = getprop("/controls/deice/GroundModeFinished");
+	stateL = getprop("/engines/engine[0]/state");
+	stateR = getprop("/engines/engine[1]/state");
 	
 	if (temperature >= 0 or !icingCond) {
 		setprop("/systems/icing/severity", "0");
