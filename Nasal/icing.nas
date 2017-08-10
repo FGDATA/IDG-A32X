@@ -209,47 +209,11 @@ var icingModel = func {
 		setprop("/systems/icing/icingcond", 0);
 	}
 	
-	#################
-	# Wing Anti-Ice #
-	#################
-
-	# Switching on the wing anti-ice
-	setlistener("/controls/switches/wing", func {
-		# On the ground
-		if (wowl and wowr and wingBtn) {
-			setprop("/controls/switches/wingfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/wingfault", 0);
-				setprop("/controls/deice/wing", 1);
-			}, 0.5);
-			settimer(func() {
-				setprop("/controls/deice/WingHasBeenTurnedOff", 1);
-				setprop("/controls/deice/wing", 0);
-			}, 30.5);
-			settimer(func() {
-				setprop("/controls/deice/GroundModeFinished", 1);
-			}, 31);
-		} else if (wingBtn and !wowl and !wowr) { # In the air
-			setprop("/controls/switches/wingfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/wingfault", 0);
-				setprop("/controls/deice/wing", 1);
-			}, 0.5);
-		} else if (!wingBtn) {
-			setprop("/controls/switches/wingfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/wingfault", 0);
-				setprop("/controls/deice/wing", 0);
-			}, 0.5);
-		}
-	});
-	
 	if (WingHasBeenTurnedOff and !wowl and !wowr and GroundModeFinished) {
 		setprop("/controls/deice/wing", 1);
 		setprop("/controls/switches/WingHasBeenTurnedOff", 0);
 	}
 		
-	
 	# If we have low pressure we have a fault
 	if (PSI < 10) {
 		setprop("/controls/switches/wingfault", 1);
@@ -263,62 +227,6 @@ var icingModel = func {
 		}
 	}
 	
-	#################
-	# LEng Anti-Ice #
-	#################
-
-	setlistener("/controls/switches/leng", func {
-		if (lengBtn and stateL == 3) {
-			setprop("/controls/switches/lengfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/lengfault", 0);
-				setprop("/controls/deice/lengine", 1);
-			}, 0.5);
-		} else if (!lengBtn) {
-			setprop("/controls/switches/lengfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/lengfault", 0);
-				setprop("/controls/deice/lengine", 0);
-			}, 0.5);
-		}
-	});
-	
-	setlistener("/engines/engine[0]/state", func {
-		if (stateL != 3) {
-			setprop("/controls/switches/leng", 0);
-		}
-	});
-	
-	#################
-	# REng Anti-Ice #
-	#################
-
-	setlistener("/controls/switches/reng", func {
-		if (rengBtn and stateR == 3) {
-			setprop("/controls/switches/rengfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/rengfault", 0);
-				setprop("/controls/deice/rengine", 1);
-			}, 0.5);
-		} else if (!rengBtn) {
-			setprop("/controls/switches/rengfault", 1);
-			settimer(func() {
-				setprop("/controls/switches/rengfault", 0);
-				setprop("/controls/deice/rengine", 0);
-			}, 0.5);
-		}
-	});
-	
-	setlistener("/engines/engine[1]/state", func {
-		if (stateR != 3) {
-			setprop("/controls/switches/reng", 0);
-		}
-	});
-	
-	##################
-	# Probe Anti-Ice #
-	##################
-	
 	if (PitotIcing > 0.03) {
 		if (!PitotFailed) {
 			setprop("/systems/pitot/failed", 1);
@@ -328,26 +236,119 @@ var icingModel = func {
 			setprop("/systems/pitot/failed", 0);
 		}
 	}
-	
-	setlistener("/controls/switches/windowprobeheat", func {
-		windowprb = getprop("/controls/switches/windowprobeheat");
-		if (windowprb == 0.5) { # if in auto 
-			wowl = getprop("/gear/gear[1]/wow");
-			wowr = getprop("/gear/gear[2]/wow");
-			stateL = getprop("/engines/engine[0]/state");
-			stateR = getprop("/engines/engine[1]/state");
-			if (!wowl or !wowr) {
-				setprop("/controls/deice/windowprobeheat", 1);
-			} else if (stateL == 3 or stateR == 3) {
-				setprop("/controls/deice/windowprobeheat", 1);
-			}
-		} else if (windowprb == 1) { # if in ON
-			setprop("/controls/deice/windowprobeheat", 1);
-		} else {
-			setprop("/controls/deice/windowprobeheat", 0);
-		}
-	});	
 }
+
+#################
+# LEng Anti-Ice #
+#################
+
+setlistener("/controls/switches/leng", func {
+	if (getprop("/controls/switches/leng") == 1 and getprop("/engines/engine[0]/state") == 3) {
+		setprop("/controls/switches/lengfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/lengfault", 0);
+			setprop("/controls/deice/lengine", 1);
+		}, 0.5);
+	} else if (getprop("/controls/switches/leng") == 0) {
+		setprop("/controls/switches/lengfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/lengfault", 0);
+			setprop("/controls/deice/lengine", 0);
+		}, 0.5);
+	}
+});
+
+setlistener("/engines/engine[0]/state", func {
+	if (getprop("/engines/engine[0]/state") != 3) {
+		setprop("/controls/switches/leng", 0);
+	}
+});
+
+#################
+# REng Anti-Ice #
+#################
+
+setlistener("/controls/switches/reng", func {
+	if (getprop("/controls/switches/reng") == 1 and getprop("/engines/engine[1]/state") == 3) {
+		setprop("/controls/switches/rengfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/rengfault", 0);
+			setprop("/controls/deice/rengine", 1);
+		}, 0.5);
+	} else if (getprop("/controls/switches/reng") == 0) {
+		setprop("/controls/switches/rengfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/rengfault", 0);
+			setprop("/controls/deice/rengine", 0);
+		}, 0.5);
+	}
+});
+
+setlistener("/engines/engine[1]/state", func {
+	if (getprop("/engines/engine[1]/state") != 3) {
+		setprop("/controls/switches/reng", 0);
+	}
+});
+
+##################
+# Probe Anti-Ice #
+##################
+
+setlistener("/controls/switches/windowprobeheat", func {
+	windowprb = getprop("/controls/switches/windowprobeheat");
+	if (windowprb == 0.5) { # if in auto 
+		wowl = getprop("/gear/gear[1]/wow");
+		wowr = getprop("/gear/gear[2]/wow");
+		stateL = getprop("/engines/engine[0]/state");
+		stateR = getprop("/engines/engine[1]/state");
+		if (!wowl or !wowr) {
+			setprop("/controls/deice/windowprobeheat", 1);
+		} else if (stateL == 3 or stateR == 3) {
+			setprop("/controls/deice/windowprobeheat", 1);
+		}
+	} else if (windowprb == 1) { # if in ON
+		setprop("/controls/deice/windowprobeheat", 1);
+	} else {
+		setprop("/controls/deice/windowprobeheat", 0);
+	}
+});	
+
+#################
+# Wing Anti-Ice #
+#################
+
+# Switching on the wing anti-ice
+setlistener("/controls/switches/wing", func {
+	wowl = getprop("/gear/gear[1]/wow");
+	wowr = getprop("/gear/gear[2]/wow");
+	wingBtn = getprop("/controls/switches/wing");
+	if (wowl and wowr and wingBtn) {
+		setprop("/controls/switches/wingfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/wingfault", 0);
+			setprop("/controls/deice/wing", 1);
+		}, 0.5);
+		settimer(func() {
+			setprop("/controls/deice/WingHasBeenTurnedOff", 1);
+			setprop("/controls/deice/wing", 0);
+		}, 30.5);
+		settimer(func() {
+			setprop("/controls/deice/GroundModeFinished", 1);
+		}, 31);
+	} else if (wingBtn and !wowl and !wowr) { # In the air
+		setprop("/controls/switches/wingfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/wingfault", 0);
+			setprop("/controls/deice/wing", 1);
+		}, 0.5);
+	} else if (!wingBtn) {
+		setprop("/controls/switches/wingfault", 1);
+		settimer(func() {
+			setprop("/controls/switches/wingfault", 0);
+			setprop("/controls/deice/wing", 0);
+		}, 0.5);
+	}
+});
 
 ###################
 # Update Function #
