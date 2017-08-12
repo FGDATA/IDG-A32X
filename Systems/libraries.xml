@@ -8,41 +8,41 @@
 
 <PropertyList>
 
-    <filter>
-        <name>OAT Thrust Scale</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/environment/temperature-degc</property>
-                    <entry><ind> 70</ind><dep>0.790</dep></entry>
-                    <entry><ind> 40</ind><dep>0.815</dep></entry>
-                    <entry><ind>-60</ind><dep>1.000</dep></entry>
-                </table>
-            </expression>
-        </input>
+	<filter>
+		<name>OAT Thrust Scale</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/environment/temperature-degc</property>
+					<entry><ind> 70</ind><dep>0.790</dep></entry>
+					<entry><ind> 40</ind><dep>0.815</dep></entry>
+					<entry><ind>-60</ind><dep>1.000</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/controls/engines/throttle-scale</output>
-    </filter>
+	</filter>
 	
-    <filter>
-        <name>FLX Thrust Scale</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/FMGC/internal/flex</property>
-                    <entry><ind> 70</ind><dep>0.790</dep></entry>
-                    <entry><ind> 40</ind><dep>0.815</dep></entry>
-                    <entry><ind>-60</ind><dep>1.000</dep></entry>
-                </table>
-            </expression>
-        </input>
+	<filter>
+		<name>FLX Thrust Scale</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/FMGC/internal/flex</property>
+					<entry><ind> 70</ind><dep>0.790</dep></entry>
+					<entry><ind> 40</ind><dep>0.815</dep></entry>
+					<entry><ind>-60</ind><dep>1.000</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/engines/flx-throttle</output>
-    </filter>
+	</filter>
 
 	<filter>
 		<name>FF 1</name>
@@ -262,48 +262,48 @@
 	</filter>
 
 	<filter>
-        <name>Target Pressurize Altitude CMD</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.1</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-                    <entry><ind>    0</ind><dep>   0</dep></entry>
-                    <entry><ind> 1000</ind><dep> 500</dep></entry>
-                    <entry><ind> 5000</ind><dep>1100</dep></entry>
-                    <entry><ind>20000</ind><dep>5200</dep></entry>
-                    <entry><ind>30000</ind><dep>6700</dep></entry>
-                    <entry><ind>30000</ind><dep>7900</dep></entry>
-                    <entry><ind>40500</ind><dep>8000</dep></entry>
-                </table>
-            </expression>
-        </input>
-        <output>/systems/pressurization/targetalt-cmd</output>      
-    </filter>
+		<name>Target Pressurize Altitude CMD</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>    0</ind><dep>   0</dep></entry>
+					<entry><ind> 1000</ind><dep> 500</dep></entry>
+					<entry><ind> 5000</ind><dep>1100</dep></entry>
+					<entry><ind>20000</ind><dep>5200</dep></entry>
+					<entry><ind>30000</ind><dep>6700</dep></entry>
+					<entry><ind>30000</ind><dep>7900</dep></entry>
+					<entry><ind>40500</ind><dep>8000</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/systems/pressurization/targetalt-cmd</output>
+	</filter>
 	
 	<filter>
-        <name>Target Pressurize Altitude</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.1</update-interval-secs>
-        <input> 
+		<name>Target Pressurize Altitude</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
 			<condition>
 				<or>
-				<equals>
-					<property>/gear/gear[1]/wow</property>
-					<value>1</value>
-				</equals>
-				<less-than>
-					<property>/systems/pressurization/targetalt-cmd</property>
-					<property>/systems/pressurization/cabinalt-norm</property>
-				</less-than>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>1</value>
+					</equals>
+					<less-than>
+						<property>/systems/pressurization/targetalt-cmd</property>
+						<property>/systems/pressurization/cabinalt-norm</property>
+					</less-than>
 				</or>
 			</condition>
 			<property>/systems/pressurization/cabinalt-norm</property>
-        </input>
-        <input> 
+		</input>
+		<input> 
 			<condition>
 				<not>
 					<property>/gear/gear[1]/wow</property>
@@ -311,9 +311,9 @@
 				</not>
 			</condition>
 			<property>/systems/pressurization/targetalt-cmd</property>
-        </input>
-        <output>/systems/pressurization/targetalt</output>      
-    </filter>
+		</input>
+		<output>/systems/pressurization/targetalt</output>
+	</filter>
 	
 	<filter>
 		<name>Cabin PSI target</name>
@@ -342,11 +342,11 @@
 	</filter>
 	
 	<filter>
-        <name>VS-target</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.1</update-interval-secs>
-        <input> 
+		<name>VS-target</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
 			<condition>
 				<equals>
 					<property>/gear/gear[1]/wow</property>
@@ -354,8 +354,8 @@
 				</equals>
 			</condition>
 			<property>/systems/pressurization/ambientpsi</property>
-        </input>
-        <input> 
+		</input>
+		<input> 
 			<condition>
 				<not>
 					<property>/gear/gear[1]/wow</property>
@@ -363,9 +363,9 @@
 				</not>
 			</condition>
 			<property>/systems/pressurization/cabinpsi-target</property>
-        </input>
-        <output>/systems/pressurization/cabinpsi</output>   
-    </filter>
+		</input>
+		<output>/systems/pressurization/cabinpsi</output>
+	</filter>
 
 	<filter>
 		<name>Ambient PSI (ICAO std)</name>
@@ -428,11 +428,11 @@
 	</filter>
 	
 	<filter>
-        <name>Outflow logic</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.1</update-interval-secs>
-        <input> 
+		<name>Outflow logic</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
 			<condition>
 				<equals>
 					<property>/systems/pressurization/auto</property>
@@ -440,8 +440,8 @@
 				</equals>
 			</condition>
 			<property>/systems/pressurization/outflowpos-man</property>
-        </input>
-        <input> 
+		</input>
+		<input> 
 			<condition>
 				<equals>
 					<property>/systems/pressurization/auto</property>
@@ -449,9 +449,9 @@
 				</equals>
 			</condition>
 			<property>/systems/pressurization/outflowpos-norm-cmd</property>
-        </input>
-        <output>/systems/pressurization/outflowpos-norm</output>   
-    </filter>
+		</input>
+		<output>/systems/pressurization/outflowpos-norm</output>   
+	</filter>
 	
 	<filter>
 		<name>Cabin VS</name>
@@ -528,11 +528,11 @@
 	</filter>
 	
 	<filter>
-        <name>VS-target</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.1</update-interval-secs>
-        <input> 
+		<name>VS-target</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
 			<condition>
 				<equals>
 					<property>/gear/gear[1]/wow</property>
@@ -540,8 +540,8 @@
 				</equals>
 			</condition>
 			<value>0</value>
-        </input>
-        <input> 
+		</input>
+		<input> 
 			<condition>
 				<not>
 					<property>/gear/gear[1]/wow</property>
@@ -549,9 +549,9 @@
 				</not>
 			</condition>
 			<property>/systems/pressurization/targetvs-cmd</property>
-        </input>
-        <output>/systems/pressurization/targetvs</output>   
-    </filter>
+		</input>
+		<output>/systems/pressurization/targetvs</output>   
+	</filter>
 	
 	<filter>
 		<name>Icing Severity</name>
@@ -575,17 +575,148 @@
 	</filter>
 	
 	<filter>
-        <name>TAS</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <input> 
-			 <expression>
-                <product>
-                    <property>velocities/uBody-fps</property> 
-                    <value>0.592484</value>
-                </product>
-            </expression>
+		<name>TAS</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input> 
+			<expression>
+				<product>
+					<property>velocities/uBody-fps</property> 
+					<value>0.592484</value>
+				</product>
+			</expression>
 		</input>
 		<output>/velocities/TAS</output>
-    </filter>
+	</filter>
+	
+	<filter>
+		<name>LBtoKG</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<product>
+				<property>fdm/jsbsim/inertia/weight-lbs</property>
+				<value>0.45359237</value>
+			</product>
+		</input>
+		<output>fdm/jsbsim/inertia/weight-kg</output>
+	</filter>
+	
+	<filter>
+		<name>optalt</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<expression>
+				<table>
+					<property>fdm/jsbsim/inertia/weight-kg</property>  <!-- from FCOM vol 3 page 613 -->
+					<entry><ind>160000</ind><dep>40500</dep></entry>
+					<entry><ind>165000</ind><dep>40000</dep></entry>
+					<entry><ind>170000</ind><dep>39500</dep></entry>
+					<entry><ind>175000</ind><dep>39000</dep></entry>
+					<entry><ind>180000</ind><dep>38000</dep></entry>
+					<entry><ind>185000</ind><dep>37800</dep></entry>
+					<entry><ind>190000</ind><dep>37500</dep></entry>
+					<entry><ind>195000</ind><dep>36800</dep></entry>
+					<entry><ind>200000</ind><dep>36400</dep></entry>
+					<entry><ind>205000</ind><dep>35800</dep></entry>
+					<entry><ind>210000</ind><dep>35200</dep></entry>
+					<entry><ind>215000</ind><dep>34800</dep></entry>
+					<entry><ind>220000</ind><dep>34100</dep></entry>
+					<entry><ind>225000</ind><dep>33500</dep></entry>
+					<entry><ind>230000</ind><dep>33100</dep></entry>
+					<entry><ind>235000</ind><dep>32700</dep></entry>
+					<entry><ind>240000</ind><dep>32400</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/FMGC/internal/optalt</output>
+	</filter>
+	
+	<filter>
+		<name>Ambient Temp (ICAO std)</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					<entry><ind>-1000</ind><dep>  21.5</dep></entry>
+					<entry><ind>    0</ind><dep>  15.0</dep></entry>
+					<entry><ind> 1000</ind><dep>   8.5</dep></entry>
+					<entry><ind> 2000</ind><dep>   2.0</dep></entry>
+					<entry><ind> 3000</ind><dep> -4.50</dep></entry>
+					<entry><ind> 4000</ind><dep> -11.0</dep></entry>
+					<entry><ind> 5000</ind><dep> -17.5</dep></entry>
+					<entry><ind> 6000</ind><dep> -24.0</dep></entry>
+					<entry><ind> 7000</ind><dep> -30.5</dep></entry>
+					<entry><ind> 8000</ind><dep> -37.0</dep></entry>
+					<entry><ind> 9000</ind><dep> -43.0</dep></entry>
+					<entry><ind>10000</ind><dep> -50.0</dep></entry>
+					<entry><ind>11000</ind><dep> -56.5</dep></entry>
+					<entry><ind>12000</ind><dep> -56.5</dep></entry>
+					<entry><ind>13000</ind><dep> -56.5</dep></entry>
+					<entry><ind>14000</ind><dep> -56.5</dep></entry>
+					<entry><ind>15000</ind><dep> -56.5</dep></entry>
+					<entry><ind>16000</ind><dep> -56.5</dep></entry>
+					<entry><ind>17000</ind><dep> -56.5</dep></entry>
+					<entry><ind>18000</ind><dep> -56.5</dep></entry>
+					<entry><ind>19000</ind><dep> -56.5</dep></entry>
+					<entry><ind>20000</ind><dep> -56.5</dep></entry>
+					<entry><ind>22000</ind><dep> -54.5</dep></entry>
+					<entry><ind>24000</ind><dep> -52.5</dep></entry>
+					<entry><ind>26000</ind><dep> -50.5</dep></entry>
+					<entry><ind>28000</ind><dep> -48.5</dep></entry>
+                    <entry><ind>30000</ind><dep> -46.5</dep></entry>
+					<entry><ind>32000</ind><dep> -44.5</dep></entry>
+					<entry><ind>34000</ind><dep> -38.9</dep></entry>
+					<entry><ind>36000</ind><dep> -33.3</dep></entry>
+					<entry><ind>38000</ind><dep> -27.7</dep></entry>
+					<entry><ind>39000</ind><dep> -24.9</dep></entry>
+					<entry><ind>40000</ind><dep> -22.1</dep></entry>
+					<entry><ind>41000</ind><dep> -19.3</dep></entry>
+					<entry><ind>42000</ind><dep> -16.5</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/FMGC/internal/ISAtemp</output>
+	</filter>
+	
+	<filter>
+		<name>Difference to ISA Temp (Actual - ISA)</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
+			<difference>
+				<property>/environment/temperature-degc</property>
+				<property>/FMGC/internal/ISAtemp</property>
+			</difference>
+		</input>
+		<output>/FMGC/internal/difftoISA</output>
+	</filter>
+	
+	<filter>
+		<name>Rudder Limit</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/velocities/airspeed-kt</property>
+					<entry><ind>   0</ind><dep> 30</dep></entry>
+					<entry><ind> 140</ind><dep> 30</dep></entry>
+					<entry><ind> 240</ind><dep> 10</dep></entry>
+					<entry><ind> 380</ind><dep>3.4</dep></entry>
+					<entry><ind>1000</ind><dep>3.4</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/flight/rudder-limit</output>
+	</filter>
+	
 </PropertyList>
