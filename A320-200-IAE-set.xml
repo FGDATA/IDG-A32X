@@ -11,7 +11,6 @@
 	<sim>
 	
 		<sound>
-			<!--<path>Aircraft/A320Family/SHS/V2500/A320-common-sound.xml</path> uncoment if you have new sounds installed -->
 			<path>Aircraft/A320Family/Sounds/A320-common-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
