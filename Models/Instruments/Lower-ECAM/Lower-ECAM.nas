@@ -287,7 +287,7 @@ var canvas_lowerECAM_fctl = {
 		return["ailL","ailR","elevL","elevR","PTcc","PT","PTupdn","GW","TAT","SAT","elac1","elac2","sec1","sec2","sec3","ailLblue","ailRblue","elevLblue","elevRblue","rudderblue","ailLgreen","ailRgreen","elevLgreen","ruddergreen","PTgreen","elevRyellow",
 		"rudderyellow","PTyellow","rudder","spdbrkblue","spdbrkgreen","spdbrkyellow","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf",
-		"ailLscale","ailRscale"];
+		"ailLscale","ailRscale","path4249","path4249-3","path4249-3-6-7","path4249-3-6-7-5","path4249-3-6"];
 	},
 	update: func() {
 		var blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -579,32 +579,42 @@ var canvas_lowerECAM_fctl = {
 		# Flight Computers		
 		if (getprop("/systems/fctl/elac1")){
 			me["elac1"].setColor(0,1,0);
-		} else {
+			me["path4249"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/elac1") == 0) or (getprop("/systems/failures/elac1") == 1)){
 			me["elac1"].setColor(1,0.6,0);
+			me["path4249"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/elac2")){
 			me["elac2"].setColor(0,1,0);
-		} else {
+			me["path4249-3"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/elac2") == 0) or (getprop("/systems/failures/elac2") == 1)){
 			me["elac2"].setColor(1,0.6,0);
+			me["path4249-3"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec1")){
 			me["sec1"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6-7"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec1") == 0) or (getprop("/systems/failures/sec1") == 1)){
 			me["sec1"].setColor(1,0.6,0);
+			me["path4249-3-6-7"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec2")){
 			me["sec2"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6-7-5"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec2") == 0) or (getprop("/systems/failures/sec2") == 1)){
 			me["sec2"].setColor(1,0.6,0);
+			me["path4249-3-6-7-5"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec3")){
 			me["sec3"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec3") == 0) or (getprop("/systems/failures/sec3") == 1)){
 			me["sec3"].setColor(1,0.6,0);
+			me["path4249-3-6"].setColor(1,0.6,0);
 		}
 		
 		# Hydraulic Indicators
