@@ -23,9 +23,9 @@ var n2_max = 102.1;
 var egt_max = 712;
 var n1_wm = 0;
 var n2_wm = 0;
-var apu_max = 99.2;
-var apu_egt_min = 496;
-var apu_egt_max = 643;
+var apu_max = 100;
+var apu_egt_min = 352;
+var apu_egt_max = 704;
 var spinup_time = 49;
 var start_time = 10;
 var egt_lightup_time = 2;
@@ -311,9 +311,9 @@ var apu_egt_check = func {
 }
 
 var apu_egt2_check = func {
-	if (getprop("/systems/apu/egt") >= 643) {
+	if (getprop("/systems/apu/egt") >= 701) {
 		apu_egt2_checkt.stop();
-		interpolate("/systems/apu/egt", apu_egt_min, 20);
+		interpolate("/systems/apu/egt", apu_egt_min, 30);
 	}
 }
 
@@ -332,7 +332,7 @@ setlistener("/controls/APU/master", func {
 
 var apu_stop = func {
 	interpolate("/systems/apu/rpm", 0, 30);
-	interpolate("/systems/apu/egt", 42, 30);
+	interpolate("/systems/apu/egt", 42, 40);
 }
 
 #######################
