@@ -11,7 +11,7 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
+			<path>Aircraft/A320Family/Sounds/A320-common-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-232 (IAE V2527-A5)</description>

@@ -37,14 +37,14 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1030"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
      id="namedview371"
      showgrid="true"
-     inkscape:zoom="0.5"
-     inkscape:cx="840.634"
-     inkscape:cy="837.30899"
-     inkscape:window-x="1592"
+     inkscape:zoom="0.94"
+     inkscape:cx="-75.451106"
+     inkscape:cy="1080.5167"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2">
@@ -78,8 +78,9 @@
      style="font-style:normal;font-weight:normal;font-size:34px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="196.37218"
      y="164.61017"
-     id="text3720"
-     sodipodi:linespacing="125%"><tspan
+     id="APUGentext"
+     sodipodi:linespacing="125%"
+     inkscape:label="#text3720"><tspan
        sodipodi:role="line"
        id="tspan3722"
        x="196.37218"
@@ -414,7 +415,8 @@
        style="fill:#515256;fill-opacity:1" />
   </g>
   <g
-     id="g3460">
+     id="APUGenbox"
+     inkscape:label="#g3460">
     <rect
        y="123.87109"
        x="99.823715"
@@ -713,4 +715,47 @@
        x="830.58368"
        y="312.50412"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#00ff00">34</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="579.20001"
+     y="537.60004"
+     id="APUfuelLO"
+     sodipodi:linespacing="125%"
+     inkscape:label="#text4237"><tspan
+       sodipodi:role="line"
+       id="tspan4239"
+       x="579.20001"
+       y="537.60004"
+       style="font-size:48px;fill:#ff9900;fill-opacity:1">FUEL LO PR</tspan></text>
+  <g
+     inkscape:label="#g3441"
+     id="APUGenOnline"
+     transform="translate(-651.2,-22.4)">
+    <rect
+       y="123.27498"
+       x="841.24066"
+       height="21.920309"
+       width="5.3955846"
+       id="rect4241"
+       style="fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:4.69756889;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4243"
+       sodipodi:sides="3"
+       sodipodi:cx="788.80811"
+       sodipodi:cy="109.92132"
+       sodipodi:r1="14.398978"
+       sodipodi:r2="7.1544757"
+       sodipodi:arg1="2.6191108"
+       sodipodi:arg2="3.6663083"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 776.33019,117.10687 12.494,-21.584521 12.44575,21.612381 z"
+       inkscape:transform-center-x="-0.045894102"
+       inkscape:transform-center-y="-3.4535777"
+       transform="matrix(1.0702291,0,0,0.97557219,-0.2069507,6.7326558)" />
+  </g>
 </svg>

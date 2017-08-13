@@ -700,7 +700,7 @@ canvas.NDStyles["Airbus"] = {
 				init: func(nd,symbol),
 				predicate: func(nd) nd.aircraft_source.get_spd() > 100,
 				is_true: func(nd) {
-					nd.symbols.tas.setText(sprintf("%3.0f",getprop("/instrumentation/airspeed-indicator/true-speed-kt") ));
+					nd.symbols.tas.setText(sprintf("%3.0f",getprop("/velocities/TAS") ));
 					nd.symbols.tas.show();
 				},
 				is_false: func(nd) nd.symbols.tas.hide(),

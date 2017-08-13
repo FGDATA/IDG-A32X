@@ -11,6 +11,7 @@ var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
 var lowerECAM_display = nil;
 var page = "eng";
+var oat = getprop("/environment/temperature-degc");
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
 setprop("/systems/electrical/extra/apu-hz", 0);
@@ -115,11 +116,13 @@ var canvas_lowerECAM_apu = {
 		return m;
 	},
 	getKeys: func() {
-		return ["APUN-needle","APUEGT-needle","APUN","APUEGT","APUAvail","APUFlapOpen","APUBleedValve","APUBleedOnline","APUGenLoad","APUGenVolt","APUGenHz","APUBleedPSI","GW","TAT","SAT"];
+		return ["APUN-needle","APUEGT-needle","APUN","APUEGT","APUAvail","APUFlapOpen","APUBleedValve","APUBleedOnline","APUGenOnline","APUGentext","APUGenLoad","APUGenbox","APUGenVolt","APUGenHz","APUBleedPSI","APUfuelLO","GW","TAT","SAT","text3724","text3728","text3732"];
 	},
 	update: func() {
+		oat = getprop("/environment/temperature-degc");
+		
 		# Avail and Flap Open
-		if (getprop("/systems/apu/rpm") > 3.5 and getprop("/controls/APU/master") == 1) {
+		if (getprop("/systems/apu/flap") == 1) {
 			me["APUFlapOpen"].show();
 		} else {
 			me["APUFlapOpen"].hide();
@@ -130,7 +133,13 @@ var canvas_lowerECAM_apu = {
 		} else {
 			me["APUAvail"].hide();
 		}
-
+		
+		if (getprop("/fdm/jsbsim/propulsion/tank[2]/contents-lbs") < 100) {
+			me["APUfuelLO"].show();
+		} else {
+			me["APUfuelLO"].hide();
+		}
+		
 		# APU Gen
 		if (getprop("/systems/electrical/extra/apu-volts") > 110) {
 			me["APUGenVolt"].setColor(0,1,0);
@@ -143,13 +152,43 @@ var canvas_lowerECAM_apu = {
 		} else {
 			me["APUGenHz"].setColor(1,0.6,0);
 		}
+		
+		if (getprop("/controls/APU/master") == 1 or getprop("/systems/apu/rpm") >= 94.9) {
+			me["APUGenbox"].show();
+			me["APUGenHz"].show();
+			me["APUGenVolt"].show();
+			me["APUGenLoad"].show();
+			me["text3724"].show();
+			me["text3728"].show();
+			me["text3732"].show();
+		} else {
+			me["APUGenbox"].hide();
+			me["APUGenHz"].hide();
+			me["APUGenVolt"].hide();
+			me["APUGenLoad"].hide();
+			me["text3724"].hide();
+			me["text3728"].hide();
+			me["text3732"].hide();
+		}
+		
+		if ((getprop("/systems/apu/rpm") > 94.9) and (getprop("/controls/electrical/switches/gen-apu") == 1)) {
+			me["APUGenOnline"].show();
+		} else {
+			me["APUGenOnline"].hide();
+		}
+		
+		if ((getprop("/controls/APU/master") == 0) or ((getprop("/controls/APU/master") == 1) and (getprop("/controls/electrical/switches/gen-apu") == 1) and (getprop("/systems/apu/rpm") > 94.9))) {
+			me["APUGentext"].setColor(1,1,1);
+		} else if ((getprop("/controls/APU/master") == 1) and (getprop("/controls/electrical/switches/gen-apu") == 0) and (getprop("/systems/apu/rpm") < 94.9)) { 
+			me["APUGentext"].setColor(1,0.6,0);
+		}
 
 		me["APUGenLoad"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-load"))));
 		me["APUGenVolt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-volts"))));
 		me["APUGenHz"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-hz"))));
 
 		# APU Bleed
-		if (getprop("/systems/apu/rpm") >= 94.9) {
+		if (getprop("/controls/adirs/ir[1]/knob") != 1 and (getprop("/controls/APU/master") == 1 or getprop("/systems/pneumatic/bleedapu") > 0)) {
 			me["APUBleedPSI"].setColor(0,1,0);
 			me["APUBleedPSI"].setText(sprintf("%s", math.round(getprop("/systems/pneumatic/bleedapu"))));
 		} else {
@@ -157,7 +196,7 @@ var canvas_lowerECAM_apu = {
 			me["APUBleedPSI"].setText(sprintf("%s", "XX"));
 		}
 
-		if (getprop("/systems/pneumatic/bleedapu") > 0 and getprop("/controls/pneumatic/switches/bleedapu") == 1) {
+		if (getprop("/controls/pneumatic/switches/bleedapu") == 1) {
 			me["APUBleedValve"].setRotation(90*D2R);
 			me["APUBleedOnline"].show();
 		} else {
@@ -166,8 +205,22 @@ var canvas_lowerECAM_apu = {
 		}
 
 		# APU N and EGT
-		me["APUN"].setText(sprintf("%s", math.round(getprop("/systems/apu/rpm"))));
-		me["APUEGT"].setText(sprintf("%s", math.round(getprop("/systems/apu/egt"))));
+		if (getprop("/controls/APU/master") == 1) {
+			me["APUN"].setColor(0,1,0);
+			me["APUN"].setText(sprintf("%s", math.round(getprop("/systems/apu/rpm"))));
+			me["APUEGT"].setColor(0,1,0);
+			me["APUEGT"].setText(sprintf("%s", math.round(getprop("/systems/apu/egt"))));
+		} else if (getprop("/systems/apu/rpm") >= 1) {
+			me["APUN"].setColor(0,1,0);
+			me["APUN"].setText(sprintf("%s", math.round(getprop("/systems/apu/rpm"))));
+			me["APUEGT"].setColor(0,1,0);
+			me["APUEGT"].setText(sprintf("%s", math.round(getprop("/systems/apu/egt"))));
+		} else {
+			me["APUN"].setColor(1,0.6,0);
+			me["APUN"].setText(sprintf("%s", "XX"));
+			me["APUEGT"].setColor(1,0.6,0);
+			me["APUEGT"].setText(sprintf("%s", "XX"));
+		}
 		me["APUN-needle"].setRotation((getprop("/ECAM/Lower/APU-N") + 90)*D2R);
 		me["APUEGT-needle"].setRotation((getprop("/ECAM/Lower/APU-EGT") + 90)*D2R);
 
@@ -287,7 +340,7 @@ var canvas_lowerECAM_fctl = {
 		return["ailL","ailR","elevL","elevR","PTcc","PT","PTupdn","GW","TAT","SAT","elac1","elac2","sec1","sec2","sec3","ailLblue","ailRblue","elevLblue","elevRblue","rudderblue","ailLgreen","ailRgreen","elevLgreen","ruddergreen","PTgreen","elevRyellow",
 		"rudderyellow","PTyellow","rudder","spdbrkblue","spdbrkgreen","spdbrkyellow","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf",
-		"ailLscale","ailRscale"];
+		"ailLscale","ailRscale","path4249","path4249-3","path4249-3-6-7","path4249-3-6-7-5","path4249-3-6"];
 	},
 	update: func() {
 		var blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -579,32 +632,42 @@ var canvas_lowerECAM_fctl = {
 		# Flight Computers		
 		if (getprop("/systems/fctl/elac1")){
 			me["elac1"].setColor(0,1,0);
-		} else {
+			me["path4249"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/elac1") == 0) or (getprop("/systems/failures/elac1") == 1)){
 			me["elac1"].setColor(1,0.6,0);
+			me["path4249"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/elac2")){
 			me["elac2"].setColor(0,1,0);
-		} else {
+			me["path4249-3"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/elac2") == 0) or (getprop("/systems/failures/elac2") == 1)){
 			me["elac2"].setColor(1,0.6,0);
+			me["path4249-3"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec1")){
 			me["sec1"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6-7"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec1") == 0) or (getprop("/systems/failures/sec1") == 1)){
 			me["sec1"].setColor(1,0.6,0);
+			me["path4249-3-6-7"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec2")){
 			me["sec2"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6-7-5"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec2") == 0) or (getprop("/systems/failures/sec2") == 1)){
 			me["sec2"].setColor(1,0.6,0);
+			me["path4249-3-6-7-5"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/systems/fctl/sec3")){
 			me["sec3"].setColor(0,1,0);
-		} else {
+			me["path4249-3-6"].setColor(0,1,0);
+		} else if ((getprop("/systems/fctl/sec3") == 0) or (getprop("/systems/failures/sec3") == 1)){
 			me["sec3"].setColor(1,0.6,0);
+			me["path4249-3-6"].setColor(1,0.6,0);
 		}
 		
 		# Hydraulic Indicators
