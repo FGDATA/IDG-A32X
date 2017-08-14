@@ -18,7 +18,7 @@
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>Aircraft Configuration V1.4.4</label>
+			<label>Aircraft Configuration V1.4.5</label>
 		</text>
 		<button>
 			<halign>right</halign>
