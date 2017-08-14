@@ -21,7 +21,7 @@ setprop("/ECAM/Lower/page", "eng");
 ######################################################
 
 var ECAMinit = func {
-	if (getprop("/sim/options/enable-ecam-actions") == 1) {
+	if (getprop("/options/enable-ecam-actions") == 1) {
 	ECAMloop.start();
 	setprop("/ECAM/phase-1-inhibit", 0);
 	setprop("/ECAM/phase-2-inhibit", 0);
