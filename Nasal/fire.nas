@@ -1,9 +1,9 @@
 # A3XX Fire System
 # Jonathan Redpath
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 #############
 # Init Vars #

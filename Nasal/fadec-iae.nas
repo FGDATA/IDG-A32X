@@ -1,8 +1,8 @@
 # A3XX IAE FADEC by Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 setprop("/controls/fadec/n1mode1", 0);
 setprop("/controls/fadec/n1mode2", 0);

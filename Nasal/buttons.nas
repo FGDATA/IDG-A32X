@@ -1,9 +1,9 @@
 # A3XX Buttons
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 # Resets buttons to the default values
 var variousReset = func {

@@ -1,9 +1,9 @@
 # A3XX Icing System
 # Jonathan Redpath (legoboyvdlp)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 setlistener("/sim/signals/fdm-initialized", func {
 	var dewpoint = getprop("/environment/dewpoint-degc");

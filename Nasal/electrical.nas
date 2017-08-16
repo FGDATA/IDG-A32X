@@ -1,9 +1,9 @@
 # A3XX Electrical System
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 #############
 # Init Vars #

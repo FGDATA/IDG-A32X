@@ -1,9 +1,9 @@
 # A3XX JSB Engine System
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 #####################
 # Initializing Vars #

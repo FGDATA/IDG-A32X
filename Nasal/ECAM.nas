@@ -1,9 +1,9 @@
 # A3XX ECAM Messages
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 # It no works yet, so please don't touch a thing until it works. Thanks -JD
 

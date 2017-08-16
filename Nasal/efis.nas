@@ -1,8 +1,8 @@
 # A3XX EFIS controller by Joshua Davidson (it0uchpods).
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 setlistener("sim/signals/fdm-initialized", func {
 	setprop("/instrumentation/efis/nd/display-mode", "NAV");
