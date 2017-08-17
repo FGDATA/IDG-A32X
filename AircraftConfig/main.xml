@@ -40,43 +40,43 @@
 		<group>
 			<layout>vbox</layout>
 			
-				<group>
-					<layout>vbox</layout>
-					
-					<button>
-						<halign>center</halign>
-						<legend>Welcome</legend>
-						<pref-width>140</pref-width>
-						<binding>
-							<command>nasal</command>
-							<script>
-							acconfig.welcome_dlg.open();
-							</script>
-						</binding>
-					</button>
-					<button>
-						<halign>center</halign>
-						<legend>Select Livery</legend>
-						<pref-width>140</pref-width>
-						<binding>
-							<command>nasal</command>
-							<script>
-							aircraft.livery.dialog.toggle();
-							</script>
-						</binding>
-					</button>
-					<button>
-						<halign>center</halign>
-						<legend>Aircraft Help</legend>
-						<pref-width>140</pref-width>
-						<binding>
-							<command>nasal</command>
-							<script>
-							acconfig.help_dlg.open();
-							</script>
-						</binding>
-					</button>
-				</group>
+			<group>
+				<layout>vbox</layout>
+				
+				<button>
+					<halign>center</halign>
+					<legend>Welcome</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						acconfig.welcome_dlg.open();
+						</script>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>Select Livery</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						aircraft.livery.dialog.toggle();
+						</script>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>Aircraft Help</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>nasal</command>
+						<script>
+						acconfig.help_dlg.open();
+						</script>
+					</binding>
+				</button>
+			</group>
 			
 			<group>
 				<layout>vbox</layout>
