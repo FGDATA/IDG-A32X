@@ -34,6 +34,13 @@ var variousReset = func {
 	setprop("/controls/switches/RrainRpt", 0);
 	setprop("/controls/switches/wiperLspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
 	setprop("/controls/switches/wiperRspd", 0); # -1 = INTM 0 = OFF 1 = LO 2 = HI
+	setprop("/controls/lighting/strobe", 0);
+	setprop("/controls/lighting/beacon", 0);
+	setprop("/controls/lighting/wing-lights", 0);
+	setprop("/controls/lighting/nav-lights-switch", 0);
+	setprop("/controls/lighting/landing-lights[1]", 0);
+	setprop("/controls/lighting/landing-lights[2]", 0);
+	setprop("/controls/lighting/taxi-light-switch", 0);
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
