@@ -59,7 +59,11 @@
 			</text>
 			<text>
 				<halign>center</halign>
-				<label>You will need to restart FlightGear, and install the latest.zip file.</label>
+				<label>GIT users: Please press Remind Me Later, and run a "git pull" command. (or pull using GIT GUI)</label>
+			</text>
+			<text>
+				<halign>center</halign>
+				<label>You will need to restart FlightGear, and install the latest .zip file.</label>
 			</text>
 			
 		</group>
