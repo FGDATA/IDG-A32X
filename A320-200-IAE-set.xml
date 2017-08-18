@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 -->
 
 <PropertyList include="A320-main.xml">
@@ -11,7 +11,7 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/A320-common-sound.xml</path>
+			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-232 (IAE V2527-A5)</description>

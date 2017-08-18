@@ -1,9 +1,9 @@
 # Aircraft Config Center
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 var spinning = maketimer(0.05, func {
 	var spinning = getprop("/systems/acconfig/spinning");
@@ -260,6 +260,8 @@ var beforestart_b = func {
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
 	setprop("/controls/adirs/mcducbtn", 1);
+	setprop("/controls/lighting/beacon", 1);
+	setprop("/controls/lighting/nav-lights-switch", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -334,6 +336,8 @@ var taxi_b = func {
 	setprop("instrumentation/adirs/ir[1]/aligned",1);
 	setprop("instrumentation/adirs/ir[2]/aligned",1);
 	setprop("/controls/adirs/mcducbtn", 1);
+	setprop("/controls/lighting/beacon", 1);
+	setprop("/controls/lighting/nav-lights-switch", 1);
 	settimer(taxi_c, 2);
 }
 var taxi_c = func {
@@ -362,6 +366,7 @@ var taxi_e = func {
 	setprop("/controls/APU/master", 0);
 	setprop("/controls/APU/start", 0);
 	setprop("/controls/pneumatic/switches/bleedapu", 0);
+	setprop("/controls/lighting/taxi-light-switch", 1);
 	setprop("/systems/acconfig/autoconfig-running", 0);
 	ps_load_dlg.close();
 	ps_loaded_dlg.open();
@@ -375,6 +380,9 @@ var takeoff = func {
 	var eng_one_chk_c = setlistener("/engines/engine[0]/state", func {
 		if (getprop("/engines/engine[0]/state") == 3) {
 			removelistener(eng_one_chk_c);
+			setprop("/controls/lighting/strobe", 1);
+			setprop("/controls/lighting/landing-lights[1]", 1);
+			setprop("/controls/lighting/landing-lights[2]", 1);
 			setprop("/controls/flight/speedbrake-arm", 1);
 			setprop("/controls/flight/flaps", 0.290);
 			setprop("/controls/flight/slats", 0.666);

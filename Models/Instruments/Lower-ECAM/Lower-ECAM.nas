@@ -1,9 +1,9 @@
 # A3XX Lower ECAM Canvas
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 var lowerECAM_apu = nil;
 var lowerECAM_eng1 = nil;

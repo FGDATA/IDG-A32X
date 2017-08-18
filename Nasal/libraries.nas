@@ -1,9 +1,9 @@
 # A320 Main Libraries
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 # :)
 print("          ____ ___   ___  ______              _ _       ");

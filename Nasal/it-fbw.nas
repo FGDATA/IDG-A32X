@@ -1,9 +1,9 @@
 # Airbus A3XX FBW/Flight Control Computer System
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 # 2 ELevator and Aileron Computers (ELAC)
 # Aileron Control

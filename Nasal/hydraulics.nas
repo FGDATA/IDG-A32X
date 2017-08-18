@@ -1,9 +1,9 @@
 # A3XX Hydraulic System
 # Joshua Davidson (it0uchpods)
 
-#######################################
-# Copyright (c) A3XX Development Team #
-#######################################
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
 
 #############
 # Init Vars #
