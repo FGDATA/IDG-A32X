@@ -7,6 +7,9 @@
 				<name>Lufthansa D-AINB</name>
 				<texture>Liveries/A320/PW-NEO/DLH_neo.png</texture>
 			</livery>
+			<eng>
+				<texture>Liveries/A320/PW-NEO/DLH_neo-eng.png</texture>
+			</eng>
 		</model>
 	</sim>
 </PropertyList>
