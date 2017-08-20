@@ -28,11 +28,11 @@
 		</input>
 		<reference>
 			<condition>
-					<not-equals>
-						<property>/it-autoflight/output/vert</property>
-						<value>8</value>
-					</not-equals>
-				</condition>
+				<not-equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>8</value>
+				</not-equals>
+			</condition>
 			<property>/it-autoflight/internal/alt</property>
 		</reference>
 		<reference>
