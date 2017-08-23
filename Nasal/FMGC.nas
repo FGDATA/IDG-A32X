@@ -202,7 +202,7 @@ var phasecheck = maketimer(0.2, func {
 	apprarm = getprop("/it-autopilot/output/appr-armed");
 	gear0 = getprop("/gear/gear[0]/wow");
 	
-	if ((((n1_left >= 85) and (n1_right >= 85)) or (gs > 90 )) and (mode == "SRS") and gear0 == 1 and phase == 0) {
+	if ((((n1_left >= 70) and (n1_right >= 70)) or (gs > 90)) and (mode == "SRS") and gear0 == 1 and phase == 0) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
@@ -211,12 +211,12 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
-	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == mode == "ALT*" or mode == "ALT CRZ")) {
+	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == "ALT*" or mode == "ALT CRZ")) {
 		setprop("/FMGC/status/phase", "3");
 		setprop("/systems/pressurization/mode", "CR");
 	}
 	
-	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and phase == "3") {
+	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and (phase == "2" or phase == "3")) {
 		setprop("/FMGC/status/phase", "4");
 		setprop("/systems/pressurization/mode", "DE");
 	}
