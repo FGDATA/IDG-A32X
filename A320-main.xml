@@ -9,7 +9,7 @@
 <PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
 
 	<sim>
-		<author>A3XX Development Team: Joshua Davidson (it0uchpods), Jonathan Redpath (legoboyvdlp), Charlie Schwehm (Wecsje)</author>
+		<author>it0uchpods Design Group: Joshua Davidson (it0uchpods), Jonathan Redpath (legoboyvdlp), Charlie Schwehm (Wecsje)</author>
 		
 		<status>Pre V1.0</status>
 		
