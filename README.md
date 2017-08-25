@@ -6,6 +6,8 @@ Brought to you by:
 - Jonathan Redpath (legoboyvdlp)
 - Charlie Schwehm (Wecsje)
 
+Also thanks to PavlinS for the a321n-3 splash screen
+
 Present pack includes the following Airbus A320 Family variants:
 - A318-112
 - A319-112
