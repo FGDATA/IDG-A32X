@@ -40,7 +40,7 @@
 			
 			<text>
 				<halign>left</halign>
-				<label>it0uchpods Hangar presents: A320Family by A3XX Development Team</label>
+				<label>it0uchpods Hangar presents: A320Family by it0uchpods Design Group</label>
 			</text>
 			<text>
 				<halign>left</halign>
@@ -49,6 +49,10 @@
 			
 			<hrule/>
 			
+			<text>
+				<halign>left</halign>
+				<label>FDM: Joshua Davidson (it0uchpods)</label>
+			</text>
 			<text>
 				<halign>left</halign>
 				<label>Systems: Joshua Davidson (it0uchpods), Jonanthan Redpath (legoboyvdlp)</label>
