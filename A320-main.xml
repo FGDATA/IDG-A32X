@@ -19,6 +19,11 @@
 			<cockpit type="int">4</cockpit>
 			<model type="int">4</model>
 		</rating>
+		
+		<hud n="0">
+			<enable3d n="0">false</enable3d>
+			<enable3d n="1">false</enable3d>
+		</hud>
 
 		<model>
 			<pushback>
