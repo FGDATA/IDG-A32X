@@ -24,7 +24,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 var fadecLoop = maketimer(0.7, func {
 	var ac1 = getprop("/systems/electrical/bus/ac1");
-	var ac2 = getprop("/systems/electrical/bus/ac1");
+	var ac2 = getprop("/systems/electrical/bus/ac2");
 	var acess = getprop("/systems/electrical/bus/ac-ess");
 	var state1 = getprop("/engines/engine[0]/state");
 	var state2 = getprop("/engines/engine[1]/state");
