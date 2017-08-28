@@ -158,6 +158,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/aileron-left-cmd</output>
+		<min>-0.5</min>
+		<max>0.5</max>
 	</filter>
 	
 	<filter>
@@ -275,6 +277,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/aileron-right-cmd</output>
+		<min>-0.5</min>
+		<max>0.5</max>
 	</filter>
 	
 	<filter>
@@ -1532,6 +1536,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/elevator-left-cmd</output>
+		<min>-0.5</min>
+		<max>0.5</max>
 	</filter>
 	
 	<filter>
@@ -1596,6 +1602,8 @@
             </expression>
 		</input>
 		<output>/controls/flight/elevator-right-cmd</output>
+		<min>-0.5</min>
+		<max>0.5</max>
 	</filter>
 	
 	<filter>
