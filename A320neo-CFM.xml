@@ -28,7 +28,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<vtailarm  unit="FT" >   57.33 </vtailarm>
 
 	   <location name="AERORP" unit="IN">
-			<x> 690.00 </x>
+			<x> 670.00 </x>
 			<y> 0 </y>
 			<z> 0.00 </z>
 		</location>
@@ -58,7 +58,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<emptywt unit="LBS">80431</emptywt>
 
 		<location name="CG" unit="IN">
-			<x> 656.00 </x>
+			<x> 646.00 </x>
 			<y> 0 </y>
 			<z> 0.00 </z>
 		</location>
