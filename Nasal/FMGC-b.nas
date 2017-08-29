@@ -626,9 +626,11 @@ var altcapt = func {
 		if (vsnow > 0 and dif < 0) {
 			setprop("/it-autoflight/input/vert", 3);
 			setprop("/it-autoflight/output/thr-mode", 0);
+			setprop("/it-autoflight/mode/thr", "THRUST");
 		} else if (vsnow < 0 and dif > 0) {
 			setprop("/it-autoflight/input/vert", 3);
 			setprop("/it-autoflight/output/thr-mode", 0);
+			setprop("/it-autoflight/mode/thr", "THRUST");
 		}
 	}
 	var altinput = getprop("/it-autoflight/input/alt");
@@ -657,8 +659,7 @@ var minmax = func {
 var thrustmode = func {
 	var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var alt = getprop("/it-autoflight/internal/alt");
-	var vertm = getprop("/it-autoflight/output/vert");
-	if (vertm == 4) {
+	if (getprop("/it-autoflight/output/vert") == 4) {
 		if (calt < alt) {
 			setprop("/it-autoflight/output/thr-mode", 2);
 			setprop("/it-autoflight/mode/thr", " PITCH");
@@ -672,10 +673,10 @@ var thrustmode = func {
 			setprop("/it-autoflight/mode/thr", "THRUST");
 			setprop("/it-autoflight/input/vert", 3);
 		}
-	} else if (vertm == 7) {
+	} else if (getprop("/it-autoflight/output/vert") == 7) {
 		setprop("/it-autoflight/output/thr-mode", 2);
 		setprop("/it-autoflight/mode/thr", " PITCH");
-	} else if (vertm == 8) {
+	} else if (getprop("/it-autoflight/output/vert") == 8) {
 		thrustmodet.stop();
 	} else {
 		setprop("/it-autoflight/output/thr-mode", 0);
