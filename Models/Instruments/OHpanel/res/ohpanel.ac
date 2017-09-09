@@ -19110,7 +19110,7 @@ refs 4
 kids 0
 OBJECT poly
 name "MaskManOnBtn2O"
-loc 0.0086614 -0.242567 0.063875
+loc 0.00811153 -0.242567 0.063875
 data 8
 Cube.135
 texture "buttons4.png"
