@@ -18463,7 +18463,7 @@ kids 0
 OBJECT poly
 name "EmerGenTestGaurd"
 loc 0.00869153 -0.0442504 0.292258
-texture "redguard.png"
+texture "blackguard.png"
 crease 35.000000
 numvert 92
 0.0011193 0.0162016 0.0059076

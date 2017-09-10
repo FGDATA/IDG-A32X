@@ -6121,7 +6121,7 @@
 		</action>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>rotate</type>
 		<object-name>LeftWiperKnb</object-name>
 		<property>controls/switches/wiperLspd</property>
@@ -6161,7 +6161,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RightWiperKnb</object-name>
-		<property>controls/switches/wiperLspd</property>
+		<property>controls/switches/wiperRspd</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-50</dep></entry>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -6193,7 +6193,7 @@
 				<value>2</value>
 			</binding>
 		</action>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>pick</type>
