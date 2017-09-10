@@ -188,9 +188,7 @@ var master_pneu = func {
 	if (xbleed_sw == 0) {
 		setprop("/systems/pneumatic/xbleed", 0);
 	} else if (xbleed_sw == 1) {
-		if (bleedapu >= 20) {
-			setprop("/systems/pneumatic/xbleed", 1);
-		} else if (ground >= 20) {
+		if (bleedapu >= 11) {
 			setprop("/systems/pneumatic/xbleed", 1);
 		} else {
 			setprop("/systems/pneumatic/xbleed", 0);
@@ -216,11 +214,11 @@ var master_pneu = func {
 	bleed1 = getprop("/systems/pneumatic/bleed1");
 	bleed2 = getprop("/systems/pneumatic/bleed2");
 	
-	if (bleed1 >= 20 and (stateR != 3 or !bleed2_sw or bleedeng2_fail) and xbleed == 1) {
+	if (bleed1 >= 11 and (stateR != 3 or !bleed2_sw or bleedeng2_fail) and xbleed == 1) {
 		setprop("/systems/pneumatic/bleed2", 31);
 	}
 	
-	if (bleed2 >= 20 and (stateL != 3 or !bleed1_sw or bleedeng1_fail) and xbleed == 1) {
+	if (bleed2 >= 11 and (stateL != 3 or !bleed1_sw or bleedeng1_fail) and xbleed == 1) {
 		setprop("/systems/pneumatic/bleed1", 32);
 	}
 	
@@ -233,13 +231,13 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
 	
-	if (pack1_sw == 1 and (bleed1 >= 20 or bleedapu >= 20 or ground >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack1_fail) {
+	if (pack1_sw == 1 and (bleed1 >= 11 or bleedapu >= 11 or ground >= 11) and eng1_starter == 0 and eng2_starter == 0 and !pack1_fail) {
 		setprop("/systems/pneumatic/pack1", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and (bleed2 >= 20 or bleedapu >= 20) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
+	if (pack2_sw == 1 and (bleed2 >= 11 or bleedapu >= 11) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
