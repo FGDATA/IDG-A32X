@@ -218,7 +218,7 @@ var radnavInput = func(key) {
 			var tfs = size(scratchpad);
 			if (tfs >= 1 and tfs <= 3) {
 				if (scratchpad >= 0 and scratchpad <= 360) {
-					setprop("/instrumentation/nav[1]/radials/selected-deg", scratchpad);
+					setprop("/instrumentation/nav[3]/radials/selected-deg", scratchpad);
 					setprop("/FMGC/internal/vor2crs-set", 1);
 					setprop("/MCDU[0]/scratchpad", "");
 				} else {
