@@ -205,7 +205,6 @@
 		<object-name>EmerCallBtn1C</object-name>
 		<object-name>EmerCallBtn2O</object-name>
 		<object-name>EmerElecManOnBtn2O</object-name>
-		<object-name>EmerExtLtBtn2O</object-name>
 		<object-name>EmerGenInd1F</object-name>
 		<object-name>Eng1FireAgt1Btn1S</object-name>
 		<object-name>Eng1FireAgt1Btn2D</object-name>
@@ -5584,6 +5583,64 @@
 			<y-m>0</y-m>
 			<z-m>-0.3037</z-m>
 		</center>
+	</animation>
+	
+	<animation>
+		<name>Emer Lights pick</name>
+		<type>pick</type>
+		<object-name>EmerExtLtSwtch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/emer-lights</property>
+				<value>0.0</value>
+				<value>0.5</value>
+				<value>1.0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Emer Lights rotate</name>
+		<type>rotate</type>
+		<object-name>EmerExtLtSwtch</object-name>
+		<property>controls/switches/emer-lights</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.01</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3037</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>EmerExtLtBtn2O</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/emer-lights</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<!-- Texts -->

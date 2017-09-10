@@ -19,6 +19,7 @@ var variousReset = func {
 	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override", 0);
 	setprop("/controls/switches/cabinCall", 0);
 	setprop("/controls/switches/mechCall", 0);
+	setprop("/controls/switches/emer-lights", 0.5);
 	# cockpit voice recorder stuff
 	setprop("/controls/CVR/power", 0);
 	setprop("/controls/CVR/test", 0);
