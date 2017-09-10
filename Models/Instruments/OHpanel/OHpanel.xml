@@ -21,6 +21,8 @@
 		<object-name>ACPack2Btn2O</object-name>
 		<object-name>APUBleedBtn1F</object-name>
 		<object-name>APUBleedBtn2O</object-name>
+		<object-name>APUFireAgtBtn1S</object-name>
+		<object-name>APUFireAgtBtn2D</object-name>
 		<object-name>APUGenBtn1F</object-name>
 		<object-name>APUGenBtn2O</object-name>
 		<object-name>APUMasterBtn1F</object-name>
@@ -33,6 +35,14 @@
 		<object-name>BatteryBtn22O</object-name>
 		<object-name>BusTieBtn2O</object-name>
 		<object-name>DitchBtn2O</object-name>
+		<object-name>Eng1FireAgt1Btn1S</object-name>
+		<object-name>Eng1FireAgt1Btn2D</object-name>
+		<object-name>Eng1FireAgt2Btn1S</object-name>
+		<object-name>Eng1FireAgt2Btn2D</object-name>
+		<object-name>Eng2FireAgt1Btn1S</object-name>
+		<object-name>Eng2FireAgt1Btn2D</object-name>
+		<object-name>Eng2FireAgt2Btn1S</object-name>
+		<object-name>Eng2FireAgt2Btn2D</object-name>
 		<object-name>ExtPwrBtn2O</object-name>
 		<object-name>Gen1Btn1F</object-name>
 		<object-name>Gen1Btn2O</object-name>
@@ -174,13 +184,23 @@
 		</condition>
 	</animation>
 	
-	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove once you simulate these buttons. -JD -->
+	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove each light/button once you add its select animation. -JD -->
 	<animation>
 		<type>select</type>
+		<object-name>APUFireAgtBtn1S</object-name>
+		<object-name>APUFireAgtBtn2D</object-name>
 		<object-name>EmerCallBtn1C</object-name>
 		<object-name>EmerCallBtn2O</object-name>
 		<object-name>EmerElecManOnBtn2O</object-name>
 		<object-name>EmerGenInd1F</object-name>
+		<object-name>Eng1FireAgt1Btn1S</object-name>
+		<object-name>Eng1FireAgt1Btn2D</object-name>
+		<object-name>Eng1FireAgt2Btn1S</object-name>
+		<object-name>Eng1FireAgt2Btn2D</object-name>
+		<object-name>Eng2FireAgt1Btn1S</object-name>
+		<object-name>Eng2FireAgt1Btn2D</object-name>
+		<object-name>Eng2FireAgt2Btn1S</object-name>
+		<object-name>Eng2FireAgt2Btn2D</object-name>
 		<object-name>EvacCommandBtn1E</object-name>
 		<object-name>EvacCommandBtn2O</object-name>
 		<object-name>Gen1LineBtn1S</object-name>
