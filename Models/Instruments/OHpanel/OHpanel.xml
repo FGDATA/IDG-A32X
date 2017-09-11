@@ -102,7 +102,6 @@
 		<object-name>ELAC2Btn2O</object-name>
 		<object-name>EmerCallBtn1C</object-name>
 		<object-name>EmerCallBtn2O</object-name>
-		<object-name>EmerElecManOnBtn2O</object-name>
 		<object-name>EmerGenInd1F</object-name>
 		<object-name>Eng1AntiIceBtn1F</object-name>
 		<object-name>Eng1AntiIceBtn2O</object-name>
@@ -152,7 +151,6 @@
 		<object-name>LFuelTank2Btn1F</object-name>
 		<object-name>LFuelTank2Btn2O</object-name>
 		<object-name>IrsOnBatLightOB</object-name>
-		<object-name>MaskManOnBtn2O</object-name>
 		<object-name>PassOxyInd1S</object-name>
 		<object-name>PrbWinHeatBtn2O</object-name>
 		<object-name>PTU1F</object-name>
@@ -204,7 +202,6 @@
 		<object-name>CargoHotAirBtn2O</object-name>
 		<object-name>EmerCallBtn1C</object-name>
 		<object-name>EmerCallBtn2O</object-name>
-		<object-name>EmerElecManOnBtn2O</object-name>
 		<object-name>EmerGenInd1F</object-name>
 		<object-name>Eng1FireAgt1Btn1S</object-name>
 		<object-name>Eng1FireAgt1Btn2D</object-name>
@@ -1690,24 +1687,30 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<or>
-						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/bus/dc1</property>
-							<value>25</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/bus/dc2</property>
-							<value>25</value>
-						</greater-than-equals>
-					</or>
+					<and>
+						<equals>
+							<property>controls/OH/protectors/ratman</property>
+							<value>1</value>
+						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/battery1-amps</property>
+								<value>120</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/battery2-amps</property>
+								<value>120</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
+					</and>
 				</condition>
 				<command>property-toggle</command>
 				<property>controls/hydraulic/rat-man</property>
@@ -1717,6 +1720,45 @@
 				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>RATManGuard</object-name>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/OH/protectors/ratman</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/OH/protectors/ratman</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RATManGuard</object-name>
+		<property>controls/OH/protectors/ratman</property>
+		<factor>-145</factor>
+		<axis>
+			<x1-m>-0.0086</x1-m>
+			<y1-m>-0.05506</y1-m>
+			<z1-m>0.14462</z1-m>
+			<x2-m>-0.0086</x2-m>
+			<y2-m>-0.04306</y2-m>
+			<z2-m>0.14462</z2-m>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -6319,54 +6361,6 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>MaskManOnBtn2O</object-name>
-		<object-name>MaskManOnBtn2</object-name>
-		<object-name>MaskManOnBtn1</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<or>
-						<greater-than-equals>
-							<property>systems/electrical/bus/dc1</property>
-							<value>25</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/bus/dc2</property>
-							<value>25</value>
-						</greater-than-equals>
-					</or>
-				</condition>
-				<command>property-toggle</command>
-				<property>controls/oxygen/masksDeployMan</property>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("/sim/sounde/oh-btn", 1);</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>MaskManOnBtn2O</object-name>
-		<condition>
-			<or>
-				<equals>
-					<property>controls/oxygen/masksDeployMan</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
 		<object-name>CrewOxyBtn</object-name>
 		<object-name>CrewOxyBtn2O</object-name>
 		<action>
@@ -6414,7 +6408,42 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>MaskManOnGaurd</object-name>
+		<object-name>MaskManOnBtn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/OH/protectors/maskman</property>
+							<value>1</value>
+						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
+					</and>
+				</condition>
+				<command>property-toggle</command>
+				<property>controls/oxygen/masksDeployMan</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>MaskManOnGuard</object-name>
 		<action>
 			<button>1</button>
 			<binding>
@@ -6438,7 +6467,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>MaskManOnGaurd</object-name>
+		<object-name>MaskManOnGuard</object-name>
 		<property>controls/OH/protectors/maskman</property>
 		<factor>-145</factor>
 		<axis>
