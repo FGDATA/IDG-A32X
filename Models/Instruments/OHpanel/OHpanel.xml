@@ -84,6 +84,8 @@
 		<object-name>ADR3Btn2O</object-name>
 		<object-name>AftCargoIsoBtn1F</object-name>
 		<object-name>AftCargoIsoBtn2O</object-name>
+		<object-name>AftCargoSmkBtn1S</object-name>
+		<object-name>AftCargoSmkBtn2D</object-name>
 		<object-name>BlueElecPump1F</object-name>
 		<object-name>BlueElecPump2O</object-name>
 		<object-name>CabinPressModeBtn1F</object-name>
@@ -123,6 +125,8 @@
 		<object-name>FuelModeBtn2O</object-name>
 		<object-name>FuelXfeedBtn1O</object-name>
 		<object-name>FuelXfeedBtn2O</object-name>
+		<object-name>FwdCargoSmkBtn1S</object-name>
+		<object-name>FwdCargoSmkBtn2D</object-name>
 		<object-name>GalleyPwrBtn1F</object-name>
 		<object-name>GalleyPwrBtn2O</object-name>
 		<object-name>Gen1LineBtn1S</object-name>
@@ -196,6 +200,8 @@
 		<type>select</type>
 		<object-name>AftCargoIsoBtn1F</object-name>
 		<object-name>AftCargoIsoBtn2O</object-name>
+		<object-name>AftCargoSmkBtn1S</object-name>
+		<object-name>AftCargoSmkBtn2D</object-name>
 		<object-name>APUFireAgtBtn1S</object-name>
 		<object-name>APUFireAgtBtn2D</object-name>
 		<object-name>CargoHotAirBtn1F</object-name>
@@ -213,6 +219,8 @@
 		<object-name>Eng2FireAgt2Btn2D</object-name>
 		<object-name>EvacCommandBtn1E</object-name>
 		<object-name>EvacCommandBtn2O</object-name>
+		<object-name>FwdCargoSmkBtn1S</object-name>
+		<object-name>FwdCargoSmkBtn2D</object-name>
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
@@ -5899,17 +5907,6 @@
         </axis>
     </animation>
 	
-	<animation>
-		<type>material</type>
-		<object-name>firebtn1</object-name>
-		<emission>
-			<red>1</red>
-			<green>1</green>
-			<blue>1</blue>
-			<factor-prop>controls/engines/engine[0]/fire-light</factor-prop>
-		</emission>
-	</animation>
-	
 	<!-- APU -->
 	<animation>
 		<type>pick</type>
@@ -5996,17 +5993,6 @@
         </axis>
     </animation>
 	
-	<animation>
-		<type>material</type>
-		<object-name>firebtn1</object-name>
-		<emission>
-			<red>1</red>
-			<green>1</green>
-			<blue>1</blue>
-			<factor-prop>controls/APU/fire-light</factor-prop>
-		</emission>
-	</animation>
-	
 	<!-- Engine 2 -->
 	<animation>
 		<type>pick</type>
@@ -6092,17 +6078,6 @@
             <z>0</z>
         </axis>
     </animation>
-	
-	<animation>
-		<type>material</type>
-		<object-name>firebtn2</object-name>
-		<emission>
-			<red>1</red>
-			<green>1</green>
-			<blue>1</blue>
-			<factor-prop>controls/engines/engine[1]/fire-light</factor-prop>
-		</emission>
-	</animation>
 	
 	<!-- Sounds -->
 	<animation>
