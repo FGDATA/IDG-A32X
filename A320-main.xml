@@ -719,13 +719,12 @@
 	</systems>
 	
 	<options n="0">
-		<pfd n="0">
-			<sidestick-pos userarchive="y" type="bool">0</sidestick-pos>
-		</pfd>
+		<system n="0">
+			<keyboard-mode userarchive="y" type="bool">0</keyboard-mode>
+		</system>
 		<old-gpws type="bool">0</old-gpws>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
-		<test-canvas type="bool">0</test-canvas> <!-- Enables WIP Canvas Stuff -->
 		<enable-ecam-actions>0</enable-ecam-actions>
 	</options>
 	

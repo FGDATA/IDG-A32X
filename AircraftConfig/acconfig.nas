@@ -118,7 +118,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var saveSettings = func {
-	aircraft.data.add("/options/pfd/sidestick-pos", "/controls/adirs/skip");
+	aircraft.data.add("/options/system/keyboard-mode", "/controls/adirs/skip");
 	aircraft.data.save();
 }
 

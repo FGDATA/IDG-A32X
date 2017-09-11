@@ -345,8 +345,30 @@
 				<live>true</live>
 			</checkbox>
 			
-			
 			<hrule/>
+			
+			<checkbox>
+				<label>Keyboard Mode (See Aircraft Help)</label>
+				<halign>left</halign>
+				<enable>
+					<property>/systems/acconfig/unused</property>
+				</enable>
+				<property>/options/system/keyboard-mode</property>
+				<binding>
+					<command>property-toggle</command>
+					<property>/options/system/keyboard-mode</property>
+				</binding>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					acconfig.saveSettings();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
 			
 			<checkbox>
 				<label>Skip ADIRS Alignment</label>
