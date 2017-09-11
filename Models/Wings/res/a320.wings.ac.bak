@@ -10,7 +10,7 @@ name "group"
 loc 3.48948 -0.0547203 -2.4599
 kids 2
 OBJECT poly
-name "staticDisch4"
+name "cylinder"
 loc 3.48948 -0.0547203 -2.4599
 crease 45.000000
 numvert 62
@@ -1394,7 +1394,7 @@ name "group"
 loc 3.81918 0.130833 -4.01047
 kids 2
 OBJECT poly
-name "staticDisch3"
+name "cylinder"
 loc 2.61426 -0.0366419 -1.85966
 crease 45.000000
 numvert 62
@@ -2778,7 +2778,7 @@ name "group"
 loc 3.7808 0.161297 -4.16126
 kids 2
 OBJECT poly
-name "staticDisch2"
+name "cylinder"
 loc 3.7808 0.161297 -4.16126
 crease 45.000000
 numvert 62
@@ -4236,7 +4236,7 @@ name "group"
 loc 4.3288 0.337047 -5.96233
 kids 2
 OBJECT poly
-name "staticDisch1"
+name "cylinder"
 loc 4.3288 0.337047 -5.96233
 crease 45.000000
 numvert 62
@@ -5678,7 +5678,7 @@ name "group"
 loc 4.33448 0.337047 5.95973
 kids 2
 OBJECT poly
-name "staticDisch8"
+name "cylinder"
 loc 4.33448 0.337047 5.95973
 crease 45.000000
 numvert 62
@@ -7120,7 +7120,7 @@ name "group"
 loc 3.78648 0.161297 4.15866
 kids 2
 OBJECT poly
-name "staticDisch7"
+name "cylinder"
 loc 3.78648 0.161297 4.15866
 crease 45.000000
 numvert 62
@@ -8578,7 +8578,7 @@ name "group"
 loc 3.82045 0.126528 3.97934
 kids 2
 OBJECT poly
-name "staticDisch6"
+name "cylinder"
 loc 2.62182 -0.0225353 1.8425
 crease 45.000000
 numvert 62
@@ -8611,7 +8611,7 @@ numvert 62
 0.0815878 -0.000653394 0.00136662
 0.0815878 -0.000452138 0.00154305
 0.0815878 -0.000231124 0.00165224
-0.0815878 -7.45058e-009 0.00168896
+0.0815878 -7.45058e-09 0.00168896
 -0.0815878 0.000231117 0.00165224
 -0.0815878 0.000452138 0.00154305
 -0.0815878 0.000653394 0.00136662
@@ -8641,7 +8641,7 @@ numvert 62
 -0.0815878 -0.000653394 0.00136662
 -0.0815878 -0.000452138 0.00154305
 -0.0815878 -0.000231124 0.00165224
--0.0815878 -7.45058e-009 0.00168896
+-0.0815878 -7.45058e-09 0.00168896
 0.0815878 0 0
 -0.0815878 0 0
 numsurf 90
@@ -34516,7 +34516,7 @@ refs 3
 SURF 0x10
 mat 2
 refs 3
-3 1e-006 0.769956
+3 1e-06 0.769956
 2 0.666685 0.770007
 1 0.389511 0.764984
 SURF 0x10
@@ -34566,7 +34566,7 @@ mat 2
 refs 3
 20 0.389511 0.764984
 21 0.666685 0.770007
-22 1e-006 0.769956
+22 1e-06 0.769956
 SURF 0x10
 mat 2
 refs 3
@@ -37131,7 +37131,7 @@ mat 2
 refs 3
 17 0.389511 0.764984
 16 0.666685 0.770007
-15 1e-006 0.769956
+15 1e-06 0.769956
 SURF 0x10
 mat 2
 refs 3
@@ -37177,7 +37177,7 @@ refs 3
 SURF 0x10
 mat 2
 refs 3
-34 1e-006 0.769956
+34 1e-06 0.769956
 35 0.666685 0.770007
 36 0.389511 0.764984
 SURF 0x10
@@ -39104,7 +39104,7 @@ refs 3
 70 0.94997 0.034608
 kids 0
 OBJECT poly
-name "staticDisch5"
+name "cylinder"
 loc 3.48926 -0.03801 2.45729
 crease 45.000000
 numvert 62

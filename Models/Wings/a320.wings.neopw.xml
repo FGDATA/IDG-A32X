@@ -205,6 +205,8 @@
 		<name>Left track fairing 1</name>
 		<type>rotate</type>
 		<object-name>FairingL1</object-name>
+		<object-name>staticDisch5</object-name>
+		<object-name>staticDisch6</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
@@ -222,6 +224,7 @@
 		<name>Left track fairing 2</name>
 		<type>rotate</type>
 		<object-name>FairingL2</object-name>
+		<object-name>staticDisch7</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
@@ -239,6 +242,7 @@
 		<name>Left track fairing 3</name>
 		<type>rotate</type>
 		<object-name>FairingL3</object-name>
+		<object-name>staticDisch8</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
@@ -256,6 +260,8 @@
 		<name>Right track fairing 1</name>
 		<type>rotate</type>
 		<object-name>FairingR1</object-name>
+		<object-name>staticDisch4</object-name>
+		<object-name>staticDisch3</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
@@ -273,6 +279,7 @@
 		<name>Right track fairing 2</name>
 		<type>rotate</type>
 		<object-name>FairingR2</object-name>
+		<object-name>staticDisch2</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
@@ -290,6 +297,7 @@
 		<name>Right track fairing 3</name>
 		<type>rotate</type>
 		<object-name>FairingR3</object-name>
+		<object-name>staticDisch1</object-name>
 		<property>surface-positions/flap-pos-norm</property>
 		<factor>20</factor>
 		<axis>
