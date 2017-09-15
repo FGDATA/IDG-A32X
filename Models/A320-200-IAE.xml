@@ -122,7 +122,7 @@
 	</model>
 	<!-- Lights -->
 	
-		<model>
+	<model>
 		<name>Left nav light</name>
 		<path>Aircraft/A320Family/Models/Lights/rednav.xml</path>
 		<offsets>
@@ -166,9 +166,9 @@
 		<name>Left strobe light</name>
 		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
 		<offsets>
-			<x-m>23.92</x-m>
-			<y-m>-17.3</y-m>
-			<z-m>0.47</z-m>
+			<x-m>22.93</x-m>
+			<y-m>-16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 	
@@ -176,9 +176,9 @@
 		<name>Left strobe light ALS</name>
 		<path>Aircraft/A320Family/Models/Lights/ALS/left-strobe.xml</path>
 		<offsets>
-			<x-m>23.92</x-m>
-			<y-m>-17.3</y-m>
-			<z-m>0.47</z-m>
+			<x-m>22.93</x-m>
+			<y-m>-16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 
@@ -186,9 +186,9 @@
 		<name>Right strobe light</name>
 		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
 		<offsets>
-			<x-m>23.92</x-m>
-			<y-m>17.23</y-m>
-			<z-m>0.47</z-m>
+			<x-m>22.93</x-m>
+			<y-m>16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 	
@@ -196,9 +196,9 @@
 		<name>Right strobe light ALS</name>
 		<path>Aircraft/A320Family/Models/Lights/ALS/right-strobe.xml</path>
 		<offsets>
-			<x-m>23.92</x-m>
-			<y-m>17.23</y-m>
-			<z-m>0.47</z-m>
+			<x-m>22.93</x-m>
+			<y-m>16.5</y-m>
+			<z-m>0.25</z-m>
 		</offsets>
 	</model>
 	
