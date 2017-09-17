@@ -1823,7 +1823,6 @@
 		<output>/controls/flight/speedbrake-lever</output>	
 	</flipflop>
 
- 
 	<!-- Speedbrake Selector -->
 	
 	<filter>
