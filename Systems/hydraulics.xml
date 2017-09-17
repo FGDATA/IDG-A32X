@@ -144,7 +144,7 @@
             <expression>
 				<sum>
 					<table>
-						<property>/controls/flight/aileron-fbw</property> 
+						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>-1</ind><dep>-0.5</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						<entry><ind> 1</ind><dep> 0.5</dep></entry>
@@ -263,7 +263,7 @@
             <expression>
 				<sum>
 					<table>
-						<property>/controls/flight/aileron-fbw</property> 
+						<property>/controls/flight/roll-fbw</property> 
 						<entry><ind>-1</ind><dep>-0.5</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						<entry><ind> 1</ind><dep> 0.5</dep></entry>

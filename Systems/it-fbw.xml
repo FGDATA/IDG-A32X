@@ -471,14 +471,6 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: AILERON</name>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>/controls/flight/roll-fbw</input>
-		<output>/controls/flight/aileron-fbw</output>
-	</filter>
-	
-	<filter>
 		<name>IT-FBW: SPOILER</name>
 		<type>gain</type>
 		<gain>1</gain>

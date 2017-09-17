@@ -574,7 +574,6 @@
 		</engines>
 		<flight>
 			<aileron-input>0</aileron-input>
-			<aileron-fbw>0</aileron-fbw>
 			<aileron-left>0.5</aileron-left>
 			<aileron-right>-0.5</aileron-right>
 			<aileron-sum>0.0</aileron-sum>
@@ -583,6 +582,8 @@
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>
 			<elevator-sum>0.2</elevator-sum>
+			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
+			<roll-fbw>0</roll-fbw>
 			<spoiler-l1>0.0</spoiler-l1>
 			<spoiler-l2>0.0</spoiler-l2>
 			<spoiler-l3>0.0</spoiler-l3>
@@ -597,7 +598,6 @@
 			<spoiler-r-sum>0.0</spoiler-r-sum>
 			<speedbrake-output>0.0</speedbrake-output>
 			<speedbrake-arm>0</speedbrake-arm>
-			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<speedbrake-lever type="double">0</speedbrake-lever>
 			<slats>0</slats>
 		</flight>
