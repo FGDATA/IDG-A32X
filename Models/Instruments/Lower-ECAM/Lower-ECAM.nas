@@ -81,11 +81,11 @@ var canvas_lowerECAM_base = {
 					lowerECAM_eng.page.hide();
 				}
 				lowerECAM_fctl.page.hide();
-                        } else if (page == "fctl") {
-                                lowerECAM_eng1.page.hide();
+			} else if (page == "fctl") {
+				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_apu.page.hide();
-                                lowerECAM_fctl.page.show();
+				lowerECAM_fctl.page.show();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng1.page.hide();
