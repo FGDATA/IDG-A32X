@@ -373,13 +373,9 @@ var canvas_lowerECAM_fctl = {
 		if (blue_psi < 1500 and green_psi < 1500) {
 			me["ailL"].setColor(1,0.6,0);
 			me["ailR"].setColor(1,0.6,0);
-			me["ailLscale"].setColor(1,0.6,0);
-			me["ailRscale"].setColor(1,0.6,0);
 		} else {
 			me["ailL"].setColor(0,1,0);
 			me["ailR"].setColor(0,1,0);
-			me["ailLscale"].setColor(1,1,1);
-			me["ailRscale"].setColor(1,1,1);
 		}
 		
 		# Elevators
