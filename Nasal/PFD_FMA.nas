@@ -9,11 +9,11 @@ setprop("/FMGC/internal/cruise-ft", 10000);
 setprop("/it-autoflight/internal/alt", 10000);
 
 setlistener("sim/signals/fdm-initialized", func {
-	speedmach.start();
+	loopFMA.start();
 });
 
 # Master Thrust
-var speedmach = maketimer(0.05, func {
+var loopFMA = maketimer(0.05, func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	var newthr = getprop("/modes/pfd/fma/throttle-mode");
@@ -32,11 +32,11 @@ var speedmach = maketimer(0.05, func {
 	} else {
 		if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7) or (getprop("/it-autoflight/output/vert") == 8)) {
 			if (getprop("/it-autoflight/output/fd1") == 0 and getprop("/it-autoflight/output/fd2") == 0 and getprop("/it-autoflight/output/ap1") == 0 and getprop("/it-autoflight/output/ap2") == 0) {
-				speedmach_b();
+				loopFMA_b();
 			} else {
 				var thr = getprop("/it-autoflight/output/thr-mode");
 				if (thr == 0) {
-					speedmach_b();
+					loopFMA_b();
 				} else if (thr == 1) {
 					if (newthr != "THR IDLE") {
 						setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
@@ -54,12 +54,47 @@ var speedmach = maketimer(0.05, func {
 				}
 			}
 		} else {
-			speedmach_b();
+			loopFMA_b();
+		}
+	}
+	
+	# SRS RWY Engagement
+	var flx = getprop("/systems/thrust/lim-flex");
+	var lat = getprop("/it-autoflight/mode/lat");
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	var vert = getprop("/it-autoflight/mode/vert");
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[0]/throttle-pos");
+	if ((state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))) {
+		if (lat == "T/O") {
+			if (newlat != "RWY") {
+				setprop("/modes/pfd/fma/roll-mode", "RWY");
+			}
+		}
+		if (vert == "T/O CLB") {
+			if (newvert != "SRS") {
+				setprop("/modes/pfd/fma/pitch-mode", "SRS");
+			}
+		}
+	} else {
+		var gear1 = getprop("/gear/gear[1]/wow");
+		var gear2 = getprop("/gear/gear[2]/wow");
+		if (lat == "T/O" and (gear1 or gear2)) {
+			if (newlat != " ") {
+				setprop("/modes/pfd/fma/roll-mode", " ");
+			}
+		}
+		if (vert == "T/O CLB" and (gear1 or gear2)) {
+			if (newvert != " ") {
+				setprop("/modes/pfd/fma/pitch-mode", " ");
+			}
 		}
 	}
 });
 
-var speedmach_b = func {
+var loopFMA_b = func {
 	var newthr = getprop("/modes/pfd/fma/throttle-mode");
 	if (getprop("/it-autoflight/input/kts-mach") == 0) {
 		if (newthr != "SPEED") {
@@ -110,10 +145,6 @@ setlistener("/it-autoflight/mode/lat", func {
 	} else if (lat == "ALGN") {
 		if (newlat != "LAND") {
 			setprop("/modes/pfd/fma/roll-mode", "LAND");
-		}
-	} else if (lat == "T/O") {
-		if (newlat != "RWY") {
-			setprop("/modes/pfd/fma/roll-mode", "RWY");
 		}
 	}
 });
@@ -198,9 +229,6 @@ setlistener("/it-autoflight/mode/vert", func {
 			setprop("/modes/pfd/fma/pitch-mode", "FLARE");
 		}
 	} else if (vert == "T/O CLB") {
-		if (newvert != "SRS") {
-			setprop("/modes/pfd/fma/pitch-mode", "SRS");
-		}
 		if (newvertarm != "CLB") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
 		}
@@ -406,14 +434,20 @@ var boxchk = func {
 }
 
 var boxchk_b = func {
-	setprop("/modes/pfd/fma/roll-mode-box", 1);
-	setprop("/modes/pfd/fma/pitch-mode-box", 1);
-	settimer(func {
-		setprop("/modes/pfd/fma/roll-mode-box", 0);
-	}, 5);
-	settimer(func {
-		setprop("/modes/pfd/fma/pitch-mode-box", 0);
-	}, 5);
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	if (newlat != " ") {
+		setprop("/modes/pfd/fma/roll-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/roll-mode-box", 0);
+		}, 5);
+	}
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	if (newvert != " ") {
+		setprop("/modes/pfd/fma/pitch-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode-box", 0);
+		}, 5);
+	}
 	var newarmr = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (newarmr != " ") {
 		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
@@ -502,17 +536,23 @@ setlistener("/modes/pfd/fma/throttle-mode", func {
 });
 
 setlistener("/modes/pfd/fma/roll-mode", func {
-	setprop("/modes/pfd/fma/roll-mode-box", 1);
-	settimer(func {
-		setprop("/modes/pfd/fma/roll-mode-box", 0);
-	}, 5);
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	if (newlat != " ") {
+		setprop("/modes/pfd/fma/roll-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/roll-mode-box", 0);
+		}, 5);
+	}
 });
 
 setlistener("/modes/pfd/fma/pitch-mode", func {
-	setprop("/modes/pfd/fma/pitch-mode-box", 1);
-	settimer(func {
-		setprop("/modes/pfd/fma/pitch-mode-box", 0);
-	}, 5);
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	if (newvert != " ") {
+		setprop("/modes/pfd/fma/pitch-mode-box", 1);
+		settimer(func {
+			setprop("/modes/pfd/fma/pitch-mode-box", 0);
+		}, 5);
+	}
 });
 
 setlistener("/modes/pfd/fma/roll-mode-armed", func {
