@@ -31,114 +31,141 @@ setprop("/systems/thrust/lim-flex", 0);
 setprop("/engines/flex-derate", 0);
 
 setlistener("/sim/signals/fdm-initialized", func {
+	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
+	var state1 = getprop("/systems/thrust/state1");
+	var state2 = getprop("/systems/thrust/state2");
+	var eprtoga = getprop("/systems/thrust/epr/toga-lim");
+	var eprmct = getprop("/systems/thrust/epr/mct-lim");
+	var eprflx = getprop("/systems/thrust/epr/flx-lim");
+	var eprclb = getprop("/systems/thrust/epr/clb-lim");
+	var n1toga = getprop("/systems/thrust/n1/toga-lim");
+	var n1mct = getprop("/systems/thrust/n1/mct-lim");
+	var n1flx = getprop("/systems/thrust/n1/flx-lim");
+	var n1clb = getprop("/systems/thrust/n1/clb-lim");
+	var ias = getprop("/velocities/airspeed-kt");
+	var flaps = getprop("/controls/flight/flap-pos");
+	var alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
 	thrustt.start();
 });
 
 setlistener("/controls/engines/engine[0]/throttle-pos", func {
-	var thrr = getprop("/controls/engines/engine[0]/throttle-pos");
+	thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	if (getprop("/systems/thrust/alpha-floor") == 0 and getprop("/systems/thrust/toga-lk") == 0) {
-		if (thrr < 0.01) {
+		if (thr1 < 0.01) {
 			setprop("/systems/thrust/state1", "IDLE");
 			unflex();
 			atoff_request();
-		} else if (thrr >= 0.01 and thrr < 0.60) {
+		} else if (thr1 >= 0.01 and thr1 < 0.60) {
 			setprop("/systems/thrust/state1", "MAN");
 			unflex();
-		} else if (thrr >= 0.60 and thrr < 0.65) {
+		} else if (thr1 >= 0.60 and thr1 < 0.65) {
 			setprop("/systems/thrust/state1", "CL");
 			unflex();
-		} else if (thrr >= 0.65 and thrr < 0.78) {
+		} else if (thr1 >= 0.65 and thr1 < 0.78) {
 			setprop("/systems/thrust/state1", "MAN THR");
 			unflex();
-		} else if (thrr >= 0.78 and thrr < 0.83) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr1 >= 0.78 and thr1 < 0.83) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
 				setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
 			} else {
 				setprop("/controls/engines/engine[0]/throttle-fdm", 0.94);
 			}
 			setprop("/systems/thrust/state1", "MCT");
-		} else if (thrr >= 0.83 and thrr < 0.95) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr1 >= 0.83 and thr1 < 0.95) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			setprop("/systems/thrust/state1", "MAN THR");
 			unflex();
-		} else if (thrr >= 0.95) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr1 >= 0.95) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
 			setprop("/systems/thrust/state1", "TOGA");
 			unflex();
 		}
 	} else {
-		if (thrr < 0.01) {
+		if (thr1 < 0.01) {
 			setprop("/systems/thrust/state1", "IDLE");
-		} else if (thrr >= 0.01 and thrr < 0.60) {
+		} else if (thr1 >= 0.01 and thr1 < 0.60) {
 			setprop("/systems/thrust/state1", "MAN");
-		} else if (thrr >= 0.60 and thrr < 0.65) {
+		} else if (thr1 >= 0.60 and thr1 < 0.65) {
 			setprop("/systems/thrust/state1", "CL");
-		} else if (thrr >= 0.65 and thrr < 0.78) {
+		} else if (thr1 >= 0.65 and thr1 < 0.78) {
 			setprop("/systems/thrust/state1", "MAN THR");
-		} else if (thrr >= 0.78 and thrr < 0.83) {
+		} else if (thr1 >= 0.78 and thr1 < 0.83) {
 			setprop("/systems/thrust/state1", "MCT");
-		} else if (thrr >= 0.83 and thrr < 0.95) {
+		} else if (thr1 >= 0.83 and thr1 < 0.95) {
 			setprop("/systems/thrust/state1", "MAN THR");
-		} else if (thrr >= 0.95) {
+		} else if (thr1 >= 0.95) {
 			setprop("/systems/thrust/state1", "TOGA");
 		}
-		setprop("/controls/engines/engine[0]/throttle-fdm", 1.00);
+		setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
 	}
 });
 
 setlistener("/controls/engines/engine[1]/throttle-pos", func {
-	var thrr = getprop("/controls/engines/engine[1]/throttle-pos");
+	thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	if (getprop("/systems/thrust/alpha-floor") == 0 and getprop("/systems/thrust/toga-lk") == 0) {
-		if (thrr < 0.01) {
+		if (thr2 < 0.01) {
 			setprop("/systems/thrust/state2", "IDLE");
 			unflex();
 			atoff_request();
-		} else if (thrr >= 0.01 and thrr < 0.60) {
+		} else if (thr2 >= 0.01 and thr2 < 0.60) {
 			setprop("/systems/thrust/state2", "MAN");
 			unflex();
-		} else if (thrr >= 0.60 and thrr < 0.65) {
+		} else if (thr2 >= 0.60 and thr2 < 0.65) {
 			setprop("/systems/thrust/state2", "CL");
 			unflex();
-		} else if (thrr >= 0.65 and thrr < 0.78) {
+		} else if (thr2 >= 0.65 and thr2 < 0.78) {
 			setprop("/systems/thrust/state2", "MAN THR");
 			unflex();
-		} else if (thrr >= 0.78 and thrr < 0.83) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr2 >= 0.78 and thr2 < 0.83) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
 				setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
 			} else {
 				setprop("/controls/engines/engine[1]/throttle-fdm", 0.94);
 			}
 			setprop("/systems/thrust/state2", "MCT");
-		} else if (thrr >= 0.83 and thrr < 0.95) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr2 >= 0.83 and thr2 < 0.95) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			setprop("/systems/thrust/state2", "MAN THR");
 			unflex();
-		} else if (thrr >= 0.95) {
-			setprop("/it-autoflight/input/athr", 1);
+		} else if (thr2 >= 0.95) {
+			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+				setprop("/it-autoflight/input/athr", 1);
+			}
 			setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
 			setprop("/systems/thrust/state2", "TOGA");
 			unflex();
 		}
 	} else {
-		if (thrr < 0.01) {
+		if (thr2 < 0.01) {
 			setprop("/systems/thrust/state2", "IDLE");
-		} else if (thrr >= 0.01 and thrr < 0.60) {
+		} else if (thr2 >= 0.01 and thr2 < 0.60) {
 			setprop("/systems/thrust/state2", "MAN");
-		} else if (thrr >= 0.60 and thrr < 0.65) {
+		} else if (thr2 >= 0.60 and thr2 < 0.65) {
 			setprop("/systems/thrust/state2", "CL");
-		} else if (thrr >= 0.65 and thrr < 0.78) {
+		} else if (thr2 >= 0.65 and thr2 < 0.78) {
 			setprop("/systems/thrust/state2", "MAN THR");
-		} else if (thrr >= 0.78 and thrr < 0.83) {
+		} else if (thr2 >= 0.78 and thr2 < 0.83) {
 			setprop("/systems/thrust/state2", "MCT");
-		} else if (thrr >= 0.83 and thrr < 0.95) {
+		} else if (thr2 >= 0.83 and thr2 < 0.95) {
 			setprop("/systems/thrust/state2", "MAN THR");
-		} else if (thrr >= 0.95) {
+		} else if (thr2 >= 0.95) {
 			setprop("/systems/thrust/state2", "TOGA");
 		}
-		setprop("/controls/engines/engine[1]/throttle-fdm", 1.00);
+		setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
 	}
 });
 
@@ -153,8 +180,8 @@ setlistener("/it-autoflight/input/athr", func {
 
 # Checks if all throttles are in the IDLE position, before tuning off the A/THR.
 var atoff_request = func {
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
 	if ((state1 == "IDLE") and (state2 == "IDLE") and (getprop("/systems/thrust/alpha-floor") == 0) and (getprop("/systems/thrust/toga-lk") == 0)) {
 		setprop("/it-autoflight/input/athr", 0);
 	}
@@ -169,19 +196,19 @@ setlistener("/systems/thrust/state2", func {
 });
 
 var thrust_lim = func {
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
-	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
-	var thr2 = getprop("/controls/engines/engine[0]/throttle-pos");
-	var eprtoga = getprop("/systems/thrust/epr/toga-lim");
-	var eprmct = getprop("/systems/thrust/epr/mct-lim");
-	var eprflx = getprop("/systems/thrust/epr/flx-lim");
-	var eprclb = getprop("/systems/thrust/epr/clb-lim");
-	var n1toga = getprop("/systems/thrust/n1/toga-lim");
-	var n1mct = getprop("/systems/thrust/n1/mct-lim");
-	var n1flx = getprop("/systems/thrust/n1/flx-lim");
-	var n1clb = getprop("/systems/thrust/n1/clb-lim");
-	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
+	thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
+	eprtoga = getprop("/systems/thrust/epr/toga-lim");
+	eprmct = getprop("/systems/thrust/epr/mct-lim");
+	eprflx = getprop("/systems/thrust/epr/flx-lim");
+	eprclb = getprop("/systems/thrust/epr/clb-lim");
+	n1toga = getprop("/systems/thrust/n1/toga-lim");
+	n1mct = getprop("/systems/thrust/n1/mct-lim");
+	n1flx = getprop("/systems/thrust/n1/flx-lim");
+	n1clb = getprop("/systems/thrust/n1/clb-lim");
+	if (getprop("/gear/gear[1]/wow") == 0 or getprop("/gear/gear[2]/wow") == 0) {
 		if ((state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) or getprop("/systems/thrust/alpha-floor") == 1 or getprop("/systems/thrust/toga-lk") == 1) {
 			setprop("/controls/engines/thrust-limit", "TOGA");
 			setprop("/controls/engines/epr-limit", eprtoga);
@@ -212,16 +239,16 @@ var thrust_lim = func {
 }
 
 var unflex = func {
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
 	if (state1 != "MCT" and state2 != "MCT" and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
 		setprop("/systems/thrust/lim-flex", 0);
 	}
 }
 
 var thrust_loop = func {
-	var state1 = getprop("/systems/thrust/state1");
-	var state2 = getprop("/systems/thrust/state2");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
 	if ((state1 == "CL") and (state2 == "CL")) {
 		setprop("/systems/thrust/lvrclb", "0");
 	} else {
@@ -241,27 +268,16 @@ var thrust_loop = func {
 		}
 	}
 
-# Disabled until FDE AoA and stall characteristics are correct.
-#	var AoA = getprop("/fdm/jsbsim/aero/alpha-deg");
-#	var flaps = getprop("/controls/flight/flap-lever");
+#	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+#	flaps = getprop("/controls/flight/flap-pos");
+#	alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
+#	togaLockSpd = alphaProtSpd + 3;
 #	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and getprop("/it-fbw/law") == 0) {
-#		if (AoA >= 6.0 and flaps == 0) {
+#		if (ias < alphaProtSpd) {
 #			setprop("/systems/thrust/alpha-floor", 1);
 #			setprop("/systems/thrust/toga-lk", 0);
 #			setprop("/it-autoflight/input/athr", 1);
-#		} else if (AoA >= 8.0 and (flaps == 1 or flaps == 2)) {
-#			setprop("/systems/thrust/alpha-floor", 1);
-#			setprop("/systems/thrust/toga-lk", 0);
-#			setprop("/it-autoflight/input/athr", 1);
-#		} else if (AoA >= 8.0 and flaps == 3) {
-#			setprop("/systems/thrust/alpha-floor", 1);
-#			setprop("/systems/thrust/toga-lk", 0);
-#			setprop("/it-autoflight/input/athr", 1);
-#		} else if (AoA >= 7.5 and flaps == 4) {
-#			setprop("/systems/thrust/alpha-floor", 1);
-#			setprop("/systems/thrust/toga-lk", 0);
-#			setprop("/it-autoflight/input/athr", 1);
-#		} else if (getprop("/systems/thrust/alpha-floor") == 1) {
+#		} else if (getprop("/systems/thrust/alpha-floor") == 1 and ias > togaLockSpd) {
 #			setprop("/systems/thrust/alpha-floor", 0);
 #			setprop("/it-autoflight/input/athr", 1);
 #			setprop("/systems/thrust/toga-lk", 1);

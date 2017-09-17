@@ -2053,6 +2053,14 @@
         <condition>
 			<and>
 				<equals>
+					<property>systems/thrust/alpha-floor</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>systems/thrust/toga-lk</property>
+					<value>0</value>
+				</equals>
+				<equals>
 					<property>it-autoflight/output/athr</property>
 					<value>1</value>
 				</equals>
@@ -2980,7 +2988,7 @@
         <font type="string">helvetica_medium.txf</font>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
-        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
         <character-size>0.0055</character-size>
         <font-resolution>
             <width type="int">32</width>
@@ -3003,7 +3011,7 @@
         <font type="string">helvetica_medium.txf</font>
         <draw-text type="bool">true</draw-text>
         <draw-alignment type="bool">false</draw-alignment>
-        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
         <character-size>0.0055</character-size>
         <font-resolution>
             <width type="int">32</width>
@@ -3042,6 +3050,24 @@
 					<value>1</value>
 				</equals>
 			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>athr-afloor-fma</object-name>
+		<object-name>alpha-floor-box</object-name>
+        <condition>
+			<or>
+				<equals>
+					<property>systems/thrust/alpha-floor</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>systems/thrust/toga-lk</property>
+					<value>1</value>
+				</equals>
+			</or>
         </condition>
     </animation>
 	
@@ -3567,6 +3593,8 @@
         <object-name>pitch-mode-fma</object-name>
         <object-name>land-mode-fma</object-name>
         <object-name>roll-mode-fma</object-name>
+		<object-name>athr-afloor-fma</object-name>
+		<object-name>athr-togalk-fma</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.843</green>
@@ -3702,8 +3730,6 @@
 	<!-- Amber -->
 	<animation>
 		<type>material</type>
-		<object-name>athr-afloor-fma</object-name>
-		<object-name>athr-togalk-fma</object-name>
 		<object-name>usemanpitchtrim</object-name>
 		<diffuse>
 			<red>1</red>

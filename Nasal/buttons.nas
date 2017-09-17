@@ -139,6 +139,19 @@ var CVR_master = func {
 	}
 }
 
+#setlistener("/it-autoflight/input/spd-kts", func {
+#	if (getprop("/it-autoflight/input/spd-kts") < getprop("/FMGC/internal/alpha-prot-speed")) {
+#		setprop("/it-autoflight/input/spd-kts", getprop("/FMGC/internal/alpha-prot-speed"));
+#	}
+#});
+
+#setlistener("/it-autoflight/input/spd-mach", func {
+#	var alphaProtMach = (getprop("/instrumentation/airspeed-indicator/indicated-mach") / getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") * getprop("/FMGC/internal/alpha-prot-speed"));
+#	if (getprop("/it-autoflight/input/spd-mach") < alphaProtMach) {
+#		setprop("/it-autoflight/input/spd-mach", alphaProtMach);
+#	}
+#});
+
 var mcpSPDKnbPull = func {
 	setprop("/it-autoflight/input/spd-managed", 0);
 	fmgc.ManagedSPD.stop();
@@ -234,7 +247,6 @@ var decreaseManVS = func {
 		setprop("/systems/pressurization/outflowpos-man", manvs - 0.001);
 	}
 }
-
 
 var update_CVR = func {
 	CVR_master();
