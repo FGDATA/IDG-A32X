@@ -456,7 +456,7 @@
 					</equals>
 				</or>
 			</condition>
-			<property>/controls/flight/aileron-input</property>
+			<property>/controls/flight/aileron-input-fast</property>
 		</input>
 		<input>
 			<condition>
@@ -1002,7 +1002,7 @@
 					</less-than-equals>
 				</or>
 			</condition>
-			<property>/controls/flight/elevator-input</property>
+			<property>/controls/flight/elevator-input-fast</property>
 		</input>
 		<input>
 			<condition>
