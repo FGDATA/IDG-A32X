@@ -11,7 +11,7 @@
 	<path>res/vstab.ac</path>
 
 	<!--effect>
-		<inherits-from>Aircraft/A320Family/Models/Effects/NEOreflect</inherits-from>
+		<inherits-from>Aircraft/IDG-A32X/Models/Effects/NEOreflect</inherits-from>
 		<object-name>Vstab</object-name>
 		<object-name>Rudder</object-name>
 	</effect-->
@@ -53,7 +53,7 @@
 	</animation> -->
 	
 	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/logo</inherits-from>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/logo</inherits-from>
 		<object-name>Vstab</object-name>
 		<object-name>Rudder</object-name>
 	</effect>

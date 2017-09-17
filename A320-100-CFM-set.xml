@@ -11,14 +11,14 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/cfm56-sound.xml</path>
+			<path>Aircraft/IDG-A32X/Sounds/cfm56-sound.xml</path>
 		</sound>
                 <checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-111 (CFM56-5A1)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-100-CFM</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A320-100-CFM.xml</path>
+			<path>Aircraft/IDG-A32X/Models/A320-100-CFM.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
@@ -141,10 +141,10 @@
 		
 		<systems n="0">
             <autopilot n="0">
-                <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
+                <path>Aircraft/IDG-A32X/Systems/fadec-cfm.xml</path>
             </autopilot>
 			<autopilot n="8">
-				<path>Aircraft/A320Family/Systems/cfm56-sound.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/cfm56-sound.xml</path>
 			</autopilot>
 		</systems>
 		
@@ -161,7 +161,7 @@
 	<instrumentation n="0">
 		<mk-viii n="0">
 			<voice>
-				<file-prefix>Aircraft/A320Family/Sounds/GPWS-OLD/</file-prefix>
+				<file-prefix>Aircraft/IDG-A32X/Sounds/GPWS-OLD/</file-prefix>
 			</voice>
 		</mk-viii>
 	</instrumentation>
@@ -182,10 +182,10 @@
 	
 	<nasal>
 		<specific>
-			<file>Aircraft/A320Family/Nasal/a320livery-cfm-100.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/a320livery-cfm-100.nas</file>
 		</specific>
 		<fadec>
-			<file>Aircraft/A320Family/Nasal/fadec-cfm.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/fadec-cfm.nas</file>
 		</fadec>
 	</nasal>
 </PropertyList>

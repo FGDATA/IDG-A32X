@@ -1,1 +1,1 @@
-aircraft.livery.init("Aircraft/A320Family/Models/Liveries/A320/CFM");
+aircraft.livery.init("Aircraft/IDG-A32X/Models/Liveries/A320/CFM");

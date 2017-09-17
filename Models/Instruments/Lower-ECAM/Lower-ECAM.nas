@@ -730,10 +730,10 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
 
-	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/A320Family/Models/Instruments/Lower-ECAM/res/apu.svg");
-	lowerECAM_eng1 = canvas_lowerECAM_eng1.new(groupEng1, "Aircraft/A320Family/Models/Instruments/Lower-ECAM/res/eng-eis1.svg");
-	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/A320Family/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
-	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/A320Family/Models/Instruments/Lower-ECAM/res/fctl.svg");
+	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
+	lowerECAM_eng1 = canvas_lowerECAM_eng1.new(groupEng1, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis1.svg");
+	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
+	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 
 	lowerECAM_apu.update();
 	lowerECAM_eng1.update();

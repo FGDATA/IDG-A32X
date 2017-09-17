@@ -5,19 +5,9 @@
 # Copyright (c) it0uchpods Design Group #
 #########################################
 
-# :)
-print("          ____ ___   ___  ______              _ _       ");
-print("    /\   |___ \__ \ / _ \|  ____|            (_) |      ");
-print("   /  \    __) | ) | | | | |__ __ _ _ __ ___  _| |_   _ ");
-print("  / /\ \  |__ < / /| | | |  __/ _` | '_ ` _ \| | | | | |");
-print(" / ____ \ ___) / /_| |_| | | | (_| | | | | | | | | |_| |");
-print("/_/    \_\____/____|\___/|_|  \__,_|_| |_| |_|_|_|\__, |");
-print("                                                   __/ |");
-print("                                                  |___/ ");
 print("-----------------------------------------------------------------------------");
-print("Copyright (c) 2017 it0uchpods Design Group");
+print("Copyright (c) 2016-2017 it0uchpods Design Group");
 print("-----------------------------------------------------------------------------");
-print(" ");
 
 # Dimmers
 setprop("/controls/lighting/ndl-norm", 1);
@@ -220,7 +210,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	mcdu2.MCDU_init();
 	libraries.CVR.start();
 	icing.icingInit();
-	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320Family/Systems/autopilot-dlg.xml");
+	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/IDG-A32X/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();

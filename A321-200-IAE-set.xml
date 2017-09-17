@@ -11,7 +11,7 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/v2500-sound.xml</path>
+			<path>Aircraft/IDG-A32X/Sounds/v2500-sound.xml</path>
 		</sound>
 	
 		<description>Airbus A321-231 (IAE V2533-A5)</description>
@@ -19,7 +19,7 @@
                 <checklists include="A3XX-Checklists.xml"/>
 		<aero>A321-200-IAE</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A321-200-IAE.xml</path>
+			<path>Aircraft/IDG-A32X/Models/A321-200-IAE.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
@@ -122,10 +122,10 @@
 		
 		<systems n="0">
             <autopilot n="0">
-                <path>Aircraft/A320Family/Systems/fadec-iae.xml</path>
+                <path>Aircraft/IDG-A32X/Systems/fadec-iae.xml</path>
             </autopilot>
 			<autopilot n="8">
-				<path>Aircraft/A320Family/Systems/v2500-sound.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/v2500-sound.xml</path>
 			</autopilot>
 		</systems>
 		
@@ -154,10 +154,10 @@
 	
 	<nasal>
 		<specific>
-			<file>Aircraft/A320Family/Nasal/a321livery-iae.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/a321livery-iae.nas</file>
 		</specific>
 		<fadec>
-			<file>Aircraft/A320Family/Nasal/fadec-iae.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/fadec-iae.nas</file>
 		</fadec>
 	</nasal>
 

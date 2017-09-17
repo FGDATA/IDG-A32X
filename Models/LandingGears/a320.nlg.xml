@@ -12,7 +12,7 @@
 	
 	<model>
 		<name>Nose Tires</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.nlg.tires.xml</path>
+		<path>Aircraft/IDG-A32X/Models/LandingGears/a320.nlg.tires.xml</path>
 		<offsets>
 			<x-m>-0.3061469</x-m>
 			<z-m>-1.9329357</z-m>

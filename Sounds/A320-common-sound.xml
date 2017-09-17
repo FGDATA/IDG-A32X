@@ -147,7 +147,7 @@
 <!-- Custom GPWS -->
 	    <gpws>
 			<name>2500O</name>
-			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-2500.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-2500.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -181,7 +181,7 @@
 		</gpws>
 	    <gpws>
 			<name>2000O</name>
-			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-2000.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-2000.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -215,7 +215,7 @@
 		</gpws>
 	    <gpws>
 			<name>10ftalandO</name>
-			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-10ft.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-10ft.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -263,7 +263,7 @@
 		</gpws>
 	    <gpws>
 			<name>5O</name>
-			<path>Aircraft/A320Family/Sounds/GPWS-OLD/altitude-5.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-5.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -309,7 +309,7 @@
 		</gpws>
 	    <gpws>
 			<name>2500</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/altitude-2500.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-2500.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -343,7 +343,7 @@
 		</gpws>
 	    <gpws>
 			<name>2000</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/altitude-2000.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-2000.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -377,7 +377,7 @@
 		</gpws>
 	    <gpws>
 			<name>10ftaland</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/altitude-10ft.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-10ft.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -425,7 +425,7 @@
 		</gpws>
 	    <gpws>
 			<name>5</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/altitude-5.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-5.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -472,7 +472,7 @@
 		
 	    <gpws>
 			<name>100above</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/100-above.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/100-above.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -508,7 +508,7 @@
 <!-- Retard Warning -->
 		<retard>
 			<name>retardO</name>
-			<path>Aircraft/A320Family/Sounds/GPWS-OLD/retard.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/retard.wav</path>
 			<mode>looped</mode>
 			<condition>
 				<and>
@@ -587,7 +587,7 @@
 			
 		<retard>
 			<name>retard</name>
-			<path>Aircraft/A320Family/Sounds/GPWS/retard.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/retard.wav</path>
 			<mode>looped</mode>
 			<condition>
 				<and>
@@ -666,7 +666,7 @@
 	
 		<apoff>
 			<name>apoff</name>
-			<path>/Aircraft/A320Family/Sounds/apoff.wav</path>
+			<path>/Aircraft/IDG-A32X/Sounds/apoff.wav</path>
 			<condition>
 				<property>/it-autoflight/sound/apoffsound</property>
 			</condition>
@@ -677,7 +677,7 @@
   
 		<apoff>
 			<name>apoff2</name>
-			<path>/Aircraft/A320Family/Sounds/apoff.wav</path>
+			<path>/Aircraft/IDG-A32X/Sounds/apoff.wav</path>
 			<condition>
 				<property>/it-autoflight/sound/apoffsound2</property>
 			</condition>
@@ -1060,7 +1060,7 @@
 		<switch>
 			<name>Button</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/button.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/button.wav</path>
 			<condition>
 				<property>/sim/sounde/btn1</property>
 			</condition>
@@ -1072,7 +1072,7 @@
 		<switch>
 			<name>ButtonOH</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/button2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/button2.wav</path>
 			<condition>
 				<property>/sim/sounde/oh-btn</property>
 			</condition>
@@ -1084,7 +1084,7 @@
 		<switch>
 			<name>Button3</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/button3.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/button3.wav</path>
 			<condition>
 				<property>/sim/sounde/btn3</property>
 			</condition>
@@ -1096,7 +1096,7 @@
 		<switch>
 			<name>Knob</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/knob.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/knob.wav</path>
 			<condition>
 				<property>/sim/sounde/knb1</property>
 			</condition>
@@ -1108,7 +1108,7 @@
 		<switch>
 			<name>Switch</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/switch.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/switch.wav</path>
 			<condition>
 				<property>/sim/sounde/switch1</property>
 			</condition>
@@ -1120,7 +1120,7 @@
 		<cvrtone>
 			<name>CVRtone</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/700hz.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/700hz.wav</path>
 			<condition>
 				<equals>
 					<property>controls/CVR/tone</property>
@@ -1135,7 +1135,7 @@
 		<relay>
 			<name>RelayBatt1</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery1-amps</property>
@@ -1150,7 +1150,7 @@
 		<relay>
 			<name>RelayBatt2</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery2-amps</property>
@@ -1165,7 +1165,7 @@
 		<relay>
 			<name>RelayEXT</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/relay1.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay1.wav</path>
 			<condition>
 				<and>
 					<equals>
@@ -1186,7 +1186,7 @@
 		<relay>
 			<name>RelayAPU</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/Cockpit/relay1.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay1.wav</path>
 			<condition>
 				<equals>
 					<property>/systems/electrical/gen-apu</property>
@@ -1201,7 +1201,7 @@
 		<announcements>
 			<name>welcomeFA</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/welcome.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/welcome.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/welcomefa</property>
@@ -1216,7 +1216,7 @@
 		<announcements>
 			<name>welcomeCA</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/captwelcome.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/captwelcome.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/welcomecapt</property>
@@ -1231,7 +1231,7 @@
 		<announcements>
 			<name>doorsDep</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/doorsdepart.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/doorsdepart.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/doors</property>
@@ -1246,7 +1246,7 @@
 		<announcements>
 			<name>PrepTo</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/takeoff.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/takeoff.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/prepareto</property>
@@ -1261,7 +1261,7 @@
 		<announcements>
 			<name>seatbeltOff</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/belt10k.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/belt10k.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/seatbelt-10k</property>
@@ -1276,7 +1276,7 @@
 		<announcements>
 			<name>safety</name>
 			<mode>once</mode>
-			<path>Aircraft/A320Family/Sounds/safety.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/safety.wav</path>
 			<condition>
 				<equals>
 					<property>/sim/sounde/safety</property>

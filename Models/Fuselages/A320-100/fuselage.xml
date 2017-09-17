@@ -12,7 +12,7 @@
 
 	<!-- Reflection Shader -->
 	<!--effect>
-		<inherits-from>Aircraft/A320Family/Models/Effects/NEOreflect</inherits-from>
+		<inherits-from>Aircraft/IDG-A32X/Models/Effects/NEOreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 	</effect-->
     
@@ -27,7 +27,7 @@
 	<!-- APU fire -->
 	<model>
 		<name>APU fire</name>
-		<path>Aircraft/A320Family/Models/Effects/enginefire.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Effects/enginefire.xml</path>
 		<offsets>
 			<x-m>38.9</x-m>
 			<y-m>0</y-m>
@@ -362,7 +362,7 @@
 	
 	<model>
 		<name>RAT</name>
-		<path>Aircraft/A320Family/Models/RAT/RAT.xml</path>
+		<path>Aircraft/IDG-A32X/Models/RAT/RAT.xml</path>
 		<offsets>
 			<x-m>18</x-m>
 			<y-m>-1</y-m>

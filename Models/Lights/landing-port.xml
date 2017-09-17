@@ -17,7 +17,7 @@
 	<!-- 3d light cone -->
 	<model>
 		<name>Cone</name>
-		<path>Aircraft/A320Family/Models/Lights/light-cone.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/light-cone.xml</path>
 	</model>
 
 	<!-- ANIMATIONS -->

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
-	<name>Aircraft/A320Family/Models/Effects/NEOreflect</name>
+	<name>Aircraft/IDG-A32X/Models/Effects/NEOreflect</name>
 	<inherits-from>Effects/reflect</inherits-from>
 
 	<parameters>

@@ -18,13 +18,13 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A320/fuselage.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Fuselages/A320/fuselage.xml</path>
 
 	</model>		
 	<!-- Separate Flightdeck to fit the modified nose -->
 	<model>
 		<name>Flightdeck</name>
-		<path>Aircraft/A320Family/Models/FlightDeck/a320.flightdeck.xml</path>
+		<path>Aircraft/IDG-A32X/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
 			<x-m>4.7881</x-m>
 			<z-m>0.2399</z-m>
@@ -33,12 +33,12 @@
 	
 	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320Family/Models/Interior/a320.interior.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Interior/a320.interior.xml</path>
 	</model>
 
 	<model>
 		<name>Nose Gear</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.nlg.xml</path>
+		<path>Aircraft/IDG-A32X/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
 			<x-m>7.83</x-m>
 			<!-- <z-m>-1.8306008</z-m> Didn't touch ground -->
@@ -48,7 +48,7 @@
 
 	<model>
 		<name>Main Gears.Left</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.mlg.left.xml</path>
+		<path>Aircraft/IDG-A32X/Models/LandingGears/a320.mlg.left.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>-3.795</y-m>
@@ -58,7 +58,7 @@
 
 	<model>
 		<name>Main Gears.Right</name>
-		<path>Aircraft/A320Family/Models/LandingGears/a320.mlg.right.xml</path>
+		<path>Aircraft/IDG-A32X/Models/LandingGears/a320.mlg.right.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>3.795</y-m>
@@ -67,7 +67,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320Family/Models/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Wings/a320.wings.iae.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -76,7 +76,7 @@
 
 	<model>
 		<name>A320 Winglets</name>
-		<path>Aircraft/A320Family/Models/Wings/a320.winglets.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Wings/a320.winglets.xml</path>
 		<condition>
 			<equals>
 				<property>sim/multiplay/generic/int[12]</property>
@@ -91,7 +91,7 @@
 	
 	<model>
 		<name>A320 Sharklets</name>
-		<path>Aircraft/A320Family/Models/Wings/a320.sharklets.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Wings/a320.sharklets.xml</path>
 		<condition>
 			<equals>
 				<property>sim/multiplay/generic/int[12]</property>
@@ -106,7 +106,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A320/hstab.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Fuselages/A320/hstab.xml</path>
 		<offsets>
 			<x-m>34.1512207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -115,7 +115,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320Family/Models/Fuselages/A320/vstab.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Fuselages/A320/vstab.xml</path>
 		<offsets>
 			<x-m>32.2535728</x-m>
 		</offsets>
@@ -124,7 +124,7 @@
 	
 	<model>
 		<name>Left nav light</name>
-		<path>Aircraft/A320Family/Models/Lights/rednav.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/rednav.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>-16.5</y-m>
@@ -134,7 +134,7 @@
 	
 	<model>
 		<name>Left nav light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/rednav.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/rednav.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>-16.5</y-m>
@@ -144,7 +144,7 @@
 
 	<model>
 		<name>Right nav light</name>
-		<path>Aircraft/A320Family/Models/Lights/greennav.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/greennav.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>16.5</y-m>
@@ -154,7 +154,7 @@
 	
 	<model>
 		<name>Right nav light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/greennav.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/greennav.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>16.5</y-m>
@@ -164,7 +164,7 @@
 
 	<model>
 		<name>Left strobe light</name>
-		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>-16.5</y-m>
@@ -174,7 +174,7 @@
 	
 	<model>
 		<name>Left strobe light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/left-strobe.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/left-strobe.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>-16.5</y-m>
@@ -184,7 +184,7 @@
 
 	<model>
 		<name>Right strobe light</name>
-		<path>Aircraft/A320Family/Models/Lights/strobe.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>16.5</y-m>
@@ -194,7 +194,7 @@
 	
 	<model>
 		<name>Right strobe light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/right-strobe.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/right-strobe.xml</path>
 		<offsets>
 			<x-m>22.93</x-m>
 			<y-m>16.5</y-m>
@@ -204,7 +204,7 @@
 	
 	<model>
 		<name>Top beacon light</name>
-		<path>Aircraft/A320Family/Models/Lights/beacon.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/beacon.xml</path>
 		<offsets>
 			<x-m>16.7</x-m>
 			<y-m>0</y-m>
@@ -214,7 +214,7 @@
 
 	<model>
 		<name>Bottom beacon light</name>
-		<path>Aircraft/A320Family/Models/Lights/beacon.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/beacon.xml</path>
 		<offsets>
 			<x-m>18.2</x-m>
 			<y-m>0</y-m>
@@ -224,7 +224,7 @@
 	
 	<model>
 		<name>Top beacon light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/beacon.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/beacon.xml</path>
 		<offsets>
 			<x-m>16.7</x-m>
 			<y-m>0</y-m>
@@ -234,7 +234,7 @@
 
 	<model>
 		<name>Bottom beacon light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/beacon.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/beacon.xml</path>
 		<offsets>
 			<x-m>18.2</x-m>
 			<y-m>0</y-m>
@@ -244,7 +244,7 @@
 
 	<model>
 		<name>Port landing light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/landinglightL.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/landinglightL.xml</path>
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>-3.16</y-m>
@@ -254,7 +254,7 @@
 
 	<model>
 		<name>Nosegear landing light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/taxilight.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/taxilight.xml</path>
 		<offsets>
 			<x-m>7.81</x-m>
 			<y-m>0</y-m>
@@ -264,7 +264,7 @@
 
 	<model>
 		<name>Starboard landing light ALS</name>
-		<path>Aircraft/A320Family/Models/Lights/ALS/landinglightR.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/landinglightR.xml</path>
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>3.16</y-m>
@@ -311,7 +311,7 @@
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A320/IAE");
+		 var livery_update = aircraft.livery_update.new("Aircraft/IDG-A32X/Models/Liveries/A320/IAE");
 		</load>
 		<unload>
 		 livery_update.stop();
@@ -322,7 +322,7 @@
     
     <model>
         <name>fuel-truck</name>
-        <path>Aircraft/A320Family/Models/Services/Fuel-Truck/Fuel_Truck_Short_VolvoFM.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Fuel-Truck/Fuel_Truck_Short_VolvoFM.ac</path>
         <condition>
             <equals>
                 <property>services/fuel-truck/enable</property>
@@ -362,7 +362,7 @@
     
     <model>
         <name>de-ice-truck</name>
-        <path>Aircraft/A320Family/Models/Services/De-Icing/volvo_deicing_truck.xml</path>
+        <path>Aircraft/IDG-A32X/Models/Services/De-Icing/volvo_deicing_truck.xml</path>
         <condition>
             <equals>
                 <property>services/deicing_truck/enable</property>
@@ -381,7 +381,7 @@
     
     <model>
         <name>cater-truck</name>
-        <path>Aircraft/A320Family/Models/Services/Catering/L_T_VolvoFM-4_5m-set.xml</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Catering/L_T_VolvoFM-4_5m-set.xml</path>
         <condition>
             <equals>
                 <property>services/catering/enable</property>
@@ -400,7 +400,7 @@
     
     <model>
         <name>baggage-truck</name>
-        <path>Aircraft/A320Family/Models/Services/Baggage/cargo_ramp.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Baggage/cargo_ramp.ac</path>
         <condition>
             <equals>
                 <property>services/baggage/enable</property>
@@ -418,7 +418,7 @@
     
     <model>
         <name>ext-pwr</name>
-        <path>Aircraft/A320Family/Models/Services/External-Power/ext-pwr-box.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/External-Power/ext-pwr-box.ac</path>
         <condition>
             <equals>
                 <property>services/ext-pwr/enable</property>
@@ -436,7 +436,7 @@
     
     <model>
         <name>chock_nose</name>
-        <path>Aircraft/A320Family/Models/Services/Chocks/chock_nose.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Chocks/chock_nose.ac</path>
         <condition>
             <equals>
                 <property>services/chokes/nose</property>
@@ -451,7 +451,7 @@
     
     <model>
         <name>chock_left</name>
-        <path>Aircraft/A320Family/Models/Services/Chocks/chock_left.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Chocks/chock_left.ac</path>
         <condition>
             <equals>
                 <property>services/chokes/left</property>
@@ -467,7 +467,7 @@
     
     <model>
         <name>chock_right</name>
-        <path>Aircraft/A320Family/Models/Services/Chocks/chock_right.ac</path>
+        <path>Aircraft/IDG-A32X/Models/Services/Chocks/chock_right.ac</path>
         <condition>
             <equals>
                 <property>services/chokes/right</property>
@@ -484,7 +484,7 @@
     
 
 	<model>
-	 <path>Aircraft/A320Family/Models/Services/Stairs/stairs.xml</path>
+	 <path>Aircraft/IDG-A32X/Models/Services/Stairs/stairs.xml</path>
 	 <name>l1</name>
 	 <offsets>
 	  <x-m>7.94</x-m>
@@ -498,7 +498,7 @@
 	</model>
 
 	<model>
-	 <path>Aircraft/A320Family/Models/Services/Stairs/stairs.xml</path>
+	 <path>Aircraft/IDG-A32X/Models/Services/Stairs/stairs.xml</path>
 	 <name>l4</name>
 	 <offsets>
 	  <x-m>31.94</x-m>

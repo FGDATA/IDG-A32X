@@ -35,12 +35,12 @@
 	</animation>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Engines/NEO/res/a320.pylon.cfmleapx.right.ac</path>
+		<path>Aircraft/IDG-A32X/Models/Engines/NEO/res/a320.pylon.cfmleapx.right.ac</path>
 	</model>
 
 	<model>
 		<name>Contrail</name>
-		<path>Aircraft/A320Family/Models/Effects/contrail-eng2.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Effects/contrail-eng2.xml</path>
 		<overlay>
 			<params>
 				<contrail alias="../../../../params/contrail" />
@@ -55,7 +55,7 @@
 
 	<model>
 		<name>Engine fire</name>
-		<path>Aircraft/A320Family/Models/Effects/enginefire.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Effects/enginefire.xml</path>
 		<offsets>
 			<x-m>3.316</x-m>
 			<y-m>0</y-m>
@@ -81,7 +81,7 @@
 	</animation>
 	
 	<effect>
-        <inherits-from>Aircraft/A320Family/Models/Effects/enginePW1100R</inherits-from>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/enginePW1100R</inherits-from>
         <object-name>NacellePW1100G</object-name>
         <object-name>ReverserPW1100G</object-name>
         <object-name>SpoilersPW1100G</object-name>

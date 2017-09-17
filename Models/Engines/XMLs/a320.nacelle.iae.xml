@@ -47,7 +47,7 @@
 	<!-- Nasal code -->
 	<nasal>
 		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320Family/Models/Liveries/A320");
+		 var livery_update = aircraft.livery_update.new("Aircraft/IDG-A32X/Models/Liveries/A320");
 		</load>
 		<unload>
 		 livery_update.stop();

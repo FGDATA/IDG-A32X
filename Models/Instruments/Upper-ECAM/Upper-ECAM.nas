@@ -1214,10 +1214,10 @@ setlistener("sim/signals/fdm-initialized", func {
 	var group_iae_eis1 = upperECAM_display.createGroup();
 	var group_iae_eis2 = upperECAM_display.createGroup();
 
-	upperECAM_cfm_eis1 = canvas_upperECAM_cfm_eis1.new(group_cfm_eis1, "Aircraft/A320Family/Models/Instruments/Upper-ECAM/res/cfm-eis1.svg");
-	upperECAM_cfm_eis2 = canvas_upperECAM_cfm_eis2.new(group_cfm_eis2, "Aircraft/A320Family/Models/Instruments/Upper-ECAM/res/cfm-eis2.svg");
-	upperECAM_iae_eis1 = canvas_upperECAM_iae_eis1.new(group_iae_eis1, "Aircraft/A320Family/Models/Instruments/Upper-ECAM/res/iae-eis1.svg");
-	upperECAM_iae_eis2 = canvas_upperECAM_iae_eis2.new(group_iae_eis2, "Aircraft/A320Family/Models/Instruments/Upper-ECAM/res/iae-eis2.svg");
+	upperECAM_cfm_eis1 = canvas_upperECAM_cfm_eis1.new(group_cfm_eis1, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/cfm-eis1.svg");
+	upperECAM_cfm_eis2 = canvas_upperECAM_cfm_eis2.new(group_cfm_eis2, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/cfm-eis2.svg");
+	upperECAM_iae_eis1 = canvas_upperECAM_iae_eis1.new(group_iae_eis1, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/iae-eis1.svg");
+	upperECAM_iae_eis2 = canvas_upperECAM_iae_eis2.new(group_iae_eis2, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/iae-eis2.svg");
 
 	upperECAM_cfm_eis1.update();
 	upperECAM_cfm_eis2.update();

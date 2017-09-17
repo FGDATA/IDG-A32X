@@ -26,7 +26,7 @@
 	<!-- Overhead Panel -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/OHpanel/OHpanel.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel/OHpanel.xml</path>
 		<offsets>
 			<x-m>-0.006166</x-m>
 			<y-m>0</y-m>
@@ -36,7 +36,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/OHpanel/OHpanelEPR.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel/OHpanelEPR.xml</path>
 		<condition>
 			<equals>
 				<property>options/eng</property>
@@ -52,7 +52,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/OHpanel/SteepAppr.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel/SteepAppr.xml</path>
 		<condition>
 			<and>
 				<equals>
@@ -76,7 +76,7 @@
 	<!-- VOR Instrument -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/VOR/VOR.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/VOR/VOR.xml</path>
 		<offsets>
 			<x-m>-0.5540</x-m>
 			<y-m>-0.1342</y-m>
@@ -88,7 +88,7 @@
 	<!-- Brakes Pressure Indicator -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/Brakes/Brakes.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/Brakes/Brakes.xml</path>
 		<offsets>
 			<x-m>-0.5495</x-m>
 			<y-m>0.1841</y-m>
@@ -100,7 +100,7 @@
 	<!-- Multi-purpose Control and Display Units -->
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/MCDU1/MCDU1.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU1/MCDU1.xml</path>
 		<offsets>
 			<x-m>-0.4144</x-m>
 			<y-m>-0.1633</y-m>
@@ -110,7 +110,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320Family/Models/Instruments/MCDU2/MCDU2.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU2/MCDU2.xml</path>
 		<offsets>
 			<x-m>-0.4144</x-m>
 			<y-m>0.1633</y-m>
@@ -123,7 +123,7 @@
 	
 	<model>
 		<name>PFD1</name>
-		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD1.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/PFD/PFD1.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>-0.51115</y-m>
@@ -164,7 +164,7 @@
 	
 	<model>
 		<name>PFD2</name>
-		<path>Aircraft/A320Family/Models/Instruments/PFD/PFD2.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/PFD/PFD2.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0.51115</y-m>
@@ -209,7 +209,7 @@
 	
 	<model>
 		<name>ND1</name>
-		<path>Aircraft/A320Family/Models/Instruments/ND/ND_L.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/ND/ND_L.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>-0.3227</y-m>
@@ -252,7 +252,7 @@
 	
 	<model>
 		<name>ND2</name>
-		<path>Aircraft/A320Family/Models/Instruments/ND/ND_R.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/ND/ND_R.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0.3161</y-m>
@@ -297,7 +297,7 @@
 	
 	<model>
 		<name>UECAM</name>
-		<path>Aircraft/A320Family/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
 		<offsets>
 			<x-m>-0.5807</x-m>
 			<y-m>0</y-m>
@@ -310,7 +310,7 @@
 	
 	<model>
 		<name>LECAM</name>
-		<path>Aircraft/A320Family/Models/Instruments/Lower-ECAM/Lower-ECAM.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/Lower-ECAM.xml</path>
 		<offsets>
 			<x-m>-0.53631</x-m>
 			<y-m>0</y-m>

@@ -11,7 +11,7 @@
 	<sim>
 	
 		<sound>
-			<path>Aircraft/A320Family/Sounds/leapx-sound.xml</path>
+			<path>Aircraft/IDG-A32X/Sounds/leapx-sound.xml</path>
 		</sound>
 	
 		<description>Airbus A321-251N (LEAP-1A26)</description>
@@ -19,7 +19,7 @@
                 <checklists include="A3XX-Checklists.xml"/>
 		<aero>A321neo-CFM</aero>
 		<model>
-			<path>Aircraft/A320Family/Models/A321neo-CFM.xml</path>
+			<path>Aircraft/IDG-A32X/Models/A321neo-CFM.xml</path>
 			<livery>
 				<file>Airbus</file>
 			</livery>
@@ -117,10 +117,10 @@
 		
 		<systems n="0">
             <autopilot n="0">
-                <path>Aircraft/A320Family/Systems/fadec-cfm.xml</path>
+                <path>Aircraft/IDG-A32X/Systems/fadec-cfm.xml</path>
             </autopilot>
 			<autopilot n="8">
-				<path>Aircraft/A320Family/Systems/cfm56-sound.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/cfm56-sound.xml</path>
 			</autopilot>
 		</systems>
 		
@@ -149,10 +149,10 @@
 	
 	<nasal>
 		<specific>
-			<file>Aircraft/A320Family/Nasal/a321livery-neocfm.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/a321livery-neocfm.nas</file>
 		</specific>
 		<fadec>
-			<file>Aircraft/A320Family/Nasal/fadec-cfm.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/fadec-cfm.nas</file>
 		</fadec>
 	</nasal>
 
