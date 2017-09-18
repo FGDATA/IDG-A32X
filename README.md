@@ -1,5 +1,5 @@
-# A320Family
-A very advanced simulation of the Airbus A320 Family for FlightGear by it0uchpods Design Team
+# IDG-A32X
+A very advanced simulation of the Airbus A320 Family for FlightGear by it0uchpods Design Group.
 
 Brought to you by:
 - Joshua Davidson (it0uchpods)
