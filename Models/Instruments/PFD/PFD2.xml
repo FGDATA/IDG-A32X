@@ -278,12 +278,18 @@
 				</equals>
 				<not><property>gear/gear[1]/wow</property></not>
 				<not><property>gear/gear[2]/wow</property></not>
-				<not><property>gear/gear[3]/wowa</property></not>
-				<not><property>gear/gear[4]/wowa</property></not>
 				<equals>
 					<property>it-autoflight/custom/trk-fpa</property>
 					<value>0</value>
 				</equals>
+				<less-than>
+					<property>orientation/pitch-deg</property>
+					<value>25</value>
+				</less-than>
+				<greater-than>
+					<property>orientation/pitch-deg</property>
+					<value>-13</value>
+				</greater-than>
 				<less-than>
 					<property>orientation/roll-deg</property>
 					<value>45</value>
@@ -309,8 +315,6 @@
 					<and>
 						<not><property>gear/gear[1]/wow</property></not>
 						<not><property>gear/gear[2]/wow</property></not>
-						<not><property>gear/gear[3]/wowa</property></not>
-						<not><property>gear/gear[4]/wowa</property></not>
 					</and>
 					<equals>
 						<property>modes/pfd/fma/pitch-mode</property>
@@ -321,6 +325,14 @@
 					<property>it-autoflight/custom/trk-fpa</property>
 					<value>0</value>
 				</equals>
+				<less-than>
+					<property>orientation/pitch-deg</property>
+					<value>25</value>
+				</less-than>
+				<greater-than>
+					<property>orientation/pitch-deg</property>
+					<value>-13</value>
+				</greater-than>
 				<less-than>
 					<property>orientation/roll-deg</property>
 					<value>45</value>
@@ -335,8 +347,22 @@
 	
     <animation>
         <type>select</type>
-        <object-name>fpd</object-name>
-        <object-name>fpv</object-name>
+		<object-name>fpv</object-name>
+        <condition>
+			<and>
+				<not><property>gear/gear[1]/wow</property></not>
+				<not><property>gear/gear[2]/wow</property></not>
+				<equals>
+					<property>it-autoflight/custom/trk-fpa</property>
+					<value>1</value>
+				</equals>
+			</and>
+        </condition>
+    </animation>
+	
+    <animation>
+        <type>select</type>
+		<object-name>fpd</object-name>
         <condition>
 			<and>
 				<equals>
@@ -349,6 +375,14 @@
 					<property>it-autoflight/custom/trk-fpa</property>
 					<value>1</value>
 				</equals>
+				<less-than>
+					<property>orientation/pitch-deg</property>
+					<value>25</value>
+				</less-than>
+				<greater-than>
+					<property>orientation/pitch-deg</property>
+					<value>-13</value>
+				</greater-than>
 				<less-than>
 					<property>orientation/roll-deg</property>
 					<value>45</value>
