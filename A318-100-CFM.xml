@@ -7,7 +7,7 @@
 #########################################
 -->
 
-<fdm_config name="A320family" version="2.0" release="BETA"
+<fdm_config name="IDG-A32X" version="2.0" release="BETA"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
