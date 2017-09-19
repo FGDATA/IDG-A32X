@@ -5,17 +5,6 @@
 # Copyright (c) it0uchpods Design Group #
 #########################################
 
-# 2 ELevator and Aileron Computers (ELAC)
-# Aileron Control
-# Normal Elevator / Stab Trim Control
-# 3 Spoiler Elevator Computers (SEC)
-# Spoiler Control
-# Standby Elevator / Stab Trim Control
-# 2 Flight Agumentation Computers (FAC)
-# Electric Rudder Control
-# 2 Flight Control Data Concentrators (FCDC)
-# Aquire data from ELAC and SEC and send it to the EIS and Centralized Fault Display System
-
 # If All ELACs Fail, Alternate Law
 
 var fctlInit = func {
