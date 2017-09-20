@@ -3588,6 +3588,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -3599,6 +3603,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/knb1", 1);</script>
 			</binding>
 		</action>
 	</animation>
