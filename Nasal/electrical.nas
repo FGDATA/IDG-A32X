@@ -206,7 +206,6 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-apu", 0);
 	}
 	
-	
 	gen_apu = getprop("/systems/electrical/gen-apu");
 	gen_ext = getprop("/systems/electrical/gen-ext");
 	
