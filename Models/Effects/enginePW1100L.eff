@@ -3,7 +3,7 @@
     <inherits-from>Effects/model-combined-deferred</inherits-from>
     <parameters>
         <normalmap-enabled type="int">0</normalmap-enabled>
-        <reflection-enabled type="int">1</reflection-enabled>
+        <reflection-enabled type="int">0</reflection-enabled>
         <reflection-dynamic type="int">0</reflection-dynamic>
         <reflect_map-enabled type="int">0</reflect_map-enabled>
         <reflection-correction type="float">0.1</reflection-correction>
