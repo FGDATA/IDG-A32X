@@ -81,6 +81,8 @@ setprop("/systems/acconfig/spinning", 0);
 setprop("/systems/acconfig/spin", "-");
 setprop("/systems/acconfig/new-revision", "");
 setprop("/systems/acconfig/out-of-date", 0);
+setprop("/systems/acconfig/mismatch-code", "0x000");
+setprop("/systems/acconfig/mismatch-reason", "XX");
 var main_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/main/dialog", "Aircraft/IDG-A32X/AircraftConfig/main.xml");
 var welcome_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/welcome/dialog", "Aircraft/IDG-A32X/AircraftConfig/welcome.xml");
 var ps_load_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/psload/dialog", "Aircraft/IDG-A32X/AircraftConfig/psload.xml");
@@ -91,6 +93,7 @@ var fbw_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fbw/dialog", "Aircraft/ID
 var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/IDG-A32X/AircraftConfig/fail.xml");
 var about_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/about/dialog", "Aircraft/IDG-A32X/AircraftConfig/about.xml");
 var update_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/update/dialog", "Aircraft/IDG-A32X/AircraftConfig/update.xml");
+var error_mismatch = gui.Dialog.new("sim/gui/dialogs/acconfig/error/mismatch/dialog", "Aircraft/IDG-A32X/AircraftConfig/error-mismatch.xml");
 spinning.start();
 init_dlg.open();
 
@@ -106,12 +109,25 @@ setlistener("/systems/acconfig/new-revision", func {
 	}
 });
 
+var mismatch_chk = func {
+	if (num(string.replace(getprop("/sim/version/flightgear"),".","")) < 201731) {
+		setprop("/systems/acconfig/mismatch-code", "0x121");
+		setprop("/systems/acconfig/mismatch-reason", "FGFS version older than 2017.3.1, please update FlightGear");
+		if (getprop("/systems/acconfig/out-of-date") != 1) {
+			error_mismatch.open();
+		}
+		print("Mismatch: 0x121");
+	}
+}
+
 setlistener("/sim/signals/fdm-initialized", func {
 	init_dlg.close();
 	if (getprop("/systems/acconfig/out-of-date") == 1) {
 		update_dlg.open();
-		print("The A320Family is out of date!");
-	} else {
+		print("System: The IDG-A32X is out of date!");
+	} 
+	mismatch_chk();
+	if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/mismatch-code") == "0x000") {
 		welcome_dlg.open();
 	}
 	spinning.stop();
