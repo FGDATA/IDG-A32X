@@ -613,8 +613,8 @@
 			<cones type="bool">true</cones>
 			<dome-norm type="double">0</dome-norm>
 			<landing-lights n="0" type="bool">0</landing-lights>
-			<landing-lights n="1" type="bool">0</landing-lights>
-			<landing-lights n="2" type="bool">0</landing-lights>
+			<landing-lights n="1" type="double">0</landing-lights>
+			<landing-lights n="2" type="double">0</landing-lights>
 			<nav-lights-switch type="int">0</nav-lights-switch>
 			<overhead-panel-norm type="double">0.0</overhead-panel-norm>
 			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>

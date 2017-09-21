@@ -474,9 +474,9 @@
 			</group>
 			
 			<checkbox>
-				<label>FWD</label>
+				<label>AFT</label>
 				<halign>left</halign>
-				<property>/systems/fire/cargo/fwddet</property>
+				<property>/systems/failures/cargo-aft-fire</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -484,9 +484,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>AFT</label>
+				<label>FWD</label>
 				<halign>left</halign>
-				<property>/systems/fire/cargo/aftdet</property>
+				<property>/systems/failures/cargo-fwd-fire</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

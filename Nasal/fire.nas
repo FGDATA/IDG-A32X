@@ -13,8 +13,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var level = getprop("/systems/fire/cargo/bottlelevel");
 	var fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
 	var aftsquib = getprop("/systems/fire/cargo/aftsquib");
-	var fwddet = getprop("/systems/fire/cargo/fwddet");
-	var aftdet = getprop("/systems/fire/cargo/aftdet");
+	var fwddet = getprop("/systems/failures/cargo-fwd-fire");
+	var aftdet = getprop("/systems/failures/cargo-aft-fire");
 	var test = getprop("/controls/fire/cargo/test");
 	var guard1 = getprop("/controls/fire/cargo/fwdguard");
 	var guard2 = getprop("/controls/fire/cargo/aftguard");
@@ -35,8 +35,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 var fire_init = func {
 	setprop("/controls/OH/protectors/fwddisch", 0);
 	setprop("/controls/OH/protectors/aftdisch", 0);
-	setprop("/systems/fire/cargo/fwddet", 0);
-	setprop("/systems/fire/cargo/aftdet", 0);
+	setprop("/systems/failures/cargo-fwd-fire", 0);
+	setprop("/systems/failures/cargo-aft-fire", 0);
 	setprop("/systems/fire/cargo/fwdsquib", 0);
 	setprop("/systems/fire/cargo/aftsquib", 0);
 	setprop("/systems/fire/cargo/bottlelevel", 100);
@@ -67,8 +67,8 @@ var master_fire = func {
 	level = getprop("/systems/fire/cargo/bottlelevel");
 	fwdsquib = getprop("/systems/fire/cargo/fwdsquib");
 	aftsquib = getprop("/systems/fire/cargo/aftsquib");
-	fwddet = getprop("/systems/fire/cargo/fwddet");
-	aftdet = getprop("/systems/fire/cargo/aftdet");
+	fwddet = getprop("/systems/failures/cargo-fwd-fire");
+	aftdet = getprop("/systems/failures/cargo-aft-fire");
 	test = getprop("/controls/fire/cargo/test");
 	guard1 = getprop("/controls/fire/cargo/fwdguard");
 	guard2 = getprop("/controls/fire/cargo/aftguard");

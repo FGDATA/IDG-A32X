@@ -73,6 +73,8 @@ var failReset = func {
 	setprop("/systems/failures/tank4pump1", 0);
 	setprop("/systems/failures/tank4pump2", 0);
 	setprop("/systems/failures/fuelmode", 0);
+	setprop("/systems/failures/cargo-aft-fire", 0);
+	setprop("/systems/failures/cargo-fwd-fire", 0);
 }
 
 failReset();
