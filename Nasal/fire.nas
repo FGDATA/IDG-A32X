@@ -33,6 +33,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var fire_init = func {
+	setprop("/controls/OH/protectors/fwddisch", 0);
+	setprop("/controls/OH/protectors/aftdisch", 0);
 	setprop("/systems/fire/cargo/fwddet", 0);
 	setprop("/systems/fire/cargo/aftdet", 0);
 	setprop("/systems/fire/cargo/fwdsquib", 0);
@@ -40,8 +42,6 @@ var fire_init = func {
 	setprop("/systems/fire/cargo/bottlelevel", 100);
 	setprop("/systems/fire/cargo/test", 0);
 	setprop("/controls/fire/cargo/test", 0);
-	setprop("/controls/fire/cargo/fwdguard", 1);
-	setprop("/controls/fire/cargo/aftguard", 1);
 	setprop("/controls/fire/cargo/fwddisch", 0); # pushbutton
 	setprop("/controls/fire/cargo/aftdisch", 0);
 	setprop("/controls/fire/cargo/fwddischLight", 0);
@@ -114,13 +114,17 @@ var master_fire = func {
 	}
 	
 	if (dischpb1 and fwdsquib and !bottleIsEmpty and !pause) {
-		setprop("/systems/fire/cargo/bottlelevel", getprop("/systems/fire/cargo/bottlelevel") - 0.166);
+		setprop("/systems/fire/cargo/bottlelevel", getprop("/systems/fire/cargo/bottlelevel") - 0.33);
 	}
 	
 	if (dischpb2) {
 		if (WeCanExt == 1 and !aftsquib and !bottleIsEmpty and (dc1 > 0 or dc2 > 0 or dcbat > 0)) {
 			setprop("/systems/fire/cargo/aftsquib", 1);
 		}
+	} 
+	
+	if (dischpb2 and aftsquib and !bottleIsEmpty and !pause) {
+		setprop("/systems/fire/cargo/bottlelevel", getprop("/systems/fire/cargo/bottlelevel") - 0.33);
 	}
 	
 	#################
@@ -149,7 +153,23 @@ var master_fire = func {
 			setprop("/controls/fire/cargo/warnaft", 0);
 			setprop("/controls/fire/cargo/test/state", 2);
 		}, 0.5);
-	} else if (test2 and state == 2) {
+	} if (test2 and state == 2) {
+		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnfwd", 1);
+		settimer(func(){
+			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
+			setprop("/controls/fire/cargo/warnfwd", 0);
+			setprop("/controls/fire/cargo/test/state", 3);
+		}, 0.5);
+	} else if (test2 and state == 3) {
+		setprop("/controls/fire/cargo/aftsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnaft", 1);
+		settimer(func(){
+			setprop("/controls/fire/cargo/aftsmokeLight", 0);
+			setprop("/controls/fire/cargo/warnaft", 0);
+			setprop("/controls/fire/cargo/test/state", 4);
+		}, 0.5);
+	} else if (test2 and state == 4) {
 		setprop("/controls/fire/cargo/fwddischLight", 1);
 		setprop("/controls/fire/cargo/aftdischLight", 1);
 		settimer(func(){
@@ -166,12 +186,12 @@ var master_fire = func {
 	# Status #
 	##########
 	
-	if (level < 0.1) {
+	if (level < 0.1 and !test) {
 		setprop("/controls/fire/cargo/bottleempty", 1);
 		setprop("/controls/fire/cargo/status", 0);
 		setprop("/controls/fire/cargo/fwddischLight", 1);
 		setprop("/controls/fire/cargo/aftdischLight", 1);
-	} else {
+	} else if (!test) {
 		setprop("/controls/fire/cargo/bottleempty", 0);
 		setprop("/controls/fire/cargo/status", 1);
 		setprop("/controls/fire/cargo/fwddischLight", 0);

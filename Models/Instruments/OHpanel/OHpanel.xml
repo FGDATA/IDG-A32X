@@ -200,8 +200,6 @@
 		<type>select</type>
 		<object-name>AftCargoIsoBtn1F</object-name>
 		<object-name>AftCargoIsoBtn2O</object-name>
-		<object-name>AftCargoSmkBtn1S</object-name>
-		<object-name>AftCargoSmkBtn2D</object-name>
 		<object-name>APUFireAgtBtn1S</object-name>
 		<object-name>APUFireAgtBtn2D</object-name>
 		<object-name>CargoHotAirBtn1F</object-name>
@@ -219,8 +217,6 @@
 		<object-name>Eng2FireAgt2Btn2D</object-name>
 		<object-name>EvacCommandBtn1E</object-name>
 		<object-name>EvacCommandBtn2O</object-name>
-		<object-name>FwdCargoSmkBtn1S</object-name>
-		<object-name>FwdCargoSmkBtn2D</object-name>
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
@@ -250,6 +246,202 @@
 			<green>1</green>
 			<blue>1</blue>
 		</diffuse>
+	</animation>
+	
+	<!-- cargo smoke -->
+	<animation>
+		<type>select</type>
+		<object-name>FwdCargoSmkBtn1S</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/fire/cargo/fwdsmokeLight</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AftCargoSmkBtn1S</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/fire/cargo/aftsmokeLight</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FwdCargoSmkBtn2D</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/fire/cargo/fwddischLight</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AftCargoSmkBtn2D</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/fire/cargo/aftdischLight</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	
+	<animation>
+		<name>Cargo Smoke Test</name>
+		<type>pick</type>
+		<object-name>CargoSmkTest</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fire/cargo/test</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!--<animation>
+		<type>rotate</type>
+		<object-name>AftCargoDischGuard</object-name>
+		<property>controls/OH/protectors/aftdisch</property>
+		<factor>-145</factor>
+		<axis>
+			
+		</axis>
+	</animation>-->
+	
+	<!--<animation>
+		<type>rotate</type>
+		<object-name>FwdCargoDischGuard</object-name>
+		<property>controls/OH/protectors/fwddisch</property>
+		<factor>-145</factor>
+		<axis>
+			
+		</axis>
+	</animation>-->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AftCargoDischGuard</object-name>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/OH/protectors/aftdisch</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/OH/protectors/aftdisch</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>FwdCargoDischGuard</object-name>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/OH/protectors/fwddisch</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/OH/protectors/fwddisch</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>setprop("/sim/sounde/oh-cover", 1);</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>FwdCargoDischBtn</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fire/cargo/fwddisch</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AftCargoDischBtn</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fire/cargo/aftdisch</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AftCargoDischBtn</object-name>
 	</animation>
 	
 	<!-- IRS 1 -->
@@ -1595,21 +1787,6 @@
 				</equals>
 			</or>
 		</condition>
-	</animation>
-	
-	<animation>
-		<name>Cargo Smoke Test</name>
-		<type>pick</type>
-		<object-name>CargoSmkTest</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/fire/cargo/test</property>
-				<value>1</value>
-			</binding>
-		</action>
 	</animation>
 	
 	<!-- Hydraulic -->
