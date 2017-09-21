@@ -50,7 +50,7 @@ var canvas_upperECAM_base = {
 		return [];
 	},
 	update: func() {
-		if (getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) {
+		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/electrical/switches/emer-gen") != 1) {
 			if (getprop("/options/eng") == "CFM" and getprop("/options/EIS2") == 0) {
 				upperECAM_cfm_eis1.page.show();
 				upperECAM_cfm_eis2.page.hide();
