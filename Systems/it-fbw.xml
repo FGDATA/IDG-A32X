@@ -19,6 +19,14 @@
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
 		<input>/controls/flight/aileron</input>
 		<output>/controls/flight/aileron-input-fast</output>
 		<max-rate-of-change>5</max-rate-of-change>
@@ -27,6 +35,14 @@
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
 		<input>/controls/flight/elevator</input>
 		<output>/controls/flight/elevator-input-fast</output>
 		<max-rate-of-change>5</max-rate-of-change>
@@ -35,6 +51,14 @@
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
 		<input>
 			<condition>
 				<or>
@@ -69,6 +93,14 @@
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
 		<input>
 			<condition>
 				<and>
