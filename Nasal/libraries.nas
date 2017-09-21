@@ -404,3 +404,5 @@ var noseLoop = maketimer(0.1, func {
 		# do nothing
 	}
 });
+
+setprop("/systems/acconfig/libraries-loaded", 1);
