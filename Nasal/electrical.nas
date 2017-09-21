@@ -429,7 +429,7 @@ var master_elec = func {
 	}
 	
 	if ((dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
-		decharge1.stop();
+		decharge2.stop();
 		charge2.start();
 	}
 
