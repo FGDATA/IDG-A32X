@@ -1901,6 +1901,12 @@
 				<property>controls/hydraulic/rat-man</property>
 			</binding>
 			<binding>
+				<condition>
+					<equals>
+						<property>controls/OH/protectors/ratman</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
@@ -4309,6 +4315,12 @@
 				<property>controls/pneumatic/switches/ram-air</property>
 			</binding>
 			<binding>
+				<condition>
+					<equals>
+						<property>controls/OH/protectors/ramair</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
@@ -6595,6 +6607,12 @@
 				<property>controls/oxygen/masksDeployMan</property>
 			</binding>
 			<binding>
+				<condition>
+					<equals>
+						<property>controls/OH/protectors/maskman</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/oh-btn", 1);</script>
 			</binding>
