@@ -281,19 +281,6 @@
      sodipodi:nodetypes="cccc" />
   <text
      xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:34.21826935px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.60000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;"
-     x="303.76639"
-     y="369.99207"
-     id="text4311"
-     sodipodi:linespacing="125%"
-     transform="scale(0.96755721,1.0335306)"><tspan
-       sodipodi:role="line"
-       id="tspan4313"
-       x="303.76639"
-       y="369.99207"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:1.60000001;stroke-miterlimit:4;stroke-dasharray:none;stroke:#ffffff;stroke-opacity:1;">ELAC</tspan></text>
-  <text
-     xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:39.1399231px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="390.37976"
      y="387.46661"
@@ -1264,4 +1251,17 @@
      d="m 862.44624,380.05167 12.14767,0 0,6.39402 -12.14767,0"
      id="path4243-35"
      inkscape:connector-curvature="0" />
+  <text
+     transform="scale(0.9137477,1.094394)"
+     sodipodi:linespacing="125%"
+     id="text4345"
+     y="350.05472"
+     x="321.05841"
+     style="font-style:normal;font-weight:normal;font-size:33.51122284px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="fill:#ffffff;fill-opacity:1"
+       y="350.05472"
+       x="321.05841"
+       id="tspan4347"
+       sodipodi:role="line">ELAC</tspan></text>
 </svg>
