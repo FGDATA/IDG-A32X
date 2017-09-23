@@ -687,16 +687,13 @@
 		<fuel n="0">
 			<only-use-ctr-tank type="bool">0</only-use-ctr-tank>
 			<tank n="0">
-				<feed0 type="bool">0</feed0>
-				<feed1 type="bool">0</feed1>
+				<feed type="bool">0</feed>
 			</tank>
 			<tank n="1">
-				<feed0 type="bool">0</feed0>
-				<feed1 type="bool">0</feed1>
+				<feed type="bool">0</feed>
 			</tank>
 			<tank n="2">
-				<feed0 type="bool">0</feed0>
-				<feed1 type="bool">0</feed1>
+				<feed type="bool">0</feed>
 			</tank>
 			<x-feed type="bool">0</x-feed>
 		</fuel>
