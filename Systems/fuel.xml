@@ -76,17 +76,19 @@
 	</channel>
 
 	<channel name="Engine 1 Pipes">
-		<summer name="tank0 and 1 to tank3">
+		<summer name="tank0 tank1 tank 2 to tank3">
 			<input>fuel/from-tank0-to-tank3</input>
 			<input>fuel/from-tank1-to-tank3</input>
+			<input>fuel/from-tank2-to-tank3</input>
 			<output>propulsion/tank[3]/external-flow-rate-pps</output>
 		</summer>
 	</channel>
 
 	<channel name="Engine 2 Pipes">
-		<summer name="tank1 and 2 to tank4">
+		<summer name="tank0 tank1 tank 2 to tank4">
 			<input>fuel/from-tank2-to-tank4</input>
 			<input>fuel/from-tank1-to-tank4</input>
+			<input>fuel/from-tank0-to-tank4</input>
 			<output>propulsion/tank[4]/external-flow-rate-pps</output>
 		</summer>
 	</channel>
@@ -94,6 +96,7 @@
     <channel name="Total PPS">
         <summer name="fuel/tank0-flow-rate">
             <input>-fuel/from-tank0-to-tank3</input>
+            <input>-fuel/from-tank0-to-tank4</input>
             <output>propulsion/tank[0]/external-flow-rate-pps</output>
         </summer>
 
@@ -105,6 +108,7 @@
 
         <summer name="fuel/tank2-flow-rate">
             <input>-fuel/from-tank2-to-tank4</input>
+            <input>-fuel/from-tank2-to-tank3</input>
             <output>propulsion/tank[2]/external-flow-rate-pps</output>
         </summer>
     </channel>
