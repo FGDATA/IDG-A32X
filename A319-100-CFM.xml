@@ -400,169 +400,116 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</ground_reactions>
 
 	<propulsion>
-
 		<engine file="cfm56_5b6">
-		<location unit="IN">
-			<x> 620.0683 </x>
-			<y> -226.575 </y>
-			<z> -45.567 </z>
-		</location>
-		<orient unit="DEG">
-			<roll> 0.0 </roll>
-			<pitch> 2.2 </pitch>
-			<yaw> 1 </yaw>
-		</orient>
-		<feed>7</feed>
-		<thruster file="direct">
 			<location unit="IN">
-			<x> 655.4820 </x>
-			<y> -226.575 </y>
-			<z> 0.000 </z>
+				<x> 620.0683 </x>
+				<y> -226.575 </y>
+				<z> -45.567 </z>
 			</location>
 			<orient unit="DEG">
-			<roll> 0.0 </roll>
-			<pitch> 2.2 </pitch>
-			<yaw> 1 </yaw>
+				<roll> 0.0 </roll>
+				<pitch> 2.2 </pitch>
+				<yaw> 1 </yaw>
 			</orient>
-		</thruster>
+			<feed>3</feed>
+			<thruster file="direct">
+				<location unit="IN">
+				<x> 655.4820 </x>
+				<y> -226.575 </y>
+				<z> 0.000 </z>
+				</location>
+				<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> 2.2 </pitch>
+				<yaw> 1 </yaw>
+				</orient>
+			</thruster>
 		</engine>
 
 		<engine file="cfm56_5b6">
-		<location unit="IN">
-			<x> 620.0683 </x>
-			<y> 226.575 </y>
-			<z> -45.567 </z>
-		</location>
-		<orient unit="DEG">
-			<roll> 0.0 </roll>
-			<pitch> 2.2 </pitch>
-			<yaw> -1 </yaw>
-		</orient>
-		<feed>8</feed>
-		<thruster file="direct">
 			<location unit="IN">
-			<x> 655.4820 </x>
-			<y> 226.575 </y>
-			<z> 0.000 </z>
+				<x> 620.0683 </x>
+				<y> 226.575 </y>
+				<z> -45.567 </z>
 			</location>
 			<orient unit="DEG">
-			<roll> 0.0 </roll>
-			<pitch> 2.2 </pitch>
-			<yaw> -1 </yaw>
+				<roll> 0.0 </roll>
+				<pitch> 2.2 </pitch>
+				<yaw> -1 </yaw>
 			</orient>
-		</thruster>
+			<feed>4</feed>
+			<thruster file="direct">
+				<location unit="IN">
+				<x> 655.4820 </x>
+				<y> 226.575 </y>
+				<z> 0.000 </z>
+				</location>
+				<orient unit="DEG">
+				<roll> 0.0 </roll>
+				<pitch> 2.2 </pitch>
+				<yaw> -1 </yaw>
+				</orient>
+			</thruster>
 		</engine>
 
-
-		<tank type="FUEL">    <!-- Left Tank (Wing tip Ventilation Surge) 0 -->
-			<location unit="IN">
-				<x> 783.0709 </x>
-				<y> -574.4148 </y>
-				<z> 3.1080 </z>
-			</location>
-			<capacity unit="LBS"> 412 </capacity><!-- need review --> <!-- would be 1 percent of max load per each wing, 412 each. Needs temp rise of 20C at max load to fill -->
-			<contents unit="LBS"> 0 </contents>
-			
-			<priority>4</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
-		</tank>
-		<tank type="FUEL">    <!-- Left Tank (Outer) 1 -->
-			<location unit="IN">
-				<x> 739.5669 </x>
-				<y> -457.4259 </y>
-				<z> -8.0898 </z>
-			</location>
-			<capacity unit="LBS"> 1520.00 </capacity><!-- need review -->
-			<contents unit="LBS"> 1520 </contents><!-- outer filled first than inner -->
-			<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
-			<priority>2</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
-		</tank>
-		<tank type="FUEL">    <!-- Left Tank (Inner) 2 -->
+		<tank type="FUEL">    <!-- Left Wing Tank -->
 			<location unit="IN">
 				<x> 652.5591 </x>
 				<y> -236.2992 </y>
 				<z> -33.9470 </z>
 			</location>
-			<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
-			<contents unit="LBS"> 4480 </contents>
+			<capacity unit="LBS"> 13914 </capacity><!-- correct by FCOM -->
+			<contents unit="LBS"> 6000 </contents>
 			<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
-			<priority>3</priority>
+			<priority>1</priority>
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Center Tank 3 -->
+		<tank type="FUEL">    <!-- Center Tank -->
 			<location unit="IN">
 				<x> 522.0473 </x>
 				<y> 0 </y>
 				<z> -47.0 </z>
 			</location>
 			<capacity unit="LBS"> 14281 </capacity><!-- correct by FCOM -->
-			<contents unit="LBS"> 0 </contents> <!-- wing tanks always filled first -->
+			<contents unit="LBS"> 0 </contents> <!-- wing tanks filled first -->
 			<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
 			<priority>1</priority>
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Right Tank (Inner) 4 -->
+		<tank type="FUEL">    <!-- Right Wing Tank -->
 			<location unit="IN">
 				<x> 652.5591 </x>
 				<y> 236.2992 </y>
 				<z> -33.9470 </z>
 			</location>
-			<capacity unit="LBS"> 11982 </capacity><!-- correct by FCOM -->
-			<contents unit="LBS"> 4480 </contents>
-			<standpipe unit="LBS">31</standpipe><!-- minimum fuel on pipes -->
-			<priority>3</priority>
+			<capacity unit="LBS"> 13914 </capacity><!-- correct by FCOM -->
+			<contents unit="LBS"> 6000 </contents>
+			<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
+			<priority>1</priority>
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Right Tank (Outer) 5 -->
-			<location unit="IN">
-				<x> 739.5669 </x>
-				<y> 457.4259 </y>
-				<z> -8.0898 </z>
-			</location>
-			<capacity unit="LBS"> 1520 </capacity><!-- correct by FCOM -->
-			<contents unit="LBS"> 1520 </contents><!-- outer filled before inner -->
-			<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
-			<priority>2</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
-		</tank>
-		<tank type="FUEL">    <!-- Right Tank (Wing tip Ventilation Surge) 6 -->
-			<location unit="IN">
-				<x> 783.0709 </x>
-				<y> 574.4148 </y>
-				<z> 3.1080 </z>
-			</location>
-			<capacity unit="LBS"> 412 </capacity><!-- need review --> <!-- 1 percent of max, see left surge tank, is 412 lb each -->
-			<contents unit="LBS"> 0 </contents>
-			<priority>4</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
-		</tank>
-		<tank type="FUEL">    <!-- LEFT FUEL PIPES (Engine 1 feed from this) -->
+		<tank type="FUEL">    <!-- Engines 1 Pipes -->
 			<location unit="IN">
 				<x>589.735</x>	
 				<y>0</y>
 				<z>-45.567</z>
 			</location>
-			<capacity unit="LBS"> 100 </capacity><!-- need review -->
-			<contents unit="LBS"> 0 </contents>
+			<capacity unit="LBS">1.00</capacity>
+			<contents unit="LBS">0.00</contents>
 			<priority>1</priority>
 			<type>JET-A1</type>
 		</tank>
-		<tank type="FUEL">    <!-- RIGHT FUEL PIPES (Engine 2 feed from this) -->
+		<tank type="FUEL">    <!-- Engine 2 Pipes -->
 			<location unit="IN">
 				<x>589.735</x>	
 				<y>0</y>
 				<z>-45.567</z>
 			</location>
-			<capacity unit="LBS"> 100 </capacity><!-- need review -->
-			<contents unit="LBS"> 0 </contents>
+			<capacity unit="LBS">1.00</capacity>
+			<contents unit="LBS">0.00</contents>
 			<priority>1</priority>
 			<type>JET-A1</type>
 		</tank>

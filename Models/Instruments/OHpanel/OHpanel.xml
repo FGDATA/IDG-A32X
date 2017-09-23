@@ -2398,7 +2398,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank2pump1</property>
+				<property>controls/fuel/tank0pump1</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2414,11 +2414,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank2pump1-fault</property>
+						<property>systems/fuel/tank0pump1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank2pump1</property>
+						<property>controls/fuel/tank0pump1</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2435,7 +2435,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank2pump1</property>
+					<property>controls/fuel/tank0pump1</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2469,7 +2469,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank2pump2</property>
+				<property>controls/fuel/tank0pump2</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2485,11 +2485,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank2pump2-fault</property>
+						<property>systems/fuel/tank0pump2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank2pump2</property>
+						<property>controls/fuel/tank0pump2</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2506,7 +2506,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank2pump2</property>
+					<property>controls/fuel/tank0pump2</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2540,7 +2540,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank3pump1</property>
+				<property>controls/fuel/tank1pump1</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2556,11 +2556,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank3pump1-fault</property>
+						<property>systems/fuel/tank1pump1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank3pump1</property>
+						<property>controls/fuel/tank1pump1</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2577,7 +2577,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank3pump1</property>
+					<property>controls/fuel/tank1pump1</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2681,7 +2681,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank3pump2</property>
+				<property>controls/fuel/tank1pump2</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2697,11 +2697,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank3pump2-fault</property>
+						<property>systems/fuel/tank1pump2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank3pump2</property>
+						<property>controls/fuel/tank1pump2</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2718,7 +2718,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank3pump2</property>
+					<property>controls/fuel/tank1pump2</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2752,7 +2752,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank4pump1</property>
+				<property>controls/fuel/tank2pump1</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2768,11 +2768,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank4pump1-fault</property>
+						<property>systems/fuel/tank2pump1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank4pump1</property>
+						<property>controls/fuel/tank2pump1</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2789,7 +2789,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank4pump1</property>
+					<property>controls/fuel/tank2pump1</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -2823,7 +2823,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/fuel/tank4pump2</property>
+				<property>controls/fuel/tank2pump2</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2839,11 +2839,11 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/fuel/tank4pump2-fault</property>
+						<property>systems/fuel/tank2pump2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>controls/fuel/tank4pump2</property>
+						<property>controls/fuel/tank2pump2</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -2860,7 +2860,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/fuel/tank4pump2</property>
+					<property>controls/fuel/tank2pump2</property>
 					<value>0</value>
 				</equals>
 				<equals>

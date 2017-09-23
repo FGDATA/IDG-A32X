@@ -402,7 +402,7 @@
 			<checkbox>
 				<label>Tank L Pump 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank2pump1</property>
+				<property>/systems/failures/tank0pump1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -412,7 +412,7 @@
 			<checkbox>
 				<label>Tank L Pump 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank2pump2</property>
+				<property>/systems/failures/tank0pump2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -422,7 +422,7 @@
 			<checkbox>
 				<label>Tank C Pump 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank3pump1</property>
+				<property>/systems/failures/tank1pump1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -432,7 +432,7 @@
 			<checkbox>
 				<label>Tank C Pump 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank3pump2</property>
+				<property>/systems/failures/tank1pump2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -442,7 +442,7 @@
 			<checkbox>
 				<label>Tank R Pump 1</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank4pump1</property>
+				<property>/systems/failures/tank2pump1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -452,7 +452,7 @@
 			<checkbox>
 				<label>Tank R Pump 2</label>
 				<halign>left</halign>
-				<property>/systems/failures/tank4pump2</property>
+				<property>/systems/failures/tank2pump2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

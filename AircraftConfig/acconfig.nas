@@ -66,12 +66,12 @@ var failReset = func {
 	setprop("/systems/failures/pump-green", 0);
 	setprop("/systems/failures/pump-yellow-eng", 0);
 	setprop("/systems/failures/pump-yellow-elec", 0);
+	setprop("/systems/failures/tank0pump1", 0);
+	setprop("/systems/failures/tank0pump2", 0);
+	setprop("/systems/failures/tank1pump1", 0);
+	setprop("/systems/failures/tank1pump2", 0);
 	setprop("/systems/failures/tank2pump1", 0);
 	setprop("/systems/failures/tank2pump2", 0);
-	setprop("/systems/failures/tank3pump1", 0);
-	setprop("/systems/failures/tank3pump2", 0);
-	setprop("/systems/failures/tank4pump1", 0);
-	setprop("/systems/failures/tank4pump2", 0);
 	setprop("/systems/failures/fuelmode", 0);
 	setprop("/systems/failures/cargo-aft-fire", 0);
 	setprop("/systems/failures/cargo-fwd-fire", 0);
@@ -256,12 +256,12 @@ var beforestart = func {
 }
 var beforestart_b = func {
 	# Continue with engine start prep.
+	setprop("/controls/fuel/tank0pump1", 1);
+	setprop("/controls/fuel/tank0pump2", 1);
+	setprop("/controls/fuel/tank1pump1", 1);
+	setprop("/controls/fuel/tank1pump2", 1);
 	setprop("/controls/fuel/tank2pump1", 1);
 	setprop("/controls/fuel/tank2pump2", 1);
-	setprop("/controls/fuel/tank3pump1", 1);
-	setprop("/controls/fuel/tank3pump2", 1);
-	setprop("/controls/fuel/tank4pump1", 1);
-	setprop("/controls/fuel/tank4pump2", 1);
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
@@ -331,12 +331,12 @@ var taxi = func {
 }
 var taxi_b = func {
 	# Continue with engine start prep, and start engine 2.
+	setprop("/controls/fuel/tank0pump1", 1);
+	setprop("/controls/fuel/tank0pump2", 1);
+	setprop("/controls/fuel/tank1pump1", 1);
+	setprop("/controls/fuel/tank1pump2", 1);
 	setprop("/controls/fuel/tank2pump1", 1);
 	setprop("/controls/fuel/tank2pump2", 1);
-	setprop("/controls/fuel/tank3pump1", 1);
-	setprop("/controls/fuel/tank3pump2", 1);
-	setprop("/controls/fuel/tank4pump1", 1);
-	setprop("/controls/fuel/tank4pump2", 1);
 	setprop("/controls/electrical/switches/gen-apu", 1);
 	setprop("/controls/electrical/switches/galley", 1);
 	setprop("/controls/electrical/switches/gen1", 1);
