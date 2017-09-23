@@ -37,6 +37,7 @@
 				/systems/fuel/x-feed == 1
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[2]/feed == 1
+				propulsion/tank[0]/contents-lbs EQ 0
 				propulsion/tank[2]/contents-lbs GT 0
 				propulsion/tank[3]/contents-lbs LT 0.9
 			</test>
@@ -69,6 +70,7 @@
 				/systems/fuel/x-feed == 1
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[0]/feed == 1
+				propulsion/tank[2]/contents-lbs EQ 0
 				propulsion/tank[0]/contents-lbs GT 0
 				propulsion/tank[4]/contents-lbs LT 0.9
 			</test>
