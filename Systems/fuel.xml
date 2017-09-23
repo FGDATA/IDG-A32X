@@ -14,32 +14,32 @@
 	<channel name="Fuel to Engine 1 Pipes">
 		<switch name="fuel/from-tank0-to-tank3">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[0]/feed == 1
 				propulsion/tank[0]/contents-lbs GT 0
-				propulsion/tank[3]/contents-lbs LT 0.9
+				propulsion/tank[3]/contents-lbs LT 9
 			</test>
 		</switch>
 
 		<switch name="fuel/from-tank1-to-tank3">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/tank[1]/feed == 1
 				propulsion/tank[1]/contents-lbs GT 0
-				propulsion/tank[3]/contents-lbs LT 0.9
+				propulsion/tank[3]/contents-lbs LT 9
 			</test>
 		</switch>
 
 		<switch name="fuel/from-tank2-to-tank3">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/x-feed == 1
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[2]/feed == 1
 				propulsion/tank[0]/contents-lbs EQ 0
 				propulsion/tank[2]/contents-lbs GT 0
-				propulsion/tank[3]/contents-lbs LT 0.9
+				propulsion/tank[3]/contents-lbs LT 9
 			</test>
 		</switch>
 	</channel>
@@ -47,32 +47,32 @@
 	<channel name="Fuel to Engine 2 Pipes">
 		<switch name="fuel/from-tank2-to-tank4">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[2]/feed == 1
 				propulsion/tank[2]/contents-lbs GT 0
-				propulsion/tank[4]/contents-lbs LT 0.9
+				propulsion/tank[4]/contents-lbs LT 9
 			</test>
 		</switch>
 
 		<switch name="fuel/from-tank1-to-tank4">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/tank[1]/feed == 1
 				propulsion/tank[1]/contents-lbs GT 0
-				propulsion/tank[4]/contents-lbs LT 0.9
+				propulsion/tank[4]/contents-lbs LT 9
 			</test>
 		</switch>
 
 		<switch name="fuel/from-tank0-to-tank4">
 			<default value="0"/>
-			<test logic="AND" value="0.9">
+			<test logic="AND" value="9">
 				/systems/fuel/x-feed == 1
 				/systems/fuel/only-use-ctr-tank == 0
 				/systems/fuel/tank[0]/feed == 1
 				propulsion/tank[2]/contents-lbs EQ 0
 				propulsion/tank[0]/contents-lbs GT 0
-				propulsion/tank[4]/contents-lbs LT 0.9
+				propulsion/tank[4]/contents-lbs LT 9
 			</test>
 		</switch>
 	</channel>
