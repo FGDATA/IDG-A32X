@@ -698,6 +698,7 @@
 				<feed0 type="bool">0</feed0>
 				<feed1 type="bool">0</feed1>
 			</tank>
+			<x-feed type="bool">0</x-feed>
 		</fuel>
 		<hydraulic n="0">
 			<blue-psi>0</blue-psi>
