@@ -626,48 +626,48 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		# Flight Computers		
-		if (getprop("/systems/fctl/elac1")){
+		if (getprop("/systems/fctl/elac1")) {
 			me["elac1"].setColor(0,1,0);
 			me["path4249"].setColor(0,1,0);
-		} else if ((getprop("/systems/fctl/elac1") == 0) or (getprop("/systems/failures/elac1") == 1)){
+		} else if ((getprop("/systems/fctl/elac1") == 0) or (getprop("/systems/failures/elac1") == 1)) {
 			me["elac1"].setColor(1,0.6,0);
 			me["path4249"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/fctl/elac2")){
+		if (getprop("/systems/fctl/elac2")) {
 			me["elac2"].setColor(0,1,0);
 			me["path4249-3"].setColor(0,1,0);
-		} else if ((getprop("/systems/fctl/elac2") == 0) or (getprop("/systems/failures/elac2") == 1)){
+		} else if ((getprop("/systems/fctl/elac2") == 0) or (getprop("/systems/failures/elac2") == 1)) {
 			me["elac2"].setColor(1,0.6,0);
 			me["path4249-3"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/fctl/sec1")){
+		if (getprop("/systems/fctl/sec1")) {
 			me["sec1"].setColor(0,1,0);
 			me["path4249-3-6-7"].setColor(0,1,0);
-		} else if ((getprop("/systems/fctl/sec1") == 0) or (getprop("/systems/failures/sec1") == 1)){
+		} else if ((getprop("/systems/fctl/sec1") == 0) or (getprop("/systems/failures/sec1") == 1)) {
 			me["sec1"].setColor(1,0.6,0);
 			me["path4249-3-6-7"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/fctl/sec2")){
+		if (getprop("/systems/fctl/sec2")) {
 			me["sec2"].setColor(0,1,0);
 			me["path4249-3-6-7-5"].setColor(0,1,0);
-		} else if ((getprop("/systems/fctl/sec2") == 0) or (getprop("/systems/failures/sec2") == 1)){
+		} else if ((getprop("/systems/fctl/sec2") == 0) or (getprop("/systems/failures/sec2") == 1)) {
 			me["sec2"].setColor(1,0.6,0);
 			me["path4249-3-6-7-5"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/fctl/sec3")){
+		if (getprop("/systems/fctl/sec3")) {
 			me["sec3"].setColor(0,1,0);
 			me["path4249-3-6"].setColor(0,1,0);
-		} else if ((getprop("/systems/fctl/sec3") == 0) or (getprop("/systems/failures/sec3") == 1)){
+		} else if ((getprop("/systems/fctl/sec3") == 0) or (getprop("/systems/failures/sec3") == 1)) {
 			me["sec3"].setColor(1,0.6,0);
 			me["path4249-3-6"].setColor(1,0.6,0);
 		}
 		
 		# Hydraulic Indicators
-		if (getprop("/systems/hydraulic/blue-psi") > 1500){
+		if (getprop("/systems/hydraulic/blue-psi") > 1500) {
 			me["ailLblue"].setColor(0,1,0);
 			me["ailRblue"].setColor(0,1,0);
 			me["elevLblue"].setColor(0,1,0);
@@ -683,7 +683,7 @@ var canvas_lowerECAM_fctl = {
 			me["spdbrkblue"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/hydraulic/green-psi") > 1500){
+		if (getprop("/systems/hydraulic/green-psi") > 1500) {
 			me["ailLgreen"].setColor(0,1,0);
 			me["ailRgreen"].setColor(0,1,0);
 			me["elevLgreen"].setColor(0,1,0);
@@ -699,7 +699,7 @@ var canvas_lowerECAM_fctl = {
 			me["spdbrkgreen"].setColor(1,0.6,0);
 		}
 		
-		if (getprop("/systems/hydraulic/yellow-psi") > 1500){
+		if (getprop("/systems/hydraulic/yellow-psi") > 1500) {
 			me["elevRyellow"].setColor(0,1,0);
 			me["rudderyellow"].setColor(0,1,0);
 			me["PTyellow"].setColor(0,1,0);
