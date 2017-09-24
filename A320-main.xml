@@ -378,52 +378,22 @@
 			<max-lb type="double">440</max-lb>
 		</weight>
 		<weight n="1">
-			<name>Cabin Crew</name>
+			<name>Passengers</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
-			<min-lb type="double">300</min-lb>
-			<max-lb type="double">1320</max-lb>
+			<min-lb type="double">1500</min-lb>
+			<max-lb type="double">27000</max-lb>
 		</weight>
 		<weight n="2">
-			<name>PAX 0A (60 seats)</name>
+			<name>Forward Cargo</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
 			<min-lb type="double">300</min-lb>
-			<max-lb type="double">13200</max-lb>
+			<max-lb type="double">8765</max-lb>
 		</weight>
 		<weight n="3">
-			<name>PAX 0B (60 seats)</name>
+			<name>Aft Cargo</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
 			<min-lb type="double">300</min-lb>
-			<max-lb type="double">13200</max-lb>
-		</weight>
-		<weight n="4">
-			<name>PAX 0C (54 seats)</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
-			<min-lb type="double">300</min-lb>
-			<max-lb type="double">11880</max-lb>
-		</weight>
-		<weight n="5">
-			<name>Cargo Hold 1</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]" />
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">7500.126</max-lb>
-		</weight>
-		<weight n="6">
-			<name>Cargo Hold 3</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]" />
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">5384.414</max-lb>
-		</weight>
-		<weight n="7">
-			<name>Cargo Hold 4</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]" />
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">4651.754</max-lb>
-		</weight>
-		<weight n="8">
-			<name>Cargo Hold 5</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]" />
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">3300.320</max-lb>
+			<max-lb type="double">8765</max-lb>
 		</weight>
 	</payload>
 	

@@ -28,7 +28,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<vtailarm  unit="FT" >   57.33 </vtailarm>
 
 	   <location name="AERORP" unit="IN">
-			<x> 670.00 </x>
+			<x> 655.00 </x>
 			<y> 0 </y>
 			<z> 0.00 </z>
 		</location>
@@ -63,15 +63,42 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 			<z> 0.00 </z>
 		</location>
 
-		<pointmass name="Cockpit Crew">
-			<weight unit="LBS">400</weight>
-			<!-- MAX: 400lbs, two pilots-->
+		<pointmass name="Crew">
+			<weight unit="LBS">380</weight>
 			<location name="POINTMASS" unit="IN">
-				<x>200</x>
+				<x>646.00</x>
 				<y>0</y>
 				<z>0</z>
 			</location>
 		</pointmass>
+		
+		<pointmass name="PAX">
+			<weight unit="LBS">23000</weight>
+			<location name="POINTMASS" unit="IN">
+				<x>646.00</x>
+				<y>0</y>
+				<z>0</z>
+			</location>
+		</pointmass>
+
+		<pointmass name="Fwd Cargo">
+			<weight unit="LBS">3000</weight>
+			<location name="POINTMASS" unit="IN"> 
+				<x>437.5944</x>
+				<y>0</y>
+				<z>-24.5866</z> 
+			</location>
+		</pointmass>
+
+		<pointmass name="Aft Cargo">
+			<weight unit="LBS">3000</weight>
+			<location name="POINTMASS" unit="IN">
+				<x>1029.6850</x>
+				<y>0</y>
+				<z>-24.5866</z>
+			</location>
+		</pointmass>
+		
 		<pointmass name="Engine 1">
 			<weight unit="LBS">5200.7</weight>
 			<location name="POINTMASS" unit="IN">
@@ -88,74 +115,6 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 				<z>-78.56019</z>
 			</location>
 		</pointmass>
-		<pointmass name="PAX 0A (60 seats)">
-			<weight unit="LBS">6600</weight>
-			<!-- MAX: 13200lbs, 60 seats -->
-			<location name="POINTMASS" unit="IN">
-				<x>470.1711</x>
-				<y>0</y>
-				<z>0</z>
-			</location>
-		</pointmass>
-		<pointmass name="PAX 0B (60 seats)">
-			<weight unit="LBS">6600</weight>
-			<!-- MAX: 13200lbs, 60 seats -->
-			<location name="POINTMASS" unit="IN">
-				<x>809.5669</x>
-				<y>0</y>
-				<z>0</z>
-			</location>
-		</pointmass>
-		<pointmass name="PAX 0C (54 seats)">
-			<weight unit="LBS">5940</weight>
-			<!-- MAX: 11880lbs, 54 seats -->
-			<location name="POINTMASS" unit="IN">
-				<x>1163.2729</x>
-				<y>0</y>
-				<z>0</z>
-			</location>
-		</pointmass>
-		<pointmass name="Cargo Hold 1">
-			<weight unit="LBS">2000</weight>
-			<!-- MAX: 7500.126lbs -->
-			<location name="POINTMASS" unit="IN">
-				<x>383.4792</x>
-				<y>0</y>
-				<z>-29.5</z>
-				<!-- 1.5m and now half of it for the center point of the load -->
-			</location>
-		</pointmass>
-		<!-- Cargo Hold 2 doesn't exist, that is the center tank -->
-		<pointmass name="Cargo Hold 3">
-			<weight unit="LBS">2000</weight>
-			<!-- MAX: 5384.414lbs -->
-			<location name="POINTMASS" unit="IN">
-				<x>849.1324</x>
-				<y>0</y>
-				<z>-29.5</z>
-			</location>
-		</pointmass>
-		<pointmass name="Cargo Hold 4">
-			<weight unit="LBS">1500</weight>
-			<!-- MAX: 4651.754lbs -->
-			<location name="POINTMASS" unit="IN">
-				<x>931.0653</x>
-				<y>0</y>
-				<z>-29.5</z>
-			</location>
-		</pointmass>
-		<pointmass name="Cargo Hold 5">
-			<weight unit="LBS">2000</weight>
-			<!-- MAX: 3300.320lbs -->
-			<location name="POINTMASS" unit="IN">
-				<x>1068.2634</x>
-				<y>0</y>
-				<z>0</z>
-				<!-- Cargo Hold #5 sits higher on the range of the cabin deck, it's only loadable with lifter -->
-			</location>
-		</pointmass>
-
-
 	</mass_balance>
 
 	<ground_reactions>
