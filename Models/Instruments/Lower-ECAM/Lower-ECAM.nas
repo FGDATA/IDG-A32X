@@ -71,14 +71,17 @@ var canvas_lowerECAM_base = {
 				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
+				lowerECAM_apu.update();
 			} else if (page == "eng") {
 				lowerECAM_apu.page.hide();
 				if (getprop("/options/EIS2") == 1) {
 					lowerECAM_eng1.page.hide();
 					lowerECAM_eng.page.show();
+					lowerECAM_eng.update();
 				} else {
 					lowerECAM_eng1.page.show();
 					lowerECAM_eng.page.hide();
+					lowerECAM_eng1.update();
 				}
 				lowerECAM_fctl.page.hide();
 			} else if (page == "fctl") {
@@ -86,6 +89,7 @@ var canvas_lowerECAM_base = {
 				lowerECAM_eng.page.hide();
 				lowerECAM_apu.page.hide();
 				lowerECAM_fctl.page.show();
+				lowerECAM_fctl.update();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng1.page.hide();
@@ -98,8 +102,6 @@ var canvas_lowerECAM_base = {
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
 		}
-		
-		settimer(func me.update(), 0.02);
 	},
 	updateBottomStatus: func() {
 		me["TAT"].setText(sprintf("%s", math.round(getprop("/environment/temperature-degc"))));
@@ -225,8 +227,6 @@ var canvas_lowerECAM_apu = {
 		me["APUEGT-needle"].setRotation((getprop("/ECAM/Lower/APU-EGT") + 90)*D2R);
 
 		me.updateBottomStatus();
-
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -274,8 +274,6 @@ var canvas_lowerECAM_eng1 = {
 		me["OilPSI2-needle"].setRotation((getprop("/ECAM/Lower/Oil-PSI[1]") + 90)*D2R);
 		
 		me.updateBottomStatus();
-		
-		settimer(func me.update(), 0.02);
 	},     
 };
 
@@ -323,8 +321,6 @@ var canvas_lowerECAM_eng = {
 		me["OilPSI2-needle"].setRotation((getprop("/ECAM/Lower/Oil-PSI[1]") + 90)*D2R);
 		
 		me.updateBottomStatus();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -712,8 +708,6 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		me.updateBottomStatus();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -734,11 +728,11 @@ setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_eng1 = canvas_lowerECAM_eng1.new(groupEng1, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis1.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
+	
+	lowerECAM_update.start();
+});
 
-	lowerECAM_apu.update();
-	lowerECAM_eng1.update();
-	lowerECAM_eng.update();
-	lowerECAM_fctl.update();
+var lowerECAM_update = maketimer(0.05, func {
 	canvas_lowerECAM_base.update();
 });
 

@@ -56,21 +56,25 @@ var canvas_upperECAM_base = {
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis1.page.hide();
 				upperECAM_iae_eis2.page.hide();
+				upperECAM_cfm_eis1.update();
 			} else if (getprop("/options/eng") == "CFM" and getprop("/options/EIS2") == 1) {
 				upperECAM_cfm_eis1.page.hide();
 				upperECAM_cfm_eis2.page.show();
 				upperECAM_iae_eis1.page.hide();
 				upperECAM_iae_eis2.page.hide();
+				upperECAM_cfm_eis2.update();
 			} else if (getprop("/options/eng") == "IAE" and getprop("/options/EIS2") == 0) {
 				upperECAM_cfm_eis1.page.hide();
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis1.page.show();
 				upperECAM_iae_eis2.page.hide();
+				upperECAM_iae_eis1.update();
 			} else if (getprop("/options/eng") == "IAE" and getprop("/options/EIS2") == 1) {
 				upperECAM_cfm_eis1.page.hide();
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis1.page.hide();
 				upperECAM_iae_eis2.page.show();
+				upperECAM_iae_eis2.update();
 			}
 		} else {
 			upperECAM_cfm_eis1.page.hide();
@@ -78,8 +82,6 @@ var canvas_upperECAM_base = {
 			upperECAM_iae_eis1.page.hide();
 			upperECAM_iae_eis2.page.hide();
 		}
-		
-		settimer(func me.update(), 0.02);
 	},
 	updateBase: func() {
 		# Reversers
@@ -455,8 +457,6 @@ var canvas_upperECAM_cfm_eis1 = {
 		}
 		
 		me.updateBase();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -674,8 +674,6 @@ var canvas_upperECAM_cfm_eis2 = {
 		}
 		
 		me.updateBase();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -933,8 +931,6 @@ var canvas_upperECAM_iae_eis1 = {
 		}
 		
 		me.updateBase();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -1196,8 +1192,6 @@ var canvas_upperECAM_iae_eis2 = {
 		}
 		
 		me.updateBase();
-		
-		settimer(func me.update(), 0.02);
 	},
 };
 
@@ -1218,11 +1212,11 @@ setlistener("sim/signals/fdm-initialized", func {
 	upperECAM_cfm_eis2 = canvas_upperECAM_cfm_eis2.new(group_cfm_eis2, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/cfm-eis2.svg");
 	upperECAM_iae_eis1 = canvas_upperECAM_iae_eis1.new(group_iae_eis1, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/iae-eis1.svg");
 	upperECAM_iae_eis2 = canvas_upperECAM_iae_eis2.new(group_iae_eis2, "Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/res/iae-eis2.svg");
+	
+	upperECAM_update.start();
+});
 
-	upperECAM_cfm_eis1.update();
-	upperECAM_cfm_eis2.update();
-	upperECAM_iae_eis1.update();
-	upperECAM_iae_eis2.update();
+var upperECAM_update = maketimer(0.05, func {
 	canvas_upperECAM_base.update();
 });
 

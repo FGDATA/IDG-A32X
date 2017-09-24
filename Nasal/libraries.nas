@@ -256,6 +256,24 @@ var aglgears = func {
 
 aglgears();
 
+canvas.Text._lastText2 = "";
+canvas.Text.setText = func (text) {
+      if (text == me._lastText2) {return me;}
+      me._lastText2 = text;
+      me.set("text", typeof(text) == 'scalar' ? text : "");
+};
+canvas.Element._lastVisible = 1;
+canvas.Element.show = func () {
+      if (1 == me._lastVisible) {return me;}
+      me._lastVisible = 1;
+      me.setBool("visible", 1);
+};
+canvas.Element.hide = func () {
+      if (0 == me._lastVisible) {return me;}
+      me._lastVisible = 0;
+      me.setBool("visible", 0);
+};
+
 # In air, flaps 1 is slats only. On ground, it is slats and flaps.
 
 setprop("/controls/flight/flap-lever", 0);
