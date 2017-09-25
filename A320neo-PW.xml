@@ -450,7 +450,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Engines 1 Pipes -->
+		<tank type="FUEL">    <!-- Engine 1 Pipes -->
 			<location unit="IN">
 				<x>589.735</x>	
 				<y>0</y>
