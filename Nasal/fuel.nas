@@ -160,7 +160,7 @@ var master_fuel = func {
 	gravityfeedL = getprop("/systems/fuel/gravityfeedL");
 	gravityfeedR = getprop("/systems/fuel/gravityfeedR");
 	
-	if ((getprop("/fdm/jsbsim/propulsion/tank[1]/contents-lbs") >= 50) and tank1feed0 and tank1feed1 and !gravityfeedL and !gravityfeedR) {
+	if ((getprop("/fdm/jsbsim/propulsion/tank[1]/contents-lbs") >= 50) and tank1feed and !gravityfeedL and !gravityfeedR) {
 		setprop("/systems/fuel/only-use-ctr-tank", 1);
 	} else {
 		setprop("/systems/fuel/only-use-ctr-tank", 0);
