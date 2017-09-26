@@ -51,6 +51,13 @@
 			
 			<text>
 				<halign>left</halign>
+				<label>Keyboard Mode: Maps flight controls to number pad, and number rows, instead of view shortucts.</label>
+			</text>
+			
+			<hrule/>
+			
+			<text>
+				<halign>left</halign>
 				<label>Key Commands:</label>
 			</text>
 			<text>
