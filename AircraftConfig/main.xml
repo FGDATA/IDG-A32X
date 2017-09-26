@@ -67,6 +67,15 @@
 				</button>
 				<button>
 					<halign>center</halign>
+					<legend>Pushback</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>pushback</dialog-name>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
 					<legend>Aircraft Help</legend>
 					<pref-width>140</pref-width>
 					<binding>

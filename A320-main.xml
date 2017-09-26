@@ -251,15 +251,6 @@
 						</binding>
 					</item>
 					<item>
-						<label>Reset FMGC</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							fmgc.reset_FMGC();
-							</script>
-						</binding>
-					</item>
-					<item>
 						<label>Skip ADIRS</label>
 						<binding>
 							<command>property-assign</command>
