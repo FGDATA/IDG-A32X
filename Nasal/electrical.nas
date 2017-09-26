@@ -169,8 +169,6 @@ var master_elec = func {
 	extpwr_on = getprop("/controls/switches/cart");
 	stateL = getprop("/engines/engine[0]/state");
 	stateR = getprop("/engines/engine[1]/state");
-	xtieL = getprop("/controls/electrical/xtie/xtieL");
-	xtieR = getprop("/controls/electrical/xtie/xtieR");
 	ac1 = getprop("/systems/electrical/bus/ac1");
 	ac2 = getprop("/systems/electrical/bus/ac2");
 	ac_ess = getprop("/systems/electrical/bus/ac-ess");
@@ -230,6 +228,9 @@ var master_elec = func {
 	} else {
 		setprop("/controls/electrical/xtie/xtieL", 0);
 	}
+	
+	xtieL = getprop("/controls/electrical/xtie/xtieL");
+	xtieR = getprop("/controls/electrical/xtie/xtieR");
 	
 	# Left DC bus yes?
 	if (stateL == 3 and gen1_sw and !gen1_fail) {
