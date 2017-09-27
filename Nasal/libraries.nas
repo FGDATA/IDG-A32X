@@ -273,6 +273,11 @@ canvas.Element.hide = func () {
       me._lastVisible = 0;
       me.setBool("visible", 0);
 };
+canvas.Element.setVisible = func (vis) {
+      if (vis == me._lastVisible) {return me;}
+      me._lastVisible = vis;
+      me.setBool("visible", vis);
+};
 
 # In air, flaps 1 is slats only. On ground, it is slats and flaps.
 
