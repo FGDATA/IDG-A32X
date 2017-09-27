@@ -9,8 +9,8 @@ SymbolLayer.add(name, {
     type: name, # Symbol type
     df_controller: __self__, # controller to use by default -- this one
     df_options: {
-        vor1_frq: 'instrumentation/nav/frequencies/selected-mhz',
-        vor2_frq: 'instrumentation/nav[1]/frequencies/selected-mhz'
+        vor1_frq: 'instrumentation/nav[2]/frequencies/selected-mhz',
+        vor2_frq: 'instrumentation/nav[3]/frequencies/selected-mhz'
     },
     df_style: {
         scale: 1            

@@ -700,6 +700,20 @@
 			<volume type="double">0</volume>
 		</dme>
 		
+		<efis n="0">
+			<input n="0">
+				<vor-adf-1 type="int">2</vor-adf-1>
+				<vor-adf-2 type="int">2</vor-adf-2>
+			</input>
+		</efis>
+		
+		<efis n="1">
+			<input n="0">
+				<vor-adf-1 type="int">2</vor-adf-1>
+				<vor-adf-2 type="int">2</vor-adf-2>
+			</input>
+		</efis>
+		
 		<nav n="0">
 			<frequencies>
 				<selected-mhz type="double">111.15</selected-mhz>

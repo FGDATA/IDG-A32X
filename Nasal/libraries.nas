@@ -256,10 +256,10 @@ var aglgears = func {
 
 aglgears();
 
-canvas.Text._lastText2 = "";
+canvas.Text._lastText = canvas.Text["_lastText"];
 canvas.Text.setText = func (text) {
-	if (text == me._lastText2) {return me;}
-	me._lastText2 = text;
+	if (text == me._lastText) {return me;}
+	me._lastText = text;
 	me.set("text", typeof(text) == 'scalar' ? text : "");
 };
 canvas.Element._lastVisible = 1;
