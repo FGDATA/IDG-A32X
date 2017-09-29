@@ -41,7 +41,7 @@
 		<path>Aircraft/IDG-A32X/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
 			<x-m>3.56</x-m>
-			<z-m>-1.8306008</z-m>
+			<z-m>-2</z-m>
 		</offsets>
 	</model>
 

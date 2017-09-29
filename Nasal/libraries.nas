@@ -246,7 +246,7 @@ setlistener("/options/steep-ils", func {
 
 var aglgears = func {
     var agl = getprop("/position/altitude-agl-ft") or 0;
-    var aglft = agl - 11.101;  # is the position from the Airbus A320 above ground
+    var aglft = agl - 14.001;  # is the position from the Airbus A320 above ground
     var aglm = aglft * 0.3048;
     setprop("/position/gear-agl-ft", aglft);
     setprop("/position/gear-agl-m", aglm);
