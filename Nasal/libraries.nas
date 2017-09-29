@@ -263,7 +263,7 @@ canvas.Text.setText = func (text) {
 	me._lastText = text;
 	me.set("text", typeof(text) == 'scalar' ? text : "");
 };
-canvas.Element._lastVisible = 1;
+canvas.Element._lastVisible = nil;
 canvas.Element.show = func () {
 	if (1 == me._lastVisible) {return me;}
 	me._lastVisible = 1;
