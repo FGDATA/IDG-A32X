@@ -464,7 +464,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 			<location unit="M">
 				<x> 7.52385 </x>
 				<y> 0 </y>
-				<z> -4.31395 </z>
+				<z> -3.2846 </z>
 			</location>
 			<direction>
 				<x>1</x>
