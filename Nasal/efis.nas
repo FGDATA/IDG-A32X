@@ -22,7 +22,7 @@ var ctl_func = func(md,val) {
         var rng = getprop("/instrumentation/efis/inputs/range-nm");
         if(val ==1){
             rng = rng * 2;
-            if(rng > 640) rng = 640;
+            if(rng > 320) rng = 320;
         } else if(val = -1){
             rng = rng / 2;
             if(rng < 10) rng = 10;
@@ -76,7 +76,7 @@ var ctl2_func = func(md,val) {
         var rng = getprop("/instrumentation/efis[1]/inputs/range-nm");
         if(val ==1){
             rng = rng * 2;
-            if(rng > 640) rng = 640;
+            if(rng > 320) rng = 320;
         } else if(val = -1){
             rng = rng / 2;
             if(rng < 10) rng = 10;
