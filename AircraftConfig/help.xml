@@ -86,6 +86,10 @@
 			</text>
 			<text>
 				<halign>left</halign>
+				<label>F - Set TOGA Thrust</label>
+			</text>
+			<text>
+				<halign>left</halign>
 				<label>DEL - Toggle Reverse Thrust</label>
 			</text>
 			<text>
