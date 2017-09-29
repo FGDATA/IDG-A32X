@@ -433,9 +433,33 @@
         <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/engines/thrust-limit</property>
+						<value>FLX</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state1</property>
+						<value>MCT</value>
+					</equals>
+				</and>
+			</condition>
             <expression>
                 <table>
-                    <property>/controls/engines/engine[0]/throttle-man</property>
+					<product>
+						<value>0.97</value>
+						<property>/engines/flx-throttle</property>
+					</product>
+                    <entry><ind>0.00</ind><dep> 22.4</dep></entry>
+                    <entry><ind>1.00</ind><dep>103.8</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <input>
+            <expression>
+                <table>
+                    <property>/controls/engines/engine[0]/throttle-cmd-man</property>
                     <entry><ind>0.00</ind><dep> 22.4</dep></entry>
                     <entry><ind>1.00</ind><dep>103.8</dep></entry>
                 </table>
@@ -450,9 +474,33 @@
         <gain>1</gain>
         <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
+			<condition>
+				<and>
+					<equals>
+						<property>/controls/engines/thrust-limit</property>
+						<value>FLX</value>
+					</equals>
+					<equals>
+						<property>/systems/thrust/state2</property>
+						<value>MCT</value>
+					</equals>
+				</and>
+			</condition>
             <expression>
                 <table>
-                    <property>/controls/engines/engine[1]/throttle-man</property>
+					<product>
+						<value>0.97</value>
+						<property>/engines/flx-throttle</property>
+					</product>
+                    <entry><ind>0.00</ind><dep> 22.4</dep></entry>
+                    <entry><ind>1.00</ind><dep>103.8</dep></entry>
+                </table>
+            </expression>
+        </input>
+        <input>
+            <expression>
+                <table>
+                    <property>/controls/engines/engine[1]/throttle-cmd-man</property>
                     <entry><ind>0.00</ind><dep> 22.4</dep></entry>
                     <entry><ind>1.00</ind><dep>103.8</dep></entry>
                 </table>
