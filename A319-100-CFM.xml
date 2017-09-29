@@ -27,7 +27,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<vtailarea unit="FT2">  248.79 </vtailarea>
 		<vtailarm  unit="FT" >   57.33 </vtailarm>
 
-	   <location name="AERORP" unit="M">
+		<location name="AERORP" unit="M">
 			<x> 19.0974 </x>
 			<y> 0 </y>
 			<z> 0.19249 </z>
