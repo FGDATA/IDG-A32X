@@ -4869,6 +4869,21 @@
 				<script>setprop("/sim/sounde/switch1", 1);</script>
 			</binding>
 		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/lighting/nav-lights-switch</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
 	</animation>
 	<animation>
 		<name>Nav/logo lights rotate</name>
@@ -5017,6 +5032,21 @@
 				<value>0</value>
 				<value>0.5</value>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/lighting/taxi-light-switch</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -5945,6 +5975,21 @@
 				<value>0.0</value>
 				<value>0.5</value>
 				<value>1.0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/switches/emer-lights</property>
+				<value>1.0</value>
+				<value>0.5</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>

@@ -1215,10 +1215,16 @@
 		<object-name>fd2lt</object-name>
 		<object-name>ils2lt</object-name>
 		<condition>
-			<greater-than-equals>
-				<property>systems/electrical/outputs/efis</property>
-				<value>9</value>
-			</greater-than-equals>
+			<or>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc2</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
 		</condition>
 	</animation>
 	
@@ -1771,10 +1777,6 @@
 					<property>it-autoflight/output/vert</property>
 					<value>2</value>
 				</not-equals>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>15</value>
-				</greater-than-equals>
 			</and>
 		</condition>
 	</animation>
@@ -2027,6 +2029,18 @@
 			<button>1</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>
 				libraries.toggleSTD();
@@ -2051,6 +2065,16 @@
 							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
 					</and>
 				</condition>
 			</binding>
@@ -2069,6 +2093,16 @@
 							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
 					</and>
 				</condition>
 			</binding>
@@ -2091,6 +2125,16 @@
 							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
 					</and>
 				</condition>
 			</binding>
@@ -2109,6 +2153,16 @@
 							<property>modes/altimeter/std</property>
 							<value>0</value>
 						</equals>
+						<or>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc1</property>
+								<value>25</value>
+							</greater-than-equals>
+							<greater-than-equals>
+								<property>systems/electrical/bus/dc2</property>
+								<value>25</value>
+							</greater-than-equals>
+						</or>
 					</and>
 				</condition>
 			</binding>
@@ -2126,6 +2180,18 @@
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-cycle</command>
 				<property>modes/altimeter/inhg</property>
 				<value>0</value>
@@ -3144,6 +3210,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>it-autoflight/input/fd1</property>
 			</binding>
@@ -3157,6 +3235,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>it-autoflight/input/fd2</property>
 			</binding>
@@ -3172,6 +3262,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>modes/pfd/ILS1</property>
 			</binding>
@@ -3185,6 +3287,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>modes/pfd/ILS2</property>
 			</binding>
@@ -3200,6 +3314,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>sts</value>
@@ -3214,10 +3340,34 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
                 <property>warnings/to-cfg-available</property>
 			</binding>
             <binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
                 <property>warnings/to-config</property>
 			</binding>
@@ -3231,6 +3381,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>apu</value>
@@ -3245,6 +3407,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>bleed</value>
@@ -3259,6 +3433,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>press</value>
@@ -3273,6 +3459,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>elec</value>
@@ -3287,6 +3485,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>hyd</value>
@@ -3301,6 +3511,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>fuel</value>
@@ -3315,6 +3537,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>eng</value>
@@ -3329,6 +3563,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>cond</value>
@@ -3343,6 +3589,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>door</value>
@@ -3357,6 +3615,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>wheel</value>
@@ -3371,6 +3641,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-assign</command>
 				<property>ECAM/Lower/page</property>
 				<value>fctl</value>
@@ -3421,6 +3703,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/CSTR</property>
 			</binding>
@@ -3434,6 +3728,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/CSTR</property>
 			</binding>
@@ -3447,6 +3753,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/wpt</property>
 			</binding>
@@ -3460,6 +3778,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/wpt</property>
 			</binding>
@@ -3473,10 +3803,34 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/VORD</property>
 			</binding>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/DME</property>
 			</binding>
@@ -3490,10 +3844,34 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/VORD</property>
 			</binding>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/DME</property>
 			</binding>
@@ -3507,6 +3885,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/NDB</property>
 			</binding>
@@ -3520,6 +3910,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/NDB</property>
 			</binding>
@@ -3533,6 +3935,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis/inputs/arpt</property>
 			</binding>
@@ -3546,6 +3960,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>property-toggle</command>
 				<property>instrumentation/efis[1]/inputs/arpt</property>
 			</binding>
@@ -3951,26 +4377,14 @@
 		<object-name>stby-ai</object-name>
 		<condition>
 			<or>
-				<and>
-					<or>
-						<equals>
-							<property>controls/electrical/switches/battery1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>controls/electrical/switches/battery2</property>
-							<value>1</value>
-						</equals>
-					</or>
-					<less-than>
-						<property>systems/electrical/bus/dc1</property>
-						<value>25</value>
-					</less-than>
-					<less-than>
-						<property>systems/electrical/bus/dc2</property>
-						<value>25</value>
-					</less-than>
-				</and>
+				<greater-than-equals>
+					<property>systems/electrical/battery1-amps</property>
+					<value>120</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>systems/electrical/battery2-amps</property>
+					<value>120</value>
+				</greater-than-equals>
 				<greater-than-equals>
 					<property>systems/electrical/bus/dc1</property>
 					<value>25</value>
@@ -4390,14 +4804,17 @@
             <binding>
                 <command>nasal</command>
                 <script>
-                    var spdBrk = getprop('/controls/flight/speedbrake-lever');
+                    var spdBrk = getprop("/controls/flight/speedbrake-lever" );
                    	if(spdBrk == 0){
-                   		setprop('/controls/flight/speedbrake-lever', 0.5);
+						setprop("/controls/flight/speedbrake-arm", 0);
+                   		setprop("/controls/flight/speedbrake-lever", 0.5);
                    	}
                    	elsif(spdBrk == 0.5){
-                   		setprop('/controls/flight/speedbrake-lever', 1);
+						setprop("/controls/flight/speedbrake-arm", 0);
+                   		setprop("/controls/flight/speedbrake-lever", 1);
                    	}
                    	elsif(spdBrk == 1){
+						setprop("/controls/flight/speedbrake-arm", 0);
 						# Do nothing because spoilers are fully up.
                     }
                 </script>
@@ -4409,15 +4826,18 @@
             <binding>
                 <command>nasal</command>
                 <script>
-                    var spdBrk = getprop('/controls/flight/speedbrake-lever');
+                    var spdBrk = getprop("/controls/flight/speedbrake-lever");
                     if(spdBrk == 0){
+						setprop("/controls/flight/speedbrake-arm", 0);
 						# Do nothing because spoilers are fully down.
                     }
                    	elsif(spdBrk == 0.5){
-                    	setprop('/controls/flight/speedbrake-lever', 0);
+						setprop("/controls/flight/speedbrake-arm", 0);
+                    	setprop("/controls/flight/speedbrake-lever", 0);
                    	}
                    	elsif(spdBrk == 1){
-                   		setprop('/controls/flight/speedbrake-lever', 0.5);
+						setprop("/controls/flight/speedbrake-arm", 0);
+                   		setprop("/controls/flight/speedbrake-lever", 0.5);
                    	}
                 </script>
             </binding>
