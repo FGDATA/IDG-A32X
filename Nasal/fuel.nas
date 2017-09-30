@@ -145,13 +145,13 @@ var master_fuel = func {
 	tank1 = getprop("/systems/fuel/tank[1]/feed");
 	tank2 = getprop("/systems/fuel/tank[2]/feed");
 	
-	if (((ac1 >= 110 or ac2 >= 110) and tank0pump1_sw and tank0pump1_sw)) {
+	if ((ac1 >= 110 or ac2 >= 110) and (tank0pump1_sw or tank0pump2_sw)) {
 		setprop("/systems/fuel/gravityfeedL", 0);
 	} else {
 		setprop("/systems/fuel/gravityfeedL", 1);
 	}
 	
-	if (((ac1 >= 110 or ac2 >= 110) and tank2pump1_sw and tank2pump1_sw)) {
+	if ((ac1 >= 110 or ac2 >= 110) and (tank2pump1_sw or tank2pump2_sw)) {
 		setprop("/systems/fuel/gravityfeedR", 0);
 	} else {
 		setprop("/systems/fuel/gravityfeedR", 1);
@@ -160,7 +160,7 @@ var master_fuel = func {
 	gravityfeedL = getprop("/systems/fuel/gravityfeedL");
 	gravityfeedR = getprop("/systems/fuel/gravityfeedR");
 	
-	if ((getprop("/fdm/jsbsim/propulsion/tank[1]/contents-lbs") >= 50) and tank1feed and !gravityfeedL and !gravityfeedR) {
+	if ((getprop("/fdm/jsbsim/propulsion/tank[1]/contents-lbs") >= 50) and (tank1pump1_sw or tank1pump2_sw) and !gravityfeedL and !gravityfeedR) {
 		setprop("/systems/fuel/only-use-ctr-tank", 1);
 	} else {
 		setprop("/systems/fuel/only-use-ctr-tank", 0);
