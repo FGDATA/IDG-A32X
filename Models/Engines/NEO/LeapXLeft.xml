@@ -93,10 +93,10 @@
 		</axis>
 	</animation>
 	
-	<effect>
-        <inherits-from>Aircraft/IDG-A32X/Models/Effects/engineLEAPl</inherits-from>
+	<!--effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/engineLEAPr</inherits-from>
         <object-name>Nacelle</object-name>
         <object-name>Reverser</object-name>
-	</effect>
+	</effect-->
 
 </PropertyList>

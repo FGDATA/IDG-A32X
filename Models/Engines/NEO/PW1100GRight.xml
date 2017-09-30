@@ -80,11 +80,11 @@
 		</axis>
 	</animation>
 	
-	<effect>
+	<!--effect>
         <inherits-from>Aircraft/IDG-A32X/Models/Effects/enginePW1100R</inherits-from>
         <object-name>NacellePW1100G</object-name>
         <object-name>ReverserPW1100G</object-name>
         <object-name>SpoilersPW1100G</object-name>
-	</effect>
+	</effect-->
 
 </PropertyList>
