@@ -125,13 +125,13 @@
 		
 	</sim>
         
-        <limits>
-            <mass-and-balance> <!--Data source: https://en.wikipedia.org/wiki/Airbus_A320neo_family#Specifications-->
-                    <maximum-takeoff-mass-lbs>213800</maximum-takeoff-mass-lbs>
-                    <maximum-landing-mass-lbs>174600</maximum-landing-mass-lbs>
-                    <maximum-zero-fuel-mass-lbs>166700</maximum-zero-fuel-mass-lbs>
-            </mass-and-balance>
-        </limits>
+	<limits>
+		<mass-and-balance> <!--Data source: https://en.wikipedia.org/wiki/Airbus_A320_family#Specifications-->
+			<maximum-takeoff-mass-lbs>172000</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>146000</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>138000</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
 	
 	<options n="0">
 		<EIS2 type="bool">1</EIS2>
