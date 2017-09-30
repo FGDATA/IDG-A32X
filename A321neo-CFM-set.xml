@@ -13,10 +13,9 @@
 		<sound>
 			<path>Aircraft/IDG-A32X/Sounds/leapx-sound.xml</path>
 		</sound>
-	
+		<checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A321-251N (LEAP-1A26)</description>
 		<flight-model>jsb</flight-model>
-                <checklists include="A3XX-Checklists.xml"/>
 		<aero>A321neo-CFM</aero>
 		<model>
 			<path>Aircraft/IDG-A32X/Models/A321neo-CFM.xml</path>

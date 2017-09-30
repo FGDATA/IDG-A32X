@@ -13,7 +13,7 @@
 		<sound>
 			<path>Aircraft/IDG-A32X/Sounds/cfm56-sound.xml</path>
 		</sound>
-                <checklists include="A3XX-Checklists.xml"/>
+		<checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-111 (CFM56-5A1)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-100-CFM</aero>

@@ -13,7 +13,7 @@
 		<sound>
 			<path>Aircraft/IDG-A32X/Sounds/cfm56-sound.xml</path>
 		</sound>
-                <checklists include="A3XX-Checklists.xml"/>
+		<checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A318-112 (CFM56-5B9)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A318-100-CFM</aero>

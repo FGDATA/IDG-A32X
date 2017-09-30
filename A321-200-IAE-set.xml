@@ -13,10 +13,9 @@
 		<sound>
 			<path>Aircraft/IDG-A32X/Sounds/v2500-sound.xml</path>
 		</sound>
-	
+		<checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A321-231 (IAE V2533-A5)</description>
 		<flight-model>jsb</flight-model>
-                <checklists include="A3XX-Checklists.xml"/>
 		<aero>A321-200-IAE</aero>
 		<model>
 			<path>Aircraft/IDG-A32X/Models/A321-200-IAE.xml</path>

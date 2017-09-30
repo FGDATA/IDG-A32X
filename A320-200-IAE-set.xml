@@ -13,7 +13,7 @@
 		<sound>
 			<path>Aircraft/IDG-A32X/Sounds/v2500-sound.xml</path>
 		</sound>
-                <checklists include="A3XX-Checklists.xml"/>
+		<checklists include="A3XX-Checklists.xml"/>
 		<description>Airbus A320-232 (IAE V2527-A5)</description>
 		<flight-model>jsb</flight-model>
 		<aero>A320-200-IAE</aero>
