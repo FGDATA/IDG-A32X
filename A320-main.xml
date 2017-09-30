@@ -518,6 +518,7 @@
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>
 			<elevator-sum>0.2</elevator-sum>
+			<flap-pos type="int">0</flap-pos>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<roll-fbw>0</roll-fbw>
 			<spoiler-l1>0.0</spoiler-l1>
