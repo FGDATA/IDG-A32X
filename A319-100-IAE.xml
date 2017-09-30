@@ -388,7 +388,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
 		<tank type="FUEL">    <!-- Left Wing Tank -->
 			<location unit="M">
-				<x> 17.8501 </x>
+				<x> 18.3231 </x>
 				<y> -5.1104 </y>
 				<z> -0.61182 </z>
 			</location>
@@ -401,7 +401,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</tank>
 		<tank type="FUEL">    <!-- Center Tank -->
 			<location unit="M">
-				<x> 18.2231 </x>
+				<x> 18.3731 </x>
 				<y> 0 </y>
 				<z> -0.61182 </z>
 			</location>
@@ -414,7 +414,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</tank>
 		<tank type="FUEL">    <!-- Right Wing Tank -->
 			<location unit="M">
-				<x> 17.8501 </x>
+				<x> 18.3231 </x>
 				<y> 5.1104 </y>
 				<z> -0.61182 </z>
 			</location>
