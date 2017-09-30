@@ -28,9 +28,9 @@
 
 		<model>
 			<pushback>
-				<kp type="double">1000</kp>
-				<ki type="double">0</ki>
-				<kd type="double">0</kd>
+				<kp type="double">5000</kp>
+				<ki type="double">200</ki>
+				<kd type="double">500</kd>
 				<position-norm type="double">0</position-norm>
 			</pushback>
 			<icing>
