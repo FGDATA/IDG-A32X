@@ -1894,7 +1894,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/pneumatic/eng1-pump-fault</property>
+						<property>systems/hydraulic/eng1-pump-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2056,7 +2056,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/pneumatic/elec-pump-b-fault</property>
+						<property>systems/hydraulic/elec-pump-b-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2129,7 +2129,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/pneumatic/ptu-fault</property>
+						<property>systems/hydraulic/ptu-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2202,7 +2202,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/pneumatic/eng2-pump-fault</property>
+						<property>systems/hydraulic/eng2-pump-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2275,7 +2275,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/pneumatic/elec-pump-y-fault</property>
+						<property>systems/hydraulic/elec-pump-y-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>

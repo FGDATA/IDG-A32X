@@ -232,33 +232,33 @@ var master_hyd = func {
 	
 	# Fault lights
 	if (green_pump_fail and eng1_pump_sw) {
-		setprop("/systems/pneumatic/eng1-pump-fault", 1);
+		setprop("/systems/hydraulic/eng1-pump-fault", 1);
 	} else {
-		setprop("/systems/pneumatic/eng1-pump-fault", 0);
+		setprop("/systems/hydraulic/eng1-pump-fault", 0);
 	}
 	
 	if (blue_pump_fail and elec_pump_blue_sw) {
-		setprop("/systems/pneumatic/elec-pump-b-fault", 1);
+		setprop("/systems/hydraulic/elec-pump-b-fault", 1);
 	} else {
-		setprop("/systems/pneumatic/elec-pump-b-fault", 0);
+		setprop("/systems/hydraulic/elec-pump-b-fault", 0);
 	}
 	
 	if (ptu_fail and ptu_sw) {
-		setprop("/systems/pneumatic/ptu-fault", 1);
+		setprop("/systems/hydraulic/ptu-fault", 1);
 	} else {
-		setprop("/systems/pneumatic/ptu-fault", 0);
+		setprop("/systems/hydraulic/ptu-fault", 0);
 	}
 	
 	if (yellow_pump_eng_fail and eng2_pump_sw) {
-		setprop("/systems/pneumatic/eng2-pump-fault", 1);
+		setprop("/systems/hydraulic/eng2-pump-fault", 1);
 	} else {
-		setprop("/systems/pneumatic/eng2-pump-fault", 0);
+		setprop("/systems/hydraulic/eng2-pump-fault", 0);
 	}
 	
 	if (yellow_pump_elec_fail and elec_pump_yellow_sw) {
-		setprop("/systems/pneumatic/elec-pump-y-fault", 1);
+		setprop("/systems/hydraulic/elec-pump-y-fault", 1);
 	} else {
-		setprop("/systems/pneumatic/elec-pump-y-fault", 0);
+		setprop("/systems/hydraulic/elec-pump-y-fault", 0);
 	}
 }
 
