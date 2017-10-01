@@ -129,7 +129,7 @@ var canvas_upperECAM_base = {
 		}
 		
 		# FOB
-		me["FOB-LBS"].setText(sprintf("%7.0f", getprop("/consumables/fuel/total-fuel-lbs")));
+		me["FOB-LBS"].setText(sprintf("%7.0f", math.round(getprop("/consumables/fuel/total-fuel-lbs"), 10)));
 		
 		# Left ECAM Messages
 		me["ECAML1"].setText(sprintf("%s", getprop("/ECAM/msg/line1")));
@@ -414,8 +414,8 @@ var canvas_upperECAM_cfm_eis1 = {
 		}
 		
 		# FF
-		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"))));
-		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"))));
+		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"), 10)));
+		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"), 10)));
 		
 		if (getprop("/systems/fadec/eng1/ff") == 1) {
 			me["FF1"].show();
@@ -631,8 +631,8 @@ var canvas_upperECAM_cfm_eis2 = {
 		}
 		
 		# FF
-		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"))));
-		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"))));
+		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"), 10)));
+		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"), 10)));
 		
 		if (getprop("/systems/fadec/eng1/ff") == 1) {
 			me["FF1"].show();
@@ -895,8 +895,8 @@ var canvas_upperECAM_iae_eis1 = {
 		}
 		
 		# FF
-		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"))));
-		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"))));
+		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"), 10)));
+		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"), 10)));
 		
 		if (getprop("/systems/fadec/eng1/ff") == 1) {
 			me["FF1"].show();
@@ -1156,8 +1156,8 @@ var canvas_upperECAM_iae_eis2 = {
 		}
 		
 		# FF
-		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"))));
-		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"))));
+		me["FF1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/fuel-flow_actual"), 10)));
+		me["FF2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/fuel-flow_actual"), 10)));
 		
 		if (getprop("/systems/fadec/eng1/ff") == 1) {
 			me["FF1"].show();
