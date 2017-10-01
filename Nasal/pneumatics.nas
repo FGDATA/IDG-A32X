@@ -237,7 +237,7 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/pack1", 0);
 	}
 	
-	if (pack2_sw == 1 and (bleed2 >= 11 or bleedapu >= 11) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
+	if (pack2_sw == 1 and (bleed2 >= 11 or (bleedapu >= 11 and xbleed == 1)) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
 		setprop("/systems/pneumatic/pack2", pack_flo_sw);
 	} else {
 		setprop("/systems/pneumatic/pack2", 0);
