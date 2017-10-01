@@ -129,7 +129,7 @@ var canvas_upperECAM_base = {
 		}
 		
 		# FOB
-		me["FOB-LBS"].setText(sprintf("%7.0f", math.round(getprop("/consumables/fuel/total-fuel-lbs"), 10)));
+		me["FOB-LBS"].setText(sprintf("%s", math.round(getprop("/consumables/fuel/total-fuel-lbs"), 10)));
 		
 		# Left ECAM Messages
 		me["ECAML1"].setText(sprintf("%s", getprop("/ECAM/msg/line1")));
