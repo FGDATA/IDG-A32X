@@ -5394,5 +5394,26 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/floorlightmap</inherits-from>
+		<object-name>object0000</object-name>
+	</effect>
+	
+	<effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/consolelightmap</inherits-from>
+		<object-name>poly000040</object-name>
+	</effect>
+	
+	<effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/tiller</inherits-from>
+		<object-name>tiller</object-name>
+	</effect>
+	
+	<effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/cockpitwallconsole</inherits-from>
+		<object-name>object.001</object-name>
+	</effect>
+	
 
 </PropertyList>
