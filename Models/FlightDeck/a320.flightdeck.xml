@@ -5394,5 +5394,11 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<effect>
+        <inherits-from>Aircraft/IDG-A32X/Models/Effects/floorlightmap</inherits-from>
+		<object-name>object0000</object-name>
+	</effect>
+	
 
 </PropertyList>
