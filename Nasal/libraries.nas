@@ -430,20 +430,25 @@ var noseLoop = maketimer(0.1, func {
 
 var lTray = func {
 	var lTrayCMD = getprop("/controls/tray/lefttrayext");
-	if (lTrayCMD < 1) {
-		interpolate("/controls/tray/lefttrayext", 1, 1);
+	if (lTrayCMD < 0.5) {
+		interpolate("/controls/tray/lefttrayext", 0.5, 0.5);
+	} else if (lTrayCMD == 0.5) {
+		interpolate("/controls/tray/lefttrayext", 1.0, 0.5);
 	} else {
-		interpolate("/controls/tray/lefttrayext", 0, 1);
+		interpolate("/controls/tray/lefttrayext", 0.0, 1.0);
 	}
 }
 
 var rTray = func {
 	var rTrayCMD = getprop("/controls/tray/righttrayext");
-	if (rTrayCMD < 1) {
-		interpolate("/controls/tray/righttrayext", 1, 1);
+	if (rTrayCMD < 0.5) {
+		interpolate("/controls/tray/righttrayext", 0.5, 0.5);
+	} else if (rTrayCMD == 0.5) {
+		interpolate("/controls/tray/righttrayext", 1.0, 0.5);
 	} else {
-		interpolate("/controls/tray/righttrayext", 0, 1);
+		interpolate("/controls/tray/righttrayext", 0.0, 1.0);
 	}
 }
+
 
 setprop("/systems/acconfig/libraries-loaded", 1);
