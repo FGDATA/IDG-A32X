@@ -203,7 +203,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.fuel_init();
 	systems.fire_init();
 	systems.eng_init();
-	systems.tray_init();
   	fmgc.APinit();			
 	librariesLoop.start();
 	fmgc.FMGCinit();
@@ -428,5 +427,23 @@ var noseLoop = maketimer(0.1, func {
 		# do nothing
 	}
 });
+
+var lTray = func {
+	var lTrayCMD = getprop("/controls/tray/lefttrayext");
+	if (lTrayCMD < 1) {
+		interpolate("/controls/tray/lefttrayext", 1, 1);
+	} else {
+		interpolate("/controls/tray/lefttrayext", 0, 1);
+	}
+}
+
+var rTray = func {
+	var rTrayCMD = getprop("/controls/tray/righttrayext");
+	if (rTrayCMD < 1) {
+		interpolate("/controls/tray/righttrayext", 1, 1);
+	} else {
+		interpolate("/controls/tray/righttrayext", 0, 1);
+	}
+}
 
 setprop("/systems/acconfig/libraries-loaded", 1);
