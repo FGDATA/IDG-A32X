@@ -9,7 +9,7 @@
         <reflection-correction type="float">0.1</reflection-correction>
         <lightmap-enabled type="int">1</lightmap-enabled>
         <lightmap-multi type="int">0</lightmap-multi>
-        <lightmap-factor type="float" n="0"><use>/sim/model/lights/floor-light</use></lightmap-factor>
+        <lightmap-factor type="float" n="0"><use>/controls/lighting/main-flood-norm</use></lightmap-factor>
         <lightmap-color type="vec3d" n="0">1.0 1.0 1.0</lightmap-color>
         <texture n="3">
             <image>Aircraft/IDG-A32X/Models/Effects/cockpitwallconsole.png</image>

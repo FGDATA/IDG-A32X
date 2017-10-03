@@ -4832,10 +4832,6 @@
 				<property>controls/lighting/wing-lights</property>
 			</binding>
 			<binding>
-				<command>property-toggle</command>
-				<property>/sim/model/lights/floor-light</property> <!-- temporary until proper control panel for this light is made -->
-			</binding>
-			<binding>
 				<command>nasal</command>
 				<script>setprop("/sim/sounde/switch1", 1);</script>
 			</binding>

@@ -5571,6 +5571,120 @@
 		</action>
     </animation>
 	
+	<!-- Interior lights -->
+	<animation>
+		<name>Flood light pick</name>
+		<type>pick</type>
+		<object-name>cylinder09</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-flood-norm</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-flood-norm</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Flood light rotate</name>
+		<type>rotate</type>
+		<object-name>cylinder09</object-name>
+		<property>controls/lighting/main-flood-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.14076</x1-m>
+			<y1-m>-0.19698</y1-m>
+			<z1-m>-0.36123</z1-m>
+			<x2-m>-0.14321</x2-m>
+			<y2-m>-0.19698</y2-m>
+			<z2-m>-0.37223</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Integrity light pick</name>
+		<type>pick</type>
+		<object-name>cylinder08</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-panel-norm</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-panel-norm</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Integrity light rotate</name>
+		<type>rotate</type>
+		<object-name>cylinder08</object-name>
+		<property>controls/lighting/main-panel-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.14076</x1-m>
+			<y1-m>-0.16113</y1-m>
+			<z1-m>-0.36123</z1-m>
+			<x2-m>-0.14321</x2-m>
+			<y2-m>-0.16113</y2-m>
+			<z2-m>-0.37223</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Panel lighting</name>
+		<type>material</type>
+		<object-name>trans</object-name>
+		<object-name>trans.001</object-name>
+		<object-name>thr_quad_lts</object-name>
+		<object-name>trim_2_lts</object-name>
+		<object-name>ped-lts</object-name>
+		<object-name>ped-lts.001</object-name>
+		<object-name>cylinde126</object-name> <!-- Flap lever integrity -->
+		<object-name>rect.001</object-name> <!-- Gear lever integrity -->
+		<object-name>rect.004</object-name> <!-- Left chrono and side stick buttons -->
+		<object-name>rect.003</object-name> <!-- Right chrono and side stick buttons -->
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
 	<effect>
         <inherits-from>Aircraft/IDG-A32X/Models/Effects/floorlightmap</inherits-from>
 		<object-name>object0000</object-name>
@@ -5590,6 +5704,5 @@
         <inherits-from>Aircraft/IDG-A32X/Models/Effects/cockpitwallconsole</inherits-from>
 		<object-name>object.001</object-name>
 	</effect>
-	
 
 </PropertyList>
