@@ -5395,6 +5395,214 @@
 		</action>
 	</animation>
 	
+	 <animation>
+        <type>translate</type>
+        <object-name>tray</object-name>
+		<object-name>cylinder01</object-name>
+        <property>/controls/tray/lefttrayext</property>
+        <interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.160</dep></entry>
+			<entry><ind>1</ind><dep>0.160</dep></entry>
+		</interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
+	 <animation>
+        <type>translate</type>
+        <object-name>tray.001</object-name>
+		<object-name>cylinder01.001</object-name>
+        <property>/controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.160</dep></entry>
+			<entry><ind>1</ind><dep>0.160</dep></entry>
+		</interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+	
+	 <animation>
+        <type>translate</type>
+        <object-name>tray</object-name>
+		<object-name>cylinder01</object-name>
+        <property>/controls/tray/lefttrayext</property>
+        <interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.045</dep></entry>
+			<entry><ind>1</ind><dep>0.045</dep></entry>
+		</interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+	
+	 <animation>
+        <type>translate</type>
+        <object-name>tray.001</object-name>
+		<object-name>cylinder01.001</object-name>
+        <property>/controls/tray/righttrayext</property>
+        <interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.045</dep></entry>
+			<entry><ind>1</ind><dep>0.045</dep></entry>
+		</interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray</object-name>
+		<property>/controls/tray/lefttrayext</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.45</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>1</ind><dep>5</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.52671</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.1702</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>cylinder01.002</object-name>
+		<property>/controls/tray/lefttrayext</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.45</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>1</ind><dep>185</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.52671</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.1702</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray.001</object-name>
+		<property>/controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.45</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>1</ind><dep>5</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.52671</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.1702</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>cylinder01.001</object-name>
+		<property>/controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>0.45</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>1</ind><dep>185</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.52671</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.1702</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	 <animation>
+        <type>pick</type>
+        <object-name>tray</object-name>
+		<object-name>cylinder01.002</object-name>
+        <action>
+			<button>0</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/tray/cmdL</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/tray/cmdL</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+		</action>
+    </animation>
+	
+	<animation>
+        <type>pick</type>
+        <object-name>tray.001</object-name>
+		<object-name>cylinder01.001</object-name>
+        <action>
+			<button>0</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/tray/cmdR</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/tray/cmdR</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+		</action>
+    </animation>
+	
 	<effect>
         <inherits-from>Aircraft/IDG-A32X/Models/Effects/floorlightmap</inherits-from>
 		<object-name>object0000</object-name>

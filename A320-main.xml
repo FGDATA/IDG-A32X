@@ -1183,6 +1183,7 @@
 			<file>Aircraft/IDG-A32X/Nasal/engines.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/ADIRS.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/fire.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/trays.nas</file>
 		</systems>
 		<thrust>
 			<file>Aircraft/IDG-A32X/Nasal/fadec-common.nas</file>
