@@ -5469,9 +5469,9 @@
 		<property>/controls/tray/lefttrayext</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>0.45</ind><dep>0</dep></entry>
-			<entry><ind>0.5</ind><dep>5</dep></entry>
-			<entry><ind>1</ind><dep>5</dep></entry>
+			<entry><ind>0.4</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1</ind><dep>10</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.52671</x-m>
@@ -5491,8 +5491,8 @@
 		<property>/controls/tray/lefttrayext</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>0.45</ind><dep>0</dep></entry>
-			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>0.4</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>8</dep></entry>
 			<entry><ind>1</ind><dep>185</dep></entry>
 		</interpolation>
 		<center>
@@ -5513,9 +5513,9 @@
 		<property>/controls/tray/righttrayext</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>0.45</ind><dep>0</dep></entry>
-			<entry><ind>0.5</ind><dep>5</dep></entry>
-			<entry><ind>1</ind><dep>5</dep></entry>
+			<entry><ind>0.4</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1</ind><dep>10</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.52671</x-m>
@@ -5535,8 +5535,8 @@
 		<property>/controls/tray/righttrayext</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>0.45</ind><dep>0</dep></entry>
-			<entry><ind>0.5</ind><dep>5</dep></entry>
+			<entry><ind>0.4</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
 			<entry><ind>1</ind><dep>185</dep></entry>
 		</interpolation>
 		<center>
