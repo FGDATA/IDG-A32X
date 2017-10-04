@@ -1221,6 +1221,12 @@
 		<object-name>dec_low2</object-name>
 		<object-name>dec_med2</object-name>
 		<object-name>dec_max2</object-name>
+		<object-name>lgear_down2</object-name>
+		<object-name>lgear_unlk2</object-name>
+		<object-name>ngear_down2</object-name>
+		<object-name>ngear_unlk2</object-name>
+		<object-name>rgear_down2</object-name>
+		<object-name>rgear_unlk2</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -4450,75 +4456,123 @@
 	<!-- Landing Gear Unlock and down Indicators -->
 
 	<animation>
-		<type>textranslate</type>
-		<object-name>ngear_unlk</object-name>
-		<property>indicators/gear-panel/gear[0]/unlk</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>lgear_unlk2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<not-equals>
+						<property>gear/gear[1]/position-norm</property>
+						<value>0</value>
+					</not-equals>
+					<not-equals>
+						<property>gear/gear[1]/position-norm</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>ngear_down</object-name>
-		<property>indicators/gear-panel/gear[0]/down</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>lgear_down2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>gear/gear[1]/position-norm</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 
 	<animation>
-		<type>textranslate</type>
-		<object-name>lgear_unlk</object-name>
-		<property>indicators/gear-panel/gear[1]/unlk</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>ngear_unlk2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<not-equals>
+						<property>gear/gear[0]/position-norm</property>
+						<value>0</value>
+					</not-equals>
+					<not-equals>
+						<property>gear/gear[0]/position-norm</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>lgear_down</object-name>
-		<property>indicators/gear-panel/gear[1]/down</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>ngear_down2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>gear/gear[0]/position-norm</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>rgear_unlk</object-name>
-		<property>indicators/gear-panel/gear[2]/unlk</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>rgear_unlk2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<not-equals>
+						<property>gear/gear[2]/position-norm</property>
+						<value>0</value>
+					</not-equals>
+					<not-equals>
+						<property>gear/gear[2]/position-norm</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
-		<type>textranslate</type>
-		<object-name>rgear_down</object-name>
-		<property>indicators/gear-panel/gear[2]/down</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>rgear_down2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>gear/gear[2]/position-norm</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<!-- Engine Cutoff Switches -->
