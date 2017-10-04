@@ -1189,7 +1189,7 @@
 		</action>
 	</animation>
 	
-	<!-- FCU Screen Power On -->
+	<!-- FCU Screen/Lights Power On -->
 	
 	<animation>
 		<type>select</type>
@@ -1214,6 +1214,13 @@
 		<object-name>apprlt</object-name>
 		<object-name>fd2lt</object-name>
 		<object-name>ils2lt</object-name>
+		<!-- Lights -->
+		<object-name>abs_low2</object-name>
+		<object-name>abs_med2</object-name>
+		<object-name>abs_max2</object-name>
+		<object-name>dec_low2</object-name>
+		<object-name>dec_med2</object-name>
+		<object-name>dec_max2</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -4423,137 +4430,6 @@
             </axis>
         </transform>
     </animation>
-    
-    <!-- Autobrake System -->
-    
-    <animation>
-		<type>textranslate</type>
-		<object-name>abs_low</object-name>
-		<property>hydraulics/brakes/indicator/low</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>abs_med</object-name>
-		<property>hydraulics/brakes/indicator/med</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>abs_max</object-name>
-		<property>hydraulics/brakes/indicator/max</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>dec_low</object-name>
-		<property>hydraulics/brakes/indicator/low-dec</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>dec_med</object-name>
-		<property>hydraulics/brakes/indicator/med-dec</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>dec_max</object-name>
-		<property>hydraulics/brakes/indicator/max-dec</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>abs_low</object-name>
-		<object-name>dec_low</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>hydraulics/brakes/autobrake-setting</property>
-				<value>1</value>
-				<value>0</value>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>abs_med</object-name>
-		<object-name>dec_med</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>hydraulics/brakes/autobrake-setting</property>
-				<value>2</value>
-				<value>0</value>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>abs_max</object-name>
-		<object-name>dec_max</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>hydraulics/brakes/autobrake-setting</property>
-				<value>3</value>
-				<value>0</value>
-			</binding>
-		</action>
-	</animation>
         
         <!-- Tiller enable switch -->
 
@@ -5394,6 +5270,229 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<!-- Autobrakes -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>dec_low2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<equals>
+						<property>controls/autobrake/mode</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/autobrake/active</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>dec_med2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<equals>
+						<property>controls/autobrake/mode</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>controls/autobrake/active</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>dec_max2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<and>
+					<equals>
+						<property>controls/autobrake/mode</property>
+						<value>3</value>
+					</equals>
+					<equals>
+						<property>controls/autobrake/active</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>abs_low2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/autobrake/mode</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>abs_med2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/autobrake/mode</property>
+					<value>2</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>abs_max2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/autobrake/mode</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>abs_low</object-name>
+		<object-name>abs_low2</object-name>
+		<object-name>dec_low</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>nasal</command>
+				<script>
+				if (getprop("/controls/autobrake/mode") != 1) {
+					systems.arm_autobrake(1);
+				} else {
+					systems.arm_autobrake(0);
+				}
+				setprop("/sim/sounde/btn1", 1);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>abs_med</object-name>
+		<object-name>abs_med2</object-name>
+		<object-name>dec_med</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>nasal</command>
+				<script>
+				if (getprop("/controls/autobrake/mode") != 2) {
+					systems.arm_autobrake(2);
+				} else {
+					systems.arm_autobrake(0);
+				}
+				setprop("/sim/sounde/btn1", 1);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>abs_max</object-name>
+		<object-name>abs_max2</object-name>
+		<object-name>dec_max</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>nasal</command>
+				<script>
+				if (getprop("/controls/autobrake/mode") != 3) {
+					systems.arm_autobrake(3);
+				} else {
+					systems.arm_autobrake(0);
+				}
+				setprop("/sim/sounde/btn1", 1);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Trays -->
 	
 	 <animation>
         <type>translate</type>

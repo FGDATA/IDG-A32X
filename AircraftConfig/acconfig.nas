@@ -157,6 +157,7 @@ var systemsReset = func {
 	systems.hyd_init();
 	systems.fuel_init();
 	systems.eng_init();
+	systems.autobrake_init();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_reset();
 	mcdu2.MCDU_reset();
