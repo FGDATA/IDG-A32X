@@ -1122,10 +1122,13 @@
 			<mode>once</mode>
 			<path>Aircraft/IDG-A32X/Sounds/Cockpit/700hz.wav</path>
 			<condition>
-				<equals>
-					<property>controls/CVR/tone</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<property>sim/current-view/internal</property>
+					<equals>
+						<property>controls/CVR/tone</property>
+						<value>1</value>
+					</equals>
+				</and>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1137,10 +1140,13 @@
 			<mode>once</mode>
 			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
-				<greater-than>
-					<property>/systems/electrical/battery1-amps</property>
-					<value>25</value>
-				</greater-than>
+				<and>
+					<property>sim/current-view/internal</property>
+					<greater-than>
+						<property>/systems/electrical/battery1-amps</property>
+						<value>25</value>
+					</greater-than>
+				</and>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1152,10 +1158,13 @@
 			<mode>once</mode>
 			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
-				<greater-than>
-					<property>/systems/electrical/battery2-amps</property>
-					<value>25</value>
-				</greater-than>
+				<and>
+					<property>sim/current-view/internal</property>
+					<greater-than>
+						<property>/systems/electrical/battery2-amps</property>
+						<value>25</value>
+					</greater-than>
+				</and>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1168,6 +1177,7 @@
 			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<and>
+					<property>sim/current-view/internal</property>
 					<equals>
 						<property>/controls/switches/cart</property>
 						<value>1</value>
@@ -1184,14 +1194,25 @@
 		</relay>
 		
 		<relay>
-			<name>RelayAPU</name>
+			<name>RelayEXTB</name>
 			<mode>once</mode>
 			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
-				<equals>
-					<property>/systems/electrical/gen-apu</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<property>sim/current-view/internal</property>
+					<equals>
+						<property>/controls/switches/cart</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen-ext</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/controls/electrical/switches/gen-extb</property>
+						<value>1</value>
+					</equals>
+				</and>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1199,20 +1220,41 @@
 		</relay>
 		
 		<relay>
+			<name>RelayAPU</name>
+			<mode>once</mode>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
+			<condition>
+				<and>
+					<property>sim/current-view/internal</property>
+					<equals>
+						<property>/systems/electrical/gen-apu</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>0.60</factor>
+			</volume>
+		</relay>
+	
+		<relay>
 			<name>Avionics</name>
 			<mode>looped</mode>
 			<path>Aircraft/IDG-A32X/Sounds/FL2070/320efis.wav</path>
 			<condition>
-				<or>
-					<greater-than>
-						<property>/systems/electrical/bus/ac1</property>
-						<value>110</value>
-					</greater-than>
-					<greater-than>
-						<property>/systems/electrical/bus/ac2</property>
-						<value>110</value>
-					</greater-than>
-				</or>
+				<and>
+					<property>sim/current-view/internal</property>
+					<or>
+						<greater-than>
+							<property>/systems/electrical/bus/ac1</property>
+							<value>110</value>
+						</greater-than>
+						<greater-than>
+							<property>/systems/electrical/bus/ac2</property>
+							<value>110</value>
+						</greater-than>
+					</or>
+				</and>
 			</condition>
 			<volume>
 				<factor>0.60</factor>

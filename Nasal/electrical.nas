@@ -198,7 +198,7 @@ var master_elec = func {
 		setprop("/systems/electrical/gen-ext", 0);
 	} 
 	
-	if (rpmapu >= 94.9 and gen_apu_sw and !extpwr_on and !gen_ext_sw) {
+	if (rpmapu >= 94.9 and gen_apu_sw and !gen_ext_sw) {
 		setprop("/systems/electrical/gen-apu", 1);
 	} else {
 		setprop("/systems/electrical/gen-apu", 0);
