@@ -1165,7 +1165,7 @@
 		<relay>
 			<name>RelayEXT</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay1.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<and>
 					<equals>
@@ -1186,12 +1186,33 @@
 		<relay>
 			<name>RelayAPU</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay1.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<equals>
 					<property>/systems/electrical/gen-apu</property>
 					<value>1</value>
 				</equals>
+			</condition>
+			<volume>
+				<factor>0.60</factor>
+			</volume>
+		</relay>
+		
+		<relay>
+			<name>Avionics</name>
+			<mode>looped</mode>
+			<path>Aircraft/IDG-A32X/Sounds/FL2070/320efis.wav</path>
+			<condition>
+				<or>
+					<greater-than>
+						<property>/systems/electrical/bus/ac1</property>
+						<value>110</value>
+					</greater-than>
+					<greater-than>
+						<property>/systems/electrical/bus/ac2</property>
+						<value>110</value>
+					</greater-than>
+				</or>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
