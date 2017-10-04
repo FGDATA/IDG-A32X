@@ -4802,35 +4802,6 @@
         </action>
     </animation>
 	
-	<!-- Terrain on ND -->
-	
-	<animation>
-		<type>pick</type>
-		<object-name>terr_on_nd</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>instrumentation/efis/nd/terrain-on-nd</property>
-				<value>0</value>
-				<value>1</value>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>terr_on_nd</object-name>
-		<property>instrumentation/efis/nd/terrain-on-nd</property>
-		<factor>0.125</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
 	<!-- Rudder Trim -->
 	
 	<animation>
