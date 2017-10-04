@@ -1138,15 +1138,12 @@
 		<relay>
 			<name>RelayBatt1</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
-				<and>
-					<property>sim/current-view/internal</property>
-					<greater-than>
-						<property>/systems/electrical/battery1-amps</property>
-						<value>25</value>
-					</greater-than>
-				</and>
+				<greater-than>
+					<property>/systems/electrical/battery1-amps</property>
+					<value>25</value>
+				</greater-than>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1156,15 +1153,12 @@
 		<relay>
 			<name>RelayBatt2</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
-				<and>
-					<property>sim/current-view/internal</property>
-					<greater-than>
-						<property>/systems/electrical/battery2-amps</property>
-						<value>25</value>
-					</greater-than>
-				</and>
+				<greater-than>
+					<property>/systems/electrical/battery2-amps</property>
+					<value>25</value>
+				</greater-than>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
@@ -1174,42 +1168,15 @@
 		<relay>
 			<name>RelayEXT</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
+			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<and>
-					<property>sim/current-view/internal</property>
 					<equals>
 						<property>/controls/switches/cart</property>
 						<value>1</value>
 					</equals>
 					<equals>
 						<property>/controls/electrical/switches/gen-ext</property>
-						<value>1</value>
-					</equals>
-				</and>
-			</condition>
-			<volume>
-				<factor>0.60</factor>
-			</volume>
-		</relay>
-		
-		<relay>
-			<name>RelayEXTB</name>
-			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
-			<condition>
-				<and>
-					<property>sim/current-view/internal</property>
-					<equals>
-						<property>/controls/switches/cart</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/controls/electrical/switches/gen-ext</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/controls/electrical/switches/gen-extb</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -1222,15 +1189,12 @@
 		<relay>
 			<name>RelayAPU</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
+			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
-				<and>
-					<property>sim/current-view/internal</property>
-					<equals>
-						<property>/systems/electrical/gen-apu</property>
-						<value>1</value>
-					</equals>
-				</and>
+				<equals>
+					<property>/systems/electrical/gen-apu</property>
+					<value>1</value>
+				</equals>
 			</condition>
 			<volume>
 				<factor>0.60</factor>
