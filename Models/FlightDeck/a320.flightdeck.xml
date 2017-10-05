@@ -5825,7 +5825,7 @@
 		<condition>
 			<and>
 				<equals>
-					<property>systems/acconfig/surprise</property>
+					<property>controls/tray/surprise</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -5843,7 +5843,7 @@
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>systems/acconfig/surprise</property>
+				<property>controls/tray/surprise</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
