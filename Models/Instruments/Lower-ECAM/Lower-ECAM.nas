@@ -739,6 +739,9 @@ var canvas_lowerECAM_wheel = {
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf"];
 	},
 	update: func() {
+		blue_psi = getprop("/systems/hydraulic/blue-psi");
+		green_psi = getprop("/systems/hydraulic/green-psi");
+		yellow_psi = getprop("/systems/hydraulic/yellow-psi");
 		
 		# Spoilers
 		if (getprop("/controls/flight/spoiler-l1") < 0.033) {
