@@ -376,7 +376,6 @@ var taxi_c = func {
 		taxi_d();
 	}, 10);
 }
-
 var taxi_d = func {
 	# After Start items.
 	setprop("/controls/engines/engine-start-switch", 1);
