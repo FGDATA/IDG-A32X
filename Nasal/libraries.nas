@@ -14,6 +14,9 @@ setprop("/controls/lighting/ndl-norm", 1);
 setprop("/controls/lighting/ndr-norm", 1);
 setprop("/controls/lighting/upper-norm", 1);
 
+# Surprise
+setprop("/controls/tray/surprise", 1);
+
 # Lights
 setprop("/sim/model/lights/nose-lights", 0);
 setprop("/sim/model/lights/turnoffsw", 0);

@@ -5809,6 +5809,45 @@
 		</emission>
 	</animation>
 	
+	<model>
+		<path>Aircraft/IDG-A32X/Models/FlightDeck/res/surprise.ac</path>
+		<offsets>
+			<x-m>-0.45</x-m>
+			<y-m>-0.485</y-m>
+			<z-m>-0.125</z-m>
+			<pitch-deg>2</pitch-deg>
+		</offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>surprise</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>controls/tray/surprise</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/tray/lefttrayext</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>surprise</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/tray/surprise</property>
+			</binding>
+		</action>
+	</animation>
+	
 	<effect>
         <inherits-from>Aircraft/IDG-A32X/Models/Effects/floorlightmap</inherits-from>
 		<object-name>object0000</object-name>
