@@ -744,7 +744,7 @@
 					</equals>
 					<greater-than>
 						<property>/engines/engine[0]/n1</property>
-						<value>22</value>
+						<value>19</value>
 					</greater-than>
 				</and>
 			</condition>
@@ -775,7 +775,7 @@
 					</equals>
 					<greater-than>
 						<property>/engines/engine[1]/n1</property>
-						<value>22</value>
+						<value>19</value>
 					</greater-than>
 				</and>
 			</condition>

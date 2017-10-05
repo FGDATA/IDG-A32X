@@ -25,16 +25,18 @@ var autobrake_init = func {
 
 # Override FG's generic brake, so we can use toe brakes to disconnect autobrake
 controls.applyBrakes = func(v, which = 0) {
-	wow1 = getprop("/gear/gear[1]/wow");
-	wow2 = getprop("/gear/gear[2]/wow");
-	if (getprop("/controls/autobrake/mode") != 0 and (wow1 or wow2)) {
-		arm_autobrake(0);
-	}
-    if (which <= 0) {
-		interpolate("/controls/gear/brake-left", v, 0.5);
-	}
-    if (which >= 0) {
-		interpolate("/controls/gear/brake-right", v, 0.5);
+	if (getprop("/systems/acconfig/autoconfig-running") != 1) {
+		wow1 = getprop("/gear/gear[1]/wow");
+		wow2 = getprop("/gear/gear[2]/wow");
+		if (getprop("/controls/autobrake/mode") != 0 and (wow1 or wow2)) {
+			arm_autobrake(0);
+		}
+		if (which <= 0) {
+			interpolate("/controls/gear/brake-left", v, 0.5);
+		}
+		if (which >= 0) {
+			interpolate("/controls/gear/brake-right", v, 0.5);
+		}
 	}
 }
 

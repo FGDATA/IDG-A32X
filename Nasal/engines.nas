@@ -54,10 +54,14 @@ var eng_init = func {
 
 setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[0]/cutoff-switch") == 0) {
-		if (getprop("/controls/engines/engine[0]/man-start") == 0) {
-			start_one_check();
-		} else if (getprop("/controls/engines/engine[0]/man-start") == 1) {
-			eng_one_man_startt.start();
+		if (getprop("/systems/acconfig/autoconfig-running") == 1) {
+			fast_start_one();
+		} else {
+			if (getprop("/controls/engines/engine[0]/man-start") == 0) {
+				start_one_check();
+			} else if (getprop("/controls/engines/engine[0]/man-start") == 1) {
+				eng_one_man_startt.start();
+			}
 		}
 	} else if (getprop("/controls/engines/engine[0]/cutoff-switch") == 1) {
 		eng_one_auto_startt.stop();
@@ -74,6 +78,20 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 		eng_one_n2_checkt.stop();
 	}
 });
+
+var fast_start_one = func {
+	setprop("controls/engines/engine[0]/cutoff", 0);
+	setprop("engines/engine[0]/out-of-fuel", 0);
+	setprop("engines/engine[0]/run", 1);
+
+	setprop("/engines/engine[0]/cutoff", 0);
+	setprop("/engines/engine[0]/starter", 0);
+
+	setprop("/fdm/jsbsim/propulsion/set-running", 0);
+	
+	setprop("/engines/engine[0]/state", 3);
+	setprop("/systems/pneumatic/eng1-starter", 0);
+}
 
 setlistener("/controls/engines/engine[0]/man-start", func {
 	start_one_mancheck();
@@ -116,10 +134,14 @@ var start_one_check_b = func {
 
 setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 	if (getprop("/controls/engines/engine[1]/cutoff-switch") == 0) {
-		if (getprop("/controls/engines/engine[1]/man-start") == 0) {
-			start_two_check();
-		} else if (getprop("/controls/engines/engine[1]/man-start") == 1) {
-			eng_two_man_startt.start();
+		if (getprop("/systems/acconfig/autoconfig-running") == 1) {
+			fast_start_two();
+		} else {
+			if (getprop("/controls/engines/engine[1]/man-start") == 0) {
+				start_two_check();
+			} else if (getprop("/controls/engines/engine[1]/man-start") == 1) {
+				eng_two_man_startt.start();
+			}
 		}
 	} else if (getprop("/controls/engines/engine[1]/cutoff-switch") == 1) {
 		eng_two_auto_startt.stop();
@@ -135,6 +157,20 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 		interpolate(engines[1].getNode("egt-actual"), 0, egt_shutdown_time);
 	}
 });
+
+var fast_start_two = func {
+	setprop("controls/engines/engine[1]/cutoff", 0);
+	setprop("engines/engine[1]/out-of-fuel", 0);
+	setprop("engines/engine[1]/run", 1);
+
+	setprop("/engines/engine[1]/cutoff", 0);
+	setprop("/engines/engine[1]/starter", 0);
+
+	setprop("/fdm/jsbsim/propulsion/set-running", 1);
+	
+	setprop("/engines/engine[1]/state", 3);
+	setprop("/systems/pneumatic/eng2-starter", 0);
+}
 
 setlistener("/controls/engines/engine[1]/man-start", func {
 	start_two_mancheck();
