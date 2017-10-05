@@ -44,7 +44,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var dcbat = getprop("/systems/electrical/bus/dcbat");
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
-	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var gen_2_volts = getprop("/systems/electrical/extra/gen2-volts");
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	var emergen = getprop("/controls/electrical/switches/emer-gen");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
@@ -177,7 +177,7 @@ var master_elec = func {
 	dcbat = getprop("/systems/electrical/bus/dcbat");
 	dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
-	gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	gen_2_volts = getprop("/systems/electrical/extra/gen2-volts");
 	galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	emergen = getprop("/controls/electrical/switches/emer-gen");
 	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
