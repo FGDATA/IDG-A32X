@@ -394,6 +394,7 @@ var doTOGAThrust = func {
 	setprop("/controls/engines/engine[0]/throttle", 1.0);
 	setprop("/controls/engines/engine[1]/throttle", 1.0);
 }
+
 #########################
 # Reverse Thrust System #
 #########################
@@ -406,8 +407,8 @@ var toggleFastRevThrust = func {
 		interpolate("/engines/engine[1]/reverser-pos-norm", 1, 1.4);
 		setprop("/controls/engines/engine[0]/reverser", 1);
 		setprop("/controls/engines/engine[1]/reverser", 1);
-		setprop("/controls/engines/engine[0]/throttle-rev", 0.5);
-		setprop("/controls/engines/engine[1]/throttle-rev", 0.5);
+		setprop("/controls/engines/engine[0]/throttle-rev", 0.4);
+		setprop("/controls/engines/engine[1]/throttle-rev", 0.4);
 		setprop("/fdm/jsbsim/propulsion/engine[0]/reverser-angle-rad", 3.14);
 		setprop("/fdm/jsbsim/propulsion/engine[1]/reverser-angle-rad", 3.14);
 	} else if ((getprop("/controls/engines/engine[0]/reverser") == "1") or (getprop("/controls/engines/engine[1]/reverser") == "1") and (getprop("/gear/gear[1]/wow") == 1) and (getprop("/gear/gear[2]/wow") == 1)) {
@@ -426,11 +427,11 @@ var doRevThrust = func {
 	if (getprop("/controls/engines/engine[0]/reverser") == "1" and getprop("/controls/engines/engine[1]/reverser") == "1" and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
-		if (pos1 < 0.5) {
-			setprop("/controls/engines/engine[0]/throttle-rev", pos1 + 0.167);
+		if (pos1 < 0.4) {
+			setprop("/controls/engines/engine[0]/throttle-rev", pos1 + 0.133333333);
 		}
-		if (pos2 < 0.5) {
-			setprop("/controls/engines/engine[1]/throttle-rev", pos2 + 0.167);
+		if (pos2 < 0.4) {
+			setprop("/controls/engines/engine[1]/throttle-rev", pos2 + 0.133333333);
 		}
 	}
 	var state1 = getprop("/systems/thrust/state1");
@@ -452,12 +453,12 @@ var unRevThrust = func {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
 		if (pos1 > 0.0) {
-			setprop("/controls/engines/engine[0]/throttle-rev", pos1 - 0.167);
+			setprop("/controls/engines/engine[0]/throttle-rev", pos1 - 0.133333333);
 		} else {
 			unRevThrust_b();
 		}
 		if (pos2 > 0.0) {
-			setprop("/controls/engines/engine[1]/throttle-rev", pos2 - 0.167);
+			setprop("/controls/engines/engine[1]/throttle-rev", pos2 - 0.133333333);
 		} else {
 			unRevThrust_b();
 		}

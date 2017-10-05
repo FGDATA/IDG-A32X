@@ -415,6 +415,7 @@
 
 	<it-fbw n="0">
 		<alpha-hld type="bool">0</alpha-hld>
+		<law type="int">0</law>
 	</it-fbw>
 
 	<apu>

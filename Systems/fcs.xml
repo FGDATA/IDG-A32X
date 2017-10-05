@@ -7,6 +7,20 @@
 -->
 
 <system name="A3XX: FCS">
+
+	<property value="2">fcs/internal-fbw-law</property>
+
+	<channel name="FBW">
+
+		<switch name="Internal FBW Law">
+			<default value="/it-fbw/law"/>
+			<test logic="OR" value="2">
+				/gear/gear[1]/wow == 1
+				/gear/gear[2]/wow == 1
+			</test>
+		</switch>
+	
+	</channel>
 	
 	<channel name="Roll">
 	
