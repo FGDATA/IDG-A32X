@@ -108,8 +108,8 @@ var elec_init = func {
 	setprop("/systems/electrical/batt1-fault", 0);
 	setprop("/systems/electrical/batt2-fault", 0);
 	setprop("/systems/electrical/ac-ess-feed-fault", 0);
-	setprop("/systems/electrical/gen1-fault", 0);
-	setprop("/systems/electrical/idg1-fault", 0);
+	setprop("/systems/electrical/gen2-fault", 0);
+	setprop("/systems/electrical/idg2-fault", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
