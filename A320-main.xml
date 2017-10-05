@@ -592,6 +592,7 @@
 		<tray n="0">
 			<lefttrayext type="double">0</lefttrayext>
 			<righttrayext type="double">0</righttrayext>
+			<suprise userarchive="y" type="bool">0</suprise>
 		</tray>
 	</controls>
 	

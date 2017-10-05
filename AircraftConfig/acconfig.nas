@@ -99,7 +99,7 @@ var error_mismatch = gui.Dialog.new("sim/gui/dialogs/acconfig/error/mismatch/dia
 spinning.start();
 init_dlg.open();
 
-http.load("https://raw.githubusercontent.com/it0uchpods/A320Family/master/revision.txt").done(func(r) setprop("/systems/acconfig/new-revision", r.response));
+http.load("https://raw.githubusercontent.com/it0uchpods/IDG-A32X/master/revision.txt").done(func(r) setprop("/systems/acconfig/new-revision", r.response));
 var revisionFile = (getprop("/sim/aircraft-dir")~"/revision.txt");
 var current_revision = io.readfile(revisionFile);
 
@@ -143,7 +143,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var saveSettings = func {
-	aircraft.data.add("/options/system/keyboard-mode", "/controls/adirs/skip");
+	aircraft.data.add("/options/system/keyboard-mode", "/controls/adirs/skip", "/controls/tray/surprise");
 	aircraft.data.save();
 }
 
