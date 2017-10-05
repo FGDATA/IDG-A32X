@@ -106,28 +106,46 @@
  <!-- =============================================================== -->
  <!-- Autopilot Helpers/Calculators                                   -->
  <!-- =============================================================== -->
+
+	<filter>
+		<name>AUTOLAND FD FPM</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/position/gear-agl-ft</property> 
+					<entry><ind>100</ind><dep>-600</dep></entry>
+					<entry><ind> 50</ind><dep>-500</dep></entry>
+					<entry><ind> 45</ind><dep> -70</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/it-autoflight/internal/target-fpm-c2</output>
+	</filter>
  
-    <filter>
-        <name>AUTOLAND FPM</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/position/gear-agl-ft</property> 
-                    <entry><ind>100</ind><dep>-600</dep></entry>
-                    <entry><ind> 50</ind><dep>-500</dep></entry>
-                    <entry><ind> 40</ind><dep>-400</dep></entry>
-                    <entry><ind> 30</ind><dep>-300</dep></entry>
-                    <entry><ind> 20</ind><dep>-180</dep></entry>
-                    <entry><ind> 10</ind><dep>-100</dep></entry>
-                    <entry><ind>  5</ind><dep> -70</dep></entry>
-                </table>
-            </expression>
-        </input>
+	<filter>
+		<name>AUTOLAND FPM</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/position/gear-agl-ft</property> 
+					<entry><ind>100</ind><dep>-600</dep></entry>
+					<entry><ind> 50</ind><dep>-500</dep></entry>
+					<entry><ind> 40</ind><dep>-400</dep></entry>
+					<entry><ind> 30</ind><dep>-300</dep></entry>
+					<entry><ind> 20</ind><dep>-180</dep></entry>
+					<entry><ind> 10</ind><dep>-100</dep></entry>
+					<entry><ind>  5</ind><dep> -70</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/it-autoflight/internal/target-fpm-c</output>
-    </filter>
+	</filter>
  
 	<filter>
 		<name>FMGC MNG SPD</name>
@@ -207,7 +225,7 @@
 					<property>/it-autoflight/input/spd-mach</property>
 				</product>
 			</expression>
-        </input>
+		</input>
 		<output>/FMGC/internal/target-ias-pfd</output>
 	</filter>
  
@@ -338,10 +356,10 @@
 		</max-rate-of-change>
 	</filter>
  
-    <filter>
-        <name>IAS SYNC</name>
-        <type>gain</type>
-        <gain>1</gain>
+	<filter>
+		<name>IAS SYNC</name>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<equals>
@@ -350,15 +368,15 @@
 				</equals>
 			</condition>
 		</enable>
-        <update-interval-secs type="double">0.5</update-interval-secs>
-        <input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
+		<update-interval-secs type="double">0.5</update-interval-secs>
+		<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
 		<output>/it-autoflight/input/spd-kts</output>
-    </filter>
+	</filter>
 	
-    <filter>
-        <name>MACH SYNC</name>
-        <type>gain</type>
-        <gain>1</gain>
+	<filter>
+		<name>MACH SYNC</name>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<equals>
@@ -367,10 +385,10 @@
 				</equals>
 			</condition>
 		</enable>
-        <update-interval-secs type="double">0.5</update-interval-secs>
-        <input>/instrumentation/airspeed-indicator/indicated-mach</input>
+		<update-interval-secs type="double">0.5</update-interval-secs>
+		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
 		<output>/it-autoflight/input/spd-mach</output>
-    </filter>
+	</filter>
   
 	<filter>
 		<name>HEADING ERROR DEG</name>

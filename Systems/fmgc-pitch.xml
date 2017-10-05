@@ -357,7 +357,7 @@
 					<value>6</value>
 				</equals>
 			</condition>
-			<property>/it-autoflight/internal/target-fpm-c</property>
+			<property>/it-autoflight/internal/target-fpm-c2</property>
 		</input>
 		<input>
 			<condition>
