@@ -5825,7 +5825,7 @@
 		<condition>
 			<and>
 				<equals>
-					<property>controls/tray/surprise</property>
+					<property>systems/acconfig/surprise</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -5843,7 +5843,7 @@
 			<button>0</button>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/tray/surprise</property>
+				<property>systems/acconfig/surprise</property>
 			</binding>
 		</action>
 	</animation>
