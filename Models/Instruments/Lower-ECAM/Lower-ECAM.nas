@@ -9,6 +9,7 @@ var lowerECAM_apu = nil;
 var lowerECAM_eng1 = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
+var lowerECAM_wheel = nil;
 var lowerECAM_display = nil;
 var page = "eng";
 var oat = getprop("/environment/temperature-degc");
@@ -74,6 +75,7 @@ var canvas_lowerECAM_base = {
 				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
 				lowerECAM_apu.update();
 			} else if (page == "eng") {
 				lowerECAM_apu.page.hide();
@@ -87,23 +89,34 @@ var canvas_lowerECAM_base = {
 					lowerECAM_eng1.update();
 				}
 				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
 			} else if (page == "fctl") {
 				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_apu.page.hide();
 				lowerECAM_fctl.page.show();
+				lowerECAM_wheel.page.hide();
 				lowerECAM_fctl.update();
+			} else if (page == "wheel") {
+				lowerECAM_eng1.page.hide();
+				lowerECAM_eng.page.hide();
+				lowerECAM_apu.page.hide();
+				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.show();
+				lowerECAM_wheel.update();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
 			}
 		} else {
 			lowerECAM_apu.page.hide();
 			lowerECAM_eng1.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
+			lowerECAM_wheel.page.hide();
 		}
 	},
 	updateBottomStatus: func() {
@@ -714,6 +727,261 @@ var canvas_lowerECAM_fctl = {
 	},
 };
 
+var canvas_lowerECAM_wheel = {
+	new: func(canvas_group, file) {
+		var m = { parents: [canvas_lowerECAM_wheel , canvas_lowerECAM_base] };
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["NWSyellowrect","altnbrkyellow","normbrkgreen","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
+		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf"];
+	},
+	update: func() {
+		
+		# Spoilers
+		if (getprop("/controls/flight/spoiler-l1") < 0.033) {
+			me["spoiler1Lex"].hide();
+			me["spoiler1Lrt"].show();
+		} else {
+			me["spoiler1Lrt"].hide();
+			me["spoiler1Lex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l2") < 0.033) {
+			me["spoiler2Lex"].hide();
+			me["spoiler2Lrt"].show();
+		} else {
+			me["spoiler2Lrt"].hide();
+			me["spoiler2Lex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l3") < 0.033) {
+			me["spoiler3Lex"].hide();
+			me["spoiler3Lrt"].show();
+		} else {
+			me["spoiler3Lrt"].hide();
+			me["spoiler3Lex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l4") < 0.033) {
+			me["spoiler4Lex"].hide();
+			me["spoiler4Lrt"].show();
+		} else {
+			me["spoiler4Lrt"].hide();
+			me["spoiler4Lex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l5") < 0.033) {
+			me["spoiler5Lex"].hide();
+			me["spoiler5Lrt"].show();
+		} else {
+			me["spoiler5Lrt"].hide();
+			me["spoiler5Lex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r1") < 0.033) {
+			me["spoiler1Rex"].hide();
+			me["spoiler1Rrt"].show();
+		} else {
+			me["spoiler1Rrt"].hide();
+			me["spoiler1Rex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r2") < 0.033) {
+			me["spoiler2Rex"].hide();
+			me["spoiler2Rrt"].show();
+		} else {
+			me["spoiler2Rrt"].hide();
+			me["spoiler2Rex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r3") < 0.033) {
+			me["spoiler3Rex"].hide();
+			me["spoiler3Rrt"].show();
+		} else {
+			me["spoiler3Rrt"].hide();
+			me["spoiler3Rex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r4") < 0.033) {
+			me["spoiler4Rex"].hide();
+			me["spoiler4Rrt"].show();
+		} else {
+			me["spoiler4Rrt"].hide();
+			me["spoiler4Rex"].show();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r5") < 0.033) {
+			me["spoiler5Rex"].hide();
+			me["spoiler5Rrt"].show();
+		} else {
+			me["spoiler5Rrt"].hide();
+			me["spoiler5Rex"].show();
+		}
+		
+		# Spoiler Fail
+		if (getprop("/controls/flight/spoiler-l1-failed") or green_psi < 1500) {
+			me["spoiler1Lex"].setColor(1,0.6,0);
+			me["spoiler1Lrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-l1") < 0.033) {
+				me["spoiler1Lf"].show();
+			} else {
+				me["spoiler1Lf"].hide();
+			}
+		} else {
+			me["spoiler1Lex"].setColor(0,1,0);
+			me["spoiler1Lrt"].setColor(0,1,0);
+			me["spoiler1Lf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l2-failed") or yellow_psi < 1500) {
+			me["spoiler2Lex"].setColor(1,0.6,0);
+			me["spoiler2Lrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-l2") < 0.033) {
+				me["spoiler2Lf"].show();
+			} else {
+				me["spoiler2Lf"].hide();
+			}
+		} else {
+			me["spoiler2Lex"].setColor(0,1,0);
+			me["spoiler2Lrt"].setColor(0,1,0);
+			me["spoiler2Lf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l3-failed") or blue_psi < 1500) {
+			me["spoiler3Lex"].setColor(1,0.6,0);
+			me["spoiler3Lrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-l3") < 0.033) {
+				me["spoiler3Lf"].show();
+			} else {
+				me["spoiler3Lf"].hide();
+			}
+		} else {
+			me["spoiler3Lex"].setColor(0,1,0);
+			me["spoiler3Lrt"].setColor(0,1,0);
+			me["spoiler3Lf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l4-failed") or yellow_psi < 1500) {
+			me["spoiler4Lex"].setColor(1,0.6,0);
+			me["spoiler4Lrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-l4") < 0.033) {
+				me["spoiler4Lf"].show();
+			} else {
+				me["spoiler4Lf"].hide();
+			}
+		} else {
+			me["spoiler4Lex"].setColor(0,1,0);
+			me["spoiler4Lrt"].setColor(0,1,0);
+			me["spoiler4Lf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-l5-failed") or green_psi < 1500) {
+			me["spoiler5Lex"].setColor(1,0.6,0);
+			me["spoiler5Lrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-l5") < 0.033) {
+				me["spoiler5Lf"].show();
+			} else {
+				me["spoiler5Lf"].hide();
+			}
+		} else {
+			me["spoiler5Lex"].setColor(0,1,0);
+			me["spoiler5Lrt"].setColor(0,1,0);
+			me["spoiler5Lf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r1-failed") or green_psi < 1500) {
+			me["spoiler1Rex"].setColor(1,0.6,0);
+			me["spoiler1Rrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-r1") < 0.033) {
+				me["spoiler1Rf"].show();
+			} else {
+				me["spoiler1Rf"].hide();
+			}
+		} else {
+			me["spoiler1Rex"].setColor(0,1,0);
+			me["spoiler1Rrt"].setColor(0,1,0);
+			me["spoiler1Rf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r2-failed") or yellow_psi < 1500) {
+			me["spoiler2Rex"].setColor(1,0.6,0);
+			me["spoiler2Rrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-r2") < 0.033) {
+				me["spoiler2Rf"].show();
+			} else {
+				me["spoiler2Rf"].hide();
+			}
+		} else {
+			me["spoiler2Rex"].setColor(0,1,0);
+			me["spoiler2Rrt"].setColor(0,1,0);
+			me["spoiler2Rf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r3-failed") or blue_psi < 1500) {
+			me["spoiler3Rex"].setColor(1,0.6,0);
+			me["spoiler3Rrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-r3") < 0.033) {
+				me["spoiler3Rf"].show();
+			} else {
+				me["spoiler3Rf"].hide();
+			}
+		} else {
+			me["spoiler3Rex"].setColor(0,1,0);
+			me["spoiler3Rrt"].setColor(0,1,0);
+			me["spoiler3Rf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r4-failed") or yellow_psi < 1500) {
+			me["spoiler4Rex"].setColor(1,0.6,0);
+			me["spoiler4Rrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-r4") < 0.033) {
+				me["spoiler4Rf"].show();
+			} else {
+				me["spoiler4Rf"].hide();
+			}
+		} else {
+			me["spoiler4Rex"].setColor(0,1,0);
+			me["spoiler4Rrt"].setColor(0,1,0);
+			me["spoiler4Rf"].hide();
+		}
+		
+		if (getprop("/controls/flight/spoiler-r5-failed") or green_psi < 1500) {
+			me["spoiler5Rex"].setColor(1,0.6,0);
+			me["spoiler5Rrt"].setColor(1,0.6,0);
+			if (getprop("/controls/flight/spoiler-r5") < 0.033) {
+				me["spoiler5Rf"].show();
+			} else {
+				me["spoiler5Rf"].hide();
+			}
+		} else {
+			me["spoiler5Rex"].setColor(0,1,0);
+			me["spoiler5Rrt"].setColor(0,1,0);
+			me["spoiler5Rf"].hide();
+		}
+		
+		# Hydraulic Boxes
+		
+		if (getprop("/systems/hydraulic/green-psi") > 1500) {
+			me["normbrkgreen"].setColor(0,1,0);
+		} else {
+			me["normbrkgreen"].setColor(1,0.6,0);
+		}
+		
+		if (getprop("/systems/hydraulic/yellow-psi") > 1500) {
+			me["altnbrkyellow"].setColor(0,1,0);
+			me["NWSyellowrect"].setColor(0,1,0);
+		} else {
+			me["altnbrkyellow"].setColor(1,0.6,0);
+			me["NWSyellowrect"].setColor(1,0.6,0);
+		}
+		
+		me.updateBottomStatus();
+	},
+};
+
 setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_display = canvas.new({
 		"name": "lowerECAM",
@@ -726,11 +994,13 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupEng1 = lowerECAM_display.createGroup();
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
+	var groupWheel = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
 	lowerECAM_eng1 = canvas_lowerECAM_eng1.new(groupEng1, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis1.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
+	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
 	
 	lowerECAM_update.start();
 });
