@@ -409,37 +409,35 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dcbat", 0);
 	}
 	
-	if (battery1_volts > 27.9 or (dcbat == 0)) {
-		charge1.stop();
-	} else if (batt1_fail) {
-		charge1.stop();
-	}
-	
-	if (battery2_volts > 27.9 or (dcbat == 0)) {
-		charge2.stop();
-	} else if (batt2_fail) {
-		charge2.stop();
-	}
-	
 	dc1 = getprop("/systems/electrical/bus/dc1");
 	dc2 = getprop("/systems/electrical/bus/dc2");
 	
-	if ((dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+	if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		decharge1.stop();
 		charge1.start();
+	} else if (battery1_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+		charge1.stop();
+		decharge1.stop();
+	} else if (battery1_sw and !batt1_fail) {
+		charge1.stop();
+		decharge1.start();
+	} else {
+		decharge1.stop();
+		charge1.stop();
 	}
 	
-	if ((dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+	if (battery2_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		decharge2.stop();
 		charge2.start();
-	}
-
-	if ((dcbat == 0) and battery1_sw and !batt1_fail) {
-		decharge1.start();
-	}
-	
-	if ((dcbat == 0) and battery2_sw and !batt2_fail) {
+	} else if (battery2_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+		charge2.stop();
+		decharge2.stop();
+	} else if (battery2_sw and !batt2_fail) {
+		charge2.stop();
 		decharge2.start();
+	} else {
+		decharge2.stop();
+		charge2.stop();
 	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") < 110) {
