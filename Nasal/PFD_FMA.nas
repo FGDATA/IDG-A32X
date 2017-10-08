@@ -143,8 +143,12 @@ setlistener("/it-autoflight/mode/lat", func {
 			locupdate.start();
 		}
 	} else if (lat == "ALGN") {
-		if (newlat != "LAND") {
-			setprop("/modes/pfd/fma/roll-mode", "LAND");
+		if (newlat != " ") {
+			setprop("/modes/pfd/fma/roll-mode", " ");
+		}
+	} else if (lat == "RLOU") {
+		if (newlat != " ") {
+			setprop("/modes/pfd/fma/roll-mode", " ");
 		}
 	}
 });
@@ -227,6 +231,10 @@ setlistener("/it-autoflight/mode/vert", func {
 	} else if (vert == "FLARE") {
 		if (newvert != "FLARE") {
 			setprop("/modes/pfd/fma/pitch-mode", "FLARE");
+		}
+	} else if (vert == "ROLLOUT") {
+		if (newvert != "ROLLOUT") {
+			setprop("/modes/pfd/fma/pitch-mode", "ROLLOUT");
 		}
 	} else if (vert == "T/O CLB") {
 		if (newvertarm != "CLB") {

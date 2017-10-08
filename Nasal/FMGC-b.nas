@@ -20,6 +20,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var VS = getprop("/velocities/vertical-speed-fps");
 	var TAS = getprop("/velocities/uBody-fps");
 	var FPangle = 0;
+	var gear1 = getprop("/gear/gear[1]/wow");
+	var gear2 = getprop("/gear/gear[2]/wow");
 });
 
 var APinit = func {
@@ -461,7 +463,7 @@ var ap_various = func {
 	}
 	
 	if (getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
-		if (getprop("/controls/flight/aileron") > 0.4 or getprop("/controls/flight/aileron") < -0.4 or getprop("/controls/flight/elevator") > 0.4 or getprop("/controls/flight/elevator") < -0.4) {
+		if (getprop("/controls/flight/aileron") > 0.3 or getprop("/controls/flight/aileron") < -0.3 or getprop("/controls/flight/elevator") > 0.3 or getprop("/controls/flight/elevator") < -0.3) {
 			setprop("/it-autoflight/input/ap1", 0);
 			setprop("/it-autoflight/input/ap2", 0);
 		}
@@ -782,17 +784,14 @@ var aland1 = func {
 		setprop("/it-autoflight/output/thr-mode", 1);
 		setprop("/it-autoflight/mode/thr", "RETARD");
 	}
-	var gear1 = getprop("/gear/gear[1]/wow");
-	var gear2 = getprop("/gear/gear[2]/wow");
+	gear1 = getprop("/gear/gear[1]/wow");
+	gear2 = getprop("/gear/gear[2]/wow");
 	if (gear1 == 1 or gear2 == 1) {
-		setprop("/it-autoflight/input/ap1", 0);
-		setprop("/it-autoflight/input/ap2", 0);
 		alandt1.stop();
+		setprop("/it-autoflight/mode/lat", "RLOU");
+		setprop("/it-autoflight/mode/vert", "ROLLOUT");
 	}
 }
-
-# Autoland Stage 2 Logic (Rollout)
-# Not yet working, planned.
 
 # Managed Climb/Descent
 var mng_main = func {

@@ -102,24 +102,38 @@
 				<border>1</border>
 				<label>99999</label>
 				<visible>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<and>
+						<or>
+							<equals>
+								<property>/it-autoflight/output/fd1</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/fd2</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap1</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap2</property>
+								<value>1</value>
+							</equals>
+						</or>
+						<not-equals>
+							<property>modes/pfd/fma/pitch-mode</property>
+							<value>LAND</value>
+						</not-equals>
+						<not-equals>
+							<property>modes/pfd/fma/pitch-mode</property>
+							<value>FLARE</value>
+						</not-equals>
+						<not-equals>
+							<property>modes/pfd/fma/pitch-mode</property>
+							<value>ROLLOUT</value>
+						</not-equals>
+					</and>
 				</visible>
 				<valign>center</valign>
 				<property>/modes/pfd/fma/roll-mode</property>
