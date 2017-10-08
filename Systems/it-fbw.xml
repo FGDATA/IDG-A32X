@@ -351,20 +351,10 @@
         </input>
         <input>
 			<condition>
-				<and>
-					<equals>
-						<property>/it-fbw/roll-back</property>
-						<value>1</value>
-					</equals>
-					<less-than>
-						<property>/controls/flight/aileron-input</property>
-						<value>0.05</value>
-					</less-than>
-					<greater-than>
-						<property>/controls/flight/aileron-input</property>
-						<value>-0.05</value>
-					</greater-than>
-				</and>
+				<equals>
+					<property>/it-fbw/roll-back</property>
+					<value>1</value>
+				</equals>
 			</condition>
             <expression>
 				<table>
