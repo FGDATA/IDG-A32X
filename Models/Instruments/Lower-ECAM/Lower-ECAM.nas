@@ -761,7 +761,7 @@ var canvas_lowerECAM_wheel = {
 		
 		if (getprop("/controls/autobrake/mode") != 0) {
 			me["autobrk"].show();
-		} elsif if (getprop("/controls/autobrake/mode") == 0) {
+		} elsif (getprop("/controls/autobrake/mode") == 0) {
 			me["autobrk"].hide();
 		}
 		
