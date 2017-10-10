@@ -16,6 +16,7 @@ var oat = getprop("/environment/temperature-degc");
 var blue_psi = 0;
 var green_psi = 0;
 var yellow_psi = 0;
+var autobrakemode = 0;
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
 setprop("/systems/electrical/extra/apu-hz", 0);
@@ -735,13 +736,34 @@ var canvas_lowerECAM_wheel = {
 		return m;
 	},
 	getKeys: func() {
-		return ["NWSyellowrect","altnbrkyellow","normbrkgreen","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
+		return ["autobrk","autobrkind","NWSyellowrect","altnbrkyellow","normbrkgreen","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf"];
 	},
 	update: func() {
 		blue_psi = getprop("/systems/hydraulic/blue-psi");
 		green_psi = getprop("/systems/hydraulic/green-psi");
 		yellow_psi = getprop("/systems/hydraulic/yellow-psi");
+		autobrakemode = getprop("/controls/autobrake/mode");
+		
+		# Autobrake
+		if (autobrakemode == 0) {
+			me["autobrkind"].hide();
+		} elsif (autobrakemode == 1) {
+			me["autobrkind"].show();
+			me["autobrkind"].setText(sprintf("%s", "LO"));
+		} elsif (autobrakemode == 2) {
+			me["autobrkind"].show();
+			me["autobrkind"].setText(sprintf("%s", "MED"));
+		} elsif (autobrakemode == 3) {
+			me["autobrkind"].show();
+			me["autobrkind"].setText(sprintf("%s", "MAX"));
+		}
+		
+		if (getprop("/controls/autobrake/mode") != 0) {
+			me["autobrk"].show();
+		} elsif if (getprop("/controls/autobrake/mode") == 0) {
+			me["autobrk"].hide();
+		}
 		
 		# Spoilers
 		if (getprop("/controls/flight/spoiler-l1") < 0.033) {
