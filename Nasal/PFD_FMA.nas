@@ -506,7 +506,7 @@ setlistener("/modes/pfd/fma/ap-mode", func {
 		setprop("/modes/pfd/fma/ap-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/ap-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -515,7 +515,7 @@ setlistener("/modes/pfd/fma/fd-mode", func {
 		setprop("/modes/pfd/fma/fd-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/fd-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -528,7 +528,7 @@ setlistener("/modes/pfd/fma/at-mode", func {
 		setprop("/modes/pfd/fma/athr-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/athr-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -539,7 +539,7 @@ setlistener("/modes/pfd/fma/throttle-mode", func {
 		setprop("/modes/pfd/fma/throttle-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/throttle-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -549,7 +549,7 @@ setlistener("/modes/pfd/fma/roll-mode", func {
 		setprop("/modes/pfd/fma/roll-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/roll-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -559,7 +559,7 @@ setlistener("/modes/pfd/fma/pitch-mode", func {
 		setprop("/modes/pfd/fma/pitch-mode-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/pitch-mode-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -569,7 +569,7 @@ setlistener("/modes/pfd/fma/roll-mode-armed", func {
 		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -579,7 +579,7 @@ setlistener("/modes/pfd/fma/pitch-mode-armed", func {
 		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
-		}, 5);
+		}, 10);
 	}
 });
 
@@ -589,6 +589,6 @@ setlistener("/modes/pfd/fma/pitch-mode2-armed", func {
 		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
 		settimer(func {
 			setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
-		}, 5);
+		}, 10);
 	}
 });

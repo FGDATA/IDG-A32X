@@ -398,6 +398,9 @@
 				<kp-pitch>0.035</kp-pitch>
 				<kp-rudder>-0.05</kp-rudder>
 			</autoland>
+			<rollout>
+				<kp-rudder>-0.04</kp-rudder>
+			</rollout>
 		</config>
 		<output>
 			<ap1>0</ap1>
