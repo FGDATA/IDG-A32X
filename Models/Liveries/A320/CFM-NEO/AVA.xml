@@ -4,7 +4,7 @@
 		<model>
 			<livery>
 				<name>Avianca Brasil</name>
-				<neo-texture>Liveries/A320/CFM-NEO/AVA.png</neo-texture>
+				<texture>Liveries/A320/CFM-NEO/AVA.png</texture>
 			</livery>
 		</model>
 	</sim>
