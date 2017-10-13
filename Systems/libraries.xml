@@ -8,6 +8,15 @@
 
 <PropertyList>
 
+	<predict-simple>
+		<name>Gear AGL Altitude</name>
+		<debug>false</debug>
+		<input>/position/gear-agl-ft</input>
+		<output>/position/gear-agl-ft-2-sec</output>
+		<seconds>2.0</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+
 	<filter>
 		<name>OAT Thrust Scale</name>
 		<type>gain</type>
