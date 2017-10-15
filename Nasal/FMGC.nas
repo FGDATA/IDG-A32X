@@ -39,8 +39,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var flaps = getprop("/controls/flight/flap-pos");
 	var dep = getprop("/FMGC/internal/dep-arpt");
 	var arr = getprop("/FMGC/internal/arr-arpt");
-	var n1_left = getprop("/engines/engine[0]/n1");
-	var n1_right = getprop("/engines/engine[1]/n1");
+	var n1_left = getprop("/engines/engine[0]/n1-actual");
+	var n1_right = getprop("/engines/engine[1]/n1-actual");
 	var flaps = getprop("/controls/flight/flap-pos");
 	var modelat = getprop("/modes/pfd/fma/roll-mode");
 	var mode = getprop("/modes/pfd/fma/pitch-mode");
@@ -178,8 +178,8 @@ setlistener("/FMGC/internal/cruise-ft", func {
 ############################
 
 var phasecheck = maketimer(0.2, func {
-	n1_left = getprop("/engines/engine[0]/n1");
-	n1_right = getprop("/engines/engine[1]/n1");
+	n1_left = getprop("/engines/engine[0]/n1-actual");
+	n1_right = getprop("/engines/engine[1]/n1-actual");
 	flaps = getprop("/controls/flight/flap-pos");
 	modelat = getprop("/modes/pfd/fma/roll-mode");
 	mode = getprop("/modes/pfd/fma/pitch-mode");

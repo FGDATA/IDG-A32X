@@ -222,7 +222,7 @@ var auto_start_one = func {
 }
 
 var eng_one_auto_start = func {
-	if (getprop("/engines/engine[0]/n2") >= 24.1) {
+	if (getprop("/engines/engine[0]/n2-actual") >= 24.1) {
 		eng_one_auto_startt.stop();
 		setprop("/engines/engine[0]/state", 2);
 		setprop("/controls/engines/engine[0]/cutoff", 0);
@@ -241,7 +241,7 @@ var eng_one_auto_start = func {
 }
 
 var eng_one_man_start = func {
-	if (getprop("/engines/engine[0]/n2") >= 16.7) {
+	if (getprop("/engines/engine[0]/n2-actual") >= 16.7) {
 		eng_one_man_startt.stop();
 		setprop("/engines/engine[0]/state", 2);
 		setprop("/controls/engines/engine[0]/cutoff", 0);
@@ -256,7 +256,7 @@ var eng_one_n2_check = func {
 	if (getprop("/engines/engine[0]/egt-actual") >= egt_start) {
 		interpolate(engines[0].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[0]/n2") >= 43.0) {
+	if (getprop("/engines/engine[0]/n2-actual") >= 43.0) {
 		eng_one_n2_checkt.stop();
 		setprop("/controls/engines/engine[0]/igniter-a", 0);
 		setprop("/controls/engines/engine[0]/igniter-b", 0);
@@ -276,7 +276,7 @@ var auto_start_two = func {
 }
 
 var eng_two_auto_start = func {
-	if (getprop("/engines/engine[1]/n2") >= 24.1) {
+	if (getprop("/engines/engine[1]/n2-actual") >= 24.1) {
 		eng_two_auto_startt.stop();
 		setprop("/engines/engine[1]/state", 2);
 		setprop("/controls/engines/engine[1]/cutoff", 0);
@@ -295,7 +295,7 @@ var eng_two_auto_start = func {
 }
 
 var eng_two_man_start = func {
-	if (getprop("/engines/engine[1]/n2") >= 16.7) {
+	if (getprop("/engines/engine[1]/n2-actual") >= 16.7) {
 		eng_two_man_startt.stop();
 		setprop("/engines/engine[1]/state", 2);
 		setprop("/controls/engines/engine[1]/cutoff", 0);
@@ -310,7 +310,7 @@ var eng_two_n2_check = func {
 	if (getprop("/engines/engine[1]/egt-actual") >= egt_start) {
 		interpolate(engines[1].getNode("egt-actual"), egt_min, egt_lightdn_time);
 	}
-	if (getprop("/engines/engine[1]/n2") >= 43.0) {
+	if (getprop("/engines/engine[1]/n2-actual") >= 43.0) {
 		eng_two_n2_checkt.stop();
 		setprop("/controls/engines/engine[1]/igniter-a", 0);
 		setprop("/controls/engines/engine[1]/igniter-b", 0);

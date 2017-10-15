@@ -144,7 +144,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[0]/n1</property>
+                    <property>/engines/engine[0]/n1-actual</property>
                     <entry><ind> 18.0</ind><dep>0.00</dep></entry>
                     <entry><ind> 22.4</ind><dep>0.03</dep></entry>
                     <entry><ind>103.8</ind><dep>1.00</dep></entry>
@@ -236,7 +236,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[1]/n1</property> 
+                    <property>/engines/engine[1]/n1-actual</property> 
                     <entry><ind> 18.0</ind><dep>0.00</dep></entry>
                     <entry><ind> 22.4</ind><dep>0.03</dep></entry>
                     <entry><ind>103.8</ind><dep>1.00</dep></entry>
@@ -459,7 +459,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[0]/n1-cmd</output>
+		<output>/engines/engine[0]/n1-actual-cmd</output>
     </filter>
 	
     <filter>
@@ -500,7 +500,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[1]/n1-cmd</output>
+		<output>/engines/engine[1]/n1-actual-cmd</output>
     </filter>
 	
 	<filter>
@@ -921,7 +921,7 @@
 						<value>3</value>
 					</equals>
 					<greater-than>
-						<property>/engines/engine[0]/n1</property>
+						<property>/engines/engine[0]/n1-actual</property>
 						<value>22</value>
 					</greater-than>
 				</and>
@@ -930,7 +930,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[0]/n1</property> 
+                    <property>/engines/engine[0]/n1-actual</property> 
                     <entry><ind> 22.4</ind><dep>434</dep></entry>
                     <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>
@@ -951,7 +951,7 @@
 						<value>3</value>
 					</equals>
 					<greater-than>
-						<property>/engines/engine[1]/n1</property>
+						<property>/engines/engine[1]/n1-actual</property>
 						<value>22</value>
 					</greater-than>
 				</and>
@@ -960,7 +960,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[1]/n1</property> 
+                    <property>/engines/engine[1]/n1-actual</property> 
                     <entry><ind> 22.4</ind><dep>434</dep></entry>
                     <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>

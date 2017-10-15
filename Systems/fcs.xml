@@ -106,21 +106,45 @@
 		
 	</channel>
 	
-	<channel name="Throttle">
+	<channel name="FADEC">
 	
-		<pure_gain name="fcs/throttle1">
+		<lag_filter name="fcs/throttle1">
 			<input>/controls/engines/engine[0]/throttle-output</input>
-			<gain>1</gain>
+			<c1>0.95</c1>
 			<output>fcs/throttle-cmd-norm</output>
 			<output>fcs/throttle-pos-norm</output>
-		</pure_gain>
+		</lag_filter>
 		
-		<pure_gain name="fcs/throttle2">
+		<lag_filter name="fcs/throttle2">
 			<input>/controls/engines/engine[1]/throttle-output</input>
-			<gain>1</gain>
+			<c1>0.95</c1>
 			<output>fcs/throttle-cmd-norm[1]</output>
 			<output>fcs/throttle-pos-norm[1]</output>
-		</pure_gain>
+		</lag_filter>
+		
+		<lag_filter name="fcs/n1-actual1">
+			<input>/engines/engine[0]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n1-actual</output>
+		</lag_filter>
+		
+		<lag_filter name="fcs/n1-actual2">
+			<input>/engines/engine[1]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n1-actual</output>
+		</lag_filter>
+		
+		<lag_filter name="fcs/n2-actual1">
+			<input>/engines/engine[0]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n2-actual</output>
+		</lag_filter>
+		
+		<lag_filter name="fcs/n2-actual2">
+			<input>/engines/engine[1]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n2-actual</output>
+		</lag_filter>
 		
 	</channel>
 

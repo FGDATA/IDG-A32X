@@ -143,7 +143,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[0]/n1-cmd</output>
+		<output>/engines/engine[0]/n1-actual-cmd</output>
     </filter>
 	
     <filter>
@@ -184,7 +184,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[1]/n1-cmd</output>
+		<output>/engines/engine[1]/n1-actual-cmd</output>
     </filter>
 	
     <filter>
@@ -201,7 +201,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[0]/n1-athr-cmd</output>
+		<output>/engines/engine[0]/n1-actual-athr-cmd</output>
     </filter>
 	
     <filter>
@@ -218,7 +218,7 @@
                 </table>
             </expression>
         </input>
-		<output>/engines/engine[1]/n1-athr-cmd</output>
+		<output>/engines/engine[1]/n1-actual-athr-cmd</output>
     </filter>
 	
     <filter>
@@ -229,12 +229,12 @@
         <input>
             <expression>
 				<dif>
-					<property>/engines/engine[0]/n1</property>
-					<property>/engines/engine[0]/n1-athr-cmd</property>
+					<property>/engines/engine[0]/n1-actual</property>
+					<property>/engines/engine[0]/n1-actual-athr-cmd</property>
 				</dif>
             </expression>
         </input>
-		<output>/engines/engine[0]/n1-diff</output>
+		<output>/engines/engine[0]/n1-actual-diff</output>
     </filter>
 	
     <filter>
@@ -245,12 +245,12 @@
         <input>
             <expression>
 				<dif>
-					<property>/engines/engine[1]/n1</property>
-					<property>/engines/engine[1]/n1-athr-cmd</property>
+					<property>/engines/engine[1]/n1-actual</property>
+					<property>/engines/engine[1]/n1-actual-athr-cmd</property>
 				</dif>
             </expression>
         </input>
-		<output>/engines/engine[1]/n1-diff</output>
+		<output>/engines/engine[1]/n1-actual-diff</output>
     </filter>
 	
 	<filter>
@@ -603,7 +603,7 @@
 						<value>3</value>
 					</equals>
 					<greater-than>
-						<property>/engines/engine[0]/n1</property>
+						<property>/engines/engine[0]/n1-actual</property>
 						<value>19</value>
 					</greater-than>
 				</and>
@@ -612,7 +612,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[0]/n1</property> 
+                    <property>/engines/engine[0]/n1-actual</property> 
                     <entry><ind> 19.7</ind><dep>434</dep></entry>
                     <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>
@@ -633,7 +633,7 @@
 						<value>3</value>
 					</equals>
 					<greater-than>
-						<property>/engines/engine[1]/n1</property>
+						<property>/engines/engine[1]/n1-actual</property>
 						<value>19</value>
 					</greater-than>
 				</and>
@@ -642,7 +642,7 @@
         <input>
             <expression>
                 <table>
-                    <property>/engines/engine[1]/n1</property> 
+                    <property>/engines/engine[1]/n1-actual</property> 
                     <entry><ind> 19.7</ind><dep>434</dep></entry>
                     <entry><ind>110.0</ind><dep>620</dep></entry>
                 </table>
