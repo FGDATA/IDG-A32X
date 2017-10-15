@@ -4,10 +4,10 @@
 		<model>
 			<livery>
 				<name>China Southren</name>
-				<texture>Liveries/A320/PW-NEO/A320neo-CSN.png</texture>
+				<texture>Liveries/A320/PW-NEO/CSN.png</texture>
 			</livery>
 			<eng>
-				<texture>Liveries/A320/PW-NEO/A320neo-CSN-eng.png</texture>
+				<texture>Liveries/A320/PW-NEO/CSN-eng.png</texture>
 			</eng>
 		</model>
 	</sim>
