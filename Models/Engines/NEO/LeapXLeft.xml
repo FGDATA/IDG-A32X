@@ -11,7 +11,7 @@
 	<path>res/a320.nacelle.cfmleapx.ac</path>
 
 	<params>
-		<n1>engines/engine[0]/n1</n1>
+		<n1>engines/engine[0]/n1-actual</n1>
 		<on-fire>engines/engine[0]/on-fire</on-fire>
 		<contrail>engines/engine[0]/contrail</contrail>
 		<reverser-pos-norm>sim/multiplay/generic/float[2]</reverser-pos-norm>
