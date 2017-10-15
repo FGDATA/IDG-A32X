@@ -256,8 +256,8 @@
 	<filter>
 		<name>Throttle 1</name>
 		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<and>
@@ -345,82 +345,13 @@
 		<output>
 			<property>/controls/engines/engine[0]/throttle-fdm</property>
 		</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/systems/thrust/state1</property>
-					<value>MAN THR</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state1</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state1</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.40</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state1</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state1</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>0</value>
-					</not-equals>
-				</and>
-			</condition>
-			<value>0.2</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
 	</filter>
 	
 	<filter>
 		<name>Throttle 2</name>
 		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<and>
@@ -508,75 +439,6 @@
 		<output>
 			<property>/controls/engines/engine[1]/throttle-fdm</property>
 		</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/systems/thrust/state2</property>
-					<value>MAN THR</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state2</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state2</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.40</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/systems/thrust/state2</property>
-							<value>CL</value>
-						</equals>
-						<equals>
-							<property>/systems/thrust/state2</property>
-							<value>MAN</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
-					<not-equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>0</value>
-					</not-equals>
-				</and>
-			</condition>
-			<value>0.2</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<value>1</value>
-		</max-rate-of-change>
 	</filter>
 	
     <filter>
@@ -663,7 +525,6 @@
         <name>Throttle Output One</name>
         <type>gain</type>
         <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
 			<condition>
 				<and>
@@ -699,7 +560,6 @@
         <name>Throttle Output Two</name>
         <type>gain</type>
         <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
 			<condition>
 				<and>
@@ -749,7 +609,6 @@
 				</and>
 			</condition>
 		</enable>
-        <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
             <expression>
                 <table>
@@ -780,7 +639,6 @@
 				</and>
 			</condition>
 		</enable>
-        <update-interval-secs type="double">0.05</update-interval-secs>
         <input>
             <expression>
                 <table>
