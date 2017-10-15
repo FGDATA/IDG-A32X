@@ -80,9 +80,9 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 });
 
 var fast_start_one = func {
-	setprop("controls/engines/engine[0]/cutoff", 0);
-	setprop("engines/engine[0]/out-of-fuel", 0);
-	setprop("engines/engine[0]/run", 1);
+	setprop("/controls/engines/engine[0]/cutoff", 0);
+	setprop("/engines/engine[0]/out-of-fuel", 0);
+	setprop("/engines/engine[0]/run", 1);
 
 	setprop("/engines/engine[0]/cutoff", 0);
 	setprop("/engines/engine[0]/starter", 0);
@@ -159,9 +159,9 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 });
 
 var fast_start_two = func {
-	setprop("controls/engines/engine[1]/cutoff", 0);
-	setprop("engines/engine[1]/out-of-fuel", 0);
-	setprop("engines/engine[1]/run", 1);
+	setprop("/controls/engines/engine[1]/cutoff", 0);
+	setprop("/engines/engine[1]/out-of-fuel", 0);
+	setprop("/engines/engine[1]/run", 1);
 
 	setprop("/engines/engine[1]/cutoff", 0);
 	setprop("/engines/engine[1]/starter", 0);
