@@ -138,47 +138,43 @@ var master_fire = func {
 	}
 	
 	if (test2 and state == 0) {
-		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
-		setprop("/controls/fire/cargo/warnfwd", 1);
-		settimer(func(){
-			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
-			setprop("/controls/fire/cargo/warnfwd", 0);
-			setprop("/controls/fire/cargo/test/state", 1);
-		}, 0.5);
-	} else if (test2 and state == 1) {
-		setprop("/controls/fire/cargo/aftsmokeLight", 1);
-		setprop("/controls/fire/cargo/warnaft", 1);
-		settimer(func(){
-			setprop("/controls/fire/cargo/aftsmokeLight", 0);
-			setprop("/controls/fire/cargo/warnaft", 0);
-			setprop("/controls/fire/cargo/test/state", 2);
-		}, 0.5);
-	} if (test2 and state == 2) {
-		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
-		setprop("/controls/fire/cargo/warnfwd", 1);
-		settimer(func(){
-			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
-			setprop("/controls/fire/cargo/warnfwd", 0);
-			setprop("/controls/fire/cargo/test/state", 3);
-		}, 0.5);
-	} else if (test2 and state == 3) {
-		setprop("/controls/fire/cargo/aftsmokeLight", 1);
-		setprop("/controls/fire/cargo/warnaft", 1);
-		settimer(func(){
-			setprop("/controls/fire/cargo/aftsmokeLight", 0);
-			setprop("/controls/fire/cargo/warnaft", 0);
-			setprop("/controls/fire/cargo/test/state", 4);
-		}, 0.5);
-	} else if (test2 and state == 4) {
 		setprop("/controls/fire/cargo/fwddischLight", 1);
 		setprop("/controls/fire/cargo/aftdischLight", 1);
 		settimer(func(){
 			setprop("/controls/fire/cargo/fwddischLight", 0);
 			setprop("/controls/fire/cargo/aftdischLight", 0);
+			setprop("/controls/fire/cargo/test/state", 1);
+		}, 5);
+	} else if (test2 and state == 1) {
+		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnfwd", 1);
+		setprop("/controls/fire/cargo/aftsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnaft", 1);
+		settimer(func(){
+			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
+			setprop("/controls/fire/cargo/aftsmokeLight", 0);
+			setprop("/controls/fire/cargo/warnfwd", 0);
+			setprop("/controls/fire/cargo/warnaft", 0);
+			setprop("/controls/fire/cargo/test/state", 2);
+		}, 5);
+	} else if (test2 and state == 2) {
+		settimer(func(){
+			setprop("/controls/fire/cargo/test/state", 3);
+		}, 5);
+	} else if (test2 and state == 3) {
+		setprop("/controls/fire/cargo/fwdsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnfwd", 1);
+		setprop("/controls/fire/cargo/aftsmokeLight", 1);
+		setprop("/controls/fire/cargo/warnaft", 1);
+		settimer(func(){
+			setprop("/controls/fire/cargo/fwdsmokeLight", 0);
+			setprop("/controls/fire/cargo/aftsmokeLight", 0);
+			setprop("/controls/fire/cargo/warnfwd", 0);
+			setprop("/controls/fire/cargo/warnaft", 0);
 			setprop("/systems/fire/cargo/test", 0);
 			setprop("/controls/fire/cargo/test", 0);
 			setprop("/controls/fire/cargo/test/state", 0);
-		}, 0.5);
+		}, 5);
 	}
 	
 	
