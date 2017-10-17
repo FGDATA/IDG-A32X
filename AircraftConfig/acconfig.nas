@@ -195,11 +195,11 @@ var colddark = func {
 	setprop("/controls/flight/elevator-trim", 0);
 	systemsReset();
 	failReset();
-	if (getprop("/engines/engine[1]/n2") < 2) {
+	if (getprop("/engines/engine[1]/n2-actual") < 2) {
 		colddark_b();
 	} else {
-		var colddark_eng_off = setlistener("/engines/engine[1]/n2", func {
-			if (getprop("/engines/engine[1]/n2") < 2) {
+		var colddark_eng_off = setlistener("/engines/engine[1]/n2-actual", func {
+			if (getprop("/engines/engine[1]/n2-actual") < 2) {
 				removelistener(colddark_eng_off);
 				colddark_b();
 			}

@@ -407,10 +407,20 @@
 							<property>/it-autoflight/output/vert</property>
 							<value>5</value>
 						</equals>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>6</value>
-						</equals>
+						<and>
+							<equals>
+								<property>/it-autoflight/output/vert</property>
+								<value>6</value>
+							</equals>
+							<equals>
+								<property>/gear/gear[1]/wow</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/gear/gear[2]/wow</property>
+								<value>0</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/it-autoflight/output/vert</property>
 							<value>7</value>

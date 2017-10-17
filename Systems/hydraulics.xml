@@ -14,39 +14,39 @@
  <!-- Surface Droop                                                   -->
  <!-- =============================================================== -->
  
-    <filter>
-        <name>Aileron Droop</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/velocities/airspeed-kt</property>
-                    <entry><ind> 62</ind><dep>0.5</dep></entry>
-                    <entry><ind>116</ind><dep>0.0</dep></entry>
-                </table>
-            </expression>
-        </input>
+	<filter>
+		<name>Aileron Droop</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/velocities/airspeed-kt</property>
+					<entry><ind> 62</ind><dep>0.5</dep></entry>
+					<entry><ind>116</ind><dep>0.0</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/systems/hydraulic/aileron-droop</output>
-    </filter>
+	</filter>
 	
-    <filter>
-        <name>Elevator Droop</name>
-        <type>gain</type>
-        <gain>1</gain>
-        <update-interval-secs type="double">0.05</update-interval-secs>
-        <input> 
-            <expression>
-                <table>
-                    <property>/velocities/airspeed-kt</property>
-                    <entry><ind> 72</ind><dep>0.5</dep></entry>
-                    <entry><ind>121</ind><dep>0.0</dep></entry>
-                </table>
-            </expression>
-        </input>
+	<filter>
+		<name>Elevator Droop</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/velocities/airspeed-kt</property>
+					<entry><ind> 72</ind><dep>0.5</dep></entry>
+					<entry><ind>121</ind><dep>0.0</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<output>/systems/hydraulic/elevator-droop</output>
-    </filter>
+	</filter>
 
  <!-- =============================================================== -->
  <!-- Aileron Control                                                 -->
@@ -141,7 +141,7 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
+			<expression>
 				<sum>
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
@@ -155,7 +155,7 @@
 						<entry><ind>5</ind><dep>0.13</dep></entry>
 					</table>
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/aileron-left-cmd</output>
 		<min>-0.5</min>
@@ -260,7 +260,7 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
+			<expression>
 				<sum>
 					<table>
 						<property>/controls/flight/roll-fbw</property> 
@@ -274,7 +274,7 @@
 						<entry><ind>5</ind><dep>-0.13</dep></entry>
 					</table>
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/aileron-right-cmd</output>
 		<min>-0.5</min>
@@ -474,13 +474,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-left-fbw-cmd</property> 
-                    <entry><ind>-0.1</ind><dep>  0</dep></entry>
-                    <entry><ind>-1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-left-fbw-cmd</property> 
+					<entry><ind>-0.1</ind><dep>  0</dep></entry>
+					<entry><ind>-1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-l2-cmd</output>
 		<min>0.0</min>
@@ -603,13 +603,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-left-fbw-cmd</property> 
-                    <entry><ind>-0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>-1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-left-fbw-cmd</property> 
+					<entry><ind>-0.0</ind><dep>  0</dep></entry>
+					<entry><ind>-1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-l3-cmd</output>
 		<min>0.0</min>
@@ -732,13 +732,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-left-fbw-cmd</property> 
-                    <entry><ind>-0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>-1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-left-fbw-cmd</property> 
+					<entry><ind>-0.0</ind><dep>  0</dep></entry>
+					<entry><ind>-1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-l4-cmd</output>
 		<min>0.0</min>
@@ -825,13 +825,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-left-fbw-cmd</property> 
-                    <entry><ind>-0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>-1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-left-fbw-cmd</property> 
+					<entry><ind>-0.0</ind><dep>  0</dep></entry>
+					<entry><ind>-1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-l5-cmd</output>
 		<min>0.0</min>
@@ -853,7 +853,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-            <expression>
+			<expression>
 				<sum>
 					<property>/controls/flight/spoiler-l1</property>
 					<property>/controls/flight/spoiler-l2</property>
@@ -861,7 +861,7 @@
 					<property>/controls/flight/spoiler-l4</property>
 					<property>/controls/flight/spoiler-l5</property>
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-l-sum</output>
 	</filter>
@@ -1047,13 +1047,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-right-fbw-cmd</property> 
-                    <entry><ind>0.1</ind><dep>  0</dep></entry>
-                    <entry><ind>1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-right-fbw-cmd</property> 
+					<entry><ind>0.1</ind><dep>  0</dep></entry>
+					<entry><ind>1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-r2-cmd</output>
 		<min>0.0</min>
@@ -1176,13 +1176,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-right-fbw-cmd</property> 
-                    <entry><ind>0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-right-fbw-cmd</property> 
+					<entry><ind>0.0</ind><dep>  0</dep></entry>
+					<entry><ind>1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-r3-cmd</output>
 		<min>0.0</min>
@@ -1305,13 +1305,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-right-fbw-cmd</property> 
-                    <entry><ind>0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-right-fbw-cmd</property> 
+					<entry><ind>0.0</ind><dep>  0</dep></entry>
+					<entry><ind>1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-r4-cmd</output>
 		<min>0.0</min>
@@ -1398,13 +1398,13 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/spoiler-right-fbw-cmd</property> 
-                    <entry><ind>0.0</ind><dep>  0</dep></entry>
-                    <entry><ind>1.0</ind><dep>0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/spoiler-right-fbw-cmd</property> 
+					<entry><ind>0.0</ind><dep>  0</dep></entry>
+					<entry><ind>1.0</ind><dep>0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-r5-cmd</output>
 		<min>0.0</min>
@@ -1426,7 +1426,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-            <expression>
+			<expression>
 				<sum>
 					<property>/controls/flight/spoiler-r1</property>
 					<property>/controls/flight/spoiler-r2</property>
@@ -1434,7 +1434,7 @@
 					<property>/controls/flight/spoiler-r4</property>
 					<property>/controls/flight/spoiler-r5</property>
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/spoiler-r-sum</output>
 	</filter>
@@ -1448,7 +1448,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-            <expression>
+			<expression>
 				<product>
 					<sum>
 						<product>
@@ -1471,7 +1471,7 @@
 					</sum>
 					<value>0.444444</value>
 				</product>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/aileron-sum</output>
 		<min>-1.0</min>
@@ -1526,14 +1526,14 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/elevator-fbw</property> 
-                    <entry><ind>-1</ind><dep>-0.5</dep></entry>
-                    <entry><ind> 0</ind><dep> 0.0</dep></entry>
-                    <entry><ind> 1</ind><dep> 0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator-fbw</property> 
+					<entry><ind>-1</ind><dep>-0.5</dep></entry>
+					<entry><ind> 0</ind><dep> 0.0</dep></entry>
+					<entry><ind> 1</ind><dep> 0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/elevator-left-cmd</output>
 		<min>-0.5</min>
@@ -1592,14 +1592,14 @@
 					</equals>
 				</and>
 			</condition>
-            <expression>
-                <table>
-                    <property>/controls/flight/elevator-fbw</property> 
-                    <entry><ind>-1</ind><dep>-0.5</dep></entry>
-                    <entry><ind> 0</ind><dep> 0.0</dep></entry>
-                    <entry><ind> 1</ind><dep> 0.5</dep></entry>
-                </table>
-            </expression>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator-fbw</property> 
+					<entry><ind>-1</ind><dep>-0.5</dep></entry>
+					<entry><ind> 0</ind><dep> 0.0</dep></entry>
+					<entry><ind> 1</ind><dep> 0.5</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>/controls/flight/elevator-right-cmd</output>
 		<min>-0.5</min>
@@ -1619,12 +1619,12 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-            <expression>
+			<expression>
 				<sum>
 					<property>/controls/flight/elevator-left</property>
 					<property>/controls/flight/elevator-right</property>
 				</sum>
-            </expression>
+			</expression>
 		</input>
 		<output>/controls/flight/elevator-sum</output>
 		<min>-1.0</min>

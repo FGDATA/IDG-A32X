@@ -288,7 +288,34 @@
 		<output>/it-autoflight/internal/rudder-cmd</output>
 		<config>
 			<Kp>
+				<condition>
+					<and>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
 				<property>/it-autoflight/config/autoland/kp-rudder</property>
+			</Kp>
+			<Kp>
+				<condition>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</condition>
+				<property>/it-autoflight/config/rollout/kp-rudder</property>
 			</Kp>
 			<Ki>0</Ki>
 		</config>

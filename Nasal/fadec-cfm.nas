@@ -58,8 +58,8 @@ var fadecLoop = maketimer(0.7, func {
 	
 	var powered1 = getprop("/systems/fadec/powered1");
 	var powered2 = getprop("/systems/fadec/powered2");
-	var N21 = getprop("/engines/engine[0]/n2");
-	var N22 = getprop("/engines/engine[1]/n2");
+	var N21 = getprop("/engines/engine[0]/n2-actual");
+	var N22 = getprop("/engines/engine[1]/n2-actual");
 	
 	if (powered1) {
 		setprop("/systems/fadec/eng1/n1", 1);

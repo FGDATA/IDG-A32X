@@ -8,6 +8,15 @@
 
 <PropertyList>
 
+	<predict-simple>
+		<name>Gear AGL Altitude</name>
+		<debug>false</debug>
+		<input>/position/gear-agl-ft</input>
+		<output>/position/gear-agl-ft-2-sec</output>
+		<seconds>2.0</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+
 	<filter>
 		<name>OAT Thrust Scale</name>
 		<type>gain</type>
@@ -88,7 +97,7 @@
 		<input> 
 			<expression>
 				<table>
-					<property>/engines/engine[0]/n2</property> 
+					<property>/engines/engine[0]/n2-actual</property> 
 					<entry><ind>11</ind><dep> 2</dep></entry>
 					<entry><ind>58</ind><dep>48</dep></entry>
 				</table>
@@ -105,7 +114,7 @@
 		<input> 
 			<expression>
 				<table>
-					<property>/engines/engine[1]/n2</property> 
+					<property>/engines/engine[1]/n2-actual</property> 
 					<entry><ind>11</ind><dep> 2</dep></entry>
 					<entry><ind>58</ind><dep>48</dep></entry>
 				</table>

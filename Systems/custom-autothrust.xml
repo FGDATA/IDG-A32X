@@ -393,48 +393,26 @@
 	
 	<!-- Engine 1 -->
 	<filter>
-		<name>Thrust Filter CMD 1</name>
+		<name>Thrust Filter 1</name>
 		<type>gain</type>
 		<gain>1</gain>
 		<input>/controls/engines/throttle-cmd-pid</input>
-		<output>/controls/engines/engine[0]/throttle-cmd-cmd</output>
+		<output>/controls/engines/engine[0]/throttle-cmd</output>
 		<max>
 			<property>/controls/engines/engine[0]/throttle-man</property>
 		</max>
 	</filter>
 	
-	<filter>
-		<name>Thrust Filter 1</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>/controls/engines/engine[0]/throttle-cmd-cmd</input>
-		<output>/controls/engines/engine[0]/throttle-cmd</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>0.1</max-rate-of-change>
-	</filter>
-	
 	<!-- Engine 2 -->
 	<filter>
-		<name>Thrust Filter CMD 2</name>
+		<name>Thrust Filter 2</name>
 		<type>gain</type>
 		<gain>1</gain>
 		<input>/controls/engines/throttle-cmd-pid</input>
-		<output>/controls/engines/engine[1]/throttle-cmd-cmd</output>
+		<output>/controls/engines/engine[1]/throttle-cmd</output>
 		<max>
 			<property>/controls/engines/engine[1]/throttle-man</property>
 		</max>
-	</filter>
-	
-	<filter>
-		<name>Thrust Filter 2</name>
-		<debug>false</debug>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>/controls/engines/engine[1]/throttle-cmd-cmd</input>
-		<output>/controls/engines/engine[1]/throttle-cmd</output>
-		<type>noise-spike</type>
-		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 
 </PropertyList>

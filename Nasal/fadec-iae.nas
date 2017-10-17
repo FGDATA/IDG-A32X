@@ -66,10 +66,10 @@ var fadecLoop = maketimer(0.7, func {
 	var powered2 = getprop("/systems/fadec/powered2");
 	var N1Mode1 = getprop("/systems/fadec/n1mode1");
 	var N1Mode2 = getprop("/systems/fadec/n1mode2");
-	var N11 = getprop("/engines/engine[0]/n1");
-	var N12 = getprop("/engines/engine[1]/n1");
-	var N21 = getprop("/engines/engine[0]/n2");
-	var N22 = getprop("/engines/engine[1]/n2");
+	var N11 = getprop("/engines/engine[0]/n1-actual");
+	var N12 = getprop("/engines/engine[1]/n1-actual");
+	var N21 = getprop("/engines/engine[0]/n2-actual");
+	var N22 = getprop("/engines/engine[1]/n2-actual");
 	
 	if (powered1 and N1Mode1 == 0) {
 		setprop("/systems/fadec/eng1/epr", 1);

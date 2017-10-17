@@ -158,14 +158,6 @@
 		</mass-and-balance>
 	</limits>
 	
-	<instrumentation n="0">
-		<mk-viii n="0">
-			<voice>
-				<file-prefix>Aircraft/IDG-A32X/Sounds/GPWS-OLD/</file-prefix>
-			</voice>
-		</mk-viii>
-	</instrumentation>
-	
 	<options n="0">
 		<EIS2 type="bool">0</EIS2>
 		<eng>CFM</eng>

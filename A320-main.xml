@@ -398,6 +398,9 @@
 				<kp-pitch>0.035</kp-pitch>
 				<kp-rudder>-0.05</kp-rudder>
 			</autoland>
+			<rollout>
+				<kp-rudder>-0.04</kp-rudder>
+			</rollout>
 		</config>
 		<output>
 			<ap1>0</ap1>
@@ -583,6 +586,7 @@
 			</switches>
 		</pneumatic>
 		<switches>
+			<cart type="bool">0</cart>
 			<!-- Smoking is bad :P -->
 			<no-smoking-sign type="bool">1</no-smoking-sign>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
@@ -604,18 +608,24 @@
 			<serviceable type="bool">true</serviceable>
 		</apu>
 		<engine n="0">
-			<egt-actual type="float">0</egt-actual>
-			<state type="int">0</state>
+			<egt-actual type="double">0</egt-actual>
+			<epr-actual type="double">1</epr-actual>
+			<n1-actual type="double">0</n1-actual>
+			<n2-actual type="double">0</n2-actual>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
+			<state type="int">0</state>
 		</engine>
 		<engine n="1">
-			<egt-actual type="float">0</egt-actual>
-			<state type="int">0</state>
+			<egt-actual type="double">0</egt-actual>
+			<epr-actual type="double">1</epr-actual>
+			<n1-actual type="double">0</n1-actual>
+			<n2-actual type="double">0</n2-actual>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
+			<state type="int">0</state>
 		</engine>
 	</engines>
 

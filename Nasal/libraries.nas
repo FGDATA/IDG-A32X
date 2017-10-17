@@ -225,7 +225,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var librariesLoop = maketimer(0.1, func {
-	if ((getprop("/controls/pneumatic/switches/groundair") or getprop("/controls/switches/cart")) and ((getprop("/velocities/groundspeed-kt") > 2) or getprop("controls/gear/brake-parking") == 0)) {
+	if ((getprop("/controls/pneumatic/switches/groundair") or getprop("/controls/switches/cart")) and ((getprop("/velocities/groundspeed-kt") > 2) or getprop("/controls/gear/brake-parking") == 0)) {
 		setprop("/controls/switches/cart", 0);
 		setprop("/controls/pneumatic/switches/groundair", 0);
 	}
@@ -405,7 +405,7 @@ var logoTimer = maketimer(0.1, func {
 	} else if (setting == 1 or setting == 2) {
 		if (wow) {
 			setprop("/sim/model/lights/logo-lights", 1);
-		} else if (!wow and slats > 1) {
+		} else if (!wow and slats > 0) {
 			setprop("/sim/model/lights/logo-lights", 1);
 		} else {
 			setprop("/sim/model/lights/logo-lights", 0);

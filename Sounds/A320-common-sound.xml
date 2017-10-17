@@ -146,179 +146,17 @@
 		
 <!-- Custom GPWS -->
 	    <gpws>
-			<name>2500O</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-2500.wav</path>
-			<mode>once</mode>
-			<condition>
-				<and>
-					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/options/old-gpws</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>2500</value>
-					</less-than-equals>
-					<greater-than>
-						<property>/position/gear-agl-ft</property>
-						<value>2400</value>
-					</greater-than>
-					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
-					</less-than>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
-			<name>2000O</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-2000.wav</path>
-			<mode>once</mode>
-			<condition>
-				<and>
-					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/options/old-gpws</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>2000</value>
-					</less-than-equals>
-					<greater-than>
-						<property>/position/gear-agl-ft</property>
-						<value>1900</value>
-					</greater-than>
-					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
-					</less-than>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
-			<name>10ftalandO</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-10ft.wav</path>
-			<mode>once</mode>
-			<condition>
-				<and>
-					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/options/old-gpws</property>
-						<value>1</value>
-					</equals>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>10</value>
-					</less-than-equals>
-					<greater-than>
-						<property>/position/gear-agl-ft</property>
-						<value>8</value>
-					</greater-than>
-					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
-					</less-than>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
-			<name>5O</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/altitude-5.wav</path>
-			<mode>once</mode>
-			<condition>
-				<and>
-					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/options/old-gpws</property>
-						<value>1</value>
-					</equals>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>5</value>
-					</less-than-equals>
-					<greater-than>
-						<property>/position/gear-agl-ft</property>
-						<value>3</value>
-					</greater-than>
-					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
-					</less-than>
-					<equals>
-						<property>/controls/engines/engine[0]/throttle</property>
-						<value>0.0</value>
-					</equals>
-					<equals>
-						<property>/controls/engines/engine[1]/throttle</property>
-						<value>0.0</value>
-					</equals>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
 			<name>2500</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-2500.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/2500.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
 					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/options/old-gpws</property>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
 					<less-than-equals>
@@ -327,12 +165,16 @@
 					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
-						<value>2400</value>
+						<value>2450</value>
 					</greater-than>
 					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<volume>
@@ -343,16 +185,16 @@
 		</gpws>
 	    <gpws>
 			<name>2000</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-2000.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/2000.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
 					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/options/old-gpws</property>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
 					<less-than-equals>
@@ -361,12 +203,16 @@
 					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
-						<value>1900</value>
+						<value>1950</value>
 					</greater-than>
 					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<volume>
@@ -376,17 +222,397 @@
 			<max-dist>100.0</max-dist>
 		</gpws>
 	    <gpws>
-			<name>10ftaland</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-10ft.wav</path>
+			<name>1000</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/1000.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
 					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>1000</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>950</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>500</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
 						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>500</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>450</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>400</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/400.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>400</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>350</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>300</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/300.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>300</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>250</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>200</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/200.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>200</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>150</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>100</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/100.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>100</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>80</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>50</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/50.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>42</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>40</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/40.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>40</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>32</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>30</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/30.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>30</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>22</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>20</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/20.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>20</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>14</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>10</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/10.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
 					<greater-than>
@@ -402,9 +628,13 @@
 						<value>8</value>
 					</greater-than>
 					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 					<or>
 						<equals>
 							<property>/it-autoflight/output/ap1</property>
@@ -425,16 +655,16 @@
 		</gpws>
 	    <gpws>
 			<name>5</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS/altitude-5.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/5.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
 					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>/options/old-gpws</property>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 						<value>0</value>
 					</equals>
 					<greater-than>
@@ -447,12 +677,575 @@
 					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
-						<value>3</value>
+						<value>2</value>
 					</greater-than>
 					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+					<equals>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</equals>
+					<equals>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+		
+	    <gpws>
+			<name>2500O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/2500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>2500</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2450</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>2000O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/2000.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>2000</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>1950</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>1000O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/1000.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>1000</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>950</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>500O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>500</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>450</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>400O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/400.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>400</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>350</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>300O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/300.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>300</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>250</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>200O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/200.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>200</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>150</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>100O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/100.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>100</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>80</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>50O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/50.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>42</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>40O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/40.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>40</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>32</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>30O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/30.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>30</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>22</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>20O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/20.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>20</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>14</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>10O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/10.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>10</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>8</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>5O</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/5.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>5</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>2</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 					<equals>
 						<property>/controls/engines/engine[0]/throttle</property>
 						<value>0.0</value>
@@ -477,14 +1270,14 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/options/old-gpws</property>
 						<value>0</value>
 					</equals>
-					<less-than-equals> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350. Should be working within the next few builds -->
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350. Should be working soon -->
 						<property>/position/gear-agl-ft</property>
 						<value>350</value>
 					</less-than-equals>
@@ -493,9 +1286,128 @@
 						<value>300</value>
 					</greater-than>
 					<less-than>
-						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<value>0</value>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>Minimum</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS/minimum.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>250</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>200</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+		
+	    <gpws>
+			<name>100aboveO</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/100-above.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals> <!-- Until I add a calulation for minimums + 100, and add the ability to adjust DH, I'm keeping 350. Should be working soon -->
+						<property>/position/gear-agl-ft</property>
+						<value>350</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>300</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
+			<name>MinimumO</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/minimum.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
+						<value>0</value>
+					</equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>250</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>200</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<volume>
@@ -506,85 +1418,6 @@
 		</gpws>
 	
 <!-- Retard Warning -->
-		<retard>
-			<name>retardO</name>
-			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/retard.wav</path>
-			<mode>looped</mode>
-			<condition>
-				<and>
-					<greater-than>
-						<property>/controls/flight/flaps</property>
-						<value>0.640</value>
-					</greater-than>
-					<equals>
-						<property>/options/old-gpws</property>
-						<value>1</value>
-					</equals>
-					<or>
-						<and>
-							<less-than>
-								<property>/position/gear-agl-ft</property>
-								<value>18</value>
-							</less-than>
-							<equals>
-								<property>/it-autoflight/output/ap1</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap2</property>
-								<value>0</value>
-							</equals>
-						</and>
-						<and>
-							<less-than>
-								<property>/position/gear-agl-ft</property>
-								<value>8</value>
-							</less-than>
-							<or>
-								<equals>
-									<property>/it-autoflight/output/ap1</property>
-									<value>1</value>
-								</equals>
-								<equals>
-									<property>/it-autoflight/output/ap2</property>
-									<value>1</value>
-								</equals>
-							</or>
-						</and>
-					</or>
-					<greater-than>
-						<property>controls/engines/engine[0]/throttle</property>
-						<value>0.0</value>
-					</greater-than>
-					<greater-than>
-						<property>controls/engines/engine[1]/throttle</property>
-						<value>0.0</value>
-					</greater-than>
-					<less-than>
-						<property>controls/engines/engine[0]/throttle</property>
-						<value>0.80</value>
-					</less-than>
-					<less-than>
-						<property>controls/engines/engine[1]/throttle</property>
-						<value>0.80</value>
-					</less-than>
-					<not>
-						<property>/gear/gear[1]/wow</property>
-						<property>/gear/gear[2]/wow</property>
-					</not>
-					<less-than>
-						<property>velocities/airspeed-kt</property>
-						<value>160</value>
-					</less-than>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</retard>
-			
 		<retard>
 			<name>retard</name>
 			<path>Aircraft/IDG-A32X/Sounds/GPWS/retard.wav</path>
@@ -655,6 +1488,92 @@
 						<property>velocities/airspeed-kt</property>
 						<value>160</value>
 					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</retard>
+		<retard>
+			<name>retardO</name>
+			<path>Aircraft/IDG-A32X/Sounds/GPWS-OLD/retard.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<and>
+					<greater-than>
+						<property>/controls/flight/flaps</property>
+						<value>0.640</value>
+					</greater-than>
+					<equals>
+						<property>/options/old-gpws</property>
+						<value>1</value>
+					</equals>
+					<or>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>18</value>
+							</less-than>
+							<equals>
+								<property>/it-autoflight/output/ap1</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap2</property>
+								<value>0</value>
+							</equals>
+						</and>
+						<and>
+							<less-than>
+								<property>/position/gear-agl-ft</property>
+								<value>8</value>
+							</less-than>
+							<or>
+								<equals>
+									<property>/it-autoflight/output/ap1</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/it-autoflight/output/ap2</property>
+									<value>1</value>
+								</equals>
+							</or>
+						</and>
+					</or>
+					<greater-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.0</value>
+					</greater-than>
+					<less-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<less-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.80</value>
+					</less-than>
+					<not>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</not>
+					<less-than>
+						<property>velocities/airspeed-kt</property>
+						<value>160</value>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<volume>
@@ -1138,7 +2057,7 @@
 		<relay>
 			<name>RelayBatt1</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery1-amps</property>
@@ -1153,7 +2072,7 @@
 		<relay>
 			<name>RelayBatt2</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery2-amps</property>
@@ -1168,7 +2087,7 @@
 		<relay>
 			<name>RelayEXT</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay4.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<and>
 					<equals>
@@ -1189,7 +2108,7 @@
 		<relay>
 			<name>RelayAPU</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A33X/Sounds/Cockpit/relay4.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
 			<condition>
 				<equals>
 					<property>/systems/electrical/gen-apu</property>

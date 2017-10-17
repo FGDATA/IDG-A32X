@@ -44,7 +44,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var dcbat = getprop("/systems/electrical/bus/dcbat");
 	var dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	var gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
-	var gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	var gen_2_volts = getprop("/systems/electrical/extra/gen2-volts");
 	var galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	var emergen = getprop("/controls/electrical/switches/emer-gen");
 	var ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
@@ -108,8 +108,8 @@ var elec_init = func {
 	setprop("/systems/electrical/batt1-fault", 0);
 	setprop("/systems/electrical/batt2-fault", 0);
 	setprop("/systems/electrical/ac-ess-feed-fault", 0);
-	setprop("/systems/electrical/gen1-fault", 0);
-	setprop("/systems/electrical/idg1-fault", 0);
+	setprop("/systems/electrical/gen2-fault", 0);
+	setprop("/systems/electrical/idg2-fault", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
@@ -177,7 +177,7 @@ var master_elec = func {
 	dcbat = getprop("/systems/electrical/bus/dcbat");
 	dc_ess = getprop("/systems/electrical/bus/dc-ess");
 	gen_1_volts = getprop("/systems/electrical/extra/gen1-volts");
-	gen_2_volts = getprop("/systems/electrical/extra/gen1-volts");
+	gen_2_volts = getprop("/systems/electrical/extra/gen2-volts");
 	galley_shed = getprop("/systems/electrical/extra/galleyshed");
 	emergen = getprop("/controls/electrical/switches/emer-gen");
 	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
@@ -409,37 +409,35 @@ var master_elec = func {
 		setprop("/systems/electrical/bus/dcbat", 0);
 	}
 	
-	if (battery1_volts > 27.9 or (dcbat == 0)) {
-		charge1.stop();
-	} else if (batt1_fail) {
-		charge1.stop();
-	}
-	
-	if (battery2_volts > 27.9 or (dcbat == 0)) {
-		charge2.stop();
-	} else if (batt2_fail) {
-		charge2.stop();
-	}
-	
 	dc1 = getprop("/systems/electrical/bus/dc1");
 	dc2 = getprop("/systems/electrical/bus/dc2");
 	
-	if ((dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+	if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		decharge1.stop();
 		charge1.start();
+	} else if (battery1_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+		charge1.stop();
+		decharge1.stop();
+	} else if (battery1_sw and !batt1_fail) {
+		charge1.stop();
+		decharge1.start();
+	} else {
+		decharge1.stop();
+		charge1.stop();
 	}
 	
-	if ((dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+	if (battery2_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		decharge2.stop();
 		charge2.start();
-	}
-
-	if ((dcbat == 0) and battery1_sw and !batt1_fail) {
-		decharge1.start();
-	}
-	
-	if ((dcbat == 0) and battery2_sw and !batt2_fail) {
+	} else if (battery2_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+		charge2.stop();
+		decharge2.stop();
+	} else if (battery2_sw and !batt2_fail) {
+		charge2.stop();
 		decharge2.start();
+	} else {
+		decharge2.stop();
+		charge2.stop();
 	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") < 110) {
