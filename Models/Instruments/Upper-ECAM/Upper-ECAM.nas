@@ -95,7 +95,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/engines/engine[0]/reverser-pos-norm") >= 0.95) {
 			me["REV1"].setColor(0,1,0);
 		} else {
-			me["REV1"].setColor(1,1,0);
+			me["REV1"].setColor(1,0.6,0);
 		}
 		
 		if (getprop("/engines/engine[1]/reverser-pos-norm") >= 0.01 and getprop("/systems/fadec/eng2/n1") == 1 and getprop("/options/eng") == "CFM") {
@@ -112,7 +112,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/engines/engine[1]/reverser-pos-norm") >= 0.95) {
 			me["REV2"].setColor(0,1,0);
 		} else {
-			me["REV2"].setColor(1,1,0);
+			me["REV2"].setColor(1,0.6,0);
 		}
 		
 		# Flap Indicator
