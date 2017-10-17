@@ -155,11 +155,7 @@
 		<input>
 			<expression>
 				<product>
-					<table>
-						<property>/instrumentation/altimeter/indicated-altitude-ft</property>
-						<entry><ind>10000</ind><dep>286</dep></entry>
-						<entry><ind>42000</ind><dep>249</dep></entry>
-					</table>
+					<value>266</value>
 					<table>
 						<property>/FMGC/internal/cost-index</property>
 						<entry><ind>  0</ind><dep>1.00</dep></entry>
@@ -181,8 +177,8 @@
 				<product>
 					<table>
 						<property>/instrumentation/altimeter/indicated-altitude-ft</property>
-						<entry><ind>26000</ind><dep>0.705</dep></entry>
-						<entry><ind>42000</ind><dep>0.815</dep></entry>
+						<entry><ind>20000</ind><dep>0.585</dep></entry>
+						<entry><ind>42000</ind><dep>0.825</dep></entry>
 					</table>
 					<table>
 						<property>/FMGC/internal/cost-index</property>

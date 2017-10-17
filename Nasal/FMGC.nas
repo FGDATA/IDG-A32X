@@ -212,7 +212,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/systems/pressurization/mode", "TO");
 	}
 	
-	if ((alt <= cruiseft_b) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
+	if ((alt <= cruiseft_b) and (phase == "1") and (phase != "4") and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100))) {
 		setprop("/FMGC/status/phase", "2");
 		setprop("/systems/pressurization/mode", "TO");
 	} else if ((phase == 3 or phase == 4) and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100))) {
