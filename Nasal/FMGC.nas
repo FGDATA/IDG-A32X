@@ -207,36 +207,32 @@ var phasecheck = maketimer(0.2, func {
 	ap1 = getprop("/it-autoflight/output/ap1");
 	ap2 = getprop("/it-autoflight/output/ap2");
 	
-	if ((((n1_left >= 70) and (n1_right >= 70)) or (gs > 90)) and (mode == "SRS") and gear0 == 1 and phase == 0) {
+	if ((n1_left < 70 or n1_right < 70 or gs < 90) and mode == " " and gear0 == 1 and phase == 1) {
+		setprop("/FMGC/status/phase", "0");
+		setprop("/systems/pressurization/mode", "GN");
+	}
+	
+	if (((n1_left >= 70 and n1_right >= 70) or gs >= 90) and mode == "SRS" and gear0 == 1 and phase == 0) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
 	
-	if ((alt <= cruiseft_b) and (phase == "1") and (phase != "4") and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100))) {
-		setprop("/FMGC/status/phase", "2");
-		setprop("/systems/pressurization/mode", "TO");
-	} else if ((phase == 3 or phase == 4) and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100))) {
+	if ((phase == 1 or phase == 3 or phase == 4 or phase == 5 or phase == 6) and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100) or (modeI == "FPA" and getprop("/it-autoflight/input/fpa") >= 0.1))) {
 		setprop("/FMGC/status/phase", "2");
 		setprop("/systems/pressurization/mode", "TO");
 	}
 	
-	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == "ALT*" or mode == "ALT CRZ")) {
-		setprop("/FMGC/status/phase", "3");
-		setprop("/systems/pressurization/mode", "CR");
-	} else if ((phase == 2 or phase == 4) and (mode == "ALT" or mode == "ALT CRZ" or mode == "ALT CST")) {
+	if ((phase == 2 or phase == 4 or phase == 5) and (mode == "ALT" or mode == "ALT CRZ" or mode == "ALT CST")) {
 		setprop("/FMGC/status/phase", "3");
 		setprop("/systems/pressurization/mode", "CR");
 	}
 	
-	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and (phase == "2" or phase == "3")) {
-		setprop("/FMGC/status/phase", "4");
-		setprop("/systems/pressurization/mode", "DE");
-	} else if ((phase == 2 or phase == 3) and (mode == "OP DES" or mode == "DES" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") <= -100))) {
+	if ((phase == 2 or phase == 3) and (mode == "OP DES" or mode == "DES" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") <= -100) or (modeI == "FPA" and getprop("/it-autoflight/input/fpa") <= -0.1))) {
 		setprop("/FMGC/status/phase", "4");
 		setprop("/systems/pressurization/mode", "DE");
 	}
 	
-	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "3") or (phase == "4"))) {
+	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and (phase == "4" or mode == "G/S" or mode == "LAND" or mode == "FLARE")) {
 		setprop("/FMGC/status/phase", "5");
 	}
 	
@@ -246,16 +242,13 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/internal/decel", 0);
 	}
 	
-	if ((phase == "5") and (state1 == "TOGA") and (state2 == "TOGA")) {
+	if (phase == "5" and state1 == "TOGA" and state2 == "TOGA") {
 		setprop("/FMGC/status/phase", "6");
+		setprop("/systems/pressurization/mode", "TO");
 		setprop("/it-autoflight/input/toga", 1);
 	}
 	
-	if ((phase == "6") and ((mode == "G/A CLB") or (mode == "SPD CLB") or (mode == "CLB") or ((mode == "V/S") and (targetvs > 0)) or ((mode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
-		setprop("/FMGC/status/phase", "2");
-	}
-	
-	if ((wowl and wowr) and (gs < 20) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6") and ap1 == 0 and ap2 == 0) {
+	if (wowl and wowr and gs < 20 and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6") and ap1 == 0 and ap2 == 0) {
 		reset_FMGC();
 	}
 	

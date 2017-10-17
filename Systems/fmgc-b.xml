@@ -611,7 +611,7 @@
 					<value>0</value>
 				</equals>
 			</condition>
-			<value>-1500</value>
+			<value>-1200</value>
 		</min>
 		<min>
 			<condition>
