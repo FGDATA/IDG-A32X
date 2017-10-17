@@ -1005,7 +1005,10 @@ var canvas_lowerECAM_wheel = {
 		}
 		
 		# Hide not yet implemented stuff
-		
+		me["braketemp1"].hide();
+		me["braketemp2"].hide();
+		me["braketemp3"].hide();
+		me["braketemp4"].hide();
 		
 		me.updateBottomStatus();
 	},
