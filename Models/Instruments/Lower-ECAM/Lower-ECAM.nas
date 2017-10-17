@@ -135,7 +135,8 @@ var canvas_lowerECAM_apu = {
 		return m;
 	},
 	getKeys: func() {
-		return ["APUN-needle","APUEGT-needle","APUN","APUEGT","APUAvail","APUFlapOpen","APUBleedValve","APUBleedOnline","APUGenOnline","APUGentext","APUGenLoad","APUGenbox","APUGenVolt","APUGenHz","APUBleedPSI","APUfuelLO","GW","TAT","SAT","text3724","text3728","text3732"];
+		return ["APUN-needle","APUEGT-needle","APUN","APUEGT","APUAvail","APUFlapOpen","APUBleedValve","APUBleedOnline","APUGenOnline","APUGentext","APUGenLoad","APUGenbox","APUGenVolt","APUGenHz","APUBleedPSI","APUfuelLO","GW","TAT","SAT","text3724","text3728",
+		"text3732"];
 	},
 	update: func() {
 		oat = getprop("/environment/temperature-degc");
@@ -350,7 +351,7 @@ var canvas_lowerECAM_fctl = {
 		return m;
 	},
 	getKeys: func() {
-		return["ailL","ailR","elevL","elevR","PTcc","PT","PTupdn","GW","TAT","SAT","elac1","elac2","sec1","sec2","sec3","ailLblue","ailRblue","elevLblue","elevRblue","rudderblue","ailLgreen","ailRgreen","elevLgreen","ruddergreen","PTgreen","elevRyellow",
+		return["GW","TAT","SAT","ailL","ailR","elevL","elevR","PTcc","PT","PTupdn","elac1","elac2","sec1","sec2","sec3","ailLblue","ailRblue","elevLblue","elevRblue","rudderblue","ailLgreen","ailRgreen","elevLgreen","ruddergreen","PTgreen","elevRyellow",
 		"rudderyellow","PTyellow","rudder","spdbrkblue","spdbrkgreen","spdbrkyellow","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf",
 		"ailLscale","ailRscale","path4249","path4249-3","path4249-3-6-7","path4249-3-6-7-5","path4249-3-6"];
@@ -736,8 +737,9 @@ var canvas_lowerECAM_wheel = {
 		return m;
 	},
 	getKeys: func() {
-		return ["autobrk","autobrkind","NWSyellowrect","altnbrkyellow","normbrkgreen","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
-		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf"];
+		return ["GW","TAT","SAT","autobrk","autobrkind","NWSyellowrect","altnbrkyellow","normbrkgreen","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex",
+		"spoiler1Lrt","spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf",
+		"spoiler5Lf","braketemp1","braketemp2","braketemp3","braketemp4"];
 	},
 	update: func() {
 		blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -988,7 +990,6 @@ var canvas_lowerECAM_wheel = {
 		}
 		
 		# Hydraulic Boxes
-		
 		if (getprop("/systems/hydraulic/green-psi") > 1500) {
 			me["normbrkgreen"].setColor(0,1,0);
 		} else {
@@ -1002,6 +1003,9 @@ var canvas_lowerECAM_wheel = {
 			me["altnbrkyellow"].setColor(1,0.6,0);
 			me["NWSyellowrect"].setColor(1,0.6,0);
 		}
+		
+		# Hide not yet implemented stuff
+		
 		
 		me.updateBottomStatus();
 	},
