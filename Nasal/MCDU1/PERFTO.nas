@@ -129,7 +129,7 @@ var perfTOInput = func(key) {
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs >= 7 or tfs <= 9) {
+			if (tfs >= 7 and tfs <= 9) {
 				var thracc = split("/", scratchpad);
 				var thrred = size(thracc[0]);
 				var acc = size(thracc[1]);

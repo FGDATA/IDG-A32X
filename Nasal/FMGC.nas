@@ -44,6 +44,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var flaps = getprop("/controls/flight/flap-pos");
 	var modelat = getprop("/modes/pfd/fma/roll-mode");
 	var mode = getprop("/modes/pfd/fma/pitch-mode");
+	var modeI = getprop("/it-autoflight/mode/vert");
 	var gs = getprop("/velocities/groundspeed-kt");
 	var alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	var aglalt = getprop("/position/gear-agl-ft");
@@ -58,7 +59,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var targetalt = getprop("/it-autoflight/internal/alt");
 	var targetvs = getprop("/it-autoflight/input/vs");
 	var targetfpa = getprop("/it-autoflight/input/fpa");
-	var vertmode = getprop("/modes/pfd/fma/pitch-mode");
 	var reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
 	var locarm = getprop("/it-autopilot/output/loc-armed");
 	var apprarm = getprop("/it-autopilot/output/appr-armed");
@@ -107,6 +107,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var mng_alt_mach = 0;
 	var mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
 	var mng_spd = getprop("/FMGC/internal/mng-spd");
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
 });
 
 var FMGCinit = func {
@@ -183,6 +185,7 @@ var phasecheck = maketimer(0.2, func {
 	flaps = getprop("/controls/flight/flap-pos");
 	modelat = getprop("/modes/pfd/fma/roll-mode");
 	mode = getprop("/modes/pfd/fma/pitch-mode");
+	modeI = getprop("/it-autoflight/mode/vert");
 	gs = getprop("/velocities/groundspeed-kt");
 	alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 	aglalt = getprop("/position/gear-agl-ft");
@@ -197,22 +200,30 @@ var phasecheck = maketimer(0.2, func {
 	targetalt = getprop("/it-autoflight/internal/alt");
 	targetvs = getprop("/it-autoflight/input/vs");
 	targetfpa = getprop("/it-autoflight/input/fpa");
-	vertmode = getprop("/modes/pfd/fma/pitch-mode");
 	reduc_agl_ft = getprop("/it-autoflight/settings/reduc-agl-ft");
 	locarm = getprop("/it-autopilot/output/loc-armed");
 	apprarm = getprop("/it-autopilot/output/appr-armed");
 	gear0 = getprop("/gear/gear[0]/wow");
+	ap1 = getprop("/it-autoflight/output/ap1");
+	ap2 = getprop("/it-autoflight/output/ap2");
 	
 	if ((((n1_left >= 70) and (n1_right >= 70)) or (gs > 90)) and (mode == "SRS") and gear0 == 1 and phase == 0) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
 	
-	if ((alt >= reduc_agl_ft) and (alt <= cruiseft) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
+	if ((alt <= cruiseft_b) and (phase == "1") and (phase != "4") and (mode != "SRS")) {
 		setprop("/FMGC/status/phase", "2");
+		setprop("/systems/pressurization/mode", "TO");
+	} else if ((phase == 3 or phase == 4) and (mode == "OP CLB" or mode == "CLB" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") >= 100))) {
+		setprop("/FMGC/status/phase", "2");
+		setprop("/systems/pressurization/mode", "TO");
 	}
 	
 	if (alt >= cruiseft_b and phase == "2" and (mode == "ALT" or mode == "ALT*" or mode == "ALT CRZ")) {
+		setprop("/FMGC/status/phase", "3");
+		setprop("/systems/pressurization/mode", "CR");
+	} else if ((phase == 2 or phase == 4) and (mode == "ALT" or mode == "ALT CRZ" or mode == "ALT CST")) {
 		setprop("/FMGC/status/phase", "3");
 		setprop("/systems/pressurization/mode", "CR");
 	}
@@ -220,9 +231,12 @@ var phasecheck = maketimer(0.2, func {
 	if (alt <= cruiseft and (mode == "DES" or mode == "OP DES") and (phase == "2" or phase == "3")) {
 		setprop("/FMGC/status/phase", "4");
 		setprop("/systems/pressurization/mode", "DE");
+	} else if ((phase == 2 or phase == 3) and (mode == "OP DES" or mode == "DES" or (modeI == "V/S" and getprop("/it-autoflight/input/vs") <= -100))) {
+		setprop("/FMGC/status/phase", "4");
+		setprop("/systems/pressurization/mode", "DE");
 	}
 	
-	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "3") or (phase == "4")) and alt < 7200) {
+	if (getprop("/FMGC/status/to-state") == 0 and flaps >= 3 and ((phase == "3") or (phase == "4"))) {
 		setprop("/FMGC/status/phase", "5");
 	}
 	
@@ -237,11 +251,11 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/it-autoflight/input/toga", 1);
 	}
 	
-	if ((phase == "6") and ((vertmode == "G/A CLB") or (vertmode == "SPD CLB") or (vertmode == "CLB") or ((vertmode == "V/S") and (targetvs > 0)) or ((vertmode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
+	if ((phase == "6") and ((mode == "G/A CLB") or (mode == "SPD CLB") or (mode == "CLB") or ((mode == "V/S") and (targetvs > 0)) or ((mode == "FPA") and (targetfpa > 0))) and (alt <= targetalt)) {
 		setprop("/FMGC/status/phase", "2");
 	}
 	
-	if ((wowl and wowr) and (gs < 40) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6")) {
+	if ((wowl and wowr) and (gs < 20) and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6") and ap1 == 0 and ap2 == 0) {
 		reset_FMGC();
 	}
 	
@@ -469,14 +483,14 @@ var ManagedSPD = maketimer(0.25, func {
 				if (mng_spd_cmd != 250) {
 					setprop("/FMGC/internal/mng-spd-cmd", 250);
 				}
-			} else if ((phase == 2 or phase == 3) and altitude > 10100 and !mach_switchover) {
+			} else if ((phase == 2 or phase == 3) and altitude > 10070 and !mach_switchover) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
 				if (mng_spd_cmd != mng_alt_spd) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_spd);
 				}
-			} else if ((phase == 2 or phase == 3) and altitude > 10100 and mach_switchover) {
+			} else if ((phase == 2 or phase == 3) and altitude > 10070 and mach_switchover) {
 				if (!mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 1);
 				}
@@ -497,7 +511,16 @@ var ManagedSPD = maketimer(0.25, func {
 				if (mng_spd_cmd != mng_alt_mach) {
 					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_mach);
 				}
-			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude <= 11050) {
+			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude > 11100 and !mach_switchover) {
+					if (mngktsmach) {
+					setprop("/FMGC/internal/mng-kts-mach", 0);
+				}
+				if (mng_spd_cmd != mng_alt_spd and !decel) {
+					setprop("/FMGC/internal/mng-spd-cmd", mng_alt_spd);
+				} else if (mng_spd_cmd != minspeed and decel) {
+					setprop("/FMGC/internal/mng-spd-cmd", minspeed);
+				}
+			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude <= 11080) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
