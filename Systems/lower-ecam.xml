@@ -7,7 +7,7 @@
 -->
 
 <PropertyList>
-
+	
 	<filter>
 		<name>APU N Output</name>
 		<type>gain</type>
