@@ -166,15 +166,15 @@ var canvas_lowerECAM_apu = {
 		
 		# APU Gen
 		if (getprop("/systems/electrical/extra/apu-volts") > 110) {
-			me["APUGenVolt"].setColor(0,1,0);
+			me["APUGenVolt"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["APUGenVolt"].setColor(1,0.6,0);
+			me["APUGenVolt"].setColor(0.7333,0.3803,0);
 		}
 
 		if (getprop("/systems/electrical/extra/apu-hz") > 380) {
-			me["APUGenHz"].setColor(0,1,0);
+			me["APUGenHz"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["APUGenHz"].setColor(1,0.6,0);
+			me["APUGenHz"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/controls/APU/master") == 1 or getprop("/systems/apu/rpm") >= 94.9) {
@@ -202,9 +202,9 @@ var canvas_lowerECAM_apu = {
 		}
 		
 		if ((getprop("/controls/APU/master") == 0) or ((getprop("/controls/APU/master") == 1) and (getprop("/controls/electrical/switches/gen-apu") == 1) and (getprop("/systems/apu/rpm") > 94.9))) {
-			me["APUGentext"].setColor(1,1,1);
+			me["APUGentext"].setColor(0.8078,0.8039,0.8078);
 		} else if ((getprop("/controls/APU/master") == 1) and (getprop("/controls/electrical/switches/gen-apu") == 0) and (getprop("/systems/apu/rpm") < 94.9)) { 
-			me["APUGentext"].setColor(1,0.6,0);
+			me["APUGentext"].setColor(0.7333,0.3803,0);
 		}
 
 		me["APUGenLoad"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-load"))));
@@ -213,10 +213,10 @@ var canvas_lowerECAM_apu = {
 
 		# APU Bleed
 		if (getprop("/controls/adirs/ir[1]/knob") != 1 and (getprop("/controls/APU/master") == 1 or getprop("/systems/pneumatic/bleedapu") > 0)) {
-			me["APUBleedPSI"].setColor(0,1,0);
+			me["APUBleedPSI"].setColor(0.0667,0.7294,0.3137);
 			me["APUBleedPSI"].setText(sprintf("%s", math.round(getprop("/systems/pneumatic/bleedapu"))));
 		} else {
-			me["APUBleedPSI"].setColor(1,0.6,0);
+			me["APUBleedPSI"].setColor(0.7333,0.3803,0);
 			me["APUBleedPSI"].setText(sprintf("%s", "XX"));
 		}
 
@@ -230,19 +230,19 @@ var canvas_lowerECAM_apu = {
 
 		# APU N and EGT
 		if (getprop("/controls/APU/master") == 1) {
-			me["APUN"].setColor(0,1,0);
+			me["APUN"].setColor(0.0667,0.7294,0.3137);
 			me["APUN"].setText(sprintf("%s", math.round(getprop("/systems/apu/rpm"))));
-			me["APUEGT"].setColor(0,1,0);
+			me["APUEGT"].setColor(0.0667,0.7294,0.3137);
 			me["APUEGT"].setText(sprintf("%s", math.round(getprop("/systems/apu/egt"))));
 		} else if (getprop("/systems/apu/rpm") >= 1) {
-			me["APUN"].setColor(0,1,0);
+			me["APUN"].setColor(0.0667,0.7294,0.3137);
 			me["APUN"].setText(sprintf("%s", math.round(getprop("/systems/apu/rpm"))));
-			me["APUEGT"].setColor(0,1,0);
+			me["APUEGT"].setColor(0.0667,0.7294,0.3137);
 			me["APUEGT"].setText(sprintf("%s", math.round(getprop("/systems/apu/egt"))));
 		} else {
-			me["APUN"].setColor(1,0.6,0);
+			me["APUN"].setColor(0.7333,0.3803,0);
 			me["APUN"].setText(sprintf("%s", "XX"));
-			me["APUEGT"].setColor(1,0.6,0);
+			me["APUEGT"].setColor(0.7333,0.3803,0);
 			me["APUEGT"].setText(sprintf("%s", "XX"));
 		}
 		me["APUN-needle"].setRotation((getprop("/ECAM/Lower/APU-N") + 90)*D2R);
@@ -274,16 +274,16 @@ var canvas_lowerECAM_eng1 = {
 		
 		# Oil Pressure
 		if (getprop("/engines/engine[0]/oil-psi-actual") >= 20) {
-			me["OilPSI1"].setColor(0,1,0);
-			me["OilPSI1-needle"].setColorFill(0,1,0);
+			me["OilPSI1"].setColor(0.0667,0.7294,0.3137);
+			me["OilPSI1-needle"].setColorFill(0.0667,0.7294,0.3137);
 		} else {
 			me["OilPSI1"].setColor(1,0,0);
 			me["OilPSI1-needle"].setColorFill(1,0,0);
 		}
 		
 		if (getprop("/engines/engine[1]/oil-psi-actual") >= 20) {
-			me["OilPSI2"].setColor(0,1,0);
-			me["OilPSI2-needle"].setColorFill(0,1,0);
+			me["OilPSI2"].setColor(0.0667,0.7294,0.3137);
+			me["OilPSI2-needle"].setColorFill(0.0667,0.7294,0.3137);
 		} else {
 			me["OilPSI2"].setColor(1,0,0);
 			me["OilPSI2-needle"].setColorFill(1,0,0);
@@ -321,16 +321,16 @@ var canvas_lowerECAM_eng = {
 		
 		# Oil Pressure
 		if (getprop("/engines/engine[0]/oil-psi-actual") >= 20) {
-			me["OilPSI1"].setColor(0,1,0);
-			me["OilPSI1-needle"].setColorFill(0,1,0);
+			me["OilPSI1"].setColor(0.0667,0.7294,0.3137);
+			me["OilPSI1-needle"].setColorFill(0.0667,0.7294,0.3137);
 		} else {
 			me["OilPSI1"].setColor(1,0,0);
 			me["OilPSI1-needle"].setColorFill(1,0,0);
 		}
 		
 		if (getprop("/engines/engine[1]/oil-psi-actual") >= 20) {
-			me["OilPSI2"].setColor(0,1,0);
-			me["OilPSI2-needle"].setColorFill(0,1,0);
+			me["OilPSI2"].setColor(0.0667,0.7294,0.3137);
+			me["OilPSI2-needle"].setColorFill(0.0667,0.7294,0.3137);
 		} else {
 			me["OilPSI2"].setColor(1,0,0);
 			me["OilPSI2-needle"].setColorFill(1,0,0);
@@ -375,13 +375,13 @@ var canvas_lowerECAM_fctl = {
 		}
 
 		if (green_psi < 1500 and yellow_psi < 1500) {
-			me["PT"].setColor(1,0.6,0);
-			me["PTupdn"].setColor(1,0.6,0);
-			me["PTcc"].setColor(1,0.6,0);
+			me["PT"].setColor(0.7333,0.3803,0);
+			me["PTupdn"].setColor(0.7333,0.3803,0);
+			me["PTcc"].setColor(0.7333,0.3803,0);
 		} else {
-			me["PT"].setColor(0,1,0);
-			me["PTupdn"].setColor(0,1,0);
-			me["PTcc"].setColor(0,1,0);
+			me["PT"].setColor(0.0667,0.7294,0.3137);
+			me["PTupdn"].setColor(0.0667,0.7294,0.3137);
+			me["PTcc"].setColor(0.0667,0.7294,0.3137);
 		}
 		
 		# Ailerons
@@ -389,11 +389,11 @@ var canvas_lowerECAM_fctl = {
 		me["ailR"].setTranslation(0,getprop("/ECAM/Lower/aileron-ind-right")*(-100));
 			
 		if (blue_psi < 1500 and green_psi < 1500) {
-			me["ailL"].setColor(1,0.6,0);
-			me["ailR"].setColor(1,0.6,0);
+			me["ailL"].setColor(0.7333,0.3803,0);
+			me["ailR"].setColor(0.7333,0.3803,0);
 		} else {
-			me["ailL"].setColor(0,1,0);
-			me["ailR"].setColor(0,1,0);
+			me["ailL"].setColor(0.0667,0.7294,0.3137);
+			me["ailR"].setColor(0.0667,0.7294,0.3137);
 		}
 		
 		# Elevators
@@ -401,24 +401,24 @@ var canvas_lowerECAM_fctl = {
 		me["elevR"].setTranslation(0,getprop("/ECAM/Lower/elevator-ind-right")*100);
 
 		if (blue_psi < 1500 and green_psi < 1500) {
-			me["elevL"].setColor(1,0.6,0);
+			me["elevL"].setColor(0.7333,0.3803,0);
 		} else {
-			me["elevL"].setColor(0,1,0);
+			me["elevL"].setColor(0.0667,0.7294,0.3137);
 		}
 		
 		if (blue_psi < 1500 and yellow_psi < 1500) {
-			me["elevR"].setColor(1,0.6,0);
+			me["elevR"].setColor(0.7333,0.3803,0);
 		} else {
-			me["elevR"].setColor(0,1,0);
+			me["elevR"].setColor(0.0667,0.7294,0.3137);
 		}
 		
 		# Rudder
 		me["rudder"].setRotation(getprop("/controls/flight/rudder-fdm")*(-0.6));
 
 		if (blue_psi < 1500 and yellow_psi < 1500 and green_psi < 1500) {
-			me["rudder"].setColor(1,0.6,0);
+			me["rudder"].setColor(0.7333,0.3803,0);
 		} else {
-			me["rudder"].setColor(0,1,0);
+			me["rudder"].setColor(0.0667,0.7294,0.3137);
 		}
 		
 		# Spoilers
@@ -504,229 +504,229 @@ var canvas_lowerECAM_fctl = {
 		
 		# Spoiler Fail
 		if (getprop("/controls/flight/spoiler-l1-failed") or green_psi < 1500) {
-			me["spoiler1Lex"].setColor(1,0.6,0);
-			me["spoiler1Lrt"].setColor(1,0.6,0);
+			me["spoiler1Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler1Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l1") < 0.033) {
 				me["spoiler1Lf"].show();
 			} else {
 				me["spoiler1Lf"].hide();
 			}
 		} else {
-			me["spoiler1Lex"].setColor(0,1,0);
-			me["spoiler1Lrt"].setColor(0,1,0);
+			me["spoiler1Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler1Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler1Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l2-failed") or yellow_psi < 1500) {
-			me["spoiler2Lex"].setColor(1,0.6,0);
-			me["spoiler2Lrt"].setColor(1,0.6,0);
+			me["spoiler2Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler2Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l2") < 0.033) {
 				me["spoiler2Lf"].show();
 			} else {
 				me["spoiler2Lf"].hide();
 			}
 		} else {
-			me["spoiler2Lex"].setColor(0,1,0);
-			me["spoiler2Lrt"].setColor(0,1,0);
+			me["spoiler2Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler2Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler2Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l3-failed") or blue_psi < 1500) {
-			me["spoiler3Lex"].setColor(1,0.6,0);
-			me["spoiler3Lrt"].setColor(1,0.6,0);
+			me["spoiler3Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler3Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l3") < 0.033) {
 				me["spoiler3Lf"].show();
 			} else {
 				me["spoiler3Lf"].hide();
 			}
 		} else {
-			me["spoiler3Lex"].setColor(0,1,0);
-			me["spoiler3Lrt"].setColor(0,1,0);
+			me["spoiler3Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler3Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler3Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l4-failed") or yellow_psi < 1500) {
-			me["spoiler4Lex"].setColor(1,0.6,0);
-			me["spoiler4Lrt"].setColor(1,0.6,0);
+			me["spoiler4Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler4Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l4") < 0.033) {
 				me["spoiler4Lf"].show();
 			} else {
 				me["spoiler4Lf"].hide();
 			}
 		} else {
-			me["spoiler4Lex"].setColor(0,1,0);
-			me["spoiler4Lrt"].setColor(0,1,0);
+			me["spoiler4Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler4Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler4Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l5-failed") or green_psi < 1500) {
-			me["spoiler5Lex"].setColor(1,0.6,0);
-			me["spoiler5Lrt"].setColor(1,0.6,0);
+			me["spoiler5Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler5Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l5") < 0.033) {
 				me["spoiler5Lf"].show();
 			} else {
 				me["spoiler5Lf"].hide();
 			}
 		} else {
-			me["spoiler5Lex"].setColor(0,1,0);
-			me["spoiler5Lrt"].setColor(0,1,0);
+			me["spoiler5Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler5Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler5Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r1-failed") or green_psi < 1500) {
-			me["spoiler1Rex"].setColor(1,0.6,0);
-			me["spoiler1Rrt"].setColor(1,0.6,0);
+			me["spoiler1Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler1Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r1") < 0.033) {
 				me["spoiler1Rf"].show();
 			} else {
 				me["spoiler1Rf"].hide();
 			}
 		} else {
-			me["spoiler1Rex"].setColor(0,1,0);
-			me["spoiler1Rrt"].setColor(0,1,0);
+			me["spoiler1Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler1Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler1Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r2-failed") or yellow_psi < 1500) {
-			me["spoiler2Rex"].setColor(1,0.6,0);
-			me["spoiler2Rrt"].setColor(1,0.6,0);
+			me["spoiler2Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler2Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r2") < 0.033) {
 				me["spoiler2Rf"].show();
 			} else {
 				me["spoiler2Rf"].hide();
 			}
 		} else {
-			me["spoiler2Rex"].setColor(0,1,0);
-			me["spoiler2Rrt"].setColor(0,1,0);
+			me["spoiler2Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler2Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler2Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r3-failed") or blue_psi < 1500) {
-			me["spoiler3Rex"].setColor(1,0.6,0);
-			me["spoiler3Rrt"].setColor(1,0.6,0);
+			me["spoiler3Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler3Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r3") < 0.033) {
 				me["spoiler3Rf"].show();
 			} else {
 				me["spoiler3Rf"].hide();
 			}
 		} else {
-			me["spoiler3Rex"].setColor(0,1,0);
-			me["spoiler3Rrt"].setColor(0,1,0);
+			me["spoiler3Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler3Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler3Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r4-failed") or yellow_psi < 1500) {
-			me["spoiler4Rex"].setColor(1,0.6,0);
-			me["spoiler4Rrt"].setColor(1,0.6,0);
+			me["spoiler4Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler4Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r4") < 0.033) {
 				me["spoiler4Rf"].show();
 			} else {
 				me["spoiler4Rf"].hide();
 			}
 		} else {
-			me["spoiler4Rex"].setColor(0,1,0);
-			me["spoiler4Rrt"].setColor(0,1,0);
+			me["spoiler4Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler4Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler4Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r5-failed") or green_psi < 1500) {
-			me["spoiler5Rex"].setColor(1,0.6,0);
-			me["spoiler5Rrt"].setColor(1,0.6,0);
+			me["spoiler5Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler5Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r5") < 0.033) {
 				me["spoiler5Rf"].show();
 			} else {
 				me["spoiler5Rf"].hide();
 			}
 		} else {
-			me["spoiler5Rex"].setColor(0,1,0);
-			me["spoiler5Rrt"].setColor(0,1,0);
+			me["spoiler5Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler5Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler5Rf"].hide();
 		}
 		
 		# Flight Computers		
 		if (getprop("/systems/fctl/elac1")) {
-			me["elac1"].setColor(0,1,0);
-			me["path4249"].setColor(0,1,0);
+			me["elac1"].setColor(0.0667,0.7294,0.3137);
+			me["path4249"].setColor(0.0667,0.7294,0.3137);
 		} else if ((getprop("/systems/fctl/elac1") == 0) or (getprop("/systems/failures/elac1") == 1)) {
-			me["elac1"].setColor(1,0.6,0);
-			me["path4249"].setColor(1,0.6,0);
+			me["elac1"].setColor(0.7333,0.3803,0);
+			me["path4249"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/fctl/elac2")) {
-			me["elac2"].setColor(0,1,0);
-			me["path4249-3"].setColor(0,1,0);
+			me["elac2"].setColor(0.0667,0.7294,0.3137);
+			me["path4249-3"].setColor(0.0667,0.7294,0.3137);
 		} else if ((getprop("/systems/fctl/elac2") == 0) or (getprop("/systems/failures/elac2") == 1)) {
-			me["elac2"].setColor(1,0.6,0);
-			me["path4249-3"].setColor(1,0.6,0);
+			me["elac2"].setColor(0.7333,0.3803,0);
+			me["path4249-3"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/fctl/sec1")) {
-			me["sec1"].setColor(0,1,0);
-			me["path4249-3-6-7"].setColor(0,1,0);
+			me["sec1"].setColor(0.0667,0.7294,0.3137);
+			me["path4249-3-6-7"].setColor(0.0667,0.7294,0.3137);
 		} else if ((getprop("/systems/fctl/sec1") == 0) or (getprop("/systems/failures/sec1") == 1)) {
-			me["sec1"].setColor(1,0.6,0);
-			me["path4249-3-6-7"].setColor(1,0.6,0);
+			me["sec1"].setColor(0.7333,0.3803,0);
+			me["path4249-3-6-7"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/fctl/sec2")) {
-			me["sec2"].setColor(0,1,0);
-			me["path4249-3-6-7-5"].setColor(0,1,0);
+			me["sec2"].setColor(0.0667,0.7294,0.3137);
+			me["path4249-3-6-7-5"].setColor(0.0667,0.7294,0.3137);
 		} else if ((getprop("/systems/fctl/sec2") == 0) or (getprop("/systems/failures/sec2") == 1)) {
-			me["sec2"].setColor(1,0.6,0);
-			me["path4249-3-6-7-5"].setColor(1,0.6,0);
+			me["sec2"].setColor(0.7333,0.3803,0);
+			me["path4249-3-6-7-5"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/fctl/sec3")) {
-			me["sec3"].setColor(0,1,0);
-			me["path4249-3-6"].setColor(0,1,0);
+			me["sec3"].setColor(0.0667,0.7294,0.3137);
+			me["path4249-3-6"].setColor(0.0667,0.7294,0.3137);
 		} else if ((getprop("/systems/fctl/sec3") == 0) or (getprop("/systems/failures/sec3") == 1)) {
-			me["sec3"].setColor(1,0.6,0);
-			me["path4249-3-6"].setColor(1,0.6,0);
+			me["sec3"].setColor(0.7333,0.3803,0);
+			me["path4249-3-6"].setColor(0.7333,0.3803,0);
 		}
 		
 		# Hydraulic Indicators
 		if (getprop("/systems/hydraulic/blue-psi") > 1500) {
-			me["ailLblue"].setColor(0,1,0);
-			me["ailRblue"].setColor(0,1,0);
-			me["elevLblue"].setColor(0,1,0);
-			me["elevRblue"].setColor(0,1,0);
-			me["rudderblue"].setColor(0,1,0);
-			me["spdbrkblue"].setColor(0,1,0);
+			me["ailLblue"].setColor(0.0667,0.7294,0.3137);
+			me["ailRblue"].setColor(0.0667,0.7294,0.3137);
+			me["elevLblue"].setColor(0.0667,0.7294,0.3137);
+			me["elevRblue"].setColor(0.0667,0.7294,0.3137);
+			me["rudderblue"].setColor(0.0667,0.7294,0.3137);
+			me["spdbrkblue"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["ailLblue"].setColor(1,0.6,0);
-			me["ailRblue"].setColor(1,0.6,0);
-			me["elevLblue"].setColor(1,0.6,0);
-			me["elevRblue"].setColor(1,0.6,0);
-			me["rudderblue"].setColor(1,0.6,0);
-			me["spdbrkblue"].setColor(1,0.6,0);
+			me["ailLblue"].setColor(0.7333,0.3803,0);
+			me["ailRblue"].setColor(0.7333,0.3803,0);
+			me["elevLblue"].setColor(0.7333,0.3803,0);
+			me["elevRblue"].setColor(0.7333,0.3803,0);
+			me["rudderblue"].setColor(0.7333,0.3803,0);
+			me["spdbrkblue"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/hydraulic/green-psi") > 1500) {
-			me["ailLgreen"].setColor(0,1,0);
-			me["ailRgreen"].setColor(0,1,0);
-			me["elevLgreen"].setColor(0,1,0);
-			me["ruddergreen"].setColor(0,1,0);
-			me["PTgreen"].setColor(0,1,0);
-			me["spdbrkgreen"].setColor(0,1,0);
+			me["ailLgreen"].setColor(0.0667,0.7294,0.3137);
+			me["ailRgreen"].setColor(0.0667,0.7294,0.3137);
+			me["elevLgreen"].setColor(0.0667,0.7294,0.3137);
+			me["ruddergreen"].setColor(0.0667,0.7294,0.3137);
+			me["PTgreen"].setColor(0.0667,0.7294,0.3137);
+			me["spdbrkgreen"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["ailLgreen"].setColor(1,0.6,0);
-			me["ailRgreen"].setColor(1,0.6,0);
-			me["elevLgreen"].setColor(1,0.6,0);
-			me["ruddergreen"].setColor(1,0.6,0);
-			me["PTgreen"].setColor(1,0.6,0);
-			me["spdbrkgreen"].setColor(1,0.6,0);
+			me["ailLgreen"].setColor(0.7333,0.3803,0);
+			me["ailRgreen"].setColor(0.7333,0.3803,0);
+			me["elevLgreen"].setColor(0.7333,0.3803,0);
+			me["ruddergreen"].setColor(0.7333,0.3803,0);
+			me["PTgreen"].setColor(0.7333,0.3803,0);
+			me["spdbrkgreen"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/hydraulic/yellow-psi") > 1500) {
-			me["elevRyellow"].setColor(0,1,0);
-			me["rudderyellow"].setColor(0,1,0);
-			me["PTyellow"].setColor(0,1,0);
-			me["spdbrkyellow"].setColor(0,1,0);
+			me["elevRyellow"].setColor(0.0667,0.7294,0.3137);
+			me["rudderyellow"].setColor(0.0667,0.7294,0.3137);
+			me["PTyellow"].setColor(0.0667,0.7294,0.3137);
+			me["spdbrkyellow"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["elevRyellow"].setColor(1,0.6,0);
-			me["rudderyellow"].setColor(1,0.6,0);
-			me["PTyellow"].setColor(1,0.6,0);
-			me["spdbrkyellow"].setColor(1,0.6,0);
+			me["elevRyellow"].setColor(0.7333,0.3803,0);
+			me["rudderyellow"].setColor(0.7333,0.3803,0);
+			me["PTyellow"].setColor(0.7333,0.3803,0);
+			me["spdbrkyellow"].setColor(0.7333,0.3803,0);
 		}
 		
 		me.updateBottomStatus();
@@ -952,158 +952,158 @@ var canvas_lowerECAM_wheel = {
 		
 		# Spoiler Fail
 		if (getprop("/controls/flight/spoiler-l1-failed") or green_psi < 1500) {
-			me["spoiler1Lex"].setColor(1,0.6,0);
-			me["spoiler1Lrt"].setColor(1,0.6,0);
+			me["spoiler1Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler1Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l1") < 0.033) {
 				me["spoiler1Lf"].show();
 			} else {
 				me["spoiler1Lf"].hide();
 			}
 		} else {
-			me["spoiler1Lex"].setColor(0,1,0);
-			me["spoiler1Lrt"].setColor(0,1,0);
+			me["spoiler1Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler1Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler1Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l2-failed") or yellow_psi < 1500) {
-			me["spoiler2Lex"].setColor(1,0.6,0);
-			me["spoiler2Lrt"].setColor(1,0.6,0);
+			me["spoiler2Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler2Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l2") < 0.033) {
 				me["spoiler2Lf"].show();
 			} else {
 				me["spoiler2Lf"].hide();
 			}
 		} else {
-			me["spoiler2Lex"].setColor(0,1,0);
-			me["spoiler2Lrt"].setColor(0,1,0);
+			me["spoiler2Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler2Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler2Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l3-failed") or blue_psi < 1500) {
-			me["spoiler3Lex"].setColor(1,0.6,0);
-			me["spoiler3Lrt"].setColor(1,0.6,0);
+			me["spoiler3Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler3Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l3") < 0.033) {
 				me["spoiler3Lf"].show();
 			} else {
 				me["spoiler3Lf"].hide();
 			}
 		} else {
-			me["spoiler3Lex"].setColor(0,1,0);
-			me["spoiler3Lrt"].setColor(0,1,0);
+			me["spoiler3Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler3Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler3Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l4-failed") or yellow_psi < 1500) {
-			me["spoiler4Lex"].setColor(1,0.6,0);
-			me["spoiler4Lrt"].setColor(1,0.6,0);
+			me["spoiler4Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler4Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l4") < 0.033) {
 				me["spoiler4Lf"].show();
 			} else {
 				me["spoiler4Lf"].hide();
 			}
 		} else {
-			me["spoiler4Lex"].setColor(0,1,0);
-			me["spoiler4Lrt"].setColor(0,1,0);
+			me["spoiler4Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler4Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler4Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-l5-failed") or green_psi < 1500) {
-			me["spoiler5Lex"].setColor(1,0.6,0);
-			me["spoiler5Lrt"].setColor(1,0.6,0);
+			me["spoiler5Lex"].setColor(0.7333,0.3803,0);
+			me["spoiler5Lrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-l5") < 0.033) {
 				me["spoiler5Lf"].show();
 			} else {
 				me["spoiler5Lf"].hide();
 			}
 		} else {
-			me["spoiler5Lex"].setColor(0,1,0);
-			me["spoiler5Lrt"].setColor(0,1,0);
+			me["spoiler5Lex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler5Lrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler5Lf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r1-failed") or green_psi < 1500) {
-			me["spoiler1Rex"].setColor(1,0.6,0);
-			me["spoiler1Rrt"].setColor(1,0.6,0);
+			me["spoiler1Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler1Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r1") < 0.033) {
 				me["spoiler1Rf"].show();
 			} else {
 				me["spoiler1Rf"].hide();
 			}
 		} else {
-			me["spoiler1Rex"].setColor(0,1,0);
-			me["spoiler1Rrt"].setColor(0,1,0);
+			me["spoiler1Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler1Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler1Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r2-failed") or yellow_psi < 1500) {
-			me["spoiler2Rex"].setColor(1,0.6,0);
-			me["spoiler2Rrt"].setColor(1,0.6,0);
+			me["spoiler2Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler2Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r2") < 0.033) {
 				me["spoiler2Rf"].show();
 			} else {
 				me["spoiler2Rf"].hide();
 			}
 		} else {
-			me["spoiler2Rex"].setColor(0,1,0);
-			me["spoiler2Rrt"].setColor(0,1,0);
+			me["spoiler2Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler2Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler2Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r3-failed") or blue_psi < 1500) {
-			me["spoiler3Rex"].setColor(1,0.6,0);
-			me["spoiler3Rrt"].setColor(1,0.6,0);
+			me["spoiler3Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler3Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r3") < 0.033) {
 				me["spoiler3Rf"].show();
 			} else {
 				me["spoiler3Rf"].hide();
 			}
 		} else {
-			me["spoiler3Rex"].setColor(0,1,0);
-			me["spoiler3Rrt"].setColor(0,1,0);
+			me["spoiler3Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler3Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler3Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r4-failed") or yellow_psi < 1500) {
-			me["spoiler4Rex"].setColor(1,0.6,0);
-			me["spoiler4Rrt"].setColor(1,0.6,0);
+			me["spoiler4Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler4Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r4") < 0.033) {
 				me["spoiler4Rf"].show();
 			} else {
 				me["spoiler4Rf"].hide();
 			}
 		} else {
-			me["spoiler4Rex"].setColor(0,1,0);
-			me["spoiler4Rrt"].setColor(0,1,0);
+			me["spoiler4Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler4Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler4Rf"].hide();
 		}
 		
 		if (getprop("/controls/flight/spoiler-r5-failed") or green_psi < 1500) {
-			me["spoiler5Rex"].setColor(1,0.6,0);
-			me["spoiler5Rrt"].setColor(1,0.6,0);
+			me["spoiler5Rex"].setColor(0.7333,0.3803,0);
+			me["spoiler5Rrt"].setColor(0.7333,0.3803,0);
 			if (getprop("/controls/flight/spoiler-r5") < 0.033) {
 				me["spoiler5Rf"].show();
 			} else {
 				me["spoiler5Rf"].hide();
 			}
 		} else {
-			me["spoiler5Rex"].setColor(0,1,0);
-			me["spoiler5Rrt"].setColor(0,1,0);
+			me["spoiler5Rex"].setColor(0.0667,0.7294,0.3137);
+			me["spoiler5Rrt"].setColor(0.0667,0.7294,0.3137);
 			me["spoiler5Rf"].hide();
 		}
 		
 		# Hydraulic Boxes
 		if (getprop("/systems/hydraulic/green-psi") > 1500) {
-			me["normbrkgreen"].setColor(0,1,0);
+			me["normbrkgreen"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["normbrkgreen"].setColor(1,0.6,0);
+			me["normbrkgreen"].setColor(0.7333,0.3803,0);
 		}
 		
 		if (getprop("/systems/hydraulic/yellow-psi") > 1500) {
-			me["altnbrkyellow"].setColor(0,1,0);
-			me["NWSyellowrect"].setColor(0,1,0);
+			me["altnbrkyellow"].setColor(0.0667,0.7294,0.3137);
+			me["NWSyellowrect"].setColor(0.0667,0.7294,0.3137);
 		} else {
-			me["altnbrkyellow"].setColor(1,0.6,0);
-			me["NWSyellowrect"].setColor(1,0.6,0);
+			me["altnbrkyellow"].setColor(0.7333,0.3803,0);
+			me["NWSyellowrect"].setColor(0.7333,0.3803,0);
 		}
 		
 		# Hide not yet implemented stuff
