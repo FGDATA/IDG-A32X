@@ -133,7 +133,7 @@ var canvas_lowerECAM_base = {
 
 var canvas_lowerECAM_apu = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_lowerECAM_apu , canvas_lowerECAM_base] };
+		var m = {parents: [canvas_lowerECAM_apu, canvas_lowerECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;
@@ -254,7 +254,7 @@ var canvas_lowerECAM_apu = {
 
 var canvas_lowerECAM_eng1 = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_lowerECAM_eng1 , canvas_lowerECAM_base] };
+		var m = {parents: [canvas_lowerECAM_eng1, canvas_lowerECAM_base]};
 		m.init(canvas_group, file);
 		
 		return m;
@@ -301,7 +301,7 @@ var canvas_lowerECAM_eng1 = {
 
 var canvas_lowerECAM_eng = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_lowerECAM_eng , canvas_lowerECAM_base] };
+		var m = {parents: [canvas_lowerECAM_eng, canvas_lowerECAM_base]};
 		m.init(canvas_group, file);
 		
 		return m;
@@ -349,7 +349,7 @@ var canvas_lowerECAM_eng = {
 
 var canvas_lowerECAM_fctl = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_lowerECAM_fctl , canvas_lowerECAM_base] };
+		var m = {parents: [canvas_lowerECAM_fctl, canvas_lowerECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;
@@ -735,7 +735,7 @@ var canvas_lowerECAM_fctl = {
 
 var canvas_lowerECAM_wheel = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_lowerECAM_wheel , canvas_lowerECAM_base] };
+		var m = {parents: [canvas_lowerECAM_wheel, canvas_lowerECAM_base]};
 		m.init(canvas_group, file);
 		
 		return m;

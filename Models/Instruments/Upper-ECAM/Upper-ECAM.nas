@@ -257,7 +257,7 @@ var canvas_upperECAM_base = {
 
 var canvas_upperECAM_cfm_eis1 = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_upperECAM_cfm_eis1 , canvas_upperECAM_base] };
+		var m = {parents: [canvas_upperECAM_cfm_eis1, canvas_upperECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;
@@ -458,7 +458,7 @@ var canvas_upperECAM_cfm_eis1 = {
 
 var canvas_upperECAM_cfm_eis2 = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_upperECAM_cfm_eis2 , canvas_upperECAM_base] };
+		var m = {parents: [canvas_upperECAM_cfm_eis2, canvas_upperECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;
@@ -675,7 +675,7 @@ var canvas_upperECAM_cfm_eis2 = {
 
 var canvas_upperECAM_iae_eis1 = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_upperECAM_iae_eis1 , canvas_upperECAM_base] };
+		var m = {parents: [canvas_upperECAM_iae_eis1, canvas_upperECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;
@@ -932,7 +932,7 @@ var canvas_upperECAM_iae_eis1 = {
 
 var canvas_upperECAM_iae_eis2 = {
 	new: func(canvas_group, file) {
-		var m = { parents: [canvas_upperECAM_iae_eis2 , canvas_upperECAM_base] };
+		var m = {parents: [canvas_upperECAM_iae_eis2, canvas_upperECAM_base]};
 		m.init(canvas_group, file);
 
 		return m;

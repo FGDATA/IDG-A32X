@@ -294,6 +294,16 @@
 							</script>
 						</binding>
 					</item>
+					<item>
+						<label>Test Canvas</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							setprop("/options/test-canvas", 1);
+							canvas_pfd.showPFD1();
+							</script>
+						</binding>
+					</item>
 				</menu>
 			</default>
 		</menubar>
@@ -679,6 +689,7 @@
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
 		<enable-ecam-actions>0</enable-ecam-actions>
+		<test-canvas type="bool">0</test-canvas>
 	</options>
 	
 	<instrumentation n="0">
@@ -1239,6 +1250,9 @@
 			<file>Aircraft/IDG-A32X/Nasal/MCDU2/DATA.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/MCDU2/STATUS.nas</file>
 		</mcdu2>
+		<canvas_pfd>
+			<file>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD.nas</file>
+		</canvas_pfd>
 		<canvas_nd>
 			<file>Aircraft/IDG-A32X/Models/Instruments/ND/canvas/ND.nas</file>
 		</canvas_nd>

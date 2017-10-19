@@ -7,6 +7,24 @@
 
 setprop("/FMGC/internal/cruise-ft", 10000);
 setprop("/it-autoflight/internal/alt", 10000);
+setprop("/modes/pfd/fma/throttle-mode", " ");
+setprop("/modes/pfd/fma/pitch-mode", " ");
+setprop("/modes/pfd/fma/pitch-mode-armed", " ");
+setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+setprop("/modes/pfd/fma/roll-mode", " ");
+setprop("/modes/pfd/fma/roll-mode-armed", " ");
+setprop("/modes/pfd/fma/ap-mode", " ");
+setprop("/modes/pfd/fma/fd-mode", " ");
+setprop("/modes/pfd/fma/at-mode", " ");
+setprop("/modes/pfd/fma/throttle-mode-box", 0);
+setprop("/modes/pfd/fma/pitch-mode-box", 0);
+setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
+setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
+setprop("/modes/pfd/fma/roll-mode-box", 0);
+setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
+setprop("/modes/pfd/fma/ap-mode-box", 0);
+setprop("/modes/pfd/fma/fd-mode-box", 0);
+setprop("/modes/pfd/fma/athr-mode-box", 0);
 
 setlistener("sim/signals/fdm-initialized", func {
 	loopFMA.start();
@@ -379,11 +397,11 @@ var ap = func {
 	var ap2 = getprop("/it-autoflight/output/ap2");
 	var newap = getprop("/modes/pfd/fma/ap-mode");
 	if (ap1 and ap2 and newap != "AP1+2") {
-		setprop("/modes/pfd/fma/ap-mode", "AP1+2");
-	} else if (ap1 and !ap2 and newap != "AP1") {
-		setprop("/modes/pfd/fma/ap-mode", "AP1");
-	} else if (ap2 and !ap1 and newap != "AP2") {
-		setprop("/modes/pfd/fma/ap-mode", "AP2");
+		setprop("/modes/pfd/fma/ap-mode", "AP 1+2");
+	} else if (ap1 and !ap2 and newap != "AP 1") {
+		setprop("/modes/pfd/fma/ap-mode", "AP 1");
+	} else if (ap2 and !ap1 and newap != "AP 2") {
+		setprop("/modes/pfd/fma/ap-mode", "AP 2");
 	} else if (!ap1 and !ap2) {
 		setprop("/modes/pfd/fma/ap-mode", " ");
 	}
@@ -395,11 +413,11 @@ var fd = func {
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	var newfd = getprop("/modes/pfd/fma/fd-mode");
 	if (fd1 and fd2 and newfd != "1FD2") {
-		setprop("/modes/pfd/fma/fd-mode", "1FD2");
-	} else if (fd1 and !fd2 and newfd != "1FD-") {
-		setprop("/modes/pfd/fma/fd-mode", "1FD-");
-	} else if (fd2 and !fd1 and newfd != "-FD2") {
-		setprop("/modes/pfd/fma/fd-mode", "-FD2");
+		setprop("/modes/pfd/fma/fd-mode", "1 FD 2");
+	} else if (fd1 and !fd2 and newfd != "1 FD -") {
+		setprop("/modes/pfd/fma/fd-mode", "1 FD -");
+	} else if (fd2 and !fd1 and newfd != "- FD 2") {
+		setprop("/modes/pfd/fma/fd-mode", "- FD 2");
 	} else if (!fd1 and !fd2) {
 		setprop("/modes/pfd/fma/fd-mode", " ");
 	}
