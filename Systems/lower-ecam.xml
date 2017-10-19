@@ -50,21 +50,6 @@
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
-			<condition>
-				<not><property>/options/EIS2</property></not>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[0]/oil-qt-actual</property>
-					<entry><ind> 0</ind><dep>-102</dep></entry>
-					<entry><ind>25</ind><dep>  46</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<property>/options/EIS2</property>
-			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[0]/oil-qt-actual</property>
@@ -81,21 +66,6 @@
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
-			<condition>
-				<not><property>/options/EIS2</property></not>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[1]/oil-qt-actual</property>
-					<entry><ind> 0</ind><dep>-102</dep></entry>
-					<entry><ind>25</ind><dep>  46</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<property>/options/EIS2</property>
-			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[1]/oil-qt-actual</property>
@@ -112,21 +82,6 @@
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
-			<condition>
-				<not><property>/options/EIS2</property></not>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[0]/oil-psi-actual</property>
-					<entry><ind>  0</ind><dep>-108</dep></entry>
-					<entry><ind>100</ind><dep>  38</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<property>/options/EIS2</property>
-			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[0]/oil-psi-actual</property>
@@ -144,21 +99,6 @@
 		<type>gain</type>
 		<gain>1</gain>
 		<input>
-			<condition>
-				<not><property>/options/EIS2</property></not>
-			</condition>
-			<expression>
-				<table>
-					<property>/engines/engine[1]/oil-psi-actual</property>
-					<entry><ind>  0</ind><dep>-108</dep></entry>
-					<entry><ind>100</ind><dep>  38</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<property>/options/EIS2</property>
-			</condition>
 			<expression>
 				<table>
 					<property>/engines/engine[1]/oil-psi-actual</property>

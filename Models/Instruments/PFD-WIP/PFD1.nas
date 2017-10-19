@@ -1,4 +1,4 @@
-# A3XX PFD
+# A3XX PFD 1
 # Joshua Davidson (it0uchpods)
 
 #########################################
@@ -7,11 +7,14 @@
 
 var PFD_1 = nil;
 var PFD_display = nil;
+setprop("/instrumentation/pfd/vs-needle", 0);
+setprop("/instrumentation/pfd/vs-needle2", 1);
 setprop("/it-autoflight/output/ap1", 0);
 setprop("/it-autoflight/output/ap2", 0);
 setprop("/it-autoflight/output/fd1", 0);
 setprop("/it-autoflight/output/fd2", 0);
 setprop("/it-autoflight/output/athr", 0);
+var alt = 0;
 var state1 = getprop("/systems/thrust/state1");
 var state2 = getprop("/systems/thrust/state2");
 var ap1 = getprop("/it-autoflight/output/ap1");
@@ -25,6 +28,12 @@ var pitch_mode_armed = getprop("/modes/pfd/fma/pitch-mode-armed");
 var pitch_mode2_armed = getprop("/modes/pfd/fma/pitch-mode2-armed");
 var roll_mode = getprop("/modes/pfd/fma/roll-mode");
 var roll_mode_armed = getprop("/modes/pfd/fma/roll-mode-armed");
+var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
+var pitch = getprop("/orientation/pitch-deg");
+var roll = getprop("/orientation/roll-deg");
+var wow1 = getprop("/gear/gear[1]/wow");
+var wow2 = getprop("/gear/gear[2]/wow");
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -84,8 +93,9 @@ var canvas_PFD_1 = {
 		return m;
 	},
 	getKeys: func() {
-		return ["FMA_thrust","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box",
-		"FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","ALT_digits","ALT_tens"];
+		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
+		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
+		"FMA_Middle2","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer_g","VS_pointer","VS_pos_mask","VS_neg_mask","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -101,11 +111,67 @@ var canvas_PFD_1 = {
 		pitch_mode2_armed = getprop("/modes/pfd/fma/pitch-mode2-armed");
 		roll_mode = getprop("/modes/pfd/fma/roll-mode");
 		roll_mode_armed = getprop("/modes/pfd/fma/roll-mode-armed");
+		thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+		thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
+		pitch = getprop("/orientation/pitch-deg");
+		roll = getprop("/orientation/roll-deg");
+		wow1 = getprop("/gear/gear[1]/wow");
+		wow2 = getprop("/gear/gear[2]/wow");
+		
+		# FMA MAN TOGA MCT FLX THR
+		if (athr == 1 and (state1 == "TOGA" or state1 == "MCT" or state1 == "MAN THR" or state2 == "TOGA" or state2 == "MCT" or state2 == "MAN THR")) {
+			me["FMA_man"].show();
+			me["FMA_manmode"].show();
+			if (state1 == "TOGA" or state2 == "TOGA") {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("TOGA");
+				me["FMA_man_box"].setColor(0.8078,0.8039,0.8078);
+			} else if ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("THR");
+				me["FMA_man_box"].setColor(0.7333,0.3803,0);
+			} else if ((state1 == "MCT" or state2 == "MCT") and getprop("/controls/engines/thrust-limit") != "FLX") {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("MCT");
+				me["FMA_man_box"].setColor(0.8078,0.8039,0.8078);
+			} else if ((state1 == "MCT" or state2 == "MCT") and getprop("/controls/engines/thrust-limit") == "FLX") {
+				me["FMA_flxtemp"].setText(sprintf("%s", "+" ~ getprop("/FMGC/internal/flex")));
+				me["FMA_man_box"].hide();
+				me["FMA_flx_box"].show();
+				me["FMA_flxtemp"].show();
+				me["FMA_manmode"].setText("FLX            ");
+				me["FMA_man_box"].setColor(0.8078,0.8039,0.8078);
+			} else if ((state1 == "MAN THR" and thr1 < 0.83) or (state2 == "MAN THR" and thr2 < 0.83)) {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("THR");
+				me["FMA_man_box"].setColor(0.7333,0.3803,0);
+			}
+		} else {
+			me["FMA_man"].hide();
+			me["FMA_manmode"].hide();
+			me["FMA_man_box"].hide();
+			me["FMA_flx_box"].hide();
+			me["FMA_flxtemp"].hide();
+		}
+		
+		if (athr == 1 and getprop("/systems/thrust/lvrclb") == 1) {
+			me["FMA_lvrclb"].show();
+		} else {
+			me["FMA_lvrclb"].hide();
+		}
 	
-		# FMA Thrust
+		# FMA A/THR
 		if (athr == 1 and ((state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL"))) {
 			me["FMA_thrust"].show();
-			if (getprop("/modes/pfd/fma/throttle-mode-box") == 1) {
+			if (getprop("/modes/pfd/fma/throttle-mode-box") == 1 and throttle_mode != " ") {
 				me["FMA_thrust_box"].show();
 			} else {
 				me["FMA_thrust_box"].hide();
@@ -127,6 +193,8 @@ var canvas_PFD_1 = {
 			me["FMA_roll_box"].hide();
 			me["FMA_pitcharm_box"].hide();
 			me["FMA_rollarm_box"].hide();
+			me["FMA_Middle1"].hide();
+			me["FMA_Middle2"].hide();
 			me["FMA_combined"].show();
 			if (getprop("/modes/pfd/fma/pitch-mode-box") == 1) {
 				me["FMA_combined_box"].show();
@@ -136,6 +204,8 @@ var canvas_PFD_1 = {
 		} else {
 			me["FMA_combined"].hide();
 			me["FMA_combined_box"].hide();
+			me["FMA_Middle1"].show();
+			me["FMA_Middle2"].show();
 			if (ap1 or ap2 or fd1 or fd2) {
 				me["FMA_pitch"].show();
 				me["FMA_roll"].show();
@@ -202,6 +272,12 @@ var canvas_PFD_1 = {
 		me["FMA_fd"].setText(sprintf("%s", getprop("/modes/pfd/fma/fd-mode")));
 		me["FMA_athr"].setText(sprintf("%s", getprop("/modes/pfd/fma/at-mode")));
 		
+		if ((state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL")) {
+			me["FMA_athr"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["FMA_athr"].setColor(0.1372,0.5372,0.5843);
+		}
+		
 		if (getprop("/modes/pfd/fma/ap-mode-box") == 1) {
 			me["FMA_ap_box"].show();
 		} else {
@@ -214,14 +290,68 @@ var canvas_PFD_1 = {
 			me["FMA_fd_box"].hide();
 		}
 		
-		if (getprop("/modes/pfd/fma/athr-mode-box") == 1) {
+		if (getprop("/modes/pfd/fma/athr-mode-box") == 1 and getprop("/modes/pfd/fma/at-mode") != " ") {
 			me["FMA_athr_box"].show();
 		} else {
 			me["FMA_athr_box"].hide();
 		}
 		
+		# Attitude Indicator
+		me["AI_slipskid"].setTranslation(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid") * -20, 0);
+		me["AI_bank"].setRotation(-roll * D2R);
+		
+		if (fd1 == 1 and !wow1 and !wow2 and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
+			me["FD_roll"].show();
+			me["FD_pitch"].show();
+		} else {
+			me["FD_roll"].hide();
+			me["FD_pitch"].hide();
+		}
+		
+		if (getprop("/it-autoflight/fd/roll-bar") != nil) {
+			me["FD_roll"].setTranslation((getprop("/it-autoflight/fd/roll-bar"))*2.0, 0);
+		}
+		if (getprop("/it-autoflight/fd/pitch-bar") != nil) {
+			me["FD_pitch"].setTranslation(0, -(getprop("/it-autoflight/fd/pitch-bar"))*3.8);
+		}
+		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
+#		me["ALT_tens"].setTranslation(0,getprop("/instrumentation/altimeter/indicated-altitude-ft1") * 1.38); # Needs alot of work
+		
+		# QNH
+		if (getprop("/modes/altimeter/std") == 1) {
+			me["QNH_setting"].setText(sprintf("%s", "STD"));
+		} else if (getprop("/modes/altimeter/inhg") == 0) {
+			me["QNH_setting"].setText(sprintf("%4.0f", getprop("/instrumentation/altimeter/setting-hpa")));
+		} else if (getprop("/modes/altimeter/inhg") == 1) {
+			me["QNH_setting"].setText(sprintf("%2.2f", getprop("/instrumentation/altimeter/setting-inhg")));
+		}
+		
+		# Vertical Speed
+		me["VS_pointer"].setScale(getprop("/instrumentation/pfd/vs-needle2"), 1);
+		me["VS_pointer_g"].setRotation(getprop("/instrumentation/pfd/vs-needle") * D2R);
+		
+		if (getprop("/it-autoflight/internal/vert-speed-fpm-filtered") > 0) {
+			me["VS_pos_mask"].hide();
+			me["VS_neg_mask"].show();
+		} else {
+			me["VS_neg_mask"].hide();
+			me["VS_pos_mask"].show();
+		}
+		
+		# ILS
+		if (getprop("/modes/pfd/ILS1") == 1) {
+			me["LOC_pointer"].show();
+			me["LOC_scale"].show();
+			me["GS_pointer"].show();
+			me["GS_scale"].show();
+		} else {
+			me["LOC_pointer"].hide();
+			me["LOC_scale"].hide();
+			me["GS_pointer"].hide();
+			me["GS_scale"].hide();
+		}
 	},
 };
 

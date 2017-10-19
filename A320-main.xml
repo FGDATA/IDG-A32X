@@ -139,9 +139,9 @@
             <autopilot n="10">
 				<path>Aircraft/IDG-A32X/Systems/lower-ecam.xml</path>
             </autopilot>
-			<property-rule n="100">
+			<autopilot n="11">
 				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
-			</property-rule>
+			</autopilot>
 		</systems>
 
 		<chase-distance-m>-85</chase-distance-m>
@@ -1251,7 +1251,7 @@
 			<file>Aircraft/IDG-A32X/Nasal/MCDU2/STATUS.nas</file>
 		</mcdu2>
 		<canvas_pfd>
-			<file>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD.nas</file>
+			<file>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD1.nas</file>
 		</canvas_pfd>
 		<canvas_nd>
 			<file>Aircraft/IDG-A32X/Models/Instruments/ND/canvas/ND.nas</file>

@@ -6,7 +6,6 @@
 #########################################
 
 var lowerECAM_apu = nil;
-var lowerECAM_eng1 = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
 var lowerECAM_wheel = nil;
@@ -77,48 +76,36 @@ var canvas_lowerECAM_base = {
 			page = getprop("/ECAM/Lower/page");
 			if (page == "apu") {
 				lowerECAM_apu.page.show();
-				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
 				lowerECAM_apu.update();
 			} else if (page == "eng") {
 				lowerECAM_apu.page.hide();
-				if (getprop("/options/EIS2") == 1) {
-					lowerECAM_eng1.page.hide();
-					lowerECAM_eng.page.show();
-					lowerECAM_eng.update();
-				} else {
-					lowerECAM_eng1.page.show();
-					lowerECAM_eng.page.hide();
-					lowerECAM_eng1.update();
-				}
+				lowerECAM_eng.page.show();
+				lowerECAM_eng.update();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
 			} else if (page == "fctl") {
-				lowerECAM_eng1.page.hide();
-				lowerECAM_eng.page.hide();
 				lowerECAM_apu.page.hide();
+				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.show();
 				lowerECAM_wheel.page.hide();
 				lowerECAM_fctl.update();
 			} else if (page == "wheel") {
-				lowerECAM_eng1.page.hide();
-				lowerECAM_eng.page.hide();
 				lowerECAM_apu.page.hide();
+				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.show();
 				lowerECAM_wheel.update();
 			} else {
 				lowerECAM_apu.page.hide();
-				lowerECAM_eng1.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
 			}
 		} else {
 			lowerECAM_apu.page.hide();
-			lowerECAM_eng1.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
 			lowerECAM_wheel.page.hide();
@@ -250,53 +237,6 @@ var canvas_lowerECAM_apu = {
 
 		me.updateBottomStatus();
 	},
-};
-
-var canvas_lowerECAM_eng1 = {
-	new: func(canvas_group, file) {
-		var m = {parents: [canvas_lowerECAM_eng1, canvas_lowerECAM_base]};
-		m.init(canvas_group, file);
-		
-		return m;
-	},
-	getKeys: func() {
-		return ["TAT","SAT","GW","OilQT1-needle","OilQT2-needle","OilQT1","OilQT2","OilQT1-decimal","OilQT2-decimal","OilPSI1-needle","OilPSI2-needle","OilPSI1","OilPSI2"];
-	},
-	update: func() {
-		# Oil Quantity
-		me["OilQT1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/oil-qt-actual"))));
-		me["OilQT2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/oil-qt-actual"))));
-		me["OilQT1-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[0]/oil-qt-actual"),1))));
-		me["OilQT2-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/oil-qt-actual"),1))));
-		
-		me["OilQT1-needle"].setRotation((getprop("/ECAM/Lower/Oil-QT[0]") + 90)*D2R);
-		me["OilQT2-needle"].setRotation((getprop("/ECAM/Lower/Oil-QT[1]") + 90)*D2R);
-		
-		# Oil Pressure
-		if (getprop("/engines/engine[0]/oil-psi-actual") >= 20) {
-			me["OilPSI1"].setColor(0.0667,0.7294,0.3137);
-			me["OilPSI1-needle"].setColorFill(0.0667,0.7294,0.3137);
-		} else {
-			me["OilPSI1"].setColor(1,0,0);
-			me["OilPSI1-needle"].setColorFill(1,0,0);
-		}
-		
-		if (getprop("/engines/engine[1]/oil-psi-actual") >= 20) {
-			me["OilPSI2"].setColor(0.0667,0.7294,0.3137);
-			me["OilPSI2-needle"].setColorFill(0.0667,0.7294,0.3137);
-		} else {
-			me["OilPSI2"].setColor(1,0,0);
-			me["OilPSI2-needle"].setColorFill(1,0,0);
-		}
-		
-		me["OilPSI1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/oil-psi-actual"))));
-		me["OilPSI2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/oil-psi-actual"))));
-		
-		me["OilPSI1-needle"].setRotation((getprop("/ECAM/Lower/Oil-PSI[0]") + 90)*D2R);
-		me["OilPSI2-needle"].setRotation((getprop("/ECAM/Lower/Oil-PSI[1]") + 90)*D2R);
-		
-		me.updateBottomStatus();
-	},     
 };
 
 var canvas_lowerECAM_eng = {
@@ -1079,13 +1019,11 @@ setlistener("sim/signals/fdm-initialized", func {
 	});
 	lowerECAM_display.addPlacement({"node": "lecam.screen"});
 	var groupApu = lowerECAM_display.createGroup();
-	var groupEng1 = lowerECAM_display.createGroup();
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
-	lowerECAM_eng1 = canvas_lowerECAM_eng1.new(groupEng1, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis1.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
