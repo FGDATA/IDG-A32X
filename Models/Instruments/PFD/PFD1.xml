@@ -428,7 +428,7 @@
 				</not-equals>
 				<not-equals>
 					<property>modes/pfd/fma/pitch-mode</property>
-					<value>ROLLOUT</value>
+					<value>ROLL OUT</value>
 				</not-equals>
 				<not-equals>
 					<property>modes/pfd/fma/pitch-mode</property>
@@ -471,7 +471,7 @@
 				</not-equals>
 				<not-equals>
 					<property>modes/pfd/fma/pitch-mode</property>
-					<value>ROLLOUT</value>
+					<value>ROLL OUT</value>
 				</not-equals>
 				<not-equals>
 					<property>modes/pfd/fma/roll-mode</property>
@@ -522,7 +522,7 @@
 				</not-equals>
 				<not-equals>
 					<property>modes/pfd/fma/pitch-mode</property>
-					<value>ROLLOUT</value>
+					<value>ROLL OUT</value>
 				</not-equals>
 			</and>
         </condition>
@@ -564,7 +564,7 @@
 					</equals>
 					<equals>
 						<property>modes/pfd/fma/pitch-mode</property>
-						<value>ROLLOUT</value>
+						<value>ROLL OUT</value>
 					</equals>
 				</or>
 			</and>

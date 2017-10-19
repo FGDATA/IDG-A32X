@@ -233,8 +233,8 @@ setlistener("/it-autoflight/mode/vert", func {
 			setprop("/modes/pfd/fma/pitch-mode", "FLARE");
 		}
 	} else if (vert == "ROLLOUT") {
-		if (newvert != "ROLLOUT") {
-			setprop("/modes/pfd/fma/pitch-mode", "ROLLOUT");
+		if (newvert != "ROLL OUT") {
+			setprop("/modes/pfd/fma/pitch-mode", "ROLL OUT");
 		}
 	} else if (vert == "T/O CLB") {
 		if (newvertarm != "CLB") {
