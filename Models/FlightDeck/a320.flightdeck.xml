@@ -1790,6 +1790,10 @@
 					<property>it-autoflight/output/vert</property>
 					<value>2</value>
 				</not-equals>
+				<not-equals>
+					<property>it-autoflight/output/vert</property>
+					<value>6</value>
+				</not-equals>
 			</and>
 		</condition>
 	</animation>
@@ -1848,6 +1852,10 @@
 				<equals>
 					<property>it-autoflight/output/vert</property>
 					<value>2</value>
+				</equals>
+				<equals>
+					<property>it-autoflight/output/vert</property>
+					<value>6</value>
 				</equals>
 			</or>
 		</condition>
