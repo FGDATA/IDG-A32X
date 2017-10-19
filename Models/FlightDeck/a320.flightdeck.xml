@@ -147,9 +147,13 @@
 					<value>2</value>
 				</not-equals>
 				<equals>
-					<property>/systems/acconfig/mismatch-code</property>
+					<property>systems/acconfig/mismatch-code</property>
 					<value>0x000</value>
 				</equals>
+				<not-equals>
+					<property>options/test-canvas</property>
+					<value>1</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
@@ -165,7 +169,7 @@
 		</offsets>
 		<condition>
 			<not-equals>
-				<property>/systems/acconfig/mismatch-code</property>
+				<property>systems/acconfig/mismatch-code</property>
 				<value>0x000</value>
 			</not-equals>
 		</condition>
@@ -211,6 +215,10 @@
 					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
+				<equals>
+					<property>systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
 			</and>
 		</condition>
 	</model>
@@ -226,7 +234,7 @@
 		</offsets>
 		<condition>
 			<not-equals>
-				<property>/systems/acconfig/mismatch-code</property>
+				<property>systems/acconfig/mismatch-code</property>
 				<value>0x000</value>
 			</not-equals>
 		</condition>
