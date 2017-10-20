@@ -28,6 +28,8 @@ setprop("/engines/engine[0]/oil-psi-actual", 0);
 setprop("/engines/engine[1]/oil-psi-actual", 0);
 setprop("/ECAM/Lower/door-left", 0);
 setprop("/ECAM/Lower/door-right", 0);
+setprop("/ECAM/Lower/door-nose-left", 0);
+setprop("/ECAM/Lower/door-nose-right", 0);
 setprop("/ECAM/Lower/APU-N", 0);
 setprop("/ECAM/Lower/APU-EGT", 0);
 setprop("/ECAM/Lower/Oil-QT[0]", 0);
@@ -683,7 +685,7 @@ var canvas_lowerECAM_wheel = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","leftdoor","rightdoor","autobrk","autobrkind","NWS","altnbrk","normbrk","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
+		return ["TAT","SAT","GW","leftdoor","rightdoor","nosegeardoorL","nosegeardoorR","autobrk","autobrkind","NWS","altnbrk","normbrk","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf",
 		"braketemp1","braketemp2","braketemp3","braketemp4","leftuplock","noseuplock","rightuplock","Triangle-Left1","Triangle-Left2","Triangle-Nose1","Triangle-Nose2","Triangle-Right1","Triangle-Right2"];
 	},
@@ -700,9 +702,11 @@ var canvas_lowerECAM_wheel = {
 		# Gear Doors
 		me["leftdoor"].setRotation(getprop("/ECAM/Lower/door-left")*D2R);
 		me["rightdoor"].setRotation(getprop("/ECAM/Lower/door-right")*D2R);
+		me["nosegeardoorL"].setRotation(getprop("/ECAM/Lower/door-nose-left")*D2R);
+		me["nosegeardoorR"].setRotation(getprop("/ECAM/Lower/door-nose-right")*D2R);
 		
 		# Triangles
-		if ((getprop("controls/gear/gear-down") == 0 and leftgear < 0.2) or (getprop("controls/gear/gear-down") == 1 and leftgear > 0.8)) {
+		if (leftgear < 0.2 or leftgear > 0.8) {
 			me["Triangle-Left1"].hide();
 			me["Triangle-Left2"].hide();
 		} else {
@@ -718,7 +722,7 @@ var canvas_lowerECAM_wheel = {
 			me["Triangle-Left2"].setColor(1,0,0);
 		}
 		
-		if ((getprop("controls/gear/gear-down") == 0 and nosegear < 0.2) or (getprop("controls/gear/gear-down") == 1 and nosegear > 0.8)) {
+		if (nosegear < 0.2 or nosegear > 0.8) {
 			me["Triangle-Nose1"].hide();
 			me["Triangle-Nose2"].hide();
 		} else {
@@ -734,7 +738,7 @@ var canvas_lowerECAM_wheel = {
 			me["Triangle-Nose2"].setColor(1,0,0);
 		}
 		
-		if ((getprop("controls/gear/gear-down") == 0 and rightgear < 0.2) or (getprop("controls/gear/gear-down") == 1 and rightgear > 0.8)) {
+		if (rightgear < 0.2 or rightgear > 0.8) {
 			me["Triangle-Right1"].hide();
 			me["Triangle-Right2"].hide();
 		} else {

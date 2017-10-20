@@ -1981,5 +1981,39 @@
 		</input>
 		<output>/systems/hydraulic/gear/door-nose</output>
 	</filter>
+	
+	<filter>
+		<name>NLG Left Door Conversion to Degrees</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/systems/hydraulic/gear/door-nose</property>
+					<entry><ind>  0</ind><dep>0</dep></entry>
+					<entry><ind>  1</ind><dep>-90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/door-nose-left</output>
+	</filter>
+	
+	<filter>
+		<name>NLG Right Door Conversion to Degrees</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/systems/hydraulic/gear/door-nose</property>
+					<entry><ind>  0</ind><dep>0</dep></entry>
+					<entry><ind>  1</ind><dep>90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/door-nose-right</output>
+	</filter>
 
 </PropertyList>
