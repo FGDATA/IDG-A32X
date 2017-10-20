@@ -55,7 +55,7 @@
 		<output>/controls/engines/engine[1]/throttle-man</output>
 	</filter>
 	
-   <filter>
+	<filter>
 		<name>MAN CMD One</name>
 		<type>gain</type>
 		<gain>1</gain>

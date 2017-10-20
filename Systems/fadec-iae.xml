@@ -55,7 +55,7 @@
 		<output>/controls/engines/engine[1]/throttle-man</output>
 	</filter>
 	
-   <filter>
+	<filter>
 		<name>MAN CMD One</name>
 		<type>gain</type>
 		<gain>1</gain>
@@ -113,7 +113,7 @@
 			<expression>
 				<table>
 					<property>/position/altitude-ft</property> 
-					<entry><ind>    0</ind><dep>0.467</dep></entry>
+					<entry><ind>    0</ind><dep>0.577</dep></entry>
 					<entry><ind>42000</ind><dep>1.076</dep></entry>
 				</table>
 			</expression>
