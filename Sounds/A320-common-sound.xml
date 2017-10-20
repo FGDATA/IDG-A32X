@@ -44,7 +44,8 @@
 			</pitch>
 		</apu>
 	
-		<hyd>
+		<!-- Disabled until proper PTU system implemented, to not annoy people -->
+		<!--hyd>
 			<name>PTU</name>
 			<mode>once</mode>
 			<path>airbus_ptu.wav</path>
@@ -56,7 +57,7 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</hyd>
+		</hyd-->
 		
 		<announcement>
 			<name>PurserSnacks</name>

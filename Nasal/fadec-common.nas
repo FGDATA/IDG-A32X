@@ -70,9 +70,9 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
-				setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
+				setprop("/controls/engines/engine[0]/throttle-fdm", 0.99);
 			} else {
-				setprop("/controls/engines/engine[0]/throttle-fdm", 0.94);
+				setprop("/controls/engines/engine[0]/throttle-fdm", 0.95);
 			}
 			setprop("/systems/thrust/state1", "MCT");
 		} else if (thr1 >= 0.83 and thr1 < 0.95) {
@@ -85,7 +85,7 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
-			setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
+			setprop("/controls/engines/engine[0]/throttle-fdm", 0.99);
 			setprop("/systems/thrust/state1", "TOGA");
 			unflex();
 		}
@@ -105,7 +105,7 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 		} else if (thr1 >= 0.95) {
 			setprop("/systems/thrust/state1", "TOGA");
 		}
-		setprop("/controls/engines/engine[0]/throttle-fdm", 0.97);
+		setprop("/controls/engines/engine[0]/throttle-fdm", 0.99);
 	}
 });
 
@@ -130,9 +130,9 @@ setlistener("/controls/engines/engine[1]/throttle-pos", func {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
-				setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
+				setprop("/controls/engines/engine[1]/throttle-fdm", 0.99);
 			} else {
-				setprop("/controls/engines/engine[1]/throttle-fdm", 0.94);
+				setprop("/controls/engines/engine[1]/throttle-fdm", 0.95);
 			}
 			setprop("/systems/thrust/state2", "MCT");
 		} else if (thr2 >= 0.83 and thr2 < 0.95) {
@@ -145,7 +145,7 @@ setlistener("/controls/engines/engine[1]/throttle-pos", func {
 			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
-			setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
+			setprop("/controls/engines/engine[1]/throttle-fdm", 0.99);
 			setprop("/systems/thrust/state2", "TOGA");
 			unflex();
 		}
@@ -165,7 +165,7 @@ setlistener("/controls/engines/engine[1]/throttle-pos", func {
 		} else if (thr2 >= 0.95) {
 			setprop("/systems/thrust/state2", "TOGA");
 		}
-		setprop("/controls/engines/engine[1]/throttle-fdm", 0.97);
+		setprop("/controls/engines/engine[1]/throttle-fdm", 0.99);
 	}
 });
 
