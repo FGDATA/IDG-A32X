@@ -698,12 +698,35 @@ var canvas_lowerECAM_wheel = {
 		leftgear = getprop("gear/gear[1]/position-norm");
 		rightgear = getprop("gear/gear[2]/position-norm");
 		leftdoor = getprop("/systems/hydraulic/gear/door-left");
+		rightdoor = getprop("/systems/hydraulic/gear/door-right");
+		nosedoor = getprop("/systems/hydraulic/gear/door-nose");
+		
 		
 		# Gear Doors
 		me["leftdoor"].setRotation(getprop("/ECAM/Lower/door-left")*D2R);
 		me["rightdoor"].setRotation(getprop("/ECAM/Lower/door-right")*D2R);
 		me["nosegeardoorL"].setRotation(getprop("/ECAM/Lower/door-nose-left")*D2R);
 		me["nosegeardoorR"].setRotation(getprop("/ECAM/Lower/door-nose-right")*D2R);
+		
+		if (nosedoor == 0) {
+			me["nosegeardoorL"].setColorFill(0.0667,0.7294,0.3137);
+			me["nosegeardoorR"].setColorFill(0.0667,0.7294,0.3137);
+		} else {
+			me["nosegeardoorL"].setColorFill(0.7333,0.3803,0);
+			me["nosegeardoorR"].setColorFill(0.7333,0.3803,0);
+		}
+		
+		if (leftdoor == 0) {
+			me["leftdoor"].setColorFill(0.0667,0.7294,0.3137);
+		} else {
+			me["leftdoor"].setColorFill(0.7333,0.3803,0);
+		}
+		
+		if (rightdoor == 0) {
+			me["rightdoor"].setColorFill(0.0667,0.7294,0.3137);
+		} else {
+			me["rightdoor"].setColorFill(0.7333,0.3803,0);
+		}
 		
 		# Triangles
 		if (leftgear < 0.2 or leftgear > 0.8) {
