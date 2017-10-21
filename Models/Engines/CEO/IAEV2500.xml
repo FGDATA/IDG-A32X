@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+#########################################
+# Copyright (c) it0uchpods Design Group #
+#########################################
+-->
+
+<PropertyList>
+
+	<path>res/IAEV2500.ac</path>
+
+	<model>
+		<name>Contrail left</name>
+		<path>Aircraft/IDG-A32X/Models/Effects/contrail-eng1.xml</path>
+		<overlay>
+			<params>
+				<contrail>engines/engine[0]/contrail</contrail>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>5.137</x-m>
+			<y-m>-5.83844</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Contrail right</name>
+		<path>Aircraft/IDG-A32X/Models/Effects/contrail-eng2.xml</path>
+		<overlay>
+			<params>
+				<contrail>engines/engine[1]/contrail</contrail>
+			</params>
+		</overlay>
+		<offsets>
+			<x-m>5.137</x-m>
+			<y-m>-5.83844</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Engine fire left</name>
+		<path>Aircraft/IDG-A32X/Models/Effects/enginefire.xml</path>
+		<offsets>
+			<x-m>3.316</x-m>
+			<y-m>-5.83844</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<condition>
+			<property>engines/engine[0]/on-fire</property>
+		</condition>
+	</model>
+	
+	<model>
+		<name>Engine fire right</name>
+		<path>Aircraft/IDG-A32X/Models/Effects/enginefire.xml</path>
+		<offsets>
+			<x-m>3.316</x-m>
+			<y-m>-5.83844</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<condition>
+			<property>engines/engine[1]/on-fire</property>
+		</condition>
+	</model>
+
+	<animation>
+		<type>spin</type>
+		<object-name>LCone</object-name>
+		<object-name>LFan</object-name>
+		<factor>67</factor>
+		<property>engines/engine[3]/n1</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>-5.83844</y-m>
+			<z-m>-2.27126</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>spin</type>
+		<object-name>RCone</object-name>
+		<object-name>RFan</object-name>
+		<factor>67</factor>
+		<property>engines/engine[4]/n1</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0.0</x-m>
+			<y-m>5.83844</y-m>
+			<z-m>-2.27126</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>LRev</object-name>
+		<property>sim/multiplay/generic/float[2]</property>
+		<factor>0.50</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>RRev</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<factor>0.50</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

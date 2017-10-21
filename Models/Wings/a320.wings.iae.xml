@@ -18,7 +18,7 @@
 			<z-m>-1.0170087</z-m>
 		</offsets>
 	</model>
-	
+
 	<model>
 		<name>Engine.IAE.Right</name>
 		<path>Aircraft/IDG-A32X/Models/Engines/XMLs/a320.engine.iae.right.xml</path>
@@ -28,6 +28,16 @@
 			<z-m>-1.0170087</z-m>
 		</offsets>
 	</model>
+	
+	<!-- The new engines -->
+	<!--model>
+		<name>Engine.IAE</name>
+		<path>Aircraft/IDG-A32X/Models/Engines/CEO/IAEV2500.xml</path>
+		<offsets>
+			<x-m>-15.280</x-m>
+			<z-m>1.06019</z-m>
+		</offsets>
+	</model-->
 
 	<!-- ANIMATIONS -->
 	<!-- Ailerons -->
@@ -202,6 +212,24 @@
 
 	<!-- Flap fairings -->
 	<animation>
+		<name>Left track fairing 1</name>
+		<type>rotate</type>
+		<object-name>FairingL1</object-name>
+		<object-name>staticDisch5</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>20</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>4.4955971</x-m>
+			<y-m>-4.3464036</y-m>
+			<z-m>-0.1859465</z-m>
+		</center>
+	</animation>
+	<animation>
 		<name>Left track fairing 2</name>
 		<type>rotate</type>
 		<object-name>FairingL2</object-name>
@@ -235,6 +263,24 @@
 			<x-m>6.4871364</x-m>
 			<y-m>-11.3862214</y-m>
 			<z-m>0.6303491</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right track fairing 1</name>
+		<type>rotate</type>
+		<object-name>FairingR1</object-name>
+		<object-name>staticDisch4</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<factor>20</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>4.4955971</x-m>
+			<y-m>4.3464036</y-m>
+			<z-m>-0.1859465</z-m>
 		</center>
 	</animation>
 	<animation>
