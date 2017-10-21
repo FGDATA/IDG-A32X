@@ -144,8 +144,6 @@
 			</autopilot>
 		</systems>
 
-		<chase-distance-m>-85</chase-distance-m>
-
 		<sounde>
 			<seatbelt-sign type="bool">0</seatbelt-sign>
 			<no-smoking-sign type="bool">0</no-smoking-sign>
