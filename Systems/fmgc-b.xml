@@ -177,7 +177,7 @@
 				<product>
 					<table>
 						<property>/instrumentation/altimeter/indicated-altitude-ft</property>
-						<entry><ind>20000</ind><dep>0.585</dep></entry>
+						<entry><ind>20000</ind><dep>0.625</dep></entry>
 						<entry><ind>42000</ind><dep>0.825</dep></entry>
 					</table>
 					<table>
