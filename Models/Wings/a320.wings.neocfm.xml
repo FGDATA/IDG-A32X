@@ -201,6 +201,7 @@
 	</animation>
 
 	<!-- Flap fairings -->
+	<animation>
 		<name>Left track fairing 2</name>
 		<type>rotate</type>
 		<object-name>FairingL2</object-name>
