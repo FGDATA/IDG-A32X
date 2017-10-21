@@ -19,6 +19,13 @@ var autobrakemode = 0;
 var nosegear = 0;
 var leftgear = 0;
 var rightgear = 0;
+var leftdoor = 0;
+var rightdoor = 0;
+var nosedoor = 0;
+var gearlvr = 0;
+var askidsw = 0;
+var brakemode = 0;
+var accum = 0;
 
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
@@ -685,9 +692,9 @@ var canvas_lowerECAM_wheel = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","leftdoor","rightdoor","nosegeardoorL","nosegeardoorR","autobrk","autobrkind","NWS","altnbrk","normbrk","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
-		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf",
-		"braketemp1","braketemp2","braketemp3","braketemp4","leftuplock","noseuplock","rightuplock","Triangle-Left1","Triangle-Left2","Triangle-Nose1","Triangle-Nose2","Triangle-Right1","Triangle-Right2"];
+		return ["TAT","SAT","GW","lgctltext","NORMbrk","NWStext","leftdoor","rightdoor","nosegeardoorL","nosegeardoorR","autobrk","autobrkind","NWS","NWSrect","normbrk-rect","altnbrk","normbrkhyd","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
+		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf","ALTNbrk","altnbrkhyd","altnbrk-rect",
+		"antiskidtext","brakearrow","acuupress_text","accuonlyarrow","accuonly","braketemp1","normbrkhyd","braketemp2","braketemp3","braketemp4","leftuplock","noseuplock","rightuplock","Triangle-Left1","Triangle-Left2","Triangle-Nose1","Triangle-Nose2","Triangle-Right1","Triangle-Right2","BSCUrect1","BSCUrect2","BSCU1","BSCU2"];
 	},
 	update: func() {
 		blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -700,7 +707,99 @@ var canvas_lowerECAM_wheel = {
 		leftdoor = getprop("/systems/hydraulic/gear/door-left");
 		rightdoor = getprop("/systems/hydraulic/gear/door-right");
 		nosedoor = getprop("/systems/hydraulic/gear/door-nose");
+		gearlvr = getprop("/controls/gear/gear-down");
+		askidsw = getprop("/systems/hydraulic/brakes/askidnwssw");
+		brakemode = getprop("/systems/hydraulic/brakes/mode");
+		accum = getprop("/systems/hydraulic/brakes/accumulator-pressure-psi");
 		
+		# L/G CTL
+		if ((leftgear == 0 or nosegear == 0 or rightgear == 0 and gearlvr == 0) or (leftgear == 1 or nosegear == 1 or rightgear == 1 and gearlvr == 1)) {
+			me["lgctltext"].hide();
+		} else {
+			me["lgctltext"].show();
+		}
+		
+		# NWS / Antiskid / Brakes
+		if (askidsw and yellow_psi >= 1500) {
+			me["NWStext"].hide();
+			me["NWS"].hide();
+			me["NWSrect"].hide();
+			me["antiskidtext"].hide();
+			me["BSCUrect1"].hide();
+			me["BSCUrect2"].hide();
+			me["BSCU1"].hide();
+			me["BSCU2"].hide();
+		} else if (!askidsw and yellow_psi >= 1500) {
+			me["NWStext"].show();
+			me["NWS"].show();
+			me["NWS"].setColor(0.0667,0.7294,0.3137);
+			me["NWSrect"].show();
+			me["antiskidtext"].show();
+			me["antiskidtext"].setColor(0.7333,0.3803,0);
+			me["BSCUrect1"].show();
+			me["BSCUrect2"].show();
+			me["BSCU1"].show();
+			me["BSCU2"].show();
+		} else {
+			me["NWStext"].show();
+			me["NWS"].show();
+			me["NWS"].setColor(0.7333,0.3803,0);
+			me["NWSrect"].show();
+			me["antiskidtext"].show();
+			me["antiskidtext"].setColor(0.7333,0.3803,0);
+			me["BSCUrect1"].show();
+			me["BSCUrect2"].show();
+			me["BSCU1"].show();
+			me["BSCU2"].show();
+		}
+		
+		if (green_psi >= 1500 and brakemode == 1) {
+			me["NORMbrk"].hide();
+			me["normbrk-rect"].hide();
+			me["normbrkhyd"].hide();
+		} else if (green_psi >= 1500 and askidsw) {
+			me["NORMbrk"].show();
+			me["normbrk-rect"].show();
+			me["NORMbrk"].setColor(0.7333,0.3803,0);
+			me["normbrkhyd"].setColor(0.0667,0.7294,0.3137);
+		} else if (green_psi < 1500 or !askidsw) {
+			me["NORMbrk"].show();
+			me["normbrk-rect"].show();
+			me["NORMbrk"].setColor(0.7333,0.3803,0);
+			me["normbrkhyd"].setColor(0.7333,0.3803,0);
+		} else if (green
+		
+		if (brakemode != 2) {
+			me["ALTNbrk"].hide();
+			me["altnbrk-rect"].hide();
+			me["altnbrkhyd"].hide();
+		} else if (yellow_psi >= 1500) {
+			me["ALTNbrk"].show();
+			me["altnbrk-rect"].show();
+			me["altnbrkhyd"].setColor(0.0667,0.7294,0.3137);
+		} else {
+			me["ALTNbrk"].show();
+			me["altnbrk-rect"].show();
+			me["altnbrkhyd"].setColor(0.7333,0.3803,0);
+		}
+		
+		if (brakemode == 2 and accum < 200 and yellow_psi < 1500) {
+			me["accupress_text"].show();
+			me["brakearrow"].hide();
+			me["acuupress_text"].setColor(0.7333,0.3803,0);
+		} else if (brakemode == 2 and accum > 200 and yellow_psi >= 1500){
+			me["accupress_text"].show();
+			me["brakearrow"].show();
+			me["acuupress_text"].setColor(0.0667,0.7294,0.3137);
+		} else if (brakemode == 2 and accum > 200 and yellow_psi < 1500) {
+			me["accuonlyarrow"].show();
+			me["accuonly"].show();
+			me["brakearrow"].hide();
+			me["accupress_text"].hide();
+		} else {
+			me["accuonlyarrow"].hide();
+			me["accuonly"].hide();
+		}
 		
 		# Gear Doors
 		me["leftdoor"].setRotation(getprop("/ECAM/Lower/door-left")*D2R);
@@ -1019,21 +1118,6 @@ var canvas_lowerECAM_wheel = {
 			me["spoiler5Rf"].hide();
 		}
 		
-		# Hydraulic Boxes
-		if (getprop("/systems/hydraulic/green-psi") >= 1500) {
-			me["normbrk"].hide();
-		} else {
-			me["normbrk"].setColor(0.7333,0.3803,0);
-		}
-		
-		if (getprop("/systems/hydraulic/yellow-psi") >= 1500) {
-			me["altnbrk"].hide();
-			me["NWS"].hide();
-		} else {
-			me["altnbrk"].setColor(0.7333,0.3803,0);
-			me["NWS"].setColor(0.7333,0.3803,0);
-		}
-		
 		# Hide not yet implemented stuff
 		me["braketemp1"].hide();
 		me["braketemp2"].hide();
@@ -1042,7 +1126,7 @@ var canvas_lowerECAM_wheel = {
 		me["leftuplock"].hide();
 		me["noseuplock"].hide();
 		me["rightuplock"].hide();
-		
+
 		me.updateBottomStatus();
 	},
 };
