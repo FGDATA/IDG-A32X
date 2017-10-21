@@ -37,6 +37,7 @@
 			</preview>
 		</previews>
 
+		<chase-distance-m type="double" archive="y">-95.0</chase-distance-m>
 		<view>
 			<name>Pilot View</name>
 			<internal archive="y">true</internal>
