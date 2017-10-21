@@ -268,13 +268,10 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<and>
-					<not><property>/options/EIS2</property></not>
-					<equals>
-						<property>/options/eng</property>
-						<value>CFM</value>
-					</equals>
-				</and>
+				<equals>
+					<property>/options/eng</property>
+					<value>CFM</value>
+				</equals>
 			</condition>
 			<expression>
 				<table>
@@ -290,7 +287,7 @@
 			<condition>
 				<equals>
 					<property>/options/eng</property>
-					<value>CFM</value>
+					<value>IAE</value>
 				</equals>
 			</condition>
 			<expression>
