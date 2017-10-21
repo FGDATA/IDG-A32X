@@ -939,8 +939,8 @@
 			</binding>
 		</item>
 		<item>
-			<name>passing 10.000ft/FL100</name>
-			<value>ON</value>
+			<name></name>
+			<value>passing 10.000ft/FL100</value>
 			<condition>
 				<greater-than>
 					<property>/position/altitude-ft/</property>
@@ -955,23 +955,23 @@
 				<and>
 					<equals>
 						<property>controls/lighting/landing-lights[1]</property>
-						<value>0</value>
+						<value>0.5</value>
 					</equals>
 					<equals>
 						<property>controls/lighting/landing-lights[2]</property>
-						<value>0</value>
+						<value>0.5</value>
 					</equals>
 				</and>
 			</condition>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[1]</property>
-				 <value>0</value>
+				 <value>0.5</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[2]</property>
-				 <value>0</value>
+				 <value>0.5</value>
 			</binding>
 		</item>
 		<item>
@@ -1010,13 +1010,13 @@
 			<condition>
 				<equals>
 					<property>controls/switches/seatbelt-sign</property>
-					<value>false</value>
+					<value>true</value>
 				</equals>
 			</condition>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/switches/seatbelt-sign</property>
-				<value>false</value>
+				<value>true</value>
 			</binding>
 		</item>
 		<item>
