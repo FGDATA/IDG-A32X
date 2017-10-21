@@ -833,11 +833,29 @@
 			<expression>
 				<table>
 					<product>
-						<value>0.99</value>
-						<property>/engines/flx-throttle</property>
+						<table>
+							<product>
+								<value>0.99</value>
+								<property>/engines/flx-throttle</property>
+							</product>
+							<entry><ind>0.0</ind><dep> 22.4</dep></entry>
+							<entry><ind>1.0</ind><dep>103.8</dep></entry>
+						</table>
+						<table>
+							<table>
+								<product>
+									<value>0.99</value>
+									<property>/engines/flx-throttle</property>
+								</product>
+								<entry><ind>0.0</ind><dep> 22.4</dep></entry>
+								<entry><ind>1.0</ind><dep>103.8</dep></entry>
+							</table>
+							<entry><ind> 22.4</ind><dep> 1</dep></entry>
+							<entry><ind>103.8</ind><dep>50</dep></entry>
+						</table>
 					</product>
-					<entry><ind>0.000</ind><dep>0.03</dep></entry>
-					<entry><ind>1.000</ind><dep>1.00</dep></entry>
+					<entry><ind>  22.4</ind><dep>0.03</dep></entry>
+					<entry><ind>5190.0</ind><dep>1.00</dep></entry>
 				</table>
 			</expression>
 			<scale>/engines/epr-scale</scale>
