@@ -454,7 +454,7 @@ var ManagedSPD = maketimer(0.25, func {
 			mng_alt_mach_cmd = getprop("/FMGC/internal/mng-alt-mach");
 			mng_alt_mach = math.round(mng_alt_mach_cmd, 0.001);
 			
-			if (mode == "SRS" and (phase == 0 or phase == 1)) {
+			if ((mode == " " or mode == "SRS") and (phase == 0 or phase == 1)) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
