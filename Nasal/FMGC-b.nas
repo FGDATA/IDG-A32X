@@ -75,6 +75,8 @@ var APinit = func {
 	setprop("/it-autoflight/input/spd-kts", 100);
 	setprop("/it-autoflight/input/spd-mach", 0.50);
 	setprop("/it-autoflight/custom/show-hdg", 0);
+	setprop("/it-autoflight/internal/heading-error-deg", 0);
+	trkfpa_off();
 	ap_varioust.start();
 	thrustmode();
 }
@@ -165,13 +167,16 @@ var fmabox = func {
 	var fd1 = getprop("/it-autoflight/output/fd1");
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	if (!ap1 and !ap2 and !fd1 and !fd2) {
-		setprop("/it-autoflight/input/trk", 0);
 		setprop("/it-autoflight/input/lat", 3);
-		setprop("/it-autoflight/input/vert", 1);
+		if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
+			setprop("/it-autoflight/input/vert", 1);
+		} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+			setprop("/it-autoflight/input/vert", 5);
+		}
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
-		setprop("/it-autoflight/input/trk", 0);
 		setprop("/it-autoflight/input/vs", int(getprop("/velocities/vertical-speed-fps")*0.6)*100);
+		setprop("/it-autoflight/input/fpa", int(10*getprop("/it-autoflight/internal/fpa"))*0.1);
 		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
 }
@@ -418,29 +423,37 @@ var vertical = func {
 var toggle_trkfpa = func {
 	var trkfpa = getprop("/it-autoflight/custom/trk-fpa");
 	if (trkfpa == 0) {
-		setprop("/it-autoflight/custom/trk-fpa", 1);
-		if (getprop("/it-autoflight/output/vert") == 1) {
-			setprop("/it-autoflight/input/vert", 5);
-		}
-		setprop("/it-autoflight/input/trk", 1);
-		setprop("/instrumentation/efis[0]/mfd/true-north", 1);
-		setprop("/instrumentation/efis[1]/mfd/true-north", 1);
-		var hed = getprop("/it-autoflight/internal/heading-error-deg");
-		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
-			setprop("/it-autoflight/input/lat", 3);
-		}
+		trkfpa_on();
 	} else if (trkfpa == 1) {
-		setprop("/it-autoflight/custom/trk-fpa", 0);
-		if (getprop("/it-autoflight/output/vert") == 5) {
-			setprop("/it-autoflight/input/vert", 1);
-		}
-		setprop("/it-autoflight/input/trk", 0);
-		setprop("/instrumentation/efis[0]/mfd/true-north", 0);
-		setprop("/instrumentation/efis[1]/mfd/true-north", 0);
-		var hed = getprop("/it-autoflight/internal/heading-error-deg");
-		if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
-			setprop("/it-autoflight/input/lat", 3);
-		}
+		trkfpa_off();
+	}
+}
+
+var trkfpa_off = func {
+	setprop("/it-autoflight/custom/trk-fpa", 0);
+	if (getprop("/it-autoflight/output/vert") == 5) {
+		setprop("/it-autoflight/input/vert", 1);
+	}
+	setprop("/it-autoflight/input/trk", 0);
+	setprop("/instrumentation/efis[0]/mfd/true-north", 0);
+	setprop("/instrumentation/efis[1]/mfd/true-north", 0);
+	var hed = getprop("/it-autoflight/internal/heading-error-deg");
+	if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
+		setprop("/it-autoflight/input/lat", 3);
+	}
+}
+
+var trkfpa_on = func {
+	setprop("/it-autoflight/custom/trk-fpa", 1);
+	if (getprop("/it-autoflight/output/vert") == 1) {
+		setprop("/it-autoflight/input/vert", 5);
+	}
+	setprop("/it-autoflight/input/trk", 1);
+	setprop("/instrumentation/efis[0]/mfd/true-north", 1);
+	setprop("/instrumentation/efis[1]/mfd/true-north", 1);
+	var hed = getprop("/it-autoflight/internal/heading-error-deg");
+	if (hed >= -10 and hed <= 10 and getprop("/it-autoflight/output/lat") == 0) {
+		setprop("/it-autoflight/input/lat", 3);
 	}
 }
 

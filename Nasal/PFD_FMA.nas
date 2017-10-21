@@ -110,6 +110,17 @@ var loopFMA = maketimer(0.05, func {
 			}
 		}
 	}
+	
+	var trk = getprop("/it-autoflight/custom/trk-fpa");
+	if (lat == "HDG" and trk == 0) {
+		if (newlat != "HDG") {
+			setprop("/modes/pfd/fma/roll-mode", "HDG");
+		}
+	} else if (lat == "HDG" and trk == 1) {
+		if (newlat != "TRACK") {
+			setprop("/modes/pfd/fma/roll-mode", "TRACK");
+		}
+	}
 });
 
 var loopFMA_b = func {
@@ -125,33 +136,11 @@ var loopFMA_b = func {
 	}
 }
 
-# HDG/TRK
-var hdgmde = func {
-	var lat = getprop("/it-autoflight/mode/lat");
-	var newlat = getprop("/modes/pfd/fma/roll-mode");
-	var trk = getprop("/it-autoflight/custom/trk-fpa");
-	if (lat == "HDG" and trk == 0) {
-		if (newlat != "HDG") {
-			setprop("/modes/pfd/fma/roll-mode", "HDG");
-		}
-	} else if (lat == "HDG" and trk == 1) {
-		if (newlat != "TRACK") {
-			setprop("/modes/pfd/fma/roll-mode", "TRACK");
-		}
-	}
-}
-
-setlistener("/it-autoflight/custom/trk-fpa", func {
-	hdgmde();
-});
-
 # Master Lateral
 setlistener("/it-autoflight/mode/lat", func {
 	var lat = getprop("/it-autoflight/mode/lat");
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
-	if (lat == "HDG") {
-		hdgmde();
-	} else if (lat == "LNAV") {
+	if (lat == "LNAV") {
 		if (newlat != "NAV") {
 			setprop("/modes/pfd/fma/roll-mode", "NAV");
 		}
@@ -441,19 +430,15 @@ var boxchk = func {
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	var fma_pwr = getprop("/it-autoflight/output/fma-pwr");
 	if (ap1 and !ap2 and !fd1 and !fd2 and !fma_pwr) {
-		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and ap2 and !fd1 and !fd2 and !fma_pwr) {
-		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and !ap2 and fd1 and !fd2 and !fma_pwr) {
-		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	} else if (!ap1 and !ap2 and !fd1 and fd2 and !fma_pwr) {
-		setprop("/it-autoflight/custom/trk-fpa", 0);
 		setprop("/it-autoflight/input/lat", 3);
 		boxchk_b();
 	}
