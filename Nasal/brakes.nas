@@ -28,7 +28,7 @@ controls.applyBrakes = func(v, which = 0) {
 	if (getprop("/systems/acconfig/autoconfig-running") != 1) {
 		wow1 = getprop("/gear/gear[1]/wow");
 		wow2 = getprop("/gear/gear[2]/wow");
-		if (getprop("/controls/autobrake/mode") != 0 and (wow1 or wow2)) {
+		if (getprop("/controls/autobrake/mode") != 0 and (wow1 or wow2) and getprop("/controls/autobrake/active") == 1) {
 			arm_autobrake(0);
 		}
 		if (which <= 0) {
@@ -42,6 +42,8 @@ controls.applyBrakes = func(v, which = 0) {
 
 # Set autobrake mode
 var arm_autobrake = func(mode) {
+	wow1 = getprop("/gear/gear[1]/wow");
+	wow2 = getprop("/gear/gear[2]/wow");
 	if (mode == 0) { # OFF
 		absChk.stop();
 		if (getprop("/controls/autobrake/active") == 1) {
@@ -50,13 +52,13 @@ var arm_autobrake = func(mode) {
 			setprop("/controls/gear/brake-right", 0);
 		}
 		setprop("/controls/autobrake/mode", 0);
-	} else if (mode == 1) { # LO
+	} else if (mode == 1 and !wow1 and !wow2) { # LO
 		setprop("/controls/autobrake/mode", 1);
 		absChk.start();
-	} else if (mode == 2) { # MED
+	} else if (mode == 2 and !wow1 and !wow2) { # MED
 		setprop("/controls/autobrake/mode", 2);
 		absChk.start();
-	} else if (mode == 3) { # MAX
+	} else if (mode == 3 and (wow1 or wow2)) { # MAX
 		setprop("/controls/autobrake/mode", 3);
 		absChk.start();
 	}
