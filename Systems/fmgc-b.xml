@@ -159,7 +159,7 @@
 					<table>
 						<property>/FMGC/internal/cost-index</property>
 						<entry><ind>  0</ind><dep>1.00</dep></entry>
-						<entry><ind>120</ind><dep>1.14</dep></entry>
+						<entry><ind>120</ind><dep>1.19</dep></entry>
 					</table>
 				</product>
 			</expression>
