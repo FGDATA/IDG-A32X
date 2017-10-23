@@ -98,7 +98,7 @@ var pneu_init = func {
 	setprop("/systems/pneumatic/pack-psi", 0);	
 	setprop("/systems/pneumatic/pack1", 0);
 	setprop("/systems/pneumatic/pack2", 0);
-	setprop("/systems/pneumatic/startpsir", 0);
+	setprop("/systems/pneumatic/start-psi", 0);
 	setprop("/systems/pneumatic/eng1-starter", 0);
 	setprop("/systems/pneumatic/eng2-starter", 0);
 	setprop("/systems/pneumatic/bleed1-fault", 0);
