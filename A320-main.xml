@@ -10,7 +10,7 @@
 
 	<sim>
 
-		<author>it0uchpods Design Group: Joshua Davidson (it0uchpods), Jonathan Redpath (legoboyvdlp), Charlie Schwehm (Wecsje), J Maverick 16</author>
+		<author>it0uchpods Design Group: Joshua Davidson (it0uchpods), Jonathan Redpath (legoboyvdlp), Charlie Schwehm (Wecsje), J Maverick 16, Thorsten Herrmann (TH-555)</author>
 		
 		<status>Pre V1.0</status>
 		
@@ -561,6 +561,7 @@
 			<cockpit type="bool">0</cockpit>
 			<cones type="bool">true</cones>
 			<dome-norm type="double">0</dome-norm>
+			<fcu-panel-norm type="double">0</fcu-panel-norm>
 			<landing-lights n="0" type="bool">0</landing-lights>
 			<landing-lights n="1" type="double">0</landing-lights>
 			<landing-lights n="2" type="double">0</landing-lights>
@@ -600,6 +601,7 @@
 			<seatbelt-sign type="bool">0</seatbelt-sign>
 			<annun-test>0</annun-test>
 			<windowprobeheat type="double">0.5</windowprobeheat>
+			<qnh-knb>100000</qnh-knb>
 		</switches>
 		<tray n="0">
 			<lefttrayext type="double">0</lefttrayext>

@@ -10,6 +10,13 @@
 
 	<path>MCDU.ac</path>
 	
+	<animation>
+		<type>scale</type>
+		<x-offset>1.12</x-offset>
+		<y-offset>1.12</y-offset>
+		<z-offset>1.12</z-offset>
+	</animation>
+	
 	<model>
 		<name>SCRATCHPAD</name>
 		<path>SCRATCHPAD.xml</path>
