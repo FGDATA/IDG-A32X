@@ -427,8 +427,12 @@
 		<object-name>ap1_led</object-name>
 		<object-name>ap2_led</object-name>
 		<object-name>appr_led</object-name>
+		<object-name>arpt_led</object-name>
+		<object-name>arpt_led.001</object-name>
 		<object-name>a-thr_led</object-name>
 		<object-name>autoland_light_on</object-name>
+		<object-name>cstr_led</object-name>
+		<object-name>cstr_led.001</object-name>
 		<object-name>dec_low_on</object-name>
 		<object-name>dec_med_on</object-name>
 		<object-name>dec_max_on</object-name>
@@ -447,6 +451,8 @@
 		<object-name>mach-text</object-name>
 		<object-name>master_caution_on</object-name>
 		<object-name>master_warning_on</object-name>
+		<object-name>ndb_led</object-name>
+		<object-name>ndb_led.001</object-name>
 		<object-name>ngear_down</object-name>
 		<object-name>ngear_unlk</object-name>
 		<object-name>qnh-hpa</object-name>
@@ -459,8 +465,12 @@
 		<object-name>spd-text</object-name>
 		<object-name>spd-text-test</object-name>
 		<object-name>terr_on_nd_on</object-name>
+		<object-name>vord_led</object-name>
+		<object-name>vord_led.001</object-name>
 		<object-name>vs-text</object-name>
 		<object-name>vs-text-test</object-name>
+		<object-name>wpt_led</object-name>
+		<object-name>wpt_led.001</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -1127,7 +1137,7 @@
 		</axis>
 	</animation>
 	
-	<!-- FCU Left/Right Controls/Lights -->
+	<!-- FCU QNH and PFD Controls/Lights -->
 	<animation>
 		<type>pick</type>
 		<object-name>qnh_cpt_knb</object-name>
@@ -1799,6 +1809,747 @@
 				</equals>
 			</or>
 		</condition>
+	</animation>
+	
+	<!-- FCU ND Controls -->
+	<animation>
+		<type>pick</type>
+		<object-name>cstr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/CSTR</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>cstr_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis/inputs/CSTR</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>cstr.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/CSTR</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>cstr_led.001</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis[1]/inputs/CSTR</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>wpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/wpt</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>wpt_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis/inputs/wpt</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>wpt.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/wpt</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>wpt_led.001</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis[1]/inputs/wpt</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/VORD</property>
+			</binding>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/DME</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>vord_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis/inputs/VORD</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vord.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/VORD</property>
+			</binding>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/DME</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>vord_led.001</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis[1]/inputs/VORD</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/NDB</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ndb_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis/inputs/NDB</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ndb.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/NDB</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ndb_led.001</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis[1]/inputs/NDB</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>arpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis/inputs/arpt</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>arpt_led</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis/inputs/arpt</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>arpt.001</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>instrumentation/efis[1]/inputs/arpt</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>arpt_led.001</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>instrumentation/efis[1]/inputs/arpt</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd_mode</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.mode_inc();</script>
+            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.mode_dec();</script>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>nd_mode</object-name>
+        <property>instrumentation/efis/mfd/pnl_mode-num</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>  0</dep></entry>
+            <entry><ind>1</ind><dep> 45</dep></entry>
+            <entry><ind>2</ind><dep> 90</dep></entry>
+            <entry><ind>3</ind><dep>135</dep></entry>
+            <entry><ind>4</ind><dep>180</dep></entry>
+        </interpolation>
+		<axis>
+			<object-name>nd_mode.axis</object-name>
+		</axis>
+	</animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>nd_mode_fo</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.mode2_inc();</script>
+            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.mode2_dec();</script>
+            </binding>
+		</action>
+    </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>nd_mode_fo</object-name>
+        <property>instrumentation/efis[1]/mfd/pnl_mode-num</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>  0</dep></entry>
+            <entry><ind>1</ind><dep> 45</dep></entry>
+            <entry><ind>2</ind><dep> 90</dep></entry>
+            <entry><ind>3</ind><dep>135</dep></entry>
+            <entry><ind>4</ind><dep>180</dep></entry>
+        </interpolation>
+		<axis>
+			<object-name>nd_mode_fo.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd_range</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.ctl_func("range",1);</script>
+            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.ctl_func("range",-1);</script>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>nd_range</object-name>
+        <property>instrumentation/efis/inputs/range-nm</property>
+		<interpolation>
+			<entry><ind>10</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>45</dep></entry>
+			<entry><ind>40</ind><dep>90</dep></entry>
+			<entry><ind>80</ind><dep>135</dep></entry>
+			<entry><ind>160</ind><dep>180</dep></entry>
+			<entry><ind>320</ind><dep>225</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>nd_range.axis</object-name>
+		</axis>
+	</animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>nd_range_fo</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.ctl2_func("range",1);</script>
+            </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>libraries.ctl2_func("range",-1);</script>
+            </binding>
+		</action>
+    </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>nd_range_fo</object-name>
+        <property>instrumentation/efis[1]/inputs/range-nm</property>
+		<interpolation>
+			<entry><ind>10</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>45</dep></entry>
+			<entry><ind>40</ind><dep>90</dep></entry>
+			<entry><ind>80</ind><dep>135</dep></entry>
+			<entry><ind>160</ind><dep>180</dep></entry>
+			<entry><ind>320</ind><dep>225</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>nd_range_fo.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis/input/vor-adf-1</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis/input/lh-vor-adf</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>-1</value> <!-- ADF -->
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>vor-adf-1</object-name>
+        <property>instrumentation/efis/input/lh-vor-adf</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-25</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 25</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>vor-adf-1.axis</object-name>
+		</axis>
+	</animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>vor-adf-1-right</object-name>
+        <action>
+            <button>0</button>
+            <repeatable type="bool">false</repeatable>
+            <binding>
+                <command>property-cycle</command>
+                <property>instrumentation/efis[1]/input/vor-adf-1</property>
+                <value>0</value> <!-- OFF -->
+                <value>1</value> <!-- VOR -->
+                <value>2</value> <!-- ADF -->
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>instrumentation/efis[1]/input/lh-vor-adf</property>
+                <value>0</value> <!-- OFF -->
+                <value>1</value> <!-- VOR -->
+                <value>-1</value> <!-- ADF -->
+            </binding>
+        </action>
+    </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>vor-adf-1-right</object-name>
+        <property>instrumentation/efis[1]/input/lh-vor-adf</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-25</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 25</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>vor-adf-1-right.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis/input/rh-vor-adf</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>-1</value> <!-- ADF -->
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>vor-adf-2</object-name>
+        <property>instrumentation/efis/input/rh-vor-adf</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-25</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 25</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>vor-adf-2.axis</object-name>
+		</axis>
+	</animation>
+    
+    <animation>
+        <type>pick</type>
+        <object-name>vor-adf-2-right</object-name>
+        <action>
+            <button>0</button>
+            <repeatable type="bool">false</repeatable>
+            <binding>
+                <command>property-cycle</command>
+                <property>instrumentation/efis[1]/input/vor-adf-2</property>
+                <value>0</value> <!-- OFF -->
+                <value>1</value> <!-- VOR -->
+                <value>2</value> <!-- ADF -->
+            </binding>
+            <binding>
+                <command>property-cycle</command>
+                <property>instrumentation/efis[1]/input/rh-vor-adf</property>
+                <value>0</value> <!-- OFF -->
+                <value>1</value> <!-- VOR -->
+                <value>-1</value> <!-- ADF -->
+            </binding>
+        </action>
+    </animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>vor-adf-2-right</object-name>
+        <property>instrumentation/efis[1]/input/rh-vor-adf</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-25</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 25</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>vor-adf-2-right.axis</object-name>
+		</axis>
 	</animation>
 	
 	<!-- FCU AP Controls/Lights -->
@@ -3542,6 +4293,7 @@
 		<object-name>brightness_panel_right_glare</object-name>
 		<object-name>ped_labels_1</object-name>
 		<object-name>ped_labels_2</object-name>
+		<object-name>FLT_111VU_label</object-name>
 		<object-name>flaps_scale</object-name>
 		<object-name>gear_lever_label</object-name>
 		<object-name>flood_lt_main.mark</object-name>
@@ -3561,6 +4313,10 @@
 		<type>material</type>
 		<object-name>fcu_labels</object-name>
 		<object-name>fcu_panel_emit</object-name>
+		<object-name>nd_mode_mark</object-name>
+		<object-name>nd_range_mark</object-name>
+		<object-name>nd_mode_fo_mark</object-name>
+		<object-name>nd_range_fo_mark</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
