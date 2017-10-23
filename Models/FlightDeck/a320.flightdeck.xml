@@ -26,6 +26,10 @@
 	<animation>
 		<type>select</type>
 		<object-name>hud</object-name>
+		<object-name>hud_brt</object-name>
+		<object-name>hud_norm_sw</object-name>
+		<object-name>hud_declutter_btn</object-name>
+		<object-name>fcu_labels_hud</object-name>
 		<condition>
 			<property>options/enable-hud</property>
 		</condition>
@@ -518,6 +522,18 @@
 			<button>0</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>
 					var TrimVal = getprop("/controls/flight/rudder-trim");
@@ -538,6 +554,18 @@
 			<button>1</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>
 					var TrimVal = getprop("/controls/flight/rudder-trim");
@@ -571,6 +599,18 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc2</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
 				<command>nasal</command>
 				<script>
 					setprop("/controls/flight/rudder-trim", 0);
@@ -651,19 +691,19 @@
 			<object-name>ParkBrk.axis</object-name>
 		</axis>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>ParkBrk</object-name>
-        <action>
-            <button>0</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/gear/brake-parking</property>
-            </binding>
-        </action>
-    </animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ParkBrk</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/brake-parking</property>
+			</binding>
+		</action>
+	</animation>
 	
 	<!-- Autobrakes -->
 	<animation>
@@ -1690,9 +1730,9 @@
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
-        <type type="string">text-value</type>
-        <format type="string">STD</format>
-        <property>autopilot/servicable</property>
+		<type type="string">text-value</type>
+		<format type="string">STD</format>
+		<property>autopilot/servicable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1716,9 +1756,9 @@
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
-        <type type="string">text-value</type>
-        <format type="string">STD</format>
-        <property>autopilot/servicable</property>
+		<type type="string">text-value</type>
+		<format type="string">STD</format>
+		<property>autopilot/servicable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1742,9 +1782,9 @@
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
-        <type type="string">text-value</type>
-        <format type="string">88.88</format>
-        <property>autopilot/servicable</property>
+		<type type="string">text-value</type>
+		<format type="string">88.88</format>
+		<property>autopilot/servicable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1768,9 +1808,9 @@
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
-        <type type="string">text-value</type>
-        <format type="string">88.88</format>
-        <property>autopilot/servicable</property>
+		<type type="string">text-value</type>
+		<format type="string">88.88</format>
+		<property>autopilot/servicable</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -1842,7 +1882,7 @@
 		</condition>
 	</animation>
 	
-    <animation>
+	<animation>
 		<type>pick</type>
 		<object-name>fd1</object-name>
 		<action>
@@ -1865,7 +1905,7 @@
 				<property>it-autoflight/input/fd1</property>
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>fd1_led</object-name>
@@ -1883,7 +1923,7 @@
 		</condition>
 	</animation>
 	
-    <animation>
+	<animation>
 		<type>pick</type>
 		<object-name>ils</object-name>
 		<action>
@@ -1924,7 +1964,7 @@
 		</condition>
 	</animation>
 	
-    <animation>
+	<animation>
 		<type>pick</type>
 		<object-name>ils2</object-name>
 		<action>
@@ -1965,7 +2005,7 @@
 		</condition>
 	</animation>
 	
-    <animation>
+	<animation>
 		<type>pick</type>
 		<object-name>fd2</object-name>
 		<action>
@@ -1988,7 +2028,7 @@
 				<property>it-autoflight/input/fd2</property>
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>fd2_led</object-name>
@@ -2494,70 +2534,70 @@
 			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.mode_inc();</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.mode_inc();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.mode_dec();</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.mode_dec();</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>nd_mode</object-name>
-        <property>instrumentation/efis/mfd/pnl_mode-num</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>  0</dep></entry>
-            <entry><ind>1</ind><dep> 45</dep></entry>
-            <entry><ind>2</ind><dep> 90</dep></entry>
-            <entry><ind>3</ind><dep>135</dep></entry>
-            <entry><ind>4</ind><dep>180</dep></entry>
-        </interpolation>
+		<property>instrumentation/efis/mfd/pnl_mode-num</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep> 45</dep></entry>
+			<entry><ind>2</ind><dep> 90</dep></entry>
+			<entry><ind>3</ind><dep>135</dep></entry>
+			<entry><ind>4</ind><dep>180</dep></entry>
+		</interpolation>
 		<axis>
 			<object-name>nd_mode.axis</object-name>
 		</axis>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>nd_mode_fo</object-name>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd_mode_fo</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.mode2_inc();</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.mode2_inc();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.mode2_dec();</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.mode2_dec();</script>
+			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>nd_mode_fo</object-name>
-        <property>instrumentation/efis[1]/mfd/pnl_mode-num</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>  0</dep></entry>
-            <entry><ind>1</ind><dep> 45</dep></entry>
-            <entry><ind>2</ind><dep> 90</dep></entry>
-            <entry><ind>3</ind><dep>135</dep></entry>
-            <entry><ind>4</ind><dep>180</dep></entry>
-        </interpolation>
+		<property>instrumentation/efis[1]/mfd/pnl_mode-num</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep> 45</dep></entry>
+			<entry><ind>2</ind><dep> 90</dep></entry>
+			<entry><ind>3</ind><dep>135</dep></entry>
+			<entry><ind>4</ind><dep>180</dep></entry>
+		</interpolation>
 		<axis>
 			<object-name>nd_mode_fo.axis</object-name>
 		</axis>
@@ -2570,25 +2610,25 @@
 			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.ctl_func("range",1);</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.ctl_func("range",1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.ctl_func("range",-1);</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.ctl_func("range",-1);</script>
+			</binding>
 		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>nd_range</object-name>
-        <property>instrumentation/efis/inputs/range-nm</property>
+		<property>instrumentation/efis/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -2601,33 +2641,33 @@
 			<object-name>nd_range.axis</object-name>
 		</axis>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>nd_range_fo</object-name>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd_range_fo</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.ctl2_func("range",1);</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.ctl2_func("range",1);</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
-            <binding>
-                <command>nasal</command>
-                <script>libraries.ctl2_func("range",-1);</script>
-            </binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.ctl2_func("range",-1);</script>
+			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>nd_range_fo</object-name>
-        <property>instrumentation/efis[1]/inputs/range-nm</property>
+		<property>instrumentation/efis[1]/inputs/range-nm</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -2684,7 +2724,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>vor-adf-1</object-name>
-        <property>instrumentation/efis/input/lh-vor-adf</property>
+		<property>instrumentation/efis/input/lh-vor-adf</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-25</dep></entry>
 			<entry><ind> 0</ind><dep>  0</dep></entry>
@@ -2694,28 +2734,28 @@
 			<object-name>vor-adf-1.axis</object-name>
 		</axis>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>vor-adf-1-right</object-name>
-        <action>
-            <button>0</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>instrumentation/efis[1]/input/vor-adf-1</property>
-                <value>0</value> <!-- OFF -->
-                <value>1</value> <!-- VOR -->
-                <value>2</value> <!-- ADF -->
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>instrumentation/efis[1]/input/lh-vor-adf</property>
-                <value>0</value> <!-- OFF -->
-                <value>1</value> <!-- VOR -->
-                <value>-1</value> <!-- ADF -->
-            </binding>
-        </action>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-1-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis[1]/input/vor-adf-1</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis[1]/input/lh-vor-adf</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>-1</value> <!-- ADF -->
+			</binding>
+		</action>
 		<action>
 			<button>1</button>
 			<repeatable type="bool">false</repeatable>
@@ -2734,11 +2774,11 @@
 				<value>0</value> <!-- OFF -->
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>vor-adf-1-right</object-name>
-        <property>instrumentation/efis[1]/input/lh-vor-adf</property>
+		<property>instrumentation/efis[1]/input/lh-vor-adf</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-25</dep></entry>
 			<entry><ind> 0</ind><dep>  0</dep></entry>
@@ -2792,7 +2832,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>vor-adf-2</object-name>
-        <property>instrumentation/efis/input/rh-vor-adf</property>
+		<property>instrumentation/efis/input/rh-vor-adf</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-25</dep></entry>
 			<entry><ind> 0</ind><dep>  0</dep></entry>
@@ -2802,28 +2842,28 @@
 			<object-name>vor-adf-2.axis</object-name>
 		</axis>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>vor-adf-2-right</object-name>
-        <action>
-            <button>0</button>
-            <repeatable type="bool">false</repeatable>
-            <binding>
-                <command>property-cycle</command>
-                <property>instrumentation/efis[1]/input/vor-adf-2</property>
-                <value>0</value> <!-- OFF -->
-                <value>1</value> <!-- VOR -->
-                <value>2</value> <!-- ADF -->
-            </binding>
-            <binding>
-                <command>property-cycle</command>
-                <property>instrumentation/efis[1]/input/rh-vor-adf</property>
-                <value>0</value> <!-- OFF -->
-                <value>1</value> <!-- VOR -->
-                <value>-1</value> <!-- ADF -->
-            </binding>
-        </action>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-2-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis[1]/input/vor-adf-2</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/efis[1]/input/rh-vor-adf</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>-1</value> <!-- ADF -->
+			</binding>
+		</action>
 		<action>
 			<button>1</button>
 			<repeatable type="bool">false</repeatable>
@@ -2842,11 +2882,11 @@
 				<value>0</value> <!-- OFF -->
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>vor-adf-2-right</object-name>
-        <property>instrumentation/efis[1]/input/rh-vor-adf</property>
+		<property>instrumentation/efis[1]/input/rh-vor-adf</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-25</dep></entry>
 			<entry><ind> 0</ind><dep>  0</dep></entry>
@@ -2944,11 +2984,11 @@
 			</equals>
 		</condition>
 	</animation>
-    
-    <animation>
-        <type>select</type>
-        <object-name>spd.dash</object-name>
-        <condition>
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd.dash</object-name>
+		<condition>
 			<and>
 				<not-equals>
 					<property>controls/switches/annun-test</property>
@@ -2959,8 +2999,8 @@
 					<value>1</value>
 				</equals>
 			</and>
-        </condition>
-    </animation>
+		</condition>
+	</animation>
 	
 	<animation>
 		<type>select</type>
@@ -3031,11 +3071,11 @@
 			</or>
 		</condition>
 	</animation>
-    
-    <animation>
-        <type>select</type>
-        <object-name>lat.dash</object-name>
-        <condition>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lat.dash</object-name>
+		<condition>
 			<and>
 				<not-equals>
 					<property>controls/switches/annun-test</property>
@@ -3050,8 +3090,8 @@
 					<value>0</value>
 				</equals>
 			</and>
-        </condition>
-    </animation>
+		</condition>
+	</animation>
 	
 	<animation>
 		<type>select</type>
@@ -3102,7 +3142,7 @@
 		<type>select</type>
 		<object-name>vs.ind</object-name>
 		<object-name>vs.ind.001</object-name>
-        <condition>
+		<condition>
 			<or>
 				<equals>
 					<property>controls/switches/annun-test</property>
@@ -3113,14 +3153,14 @@
 					<value>0</value>
 				</equals>
 			</or>
-        </condition>
+		</condition>
 	</animation>
 	
 	<animation>
 		<type>select</type>
 		<object-name>fpa.ind</object-name>
 		<object-name>fpa.ind.001</object-name>
-        <condition>
+		<condition>
 			<or>
 				<equals>
 					<property>controls/switches/annun-test</property>
@@ -3131,7 +3171,7 @@
 					<value>1</value>
 				</equals>
 			</or>
-        </condition>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -3168,9 +3208,9 @@
 		</condition>
 	</animation>
 	
-    <animation>
-        <type>select</type>
-        <object-name>vs.dash</object-name>
+	<animation>
+		<type>select</type>
+		<object-name>vs.dash</object-name>
 		<condition>
 			<and>
 				<not-equals>
@@ -3187,7 +3227,7 @@
 				</not-equals>
 			</and>
 		</condition>
-    </animation>
+	</animation>
 	
 	<text>
 		<name>spd-text</name>
@@ -3521,9 +3561,9 @@
 		</action>
 	</animation>
 	
-    <animation>
-        <type>pick</type>
-        <object-name>spd-sel</object-name>
+	<animation>
+		<type>pick</type>
+		<object-name>spd-sel</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>true</repeatable>
@@ -3653,10 +3693,10 @@
 			</binding>
 		</action>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>hdg-sel</object-name>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>hdg-sel</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -3753,7 +3793,7 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	
 	<animation>
 		<type>pick</type>
@@ -3927,9 +3967,9 @@
 		</condition>
 	</animation>
 	
-    <animation>
-        <type>pick</type>
-        <object-name>alt-sel</object-name>
+	<animation>
+		<type>pick</type>
+		<object-name>alt-sel</object-name>
 		<!--action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -4033,7 +4073,7 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	
 	<animation>
 		<type>pick</type>
@@ -4053,10 +4093,10 @@
 			</binding>
 		</action>
 	</animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>vs-sel</object-name>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vs-sel</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -4219,7 +4259,7 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
-    </animation>
+	</animation>
 	
 	<animation>
 		<type>pick</type>
@@ -4310,6 +4350,119 @@
 		</center>
 		<axis>
 			<object-name>FlapsLever.axis</object-name>
+		</axis>
+	</animation>
+	
+	<!-- Foot Rest -->
+	<animation>
+		<name>Footrest captain pick</name>
+		<type>pick</type>
+		<object-name>footrest_cpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.l1Pedal();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Footrest captain rotate</name>
+		<type>rotate</type>
+		<object-name>footrest_cpt</object-name>
+		<property>controls/footrest-cpt[0]</property>
+		<factor>1</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>50</dep></entry>
+		</interpolation>
+		<axis>
+         <object-name>footrest_cpt.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>Footrest captain pick 2</name>
+		<type>pick</type>
+		<object-name>footrest_cpt2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.l2Pedal();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Footrest captain rotate 2</name>
+		<type>rotate</type>
+		<object-name>footrest_cpt2</object-name>
+		<property>controls/footrest-cpt[1]</property>
+		<factor>1</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>50</dep></entry>
+		</interpolation>
+		<axis>
+         <object-name>footrest_cpt.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Footrest first officer pick</name>
+		<type>pick</type>
+		<object-name>footrest_fo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.r1Pedal();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Footrest captain rotate</name>
+		<type>rotate</type>
+		<object-name>footrest_fo</object-name>
+		<property>controls/footrest-fo[0]</property>
+		<factor>1</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-50</dep></entry>
+		</interpolation>
+		<axis>
+         <object-name>footrest_fo.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>Footrest first officer pick 2</name>
+		<type>pick</type>
+		<object-name>footrest_fo2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.r2Pedal();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Footrest captain rotate 2</name>
+		<type>rotate</type>
+		<object-name>footrest_fo2</object-name>
+		<property>controls/footrest-fo[1]</property>
+		<factor>1</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-50</dep></entry>
+		</interpolation>
+		<axis>
+         <object-name>footrest_fo.axis</object-name>
 		</axis>
 	</animation>
 	
@@ -4617,11 +4770,13 @@
 		<name>FCU Panel lighting</name>
 		<type>material</type>
 		<object-name>fcu_labels</object-name>
+		<object-name>fcu_labels_hud</object-name>
 		<object-name>fcu_panel_emit</object-name>
 		<object-name>nd_mode_mark</object-name>
 		<object-name>nd_range_mark</object-name>
 		<object-name>nd_mode_fo_mark</object-name>
 		<object-name>nd_range_fo_mark</object-name>
+		<object-name>hud_brt_mark</object-name>
 		<emission>
 			<red>1</red>
 			<green>0.725</green>
@@ -4692,6 +4847,69 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	
+	<!-- Rudder Pedals -->
+	<animation>
+		<type>translate</type>
+		<object-name>RRudderPedalL</object-name>
+		<object-name>RRudderPedalR</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>0.07</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>LRudderPedalL</object-name>
+		<object-name>LRudderPedalR</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-0.07</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LRudderPedalL</object-name>
+		<object-name>LRudderPedalR</object-name>
+		<property>controls/gear/brake-left</property>
+		<factor>15</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.62027</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.42417</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>RRudderPedalL</object-name>
+		<object-name>RRudderPedalR</object-name>
+		<property>controls/gear/brake-right</property>
+		<factor>15</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.62027</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.42417</z-m>
+		</center>
 	</animation>
 	
 	<!-- Spoiler Lever -->
@@ -4830,6 +5048,193 @@
 			</axis>
 		</transform>
 	</animation>
+	
+	<!-- Sidestick Left -->
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>-5</factor>
+		<axis>
+			<object-name>sidestick_1.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>5</factor>
+		<axis>
+			<object-name>sidestick_1.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>-4</factor>
+		<axis>
+			<object-name>sidestick_1.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>4</factor>
+		<axis>
+			<object-name>sidestick_1.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<object-name>level2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>-3</factor>
+		<axis>
+			<object-name>sidestick_1.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<object-name>level2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>3</factor>
+		<axis>
+			<object-name>sidestick_1.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<object-name>level2</object-name>
+		<object-name>level1</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>-2</factor>
+		<axis>
+			<object-name>sidestick_1.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_1</object-name>
+		<object-name>level3</object-name>
+		<object-name>level2</object-name>
+		<object-name>level1</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>2</factor>
+		<axis>
+			<object-name>sidestick_1.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<!-- Sidestick Right -->
+
+	<!--animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>5</factor>
+		<axis>
+			<object-name>sidestick_2.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>5</factor>
+		<axis>
+			<object-name>sidestick_2.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>4</factor>
+		<axis>
+			<object-name>sidestick_2.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>4</factor>
+		<axis>
+			<object-name>sidestick_2.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<object-name>level2_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>3</factor>
+		<axis>
+			<object-name>sidestick_2.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<object-name>level2_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>3</factor>
+		<axis>
+			<object-name>sidestick_2.x.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<object-name>level2_2</object-name>
+		<object-name>level1_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>2</factor>
+		<axis>
+			<object-name>sidestick_2.y.axis</object-name>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestick_2</object-name>
+		<object-name>level3_2</object-name>
+		<object-name>level2_2</object-name>
+		<object-name>level1_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>2</factor>
+		<axis>
+			<object-name>sidestick_2.x.axis</object-name>
+		</axis>
+	</animation-->
 	
 	<!-- Throttles -->
 	<animation>
@@ -5061,6 +5466,67 @@
 		</center>
 	</animation>
 	
+	<!-- Tiller -->
+	<animation>
+		<type>pick</type>
+		<object-name>tiller</object-name>
+		<object-name>tillerFo</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var a = getprop("/controls/flight/rudder");
+					a += 0.1;
+					if (a > 1) a = 1;
+					setprop("/controls/flight/rudder", a);
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var a = getprop("/controls/flight/rudder");
+					a -= 0.1;
+					if (abs(a) > 1) a = -1;
+					setprop("/controls/flight/rudder", a);
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/flight/rudder", 0);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>tiller</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-70</factor>
+		<axis>
+			<object-name>tiller.axis</object-name>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>tillerFo</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-70</factor>
+		<axis>
+			<object-name>tillerFo.axis</object-name>
+		</axis>
+	</animation>
+	
 	<!-- Z Colors -->
 	<animation>
 		<type>material</type>
@@ -5076,8 +5542,8 @@
 		<object-name>fpa-text</object-name>
 		<object-name>qnh-inhg</object-name>
 		<object-name>qnh-hpa</object-name>
-        <object-name>qnh-std</object-name>
-        <object-name>qnh-test</object-name>
+		<object-name>qnh-std</object-name>
+		<object-name>qnh-test</object-name>
 		<object-name>rudder-trim</object-name>
 		<object-name>rudder-trim-test</object-name>
 		<diffuse>

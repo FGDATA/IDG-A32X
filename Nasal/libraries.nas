@@ -454,5 +454,40 @@ var rTray = func {
 	}
 }
 
+var l1Pedal = func {
+	var lPedalCMD = getprop("/controls/footrest-cpt[0]");
+	if (lPedalCMD < 1.0) {
+		interpolate("/controls/footrest-cpt[0]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-cpt[0]", 0.0, 0.5);
+	}
+}
+
+var l2Pedal = func {
+	var l2PedalCMD = getprop("/controls/footrest-cpt[1]");
+	if (l2PedalCMD < 1.0) {
+		interpolate("/controls/footrest-cpt[1]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-cpt[1]", 0.0, 0.5);
+	}
+}
+
+var r1Pedal = func {
+	var rPedalCMD = getprop("/controls/footrest-fo[0]");
+	if (rPedalCMD < 1.0) {
+		interpolate("/controls/footrest-fo[0]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-fo[0]", 0.0, 0.5);
+	}
+}
+
+var r2Pedal = func {
+	var r2PedalCMD = getprop("/controls/footrest-fo[1]");
+	if (r2PedalCMD < 1.0) {
+		interpolate("/controls/footrest-fo[1]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-fo[1]", 0.0, 0.5);
+	}
+}
 
 setprop("/systems/acconfig/libraries-loaded", 1);

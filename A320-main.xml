@@ -444,6 +444,10 @@
 	</FMGC>
 	
 	<controls>
+		<footrest-cpt n="0" type="double">0</footrest-cpt>
+		<footrest-cpt n="1" type="double">0</footrest-cpt>
+		<footrest-fo n="0" type="double">0</footrest-fo>
+		<footrest-fo n="1" type="double">0</footrest-fo>
 		<adirs n="0">
 			<adr n="0">
 				<fault type="bool">false</fault>
