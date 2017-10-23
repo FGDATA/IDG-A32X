@@ -16,6 +16,24 @@
 		<seconds>2.0</seconds>
 		<filter-gain>0.0</filter-gain>
 	</predict-simple>
+	
+	<filter>
+		<name>Rudder Trim</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/controls/flight/rudder-trim</property>
+					<entry><ind>-1</ind><dep>-10.0</dep></entry>
+					<entry><ind> 0</ind><dep>  0.0</dep></entry>
+					<entry><ind> 1</ind><dep> 10.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/flight/rudder-trim-deg</output>
+	</filter>
 
 	<filter>
 		<name>OAT Thrust Scale</name>
