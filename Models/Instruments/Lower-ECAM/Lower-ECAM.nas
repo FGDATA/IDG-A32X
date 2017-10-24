@@ -694,7 +694,7 @@ var canvas_lowerECAM_wheel = {
 	getKeys: func() {
 		return ["TAT","SAT","GW","lgctltext","NORMbrk","NWStext","leftdoor","rightdoor","nosegeardoorL","nosegeardoorR","autobrk","autobrkind","NWS","NWSrect","normbrk-rect","altnbrk","normbrkhyd","spoiler1Rex","spoiler1Rrt","spoiler2Rex","spoiler2Rrt","spoiler3Rex","spoiler3Rrt","spoiler4Rex","spoiler4Rrt","spoiler5Rex","spoiler5Rrt","spoiler1Lex","spoiler1Lrt",
 		"spoiler2Lex","spoiler2Lrt","spoiler3Lex","spoiler3Lrt","spoiler4Lex","spoiler4Lrt","spoiler5Lex","spoiler5Lrt","spoiler1Rf","spoiler2Rf","spoiler3Rf","spoiler4Rf","spoiler5Rf","spoiler1Lf","spoiler2Lf","spoiler3Lf","spoiler4Lf","spoiler5Lf","ALTNbrk","altnbrkhyd","altnbrk-rect",
-		"antiskidtext","brakearrow","acuupress_text","accuonlyarrow","accuonly","braketemp1","normbrkhyd","braketemp2","braketemp3","braketemp4","leftuplock","noseuplock","rightuplock","Triangle-Left1","Triangle-Left2","Triangle-Nose1","Triangle-Nose2","Triangle-Right1","Triangle-Right2","BSCUrect1","BSCUrect2","BSCU1","BSCU2"];
+		"antiskidtext","brakearrow","accupress_text","accuonlyarrow","accuonly","braketemp1","normbrkhyd","braketemp2","braketemp3","braketemp4","leftuplock","noseuplock","rightuplock","Triangle-Left1","Triangle-Left2","Triangle-Nose1","Triangle-Nose2","Triangle-Right1","Triangle-Right2","BSCUrect1","BSCUrect2","BSCU1","BSCU2"];
 	},
 	update: func() {
 		blue_psi = getprop("/systems/hydraulic/blue-psi");
@@ -786,11 +786,11 @@ var canvas_lowerECAM_wheel = {
 		if (brakemode == 2 and accum < 200 and yellow_psi < 1500) {
 			me["accupress_text"].show();
 			me["brakearrow"].hide();
-			me["acuupress_text"].setColor(0.7333,0.3803,0);
+			me["accupress_text"].setColor(0.7333,0.3803,0);
 		} else if (brakemode == 2 and accum > 200 and yellow_psi >= 1500){
 			me["accupress_text"].show();
 			me["brakearrow"].show();
-			me["acuupress_text"].setColor(0.0667,0.7294,0.3137);
+			me["accupress_text"].setColor(0.0667,0.7294,0.3137);
 		} else if (brakemode == 2 and accum > 200 and yellow_psi < 1500) {
 			me["accuonlyarrow"].show();
 			me["accuonly"].show();
@@ -799,6 +799,8 @@ var canvas_lowerECAM_wheel = {
 		} else {
 			me["accuonlyarrow"].hide();
 			me["accuonly"].hide();
+			me["brakearrow"].hide();
+			me["accupress_text"].hide();
 		}
 		
 		# Gear Doors
