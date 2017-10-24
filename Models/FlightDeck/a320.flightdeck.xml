@@ -34,6 +34,18 @@
 			<property>options/enable-hud</property>
 		</condition>
 	</animation>
+	
+	<!-- WIP ;) -->
+	<!--model>
+		<path>Aircraft/IDG-A32X/Models/Tablet/Tablet.xml</path>
+		<offsets>
+			<x-m>-0.12365</x-m>
+			<y-m>-0.9312</y-m>
+			<z-m>0.37025</z-m>
+			<heading-deg>57.5</heading-deg>
+			<pitch-deg>-20</pitch-deg>
+		</offsets>
+	</model-->
 
 	<!-- Overhead Panel -->
 	<!-- New OH not ready yet -->
