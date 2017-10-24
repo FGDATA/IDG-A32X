@@ -5236,6 +5236,67 @@
 		</axis>
 	</animation-->
 	
+	<!-- Tiller -->
+	<animation>
+		<type>pick</type>
+		<object-name>tiller</object-name>
+		<object-name>tillerFo</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var a = getprop("/controls/flight/rudder");
+					a += 0.1;
+					if (a > 1) a = 1;
+					setprop("/controls/flight/rudder", a);
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var a = getprop("/controls/flight/rudder");
+					a -= 0.1;
+					if (abs(a) > 1) a = -1;
+					setprop("/controls/flight/rudder", a);
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/flight/rudder", 0);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>tiller</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-70</factor>
+		<axis>
+			<object-name>tiller.axis</object-name>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>tillerFo</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-70</factor>
+		<axis>
+			<object-name>tillerFo.axis</object-name>
+		</axis>
+	</animation>
+	
 	<!-- Throttles -->
 	<animation>
 		<name>Engine 1 throttle lever pick</name>
@@ -5431,7 +5492,7 @@
 	</animation>
 	
 	<animation>
-	<name>Reverse Thrust left lever</name>
+		<name>Reverse Thrust left lever</name>
 		<type>rotate</type>
 		<object-name>rev_l</object-name>
 		<property>controls/engines/engine[0]/reverser</property>
@@ -5449,7 +5510,7 @@
 	</animation>
 
 	<animation>
-	<name>Reverse Thrust right lever</name>
+		<name>Reverse Thrust right lever</name>
 		<type>rotate</type>
 		<object-name>rev_r</object-name>
 		<property>controls/engines/engine[1]/reverser</property>
@@ -5466,66 +5527,128 @@
 		</center>
 	</animation>
 	
-	<!-- Tiller -->
+	<!-- Tray Tables -->
 	<animation>
-		<type>pick</type>
-		<object-name>tiller</object-name>
-		<object-name>tillerFo</object-name>
-		<action>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					var a = getprop("/controls/flight/rudder");
-					a += 0.1;
-					if (a > 1) a = 1;
-					setprop("/controls/flight/rudder", a);
-				</script>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					var a = getprop("/controls/flight/rudder");
-					a -= 0.1;
-					if (abs(a) > 1) a = -1;
-					setprop("/controls/flight/rudder", a);
-				</script>
-			</binding>
-		</action>
-		<action>
+		<type>translate</type>
+		<object-name>tray0-cpt</object-name>
+		<object-name>tray1-cpt</object-name>
+		<object-name>tray2-cpt</object-name>
+		<property>controls/tray/lefttrayext</property>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 0.000</dep></entry>
+			<entry><ind>0.48</ind><dep>-0.280</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.49367</x1-m>
+			<y1-m>-0.52934</y1-m>
+			<z1-m>0.06222</z1-m>
+			<x2-m>-0.85483</x2-m>
+			<y2-m>-0.52934</y2-m>
+			<z2-m>-0.04488</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray1-cpt</object-name>
+		<object-name>tray2-cpt</object-name>
+		<property>controls/tray/lefttrayext</property>
+		<interpolation>
+			<entry><ind>0.47</ind><dep> 0</dep></entry>
+			<entry><ind>0.50</ind><dep>18</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>tray1-cpt.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray2-cpt</object-name>
+		<property>controls/tray/lefttrayext</property>
+		<interpolation>
+			<entry><ind>0.50</ind><dep>  0</dep></entry>
+			<entry><ind>1.00</ind><dep>180</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>tray2-cpt.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>tray0-fo</object-name>
+		<object-name>tray1-fo</object-name>
+		<object-name>tray2-fo</object-name>
+		<property>controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 0.000</dep></entry>
+			<entry><ind>0.48</ind><dep>-0.280</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.49367</x1-m>
+			<y1-m>-0.52934</y1-m>
+			<z1-m>0.06222</z1-m>
+			<x2-m>-0.85483</x2-m>
+			<y2-m>-0.52934</y2-m>
+			<z2-m>-0.04488</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray1-fo</object-name>
+		<object-name>tray2-fo</object-name>
+		<property>controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0.47</ind><dep> 0</dep></entry>
+			<entry><ind>0.50</ind><dep>18</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>tray1-fo.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>tray2-fo</object-name>
+		<property>controls/tray/righttrayext</property>
+		<interpolation>
+			<entry><ind>0.50</ind><dep>   0</dep></entry>
+			<entry><ind>1.00</ind><dep>-180</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>tray2-fo.axis</object-name>
+		</axis>
+	</animation>
+	
+	 <animation>
+        <type>pick</type>
+		<object-name>tray0-cpt</object-name>
+		<object-name>tray1-cpt</object-name>
+		<object-name>tray2-cpt</object-name>
+        <action>
 			<button>0</button>
-			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>
-					setprop("/controls/flight/rudder", 0);
-				</script>
+				<script>libraries.lTray();</script>
 			</binding>
 		</action>
-	</animation>
+    </animation>
+	
 	<animation>
-		<type>rotate</type>
-		<object-name>tiller</object-name>
-		<property>controls/flight/rudder</property>
-		<factor>-70</factor>
-		<axis>
-			<object-name>tiller.axis</object-name>
-		</axis>
-	</animation>
-	<animation>
-		<type>rotate</type>
-		<object-name>tillerFo</object-name>
-		<property>controls/flight/rudder</property>
-		<factor>-70</factor>
-		<axis>
-			<object-name>tillerFo.axis</object-name>
-		</axis>
-	</animation>
+        <type>pick</type>
+		<object-name>tray0-fo</object-name>
+		<object-name>tray1-fo</object-name>
+		<object-name>tray2-fo</object-name>
+        <action>
+			<button>0</button>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.rTray();</script>
+			</binding>
+		</action>
+    </animation>
 	
 	<!-- Z Colors -->
 	<animation>
