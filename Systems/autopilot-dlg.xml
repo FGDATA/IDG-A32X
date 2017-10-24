@@ -236,7 +236,6 @@
 				<property>/modes/pfd/fma/pitch-mode2-armed</property>
 				<live>1</live>
 			</text>
-			<vrule/>
 			<text>
 				<border>1</border>
 				<label>999</label>
