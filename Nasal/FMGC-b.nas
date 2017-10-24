@@ -38,9 +38,9 @@ var APinit = func {
 	setprop("/it-autoflight/input/alt", 10000);
 	setprop("/it-autoflight/input/vs", 0);
 	setprop("/it-autoflight/input/fpa", 0);
-	setprop("/it-autoflight/input/lat", 5);
+	setprop("/it-autoflight/input/lat", 9);
 	setprop("/it-autoflight/input/lat-arm", 0);
-	setprop("/it-autoflight/input/vert", 7);
+	setprop("/it-autoflight/input/vert", 9);
 	setprop("/it-autoflight/input/trk", 0);
 	setprop("/it-autoflight/input/toga", 0);
 	setprop("/it-autoflight/input/spd-managed", 0);
@@ -52,8 +52,8 @@ var APinit = func {
 	setprop("/it-autoflight/output/loc-armed", 0);
 	setprop("/it-autoflight/output/appr-armed", 0);
 	setprop("/it-autoflight/output/thr-mode", 2);
-	setprop("/it-autoflight/output/lat", 5);
-	setprop("/it-autoflight/output/vert", 7);
+	setprop("/it-autoflight/output/lat", 9);
+	setprop("/it-autoflight/output/vert", 9);
 	setprop("/it-autoflight/output/vert-mng", 4);
 	setprop("/it-autoflight/output/fma-pwr", 0);
 	setprop("/it-autoflight/settings/use-backcourse", 0);
@@ -68,10 +68,10 @@ var APinit = func {
 	setprop("/it-autoflight/internal/prof-mode", "XX");
 	setprop("/it-autoflight/internal/prof-fpm", 0);
 	setprop("/it-autoflight/internal/top-of-des-nm", 0);
-	setprop("/it-autoflight/mode/thr", "PITCH");
-	setprop("/it-autoflight/mode/arm", "HDG");
-	setprop("/it-autoflight/mode/lat", "T/O");
-	setprop("/it-autoflight/mode/vert", "T/O CLB");
+	setprop("/it-autoflight/mode/thr", "THRUST");
+	setprop("/it-autoflight/mode/arm", " ");
+	setprop("/it-autoflight/mode/lat", " ");
+	setprop("/it-autoflight/mode/vert", " ");
 	setprop("/it-autoflight/input/spd-kts", 100);
 	setprop("/it-autoflight/input/spd-mach", 0.50);
 	setprop("/it-autoflight/custom/show-hdg", 0);
@@ -95,6 +95,16 @@ setlistener("/it-autoflight/input/ap1", func {
 		}
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+			if (getprop("/it-autoflight/output/lat") == 9) {
+				setprop("/it-autoflight/input/lat", 3);
+			}
+			if (getprop("/it-autoflight/output/vert") == 9) {
+				if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
+					setprop("/it-autoflight/input/vert", 1);
+				} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+					setprop("/it-autoflight/input/vert", 5);
+				}
+			}
 			fmabox();
 			setprop("/it-autoflight/output/ap1", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 1);
@@ -117,6 +127,16 @@ setlistener("/it-autoflight/input/ap2", func {
 		}
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+			if (getprop("/it-autoflight/output/lat") == 9) {
+				setprop("/it-autoflight/input/lat", 3);
+			}
+			if (getprop("/it-autoflight/output/vert") == 9) {
+				if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
+					setprop("/it-autoflight/input/vert", 1);
+				} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+					setprop("/it-autoflight/input/vert", 5);
+				}
+			}
 			fmabox();
 			setprop("/it-autoflight/output/ap2", 1);
 			setprop("/it-autoflight/sound/enableapoffsound2", 1);
@@ -239,6 +259,11 @@ var lateral = func {
 	} else if (latset == 5) {
 		setprop("/it-autoflight/output/lat", 5);
 		setprop("/it-autoflight/custom/show-hdg", 0);
+	} else if (latset == 9) {
+		setprop("/it-autoflight/output/loc-armed", 0);
+		setprop("/it-autoflight/output/lat", 9);
+		setprop("/it-autoflight/mode/lat", " ");
+		setprop("/it-autoflight/mode/arm", " ");
 	}
 }
 
@@ -390,7 +415,13 @@ var vertical = func {
 		alandt1.stop();
 		mng_sys_stop();
 		setprop("/it-autoflight/output/vert", 7);
-		setprop("/it-autoflight/mode/arm", " ");
+		if (getprop("/it-autoflight/output/loc-armed") == 1) {
+			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			# Do nothing
+		} else {
+			setprop("/it-autoflight/mode/arm", " ");
+		}
 		var altinput = getprop("/it-autoflight/input/alt");
 		setprop("/it-autoflight/internal/alt", altinput);
 		thrustmodet.start();
@@ -416,6 +447,21 @@ var vertical = func {
 			setprop("/it-autoflight/input/vert", 4);
 			vertical();
 		}
+	} else if (vertset == 9) {
+		alandt.stop();
+		alandt1.stop();
+		mng_sys_stop();
+		setprop("/it-autoflight/output/appr-armed", 0);
+		var altinput = getprop("/it-autoflight/input/alt");
+		setprop("/it-autoflight/internal/alt", altinput);
+		setprop("/it-autoflight/output/vert", 9);
+		setprop("/it-autoflight/mode/vert", " ");
+		if (getprop("/it-autoflight/output/loc-armed")) {
+			setprop("/it-autoflight/mode/arm", "LOC");
+		} else {
+			setprop("/it-autoflight/mode/arm", " ");
+		}
+		thrustmode();
 	}
 }
 
@@ -534,7 +580,7 @@ setlistener("/it-autoflight/input/kts-mach", func {
 # Takeoff Modes
 # Lat Active
 var latarms = func {
-	if (getprop("/position/gear-agl-ft") >= 20) {
+	if (getprop("/position/gear-agl-ft") >= 30) {
 		if (getprop("/it-autoflight/input/lat-arm") == 1) {
 			setprop("/it-autoflight/input/lat", getprop("/it-autoflight/input/lat-arm"));
 			setprop("/it-autoflight/input/lat-arm", 0);
@@ -580,7 +626,7 @@ setlistener("/it-autoflight/mode/vert", func {
 
 setlistener("/it-autoflight/mode/lat", func {
 	var vertm = getprop("/it-autoflight/mode/lat");
-	if (vertm == "T/O") {
+	if (vertm == "T/O" or vertm == " ") {
 		latarmt.start();
 	} else {
 		latarmt.stop();

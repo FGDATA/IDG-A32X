@@ -86,28 +86,22 @@ var loopFMA = maketimer(0.05, func {
 	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	var thr2 = getprop("/controls/engines/engine[0]/throttle-pos");
 	if ((state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))) {
-		if (lat == "T/O") {
-			if (newlat != "RWY") {
-				setprop("/modes/pfd/fma/roll-mode", "RWY");
-			}
-		}
-		if (vert == "T/O CLB") {
-			if (newvert != "SRS") {
-				setprop("/modes/pfd/fma/pitch-mode", "SRS");
-			}
+		# RWY Engagement would go here, but automatic ILS selection is not simulated yet.
+		if (getprop("/FMGC/internal/v2-set") == 1 and getprop("/it-autoflight/output/vert") != 7) {
+			setprop("/it-autoflight/input/vert", 7);
+			setprop("/it-autoflight/mode/vert", "T/O CLB");
+			fmgc.vertical();
 		}
 	} else {
 		var gear1 = getprop("/gear/gear[1]/wow");
 		var gear2 = getprop("/gear/gear[2]/wow");
-		if (lat == "T/O" and (gear1 or gear2)) {
-			if (newlat != " ") {
-				setprop("/modes/pfd/fma/roll-mode", " ");
-			}
+		if (getprop("/it-autoflight/input/lat") == 5 and (gear1 or gear2)) {
+			setprop("/it-autoflight/input/lat", 9);
+			fmgc.lateral();
 		}
-		if (vert == "T/O CLB" and (gear1 or gear2)) {
-			if (newvert != " ") {
-				setprop("/modes/pfd/fma/pitch-mode", " ");
-			}
+		if (getprop("/it-autoflight/output/vert") == 7 and (gear1 or gear2)) {
+			setprop("/it-autoflight/input/vert", 9);
+			fmgc.vertical();
 		}
 	}
 	
@@ -154,6 +148,14 @@ setlistener("/it-autoflight/mode/lat", func {
 			setprop("/modes/pfd/fma/roll-mode", " ");
 		}
 	} else if (lat == "RLOU") {
+		if (newlat != " ") {
+			setprop("/modes/pfd/fma/roll-mode", " ");
+		}
+	} else if (lat == "T/O") {
+		if (newlat != "RWY") {
+			setprop("/modes/pfd/fma/roll-mode", "RWY");
+		}
+	} else if (lat == " ") {
 		if (newlat != " ") {
 			setprop("/modes/pfd/fma/roll-mode", " ");
 		}
@@ -244,9 +246,10 @@ setlistener("/it-autoflight/mode/vert", func {
 			setprop("/modes/pfd/fma/pitch-mode", "ROLL OUT");
 		}
 	} else if (vert == "T/O CLB") {
-		if (newvertarm != "CLB") {
-			setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
+		if (newvert != "SRS") {
+			setprop("/modes/pfd/fma/pitch-mode", "SRS");
 		}
+		updatePitchArm2();
 	} else if (vert == "G/A CLB") {
 		if (newvert != "SRS") {
 			setprop("/modes/pfd/fma/pitch-mode", "SRS");
@@ -282,9 +285,27 @@ setlistener("/it-autoflight/mode/vert", func {
 		if (newvertarm != "ALT") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", "ALT");
 		}
+	} else if (vert == " ") {
+		if (newvert != " ") {
+			setprop("/modes/pfd/fma/pitch-mode", " ");
+		}
+		updatePitchArm2();
 	}
 	altvert();
 });
+
+setlistener("/FMGC/internal/v2-set", func {
+	updatePitchArm2();
+});
+
+var updatePitchArm2 = func {
+	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	if (newvertarm != "CLB" and getprop("/FMGC/internal/v2-set") == 1) {
+		setprop("/modes/pfd/fma/pitch-mode2-armed", "CLB");
+	} else if (newvertarm != " " and getprop("/FMGC/internal/v2-set") != 1) {
+		setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
+	}
+}
 
 var gsupdate = maketimer(0.5, func {
 	var vert = getprop("/it-autoflight/mode/vert");
