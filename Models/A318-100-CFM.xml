@@ -15,19 +15,19 @@
 		<z-m>1.7005004</z-m>
 	</offsets>
 
-
 	<model>
 		<name>Fuselage</name>
 		<path>Aircraft/IDG-A32X/Models/Fuselages/A318/fuselage.xml</path>
-
-	</model>	
+	</model>
+	
 	<!-- Separate Flightdeck to fit the modified nose -->
 	<model>
 		<name>Flightdeck</name>
 		<path>Aircraft/IDG-A32X/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
-            <x-m>6.92</x-m>
-			<z-m>0.2399</z-m>
+			<x-m>6.94984</x-m>
+			<y-m>0.00263</y-m>
+			<z-m>0.0</z-m>
 		</offsets>
 	</model>
 	

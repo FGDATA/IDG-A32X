@@ -71,6 +71,52 @@ var mode_dec = func {
 	}
 }
 
+var cpt_efis_btns = func(i) {
+	if (i == "cstr") {
+		setprop("/instrumentation/efis/inputs/CSTR", 1);
+		setprop("/instrumentation/efis/inputs/wpt", 0);
+		setprop("/instrumentation/efis/inputs/VORD", 0);
+		setprop("/instrumentation/efis/inputs/DME", 0);
+		setprop("/instrumentation/efis/inputs/NDB", 0);
+		setprop("/instrumentation/efis/inputs/arpt", 0);
+	} else if (i == "wpt") {
+		setprop("/instrumentation/efis/inputs/CSTR", 0);
+		setprop("/instrumentation/efis/inputs/wpt", 1);
+		setprop("/instrumentation/efis/inputs/VORD", 0);
+		setprop("/instrumentation/efis/inputs/DME", 0);
+		setprop("/instrumentation/efis/inputs/NDB", 0);
+		setprop("/instrumentation/efis/inputs/arpt", 0);
+	} else if (i == "vord") {
+		setprop("/instrumentation/efis/inputs/CSTR", 0);
+		setprop("/instrumentation/efis/inputs/wpt", 0);
+		setprop("/instrumentation/efis/inputs/VORD", 1);
+		setprop("/instrumentation/efis/inputs/DME", 1);
+		setprop("/instrumentation/efis/inputs/NDB", 0);
+		setprop("/instrumentation/efis/inputs/arpt", 0);
+	} else if (i == "ndb") {
+		setprop("/instrumentation/efis/inputs/CSTR", 0);
+		setprop("/instrumentation/efis/inputs/wpt", 0);
+		setprop("/instrumentation/efis/inputs/VORD", 0);
+		setprop("/instrumentation/efis/inputs/DME", 0);
+		setprop("/instrumentation/efis/inputs/NDB", 1);
+		setprop("/instrumentation/efis/inputs/arpt", 0);
+	} else if (i == "arpt") {
+		setprop("/instrumentation/efis/inputs/CSTR", 0);
+		setprop("/instrumentation/efis/inputs/wpt", 0);
+		setprop("/instrumentation/efis/inputs/VORD", 0);
+		setprop("/instrumentation/efis/inputs/DME", 0);
+		setprop("/instrumentation/efis/inputs/NDB", 0);
+		setprop("/instrumentation/efis/inputs/arpt", 1);
+	} else if (i == "off") {
+		setprop("/instrumentation/efis/inputs/CSTR", 0);
+		setprop("/instrumentation/efis/inputs/wpt", 0);
+		setprop("/instrumentation/efis/inputs/VORD", 0);
+		setprop("/instrumentation/efis/inputs/DME", 0);
+		setprop("/instrumentation/efis/inputs/NDB", 0);
+		setprop("/instrumentation/efis/inputs/arpt", 0);
+	}
+}
+
 # First Officer
 
 var ctl2_func = func(md,val) {
@@ -125,3 +171,48 @@ var mode2_dec = func {
 	}
 }
 
+var fo_efis_btns = func(i) {
+	if (i == "cstr") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 1);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 0);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 0);
+		setprop("/instrumentation/efis[1]/inputs/DME", 0);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 0);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 0);
+	} else if (i == "wpt") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 0);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 1);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 0);
+		setprop("/instrumentation/efis[1]/inputs/DME", 0);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 0);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 0);
+	} else if (i == "vord") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 0);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 0);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 1);
+		setprop("/instrumentation/efis[1]/inputs/DME", 1);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 0);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 0);
+	} else if (i == "ndb") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 0);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 0);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 0);
+		setprop("/instrumentation/efis[1]/inputs/DME", 0);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 1);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 0);
+	} else if (i == "arpt") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 0);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 0);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 0);
+		setprop("/instrumentation/efis[1]/inputs/DME", 0);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 0);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 1);
+	} else if (i == "off") {
+		setprop("/instrumentation/efis[1]/inputs/CSTR", 0);
+		setprop("/instrumentation/efis[1]/inputs/wpt", 0);
+		setprop("/instrumentation/efis[1]/inputs/VORD", 0);
+		setprop("/instrumentation/efis[1]/inputs/DME", 0);
+		setprop("/instrumentation/efis[1]/inputs/NDB", 0);
+		setprop("/instrumentation/efis[1]/inputs/arpt", 0);
+	}
+}

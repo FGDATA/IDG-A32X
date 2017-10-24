@@ -28,16 +28,6 @@
 			<z-m>-1.0170087</z-m>
 		</offsets>
 	</model>
-	
-	<!-- The new engines -->
-	<!--model>
-		<name>Engine.IAE</name>
-		<path>Aircraft/IDG-A32X/Models/Engines/CEO/IAEV2500.xml</path>
-		<offsets>
-			<x-m>-15.280</x-m>
-			<z-m>1.06019</z-m>
-		</offsets>
-	</model-->
 
 	<!-- ANIMATIONS -->
 	<!-- Ailerons -->

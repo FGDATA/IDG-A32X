@@ -249,18 +249,6 @@ setlistener("/options/steep-ils", func {
 	}
 });
 
-var aglgears = func {
-    var agl = getprop("/position/altitude-agl-ft") or 0;
-    var aglft = agl - 14.001;  # is the position from the Airbus A320 above ground
-    var aglm = aglft * 0.3048;
-    setprop("/position/gear-agl-ft", aglft);
-    setprop("/position/gear-agl-m", aglm);
-
-    settimer(aglgears, 0.01);
-}
-
-aglgears();
-
 canvas.Text._lastText = canvas.Text["_lastText"];
 canvas.Text.setText = func (text) {
 	if (text == me._lastText) {return me;}
@@ -454,5 +442,40 @@ var rTray = func {
 	}
 }
 
+var l1Pedal = func {
+	var lPedalCMD = getprop("/controls/footrest-cpt[0]");
+	if (lPedalCMD < 1.0) {
+		interpolate("/controls/footrest-cpt[0]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-cpt[0]", 0.0, 0.5);
+	}
+}
+
+var l2Pedal = func {
+	var l2PedalCMD = getprop("/controls/footrest-cpt[1]");
+	if (l2PedalCMD < 1.0) {
+		interpolate("/controls/footrest-cpt[1]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-cpt[1]", 0.0, 0.5);
+	}
+}
+
+var r1Pedal = func {
+	var rPedalCMD = getprop("/controls/footrest-fo[0]");
+	if (rPedalCMD < 1.0) {
+		interpolate("/controls/footrest-fo[0]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-fo[0]", 0.0, 0.5);
+	}
+}
+
+var r2Pedal = func {
+	var r2PedalCMD = getprop("/controls/footrest-fo[1]");
+	if (r2PedalCMD < 1.0) {
+		interpolate("/controls/footrest-fo[1]", 1.0, 0.5);
+	} else {
+		interpolate("/controls/footrest-fo[1]", 0.0, 0.5);
+	}
+}
 
 setprop("/systems/acconfig/libraries-loaded", 1);

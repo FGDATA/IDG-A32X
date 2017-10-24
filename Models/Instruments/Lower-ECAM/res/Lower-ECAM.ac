@@ -4,7 +4,7 @@ OBJECT world
 kids 1
 OBJECT poly
 name "lecam.screen"
-loc 0.00180348 -0.00140045 0.000124912
+loc -0.00227174 0.00206637 0.000124912
 texture "screen.png"
 crease 30.000000
 numvert 4

@@ -8,6 +8,42 @@
 
 <PropertyList>
 
+	<filter>
+		<name>Gear AGL Altitude FT</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<dif>
+					<property>/position/altitude-agl-ft</property>
+					<value>15.001</value>
+				</dif>
+			</expression>
+		</input>
+		<output>/position/gear-agl-ft</output>
+		<min>0</min>
+		<max>50000</max>
+	</filter>
+	
+	<filter>
+		<name>Gear AGL Altitude M</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<product>
+					<property>/position/gear-agl-ft</property>
+					<value>0.3048</value>
+				</product>
+			</expression>
+		</input>
+		<output>/position/gear-agl-m</output>
+		<min>0</min>
+		<max>50000</max>
+	</filter>
+
 	<predict-simple>
 		<name>Gear AGL Altitude</name>
 		<debug>false</debug>
@@ -16,6 +52,24 @@
 		<seconds>2.0</seconds>
 		<filter-gain>0.0</filter-gain>
 	</predict-simple>
+	
+	<filter>
+		<name>Rudder Trim</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/controls/flight/rudder-trim</property>
+					<entry><ind>-1</ind><dep>-10.0</dep></entry>
+					<entry><ind> 0</ind><dep>  0.0</dep></entry>
+					<entry><ind> 1</ind><dep> 10.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/flight/rudder-trim-deg</output>
+	</filter>
 
 	<filter>
 		<name>OAT Thrust Scale</name>
@@ -411,7 +465,7 @@
 					<entry><ind>24000</ind><dep> 5.70000</dep></entry>
 					<entry><ind>26000</ind><dep> 5.20000</dep></entry>
 					<entry><ind>28000</ind><dep> 4.70000</dep></entry>
-                    <entry><ind>30000</ind><dep> 4.40000</dep></entry>
+					<entry><ind>30000</ind><dep> 4.40000</dep></entry>
 					<entry><ind>32000</ind><dep> 4.00000</dep></entry>
 					<entry><ind>34000</ind><dep> 3.60000</dep></entry>
 					<entry><ind>36000</ind><dep> 3.30000</dep></entry>
@@ -679,7 +733,7 @@
 					<entry><ind>24000</ind><dep> -52.5</dep></entry>
 					<entry><ind>26000</ind><dep> -50.5</dep></entry>
 					<entry><ind>28000</ind><dep> -48.5</dep></entry>
-                    <entry><ind>30000</ind><dep> -46.5</dep></entry>
+					<entry><ind>30000</ind><dep> -46.5</dep></entry>
 					<entry><ind>32000</ind><dep> -44.5</dep></entry>
 					<entry><ind>34000</ind><dep> -38.9</dep></entry>
 					<entry><ind>36000</ind><dep> -33.3</dep></entry>

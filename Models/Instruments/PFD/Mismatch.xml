@@ -10,4 +10,11 @@
 
 	<path>res/mismatch.ac</path>
 	
+	<animation>
+		<type>scale</type>
+		<x-offset>1.05</x-offset>
+		<y-offset>1.05</y-offset>
+		<z-offset>1.05</z-offset>
+	</animation>
+	
 </PropertyList>
