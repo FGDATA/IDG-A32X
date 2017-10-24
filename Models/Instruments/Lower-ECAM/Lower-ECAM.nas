@@ -767,7 +767,7 @@ var canvas_lowerECAM_wheel = {
 			me["normbrk-rect"].show();
 			me["NORMbrk"].setColor(0.7333,0.3803,0);
 			me["normbrkhyd"].setColor(0.7333,0.3803,0);
-		} else if (green
+		}
 		
 		if (brakemode != 2) {
 			me["ALTNbrk"].hide();
