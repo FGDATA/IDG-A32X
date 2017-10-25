@@ -10,7 +10,8 @@ Move the unpacked directory to the Aircraft directory. Depending on your System 
 * Windows `<Flightgear install directory>\data\Aircraft\`
 * Linux
   * `~/.fgfs/Aircraft/` (The `.fgfs` directory is created when runing Flightgear the first time)
-  * `/usr/share/games/flightgear/Aircraft/` (This path maybe diffrent on diffrent distributions or on builds from source. Works for Debian/Ubuntu)
+  * `/usr/share/games/flightgear/Aircraft/` (Debian/Ubuntu)
+  * `/usr/share/flightgear/Aircraft/` (Fedora)
 
 Rename the directory to `IDG-A32X`.
 Make sure that the `IDG-A32X` directory does not contain another one (this can happen with winrar). If so, move the inner `IDG-A32X` directory outside
@@ -22,7 +23,8 @@ Change to the Aircraft directory. Depending on your System it's located in diffr
 * Windows `<Flightgear install directory>\data\Aircraft\`
 * Linux 
   * `~/.fgfs/Aircraft/` (The `.fgfs` directory is created when runing Flightgear the first time)
-  * `/usr/share/games/flightgear/Aircraft/` (This path maybe diffrent on diffrent distributions or on builds from source. Works for Debian/Ubuntu)
+  * `/usr/share/games/flightgear/Aircraft/` (Debian/Ubuntu)
+  * `/usr/share/flightgear/Aircraft/` (Fedora)
   
   
 Clone the repository with `git clone https://github.com/it0uchpods/IDG-A32X.git`
