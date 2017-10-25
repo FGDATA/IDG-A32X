@@ -16,6 +16,7 @@ setprop("/modes/pfd/fma/roll-mode-armed", " ");
 setprop("/modes/pfd/fma/ap-mode", " ");
 setprop("/modes/pfd/fma/fd-mode", " ");
 setprop("/modes/pfd/fma/at-mode", " ");
+setprop("/modes/pfd/fma/athr-armed", 0);
 setprop("/modes/pfd/fma/throttle-mode-box", 0);
 setprop("/modes/pfd/fma/pitch-mode-box", 0);
 setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
@@ -85,6 +86,17 @@ var loopFMA = maketimer(0.05, func {
 		}
 	}
 	
+	# A/THR Armed/Active
+	if (getprop("/it-autoflight/output/athr") == 1 and (state1 == "MAN THR" or state2 == "MAN THR" or state1 == "MCT" or state2 == "MCT" or state1 == "TOGA" or state2 == "TOGA")) {
+		if (getprop("/modes/pfd/fma/athr-armed") != 1) {
+			setprop("/modes/pfd/fma/athr-armed", 1);
+		}
+	} else {
+		if (getprop("/modes/pfd/fma/athr-armed") != 0) {
+			setprop("/modes/pfd/fma/athr-armed", 0);
+		}
+	}
+	
 	# SRS RWY Engagement
 	var flx = getprop("/systems/thrust/lim-flex");
 	var lat = getprop("/it-autoflight/mode/lat");
@@ -93,7 +105,7 @@ var loopFMA = maketimer(0.05, func {
 	var newvert = getprop("/modes/pfd/fma/pitch-mode");
 	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
-	var thr2 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	if ((state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))) {
 		# RWY Engagement would go here, but automatic ILS selection is not simulated yet.
 		if (getprop("/FMGC/internal/v2-set") == 1 and getprop("/it-autoflight/output/vert") != 7) {
@@ -597,6 +609,12 @@ setlistener("/modes/pfd/fma/fd-mode", func {
 setlistener("/modes/pfd/fma/at-mode", func {
 	if (getprop("/modes/pfd/fma/at-mode") != " ") {
 		setprop("/modes/pfd/fma/throttle-mode-time", getprop("/sim/time/elapsed-sec"));
+		setprop("/modes/pfd/fma/athr-mode-time", getprop("/sim/time/elapsed-sec"));
+	}
+});
+
+setlistener("/modes/pfd/fma/athr-armed", func {
+	if (getprop("/modes/pfd/fma/at-mode") != " ") {
 		setprop("/modes/pfd/fma/athr-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
