@@ -12,7 +12,7 @@ Move the unpacked directory to the Aircraft directory. Depending on your System 
   * `~/.fgfs/Aircraft/` (The `.fgfs` directory is created when runing Flightgear the first time)
   * `/usr/share/games/flightgear/Aircraft/` (This path maybe diffrent on diffrent distributions or on builds from source. Works for Debian/Ubuntu)
 
-Rename the forlder to `IDG-A32X`.
+Rename the directory to `IDG-A32X`.
 Make sure that the `IDG-A32X` directory does not contain another one (this can happen with winrar). If so, move the inner `IDG-A32X` directory outside
 
 To update, delete the `IDG-A32X` directory and install the latest version.
