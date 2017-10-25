@@ -6,6 +6,7 @@ Brought to you by:
 - Jonathan Redpath (legoboyvdlp)
 - Charlie Schwehm (Wecsje)
 - J Maverick 16
+- Thorsten Herrmann (TH-555)
 
 Present pack includes the following Airbus A320 Family variants:
 - A318-112
