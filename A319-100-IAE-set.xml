@@ -28,17 +28,17 @@
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/A319/a319-1.png</path>
+				<path>Splash/cockpit.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/A319/a319-2.png</path>
+				<path>Splash/wing1.png</path>
 			</preview>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>Splash/A319/a319-3.png</path>
+				<path>Splash/wing2.png</path>
 			</preview>
 		</previews>
 		
