@@ -109,6 +109,14 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var mng_spd = getprop("/FMGC/internal/mng-spd");
 	var ap1 = getprop("/it-autoflight/output/ap1");
 	var ap2 = getprop("/it-autoflight/output/ap2");
+	var flx = getprop("/systems/thrust/lim-flex");
+	var lat = getprop("/it-autoflight/mode/lat");
+	var newlat = getprop("/modes/pfd/fma/roll-mode");
+	var vert = getprop("/it-autoflight/mode/vert");
+	var newvert = getprop("/modes/pfd/fma/pitch-mode");
+	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 });
 
 var FMGCinit = func {
@@ -206,13 +214,22 @@ var phasecheck = maketimer(0.2, func {
 	gear0 = getprop("/gear/gear[0]/wow");
 	ap1 = getprop("/it-autoflight/output/ap1");
 	ap2 = getprop("/it-autoflight/output/ap2");
+	flx = getprop("/systems/thrust/lim-flex");
+	lat = getprop("/it-autoflight/mode/lat");
+	newlat = getprop("/modes/pfd/fma/roll-mode");
+	vert = getprop("/it-autoflight/mode/vert");
+	newvert = getprop("/modes/pfd/fma/pitch-mode");
+	newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
+	thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	
 	if ((n1_left < 70 or n1_right < 70 or gs < 90) and mode == " " and gear0 == 1 and phase == 1) {
 		setprop("/FMGC/status/phase", "0");
 		setprop("/systems/pressurization/mode", "GN");
 	}
 	
-	if (((n1_left >= 70 and n1_right >= 70) or gs >= 90) and mode == "SRS" and gear0 == 1 and phase == 0) {
+	if (((n1_left >= 70 and n1_right >= 70) or gs >= 90) and (state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))
+	and gear0 == 1 and phase == 0) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}
