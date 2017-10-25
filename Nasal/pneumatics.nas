@@ -177,15 +177,9 @@ var master_pneu = func {
 	
 	# Air Sources/PSI
 	if (rpmapu >= 94.9 and bleedapu_sw and !bleedapu_fail) {
-		setprop("/systems/pneumatic/bleedapu", 37);
+		setprop("/systems/pneumatic/bleedapu", 34);
 	} else {
 		setprop("/systems/pneumatic/bleedapu", 0);
-	}
-	
-	if (groundair_supp) {
-		setprop("/systems/pneumatic/groundair", 39);
-	} else {
-		setprop("/systems/pneumatic/groundair", 0);
 	}
 	
 	ground = getprop("/systems/pneumatic/groundair");
@@ -206,31 +200,33 @@ var master_pneu = func {
 	xbleed = getprop("/systems/pneumatic/xbleed", 0);
 	
 	if (stateL == 3 and bleed1_sw and !bleedeng1_fail) {
-		setprop("/systems/pneumatic/bleed1", 35);
+		setprop("/systems/pneumatic/bleed1", 31);
 	} else {
 		setprop("/systems/pneumatic/bleed1", 0);
 	}
 	
 	if (stateR == 3 and bleed2_sw and !bleedeng2_fail) {
-		setprop("/systems/pneumatic/bleed2", 36);
+		setprop("/systems/pneumatic/bleed2", 32);
 	} else {
 		setprop("/systems/pneumatic/bleed2", 0);
 	}
 	
 	bleed1 = getprop("/systems/pneumatic/bleed1");
 	bleed2 = getprop("/systems/pneumatic/bleed2");
-	totalpsi = getprop("/systems/pneumatic/total-psi");
 	
 	if (bleed1 >= 11 and (stateR != 3 or !bleed2_sw or bleedeng2_fail) and xbleed == 1) {
-		setprop("/systems/pneumatic/bleed2", bleed1 / 2);
+		setprop("/systems/pneumatic/bleed2", 31);
 	}
 	
 	if (bleed2 >= 11 and (stateL != 3 or !bleed1_sw or bleedeng1_fail) and xbleed == 1) {
-		setprop("/systems/pneumatic/bleed1", bleed2 / 2);
+		setprop("/systems/pneumatic/bleed1", 32);
 	}
 	
+	bleed1 = getprop("/systems/pneumatic/bleed1");
+	bleed2 = getprop("/systems/pneumatic/bleed2");
+	
 	if (stateL == 1 or stateR == 1) {
-		setprop("/systems/pneumatic/start-psi", totalpsi);
+		setprop("/systems/pneumatic/start-psi", 18);
 	} else {
 		setprop("/systems/pneumatic/start-psi", 0);
 	}
@@ -261,13 +257,18 @@ var master_pneu = func {
 	pack_psi = getprop("/systems/pneumatic/pack-psi");
 	start_psi = getprop("/systems/pneumatic/start-psi");
 	
-	if ((bleed1 + bleed2 + bleedapu + ground) > 50) {
-		setprop("/systems/pneumatic/total-psi", 50);
+	if ((bleed1 + bleed2 + bleedapu) > 42) {
+		setprop("/systems/pneumatic/total-psi", 42);
 	} else {
 		total_psi_calc = ((bleed1 + bleed2 + bleedapu + ground) - start_psi - pack_psi);
 		setprop("/systems/pneumatic/total-psi", total_psi_calc);
 	}
-
+	
+	if (groundair_supp) {
+		setprop("/systems/pneumatic/groundair", 39);
+	} else {
+		setprop("/systems/pneumatic/groundair", 0);
+	}
 	
 	if (engantiice1 and bleed1 > 20) { # shut down anti-ice if bleed is lost else turn it on
 		setprop("/controls/deice/lengine", 0); 
