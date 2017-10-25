@@ -66,7 +66,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/IDG-A32X/Models/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Wings/a319321.wings.iae.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>

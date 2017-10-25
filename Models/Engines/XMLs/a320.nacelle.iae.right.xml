@@ -8,7 +8,7 @@
 
 <PropertyList>
 
-	<path>../Models/a320.nacelle.iae.ac</path>
+	<path>../Models/a320.nacelle.iae.right.ac</path>
 
 	<!-- Reverse thrust animation -->
 	<animation>

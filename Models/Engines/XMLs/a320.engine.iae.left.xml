@@ -29,7 +29,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/IDG-A32X/Models/Engines/XMLs/a320.nacelle.iae.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Engines/XMLs/a320.nacelle.iae.left.xml</path>
 		<overlay>
 			<params>
 				<reverser-pos-norm alias="../../../../params/reverser-pos-norm" />
