@@ -25,6 +25,15 @@ setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
 setprop("/modes/pfd/fma/ap-mode-box", 0);
 setprop("/modes/pfd/fma/fd-mode-box", 0);
 setprop("/modes/pfd/fma/athr-mode-box", 0);
+setprop("/modes/pfd/fma/throttle-mode-time", 0);
+setprop("/modes/pfd/fma/pitch-mode-time", 0);
+setprop("/modes/pfd/fma/pitch-mode-armed-time", 0);
+setprop("/modes/pfd/fma/pitch-mode2-armed-time", 0);
+setprop("/modes/pfd/fma/roll-mode-time", 0);
+setprop("/modes/pfd/fma/roll-mode-armed-time", 0);
+setprop("/modes/pfd/fma/ap-mode-time", 0);
+setprop("/modes/pfd/fma/fd-mode-time", 0);
+setprop("/modes/pfd/fma/athr-mode-time", 0);
 
 setlistener("sim/signals/fdm-initialized", func {
 	loopFMA.start();
@@ -114,6 +123,54 @@ var loopFMA = maketimer(0.05, func {
 		if (newlat != "TRACK") {
 			setprop("/modes/pfd/fma/roll-mode", "TRACK");
 		}
+	}
+	
+	# Boxes
+	var boxtime = getprop("/sim/time/elapsed-sec");
+	if (getprop("/modes/pfd/fma/ap-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/ap-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/ap-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/fd-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/fd-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/fd-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/athr-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/athr-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/athr-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/throttle-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/throttle-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/throttle-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/roll-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/roll-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/roll-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/pitch-mode-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/pitch-mode-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/pitch-mode-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/roll-mode-armed-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/pitch-mode-armed-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
+	}
+	if (getprop("/modes/pfd/fma/pitch-mode2-armed-time") + 10 >= boxtime) {
+		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
+	} else {
+		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
 	}
 });
 
@@ -527,32 +584,20 @@ setlistener("/it-autoflight/output/athr", func {
 # Boxes
 setlistener("/modes/pfd/fma/ap-mode", func {
 	if (getprop("/modes/pfd/fma/ap-mode") != " ") {
-		setprop("/modes/pfd/fma/ap-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/ap-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/ap-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/fd-mode", func {
 	if (getprop("/modes/pfd/fma/fd-mode") != " ") {
-		setprop("/modes/pfd/fma/fd-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/fd-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/fd-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/at-mode", func {
 	if (getprop("/modes/pfd/fma/at-mode") != " ") {
-		setprop("/modes/pfd/fma/throttle-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/throttle-mode-box", 0);
-		}, 5);
-		setprop("/modes/pfd/fma/athr-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/athr-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/throttle-mode-time", getprop("/sim/time/elapsed-sec"));
+		setprop("/modes/pfd/fma/athr-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
@@ -560,59 +605,41 @@ setlistener("/modes/pfd/fma/throttle-mode", func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	if (getprop("/it-autoflight/output/athr") == 1 and state1 != "MCT" and state2 != "MCT" and state1 != "MAN THR" and state2 != "MAN THR" and state1 != "TOGA" and state2 != "TOGA" and state1 != "IDLE" and state2 != "IDLE") {
-		setprop("/modes/pfd/fma/throttle-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/throttle-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/throttle-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/roll-mode", func {
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
 	if (newlat != " ") {
-		setprop("/modes/pfd/fma/roll-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/roll-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/roll-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/pitch-mode", func {
 	var newvert = getprop("/modes/pfd/fma/pitch-mode");
 	if (newvert != " ") {
-		setprop("/modes/pfd/fma/pitch-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/pitch-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/roll-mode-armed", func {
 	var newarm = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (newarm != " ") {
-		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/roll-mode-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/pitch-mode-armed", func {
 	var newarm = getprop("/modes/pfd/fma/pitch-mode-armed");
 	if (newarm != " ") {
-		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/pitch-mode-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
 
 setlistener("/modes/pfd/fma/pitch-mode2-armed", func {
 	var newarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	if (newarm != " ") {
-		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
-		}, 10);
+		setprop("/modes/pfd/fma/pitch-mode2-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 });
