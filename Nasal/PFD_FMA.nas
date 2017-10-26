@@ -107,9 +107,9 @@ var loopFMA = maketimer(0.05, func {
 	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	var wow = getprop("/gear/gear[0]/wow");
-	if (wow and ((state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83))))) {
+	if ((state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))) {
 		# RWY Engagement would go here, but automatic ILS selection is not simulated yet.
-		if (getprop("/FMGC/internal/v2-set") == 1 and getprop("/it-autoflight/output/vert") != 7) {
+		if (wow and getprop("/FMGC/internal/v2-set") == 1 and getprop("/it-autoflight/output/vert") != 7) {
 			setprop("/it-autoflight/input/vert", 7);
 			setprop("/it-autoflight/mode/vert", "T/O CLB");
 			fmgc.vertical();
