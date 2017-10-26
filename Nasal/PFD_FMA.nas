@@ -252,17 +252,11 @@ setlistener("/it-autoflight/mode/vert", func {
 	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	if (vert == "ALT HLD") {
 		altvert();
-		if (newvert != "ALT") {
-			setprop("/modes/pfd/fma/pitch-mode", "ALT");
-		}
 		if (newvertarm != " ") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 		}
 	} else if (vert == "ALT CAP") {
 		altvert();
-		if (newvert != "ALT*") {
-			setprop("/modes/pfd/fma/pitch-mode", "ALT*");
-		}
 		if (newvertarm != " ") {
 			setprop("/modes/pfd/fma/pitch-mode2-armed", " ");
 		}
