@@ -1,4 +1,4 @@
-# A3XX PFD 1
+# A3XX PFD
 # Joshua Davidson (it0uchpods)
 
 #########################################
@@ -8,11 +8,15 @@
 var PFD_1 = nil;
 var PFD_display = nil;
 setprop("/instrumentation/pfd/vs-needle", 0);
+setprop("/it-autoflight/input/spd-managed", 0);
+setprop("/FMGC/internal/target-ias-pfd", 0);
 setprop("/it-autoflight/output/ap1", 0);
 setprop("/it-autoflight/output/ap2", 0);
 setprop("/it-autoflight/output/fd1", 0);
 setprop("/it-autoflight/output/fd2", 0);
 setprop("/it-autoflight/output/athr", 0);
+var ASI = 0;
+var ASItrgt = 0;
 var alt = 0;
 var altTens = 0;
 var state1 = getprop("/systems/thrust/state1");
@@ -34,8 +38,6 @@ var pitch = getprop("/orientation/pitch-deg");
 var roll = getprop("/orientation/roll-deg");
 var wow1 = getprop("/gear/gear[1]/wow");
 var wow2 = getprop("/gear/gear[2]/wow");
-setprop("/instrumentation/altimeter/indicated-altitude-ft1", 0);
-setprop("/fuck", 1.38);
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -97,7 +99,7 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
 		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
-		"FMA_Middle2","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
+		"FMA_Middle2","ASI_scale","ASI_target","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -298,15 +300,45 @@ var canvas_PFD_1 = {
 			me["FMA_athr_box"].hide();
 		}
 		
+		# Airspeed
+		# Subtract 30, since the scale starts at 30, but don't allow less than 0, or more than 420 situations
+		if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") <= 30) {
+			ASI = 0;
+		} else if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") >= 420) {
+			ASI = 390;
+		} else {
+			ASI = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") - 30;
+		}
+		me["ASI_scale"].setTranslation(0, ASI * 6.6);
+		
+		if (getprop("/it-autoflight/input/spd-managed") == 1) {
+			me["ASI_target"].setColor(0.6745,0.3529,0.6823);
+		} else {
+			me["ASI_target"].setColor(0.1372,0.5372,0.5843);
+		}
+		
+		if (getprop("/FMGC/internal/target-ias-pfd") <= 30) {
+			ASItrgt = 0 - ASI;
+		} else if (getprop("/FMGC/internal/target-ias-pfd") >= 420) {
+			ASItrgt = 390 - ASI;
+		} else {
+			ASItrgt = getprop("/FMGC/internal/target-ias-pfd") - 30 - ASI;
+		}
+		me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+		
 		# Attitude Indicator
 		me["AI_slipskid"].setTranslation(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid") * -20, 0);
 		me["AI_bank"].setRotation(-roll * D2R);
 		
-		if (fd1 == 1 and !wow1 and !wow2 and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
+		if (fd1 == 1 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
 			me["FD_roll"].show();
-			me["FD_pitch"].show();
 		} else {
 			me["FD_roll"].hide();
+		}
+		
+		if (fd1 == 1 and ((!wow1 and !wow2 and pitch_mode != " ") or pitch_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
+			me["FD_pitch"].show();
+		} else {
 			me["FD_pitch"].hide();
 		}
 		
