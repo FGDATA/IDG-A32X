@@ -2368,7 +2368,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-				if (getprop("/instrumentation/efis/inputs/ndb") != 1) {
+				if (getprop("/instrumentation/efis/inputs/NDB") != 1) {
 					libraries.cpt_efis_btns("ndb");
 				} else {
 					libraries.cpt_efis_btns("off");
@@ -2416,7 +2416,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-				if (getprop("/instrumentation/efis[1]/inputs/ndb") != 1) {
+				if (getprop("/instrumentation/efis[1]/inputs/NDB") != 1) {
 					libraries.fo_efis_btns("ndb");
 				} else {
 					libraries.fo_efis_btns("off");
