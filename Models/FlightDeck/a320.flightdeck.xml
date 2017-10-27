@@ -4640,7 +4640,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-flood-norm</property>
+				<property>controls/lighting/main-flood-knb</property>
 				<step>0.05</step>
 				<max>1</max>
 			</binding>
@@ -4651,7 +4651,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-flood-norm</property>
+				<property>controls/lighting/main-flood-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 			</binding>
@@ -4660,7 +4660,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>flood_lt_main</object-name>
-		<property>controls/lighting/main-flood-norm</property>
+		<property>controls/lighting/main-flood-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-129</dep></entry>
 			<entry><ind>1</ind><dep>129</dep></entry>
@@ -4679,7 +4679,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-norm</property>
+				<property>controls/lighting/main-panel-knb</property>
 				<step>0.05</step>
 				<max>1</max>
 			</binding>
@@ -4690,7 +4690,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-norm</property>
+				<property>controls/lighting/main-panel-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 			</binding>
@@ -4699,7 +4699,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>integ_lt</object-name>
-		<property>controls/lighting/main-panel-norm</property>
+		<property>controls/lighting/main-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-129</dep></entry>
 			<entry><ind>1</ind><dep>129</dep></entry>
@@ -4718,7 +4718,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fcu-panel-norm</property>
+				<property>controls/lighting/fcu-panel-knb</property>
 				<step>0.05</step>
 				<max>1</max>
 			</binding>
@@ -4729,7 +4729,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fcu-panel-norm</property>
+				<property>controls/lighting/fcu-panel-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 			</binding>
@@ -4739,7 +4739,7 @@
 	<!--animation>
 		<type>rotate</type>
 		<object-name>fcu_integ_knb</object-name>
-		<property>controls/lighting/fcu-panel-norm</property>
+		<property>controls/lighting/fcu-panel-knb</property>
 		<factor>10</factor>
 		<axis>
 			<x1-m>-0.45533</x1-m>

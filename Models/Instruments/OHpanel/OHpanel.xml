@@ -5738,7 +5738,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/overhead-panel-norm</property>
+				<property>controls/lighting/overhead-panel-knb</property>
 				<step>0.05</step>
 				<max>1</max>
 			</binding>
@@ -5749,7 +5749,7 @@
 			<repeatable>true</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/overhead-panel-norm</property>
+				<property>controls/lighting/overhead-panel-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 			</binding>
@@ -5759,7 +5759,7 @@
 		<name>Overhead panel light rotate</name>
 		<type>rotate</type>
 		<object-name>OHPMarkLtKnb</object-name>
-		<property>controls/lighting/overhead-panel-norm</property>
+		<property>controls/lighting/overhead-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>129</dep></entry>
 			<entry><ind>1</ind><dep>-129</dep></entry>
