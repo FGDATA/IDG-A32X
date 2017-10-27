@@ -8,13 +8,13 @@
 var PFD_1 = nil;
 var PFD_display = nil;
 setprop("/instrumentation/pfd/vs-needle", 0);
-setprop("/instrumentation/pfd/vs-needle2", 1);
 setprop("/it-autoflight/output/ap1", 0);
 setprop("/it-autoflight/output/ap2", 0);
 setprop("/it-autoflight/output/fd1", 0);
 setprop("/it-autoflight/output/fd2", 0);
 setprop("/it-autoflight/output/athr", 0);
 var alt = 0;
+var altTens = 0;
 var state1 = getprop("/systems/thrust/state1");
 var state2 = getprop("/systems/thrust/state2");
 var ap1 = getprop("/it-autoflight/output/ap1");
@@ -34,6 +34,8 @@ var pitch = getprop("/orientation/pitch-deg");
 var roll = getprop("/orientation/roll-deg");
 var wow1 = getprop("/gear/gear[1]/wow");
 var wow2 = getprop("/gear/gear[2]/wow");
+setprop("/instrumentation/altimeter/indicated-altitude-ft1", 0);
+setprop("/fuck", 1.38);
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -95,7 +97,7 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
 		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
-		"FMA_Middle2","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer_g","VS_pointer","VS_pos_mask","VS_neg_mask","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
+		"FMA_Middle2","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -317,7 +319,8 @@ var canvas_PFD_1 = {
 		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
-#		me["ALT_tens"].setTranslation(0,getprop("/instrumentation/altimeter/indicated-altitude-ft1") * 1.38); # Needs alot of work
+		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft1")), 2));
+		me["ALT_tens"].setTranslation(0, altTens * 1.392);
 		
 		# QNH
 		if (getprop("/modes/altimeter/std") == 1) {
@@ -329,16 +332,7 @@ var canvas_PFD_1 = {
 		}
 		
 		# Vertical Speed
-		me["VS_pointer"].setScale(getprop("/instrumentation/pfd/vs-needle2"), 1);
-		me["VS_pointer_g"].setRotation(getprop("/instrumentation/pfd/vs-needle") * D2R);
-		
-		if (getprop("/it-autoflight/internal/vert-speed-fpm-filtered") > 0) {
-			me["VS_pos_mask"].hide();
-			me["VS_neg_mask"].show();
-		} else {
-			me["VS_neg_mask"].hide();
-			me["VS_pos_mask"].show();
-		}
+		me["VS_pointer"].setRotation(getprop("/instrumentation/pfd/vs-needle") * D2R);
 		
 		# ILS
 		if (getprop("/modes/pfd/ILS1") == 1) {

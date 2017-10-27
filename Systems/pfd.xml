@@ -364,46 +364,27 @@
 			<expression>
 				<table>
 					<property>/it-autoflight/internal/vert-speed-fpm-filtered</property>
-					<entry><ind>-6000</ind><dep>-84.2</dep></entry>
-					<entry><ind>-2000</ind><dep>-82.3</dep></entry>
-					<entry><ind>-1000</ind><dep>-79.0</dep></entry>
-					<entry><ind> -750</ind><dep>-75.5</dep></entry>
-					<entry><ind> -500</ind><dep>-68.0</dep></entry>
-					<entry><ind> -250</ind><dep>-50.6</dep></entry>
+					<entry><ind>-6000</ind><dep>-76.6</dep></entry>
+					<entry><ind>-4000</ind><dep>-74.8</dep></entry>
+					<entry><ind>-2000</ind><dep>-73.0</dep></entry>
+					<entry><ind>-1500</ind><dep>-70.2</dep></entry>
+					<entry><ind>-1000</ind><dep>-66.5</dep></entry>
+					<entry><ind> -750</ind><dep>-59.8</dep></entry>
+					<entry><ind> -500</ind><dep>-49.0</dep></entry>
+					<entry><ind> -250</ind><dep>-30.1</dep></entry>
 					<entry><ind>    0</ind><dep>  0.0</dep></entry>
-					<entry><ind>  250</ind><dep> 50.6</dep></entry>
-					<entry><ind>  500</ind><dep> 68.0</dep></entry>
-					<entry><ind>  750</ind><dep> 75.5</dep></entry>
-					<entry><ind> 1000</ind><dep> 79.0</dep></entry>
-					<entry><ind> 2000</ind><dep> 82.3</dep></entry>
-					<entry><ind> 6000</ind><dep> 84.2</dep></entry>
+					<entry><ind>  250</ind><dep> 30.1</dep></entry>
+					<entry><ind>  500</ind><dep> 49.0</dep></entry>
+					<entry><ind>  750</ind><dep> 59.8</dep></entry>
+					<entry><ind> 1000</ind><dep> 66.5</dep></entry>
+					<entry><ind> 1500</ind><dep> 70.2</dep></entry>
+					<entry><ind> 2000</ind><dep> 73.0</dep></entry>
+					<entry><ind> 4000</ind><dep> 74.8</dep></entry>
+					<entry><ind> 6000</ind><dep> 76.6</dep></entry>
 				</table>
 			</expression>
 		</input>
 		<output>/instrumentation/pfd/vs-needle</output>
-	</filter>
-	
-	<filter>
-		<name>Vertical Speed Needle Scale</name>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<expression>
-				<table>
-					<property>/it-autoflight/internal/vert-speed-fpm-filtered</property>
-					<entry><ind>-6000</ind><dep>0.712</dep></entry>
-					<entry><ind>-2000</ind><dep>0.785</dep></entry>
-					<entry><ind>-1000</ind><dep>0.857</dep></entry>
-					<entry><ind> -500</ind><dep>0.942</dep></entry>
-					<entry><ind>    0</ind><dep>1.000</dep></entry>
-					<entry><ind>  500</ind><dep>0.942</dep></entry>
-					<entry><ind> 1000</ind><dep>0.857</dep></entry>
-					<entry><ind> 2000</ind><dep>0.785</dep></entry>
-					<entry><ind> 6000</ind><dep>0.712</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/instrumentation/pfd/vs-needle2</output>
 	</filter>
 	
 </PropertyList>
