@@ -571,6 +571,38 @@
 		</input>
 		<input>
 			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<property>/controls/flight/rudder</property>
+			<scale>-1</scale>
+		</input>
+		<input>
+			<condition>
 				<equals>
 					<property>/it-fbw/law</property>
 					<value>3</value>
