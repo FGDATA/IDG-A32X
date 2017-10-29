@@ -4,7 +4,7 @@
 		<model>
 			<livery>
 				<name>Blank Livery</name>
-				<texture>Liveries/A320/PW-NEO/AAL.png</texture>
+				<texture>Liveries/A320/PW-NEO/blank.png</texture>
 			</livery>
 			<eng>
 				<texture>Liveries/A320/PW-NEO/blank-eng.png</texture>
