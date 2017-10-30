@@ -99,7 +99,7 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
 		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
-		"FMA_Middle2","ASI_scale","ASI_target","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer"];
+		"FMA_Middle2","ASI_scale","ASI_target","AI_center","AI_bank","AI_slipskid","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -327,7 +327,7 @@ var canvas_PFD_1 = {
 		me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
 		
 		# Attitude Indicator
-		me["AI_slipskid"].setTranslation(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid") * -20, 0);
+		me["AI_slipskid"].setTranslation(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid") * -15, 0);
 		me["AI_bank"].setRotation(-roll * D2R);
 		
 		if (fd1 == 1 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
@@ -343,15 +343,15 @@ var canvas_PFD_1 = {
 		}
 		
 		if (getprop("/it-autoflight/fd/roll-bar") != nil) {
-			me["FD_roll"].setTranslation((getprop("/it-autoflight/fd/roll-bar"))*2.0, 0);
+			me["FD_roll"].setTranslation((getprop("/it-autoflight/fd/roll-bar")) * 2.2, 0);
 		}
 		if (getprop("/it-autoflight/fd/pitch-bar") != nil) {
-			me["FD_pitch"].setTranslation(0, -(getprop("/it-autoflight/fd/pitch-bar"))*3.8);
+			me["FD_pitch"].setTranslation(0, -(getprop("/it-autoflight/fd/pitch-bar")) * 3.8);
 		}
 		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
-		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft1")), 2));
+		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
 		me["ALT_tens"].setTranslation(0, altTens * 1.392);
 		
 		# QNH
@@ -368,18 +368,37 @@ var canvas_PFD_1 = {
 		
 		# ILS
 		if (getprop("/modes/pfd/ILS1") == 1) {
-			me["LOC_pointer"].show();
 			me["LOC_scale"].show();
-			me["GS_pointer"].show();
 			me["GS_scale"].show();
 		} else {
-			me["LOC_pointer"].hide();
 			me["LOC_scale"].hide();
-			me["GS_pointer"].hide();
 			me["GS_scale"].hide();
 		}
+		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1) {
+			me["LOC_pointer"].show();
+		} else {
+			me["LOC_pointer"].hide();
+		}
+		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/gs-in-range") == 1 and getprop("/instrumentation/nav[0]/has-gs") == 1) {
+			me["GS_pointer"].show();
+		} else {
+			me["GS_pointer"].hide();
+		}
+		
+		me["LOC_pointer"].setTranslation(-(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm")) * 197, 0);
+		
+		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * 197);
+		
+		# Heading
+#		if (getprop("/it-autoflight/custom/show-hdg") == 1) {
+#			me["HDG_target"].show();
+#		} else {
+			me["HDG_target"].hide();
+#		}
 	},
 };
+
+setprop("/testing", 0); # REMOVE WHEN PFD FINISHED
 
 setlistener("sim/signals/fdm-initialized", func {
 	PFD_display = canvas.new({
