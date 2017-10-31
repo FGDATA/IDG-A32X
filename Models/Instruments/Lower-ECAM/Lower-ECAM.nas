@@ -9,6 +9,7 @@ var lowerECAM_apu = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
 var lowerECAM_wheel = nil;
+var lowerECAM_elec = nil;
 var lowerECAM_display = nil;
 var page = "eng";
 var oat = getprop("/environment/temperature-degc");
@@ -109,17 +110,26 @@ var canvas_lowerECAM_base = {
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.show();
 				lowerECAM_wheel.update();
+			} else if (page == "elec") {
+				lowerECAM_apu.page.hide();
+				lowerECAM_eng.page.hide();
+				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
+				lowerECAM_elec.page.show();
+				lowerECAM_elec.update();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_elec.page.hide();
 			}
 		} else {
 			lowerECAM_apu.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
 			lowerECAM_wheel.page.hide();
+			lowerECAM_elec.page.hide();
 		}
 	},
 	updateBottomStatus: func() {
@@ -1133,6 +1143,21 @@ var canvas_lowerECAM_wheel = {
 	},
 };
 
+var canvas_lowerECAM_elec = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_elec, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW"];
+	},
+	update: func() {
+		me.updateBottomStatus();
+	},
+};
+
 setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_display = canvas.new({
 		"name": "lowerECAM",
@@ -1145,11 +1170,13 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
+	var groupElec = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
+	lowerECAM_elec = canvas_lowerECAM_elec.new(groupElec, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/elec.svg");
 	
 	lowerECAM_update.start();
 });
