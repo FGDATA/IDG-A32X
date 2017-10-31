@@ -538,7 +538,7 @@ var master_elec = func {
 		setprop("/systems/electrical/batt2-fault", 0);
 	}
 	
-	if ((gen1_fail and gen1_sw) or (gen1_sw and stateL != 3)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (gen1_fail and gen1_sw) or (gen1_sw and stateL != 3)) {
 		setprop("/systems/electrical/gen1-fault", 1);
 	} else {
 		setprop("/systems/electrical/gen1-fault", 0);
@@ -556,13 +556,44 @@ var master_elec = func {
 		setprop("/systems/electrical/apugen-fault", 0);
 	}
 	
-	if ((gen2_fail and gen2_sw) or (gen2_sw and stateR != 3)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (gen2_fail and gen2_sw) or (gen2_sw and stateR != 3)) {
 		setprop("/systems/electrical/gen2-fault", 1);
 	} else {
 		setprop("/systems/electrical/gen2-fault", 0);
 	}
+	
+	if (getprop("/systems/failures/sec1-fail-time") + 5 >= getprop("/sim/time/elapsed-sec")) {
+		setprop("/systems/failures/sec1", 1);
+	} else {
+		setprop("/systems/failures/sec1", 0);
+		setprop("/systems/failures/sec1-fail-time", 0);
+	}
+	
+	if (getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/failures/ventfan") == 1) {
+		setprop("/systems/ventilation/ventfan-fault", 0);
+	} else if (getprop("/systems/electrical/battery2-amps") > 120) {
+		setprop("/systems/ventilation/ventfan-fault", 1);
+	}
 }
 
+setlistener("/controls/electrical/switches/battery2", func {
+	if (getprop("/controls/electrical/switches/battery2") == 1) {
+		setprop("/systems/failures/elac1", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/failures/fac1", 1);
+		
+		setprop("/systems/failures/sec1-fail-time", getprop("/sim/time/elapsed-sec"));
+	} else if (getprop("/systems/electrical/bus/dc-ess") >= 25 or getprop("/systems/electrical/bus/ac-ess") >= 25) {
+		setprop("/systems/failures/elac1", 0);
+		setprop("/systems/failures/sec1", 0);
+		setprop("/systems/failures/fac1", 0);
+	} else {
+		setprop("/systems/failures/elac1", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/failures/fac1", 1);
+	}
+	
+});
 ###################
 # Update Function #
 ###################

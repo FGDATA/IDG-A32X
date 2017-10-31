@@ -1180,6 +1180,11 @@ var canvas_lowerECAM_elec = {
 			me["BAT2a"].show();
 			me["BAT2off"].hide();
 		}
+		
+		me["BAT1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-volts")));
+		me["BAT2volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-volts")));
+		me["BAT1amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-amps")));
+		me["BAT2amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-amps")));
 		me.updateBottomStatus();
 	},
 };

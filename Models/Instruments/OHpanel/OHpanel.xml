@@ -17,9 +17,7 @@
 		<type>select</type>
 		<object-name>ACESSFeedBtn1F</object-name>
 		<object-name>ACESSFeedBtn2O</object-name>
-		<object-name>ACPack1Btn1F</object-name>
 		<object-name>ACPack1Btn2O</object-name>
-		<object-name>ACPack2Btn1F</object-name>
 		<object-name>ACPack2Btn2O</object-name>
 		<object-name>APUBleedBtn1F</object-name>
 		<object-name>APUBleedBtn2O</object-name>
@@ -47,11 +45,19 @@
 		<object-name>Eng2FireAgt2Btn1S</object-name>
 		<object-name>Eng2FireAgt2Btn2D</object-name>
 		<object-name>ExtPwrBtn2O</object-name>
-		<object-name>Gen1Btn1F</object-name>
 		<object-name>Gen1Btn2O</object-name>
-		<object-name>Gen2Btn1F</object-name>
 		<object-name>Gen2Btn2O</object-name>
 		<object-name>RamAirBtn2O</object-name>
+		
+		<!-- the following come on when you turn on BAT 2 -->
+		<object-name>ELAC1Btn1F</object-name>
+		<object-name>FAC1Btn1F</object-name>
+		<object-name>SECBtn1F</object-name>
+		<object-name>VentBlowBtn1F</object-name>
+		<object-name>Gen1Btn1F</object-name>
+		<object-name>Gen2Btn1F</object-name>
+		<object-name>ACPack1Btn1F</object-name>
+		<object-name>ACPack2Btn1F</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -98,7 +104,6 @@
 		<object-name>CFuelTank2Btn1F</object-name>
 		<object-name>CFuelTank2Btn2O</object-name>
 		<object-name>CrewOxyBtn2O</object-name>
-		<object-name>ELAC1Btn1F</object-name>
 		<object-name>ELAC1Btn2O</object-name>
 		<object-name>ELAC2Btn1F</object-name>
 		<object-name>ELAC2Btn2O</object-name>
@@ -117,7 +122,6 @@
 		<object-name>Eng2ManStartBtn2O</object-name>
 		<object-name>EvacCommandBtn1E</object-name>
 		<object-name>EvacCommandBtn2O</object-name>
-		<object-name>FAC1Btn1F</object-name>
 		<object-name>FAC1Btn2O</object-name>
 		<object-name>FAC2Btn1F</object-name>
 		<object-name>FAC2Btn2O</object-name>
@@ -165,13 +169,11 @@
 		<object-name>RFuelTank1Btn2O</object-name>
 		<object-name>RFuelTank2Btn1F</object-name>
 		<object-name>RFuelTank2Btn2O</object-name>
-		<object-name>SEC1Btn1F</object-name>
 		<object-name>SEC1Btn2O</object-name>
 		<object-name>SEC2Btn1F</object-name>
 		<object-name>SEC2Btn2O</object-name>
 		<object-name>SEC3Btn1F</object-name>
 		<object-name>SEC3Btn2O</object-name>
-		<object-name>VentBlowBtn1F</object-name>
 		<object-name>VentBlowBtn2O</object-name>
 		<object-name>VentExtractBtn1F</object-name>
 		<object-name>VentExtractBtn2O</object-name>
@@ -220,7 +222,6 @@
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
-		<object-name>VentBlowBtn1F</object-name>
 		<object-name>VentBlowBtn2O</object-name>
 		<object-name>VentExtractBtn1F</object-name>
 		<object-name>VentExtractBtn2O</object-name>
@@ -248,6 +249,23 @@
 		</diffuse>
 	</animation>
 	
+	<!-- Ventilation -->
+	<animation>
+		<type>select</type>
+		<object-name>VentBlowBtn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/systems/ventilation/ventfan-fault</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 	<!-- Cargo Smoke -->
 	<animation>
 		<type>select</type>
