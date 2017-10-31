@@ -66,7 +66,7 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 			setprop("/systems/thrust/state1", "MAN THR");
 			unflex();
 		} else if (thr1 >= 0.78 and thr1 < 0.83) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
@@ -76,13 +76,13 @@ setlistener("/controls/engines/engine[0]/throttle-pos", func {
 			}
 			setprop("/systems/thrust/state1", "MCT");
 		} else if (thr1 >= 0.83 and thr1 < 0.95) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			setprop("/systems/thrust/state1", "MAN THR");
 			unflex();
 		} else if (thr1 >= 0.95) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			setprop("/controls/engines/engine[0]/throttle-fdm", 0.99);
@@ -126,7 +126,7 @@ setlistener("/controls/engines/engine[1]/throttle-pos", func {
 			setprop("/systems/thrust/state2", "MAN THR");
 			unflex();
 		} else if (thr2 >= 0.78 and thr2 < 0.83) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			if (getprop("/controls/engines/thrust-limit") == "FLX") {
@@ -136,13 +136,13 @@ setlistener("/controls/engines/engine[1]/throttle-pos", func {
 			}
 			setprop("/systems/thrust/state2", "MCT");
 		} else if (thr2 >= 0.83 and thr2 < 0.95) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			setprop("/systems/thrust/state2", "MAN THR");
 			unflex();
 		} else if (thr2 >= 0.95) {
-			if (getprop("/gear/gear[1]/wow") == 1 or getprop("/gear/gear[2]/wow") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 1) {
 				setprop("/it-autoflight/input/athr", 1);
 			}
 			setprop("/controls/engines/engine[1]/throttle-fdm", 0.99);

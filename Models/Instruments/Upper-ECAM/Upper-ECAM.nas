@@ -256,13 +256,13 @@ var canvas_upperECAM_cfm_eis2 = {
 		me["N12"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n1-actual") + 0.05)));
 		me["N12-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05,1))));
 		
-		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90)*D2R);
-		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90)*D2R);
-		me["N11-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90)*D2R);
+		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90) * D2R);
+		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90) * D2R);
+		me["N11-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90) * D2R);
 		
-		me["N12-needle"].setRotation((getprop("/ECAM/Upper/N1[1]") + 90)*D2R);
-		me["N12-thr"].setRotation((getprop("/ECAM/Upper/N1thr[1]") + 90)*D2R);
-		me["N12-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90)*D2R);
+		me["N12-needle"].setRotation((getprop("/ECAM/Upper/N1[1]") + 90) * D2R);
+		me["N12-thr"].setRotation((getprop("/ECAM/Upper/N1thr[1]") + 90) * D2R);
+		me["N12-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90) * D2R);
 		
 		if (getprop("/systems/fadec/eng1/n1") == 1) {
 			me["N11-scale"].setColor(0.8078,0.8039,0.8078);
@@ -336,8 +336,8 @@ var canvas_upperECAM_cfm_eis2 = {
 		me["EGT1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/egt-actual"))));
 		me["EGT2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/egt-actual"))));
 		
-		me["EGT1-needle"].setRotation((getprop("/ECAM/Upper/EGT[0]") + 90)*D2R);
-		me["EGT2-needle"].setRotation((getprop("/ECAM/Upper/EGT[1]") + 90)*D2R);
+		me["EGT1-needle"].setRotation((getprop("/ECAM/Upper/EGT[0]") + 90) * D2R);
+		me["EGT2-needle"].setRotation((getprop("/ECAM/Upper/EGT[1]") + 90) * D2R);
 		
 		if (getprop("/systems/fadec/eng1/egt") == 1) {
 			me["EGT1-scale"].setColor(0.8078,0.8039,0.8078);
@@ -470,12 +470,12 @@ var canvas_upperECAM_iae_eis2 = {
 		me["EPR1"].setText(sprintf("%1.3f", getprop("/engines/engine[0]/epr-actual")));
 		me["EPR2"].setText(sprintf("%1.3f", getprop("/engines/engine[1]/epr-actual")));
 		
-		me["EPR1-needle"].setRotation((getprop("/ECAM/Upper/EPR[0]") + 90)*D2R);
-		me["EPR1-thr"].setRotation((getprop("/ECAM/Upper/EPRthr[0]") + 90)*D2R);
-		me["EPR1-ylim"].setRotation((getprop("/ECAM/Upper/EPRylim") + 90)*D2R);
-		me["EPR2-needle"].setRotation((getprop("/ECAM/Upper/EPR[1]") + 90)*D2R);
-		me["EPR2-thr"].setRotation((getprop("/ECAM/Upper/EPRthr[1]") + 90)*D2R);
-		me["EPR2-ylim"].setRotation((getprop("/ECAM/Upper/EPRylim") + 90)*D2R);
+		me["EPR1-needle"].setRotation((getprop("/ECAM/Upper/EPR[0]") + 90) * D2R);
+		me["EPR1-thr"].setRotation((getprop("/ECAM/Upper/EPRthr[0]") + 90) * D2R);
+		me["EPR1-ylim"].setRotation((getprop("/ECAM/Upper/EPRylim") + 90) * D2R);
+		me["EPR2-needle"].setRotation((getprop("/ECAM/Upper/EPR[1]") + 90) * D2R);
+		me["EPR2-thr"].setRotation((getprop("/ECAM/Upper/EPRthr[1]") + 90) * D2R);
+		me["EPR2-ylim"].setRotation((getprop("/ECAM/Upper/EPRylim") + 90) * D2R);
 		
 		if (getprop("/systems/fadec/eng1/epr") == 1) {
 			me["EPR1-scale"].setColor(0.8078,0.8039,0.8078);
@@ -533,8 +533,8 @@ var canvas_upperECAM_iae_eis2 = {
 		me["EGT1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/egt-actual"))));
 		me["EGT2"].setText(sprintf("%s", math.round(getprop("/engines/engine[1]/egt-actual"))));
 		
-		me["EGT1-needle"].setRotation((getprop("/ECAM/Upper/EGT[0]") + 90)*D2R);
-		me["EGT2-needle"].setRotation((getprop("/ECAM/Upper/EGT[1]") + 90)*D2R);
+		me["EGT1-needle"].setRotation((getprop("/ECAM/Upper/EGT[0]") + 90) * D2R);
+		me["EGT2-needle"].setRotation((getprop("/ECAM/Upper/EGT[1]") + 90) * D2R);
 		
 		if (getprop("/systems/fadec/eng1/egt") == 1) {
 			me["EGT1-scale"].setColor(0.8078,0.8039,0.8078);
@@ -579,13 +579,13 @@ var canvas_upperECAM_iae_eis2 = {
 		me["N12"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n1-actual") + 0.05)));
 		me["N12-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05,1))));
 		
-		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90)*D2R);
-		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90)*D2R);
-		me["N11-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90)*D2R);
+		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90) * D2R);
+		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90) * D2R);
+		me["N11-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90) * D2R);
 		
-		me["N12-needle"].setRotation((getprop("/ECAM/Upper/N1[1]") + 90)*D2R);
-		me["N12-thr"].setRotation((getprop("/ECAM/Upper/N1thr[1]") + 90)*D2R);
-		me["N12-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90)*D2R);
+		me["N12-needle"].setRotation((getprop("/ECAM/Upper/N1[1]") + 90) * D2R);
+		me["N12-thr"].setRotation((getprop("/ECAM/Upper/N1thr[1]") + 90) * D2R);
+		me["N12-ylim"].setRotation((getprop("/ECAM/Upper/N1ylim") + 90) * D2R);
 		
 		if (getprop("/systems/fadec/eng1/n1") == 1) {
 			me["N11-scale"].setColor(0.8078,0.8039,0.8078);

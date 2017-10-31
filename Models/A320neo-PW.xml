@@ -27,7 +27,7 @@
 		<path>Aircraft/IDG-A32X/Models/FlightDeck/a320.flightdeck.xml</path>
 		<offsets>
 			<x-m>4.81794</x-m>
-			<y-m>0.00263</y-m>
+			<y-m>0.0</y-m>
 			<z-m>0.0</z-m>
 		</offsets>
 	</model>

@@ -477,6 +477,9 @@ var master_elec = func {
 		setprop("/systems/electrical/outputs/taxi-lights", 0);
 		setprop("/systems/electrical/outputs/transponder", 0);
 		setprop("/systems/electrical/outputs/turn-coordinator", 0);
+		setprop("/controls/lighting/fcu-panel-norm", 0);
+		setprop("/controls/lighting/main-panel-norm", 0);
+		setprop("/controls/lighting/overhead-panel-norm", 0);
 	} else {
 		setprop("/systems/electrical/on", 1);
 #		aispin.start();
@@ -511,6 +514,9 @@ var master_elec = func {
 		setprop("/systems/electrical/outputs/taxi-lights", dc_volt_std);
 		setprop("/systems/electrical/outputs/transponder", dc_volt_std);
 		setprop("/systems/electrical/outputs/turn-coordinator", dc_volt_std);
+		setprop("/controls/lighting/fcu-panel-norm", getprop("/controls/lighting/fcu-panel-knb"));
+		setprop("/controls/lighting/main-panel-norm", getprop("/controls/lighting/main-panel-knb"));
+		setprop("/controls/lighting/overhead-panel-norm", getprop("/controls/lighting/overhead-panel-knb"));
 	}
 	
 	# Fault lights

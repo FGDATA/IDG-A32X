@@ -49,7 +49,7 @@
 			<config>
 				<x-offset-m archive="y">-0.45</x-offset-m>
 				<y-offset-m archive="y">2.34</y-offset-m>
-				<z-offset-m archive="y">-11.618</z-offset-m>
+				<z-offset-m archive="y">-11.636</z-offset-m>
 				<pitch-offset-deg archive="y">-14.6</pitch-offset-deg>
 				<default-field-of-view-deg type="double">63</default-field-of-view-deg>
 			</config>
@@ -62,7 +62,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0.45</x-offset-m>
 				<y-offset-m archive="y">2.34</y-offset-m>
-				<z-offset-m archive="y">-11.618</z-offset-m>
+				<z-offset-m archive="y">-11.636</z-offset-m>
 				<pitch-offset-deg archive="y">-14.6</pitch-offset-deg>
 				<default-field-of-view-deg type="double">63</default-field-of-view-deg>
 			</config>
@@ -75,7 +75,7 @@
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0</x-offset-m>
 				<y-offset-m archive="y">2.3635023</y-offset-m>
-				<z-offset-m archive="y">-11.578</z-offset-m>
+				<z-offset-m archive="y">-11.596</z-offset-m>
 				<pitch-offset-deg archive="y">65.5</pitch-offset-deg>
 				<default-field-of-view-deg type="double">115</default-field-of-view-deg>
 			</config>
