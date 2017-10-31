@@ -7,15 +7,12 @@
 				<name>White</name>
 				<texture>Liveries/A318/CFM/White.png</texture>
 			</livery>
-			<nose>
-				<texture>Liveries/A318/CFM/White-nose.png</texture>
-			</nose>
 		</model>
 	</sim>
-	
+
 	<options>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
 	</options>
-	
+
 </PropertyList>

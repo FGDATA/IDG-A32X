@@ -9,7 +9,7 @@ OBJECT poly
 name "Vstab"
 data 19
 LEADING_3 - Default
-texture "A318-nose.png"
+texture "A318.png"
 texrep 1 1
 crease 30.000000
 numvert 222
