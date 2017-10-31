@@ -1151,9 +1151,35 @@ var canvas_lowerECAM_elec = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW"];
+		return ["TAT","SAT","GW","BAT1volts","BAT1amps","BAT1v","BAT1a","BAT1off"];
 	},
 	update: func() {
+		if (getprop("/controls/electrical/switches/battery1") == 0) {
+			me["BAT1volts"].hide();
+			me["BAT1amps"].hide();
+			me["BAT1v"].hide();
+			me["BAT1a"].hide();
+			me["BAT1off"].show();
+		} else {
+			me["BAT1volts"].show();
+			me["BAT1amps"].show();
+			me["BAT1v"].show();
+			me["BAT1a"].show();
+			me["BAT1off"].hide();
+		}
+		if (getprop("/controls/electrical/switches/battery2") == 0) {
+			me["BAT2volts"].hide();
+			me["BAT2amps"].hide();
+			me["BAT2v"].hide();
+			me["BAT2a"].hide();
+			me["BAT2off"].show();
+		} else {
+			me["BAT2volts"].show();
+			me["BAT2amps"].show();
+			me["BAT2v"].show();
+			me["BAT2a"].show();
+			me["BAT2off"].hide();
+		}
 		me.updateBottomStatus();
 	},
 };
