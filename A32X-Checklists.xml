@@ -805,23 +805,23 @@
 				<and>
 					<equals>
 						<property>controls/lighting/landing-lights[1]</property>
-						<value>1</value>
+						<value>true</value>
 					</equals>
 					<equals>
 						<property>controls/lighting/landing-lights[2]</property>
-						<value>1</value>
+						<value>true</value>
 					</equals>
 				</and>
 			</condition>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[1]</property>
-				 <value>1</value>
+				 <value>true</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[2]</property>
-				 <value>1</value>
+				 <value>true</value>
 			</binding>
 		</item>
 		<item>
@@ -955,23 +955,23 @@
 				<and>
 					<equals>
 						<property>controls/lighting/landing-lights[1]</property>
-						<value>0.5</value>
+						<value>false</value>
 					</equals>
 					<equals>
 						<property>controls/lighting/landing-lights[2]</property>
-						<value>0.5</value>
+						<value>false</value>
 					</equals>
 				</and>
 			</condition>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[1]</property>
-				 <value>0.5</value>
+                                <value>false</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/lighting/landing-lights[2]</property>
-				 <value>0.5</value>
+                                <value>false</value>
 			</binding>
 		</item>
 		<item>

@@ -262,7 +262,7 @@
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<value>-0.91</value>
+				<value>-0.47</value>
 			</product>
 		</function>
 
@@ -285,7 +285,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/roll-pos-rad</property>
-				<value>0.11</value>
+				<value>0.10</value>
 			</product>
 		</function>
 
@@ -296,7 +296,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/rudder-pos-rad</property>
-				<value>0.003</value>
+				<value>0.01</value>
 			</product>
 		</function>
 
@@ -322,7 +322,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>fcs/pitch-pos-geared</property>
-				<value>-1.600</value>
+				<value>-1.350</value>
 			</product>
 		</function>
 
@@ -334,7 +334,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>velocities/q-aero-rad_sec</property>
-				<value>-136</value>
+				<value>-37.4</value>
 			</product>
 		</function>
 
@@ -384,7 +384,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/rudder-pos-rad</property>
-				<value>-0.075</value>
+				<value>-0.1</value>
 			</product>
 		</function>
 

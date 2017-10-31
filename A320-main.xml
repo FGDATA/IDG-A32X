@@ -565,15 +565,19 @@
 			<cockpit type="bool">0</cockpit>
 			<cones type="bool">true</cones>
 			<dome-norm type="double">0</dome-norm>
+			<fcu-panel-knb type="double">0</fcu-panel-knb>
 			<fcu-panel-norm type="double">0</fcu-panel-norm>
-			<landing-lights n="0" type="bool">0</landing-lights>
+			<landing-lights n="0" type="double">0</landing-lights>
 			<landing-lights n="1" type="double">0</landing-lights>
 			<landing-lights n="2" type="double">0</landing-lights>
+			<main-flood-knb type="double">0</main-flood-knb>
 			<main-flood-norm type="double">0</main-flood-norm>
+			<main-panel-knb type="double">0</main-panel-knb>
 			<main-panel-norm type="double">0</main-panel-norm>
 			<nav-lights-switch type="int">0</nav-lights-switch>
-			<overhead-panel-norm type="double">0.0</overhead-panel-norm>
-			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
+			<overhead-panel-knb type="double">0</overhead-panel-knb>
+			<overhead-panel-norm type="double">0</overhead-panel-norm>
+			<main-panel-pedestal-norm type="double">0</main-panel-pedestal-norm>
 			<strobe type="bool">0</strobe>
 			<taxi-light-switch type="float">0</taxi-light-switch>
 		</lighting>
