@@ -33,10 +33,11 @@
 	</animation>
 
 	<!-- PAX doors -->
+	<!-- Inner doors moved to fuselage.ac. These animations are not needful anymore (th)
 	<animation>
 		<name>PAX left-front door pick</name>
 		<type>pick</type>
-		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -51,7 +52,7 @@
 	<animation>
 		<name>PAX left-front door x translate</name>
 		<type>translate</type>
-		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -67,7 +68,7 @@
 	<animation>
 		<name>PAX left-front door y translate</name>
 		<type>translate</type>
-		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -84,7 +85,7 @@
 	<animation>
 		<name>PAX right-front door pick</name>
 		<type>pick</type>
-		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -99,7 +100,7 @@
 	<animation>
 		<name>PAX right-front door x translate</name>
 		<type>translate</type>
-		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -115,7 +116,7 @@
 	<animation>
 		<name>PAX right-front door y translate</name>
 		<type>translate</type>
-		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -132,7 +133,7 @@
 	<animation>
 		<name>PAX left-back door pick</name>
 		<type>pick</type>
-		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -147,7 +148,7 @@
 	<animation>
 		<name>PAX left-back door x translate</name>
 		<type>translate</type>
-		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -163,7 +164,7 @@
 	<animation>
 		<name>PAX left-back door y translate</name>
 		<type>translate</type>
-		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -180,7 +181,7 @@
 	<animation>
 		<name>PAX right-back door pick</name>
 		<type>pick</type>
-		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -195,7 +196,7 @@
 	<animation>
 		<name>PAX right-back door x translate</name>
 		<type>translate</type>
-		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -211,7 +212,7 @@
 	<animation>
 		<name>PAX right-back door y translate</name>
 		<type>translate</type>
-		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -224,12 +225,14 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	-->
 
 	<!-- Animation for the doors of the main gears. -->
+	<!-- Inner doors moved to fuselage.ac. These animations are not needful anymore (th)
 	<animation>
 		<name>Main_Gear_Doors.Left</name>
 		<type>rotate</type>
-		<object-name>GearLDoor</object-name>
+		<object-name>GearLDoorInt</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
@@ -249,7 +252,7 @@
 	<animation>
 		<name>Main_Gear_Doors.Right</name>
 		<type>rotate</type>
-		<object-name>GearRDoor</object-name>
+		<object-name>GearRDoorInt</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
@@ -265,8 +268,10 @@
 			<x>-1</x>
 		</axis>
 	</animation>
-	
+	-->
+
 	<!-- Animation for the doors of the nose gear. -->
+	<!-- Inner doors moved to fuselage.ac. These animations are not needful anymore (th)
 	<animation>
 		<name>Nose_Gear_Doors.Left.01</name>
 		<type>rotate</type>
@@ -370,5 +375,6 @@
 			<y>-1</y>
 		</axis>
 	</animation>
-	
+	-->
+
 </PropertyList>
