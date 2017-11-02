@@ -1151,7 +1151,7 @@ var canvas_lowerECAM_elec = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","BAT1volts","BAT1amps","BAT1v","BAT1a","BAT1off","BAT2volts","BAT2amps","BAT2v","BAT2a","BAT2off"];
+		return ["TAT","SAT","GW","BAT1volts","BAT1amps","BAT1v","BAT1a","BAT1off","BAT2volts","BAT2amps","BAT2v","BAT2a","BAT2off","TR1volts","EMERGENvolts"];
 	},
 	update: func() {
 		if (getprop("/controls/electrical/switches/battery1") == 0) {
@@ -1183,8 +1183,11 @@ var canvas_lowerECAM_elec = {
 		
 		me["BAT1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-volts")));
 		me["BAT2volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-volts")));
-		me["BAT1amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-amps")));
-		me["BAT2amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-amps")));
+		me["BAT1amps"].setText(sprintf("%3.0f", getprop("/systems/electrical/battery1-amps")));
+		me["BAT2amps"].setText(sprintf("%3.0f", getprop("/systems/electrical/battery2-amps")));
+		
+		me["TR1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-volts")));
+		me["EMERGENvolts"].setText(sprintf("%3.0f", "1"));
 		me.updateBottomStatus();
 	},
 };
