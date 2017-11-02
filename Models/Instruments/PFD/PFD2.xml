@@ -2187,16 +2187,28 @@
 		<type>select</type>
 		<object-name>pitch-mode-armed-box</object-name>
 		<condition>
-			<or>
-				<equals>
-					<property>modes/pfd/fma/pitch-mode-armed-box</property>
-					<value>1</value>
-				</equals>
-				<equals>
-					<property>modes/pfd/fma/pitch-mode2-armed-box</property>
-					<value>1</value>
-				</equals>
-			</or>
+			<and>
+				<or>
+					<equals>
+						<property>modes/pfd/fma/pitch-mode-armed-box</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>modes/pfd/fma/pitch-mode2-armed-box</property>
+						<value>1</value>
+					</equals>
+				</or>
+				<or>
+					<not-equals>
+						<property>modes/pfd/fma/pitch-mode-armed</property>
+						<value> </value>
+					</not-equals>
+					<not-equals>
+						<property>modes/pfd/fma/pitch-mode2-armed</property>
+						<value> </value>
+					</not-equals>
+				</or>
+			</and>
 		</condition>
 	</animation>
 	
@@ -2215,10 +2227,16 @@
 		<type>select</type>
 		<object-name>roll-mode-armed-box</object-name>
 		<condition>
-			<equals>
-				<property>modes/pfd/fma/roll-mode-armed-box</property>
-				<value>1</value>
-			</equals>
+			<and>
+				<equals>
+					<property>modes/pfd/fma/roll-mode-armed-box</property>
+					<value>1</value>
+				</equals>
+				<not-equals>
+					<property>modes/pfd/fma/roll-mode-armed</property>
+					<value> </value>
+				</not-equals>
+			</and>
 		</condition>
 	</animation>
 	
