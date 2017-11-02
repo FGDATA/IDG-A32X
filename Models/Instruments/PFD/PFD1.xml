@@ -2198,14 +2198,16 @@
 						<value>1</value>
 					</equals>
 				</or>
-				<not-equals>
-					<property>modes/pfd/fma/pitch-mode-armed</property>
-					<value> </value>
-				</not-equals>
-				<not-equals>
-					<property>modes/pfd/fma/pitch-mode2-armed</property>
-					<value> </value>
-				</not-equals>
+				<or>
+					<not-equals>
+						<property>modes/pfd/fma/pitch-mode-armed</property>
+						<value> </value>
+					</not-equals>
+					<not-equals>
+						<property>modes/pfd/fma/pitch-mode2-armed</property>
+						<value> </value>
+					</not-equals>
+				</or>
 			</and>
 		</condition>
 	</animation>
