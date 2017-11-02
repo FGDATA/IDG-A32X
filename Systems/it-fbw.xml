@@ -1332,7 +1332,7 @@
  <!-- =============================================================== -->
 
 	<filter>
-		<name>LSAS: FEEDBACK IF DISABLED</name>
+		<name>IT-FBW: YAW DAMPER/TURN COORDINATOR FEEDBACK IF DISABLED</name>
 		<enable>
 			<condition>
 				<or>
