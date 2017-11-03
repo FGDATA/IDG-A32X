@@ -44,6 +44,7 @@
 		<name>PAX left-front door pick</name>
 		<type>pick</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -59,6 +60,7 @@
 		<name>PAX left-front door x translate</name>
 		<type>translate</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -75,6 +77,7 @@
 		<name>PAX left-front door y translate</name>
 		<type>translate</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -92,6 +95,7 @@
 		<name>PAX right-front door pick</name>
 		<type>pick</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -107,6 +111,7 @@
 		<name>PAX right-front door x translate</name>
 		<type>translate</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -123,6 +128,7 @@
 		<name>PAX right-front door y translate</name>
 		<type>translate</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -140,6 +146,7 @@
 		<name>PAX left-back door pick</name>
 		<type>pick</type>
 		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -155,6 +162,7 @@
 		<name>PAX left-back door x translate</name>
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -171,6 +179,7 @@
 		<name>PAX left-back door y translate</name>
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
+		<object-name>DoorL3int</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -188,6 +197,7 @@
 		<name>PAX right-back door pick</name>
 		<type>pick</type>
 		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -203,6 +213,7 @@
 		<name>PAX right-back door x translate</name>
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -219,6 +230,7 @@
 		<name>PAX right-back door y translate</name>
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
+		<object-name>DoorR3int</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
