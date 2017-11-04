@@ -1369,7 +1369,7 @@
 		</enable>
 		<type>gain</type>
 		<gain>1</gain>
-		<input>/controls/flight/rudder-fbw</input>
+		<input>0</input>
 		<output>/controls/flight/rudder-fbw-cmd</output>
 		<min>-0.2</min>
 		<max>0.2</max>
