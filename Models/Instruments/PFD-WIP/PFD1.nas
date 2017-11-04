@@ -40,6 +40,7 @@ var wow1 = getprop("/gear/gear[1]/wow");
 var wow2 = getprop("/gear/gear[2]/wow");
 var pitch = 0;
 var roll = 0;
+var spdTrend_c = 0;
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -104,7 +105,7 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
 		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
-		"FMA_Middle2","ASI_scale","ASI_target","AI_center","AI_bank","AI_slipskid","AI_horizon","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
+		"FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -316,6 +317,20 @@ var canvas_PFD_1 = {
 		}
 		me["ASI_scale"].setTranslation(0, ASI * 6.6);
 		
+		if (getprop("/instrumentation/airspeed-indicator/indicated-mach") >= 0.5) {
+			me["ASI_mach_decimal"].show();
+			me["ASI_mach"].show();
+		} else {
+			me["ASI_mach_decimal"].hide();
+			me["ASI_mach"].hide();
+		}
+		
+		if (getprop("/instrumentation/airspeed-indicator/indicated-mach") >= 0.999) {
+			me["ASI_mach"].setText("999");
+		} else {
+			me["ASI_mach"].setText(sprintf("%3.0f", getprop("/instrumentation/airspeed-indicator/indicated-mach") * 1000));
+		}
+		
 		if (getprop("/it-autoflight/input/spd-managed") == 1) {
 			me["ASI_target"].setColor(0.6745,0.3529,0.6823);
 		} else {
@@ -330,6 +345,8 @@ var canvas_PFD_1 = {
 			ASItrgt = getprop("/FMGC/internal/target-ias-pfd") - 30 - ASI;
 		}
 		me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+		
+		me["ASI_ten_sec"].hide();
 		
 		# Attitude Indicator
 		pitch = getprop("/orientation/pitch-deg") or 0;
