@@ -291,7 +291,7 @@ var canvas_PFD_1 = {
 		if ((state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL")) {
 			me["FMA_athr"].setColor(0.8078,0.8039,0.8078);
 		} else {
-			me["FMA_athr"].setColor(0.1372,0.5372,0.5843);
+			me["FMA_athr"].setColor(0.0862,0.5176,0.6470);
 		}
 		
 		if (getprop("/modes/pfd/fma/ap-mode-box") == 1 and getprop("/modes/pfd/fma/ap-mode") != " ") {
@@ -338,9 +338,9 @@ var canvas_PFD_1 = {
 		}
 		
 		if (getprop("/it-autoflight/input/spd-managed") == 1) {
-			me["ASI_target"].setColor(0.6745,0.3529,0.6823);
+			me["ASI_target"].setColor(0.6901,0.3333,0.7450);
 		} else {
-			me["ASI_target"].setColor(0.1372,0.5372,0.5843);
+			me["ASI_target"].setColor(0.0862,0.5176,0.6470);
 		}
 		
 		if (getprop("/FMGC/internal/target-ias-pfd") <= 30) {
