@@ -8,6 +8,7 @@
 var PFD_1 = nil;
 var PFD_display = nil;
 setprop("/instrumentation/pfd/vs-needle", 0);
+setprop("/instrumentation/pfd/vs-digit-trans", 0);
 setprop("/it-autoflight/input/spd-managed", 0);
 setprop("/FMGC/internal/target-ias-pfd", 0);
 setprop("/it-autoflight/output/ap1", 0);
@@ -16,6 +17,8 @@ setprop("/it-autoflight/output/fd1", 0);
 setprop("/it-autoflight/output/fd2", 0);
 setprop("/it-autoflight/output/athr", 0);
 setprop("/instrumentation/pfd/horizon-pitch", 0);
+setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
+setprop("/position/gear-agl-ft", 0);
 var ASI = 0;
 var ASItrgt = 0;
 var alt = 0;
@@ -109,9 +112,10 @@ var canvas_PFD_1 = {
 		return m;
 	},
 	getKeys: func() {
-		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd","FMA_athr",
-		"FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box","FMA_Middle1",
-		"FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","QNH_setting","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
+		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
+		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer",
+		"VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -211,8 +215,19 @@ var canvas_PFD_1 = {
 			me["FMA_rollarm_box"].hide();
 			me["FMA_Middle1"].hide();
 			me["FMA_Middle2"].hide();
+			if (getprop("/it-fbw/law") == 2) {
+				me["FMA_ctr_msg"].setText("USE MAN PITCH TRIM");
+				me["FMA_ctr_msg"].setColor(0.7333,0.3803,0);
+				me["FMA_ctr_msg"].show();
+			} else if (getprop("/it-fbw/law") == 3) {
+				me["FMA_ctr_msg"].setText("MAN PITCH TRIM ONLY");
+				me["FMA_ctr_msg"].setColor(1,0,0);
+				me["FMA_ctr_msg"].show();
+			} else {
+				me["FMA_ctr_msg"].hide();
+			}
 			me["FMA_combined"].show();
-			if (getprop("/modes/pfd/fma/pitch-mode-box") == 1) {
+			if (getprop("/modes/pfd/fma/pitch-mode-box") == 1 and pitch_mode != " ") {
 				me["FMA_combined_box"].show();
 			} else {
 				me["FMA_combined_box"].hide();
@@ -220,8 +235,24 @@ var canvas_PFD_1 = {
 		} else {
 			me["FMA_combined"].hide();
 			me["FMA_combined_box"].hide();
-			me["FMA_Middle1"].show();
-			me["FMA_Middle2"].show();
+			if (getprop("/it-fbw/law") == 2) {
+				me["FMA_ctr_msg"].setText("USE MAN PITCH TRIM");
+				me["FMA_ctr_msg"].setColor(0.7333,0.3803,0);
+				me["FMA_Middle1"].hide();
+				me["FMA_Middle2"].show();
+				me["FMA_ctr_msg"].show();
+			} else if (getprop("/it-fbw/law") == 3) {
+				me["FMA_ctr_msg"].setText("MAN PITCH TRIM ONLY");
+				me["FMA_ctr_msg"].setColor(1,0,0);
+				me["FMA_Middle1"].hide();
+				me["FMA_Middle2"].show();
+				me["FMA_ctr_msg"].show();
+			} else {
+				me["FMA_ctr_msg"].hide();
+				me["FMA_Middle1"].show();
+				me["FMA_Middle2"].hide();
+			}
+			
 			if (ap1 or ap2 or fd1 or fd2) {
 				me["FMA_pitch"].show();
 				me["FMA_roll"].show();
@@ -386,6 +417,20 @@ var canvas_PFD_1 = {
 			me["FD_pitch"].setTranslation(0, -(getprop("/it-autoflight/fd/pitch-bar")) * 3.8);
 		}
 		
+		me["AI_agl"].setText(sprintf("%s", math.round(getprop("/position/gear-agl-ft"))));
+		
+		if (getprop("/position/gear-agl-ft") <= getprop("/instrumentation/mk-viii/inputs/arinc429/decision-height")) {
+			me["AI_agl"].setColor(0.7333,0.3803,0);
+		} else {
+			me["AI_agl"].setColor(0.0509,0.7529,0.2941);
+		}
+		
+		if (getprop("/position/gear-agl-ft") <= 2500) {
+			me["AI_agl"].show();
+		} else {
+			me["AI_agl"].hide();
+		}
+		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
 		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
@@ -393,15 +438,40 @@ var canvas_PFD_1 = {
 		
 		# QNH
 		if (getprop("/modes/altimeter/std") == 1) {
-			me["QNH_setting"].setText(sprintf("%s", "STD"));
+			me["QNH"].hide();
+			me["QNH_setting"].hide();
+			me["QNH_std"].show();
+			me["QNH_box"].show();
 		} else if (getprop("/modes/altimeter/inhg") == 0) {
 			me["QNH_setting"].setText(sprintf("%4.0f", getprop("/instrumentation/altimeter/setting-hpa")));
+			me["QNH"].show();
+			me["QNH_setting"].show();
+			me["QNH_std"].hide();
+			me["QNH_box"].hide();
 		} else if (getprop("/modes/altimeter/inhg") == 1) {
 			me["QNH_setting"].setText(sprintf("%2.2f", getprop("/instrumentation/altimeter/setting-inhg")));
+			me["QNH"].show();
+			me["QNH_setting"].show();
+			me["QNH_std"].hide();
+			me["QNH_box"].hide();
 		}
 		
 		# Vertical Speed
 		me["VS_pointer"].setRotation(getprop("/instrumentation/pfd/vs-needle") * D2R);
+		
+		me["VS_box"].setTranslation(0, getprop("/instrumentation/pfd/vs-digit-trans"));
+		
+		if (getprop("/it-autoflight/internal/vert-speed-fpm-pfd") < 2) {
+			me["VS_box"].hide();
+		} else {
+			me["VS_box"].show();
+		}
+		
+		if (getprop("/it-autoflight/internal/vert-speed-fpm-pfd") < 10) {
+			me["VS_digit"].setText(sprintf("%s", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+		} else {
+			me["VS_digit"].setText(sprintf("%s", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+		}
 		
 		# ILS
 		if (getprop("/modes/pfd/ILS1") == 1) {
