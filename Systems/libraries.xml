@@ -203,7 +203,9 @@
 			<expression>
 				<floor>
 					<div>
-						<property>/it-autoflight/internal/vert-speed-fpm</property> 
+						<abs>
+							<property>/it-autoflight/internal/vert-speed-fpm</property> 
+						</abs>
 						<value>100</value>
 					</div>
 				</floor>
