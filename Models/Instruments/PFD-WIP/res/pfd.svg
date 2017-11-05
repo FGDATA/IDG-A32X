@@ -42,9 +42,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="true"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="461.56075"
-     inkscape:cy="538.82439"
+     inkscape:zoom="0.3535534"
+     inkscape:cx="1384.9211"
+     inkscape:cy="1063.0453"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -79,6 +79,22 @@
      x="203.79523"
      y="229.74361"
      inkscape:label="#rect9211" />
+  <rect
+     inkscape:label="#rect9211"
+     y="229.74361"
+     x="203.79523"
+     height="562.93713"
+     width="489.23914"
+     id="AI_horizon_ground_clip"
+     style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <rect
+     style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="AI_horizon_sky_clip"
+     width="489.23914"
+     height="562.93713"
+     x="203.79523"
+     y="229.74361"
+     inkscape:label="#rect9211" />
   <g
      id="AI_horizon"
      transform="translate(0,-97.082454)"
@@ -94,6 +110,12 @@
          x="-195.3976"
          y="611.74884"
          inkscape:label="#rect5809" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m -193.7976,610.26868 1284.1095,0"
+         id="path4602"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
       <rect
          inkscape:label="#rect5809"
          y="-493.56796"
@@ -102,12 +124,6 @@
          width="1287.3096"
          id="AI_sky"
          style="opacity:1;fill:#328acd;fill-opacity:1;stroke:none;stroke-width:2.58921981;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path4665"
-         d="m -193.7976,610.26868 1284.1095,0"
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
     </g>
     <g
        inkscape:label="#g5341"
@@ -1033,6 +1049,44 @@
         </g>
       </g>
     </g>
+  </g>
+  <g
+     id="AI_horizon_ground"
+     transform="translate(0,-97.082454)"
+     inkscape:label="#g4918">
+    <rect
+       style="opacity:1;fill:#522001;fill-opacity:1;stroke:none;stroke-width:2.48752213;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4914"
+       width="1287.3097"
+       height="1102.3192"
+       x="-195.3976"
+       y="611.74884"
+       inkscape:label="#rect5809" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4916"
+       d="m -193.7976,610.26868 1284.1095,0"
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+  </g>
+  <g
+     id="AI_horizon_sky"
+     inkscape:label="#g4606"
+     transform="translate(0,-206.0288)">
+    <rect
+       inkscape:label="#rect5809"
+       y="409.34946"
+       x="-195.39726"
+       height="102.31912"
+       width="1287.3096"
+       id="rect4600"
+       style="opacity:1;fill:#328acd;fill-opacity:1;stroke:none;stroke-width:2.58921981;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.20000005;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+       d="m -193.7976,513.1864 1284.1095,0"
+       id="path4665"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
   <path
      inkscape:connector-curvature="0"
