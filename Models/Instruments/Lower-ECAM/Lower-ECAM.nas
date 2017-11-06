@@ -1156,7 +1156,7 @@ var canvas_lowerECAM_elec = {
 	},
 	getKeys: func() {
 		return ["TAT","SAT","GW","BAT1connectorA","BAT1connectorB","BAT2connectorA","BAT2connectorB","BAT1volts","BAT1amps","BAT1v","BAT1a","BAT1off","BAT2volts","BAT2amps","BAT2v","BAT2a","BAT2off","TR1volts","TR1amps","TR2volts","TR2amps","EMERGENvolts","EXTvolts","EXThz",
-				"DCbattext"];
+				"DCbattext","ESSTRvolts","ESSTRv","ESSTRamps","ESSTRa","ESSTRvolts","ESSTRbox","EMERGENtoESSTRarrow","ESSTRtoDCESSline"];
 	},
 	update: func() {
 		if (getprop("/controls/electrical/switches/battery1") == 0) {
