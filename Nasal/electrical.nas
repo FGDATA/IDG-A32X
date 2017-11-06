@@ -117,6 +117,8 @@ var elec_init = func {
 	setprop("/systems/electrical/idg2-fault", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
+	setprop("/systems/electrical/bat1direction", 0); # - 1 = charge, 0 = disconnected, 1 = discharge
+	setprop("/systems/electrical/bat2direction", 0); # - 1 = charge, 0 = disconnected, 1 = discharge
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
     setprop("/systems/electrical/outputs/adf", 0);
     setprop("/systems/electrical/outputs/audio-panel", 0);
@@ -439,29 +441,37 @@ var master_elec = func {
 	if (battery1_volts < 26.5 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		decharge1.stop();
 		charge1.start();
-	} else if (battery1_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+		setprop("/systems/electrical/bat1direction", -1);
+	} else if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		charge1.stop();
 		decharge1.stop();
+		setprop("/systems/electrical/bat1direction", 2); # this is when it is connected, but is not charging or discharging
 	} else if (battery1_sw and !batt1_fail) {
 		charge1.stop();
 		decharge1.start();
+		setprop("/systems/electrical/bat1direction", 1);
 	} else {
 		decharge1.stop();
 		charge1.stop();
+		setprop("/systems/electrical/bat1direction", 0);
 	}
 	
 	if (battery2_volts < 26.5 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		decharge2.stop();
 		charge2.start();
+		setprop("/systems/electrical/bat1direction", 0);
 	} else if (battery2_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		charge2.stop();
 		decharge2.stop();
+		setprop("/systems/electrical/bat2direction", 2); # this is when it is connected, but is not charging or discharging
 	} else if (battery2_sw and !batt2_fail) {
 		charge2.stop();
 		decharge2.start();
+		setprop("/systems/electrical/bat2direction", 1);
 	} else {
 		decharge2.stop();
 		charge2.stop();
+		setprop("/systems/electrical/bat2direction", 0);
 	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") < 110) {

@@ -199,5 +199,37 @@
 		</input>
 		<output>/ECAM/Lower/elevator-trim-deg</output>
 	</filter>
+	
+	<filter>
+		<name>Battery 1 Contact Rotation</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/systems/electrical/battery1-contact</property>
+					<entry><ind> -1</ind><dep>  0</dep></entry>
+					<entry><ind>  1</ind><dep>180</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/bat1-contactrotation</output>
+	</filter>
+	
+	<filter>
+		<name>Battery 2 Contact Rotation</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/systems/electrical/battery2-contact</property>
+					<entry><ind> -1</ind><dep>  0</dep></entry>
+					<entry><ind>  1</ind><dep>180</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/ECAM/Lower/bat2-contactrotation</output>
+	</filter>
 
 </PropertyList>
