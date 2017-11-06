@@ -1227,13 +1227,13 @@ var canvas_lowerECAM_elec = {
 		if (getprop("/systems/electrical/bus/dc1") < 25) {
 			me["TR1volts"].setColor(0.7333,0.3803,0);
 		} else {
-			me["TR1volts"].setcolor(0.0667,0.9450,0.3686);
+			me["TR1volts"].setColor(0.0667,0.9450,0.3686);
 		}
 		
 		if (getprop("/systems/electrical/bus/dc2") < 25) {
 			me["TR2volts"].setColor(0.7333,0.3803,0);
 		} else {
-			me["TR2volts"].setcolor(0.0667,0.9450,0.3686);
+			me["TR2volts"].setColor(0.0667,0.9450,0.3686);
 		}
 		
 		if (getprop("/systems/electrical/bus/dc1-amps") <= 5) {
