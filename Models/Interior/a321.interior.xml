@@ -32,7 +32,9 @@
 		</emission>
 	</animation>
 
+   <!-- Door animations placed in fuselage.xml (th) -->
 	<!-- PAX doors -->
+<!--
 	<animation>
 		<name>PAX left-front door pick</name>
 		<type>pick</type>
@@ -416,8 +418,10 @@
 			<z>0</z>
 		</axis>
 	</animation>
+-->
 
 	<!-- Animation for the doors of the main gears. -->
+<!--
 	<animation>
 		<name>Main_Gear_Doors.Left</name>
 		<type>rotate</type>
@@ -457,8 +461,9 @@
 			<x>-1</x>
 		</axis>
 	</animation>
-	
+-->
 	<!-- Animation for the doors of the nose gear. -->
+<!--
 	<animation>
 		<name>Nose_Gear_Doors.Left.01</name>
 		<type>rotate</type>
@@ -565,5 +570,5 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	
+-->
 </PropertyList>
