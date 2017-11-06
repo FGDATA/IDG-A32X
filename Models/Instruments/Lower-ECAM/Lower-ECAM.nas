@@ -1239,13 +1239,13 @@ var canvas_lowerECAM_elec = {
 		if (getprop("/systems/electrical/bus/dc1-amps") <= 5) {
 			me["TR1amps"].setColor(0.7333,0.3803,0);
 		} else {
-			me["TR1amps"].setcolor(0.0667,0.9450,0.3686);
+			me["TR1amps"].setColor(0.0667,0.9450,0.3686);
 		}
 		
 		if (getprop("/systems/electrical/bus/dc2-amps") <= 5) {
 			me["TR2amps"].setColor(0.7333,0.3803,0);
 		} else {
-			me["TR2amps"].setcolor(0.0667,0.9450,0.3686);
+			me["TR2amps"].setColor(0.0667,0.9450,0.3686);
 		}
 		
 		me["BAT1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-volts")));
