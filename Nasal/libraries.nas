@@ -27,6 +27,8 @@ var qty2 = math.round((rand() * 5 ) + 20, 0.1);
 setprop("/engines/engine[0]/oil-qt-actual", qty1);
 setprop("/engines/engine[1]/oil-qt-actual", qty2);
 
+# Failures
+setprop("/systems/failures/sec1-fail-time", 0);
 ##########
 # Lights #
 ##########

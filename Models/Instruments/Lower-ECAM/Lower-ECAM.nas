@@ -9,6 +9,7 @@ var lowerECAM_apu = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
 var lowerECAM_wheel = nil;
+var lowerECAM_elec = nil;
 var lowerECAM_display = nil;
 var page = "eng";
 var oat = getprop("/environment/temperature-degc");
@@ -30,6 +31,10 @@ var accum = 0;
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
 setprop("/systems/electrical/extra/apu-hz", 0);
+setprop("/systems/electrical/bat1direction", 0);
+setprop("/systems/electrical/bat2direction", 0);
+setprop("/ECAM/Lower/bat1-contactrotation", 0);
+setprop("/ECAM/Lower/bat2-contactrotation", 0);
 setprop("/systems/pneumatic/bleedapu", 0);
 setprop("/engines/engine[0]/oil-psi-actual", 0);
 setprop("/engines/engine[1]/oil-psi-actual", 0);
@@ -109,17 +114,26 @@ var canvas_lowerECAM_base = {
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.show();
 				lowerECAM_wheel.update();
+			} else if (page == "elec") {
+				lowerECAM_apu.page.hide();
+				lowerECAM_eng.page.hide();
+				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
+				lowerECAM_elec.page.show();
+				lowerECAM_elec.update();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_elec.page.hide();
 			}
 		} else {
 			lowerECAM_apu.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
 			lowerECAM_wheel.page.hide();
+			lowerECAM_elec.page.hide();
 		}
 	},
 	updateBottomStatus: func() {
@@ -1016,7 +1030,7 @@ var canvas_lowerECAM_wheel = {
 			} else {
 				me["spoiler3Lf"].hide();
 			}
-		} else {
+  } else {
 			me["spoiler3Lex"].setColor(0.0509,0.7529,0.2941);
 			me["spoiler3Lrt"].setColor(0.0509,0.7529,0.2941);
 			me["spoiler3Lf"].hide();
@@ -1133,6 +1147,133 @@ var canvas_lowerECAM_wheel = {
 	},
 };
 
+var canvas_lowerECAM_elec = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_elec, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","BAT1connectorA","BAT1connectorB","BAT2connectorA","BAT2connectorB","BAT1volts","BAT1amps","BAT1v","BAT1a","BAT1off","BAT2volts","BAT2amps","BAT2v","BAT2a","BAT2off","TR1volts","TR1amps","TR2volts","TR2amps","EMERGENvolts","EXTvolts","EXThz",
+				"DCbattext","ESSTRvolts","ESSTRv","ESSTRamps","ESSTRa","ESSTRvolts","ESSTRbox","EMERGENtoESSTRarrow","ESSTRtoDCESSline"];
+	},
+	update: func() {
+		if (getprop("/controls/electrical/switches/battery1") == 0) {
+			me["BAT1volts"].hide();
+			me["BAT1amps"].hide();
+			me["BAT1v"].hide();
+			me["BAT1a"].hide();
+			me["BAT1off"].show();
+		} else {
+			me["BAT1volts"].show();
+			me["BAT1amps"].show();
+			me["BAT1v"].show();
+			me["BAT1a"].show();
+			me["BAT1off"].hide();
+		}
+		if (getprop("/controls/electrical/switches/battery2") == 0) {
+			me["BAT2volts"].hide();
+			me["BAT2amps"].hide();
+			me["BAT2v"].hide();
+			me["BAT2a"].hide();
+			me["BAT2off"].show();
+		} else {
+			me["BAT2volts"].show();
+			me["BAT2amps"].show();
+			me["BAT2v"].show();
+			me["BAT2a"].show();
+			me["BAT2off"].hide();
+		}
+		
+		if (getprop("/systems/electrical/battery1-contact") == 0 and getprop("/systems/electrical/bat1direction") == 0) {
+			me["BAT1connectorA"].hide();
+			me["BAT1connectorB"].hide();
+		} else if (getprop("/systems/electrical/battery1-contact") == 1 and getprop("/systems/electrical/bat1direction") == -1) {
+			me["BAT1connectorA"].hide();
+			me["BAT1connectorB"].show();
+			me["BAT1connectorB"].setRotation(getprop("/ECAM/Lower/bat1-contactrotation") * D2R);
+		} else if (getprop("/systems/electrical/battery1-contact") == 1 and getprop("/systems/electrical/bat1direction") == 2) {
+			me["BAT1connectorA"].show();
+			me["BAT1connectorB"].hide();
+		} else if (getprop("/systems/electrical/battery1-contact") == 1 and getprop("/systems/electrical/bat1direction") == 1) {
+			me["BAT1connectorA"].hide();
+			me["BAT1connectorB"].show();
+			me["BAT1connectorB"].setRotation(getprop("/ECAM/Lower/bat2-contactrotation") * D2R);
+		}
+		
+		if (getprop("/systems/electrical/battery2-contact") == 0 and getprop("/systems/electrical/bat2direction") == 0) {
+			me["BAT2connectorA"].hide();
+			me["BAT2connectorB"].hide();
+		} else if (getprop("/systems/electrical/battery2-contact") == 1 and getprop("/systems/electrical/bat2direction") == -1) {
+			me["BAT2connectorA"].hide();
+			me["BAT2connectorB"].show();
+			me["BAT2connectorB"].setRotation(getprop("/ECAM/Lower/bat2-contactrotation") * D2R);
+		} else if (getprop("/systems/electrical/battery2-contact") == 1 and getprop("/systems/electrical/bat2direction") == 2) {
+			me["BAT2connectorA"].show();
+			me["BAT2connectorB"].hide();
+		} else if (getprop("/systems/electrical/battery2-contact") == 1 and getprop("/systems/electrical/bat2direction") == 1) {
+			me["BAT2connectorA"].hide();
+			me["BAT2connectorB"].show();
+			me["BAT2connectorB"].setRotation(getprop("/ECAM/Lower/bat2-contactrotation") * D2R);
+		}
+		
+		if (getprop("/systems/electrical/bus/dcbat") < 25) {
+			me["DCbattext"].setColor(0.7333,0.3803,0);
+		} else {
+			me["DCbattext"].setColor(0.0667,0.9450,0.3686);
+		}
+		
+		if (getprop("/systems/electrical/bus/dc1") < 25) {
+			me["TR1volts"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR1volts"].setColor(0.0667,0.9450,0.3686);
+		}
+		
+		if (getprop("/systems/electrical/bus/dc2") < 25) {
+			me["TR2volts"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR2volts"].setColor(0.0667,0.9450,0.3686);
+		}
+		
+		if (getprop("/systems/electrical/bus/dc1-amps") <= 5) {
+			me["TR1amps"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR1amps"].setColor(0.0667,0.9450,0.3686);
+		}
+		
+		if (getprop("/systems/electrical/bus/dc2-amps") <= 5) {
+			me["TR2amps"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR2amps"].setColor(0.0667,0.9450,0.3686);
+		}
+		
+		me["BAT1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery1-volts")));
+		me["BAT2volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/battery2-volts")));
+		me["BAT1amps"].setText(sprintf("%3.0f", getprop("/systems/electrical/battery1-amps")));
+		me["BAT2amps"].setText(sprintf("%3.0f", getprop("/systems/electrical/battery2-amps")));
+		
+		me["TR1volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/bus/dc1")));
+		me["TR1amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/bus/dc1-amps")));
+		me["TR2volts"].setText(sprintf("%2.0f", getprop("/systems/electrical/bus/dc2")));
+		me["TR2amps"].setText(sprintf("%2.0f", getprop("/systems/electrical/bus/dc2-amps")));
+		
+		
+		me["EXTvolts"].setText(sprintf("%2.0f", getprop("/systems/electrical/extra/ext-volts")));
+		me["EXThz"].setText(sprintf("%2.0f", getprop("/systems/electrical/extra/ext-hz")));
+		
+		me["ESSTRvolts"].hide();
+		me["ESSTRv"].hide();
+		me["ESSTRamps"].hide();
+		me["ESSTRa"].hide();
+		me["ESSTRvolts"].hide();
+		me["ESSTRbox"].hide();
+		me["EMERGENtoESSTRarrow"].hide();
+		me["ESSTRtoDCESSline"].hide();
+		me.updateBottomStatus();
+	},
+};
+
 setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_display = canvas.new({
 		"name": "lowerECAM",
@@ -1145,11 +1286,13 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
+	var groupElec = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
+	lowerECAM_elec = canvas_lowerECAM_elec.new(groupElec, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/elec.svg");
 	
 	lowerECAM_update.start();
 });

@@ -369,13 +369,13 @@ var master_pneu = func {
 		setprop("/systems/pneumatic/bleedapu-fault", 0);
 	}
 	
-	if ((pack1_fail and pack1_sw) or (pack1_sw and pack1 <= 5)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (pack1_fail and pack1_sw) or (pack1_sw and pack1 <= 5)) {
 		setprop("/systems/pneumatic/pack1-fault", 1);
 	} else {
 		setprop("/systems/pneumatic/pack1-fault", 0);
 	}
 	
-	if ((pack2_fail and pack2_sw) or (pack2_sw and pack2 <= 5)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (pack2_fail and pack2_sw) or (pack2_sw and pack2 <= 5)) {
 		setprop("/systems/pneumatic/pack2-fault", 1);
 	} else {
 		setprop("/systems/pneumatic/pack2-fault", 0);

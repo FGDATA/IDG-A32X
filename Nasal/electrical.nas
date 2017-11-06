@@ -30,6 +30,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var battery2_sw = getprop("/controls/electrical/switches/battery2");
 	var battery1_volts = getprop("/systems/electrical/battery1-volts");
 	var battery2_volts = getprop("/systems/electrical/battery2-volts");
+	var bat1_cont = getprop("/systems/electrical/battery1-contact");
+	var bat2_cont = getprop("/systems/electrical/battery2-contact");
 	var rpmapu = getprop("/systems/apu/rpm");
 	var extpwr_on = getprop("/controls/switches/cart");
 	var stateL = getprop("/engines/engine[0]/state");
@@ -60,6 +62,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var bat1_volts = getprop("/systems/electrical/battery1-volts");
 	var bat2_volts = getprop("/systems/electrical/battery2-volts");
 	var replay = getprop("/sim/replay/replay-state");
+	var wow = getprop("/gear/gear[1]/wow");
 });
 
 var elec_init = func {
@@ -80,6 +83,8 @@ var elec_init = func {
 	setprop("/systems/electrical/battery2-volts", 25.9);
 	setprop("/systems/electrical/battery1-amps", 0);
 	setprop("/systems/electrical/battery2-amps", 0);
+	setprop("/systems/electrical/battery1-contact", 0);
+	setprop("/systems/electrical/battery2-contact", 0);
 	setprop("/systems/electrical/bus/dc1", 0);
 	setprop("/systems/electrical/bus/dc2", 0);
 	setprop("/systems/electrical/bus/dcbat", 0);
@@ -112,6 +117,8 @@ var elec_init = func {
 	setprop("/systems/electrical/idg2-fault", 0);
 	setprop("/controls/electrical/xtie/xtieL", 0);
 	setprop("/controls/electrical/xtie/xtieR", 0);
+	setprop("/systems/electrical/bat1direction", 0); # - 1 = charge, 0 = disconnected, 1 = discharge
+	setprop("/systems/electrical/bat2direction", 0); # - 1 = charge, 0 = disconnected, 1 = discharge
 	# Below are standard FG Electrical stuff to keep things working when the plane is powered
     setprop("/systems/electrical/outputs/adf", 0);
     setprop("/systems/electrical/outputs/audio-panel", 0);
@@ -191,6 +198,9 @@ var master_elec = func {
 	gen1_fail = getprop("/systems/failures/elec-gen1");
 	gen2_fail = getprop("/systems/failures/elec-gen2");
 	replay = getprop("/sim/replay/replay-state");
+	bat1_cont = getprop("/systems/electrical/battery1-contact");
+	bat2_cont = getprop("/systems/electrical/battery2-contact");
+	wow = getprop("/gear/gear[1]/wow");
 	
 	if (extpwr_on and gen_ext_sw) {
 		setprop("/systems/electrical/gen-ext", 1);
@@ -403,41 +413,65 @@ var master_elec = func {
 		setprop("/systems/electrical/battery2-amps", 0);
 	}
 	
-	if ((getprop("/systems/electrical/battery1-amps") > 120) or (getprop("/systems/electrical/battery2-amps") > 120)) {
+	dc1 = getprop("/systems/electrical/bus/dc1");
+	dc2 = getprop("/systems/electrical/bus/dc2");
+	
+	if ((getprop("/systems/electrical/battery1-amps") > 120) or (getprop("/systems/electrical/battery2-amps") > 120) or dc1 > 25 or dc2 > 25) {
 		setprop("/systems/electrical/bus/dcbat", dc_volt_std);
 	} else {
 		setprop("/systems/electrical/bus/dcbat", 0);
 	}
 	
-	dc1 = getprop("/systems/electrical/bus/dc1");
-	dc2 = getprop("/systems/electrical/bus/dc2");
+	if (battery1_volts < 26.5 or (rpmapu < 95 and getprop("/controls/APU/master") == 1) or (ac1 == 0 and ac2 == 0 and ias < 100)) {
+		setprop("/systems/electrical/battery1-contact", 1);
+	} else if (battery1_sw and wow and battery1_volts < 24.9 and !gen_apu_sw and !gen_ext_sw) {
+		setprop("/systems/electrical/battery1-contact", 0);
+	} else {
+		setprop("/systems/electrical/battery1-contact", 0);
+	}
 	
-	if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+	if (battery2_volts < 26.5 or (rpmapu < 95 and getprop("/controls/APU/master") == 1) or (ac1 == 0 and ac2 == 0 and ias < 100)) {
+		setprop("/systems/electrical/battery2-contact", 1);
+	} else if (battery2_sw and wow and battery2_volts < 24.9 and !gen_apu_sw and !gen_ext_sw) {
+		setprop("/systems/electrical/battery2-contact", 0);
+	} else {
+		setprop("/systems/electrical/battery2-contact", 0);
+	}
+	
+	if (battery1_volts < 26.5 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		decharge1.stop();
 		charge1.start();
-	} else if (battery1_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
+		setprop("/systems/electrical/bat1direction", -1);
+	} else if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 		charge1.stop();
 		decharge1.stop();
+		setprop("/systems/electrical/bat1direction", 2); # this is when it is connected, but is not charging or discharging
 	} else if (battery1_sw and !batt1_fail) {
 		charge1.stop();
 		decharge1.start();
+		setprop("/systems/electrical/bat1direction", 1);
 	} else {
 		decharge1.stop();
 		charge1.stop();
+		setprop("/systems/electrical/bat1direction", 0);
 	}
 	
-	if (battery2_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+	if (battery2_volts < 26.5 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		decharge2.stop();
 		charge2.start();
+		setprop("/systems/electrical/bat1direction", 0);
 	} else if (battery2_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 		charge2.stop();
 		decharge2.stop();
+		setprop("/systems/electrical/bat2direction", 2); # this is when it is connected, but is not charging or discharging
 	} else if (battery2_sw and !batt2_fail) {
 		charge2.stop();
 		decharge2.start();
+		setprop("/systems/electrical/bat2direction", 1);
 	} else {
 		decharge2.stop();
 		charge2.stop();
+		setprop("/systems/electrical/bat2direction", 0);
 	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") < 110) {
@@ -542,7 +576,7 @@ var master_elec = func {
 		setprop("/systems/electrical/batt2-fault", 0);
 	}
 	
-	if ((gen1_fail and gen1_sw) or (gen1_sw and stateL != 3)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (gen1_fail and gen1_sw) or (gen1_sw and stateL != 3)) {
 		setprop("/systems/electrical/gen1-fault", 1);
 	} else {
 		setprop("/systems/electrical/gen1-fault", 0);
@@ -560,13 +594,44 @@ var master_elec = func {
 		setprop("/systems/electrical/apugen-fault", 0);
 	}
 	
-	if ((gen2_fail and gen2_sw) or (gen2_sw and stateR != 3)) {
+	if (getprop("systems/electrical/battery2-amps") > 120 and (gen2_fail and gen2_sw) or (gen2_sw and stateR != 3)) {
 		setprop("/systems/electrical/gen2-fault", 1);
 	} else {
 		setprop("/systems/electrical/gen2-fault", 0);
 	}
+	
+	if (getprop("/systems/failures/sec1-fail-time") + 5 >= getprop("/sim/time/elapsed-sec")) {
+		setprop("/systems/failures/sec1", 1);
+	} else {
+		setprop("/systems/failures/sec1", 0);
+		setprop("/systems/failures/sec1-fail-time", 0);
+	}
+	
+	if (getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/failures/ventfan") == 1) {
+		setprop("/systems/ventilation/ventfan-fault", 0);
+	} else if (getprop("/systems/electrical/battery2-amps") > 120) {
+		setprop("/systems/ventilation/ventfan-fault", 1);
+	}
 }
 
+setlistener("/controls/electrical/switches/battery2", func {
+	if (getprop("/controls/electrical/switches/battery2") == 1) {
+		setprop("/systems/failures/elac1", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/failures/fac1", 1);
+		
+		setprop("/systems/failures/sec1-fail-time", getprop("/sim/time/elapsed-sec"));
+	} else if (getprop("/systems/electrical/bus/dc-ess") >= 25 or getprop("/systems/electrical/bus/ac-ess") >= 25) {
+		setprop("/systems/failures/elac1", 0);
+		setprop("/systems/failures/sec1", 0);
+		setprop("/systems/failures/fac1", 0);
+	} else {
+		setprop("/systems/failures/elac1", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/failures/fac1", 1);
+	}
+	
+});
 ###################
 # Update Function #
 ###################
