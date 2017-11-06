@@ -203,7 +203,9 @@
 			<expression>
 				<floor>
 					<div>
-						<property>/it-autoflight/internal/vert-speed-fpm</property> 
+						<abs>
+							<property>/it-autoflight/internal/vert-speed-fpm</property> 
+						</abs>
 						<value>100</value>
 					</div>
 				</floor>
@@ -211,6 +213,8 @@
 		</input>
 		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
 		<max-rate-of-change>50</max-rate-of-change>
+		<min>0</min>
+		<max>99</max>
 	</filter>
 
 	<filter>

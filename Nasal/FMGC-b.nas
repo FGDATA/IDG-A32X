@@ -308,6 +308,8 @@ var vertical = func {
 		setprop("/it-autoflight/mode/vert", "ALT HLD");
 		if (getprop("/it-autoflight/output/loc-armed")) {
 			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/mode/arm", "LNV");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
@@ -328,6 +330,8 @@ var vertical = func {
 		setprop("/it-autoflight/mode/vert", "V/S");
 		if (getprop("/it-autoflight/output/loc-armed")) {
 			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/mode/arm", "LNV");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
@@ -381,6 +385,8 @@ var vertical = func {
 		}
 		if (getprop("/it-autoflight/output/loc-armed")) {
 			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/mode/arm", "LNV");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
@@ -397,8 +403,10 @@ var vertical = func {
 		setprop("/it-autoflight/input/fpa", fpanow);
 		setprop("/it-autoflight/output/vert", 5);
 		setprop("/it-autoflight/mode/vert", "FPA");
-		if (getprop("/it-autoflight/output/loc-armed") == 1) {
+		if (getprop("/it-autoflight/output/loc-armed")) {
 			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/mode/arm", "LNV");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}
@@ -438,6 +446,8 @@ var vertical = func {
 			setprop("/it-autoflight/internal/alt", altinput);
 			if (getprop("/it-autoflight/output/loc-armed")) {
 				setprop("/it-autoflight/mode/arm", "LOC");
+			} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+				setprop("/it-autoflight/mode/arm", "LNV");
 			} else {
 				setprop("/it-autoflight/mode/arm", " ");
 			}
@@ -458,6 +468,8 @@ var vertical = func {
 		setprop("/it-autoflight/mode/vert", " ");
 		if (getprop("/it-autoflight/output/loc-armed")) {
 			setprop("/it-autoflight/mode/arm", "LOC");
+		} else if (getprop("/it-autoflight/input/lat-arm") == 1) {
+			setprop("/it-autoflight/mode/arm", "LNV");
 		} else {
 			setprop("/it-autoflight/mode/arm", " ");
 		}

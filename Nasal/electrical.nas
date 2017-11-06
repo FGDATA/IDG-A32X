@@ -475,8 +475,12 @@ var master_elec = func {
 	}
 		
 	if (getprop("/systems/electrical/bus/ac-ess") < 110) {
-		setprop("/it-autoflight/input/ap1", 0);
-		setprop("/it-autoflight/input/ap2", 0);
+		if (getprop("/it-autoflight/output/ap1") == 1) {
+			setprop("/it-autoflight/input/ap1", 0);
+		}
+		if (getprop("/it-autoflight/output/ap2") == 1) {
+			setprop("/it-autoflight/input/ap2", 0);
+		}
 		setprop("systems/electrical/on", 0);
 #		ai_spin.setValue(0.2);
 #		aispin.stop();

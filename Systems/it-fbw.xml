@@ -1330,6 +1330,50 @@
  <!-- =============================================================== -->
  <!-- Yaw Damper/Turn Coordinator                                     -->
  <!-- =============================================================== -->
+
+	<filter>
+		<name>IT-FBW: YAW DAMPER/TURN COORDINATOR FEEDBACK IF DISABLED</name>
+		<enable>
+			<condition>
+				<or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</not-equals>
+					<greater-than-equals>
+						<property>/controls/flight/rudder</property>
+						<value>0.1</value>
+					</greater-than-equals>
+					<less-than-equals>
+						<property>/controls/flight/rudder</property>
+						<value>-0.1</value>
+					</less-than-equals>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than>
+					<equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>4</value>
+					</equals>
+				</or>
+			</condition>
+		</enable>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>0</input>
+		<output>/controls/flight/rudder-fbw-cmd</output>
+		<min>-0.2</min>
+		<max>0.2</max>
+	</filter>
 	
 	<pid-controller>
 		<name>IT-FBW: YAW DAMPER/TURN COORDINATOR</name>
@@ -1357,6 +1401,14 @@
 						<property>/it-autoflight/output/lat</property>
 						<value>4</value>
 					</not-equals>
+					<less-than>
+						<property>/controls/flight/rudder</property>
+						<value>0.1</value>
+					</less-than>
+					<greater-than>
+						<property>/controls/flight/rudder</property>
+						<value>-0.1</value>
+					</greater-than>
 				</and>
 			</condition>
 		</enable>
