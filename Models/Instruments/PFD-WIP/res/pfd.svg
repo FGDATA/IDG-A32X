@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="949.68918"
-     inkscape:cy="635.21338"
+     inkscape:zoom="4"
+     inkscape:cx="630.07835"
+     inkscape:cy="656.19794"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -2391,7 +2391,7 @@
   <g
      id="AI_bank"
      inkscape:label="#g4313"
-     inkscape:transform-center-y="-246.30033">
+     inkscape:transform-center-y="-246.1722">
     <path
        inkscape:transform-center-y="-258.88333"
        inkscape:label="#path905"
@@ -3042,17 +3042,23 @@
        x="907.61713"
        id="tspan977"
        sodipodi:role="line">STD</tspan></text>
-  <text
-     transform="scale(0.87678236,1.1405339)"
-     id="AI_agl"
-     y="680.72845"
-     x="511.25748"
-     style="font-style:normal;font-weight:normal;font-size:28.05622673px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:0.65757734"
-     xml:space="preserve"
-     inkscape:label="#text983"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke-width:0.65757734"
-       y="680.72845"
+  <g
+     id="AI_agl_g"
+     inkscape:transform-center-y="245.55742"
+     inkscape:label="#g4612">
+    <text
+       inkscape:transform-center-y="245.55937"
+       inkscape:label="#text983"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:28.05622673px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:0.65757734"
        x="511.25748"
-       id="tspan4624"
-       sodipodi:role="line">0000</tspan></text>
+       y="680.72845"
+       id="AI_agl"
+       transform="scale(0.87678236,1.1405339)"><tspan
+         sodipodi:role="line"
+         id="tspan4624"
+         x="511.25748"
+         y="680.72845"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:center;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke-width:0.65757734">0000</tspan></text>
+  </g>
 </svg>

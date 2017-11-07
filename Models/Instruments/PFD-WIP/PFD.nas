@@ -114,7 +114,7 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer",
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer",
 		"VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
 	},
 	update: func() {
@@ -430,6 +430,8 @@ var canvas_PFD_1 = {
 		} else {
 			me["AI_agl"].hide();
 		}
+		
+		me["AI_agl_g"].setRotation(-roll * D2R);
 		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
