@@ -19,6 +19,8 @@ setprop("/it-autoflight/output/athr", 0);
 setprop("/instrumentation/pfd/horizon-pitch", 0);
 setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
 setprop("/position/gear-agl-ft", 0);
+setprop("/controls/flight/aileron-input-fast", 0);
+setprop("/controls/flight/elevator-input-fast", 0);
 var ASI = 0;
 var ASItrgt = 0;
 var alt = 0;
@@ -114,8 +116,8 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer",
-		"VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_agl_g","AI_agl","FD_roll","FD_pitch",
+		"ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -432,6 +434,19 @@ var canvas_PFD_1 = {
 		}
 		
 		me["AI_agl_g"].setRotation(-roll * D2R);
+		
+		if ((wow1 or wow2) and getprop("/FMGC/status/phase") != 0 and getprop("/FMGC/status/phase") != 1) {
+			me["AI_stick"].show();
+			me["AI_stick_pos"].show();
+		} else if ((wow1 or wow2) and (getprop("/FMGC/status/phase") == 0 or getprop("/FMGC/status/phase") == 1) and (getprop("/engines/engine[0]/state") == 3 or getprop("/engines/engine[1]/state") == 3)) {
+			me["AI_stick"].show();
+			me["AI_stick_pos"].show();
+		} else {
+			me["AI_stick"].hide();
+			me["AI_stick_pos"].hide();
+		}
+		
+		me["AI_stick_pos"].setTranslation(getprop("/controls/flight/aileron-input-fast") * 196.8, getprop("/controls/flight/elevator-input-fast") * 151.5);
 		
 		# Altitude
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
