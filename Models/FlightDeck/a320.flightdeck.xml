@@ -348,6 +348,10 @@
 					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
+				<greater-than>
+					<property>controls/lighting/DU/du2</property>
+					<value>0</value>
+				</greater-than>
 			</and>
 		</condition>
 	</model>
@@ -391,6 +395,10 @@
 					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>
 				</not-equals>
+				<greater-than>
+					<property>controls/lighting/DU/du5</property>
+					<value>0</value>
+				</greater-than>
 			</and>
 		</condition>
 	</model>
@@ -940,6 +948,47 @@
 	<!-- Dimmer Panel Left -->
 	<animation>
 		<type>pick</type>
+		<object-name>pfd_brt_cpt</object-name>
+		<object-name>pfd_brt_cpt_mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du1</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du1</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>pfd_brt_cpt</object-name>
+		<object-name>pfd_brt_cpt_mark</object-name>
+		<property>controls/lighting/DU/du1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>pfd_brt_cpt.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>pfd_nd_xfr_sw</object-name>
 		<action>
 			<button>0</button>
@@ -962,7 +1011,89 @@
 		</action>
 	</animation>
 	
-	<!-- Dimmer Panel Right -->
+	<animation>
+		<type>pick</type>
+		<object-name>brightness_nd_2_cpt</object-name>
+		<object-name>brightness_nd_2_cpt_mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du2</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du2</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>brightness_nd_2_cpt</object-name>
+		<object-name>brightness_nd_2_cpt_mark</object-name>
+		<property>controls/lighting/DU/du2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>brightness_nd_cpt.axis</object-name>
+		</axis>
+	</animation>
+	
+	<!-- Dimmer Panel Right -->	
+	<animation>
+		<type>pick</type>
+		<object-name>brightness_nd_2_fo</object-name>
+		<object-name>brightness_nd_2_fo_mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du5</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du5</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>brightness_nd_2_fo</object-name>
+		<object-name>brightness_nd_2_fo_mark</object-name>
+		<property>controls/lighting/DU/du5</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>brightness_nd_fo.axis</object-name>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>pfd_nd_xfr_sw2</object-name>
@@ -985,6 +1116,47 @@
 				<property>modes/fo-du-xfr</property>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>pfd_brt_fo</object-name>
+		<object-name>pfd_brt_fo_mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du6</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du6</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>pfd_brt_fo</object-name>
+		<object-name>pfd_brt_fo_mark</object-name>
+		<property>controls/lighting/DU/du6</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>pfd_brt_fo.axis</object-name>
+		</axis>
 	</animation>
 	
 	<!-- ECAM Controls -->

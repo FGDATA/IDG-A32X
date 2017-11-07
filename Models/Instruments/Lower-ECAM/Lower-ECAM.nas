@@ -83,7 +83,7 @@ var canvas_lowerECAM_base = {
 		return [];
 	},
 	update: func() {
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/electrical/switches/emer-gen") != 1) {
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/electrical/switches/emer-gen") != 1 and getprop("/controls/lighting/DU/du4") > 0) {
 			page = getprop("/ECAM/Lower/page");
 			if (page == "apu") {
 				lowerECAM_apu.page.show();

@@ -42,6 +42,12 @@ var variousReset = func {
 	setprop("/controls/lighting/landing-lights[1]", 0);
 	setprop("/controls/lighting/landing-lights[2]", 0);
 	setprop("/controls/lighting/taxi-light-switch", 0);
+	setprop("/controls/lighting/DU/du1", 1);
+	setprop("/controls/lighting/DU/du2", 1);
+	setprop("/controls/lighting/DU/du3", 1);
+	setprop("/controls/lighting/DU/du4", 1);
+	setprop("/controls/lighting/DU/du5", 1);
+	setprop("/controls/lighting/DU/du6", 1);
 }
 
 setlistener("/sim/signals/fdm-initialized", func {

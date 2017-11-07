@@ -29,5 +29,16 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>lecam.screen</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/DU/du4</factor-prop>
+		</emission>
+	</animation>
 
 </PropertyList>

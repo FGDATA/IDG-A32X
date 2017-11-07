@@ -8,7 +8,7 @@
 
 <PropertyList>
 
-	<path>res/PFD.ac</path>
+	<path>res/PFD1.ac</path>
 	
 	<animation>
 		<type>scale</type>
@@ -28,6 +28,17 @@
 				<script>canvas_pfd.showPFD1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>pfd1.screen</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/DU/du1</factor-prop>
+		</emission>
 	</animation>
 
 </PropertyList>

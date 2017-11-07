@@ -560,6 +560,14 @@
 			<tiller-enabled type="bool">0</tiller-enabled>
 		</gear>
 		<lighting>
+			<DU>
+				<du1 type="double">1</du1>
+				<du2 type="double">1</du2>
+				<du3 type="double">1</du3>
+				<du4 type="double">1</du4>
+				<du5 type="double">1</du5>
+				<du6 type="double">1</du6>
+			</DU>
 			<beacon type="bool">0</beacon>
 			<interior type="double">0</interior>
 			<cockpit type="bool">0</cockpit>
