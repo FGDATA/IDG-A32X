@@ -351,7 +351,9 @@ var arrowbutton = func(btn) {
 			setprop("/MCDU[1]/page", "DATA");
 		}
 		if (getprop("/MCDU[1]/page") == "INITA") {
-			setprop("/MCDU[1]/page", "INITB");
+			if (getprop("/engines/engine[0]/state") != 3 and getprop("/engines/engine[1]/state") != 3) {
+				setprop("/MCDU[1]/page", "INITB");
+			}
 		} else if (getprop("/MCDU[1]/page") == "INITB") {
 			setprop("/MCDU[1]/page", "INITA");
 		}
