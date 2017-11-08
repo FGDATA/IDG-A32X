@@ -5879,5 +5879,40 @@
 			<blue>0.08</blue>
 		</emission>
 	</animation>
+	
+	<effect>
+			<inherits-from>Models/Effects/IDG-A32X-interior</inherits-from>
+		   <object-name>fcu_panel</object-name>
+		   <object-name>main_panel</object-name>
+		   <object-name>ped_labels_1</object-name>
+		   <object-name>ped_labels_2</object-name>
+		   <object-name>carpet</object-name>
+		   <object-name>so.1</object-name>
+		   <object-name>sts.002</object-name>
+		   <object-name>Seat</object-name>
+		   <object-name>beam_a</object-name>
+		   <object-name>beam_f</object-name>
+		   <object-name>wall_1</object-name>
+		   <object-name>seat3.001</object-name>
+		   <object-name>seat4.002</object-name>
+		   <object-name>pedal_adjust</object-name>
+		   <object-name>pedals_block_capt</object-name>
+		   <object-name>ped_surface</object-name>
+		   <object-name>ped_wf</object-name>
+		   <object-name>pedestal1</object-name>
+		   <object-name>pedestal2</object-name>
+		   <object-name>pedestal3</object-name>
+		   <object-name>sfl</object-name>
+		   <object-name>sfl.003</object-name>
+		   <object-name>sts</object-name>
+		   <object-name>sfl.001</object-name>
+			<object-name>sts.003</object-name>
+			<object-name>sts.001</object-name>
+			<object-name>speaker_front</object-name>
+			<object-name>efis_box_1</object-name>
+			<object-name>efis_box_2</object-name>
+			<object-name>efis_box_3</object-name>
+			<object-name>efis_box_4</object-name>
+	</effect>
 
 </PropertyList>

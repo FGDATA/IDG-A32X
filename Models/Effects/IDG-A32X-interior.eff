@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+	<name>IDG-A32X-interior</name>
+	<inherits-from>Effects/model-interior</inherits-from>
+	<parameters>
+		<texture n="4">
+			<type>cubemap</type>
+			<images>
+				<positive-x>res/0004.png</positive-x>
+				<negative-x>res/0002.png</negative-x>
+				<positive-y>res/0001.png</positive-y>
+				<negative-y>res/0003.png</negative-y>
+				<positive-z>res/0005.png</positive-z>
+				<negative-z>res/0006.png</negative-z>
+			</images>
+		</texture>
+		<opacity-cube-center type="vec3d" n="0"> 0.6 0.0 0.7</opacity-cube-center>
+		<opacity-cube-scale type="vec3d" n="0"> 1 1 1</opacity-cube-scale>
+		<opacity-cube-angle type="float">0.0</opacity-cube-angle>
+	</parameters>
+</PropertyList>
