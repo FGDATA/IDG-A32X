@@ -5104,6 +5104,11 @@
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/speedbrake-lever</property>
+				<value>0</value>
+			</binding>
+			<binding>
 				<command>property-cycle</command>
 				<property>controls/flight/speedbrake-arm</property>
 				<value>0</value>
