@@ -532,7 +532,7 @@ var ManagedSPD = maketimer(0.25, func {
 				} else if (mng_spd_cmd != minspeed and decel) {
 					setprop("/FMGC/internal/mng-spd-cmd", minspeed);
 				}
-			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude <= 10080) {
+			} else if ((phase == 4 or phase == 5 or phase == 6) and altitude <= 10980) {
 				if (mngktsmach) {
 					setprop("/FMGC/internal/mng-kts-mach", 0);
 				}
