@@ -509,9 +509,9 @@ var canvas_PFD_1 = {
 			me["GS_pointer"].hide();
 		}
 		
-		me["LOC_pointer"].setTranslation(-(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm")) * 197, 0);
+		me["LOC_pointer"].setTranslation(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm") * 197, 0);
 		
-		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * 197);
+		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * -197);
 		
 		# Heading
 #		if (getprop("/it-autoflight/custom/show-hdg") == 1) {
