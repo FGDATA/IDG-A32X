@@ -139,6 +139,6 @@ setlistener('/flight-management/control/capture-leg', func(n){
 var showNd = func(nd = nil) {
 	if(nd == nil) nd = 'main';
 	# The optional second arguments enables creating a window decoration
-	var dlg = canvas.Window.new([400, 400], "dialog");
+	var dlg = canvas.Window.new([512, 512], "dialog");
 	dlg.setCanvas( nd_display[nd] );
 }
