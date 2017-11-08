@@ -265,7 +265,7 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/it-autoflight/input/toga", 1);
 	}
 	
-	if (wowl and wowr and gs < 20 and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6") and ap1 == 0 and ap2 == 0) {
+	if (wowl and wowr and gs <= 40 and (phase == "2" or phase == "3" or phase == "4" or phase == "5" or phase == "6") and ap1 == 0 and ap2 == 0) {
 		reset_FMGC();
 	}
 	

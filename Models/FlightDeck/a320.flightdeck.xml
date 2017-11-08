@@ -5880,7 +5880,7 @@
 		</emission>
 	</animation>
 	
-	<effect>
+	<!--effect>
 		<inherits-from>Models/Effects/IDG-A32X-interior</inherits-from>
 		<object-name>fcu_panel</object-name>
 		<object-name>main_panel</object-name>
@@ -5913,6 +5913,6 @@
 		<object-name>efis_box_2</object-name>
 		<object-name>efis_box_3</object-name>
 		<object-name>efis_box_4</object-name>
-	</effect>
+	</effect--><!-- Makes lag -->
 
 </PropertyList>
