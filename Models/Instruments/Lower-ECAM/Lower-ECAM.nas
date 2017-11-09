@@ -9,6 +9,7 @@ var lowerECAM_apu = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
 var lowerECAM_wheel = nil;
+var lowerECAM_door = nil;
 var lowerECAM_display = nil;
 var page = "eng";
 var oat = getprop("/environment/temperature-degc");
@@ -90,36 +91,49 @@ var canvas_lowerECAM_base = {
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_door.page.hide();
 				lowerECAM_apu.update();
 			} else if (page == "eng") {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.show();
-				lowerECAM_eng.update();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_door.page.hide();
+				lowerECAM_eng.update();
 			} else if (page == "fctl") {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.show();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_door.page.hide();
 				lowerECAM_fctl.update();
 			} else if (page == "wheel") {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.show();
+				lowerECAM_door.page.hide();
 				lowerECAM_wheel.update();
+			} else if (page == "door") {
+				lowerECAM_apu.page.hide();
+				lowerECAM_eng.page.hide();
+				lowerECAM_fctl.page.hide();
+				lowerECAM_wheel.page.hide();
+				lowerECAM_door.page.show();
+				lowerECAM_door.update();
 			} else {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
 				lowerECAM_wheel.page.hide();
+				lowerECAM_door.page.hide();
 			}
 		} else {
 			lowerECAM_apu.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
 			lowerECAM_wheel.page.hide();
+			lowerECAM_door.page.hide();
 		}
 	},
 	updateBottomStatus: func() {
@@ -1133,6 +1147,196 @@ var canvas_lowerECAM_wheel = {
 	},
 };
 
+var canvas_lowerECAM_door = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_door, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","Bulk","BulkLine","BulkLbl", "Exit1L", "Exit1R", "Cabin1Left", "Cabin1LeftLbl", "Cabin1LeftLine", "Cabin1LeftSlide", "Cabin1Right", "Cabin1RightLbl", "Cabin1RightLine", "Cabin1RightSlide", "Cabin2Left", "Cabin2LeftLbl", "Cabin2LeftLine", "Cabin2LeftSlide", 
+				"Cabin2Right", "Cabin2RightLbl", "Cabin2RightLine", "Cabin2RightSlide", "Cabin3Left","Cabin3LeftLbl", "Cabin3LeftLine", "Cabin3LeftSlide", "Cabin3Right", "Cabin3RightLbl", "Cabin3RightLine", "Cabin3RightSlide", "AvionicsLine1", "AvionicsLbl1", "AvionicsLine2", "AvionicsLbl2",
+				"Cargo1Line", "Cargo1Lbl", "Cargo2Line", "Cargo2Lbl", "ExitLSlide", "ExitLLine", "ExitLLbl", "ExitRSlide", "ExitRLine", "ExitRLbl", "Cabin4Left", "Cabin4LeftLbl", "Cabin4LeftLine", "Cabin4LeftSlide", "Cabin4Right", "Cabin4RightLbl", "Cabin4RightLine", "Cabin4RightSlide"];
+	},
+	update: func() {
+		# if ((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) {
+		# 	me["Bulk"].hide();
+		#	me["BulkLine"].hide();
+		#	me["BulkLbl"].hide();
+		# } else {
+		#	me["Bulk"].show();
+		#	me["BulkLine"].show();
+		#	me["BulkLbl"].show();
+		# }
+		
+		
+		# If you make AirBerlin or Allegiant livery add below 
+		if (((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) and (getprop("/sim/model/livery/name") != "easyJet" or getprop("/sim/model/livery/name") != "GermanWings (D-AGWZ)")) {
+			me["Exit1L"].hide();
+			me["Exit1R"].hide()
+		} else {
+			me["Exit1L"].show();
+			me["Exit1R"].show();
+		}
+		
+		if (getprop("sim/model/door-positions/doorl1/position-norm") > 0) {
+			me["Cabin1Left"].show();
+			me["Cabin1Left"].setColor(0.7333,0.3803,0);
+			me["Cabin1Left"].setColorFill(0.7333,0.3803,0);
+			me["Cabin1LeftLbl"].show();
+			me["Cabin1LeftLine"].show();
+		} else {
+			me["Cabin1Left"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin1Left"].setColorFill(0,0,0);
+			me["Cabin1LeftLbl"].hide();
+			me["Cabin1LeftLine"].hide();
+		}
+		
+		if (getprop("sim/model/door-positions/doorr1/position-norm") > 0) {
+			me["Cabin1Right"].show();
+			me["Cabin1Right"].setColor(0.7333,0.3803,0);
+			me["Cabin1Right"].setColorFill(0.7333,0.3803,0);
+			me["Cabin1RightLbl"].show();
+			me["Cabin1RightLine"].show();
+		} else {
+			me["Cabin1Right"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin1Right"].setColorFill(0,0,0);
+			me["Cabin1RightLbl"].hide();
+			me["Cabin1RightLine"].hide();
+		}
+		
+		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorl2/position-norm") > 0) {
+			me["Cabin2Left"].show();
+			me["Cabin2Left"].setColor(0.7333,0.3803,0);
+			me["Cabin2Left"].setColorFill(0.7333,0.3803,0);
+			me["Cabin2LeftLbl"].show();
+			me["Cabin2LeftLine"].show();
+		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
+			me["Cabin2Left"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin2Left"].setColorFill(0,0,0);
+			me["Cabin2LeftLbl"].hide();
+			me["Cabin2LeftLine"].hide();
+		} else {
+			me["Cabin2Left"].hide();
+			me["Cabin2LeftLbl"].hide();
+			me["Cabin2LeftLine"].hide();
+		}
+		
+		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorr2/position-norm") > 0) {
+			me["Cabin2Right"].show();
+			me["Cabin2Right"].setColor(0.7333,0.3803,0);
+			me["Cabin2Right"].setColorFill(0.7333,0.3803,0);
+			me["Cabin2RightLbl"].show();
+			me["Cabin2RightLine"].show();
+		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
+			me["Cabin2Right"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin2Right"].setColorFill(0,0,0);
+			me["Cabin2RightLbl"].hide();
+			me["Cabin2RightLine"].hide();
+		} else {
+			me["Cabin2Right"].hide();
+			me["Cabin2RightLbl"].hide();
+			me["Cabin2RightLine"].hide();
+		}
+		
+		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorl3/position-norm") > 0) {
+			me["Cabin3Left"].show();
+			me["Cabin3Left"].setColor(0.7333,0.3803,0);
+			me["Cabin3Left"].setColorFill(0.7333,0.3803,0);
+			me["Cabin3LeftLbl"].show();
+			me["Cabin3LeftLine"].show();
+		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
+			me["Cabin3Left"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin3Left"].setColorFill(0,0,0);
+			me["Cabin3LeftLbl"].hide();
+			me["Cabin3LeftLine"].hide();
+		} else {
+			me["Cabin3Left"].hide();
+			me["Cabin3LeftLbl"].hide();
+			me["Cabin3LeftLine"].hide();
+		}
+		
+		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorr3/position-norm") > 0) {
+			me["Cabin3Right"].show();
+			me["Cabin3Right"].setColor(0.7333,0.3803,0);
+			me["Cabin3Right"].setColorFill(0.7333,0.3803,0);
+			me["Cabin3RightLbl"].show();
+			me["Cabin3RightLine"].show();
+		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
+			me["Cabin3Right"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin3Right"].setColorFill(0,0,0);
+			me["Cabin3RightLbl"].hide();
+			me["Cabin3RightLine"].hide();
+		} else {
+			me["Cabin3Right"].hide();
+			me["Cabin3RightLbl"].hide();
+			me["Cabin3RightLine"].hide();
+		}
+		
+		if (getprop("sim/model/door-positions/doorl4/position-norm") > 0) {
+			me["Cabin4Left"].show();
+			me["Cabin4Left"].setColor(0.7333,0.3803,0);
+			me["Cabin4Left"].setColorFill(0.7333,0.3803,0);
+			me["Cabin4LeftLbl"].show();
+			me["Cabin4LeftLine"].show();
+		} else {
+			me["Cabin4Left"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin4Left"].setColorFill(0,0,0);
+			me["Cabin4LeftLbl"].hide();
+			me["Cabin4LeftLine"].hide();
+		}
+		
+		if (getprop("sim/model/door-positions/doorr4/position-norm") > 0) {
+			me["Cabin4Right"].show();
+			me["Cabin4Right"].setColor(0.7333,0.3803,0);
+			me["Cabin4Right"].setColorFill(0.7333,0.3803,0);
+			me["Cabin4RightLbl"].show();
+			me["Cabin4RightLine"].show();
+		} else {
+			me["Cabin4Right"].setColor(0.0509,0.7529,0.2941);
+			me["Cabin4Right"].setColorFill(0,0,0);
+			me["Cabin4RightLbl"].hide();
+			me["Cabin4RightLine"].hide();
+		}
+		
+		
+		me["Cabin1LeftSlide"].hide();
+		me["Cabin1RightSlide"].hide();
+		me["Cabin2LeftSlide"].hide();
+		me["Cabin2RightSlide"].hide();
+		me["Cabin3LeftSlide"].hide();
+		me["Cabin3RightSlide"].hide();
+		me["Cabin4LeftSlide"].hide();
+		me["Cabin4RightSlide"].hide();
+		
+		me["AvionicsLine1"].hide();
+		me["AvionicsLine2"].hide();
+		me["AvionicsLbl1"].hide();
+		me["AvionicsLbl2"].hide();
+		me["ExitLSlide"].hide();
+		me["ExitLLine"].hide(); 
+		me["ExitLLbl"].hide();
+		me["ExitRSlide"].hide();
+		me["ExitRLine"].hide();
+		me["ExitRLbl"].hide();
+		me["Bulk"].hide();
+		me["BulkLine"].hide();
+		me["BulkLbl"].hide();
+		me["Cargo1Line"].hide();
+		me["Cargo1Lbl"].hide();
+		me["Cargo2Line"].hide();
+		me["Cargo2Lbl"].hide();
+		me["Cabin1LeftSlide"].hide();
+		me["Cabin1RightSlide"].hide();
+		me["Cabin4LeftSlide"].hide();
+		me["Cabin4RightSlide"].hide();
+		
+		
+		me.updateBottomStatus();
+	},
+};
+
 setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_display = canvas.new({
 		"name": "lowerECAM",
@@ -1145,11 +1349,13 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
+	var groupDoor = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
 	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
+	lowerECAM_door = canvas_lowerECAM_door.new(groupDoor, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/door.svg");
 	
 	lowerECAM_update.start();
 });

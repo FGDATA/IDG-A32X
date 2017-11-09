@@ -185,7 +185,7 @@ var triggerDoor = func(door, doorName, doorDesc) {
 		door.toggle();
 	} else {
 		if (getprop("/velocities/groundspeed-kt") > 5) {
-			gui.popupTip("You cannot open the doors while the aircraft is moving!!!");
+			gui.popupTip("You cannot open the doors while the aircraft is moving!");
 		} else {
 			gui.popupTip("Opening " ~ doorDesc ~ " door");
 			door.toggle();
