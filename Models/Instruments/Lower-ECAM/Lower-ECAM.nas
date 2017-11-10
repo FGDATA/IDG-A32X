@@ -1157,19 +1157,9 @@ var canvas_lowerECAM_door = {
 	getKeys: func() {
 		return ["TAT","SAT","GW","Bulk","BulkLine","BulkLbl", "Exit1L", "Exit1R", "Cabin1Left", "Cabin1LeftLbl", "Cabin1LeftLine", "Cabin1LeftSlide", "Cabin1Right", "Cabin1RightLbl", "Cabin1RightLine", "Cabin1RightSlide", "Cabin2Left", "Cabin2LeftLbl", "Cabin2LeftLine", "Cabin2LeftSlide", 
 				"Cabin2Right", "Cabin2RightLbl", "Cabin2RightLine", "Cabin2RightSlide", "Cabin3Left","Cabin3LeftLbl", "Cabin3LeftLine", "Cabin3LeftSlide", "Cabin3Right", "Cabin3RightLbl", "Cabin3RightLine", "Cabin3RightSlide", "AvionicsLine1", "AvionicsLbl1", "AvionicsLine2", "AvionicsLbl2",
-				"Cargo1Line", "Cargo1Lbl", "Cargo2Line", "Cargo2Lbl", "ExitLSlide", "ExitLLine", "ExitLLbl", "ExitRSlide", "ExitRLine", "ExitRLbl", "Cabin4Left", "Cabin4LeftLbl", "Cabin4LeftLine", "Cabin4LeftSlide", "Cabin4Right", "Cabin4RightLbl", "Cabin4RightLine", "Cabin4RightSlide"];
+				"Cargo1Line", "Cargo1Lbl", "Cargo1Door", "Cargo2Line", "Cargo2Lbl", "Cargo2Door", "ExitLSlide", "ExitLLine", "ExitLLbl", "ExitRSlide", "ExitRLine", "ExitRLbl", "Cabin4Left", "Cabin4LeftLbl", "Cabin4LeftLine", "Cabin4LeftSlide", "Cabin4Right", "Cabin4RightLbl", "Cabin4RightLine", "Cabin4RightSlide"];
 	},
 	update: func() {
-		# if ((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) {
-		# 	me["Bulk"].hide();
-		#	me["BulkLine"].hide();
-		#	me["BulkLbl"].hide();
-		# } else {
-		#	me["Bulk"].show();
-		#	me["BulkLine"].show();
-		#	me["BulkLbl"].show();
-		# }
-		
 		
 		# If you make AirBerlin or Allegiant livery add below 
 		if (((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) and (getprop("/sim/model/livery/name") != "easyJet" or getprop("/sim/model/livery/name") != "GermanWings (D-AGWZ)")) {
@@ -1300,6 +1290,48 @@ var canvas_lowerECAM_door = {
 			me["Cabin4RightLine"].hide();
 		}
 		
+		if ((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) {
+		 	me["Bulk"].hide();
+		} else {
+			me["Bulk"].show();
+		}
+		
+		if (getprop("/sim/model/door-positions/cargobulk/position-norm") > 0) {
+			me["Bulk"].setColor(0.7333,0.3803,0);
+			me["Bulk"].setColorFill(0.7333,0.3803,0);
+			me["BulkLbl"].show();
+			me["BulkLine"].show();
+		} else {
+			me["Bulk"].setColor(0.0509,0.7529,0.2941);
+			me["Bulk"].setColorFill(0,0,0);
+			me["BulkLbl"].hide();
+			me["BulkLine"].hide();
+		}
+		
+		if (getprop("/sim/model/door-positions/cargofwd/position-norm") > 0) {
+			me["Cargo1Door"].setColor(0.7333,0.3803,0);
+			me["Cargo1Door"].setColorFill(0.7333,0.3803,0);
+			me["Cargo1Lbl"].show();
+			me["Cargo1Line"].show();
+		} else {
+			me["Cargo1Door"].setColor(0.0509,0.7529,0.2941);
+			me["Cargo1Door"].setColorFill(0,0,0);
+			me["Cargo1Lbl"].hide();
+			me["Cargo1Line"].hide();
+		}
+		
+		if (getprop("/sim/model/door-positions/cargoaft/position-norm") > 0) {
+			me["Cargo2Door"].setColor(0.7333,0.3803,0);
+			me["Cargo2Door"].setColorFill(0.7333,0.3803,0);
+			me["Cargo2Lbl"].show();
+			me["Cargo2Line"].show();
+		} else {
+			me["Cargo2Door"].setColor(0.0509,0.7529,0.2941);
+			me["Cargo2Door"].setColorFill(0,0,0);
+			me["Cargo2Lbl"].hide();
+			me["Cargo2Line"].hide();
+		}
+		
 		
 		me["Cabin1LeftSlide"].hide();
 		me["Cabin1RightSlide"].hide();
@@ -1320,9 +1352,6 @@ var canvas_lowerECAM_door = {
 		me["ExitRSlide"].hide();
 		me["ExitRLine"].hide();
 		me["ExitRLbl"].hide();
-		me["Bulk"].hide();
-		me["BulkLine"].hide();
-		me["BulkLbl"].hide();
 		me["Cargo1Line"].hide();
 		me["Cargo1Lbl"].hide();
 		me["Cargo2Line"].hide();

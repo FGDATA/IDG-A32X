@@ -153,7 +153,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(libraries.doorl3, "doorl3", "PAX left");
+				 libraries.triggerDoor(libraries.doorl4, "doorl4", "PAX left");
 				</script>
 			</binding>
 		</action>
@@ -163,7 +163,7 @@
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
 		<object-name>DoorL3int</object-name>
-		<property>sim/model/door-positions/doorl3/position-norm</property>
+		<property>sim/model/door-positions/doorl4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>0.25</ind><dep>0</dep></entry>
@@ -180,7 +180,7 @@
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
 		<object-name>DoorL3int</object-name>
-		<property>sim/model/door-positions/doorl3/position-norm</property>
+		<property>sim/model/door-positions/doorl4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>0.25</ind><dep>-0.2</dep></entry>
@@ -204,7 +204,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				 libraries.triggerDoor(libraries.doorr3, "doorr3", "PAX right");
+				 libraries.triggerDoor(libraries.doorr4, "doorr4", "PAX right");
 				</script>
 			</binding>
 		</action>
@@ -214,7 +214,7 @@
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
 		<object-name>DoorR3int</object-name>
-		<property>sim/model/door-positions/doorr3/position-norm</property>
+		<property>sim/model/door-positions/doorr4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>0.25</ind><dep>0</dep></entry>
@@ -231,7 +231,7 @@
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
 		<object-name>DoorR3int</object-name>
-		<property>sim/model/door-positions/doorr3/position-norm</property>
+		<property>sim/model/door-positions/doorr4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>0.25</ind><dep>0.2</dep></entry>
