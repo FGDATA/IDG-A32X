@@ -15,6 +15,8 @@ var dc_volt_std = 28;
 var dc_volt_min = 25;
 var dc_amps_std = 150;
 var ac_hz_std = 400;
+var ac1_src = "XX";
+var ac2_src = "XX";
 
 setlistener("/sim/signals/fdm-initialized", func {
 	var galley_sw = getprop("/controls/electrical/switches/galley");
@@ -101,6 +103,8 @@ var elec_init = func {
 	setprop("/systems/electrical/gen-apu", 0);
 	setprop("/systems/electrical/gen-ext", 0);
 	setprop("/systems/electrical/on", 0);
+	setprop("/systems/electrical/ac1-src", "XX");
+	setprop("/systems/electrical/ac2-src", "XX");
 	setprop("/systems/electrical/galley-fault", 0);
 	setprop("/systems/electrical/idg1-fault", 0);
 	setprop("/systems/electrical/gen1-fault", 0);
@@ -293,31 +297,43 @@ var master_elec = func {
 	# Left AC bus yes?
 	if (stateL == 3 and gen1_sw and !gen1_fail) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		ac1_src = "GEN";
 	} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		ac1_src = "EXT";
 	} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		ac1_src = "APU";
 	} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		ac1_src = "XTIE";
 	} else if (emergen) {
 		setprop("/systems/electrical/bus/ac1", ac_volt_std);
+		ac1_src = "RAT";
 	} else {
 		setprop("/systems/electrical/bus/ac1", 0);
+		ac1_src = "XX";
 	}
 	
 	# Right AC bus yes?
 	if (stateR == 3 and gen2_sw and !gen2_fail) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		ac2_src = "GEN";
 	} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		ac2_src = "EXT";
 	} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		ac2_src = "APU";
 	} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		ac2_src = "XTIE";
 	} else if (emergen) {
 		setprop("/systems/electrical/bus/ac2", ac_volt_std);
+		ac2_src = "RAT";
 	} else {
 		setprop("/systems/electrical/bus/ac2", 0);
+		ac2_src = "XX";
 	}
 	
 	# HZ/Volts yes?
@@ -522,6 +538,9 @@ var master_elec = func {
 		setprop("/controls/lighting/main-panel-norm", getprop("/controls/lighting/main-panel-knb"));
 		setprop("/controls/lighting/overhead-panel-norm", getprop("/controls/lighting/overhead-panel-knb"));
 	}
+	
+	setprop("/systems/electrical/ac1-src", ac1_src);
+	setprop("/systems/electrical/ac2-src", ac2_src);
 	
 	# Fault lights
 	if (gallery_fail and galley_sw) {

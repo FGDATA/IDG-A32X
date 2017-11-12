@@ -345,8 +345,12 @@
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>controls/electrical/switches/emer-gen</property>
-					<value>1</value>
+					<property>systems/electrical/ac1-src</property>
+					<value>RAT</value>
+				</not-equals>
+				<not-equals>
+					<property>systems/electrical/ac2-src</property>
+					<value>RAT</value>
 				</not-equals>
 				<greater-than>
 					<property>controls/lighting/DU/du2</property>
@@ -392,8 +396,12 @@
 					<value>2</value>
 				</not-equals>
 				<not-equals>
-					<property>controls/electrical/switches/emer-gen</property>
-					<value>1</value>
+					<property>systems/electrical/ac1-src</property>
+					<value>RAT</value>
+				</not-equals>
+				<not-equals>
+					<property>systems/electrical/ac2-src</property>
+					<value>RAT</value>
 				</not-equals>
 				<greater-than>
 					<property>controls/lighting/DU/du5</property>

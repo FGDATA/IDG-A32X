@@ -97,7 +97,7 @@ var canvas_PFD_base = {
 		return [];
 	},
 	update: func() {
-		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/electrical/switches/emer-gen") != 1 and getprop("/options/test-canvas") == 1 and getprop("/controls/lighting/DU/du1") > 0) {
+		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/options/test-canvas") == 1 and getprop("/controls/lighting/DU/du1") > 0) {
 			PFD_1.page.show();
 			PFD_1.update();
 		} else {
