@@ -26,6 +26,7 @@ setprop("/FMGC/internal/ils1-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/ils2-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor1-mcdu", "XXX/999.99");
 setprop("/FMGC/internal/vor2-mcdu", "999.99/XXX");
+setprop("/gear/gear[0]/wow-fmgc", 1);
 
 setlistener("/sim/signals/fdm-initialized", func {
 	var database1 = getprop("/FMGC/internal/navdatabase");
@@ -135,29 +136,17 @@ var FMGCinit = func {
 	various2.start();
 }
 
-#############
-# TO Status #
-#############
+############
+# FBW Trim #
+############
 
-setlistener("/gear/gear[1]/wow", func {
-	flarecheck();
+setlistener("/gear/gear[0]/wow-fmgc", func {
+	trimReset();
 });
 
-setlistener("/gear/gear[2]/wow", func {
-	flarecheck();
-});
-
-var flarecheck = func {
+var trimReset = func {
 	gear0 = getprop("/gear/gear[0]/wow");
-	state1 = getprop("/systems/thrust/state1");
-	state2 = getprop("/systems/thrust/state2");
 	flaps = getprop("/controls/flight/flap-pos");
-	if (gear0 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 5) {
-		setprop("/FMGC/status/to-state", 1);
-	}
-	if (getprop("/position/gear-agl-ft") >= 55) {
-		setprop("/FMGC/status/to-state", 0);
-	}
 	if (gear0 == 1 and getprop("/FMGC/status/to-state") == 0 and (flaps >= 5 or (flaps >= 4 and getprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override") == 1))) {
 		interpolate("/controls/flight/elevator-trim", 0.0, 1.5);
 	}
@@ -220,6 +209,13 @@ var phasecheck = maketimer(0.2, func {
 	newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
+	gear0 = getprop("/gear/gear[0]/wow");
+	state1 = getprop("/systems/thrust/state1");
+	state2 = getprop("/systems/thrust/state2");
+	
+	if (getprop("/gear/gear[0]/wow") != getprop("/gear/gear[0]/wow-fmgc")) {
+		setprop("/gear/gear[0]/wow-fmgc", getprop("/gear/gear[0]/wow"));
+	}
 	
 	if ((n1_left < 70 or n1_right < 70 or gs < 90) and mode == " " and gear0 == 1 and phase == 1) {
 		setprop("/FMGC/status/phase", "0");
@@ -292,6 +288,13 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/internal/overspeed", 163);
 		setprop("/FMGC/internal/minspeed", 134);
 		setprop("/FMGC/internal/alpha-prot-speed", 123);
+	}
+	
+	if (gear0 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 5) {
+		setprop("/FMGC/status/to-state", 1);
+	}
+	if (getprop("/position/gear-agl-ft") >= 55) {
+		setprop("/FMGC/status/to-state", 0);
 	}
 });
 
