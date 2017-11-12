@@ -99,6 +99,7 @@
 			<x-m>32.2535728</x-m>
 		</offsets>
 	</model>
+	
 	<!-- Lights -->
 	
 	<model>
@@ -140,6 +141,26 @@
 			<z-m>0.25</z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<name>Tail nav light</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/tailnav.xml</path>
+		<offsets>
+			<x-m>40.00461</x-m>
+			<y-m>0.0495674</y-m>
+			<z-m>1.2301</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tail nav light ALS</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/tailnav.xml</path>
+		<offsets>
+			<x-m>40.00461</x-m>
+			<y-m>0.0495674</y-m>
+			<z-m>1.2301</z-m>
+		</offsets>
+	</model>
 
 	<model>
 		<name>Left strobe light</name>
@@ -178,6 +199,26 @@
 			<x-m>22.93</x-m>
 			<y-m>16.5</y-m>
 			<z-m>0.25</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tail strobe light</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/tailstrobe.xml</path>
+		<offsets>
+			<x-m>40.00461</x-m>
+			<y-m>-0.0495674</y-m>
+			<z-m>1.2301</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Tail strobe light ALS</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/tail-strobe.xml</path>
+		<offsets>
+			<x-m>40.00461</x-m>
+			<y-m>-0.0495674</y-m>
+			<z-m>1.2301</z-m>
 		</offsets>
 	</model>
 	
@@ -499,49 +540,53 @@
 	</model>
 
 	<animation>
-    <type>select</type>
-    <object-name>Top beacon light</object-name>
-    <object-name>Bottom beacon light</object-name>
-    <object-name>Left nav light</object-name>
-    <object-name>Right nav light</object-name>
-    <object-name>Left strobe light</object-name>
-    <object-name>Right strobe light</object-name>
-    <condition>
-        <not>
-            <property>sim/rendering/shaders/skydome</property>
-        </not>
-    </condition>
-</animation>
-<animation>
-    <type>select</type>
-    <object-name>Top beacon light ALS</object-name>
-    <object-name>Bottom beacon light ALS</object-name>
-    <object-name>Left nav light ALS</object-name>
-    <object-name>Right nav light ALS</object-name>
-    <object-name>Left strobe light ALS</object-name>
-    <object-name>Right strobe light ALS</object-name>
-    <object-name>Port landing light ALS</object-name>
-    <object-name>Nosegear landing light ALS</object-name>
-    <object-name>Starboard landing light ALS</object-name>
-    <condition>
-            <property>sim/rendering/shaders/skydome</property>
-    </condition>
-</animation>
- <animation>
-  <type>select</type>
-   <object-name>Nosegear landing light ALS</object-name>
-   <condition>
-    <and>
-	 <not>
-		<property>sim/model/lights/nose-ldglight</property>
-		<value>0</value>
-	</not>
-     <greater-than>
-      <property>gear/gear/position-norm</property>
-      <value>0.1</value>
-     </greater-than>
-    </and>
-   </condition>
- </animation>
+		<type>select</type>
+		<object-name>Top beacon light</object-name>
+		<object-name>Bottom beacon light</object-name>
+		<object-name>Left nav light</object-name>
+		<object-name>Right nav light</object-name>
+		<object-name>Left strobe light</object-name>
+		<object-name>Right strobe light</object-name>
+		<object-name>Tail strobe light</object-name>
+		<object-name>Tail nav light</object-name>
+		<condition>
+			<not>
+				<property>sim/rendering/shaders/skydome</property>
+			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Top beacon light ALS</object-name>
+		<object-name>Bottom beacon light ALS</object-name>
+		<object-name>Left nav light ALS</object-name>
+		<object-name>Right nav light ALS</object-name>
+		<object-name>Left strobe light ALS</object-name>
+		<object-name>Right strobe light ALS</object-name>
+		<object-name>Port landing light ALS</object-name>
+		<object-name>Nosegear landing light ALS</object-name>
+		<object-name>Starboard landing light ALS</object-name>
+		<object-name>Tail strobe light ALS</object-name>
+		<object-name>Tail nav light ALS</object-name>
+		<condition>
+				<property>sim/rendering/shaders/skydome</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Nosegear landing light ALS</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>sim/model/lights/nose-ldglight</property>
+					<value>0</value>
+				</not>
+				<greater-than>
+					<property>gear/gear/position-norm</property>
+					<value>0.1</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
 	
 </PropertyList>
