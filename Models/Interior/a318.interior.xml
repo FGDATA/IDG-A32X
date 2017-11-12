@@ -12,7 +12,7 @@
 
 	<!-- ANIMATIONS -->
 	<!-- Lighting -->
-	<animation>
+	<!--animation>
 		<name>Cabin illumination</name>
 		<type>material</type>
 		<object-name>Cabin</object-name>
@@ -28,9 +28,9 @@
 			<red>0.5</red>
 			<green>0.5</green>
 			<blue>0.5</blue>
-			<factor-prop>sim/multiplay/generic/float[1]</factor-prop>
+			<factor-prop></factor-prop>
 		</emission>
-	</animation>
+	</animation-->
 
 	<!-- PAX doors -->
 	<!-- Inner doors moved to fuselage.ac. These animations are not needful anymore (th)
