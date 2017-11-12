@@ -6,9 +6,6 @@
 #########################################
 -->
 
-<!-- IT-AUTOFLIGHT: AUTOTHRUST -->
-<!-- Modified for A3XX Custom Thrust Lever control system. -->
-
 <PropertyList>
 
  <!-- =============================================================== -->
@@ -282,9 +279,11 @@
 	</pid-controller>
 
 	<!-- IDLE THR -->
-	<pid-controller>
+	<filter>
 		<name>IDLE</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<and>
@@ -314,32 +313,19 @@
 			</condition>
 		</enable>
 		<input>
-			<value>900</value>
+			<value>0.005</value>
 		</input>
-		<reference>
-			<value>0</value>
-		</reference>
 		<output>
 			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
-		<config>
-			<Kp>0.008</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/throttle-pid-max</property>
-			</u_max>
-		</config>
-	</pid-controller>
+	</filter>
 
 	<!-- CLB THR -->
-	<pid-controller>
+	<filter>
 		<name>CLB</name>
 		<debug>false</debug>
+		<type>gain</type>
+		<gain>1</gain>
 		<enable>
 			<condition>
 				<and>
@@ -369,27 +355,12 @@
 			</condition>
 		</enable>
 		<input>
-			<value>0</value>
+			<property>/controls/engines/throttle-pid-max</property>
 		</input>
-		<reference>
-			<value>900</value>
-		</reference>
 		<output>
 			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
-		<config>
-			<Kp>0.008</Kp>
-			<beta>1.0</beta>
-			<alpha>0.1</alpha>
-			<gamma>0.0</gamma>
-			<Ti>10.0</Ti>
-			<Td>0.00001</Td>
-			<u_min>0.005</u_min>
-			<u_max>
-				<property>/controls/engines/throttle-pid-max</property>
-			</u_max>
-		</config>
-	</pid-controller>
+	</filter>
 	
 	<!-- Engine 1 -->
 	<filter>
