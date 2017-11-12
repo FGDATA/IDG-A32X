@@ -13,6 +13,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var rev2 = 0;
 	var thr1 = 0;
 	var thr2 = 0;
+	var wow0 = getprop("/gear/gear[0]/wow");
 	var wow1 = getprop("/gear/gear[1]/wow");
 	var wow2 = getprop("/gear/gear[2]/wow");
 	var gnd_speed = getprop("/velocities/groundspeed-kt");
@@ -70,11 +71,10 @@ var absChk = maketimer(0.2, func {
 	rev2 = getprop("/engines/engine[1]/reverser-pos-norm");
 	thr1 = getprop("/controls/engines/engine[0]/throttle");
 	thr2 = getprop("/controls/engines/engine[1]/throttle");
-	wow1 = getprop("/gear/gear[1]/wow");
-	wow2 = getprop("/gear/gear[2]/wow");
+	wow0 = getprop("/gear/gear[0]/wow");
 	gnd_speed = getprop("/velocities/groundspeed-kt");
 	if (gnd_speed > 60 and rev1 < 0.01 and rev2 < 0.01) {
-		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow1 and wow2) {
+		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow0) {
 			setprop("/controls/autobrake/active", 1);
 			if (getprop("/controls/autobrake/mode") == 1) { # LO
 				interpolate("/controls/gear/brake-left", 0.4, 0.5);

@@ -299,7 +299,7 @@
 					</or>
 				</and>
 			</condition>
-			<value>0.05</value>
+			<value>0.0</value>
 		</input>
 		<input>
 			<expression>
@@ -1087,26 +1087,14 @@
 		<input>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-						<and>
-							<equals>
-								<property>/gear/gear[1]/wow</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/gear/gear[2]/wow</property>
-								<value>0</value>
-							</equals>
-						</and>
-					</or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
 					<or>
 						<equals>
 							<property>/it-fbw/law</property>
@@ -1149,6 +1137,33 @@
 				</and>
 			</condition>
 			<property>/controls/flight/elevator-input-fast</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<value>0.1</value>
 		</input>
 		<input>
 			<condition>
