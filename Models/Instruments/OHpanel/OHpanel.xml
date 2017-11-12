@@ -5468,7 +5468,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-				if (getprop("/controls/APU/master") == 1) {
+				if (getprop("/controls/APU/master") == 1 and getprop("/controls/APU/start") != 1) {
 					setprop("/controls/APU/start", 1);
 				}
 				</script>

@@ -330,7 +330,7 @@ setlistener("/controls/APU/start", func {
 			apu_egt_checkt.start();
 		} else if (getprop("/systems/acconfig/autoconfig-running") == 1) {
 			interpolate("/systems/apu/rpm", apu_max, 5);
-			interpolate("/systems/apu/egt", apu_egt_max, 5);
+			interpolate("/systems/apu/egt", apu_egt_min, 5);
 		}
 	} else if (getprop("/controls/APU/master") == 0) {
 		apu_egt_checkt.stop();
