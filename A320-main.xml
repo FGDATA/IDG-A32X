@@ -119,7 +119,7 @@
 				<path>Aircraft/IDG-A32X/Systems/it-fbw.xml</path>
 			</autopilot>
 			<autopilot n="3">
-				<path>Aircraft/IDG-A32X/Systems/fmgc-b.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/fmgc-drivers.xml</path>
 			</autopilot>
 			<autopilot n="4">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-roll-yaw.xml</path>
@@ -128,7 +128,7 @@
 				<path>Aircraft/IDG-A32X/Systems/fmgc-pitch.xml</path>
 			</autopilot>
             <autopilot n="6">
-                <path>Aircraft/IDG-A32X/Systems/custom-autothrust.xml</path>
+                <path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
             </autopilot>
             <autopilot n="7">
                 <path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
@@ -1211,7 +1211,6 @@
 		<libraries>
 			<file>Aircraft/IDG-A32X/Nasal/libraries.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/buttons.nas</file>
-			<file>Aircraft/IDG-A32X/Nasal/PFD_FMA.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/gpws.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/efis.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/ECAM.nas</file>
@@ -1239,6 +1238,7 @@
 		<fmgc>
 			<file>Aircraft/IDG-A32X/Nasal/FMGC.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/FMGC-b.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/FMGC-c.nas</file>
 		</fmgc>
 		<mcdu1>
 			<file>Aircraft/IDG-A32X/Nasal/MCDU1/MCDU.nas</file>

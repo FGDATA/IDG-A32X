@@ -1,5 +1,5 @@
-# Airbus PFD FMA
-# Joshua Davidson (it0uchpods)
+# A3XX FMGC/Autoflight
+# Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
 #########################################
 # Copyright (c) it0uchpods Design Group #
@@ -237,9 +237,9 @@ setlistener("/it-autoflight/mode/lat", func {
 var locupdate = maketimer(0.5, func {
 	var lat = getprop("/it-autoflight/mode/lat");
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
-	var nav_defl = getprop("/it-autoflight/internal/nav-heading-error-deg");
+	var nav_defl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
 	if (lat == "LOC") {
-		if (nav_defl > -1 and nav_defl < 1) {
+		if (nav_defl > -0.15 and nav_defl < 0.15) {
 			locupdate.stop();
 			if (newlat != "LOC") {
 				setprop("/modes/pfd/fma/roll-mode", "LOC");

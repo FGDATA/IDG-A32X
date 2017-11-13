@@ -16,7 +16,6 @@ setprop("/it-autoflight/internal/altitude-5-sec-ahead", 0);
 setlistener("/sim/signals/fdm-initialized", func {
 	var trueSpeedKts = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
 	var locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
-	var locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
 	var signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
 	var VS = getprop("/velocities/vertical-speed-fps");
 	var TAS = getprop("/velocities/uBody-fps");
@@ -235,13 +234,13 @@ var lateral = func {
 			gui.popupTip("Please make sure you have a route set, and that it is Activated!");
 		}
 	} else if (latset == 2) {
-		if (getprop("/it-autoflight/output/lat") == 2) {
-			# Do nothing because VOR/LOC is active
+		if (getprop("/instrumentation/nav[0]/in-range") == 1) {
+			if (getprop("/it-autoflight/output/lat") != 2) {
+				setprop("/it-autoflight/output/loc-armed", 1);
+				setprop("/it-autoflight/mode/arm", "LOC");
+			}
 		} else {
 			setprop("/instrumentation/nav[0]/signal-quality-norm", 0);
-			setprop("/instrumentation/nav[1]/signal-quality-norm", 0);
-			setprop("/it-autoflight/output/loc-armed", 1);
-			setprop("/it-autoflight/mode/arm", "LOC");
 		}
 	} else if (latset == 3) {
 		alandt.stop();
@@ -338,19 +337,17 @@ var vertical = func {
 		}
 		thrustmode();
 	} else if (vertset == 2) {
-		if (getprop("/it-autoflight/output/lat") == 2) {
-			# Do nothing because VOR/LOC is active
+		if (getprop("/instrumentation/nav[0]/in-range") == 1) {
+			if (getprop("/it-autoflight/output/lat") != 2) {
+				setprop("/it-autoflight/output/loc-armed", 1);
+			}
+			if (getprop("/it-autoflight/output/vert") != 2 and getprop("/it-autoflight/output/vert") != 6) {
+				setprop("/it-autoflight/output/appr-armed", 1);
+				setprop("/it-autoflight/mode/arm", "ILS");
+			}
 		} else {
 			setprop("/instrumentation/nav[0]/signal-quality-norm", 0);
-			setprop("/instrumentation/nav[1]/signal-quality-norm", 0);
-			setprop("/it-autoflight/output/loc-armed", 1);
-		}
-		if ((getprop("/it-autoflight/output/vert") == 2) or (getprop("/it-autoflight/output/vert") == 6)) {
-			# Do nothing because G/S or LAND or FLARE is active
-		} else {
 			setprop("/instrumentation/nav[0]/gs-rate-of-climb", 0);
-			setprop("/it-autoflight/output/appr-armed", 1);
-			setprop("/it-autoflight/mode/arm", "ILS");
 		}
 	} else if (vertset == 3) {
 		alandt.stop();
@@ -788,23 +785,22 @@ var check_arms = func {
 }
 
 var update_arms = func {
-	if (getprop("/it-autoflight/output/loc-armed")) {
-		locdefl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
-		locdefl_b = getprop("/instrumentation/nav[1]/heading-needle-deflection-norm");
-		if ((locdefl < 0.9233) and (getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) and (getprop("/FMGC/internal/loc-source") == "NAV0")) {
-			make_loc_active();
-		} else if ((locdefl_b < 0.9233) and (getprop("/instrumentation/nav[2]/signal-quality-norm") > 0.99) and (getprop("/FMGC/internal/loc-source") == "VOR0")) {
-			make_loc_active();
-		} else {
-			return 0;
+	if (getprop("/instrumentation/nav[0]/in-range") == 1) {
+		if (getprop("/it-autoflight/output/loc-armed")) {
+			locdefl = abs(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm"));
+			if (locdefl < 0.95 and locdefl != 0 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
+				make_loc_active();
+			} else {
+				return 0;
+			}
 		}
-	}
-	if (getprop("/it-autoflight/output/appr-armed")) {
-		signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
-		if (((signal < 0 and signal >= -0.30) or (signal > 0 and signal <= 0.30)) and (getprop("/FMGC/internal/loc-source") == "NAV0") and (getprop("/it-autoflight/output/lat") == 2)) {
-			make_appr_active();
-		} else {
-			return 0;
+		if (getprop("/it-autoflight/output/appr-armed")) {
+			signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
+			if (((signal < 0 and signal >= -0.20) or (signal > 0 and signal <= 0.20)) and getprop("/it-autoflight/output/lat") == 2) {
+				make_appr_active();
+			} else {
+				return 0;
+			}
 		}
 	}
 }
