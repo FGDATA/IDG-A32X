@@ -17,12 +17,14 @@
 	</effect-->
     
 	<effect>
-        <inherits-from>Effects/glass</inherits-from>
+		<inherits-from>Effects/glass</inherits-from>
+		<object-name>Windshield</object-name>
+		<object-name>Windows</object-name>
 		<object-name>glass</object-name>
 		<object-name>glass1</object-name>
 		<object-name>glass2</object-name>
 		<object-name>glass3</object-name>
-    </effect>	
+    </effect>
 
 	<!-- APU fire -->
 	<model>
@@ -44,6 +46,7 @@
 		<name>PAX left-front door pick</name>
 		<type>pick</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -59,6 +62,7 @@
 		<name>PAX left-front door x translate</name>
 		<type>translate</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -75,6 +79,7 @@
 		<name>PAX left-front door y translate</name>
 		<type>translate</type>
 		<object-name>DoorL1</object-name>
+		<object-name>DoorL1int</object-name>
 		<property>sim/model/door-positions/doorl1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -92,6 +97,7 @@
 		<name>PAX right-front door pick</name>
 		<type>pick</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -107,6 +113,7 @@
 		<name>PAX right-front door x translate</name>
 		<type>translate</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -123,6 +130,7 @@
 		<name>PAX right-front door y translate</name>
 		<type>translate</type>
 		<object-name>DoorR1</object-name>
+		<object-name>DoorR1int</object-name>
 		<property>sim/model/door-positions/doorr1/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -140,6 +148,7 @@
 		<name>PAX left-back door pick</name>
 		<type>pick</type>
 		<object-name>DoorL4</object-name>
+		<object-name>DoorL4int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -155,6 +164,7 @@
 		<name>PAX left-back door x translate</name>
 		<type>translate</type>
 		<object-name>DoorL4</object-name>
+		<object-name>DoorL4int</object-name>
 		<property>sim/model/door-positions/doorl4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -171,6 +181,7 @@
 		<name>PAX left-back door y translate</name>
 		<type>translate</type>
 		<object-name>DoorL4</object-name>
+		<object-name>DoorL4int</object-name>
 		<property>sim/model/door-positions/doorl4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -188,6 +199,7 @@
 		<name>PAX right-back door pick</name>
 		<type>pick</type>
 		<object-name>DoorR4</object-name>
+		<object-name>DoorR4int</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -203,6 +215,7 @@
 		<name>PAX right-back door x translate</name>
 		<type>translate</type>
 		<object-name>DoorR4</object-name>
+		<object-name>DoorR4int</object-name>
 		<property>sim/model/door-positions/doorr4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -219,6 +232,7 @@
 		<name>PAX right-back door y translate</name>
 		<type>translate</type>
 		<object-name>DoorR4</object-name>
+		<object-name>DoorR4int</object-name>
 		<property>sim/model/door-positions/doorr4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
@@ -359,7 +373,7 @@
 			<z2-m>-2.0790732</z2-m>
 		</axis>
 	</animation>
-	
+
 	<model>
 		<name>RAT</name>
 		<path>Aircraft/IDG-A32X/Models/RAT/RAT.xml</path>
