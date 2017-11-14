@@ -1,1 +1,0 @@
-aircraft.livery.init("Aircraft/IDG-A32X/Models/Liveries/A321/PW-NEO");
