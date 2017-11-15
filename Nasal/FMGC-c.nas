@@ -534,38 +534,23 @@ var boxchk = func {
 var boxchk_b = func {
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
 	if (newlat != " ") {
-		setprop("/modes/pfd/fma/roll-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/roll-mode-box", 0);
-		}, 5);
+		setprop("/modes/pfd/fma/roll-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 	var newvert = getprop("/modes/pfd/fma/pitch-mode");
 	if (newvert != " ") {
-		setprop("/modes/pfd/fma/pitch-mode-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode-box", 0);
-		}, 5);
+		setprop("/modes/pfd/fma/pitch-mode-time", getprop("/sim/time/elapsed-sec"));
 	}
 	var newarmr = getprop("/modes/pfd/fma/roll-mode-armed");
 	if (newarmr != " ") {
-		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
-		}, 5);
+		setprop("/modes/pfd/fma/roll-mode-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 	var newarmp = getprop("/modes/pfd/fma/pitch-mode-armed");
 	if (newarmp != " ") {
-		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
-		}, 5);
+		setprop("/modes/pfd/fma/pitch-mode-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 	var newarmp2 = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	if (newarmp2 != " ") {
-		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
-		settimer(func {
-			setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
-		}, 5);
+		setprop("/modes/pfd/fma/pitch-mode2-armed-time", getprop("/sim/time/elapsed-sec"));
 	}
 }
 

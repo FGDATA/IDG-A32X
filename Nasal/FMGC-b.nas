@@ -93,6 +93,7 @@ setlistener("/it-autoflight/input/ap1", func {
 			setprop("/it-autoflight/sound/apoffsound", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 0);	  
 		}
+		updateTimers();
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
 			if (getprop("/it-autoflight/output/lat") == 9) {
@@ -125,6 +126,7 @@ setlistener("/it-autoflight/input/ap2", func {
 			setprop("/it-autoflight/sound/apoffsound2", 1);	
 			setprop("/it-autoflight/sound/enableapoffsound2", 0);	  
 		}
+		updateTimers();
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
 			if (getprop("/it-autoflight/output/lat") == 9) {
@@ -162,6 +164,7 @@ setlistener("/it-autoflight/input/fd1", func {
 	if (fdmas == 0) {
 		fmabox();
 		setprop("/it-autoflight/output/fd1", 0);
+		updateTimers();
 	} else if (fdmas == 1) {
 		fmabox();
 		setprop("/it-autoflight/output/fd1", 1);
@@ -174,6 +177,7 @@ setlistener("/it-autoflight/input/fd2", func {
 	if (fdmas == 0) {
 		fmabox();
 		setprop("/it-autoflight/output/fd2", 0);
+		updateTimers();
 	} else if (fdmas == 1) {
 		fmabox();
 		setprop("/it-autoflight/output/fd2", 1);
@@ -651,26 +655,38 @@ var toga_reduc = func {
 
 # Altitude Capture and FPA Timer Logic
 setlistener("/it-autoflight/output/vert", func {
-	var vertm = getprop("/it-autoflight/output/vert");
-	if (vertm == 1) {
-		altcaptt.start();
-		fpa_calct.stop();
-	} else if (vertm == 4) {
-		altcaptt.start();
-		fpa_calct.stop();
-	} else if (vertm == 5) {
-		altcaptt.start();
-	} else if (vertm == 7) {
-		altcaptt.start();
-		fpa_calct.stop();
-	} else if (vertm == 8) {
-		altcaptt.stop();
-		fpa_calct.stop();
+	updateTimers();
+});
+
+var updateTimers = func {
+	if (getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
+		var vertm = getprop("/it-autoflight/output/vert");
+		if (vertm == 1) {
+			altcaptt.start();
+			fpa_calct.stop();
+		} else if (vertm == 4) {
+			altcaptt.start();
+			fpa_calct.stop();
+		} else if (vertm == 5) {
+			altcaptt.start();
+		} else if (vertm == 7) {
+			altcaptt.start();
+			fpa_calct.stop();
+		} else if (vertm == 8) {
+			altcaptt.stop();
+			fpa_calct.stop();
+		} else if (vertm == 9) {
+			altcaptt.start();
+			fpa_calct.stop();
+		} else {
+			altcaptt.stop();
+			fpa_calct.stop();
+		}
 	} else {
-		altcaptt.stop();
+		altcaptt.start();
 		fpa_calct.stop();
 	}
-});
+}
 
 # Altitude Capture
 var altcapt = func {
@@ -700,18 +716,20 @@ var altcapt = func {
 		setprop("/it-autoflight/internal/captvs", 1500);
 		setprop("/it-autoflight/internal/captvsneg", -1500);
 	}
-	var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-	var alt = getprop("/it-autoflight/internal/alt");
-	var dif = calt - alt;
-	if (dif < getprop("/it-autoflight/internal/captvs") and dif > getprop("/it-autoflight/internal/captvsneg")) {
-		if (vsnow > 0 and dif < 0) {
-			setprop("/it-autoflight/input/vert", 3);
-			setprop("/it-autoflight/output/thr-mode", 0);
-			setprop("/it-autoflight/mode/thr", "THRUST");
-		} else if (vsnow < 0 and dif > 0) {
-			setprop("/it-autoflight/input/vert", 3);
-			setprop("/it-autoflight/output/thr-mode", 0);
-			setprop("/it-autoflight/mode/thr", "THRUST");
+	if (getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
+		var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+		var alt = getprop("/it-autoflight/internal/alt");
+		var dif = calt - alt;
+		if (dif < getprop("/it-autoflight/internal/captvs") and dif > getprop("/it-autoflight/internal/captvsneg")) {
+			if (vsnow > 0 and dif < 0) {
+				setprop("/it-autoflight/input/vert", 3);
+				setprop("/it-autoflight/output/thr-mode", 0);
+				setprop("/it-autoflight/mode/thr", "THRUST");
+			} else if (vsnow < 0 and dif > 0) {
+				setprop("/it-autoflight/input/vert", 3);
+				setprop("/it-autoflight/output/thr-mode", 0);
+				setprop("/it-autoflight/mode/thr", "THRUST");
+			}
 		}
 	}
 	var altinput = getprop("/it-autoflight/input/alt");
@@ -1206,4 +1224,3 @@ var mng_altcaptt = maketimer(0.5, mng_altcapt);
 var mng_minmaxt = maketimer(0.5, mng_minmax);
 var mng_des_fpmt = maketimer(0.5, mng_des_fpm);
 var mng_des_todt = maketimer(0.5, mng_des_tod);
-	
