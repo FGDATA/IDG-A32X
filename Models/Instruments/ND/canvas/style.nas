@@ -1183,9 +1183,9 @@ canvas.NDStyles["Airbus"] = {
 				is_true: func(nd) {
 					nd.symbols.vorCrsPtr.show();
 					if (is_ils) {
-						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_mag())*D2R);
 					} else {
-						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+						nd.symbols.vorCrsPtr.setRotation((getprop("instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_mag())*D2R);
 					}
 
 				},
@@ -1203,9 +1203,9 @@ canvas.NDStyles["Airbus"] = {
 					var type = (is_ils ? 'ils' : 'vor');
 					var path = nd.get_nav_path(type, 0);
 					if (is_ils) {
-						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[0]/radials/selected-deg")-nd.aircraft_source.get_hdg_mag())*D2R);
 					} else {
-						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_tru())*D2R);
+						nd.symbols.vorCrsPtr2.setRotation((getprop("/instrumentation/nav[2]/radials/selected-deg")-nd.aircraft_source.get_hdg_mag())*D2R);
 					}
 					var line = nd.symbols.vorCrsPtr2.getElementById('vorCrsPtr2_line');
 					if(!is_ils){
