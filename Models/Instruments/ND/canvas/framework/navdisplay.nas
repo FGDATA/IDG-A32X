@@ -444,10 +444,20 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		var vorheading = userHdgTru;
 		var adfheading = userHdgMag;
 	}
-	if(getprop(vor1_path~ "heading-deg") != nil)
-		var nav0hdg=getprop(vor1_path~ "heading-deg") - vorheading;
-	if(getprop(vor2_path~ "heading-deg") != nil)
-		var nav1hdg=getprop(vor2_path~ "heading-deg") - vorheading;
+	if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch('toggle_true_north') == 0) {
+		var nav0hdg = getprop("/instrumentation/nav[2]/heading-deg") - getprop("/orientation/heading-magnetic-deg");
+	} else if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch('toggle_true_north') == 1) {
+		var nav0hdg = getprop("/instrumentation/nav[2]/heading-deg") - getprop("/orientation/heading-deg");
+	} else {
+		var nav0hdg = 0;
+	}
+	if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch('toggle_true_north') == 0) {
+		var nav1hdg = getprop("/instrumentation/nav[3]/heading-deg") - getprop("/orientation/heading-magnetic-deg");
+	} else if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch('toggle_true_north') == 1) {
+		var nav1hdg = getprop("/instrumentation/nav[3]/heading-deg") - getprop("/orientation/heading-deg");
+	} else {
+		var nav1hdg = 0;
+	}
 	var adf0hdg=getprop("instrumentation/adf/indicated-bearing-deg");
 	var adf1hdg=getprop("instrumentation/adf[1]/indicated-bearing-deg");
 	if(!me.get_switch('toggle_centered'))
