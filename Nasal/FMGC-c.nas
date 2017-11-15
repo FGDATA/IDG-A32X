@@ -35,6 +35,7 @@ setprop("/modes/pfd/fma/roll-mode-armed-time", 0);
 setprop("/modes/pfd/fma/ap-mode-time", 0);
 setprop("/modes/pfd/fma/fd-mode-time", 0);
 setprop("/modes/pfd/fma/athr-mode-time", 0);
+setprop("/modes/fcu/hdg-time", 0);
 
 setlistener("sim/signals/fdm-initialized", func {
 	loopFMA.start();
@@ -141,51 +142,58 @@ var loopFMA = maketimer(0.05, func {
 	}
 	
 	# Boxes
-	var boxtime = getprop("/sim/time/elapsed-sec");
-	if (getprop("/modes/pfd/fma/ap-mode-time") + 10 >= boxtime) {
+	var elapsedtime = getprop("/sim/time/elapsed-sec");
+	if (getprop("/modes/pfd/fma/ap-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/ap-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/ap-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/fd-mode-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/fd-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/fd-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/fd-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/athr-mode-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/athr-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/athr-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/athr-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/throttle-mode-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/throttle-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/throttle-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/throttle-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/roll-mode-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/roll-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/roll-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/roll-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/pitch-mode-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/pitch-mode-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/pitch-mode-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/pitch-mode-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/roll-mode-armed-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/roll-mode-armed-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/roll-mode-armed-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/roll-mode-armed-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/pitch-mode-armed-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/pitch-mode-armed-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/pitch-mode-armed-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/pitch-mode-armed-box", 0);
 	}
-	if (getprop("/modes/pfd/fma/pitch-mode2-armed-time") + 10 >= boxtime) {
+	if (getprop("/modes/pfd/fma/pitch-mode2-armed-time") + 10 >= elapsedtime) {
 		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 1);
 	} else {
 		setprop("/modes/pfd/fma/pitch-mode2-armed-box", 0);
+	}
+	
+	# Preselect HDG
+	if (getprop("/modes/fcu/hdg-time") + 10 >= elapsedtime) {
+		setprop("/it-autoflight/custom/show-hdg", 1);
+	} else if (getprop("/it-autoflight/output/lat") != 0 and getprop("/it-autoflight/output/lat") != 5  and getprop("/it-autoflight/output/lat") != 9) {
+		setprop("/it-autoflight/custom/show-hdg", 0);
 	}
 });
 

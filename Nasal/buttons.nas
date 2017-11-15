@@ -48,6 +48,7 @@ var variousReset = func {
 	setprop("/controls/lighting/DU/du4", 1);
 	setprop("/controls/lighting/DU/du5", 1);
 	setprop("/controls/lighting/DU/du6", 1);
+	setprop("/modes/fcu/hdg-time", 0);
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
@@ -145,19 +146,6 @@ var CVR_master = func {
 	}
 }
 
-#setlistener("/it-autoflight/input/spd-kts", func {
-#	if (getprop("/it-autoflight/input/spd-kts") < getprop("/FMGC/internal/alpha-prot-speed")) {
-#		setprop("/it-autoflight/input/spd-kts", getprop("/FMGC/internal/alpha-prot-speed"));
-#	}
-#});
-
-#setlistener("/it-autoflight/input/spd-mach", func {
-#	var alphaProtMach = (getprop("/instrumentation/airspeed-indicator/indicated-mach") / getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") * getprop("/FMGC/internal/alpha-prot-speed"));
-#	if (getprop("/it-autoflight/input/spd-mach") < alphaProtMach) {
-#		setprop("/it-autoflight/input/spd-mach", alphaProtMach);
-#	}
-#});
-
 var mcpSPDKnbPull = func {
 	setprop("/it-autoflight/input/spd-managed", 0);
 	fmgc.ManagedSPD.stop();
@@ -192,19 +180,17 @@ var mcpSPDKnbPush = func {
 }
 
 var mcpHDGKnbPull = func {
-	var latmode = getprop("/it-autoflight/output/lat");
-	var showhdg = getprop("/it-autoflight/custom/show-hdg");
-	if (latmode == 0 or showhdg == 0) {
-		setprop("/it-autoflight/input/lat", 3);
-		setprop("/it-autoflight/custom/show-hdg", 1);
-	} else {
-		setprop("/it-autoflight/input/lat", 0);
-		setprop("/it-autoflight/custom/show-hdg", 1);
+	if (getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
+		var latmode = getprop("/it-autoflight/output/lat");
+		var showhdg = getprop("/it-autoflight/custom/show-hdg");
+		if (latmode == 0 or showhdg == 0) {
+			setprop("/it-autoflight/input/lat", 3);
+			setprop("/it-autoflight/custom/show-hdg", 1);
+		} else {
+			setprop("/it-autoflight/input/lat", 0);
+			setprop("/it-autoflight/custom/show-hdg", 1);
+		}
 	}
-}
-
-var mcpHDGKnbPush = func {
-	setprop("/it-autoflight/input/lat", 1);
 }
 
 var hdgInput = func {
@@ -212,15 +198,13 @@ var hdgInput = func {
 	if (latmode != 0) {
 		setprop("/it-autoflight/custom/show-hdg", 1);
 		var hdgnow = getprop("/it-autoflight/input/hdg");
-		settimer(func {
-			var hdgnew = getprop("/it-autoflight/input/hdg");
-			var showhdg = getprop("/it-autoflight/custom/show-hdg");
-			if (hdgnow == hdgnew and latmode != 5 and showhdg == 1) {
-				settimer(func {
-					setprop("/it-autoflight/custom/show-hdg", 0);
-				}, 10);
-			}
-		}, 2);
+		setprop("/modes/fcu/hdg-time", getprop("/sim/time/elapsed-sec"));
+	}
+}
+
+var mcpHDGKnbPush = func {
+	if (getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
+		setprop("/it-autoflight/input/lat", 1);
 	}
 }
 

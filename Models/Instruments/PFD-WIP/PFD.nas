@@ -117,7 +117,7 @@ var canvas_PFD_1 = {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
 		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_agl_g","AI_agl","FD_roll","FD_pitch",
-		"ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target"];
+		"ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -514,11 +514,39 @@ var canvas_PFD_1 = {
 		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * -197);
 		
 		# Heading
-#		if (getprop("/it-autoflight/custom/show-hdg") == 1) {
-#			me["HDG_target"].show();
-#		} else {
+		me.heading = getprop("/instrumentation/pfd/heading-deg");
+		me.headOffset = me.heading / 10 - int (me.heading / 10);
+		me.middleText = roundabout(me.heading / 10);
+		me.middleOffset = nil;
+		if(me.middleText == 36) {
+			me.middleText = 0;
+		}
+		me.leftText1 = me.middleText == 0?35:me.middleText - 1;
+		me.rightText1 = me.middleText == 35?0:me.middleText + 1;
+		me.leftText2 = me.leftText1 == 0?35:me.leftText1 - 1;
+		me.rightText2 = me.rightText1 == 35?0:me.rightText1 + 1;
+		me.leftText3 = me.leftText2 == 0?35:me.leftText2 - 1;
+		me.rightText3 = me.rightText2 == 35?0:me.rightText2 + 1;
+		if (me.headOffset > 0.5) {
+			me.middleOffset = -(me.headOffset-1) * 98.5416;
+		} else {
+			me.middleOffset = -me.headOffset * 98.5416;
+		}
+		me["HDG_scale"].setTranslation(me.middleOffset, 0);
+		me["HDG_scale"].update();
+		me["HDG_four"].setText(sprintf("%d", me.middleText));
+		me["HDG_five"].setText(sprintf("%d", me.rightText1));
+		me["HDG_three"].setText(sprintf("%d", me.leftText1));
+		me["HDG_six"].setText(sprintf("%d", me.rightText2));
+		me["HDG_two"].setText(sprintf("%d", me.leftText2));
+		me["HDG_seven"].setText(sprintf("%d", me.rightText3));
+		me["HDG_one"].setText(sprintf("%d", me.leftText3));
+		
+		if (getprop("/it-autoflight/custom/show-hdg") == 1) {
+			me["HDG_target"].show();
+		} else {
 			me["HDG_target"].hide();
-#		}
+		}
 	},
 };
 
@@ -547,3 +575,8 @@ var showPFD1 = func {
 	var dlg = canvas.Window.new([512, 512], "dialog").set("resize", 1);
 	dlg.setCanvas(PFD_display);
 }
+
+var roundabout = func(x) {
+	var y = x - int(x);
+	return y < 0.5 ? int(x) : 1 + int(x) ;
+};

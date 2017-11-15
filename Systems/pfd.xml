@@ -66,12 +66,6 @@
 		</input>
 		<reference>0</reference>
 		<output>instrumentation/pfd/heading-deg</output>
-		<enable>
-			<equals>
-				<property>/it-autoflight/output/lat</property>
-				<value>0</value>
-			</equals>
-		</enable>
 	</filter>
 	
 	<filter>
@@ -90,12 +84,6 @@
 		</input>
 		<reference>0</reference>
 		<output>instrumentation/pfd/track-deg</output>
-		<enable>
-			<equals>
-				<property>/it-autoflight/output/lat</property>
-				<value>0</value>
-			</equals>
-		</enable>
 	</filter>
 	
 	<filter>
@@ -116,12 +104,6 @@
 			<property>instrumentation/pfd/heading-deg</property>
 		</reference>
 		<output>instrumentation/pfd/track-diff</output>
-		<enable>
-			<equals>
-				<property>/it-autoflight/output/vert</property>
-				<value>5</value>
-			</equals>
-		</enable>
 	</filter>
 	
 	<filter>
@@ -148,14 +130,7 @@
 			<min>-180.0</min>
 			<max>180.0</max>
 		</period>
-		<enable>
-			<equals>
-				<property>/it-autoflight/output/lat</property>
-				<value>0</value>
-			</equals>
-		</enable>
 	</filter>
-	
 	
 	<filter>
 		<name>Localizer course diff</name>

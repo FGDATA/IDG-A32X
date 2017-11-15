@@ -268,6 +268,7 @@ var lateral = func {
 		setprop("/it-autoflight/output/lat", 9);
 		setprop("/it-autoflight/mode/lat", " ");
 		setprop("/it-autoflight/mode/arm", " ");
+		setprop("/it-autoflight/custom/show-hdg", 1);
 	}
 }
 
