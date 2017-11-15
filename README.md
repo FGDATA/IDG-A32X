@@ -13,7 +13,7 @@ Present pack includes the following Airbus A320 Family variants:
 - A320-251N
 - A320-271N
 
-Previous included variants:
+Previously included variants:
 - A318-112
 - A319-112
 - A319-131
