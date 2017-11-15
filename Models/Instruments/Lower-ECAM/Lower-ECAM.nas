@@ -279,13 +279,6 @@ var canvas_lowerECAM_door = {
 	},
 	update: func() {
 		# If you make AirBerlin or Allegiant livery add below 
-		if (((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) and (getprop("/sim/model/livery/name") != "easyJet" or getprop("/sim/model/livery/name") != "GermanWings (D-AGWZ)")) {
-			me["Exit1L"].hide();
-			me["Exit1R"].hide()
-		} else {
-			me["Exit1L"].show();
-			me["Exit1R"].show();
-		}
 		
 		if (getprop("sim/model/door-positions/doorl1/position-norm") > 0) {
 			me["Cabin1Left"].show();
@@ -313,74 +306,6 @@ var canvas_lowerECAM_door = {
 			me["Cabin1RightLine"].hide();
 		}
 		
-		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorl2/position-norm") > 0) {
-			me["Cabin2Left"].show();
-			me["Cabin2Left"].setColor(0.7333,0.3803,0);
-			me["Cabin2Left"].setColorFill(0.7333,0.3803,0);
-			me["Cabin2LeftLbl"].show();
-			me["Cabin2LeftLine"].show();
-		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
-			me["Cabin2Left"].setColor(0.0509,0.7529,0.2941);
-			me["Cabin2Left"].setColorFill(0,0,0);
-			me["Cabin2LeftLbl"].hide();
-			me["Cabin2LeftLine"].hide();
-		} else {
-			me["Cabin2Left"].hide();
-			me["Cabin2LeftLbl"].hide();
-			me["Cabin2LeftLine"].hide();
-		}
-		
-		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorr2/position-norm") > 0) {
-			me["Cabin2Right"].show();
-			me["Cabin2Right"].setColor(0.7333,0.3803,0);
-			me["Cabin2Right"].setColorFill(0.7333,0.3803,0);
-			me["Cabin2RightLbl"].show();
-			me["Cabin2RightLine"].show();
-		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
-			me["Cabin2Right"].setColor(0.0509,0.7529,0.2941);
-			me["Cabin2Right"].setColorFill(0,0,0);
-			me["Cabin2RightLbl"].hide();
-			me["Cabin2RightLine"].hide();
-		} else {
-			me["Cabin2Right"].hide();
-			me["Cabin2RightLbl"].hide();
-			me["Cabin2RightLine"].hide();
-		}
-		
-		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorl3/position-norm") > 0) {
-			me["Cabin3Left"].show();
-			me["Cabin3Left"].setColor(0.7333,0.3803,0);
-			me["Cabin3Left"].setColorFill(0.7333,0.3803,0);
-			me["Cabin3LeftLbl"].show();
-			me["Cabin3LeftLine"].show();
-		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
-			me["Cabin3Left"].setColor(0.0509,0.7529,0.2941);
-			me["Cabin3Left"].setColorFill(0,0,0);
-			me["Cabin3LeftLbl"].hide();
-			me["Cabin3LeftLine"].hide();
-		} else {
-			me["Cabin3Left"].hide();
-			me["Cabin3LeftLbl"].hide();
-			me["Cabin3LeftLine"].hide();
-		}
-		
-		if (((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) and getprop("sim/model/door-positions/doorr3/position-norm") > 0) {
-			me["Cabin3Right"].show();
-			me["Cabin3Right"].setColor(0.7333,0.3803,0);
-			me["Cabin3Right"].setColorFill(0.7333,0.3803,0);
-			me["Cabin3RightLbl"].show();
-			me["Cabin3RightLine"].show();
-		} else if ((getprop("/sim/aircraft") == "A321-200-CFM") or (getprop("/sim/aircraft") == "A321-200-IAE") or (getprop("/sim/aircraft") == "A321neo-CFM") or (getprop("/sim/aircraft") == "A321neo-PW")) {
-			me["Cabin3Right"].setColor(0.0509,0.7529,0.2941);
-			me["Cabin3Right"].setColorFill(0,0,0);
-			me["Cabin3RightLbl"].hide();
-			me["Cabin3RightLine"].hide();
-		} else {
-			me["Cabin3Right"].hide();
-			me["Cabin3RightLbl"].hide();
-			me["Cabin3RightLine"].hide();
-		}
-		
 		if (getprop("sim/model/door-positions/doorl4/position-norm") > 0) {
 			me["Cabin4Left"].show();
 			me["Cabin4Left"].setColor(0.7333,0.3803,0);
@@ -405,12 +330,6 @@ var canvas_lowerECAM_door = {
 			me["Cabin4Right"].setColorFill(0,0,0);
 			me["Cabin4RightLbl"].hide();
 			me["Cabin4RightLine"].hide();
-		}
-		
-		if ((getprop("/sim/aircraft") == "A319-100-IAE") or (getprop("/sim/aircraft") == "A319-100-CFM")) {
-		 	me["Bulk"].hide();
-		} else {
-			me["Bulk"].show();
 		}
 		
 		if (getprop("/sim/model/door-positions/cargobulk/position-norm") > 0) {
@@ -468,15 +387,22 @@ var canvas_lowerECAM_door = {
 		me["ExitRSlide"].hide();
 		me["ExitRLine"].hide();
 		me["ExitRLbl"].hide();
-		me["Cargo1Line"].hide();
-		me["Cargo1Lbl"].hide();
-		me["Cargo2Line"].hide();
-		me["Cargo2Lbl"].hide();
 		me["Cabin1LeftSlide"].hide();
 		me["Cabin1RightSlide"].hide();
 		me["Cabin4LeftSlide"].hide();
 		me["Cabin4RightSlide"].hide();
-		
+		me["Cabin2Left"].hide();
+		me["Cabin2LeftLine"].hide();
+		me["Cabin2LeftLbl"].hide();
+		me["Cabin2Right"].hide();
+		me["Cabin2RightLine"].hide();
+		me["Cabin2RightLbl"].hide();
+		me["Cabin3Left"].hide();
+		me["Cabin3LeftLine"].hide();
+		me["Cabin3LeftLbl"].hide();
+		me["Cabin3Right"].hide();
+		me["Cabin3RightLine"].hide();
+		me["Cabin3RightLbl"].hide();
 		me.updateBottomStatus();
 	},
 };
