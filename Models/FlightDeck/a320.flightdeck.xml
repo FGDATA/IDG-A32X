@@ -287,6 +287,10 @@
 					<property>systems/acconfig/mismatch-code</property>
 					<value>0x000</value>
 				</equals>
+				<not-equals>
+					<property>options/test-canvas</property>
+					<value>1</value>
+				</not-equals>
 			</and>
 		</condition>
 	</model>
