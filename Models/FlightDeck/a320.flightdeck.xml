@@ -3566,7 +3566,7 @@
 		<alignment>center-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%2.0f</format>
+		<format type="string">%2.1f</format>
 		<property>it-autoflight/input/fpa</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
