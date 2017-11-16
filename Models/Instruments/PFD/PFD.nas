@@ -18,9 +18,13 @@ setprop("/it-autoflight/output/ap2", 0);
 setprop("/it-autoflight/output/fd1", 0);
 setprop("/it-autoflight/output/fd2", 0);
 setprop("/it-autoflight/output/athr", 0);
+setprop("/instrumentation/pfd/heading-deg", 0);
 setprop("/instrumentation/pfd/horizon-pitch", 0);
 setprop("/instrumentation/pfd/horizon-ground", 0);
 setprop("/instrumentation/pfd/hdg-diff", 0);
+setprop("/instrumentation/pfd/heading-scale", 0);
+setprop("/instrumentation/pfd/track-deg", 0);
+setprop("/instrumentation/pfd/track-hdg-diff", 0);
 setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
 setprop("/position/gear-agl-ft", 0);
 setprop("/controls/flight/aileron-input-fast", 0);
@@ -105,15 +109,14 @@ var canvas_PFD_base = {
 		return [];
 	},
 	update: func() {
-		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/options/test-canvas") == 1 and getprop("/controls/lighting/DU/du1") > 0) {
+		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/lighting/DU/du1") > 0) {
 			PFD_1.page.show();
 			PFD_1.update();
 		} else {
 			PFD_1.page.hide();
 		}
 		
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/options/test-canvas") == 1 
-		and getprop("/controls/lighting/DU/du6") > 0) {
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du6") > 0) {
 			PFD_2.page.show();
 			PFD_2.update();
 		} else {
@@ -559,12 +562,12 @@ var canvas_PFD_1 = {
 			me["LOC_scale"].hide();
 			me["GS_scale"].hide();
 		}
-		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1) {
+		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["LOC_pointer"].show();
 		} else {
 			me["LOC_pointer"].hide();
 		}
-		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/gs-in-range") == 1 and getprop("/instrumentation/nav[0]/has-gs") == 1) {
+		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/gs-in-range") == 1 and getprop("/instrumentation/nav[0]/has-gs") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["GS_pointer"].show();
 		} else {
 			me["GS_pointer"].hide();
@@ -575,7 +578,7 @@ var canvas_PFD_1 = {
 		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * -197);
 		
 		# Heading
-		me.heading = getprop("/instrumentation/pfd/heading-deg");
+		me.heading = getprop("/instrumentation/pfd/heading-scale");
 		me.headOffset = me.heading / 10 - int (me.heading / 10);
 		me.middleText = roundabout(me.heading / 10);
 		me.middleOffset = nil;
@@ -624,8 +627,9 @@ var canvas_PFD_1 = {
 			me["HDG_target"].hide();
 		}
 		
+		me["TRK_pointer"].setTranslation((getprop("/instrumentation/pfd/track-hdg-diff") / 10) * 98.5416, 0);
+		
 		me["CRS_pointer"].hide();
-		me["TRK_pointer"].hide();
 		
 		# AI HDG
 		me.AI_horizon_hdg_trans.setTranslation(me.middleOffset, getprop("/instrumentation/pfd/horizon-pitch") * 11.825);
@@ -1071,12 +1075,12 @@ var canvas_PFD_2 = {
 			me["LOC_scale"].hide();
 			me["GS_scale"].hide();
 		}
-		if (getprop("/modes/pfd/ILS2") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1) {
+		if (getprop("/modes/pfd/ILS2") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["LOC_pointer"].show();
 		} else {
 			me["LOC_pointer"].hide();
 		}
-		if (getprop("/modes/pfd/ILS2") == 1 and getprop("/instrumentation/nav[0]/gs-in-range") == 1 and getprop("/instrumentation/nav[0]/has-gs") == 1) {
+		if (getprop("/modes/pfd/ILS2") == 1 and getprop("/instrumentation/nav[0]/gs-in-range") == 1 and getprop("/instrumentation/nav[0]/has-gs") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["GS_pointer"].show();
 		} else {
 			me["GS_pointer"].hide();
@@ -1087,7 +1091,7 @@ var canvas_PFD_2 = {
 		me["GS_pointer"].setTranslation(0, getprop("/instrumentation/nav[0]/gs-needle-deflection-norm") * -197);
 		
 		# Heading
-		me.heading = getprop("/instrumentation/pfd/heading-deg");
+		me.heading = getprop("/instrumentation/pfd/heading-scale");
 		me.headOffset = me.heading / 10 - int (me.heading / 10);
 		me.middleText = roundabout(me.heading / 10);
 		me.middleOffset = nil;
@@ -1136,8 +1140,9 @@ var canvas_PFD_2 = {
 			me["HDG_target"].hide();
 		}
 		
+		me["TRK_pointer"].setTranslation((getprop("/instrumentation/pfd/track-hdg-diff") / 10) * 98.5416, 0);
+		
 		me["CRS_pointer"].hide();
-		me["TRK_pointer"].hide();
 		
 		# AI HDG
 		me.AI_horizon_hdg_trans.setTranslation(me.middleOffset, getprop("/instrumentation/pfd/horizon-pitch") * 11.825);
@@ -1166,8 +1171,8 @@ setlistener("sim/signals/fdm-initialized", func {
 	var group_pfd1 = PFD1_display.createGroup();
 	var group_pfd2 = PFD2_display.createGroup();
 
-	PFD_1 = canvas_PFD_1.new(group_pfd1, "Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/res/pfd.svg");
-	PFD_2 = canvas_PFD_2.new(group_pfd2, "Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/res/pfd.svg");
+	PFD_1 = canvas_PFD_1.new(group_pfd1, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
+	PFD_2 = canvas_PFD_2.new(group_pfd2, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
 	
 	PFD_update.start();
 });

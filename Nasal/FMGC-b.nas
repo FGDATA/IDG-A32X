@@ -199,8 +199,8 @@ var fmabox = func {
 		}
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
-		setprop("/it-autoflight/input/vs", int(getprop("/velocities/vertical-speed-fps")*0.6)*100);
-		setprop("/it-autoflight/input/fpa", int(10*getprop("/it-autoflight/internal/fpa"))*0.1);
+		setprop("/it-autoflight/input/vs", math.round(getprop("/it-autoflight/internal/vert-speed-fpm"), 100));
+		setprop("/it-autoflight/input/fpa", math.round(getprop("/it-autoflight/internal/fpa"), 0.1));
 		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
 }
@@ -251,7 +251,7 @@ var lateral = func {
 		alandt1.stop();
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
-		var hdg5sec = int(getprop("/it-autoflight/internal/heading-5-sec-ahead")+0.5);
+		var hdg5sec = int(getprop("/it-autoflight/internal/heading-5-sec-ahead") + 0.5);
 		setprop("/it-autoflight/input/hdg", hdg5sec);
 		setprop("/it-autoflight/output/lat", 0);
 		setprop("/it-autoflight/mode/lat", "HDG");
@@ -287,7 +287,11 @@ var lat_arm = func {
 			gui.popupTip("Please make sure you have a route set, and that it is Activated!");
 		}
 	} else if (latset == 3) {
-		var hdgnow = int(getprop("/orientation/heading-magnetic-deg")+0.5);
+		if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+			var hdgnow = int(getprop("/instrumentation/pfd/track-deg") + 0.5);
+		} else {
+			var hdgnow = int(getprop("/instrumentation/pfd/heading-deg") + 0.5);
+		}
 		setprop("/it-autoflight/input/hdg", hdgnow);
 		setprop("/it-autoflight/input/lat-arm", 0);
 		setprop("/it-autoflight/mode/arm", " ");
@@ -329,7 +333,7 @@ var vertical = func {
 		setprop("/it-autoflight/output/appr-armed", 0);
 		var altinput = getprop("/it-autoflight/input/alt");
 		setprop("/it-autoflight/internal/alt", altinput);
-		var vsnow = int(getprop("/velocities/vertical-speed-fps")*0.6)*100;
+		var vsnow = math.round(getprop("/it-autoflight/internal/vert-speed-fpm"), 100);
 		setprop("/it-autoflight/input/vs", vsnow);
 		setprop("/it-autoflight/output/vert", 1);
 		setprop("/it-autoflight/mode/vert", "V/S");
@@ -402,7 +406,7 @@ var vertical = func {
 		setprop("/it-autoflight/output/appr-armed", 0);
 		var altinput = getprop("/it-autoflight/input/alt");
 		setprop("/it-autoflight/internal/alt", altinput);
-		var fpanow = (int(10*getprop("/it-autoflight/internal/fpa")))*0.1;
+		var fpanow = math.round(getprop("/it-autoflight/internal/fpa"), 0.1);
 		setprop("/it-autoflight/input/fpa", fpanow);
 		setprop("/it-autoflight/output/vert", 5);
 		setprop("/it-autoflight/mode/vert", "FPA");

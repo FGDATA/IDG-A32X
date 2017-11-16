@@ -24,7 +24,7 @@
 					<value>0</value>
 				</equals>
 			</condition>
-			<property>/orientation/heading-magnetic-deg</property>
+			<property>/instrumentation/pfd/heading-deg</property>
 		</input>
 		<input>
 			<condition>
@@ -33,7 +33,7 @@
 					<value>1</value>
 				</equals>
 			</condition>
-			<property>/orientation/track-magnetic-deg</property>
+			<property>/instrumentation/pfd/track-deg</property>
 		</input>
 		<output>/it-autoflight/internal/heading-5-sec-ahead</output>
 		<seconds>5.0</seconds>
@@ -116,7 +116,7 @@
 			<expression>
 				<table>
 					<property>/position/gear-agl-ft</property> 
-					<entry><ind>100</ind><dep>-600</dep></entry>
+					<entry><ind>100</ind><dep>-650</dep></entry>
 					<entry><ind> 50</ind><dep>-500</dep></entry>
 					<entry><ind> 45</ind><dep> -70</dep></entry>
 				</table>
@@ -134,7 +134,7 @@
 			<expression>
 				<table>
 					<property>/position/gear-agl-ft</property> 
-					<entry><ind>100</ind><dep>-600</dep></entry>
+					<entry><ind>100</ind><dep>-650</dep></entry>
 					<entry><ind> 50</ind><dep>-500</dep></entry>
 					<entry><ind> 40</ind><dep>-400</dep></entry>
 					<entry><ind> 30</ind><dep>-300</dep></entry>
@@ -405,7 +405,7 @@
 			</condition>
 			<property>/it-autoflight/input/hdg</property>
 			<offset>
-				<property>/orientation/heading-magnetic-deg</property>
+				<property>/instrumentation/pfd/heading-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
@@ -424,7 +424,7 @@
 			</condition>
 			<property>/it-autoflight/input/hdg</property>
 			<offset>
-				<property>/orientation/heading-deg</property>
+				<property>/instrumentation/pfd/track-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>

@@ -257,6 +257,24 @@
 						</binding>
 					</item>
 					<item>
+						<label>Show Captain's PFD</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_pfd.showPFD1();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Show First Officer's PFD</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_pfd.showPFD2();
+							</script>
+						</binding>
+					</item>
+					<item>
 						<label>Show Captain's ND</label>
 						<binding>
 							<command>nasal</command>
@@ -289,19 +307,6 @@
 							<command>nasal</command>
 							<script>
 							canvas_ecam.showLowerECAM();
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Test Canvas</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							if (getprop("/options/test-canvas") != 1) {
-								setprop("/options/test-canvas", 1);
-							} else {
-								setprop("/options/test-canvas", 0);
-							}
 							</script>
 						</binding>
 					</item>
@@ -911,6 +916,28 @@
 
 	<input>
 		<keyboard>
+			<key n="33">
+				<name>PAGE UP</name>
+				<desc>Throttle Increase</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
+			<key n="34">
+				<name>PAGE DN</name>
+				<desc>Throttle Decrease</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
 			<key n="49">
 				<name>1</name>
 				<desc>Captain View/Elevator Trim Up</desc>
@@ -1270,7 +1297,7 @@
 			<file>Aircraft/IDG-A32X/Nasal/MCDU2/STATUS.nas</file>
 		</mcdu2>
 		<canvas_pfd>
-			<file>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD.nas</file>
+			<file>Aircraft/IDG-A32X/Models/Instruments/PFD/PFD.nas</file>
 		</canvas_pfd>
 		<canvas_nd>
 			<file>Aircraft/IDG-A32X/Models/Instruments/ND/canvas/ND.nas</file>
