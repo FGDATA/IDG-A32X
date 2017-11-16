@@ -9,6 +9,8 @@
 # IT-AUTOFLIGHT Based Autopilot #
 #################################
 
+setprop("/it-autoflight/internal/heading-deg", 0);
+setprop("/it-autoflight/internal/track-deg", 0);
 setprop("/it-autoflight/internal/vert-speed-fpm", 0);
 setprop("/it-autoflight/internal/heading-5-sec-ahead", 0);
 setprop("/it-autoflight/internal/altitude-5-sec-ahead", 0);
@@ -251,7 +253,7 @@ var lateral = func {
 		alandt1.stop();
 		setprop("/it-autoflight/output/loc-armed", 0);
 		setprop("/it-autoflight/output/appr-armed", 0);
-		var hdg5sec = int(getprop("/it-autoflight/internal/heading-5-sec-ahead") + 0.5);
+		var hdg5sec = math.round(getprop("/it-autoflight/internal/heading-5-sec-ahead"));
 		setprop("/it-autoflight/input/hdg", hdg5sec);
 		setprop("/it-autoflight/output/lat", 0);
 		setprop("/it-autoflight/mode/lat", "HDG");
@@ -288,9 +290,9 @@ var lat_arm = func {
 		}
 	} else if (latset == 3) {
 		if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
-			var hdgnow = int(getprop("/instrumentation/pfd/track-deg") + 0.5);
+			var hdgnow = math.round(getprop("/it-autoflight/internal/track-deg"));
 		} else {
-			var hdgnow = int(getprop("/instrumentation/pfd/heading-deg") + 0.5);
+			var hdgnow = math.round(getprop("/it-autoflight/internal/heading-deg"));
 		}
 		setprop("/it-autoflight/input/hdg", hdgnow);
 		setprop("/it-autoflight/input/lat-arm", 0);
@@ -621,7 +623,7 @@ setlistener("/it-autoflight/input/toga", func {
 
 var togasel = func {
 	if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
-		var iasnow = int(getprop("/instrumentation/airspeed-indicator/indicated-speed-kt")+0.5);
+		var iasnow = math.round(getprop("/instrumentation/airspeed-indicator/indicated-speed-kt"));
 		setprop("/it-autoflight/input/spd-kts", iasnow);
 		setprop("/it-autoflight/input/kts-mach", 0);
 		setprop("/it-autoflight/mode/vert", "G/A CLB");

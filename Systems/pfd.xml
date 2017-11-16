@@ -51,56 +51,6 @@
 	</filter>
 	
 	<filter>
-		<name>Heading Deg</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<property>/instrumentation/efis/mfd/true-north</property>
-			</condition>
-			<property>/orientation/heading-deg</property>
-		</input>
-		<input>
-			<property>/orientation/heading-magnetic-deg</property>
-		</input>
-		<reference>0</reference>
-		<output>/instrumentation/pfd/heading-deg</output>
-	</filter>
-	
-	<filter>
-		<name>Track Deg</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<and>
-					<property>/instrumentation/efis/mfd/true-north</property>
-					<greater-than>
-						<property>/velocities/groundspeed-kt</property>
-						<value>1</value>
-					</greater-than>
-				</and>
-			</condition>
-			<property>/orientation/track-deg</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<not><property>/instrumentation/efis/mfd/true-north</property></not>
-					<greater-than>
-						<property>/velocities/groundspeed-kt</property>
-						<value>1</value>
-					</greater-than>
-				</and>
-			</condition>
-			<property>/orientation/track-magnetic-deg</property>
-		</input>
-		<input>/instrumentation/pfd/heading-deg</input>
-		<reference>0</reference>
-		<output>/instrumentation/pfd/track-deg</output>
-	</filter>
-	
-	<filter>
 		<name>Track heading diff</name>
 		<type>gain</type>
 		<update-interval-secs type="double">0.05</update-interval-secs>

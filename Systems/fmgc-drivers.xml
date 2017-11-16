@@ -24,7 +24,7 @@
 					<value>0</value>
 				</equals>
 			</condition>
-			<property>/instrumentation/pfd/heading-deg</property>
+			<property>/it-autoflight/internal/heading-deg</property>
 		</input>
 		<input>
 			<condition>
@@ -33,7 +33,7 @@
 					<value>1</value>
 				</equals>
 			</condition>
-			<property>/instrumentation/pfd/track-deg</property>
+			<property>/it-autoflight/internal/track-deg</property>
 		</input>
 		<output>/it-autoflight/internal/heading-5-sec-ahead</output>
 		<seconds>5.0</seconds>
@@ -385,6 +385,58 @@
 		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
 		<output>/it-autoflight/input/spd-mach</output>
 	</filter>
+	
+	<filter>
+		<name>HEADING DEG</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/efis/mfd/true-north</property>
+			</condition>
+			<property>/orientation/heading-deg</property>
+		</input>
+		<input>
+			<property>/orientation/heading-magnetic-deg</property>
+		</input>
+		<reference>0</reference>
+		<output>/it-autoflight/internal/heading-deg</output>
+		<output>/instrumentation/pfd/heading-deg</output>
+	</filter>
+	
+	<filter>
+		<name>TRACK DEG</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<property>/instrumentation/efis/mfd/true-north</property>
+					<greater-than>
+						<property>/velocities/groundspeed-kt</property>
+						<value>1</value>
+					</greater-than>
+				</and>
+			</condition>
+			<property>/orientation/track-deg</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<not><property>/instrumentation/efis/mfd/true-north</property></not>
+					<greater-than>
+						<property>/velocities/groundspeed-kt</property>
+						<value>1</value>
+					</greater-than>
+				</and>
+			</condition>
+			<property>/orientation/track-magnetic-deg</property>
+		</input>
+		<input>/instrumentation/pfd/heading-deg</input>
+		<reference>0</reference>
+		<output>/it-autoflight/internal/track-deg</output>
+		<output>/instrumentation/pfd/track-deg</output>
+	</filter>
   
 	<filter>
 		<name>HEADING ERROR DEG</name>
@@ -405,7 +457,7 @@
 			</condition>
 			<property>/it-autoflight/input/hdg</property>
 			<offset>
-				<property>/instrumentation/pfd/heading-deg</property>
+				<property>/it-autoflight/internal/heading-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
@@ -424,7 +476,7 @@
 			</condition>
 			<property>/it-autoflight/input/hdg</property>
 			<offset>
-				<property>/instrumentation/pfd/track-deg</property>
+				<property>/it-autoflight/internal/track-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
