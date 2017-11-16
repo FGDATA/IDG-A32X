@@ -1,9 +1,9 @@
 # A3XX Autobrake
 # Joshua Davidson (it0uchpods)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 setprop("/controls/autobrake/active", 0);
 setprop("/controls/autobrake/mode", 0);

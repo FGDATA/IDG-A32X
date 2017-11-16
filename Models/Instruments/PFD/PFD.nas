@@ -1,9 +1,9 @@
 # A3XX PFD
 # Joshua Davidson (it0uchpods)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 var PFD_1 = nil;
 var PFD_2 = nil;

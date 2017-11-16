@@ -1,8 +1,8 @@
 # A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 var MCDU_init = func {
 	setprop("/MCDU[1]/brightness", "1.0");

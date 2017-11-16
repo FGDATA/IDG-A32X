@@ -1,9 +1,9 @@
 # A3XX FMGC/Autoflight
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 setprop("/FMGC/internal/cruise-ft", 10000);
 setprop("/it-autoflight/internal/alt", 10000);
