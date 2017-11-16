@@ -33,7 +33,7 @@
 					<value>1</value>
 				</equals>
 			</condition>
-			<property>/orientation/heading-deg</property>
+			<property>/orientation/track-magnetic-deg</property>
 		</input>
 		<output>/it-autoflight/internal/heading-5-sec-ahead</output>
 		<seconds>5.0</seconds>
