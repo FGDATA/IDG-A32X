@@ -27,6 +27,7 @@ setprop("/controls/flight/aileron-input-fast", 0);
 setprop("/controls/flight/elevator-input-fast", 0);
 var ASI = 0;
 var ASItrgt = 0;
+var ASItrgtdiff = 0;
 var alt = 0;
 var altTens = 0;
 var state1 = getprop("/systems/thrust/state1");
@@ -131,9 +132,9 @@ var canvas_PFD_1 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll",
-		"FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five",
-		"HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky",
+		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target",
+		"HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -388,8 +389,16 @@ var canvas_PFD_1 = {
 		
 		if (getprop("/it-autoflight/input/spd-managed") == 1) {
 			me["ASI_target"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_digit_UP"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_decimal_UP"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_digit_DN"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_decimal_DN"].setColor(0.6901,0.3333,0.7450);
 		} else {
 			me["ASI_target"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_digit_UP"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_decimal_UP"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_digit_DN"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_decimal_DN"].setColor(0.0862,0.5176,0.6470);
 		}
 		
 		if (getprop("/FMGC/internal/target-ias-pfd") <= 30) {
@@ -399,7 +408,43 @@ var canvas_PFD_1 = {
 		} else {
 			ASItrgt = getprop("/FMGC/internal/target-ias-pfd") - 30 - ASI;
 		}
-		me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+		
+		ASItrgtdiff = getprop("/FMGC/internal/target-ias-pfd") - getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+		
+		if (ASItrgtdiff >= -42 and ASItrgtdiff <= 42) {
+			me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+			me["ASI_digit_UP"].hide();
+			me["ASI_decimal_UP"].hide();
+			me["ASI_digit_DN"].hide();
+			me["ASI_decimal_DN"].hide();
+			me["ASI_target"].show();
+		} else if (ASItrgtdiff < -42) {
+			if (getprop("/it-autoflight/input/kts-mach") == 1) {
+				me["ASI_digit_DN"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-mach") * 1000));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].show();
+			} else {
+				me["ASI_digit_DN"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-kts")));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].hide();
+			}
+			me["ASI_digit_DN"].show();
+			me["ASI_digit_UP"].hide();
+			me["ASI_target"].hide();
+		} else if (ASItrgtdiff > 42) {
+			if (getprop("/it-autoflight/input/kts-mach") == 1) {
+				me["ASI_digit_UP"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-mach") * 1000));
+				me["ASI_decimal_UP"].show();
+				me["ASI_decimal_DN"].hide();
+			} else {
+				me["ASI_digit_UP"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-kts")));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].hide();
+			}
+			me["ASI_digit_UP"].show();
+			me["ASI_digit_DN"].hide();
+			me["ASI_target"].hide();
+		}
 		
 		me["ASI_ten_sec"].hide();
 		
@@ -599,9 +644,9 @@ var canvas_PFD_2 = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll",
-		"FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five",
-		"HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky",
+		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target",
+		"HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -856,8 +901,16 @@ var canvas_PFD_2 = {
 		
 		if (getprop("/it-autoflight/input/spd-managed") == 1) {
 			me["ASI_target"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_digit_UP"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_decimal_UP"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_digit_DN"].setColor(0.6901,0.3333,0.7450);
+			me["ASI_decimal_DN"].setColor(0.6901,0.3333,0.7450);
 		} else {
 			me["ASI_target"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_digit_UP"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_decimal_UP"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_digit_DN"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_decimal_DN"].setColor(0.0862,0.5176,0.6470);
 		}
 		
 		if (getprop("/FMGC/internal/target-ias-pfd") <= 30) {
@@ -867,7 +920,43 @@ var canvas_PFD_2 = {
 		} else {
 			ASItrgt = getprop("/FMGC/internal/target-ias-pfd") - 30 - ASI;
 		}
-		me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+		
+		ASItrgtdiff = getprop("/FMGC/internal/target-ias-pfd") - getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
+		
+		if (ASItrgtdiff >= -42 and ASItrgtdiff <= 42) {
+			me["ASI_target"].setTranslation(0, ASItrgt * -6.6);
+			me["ASI_digit_UP"].hide();
+			me["ASI_decimal_UP"].hide();
+			me["ASI_digit_DN"].hide();
+			me["ASI_decimal_DN"].hide();
+			me["ASI_target"].show();
+		} else if (ASItrgtdiff < -42) {
+			if (getprop("/it-autoflight/input/kts-mach") == 1) {
+				me["ASI_digit_DN"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-mach") * 1000));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].show();
+			} else {
+				me["ASI_digit_DN"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-kts")));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].hide();
+			}
+			me["ASI_digit_DN"].show();
+			me["ASI_digit_UP"].hide();
+			me["ASI_target"].hide();
+		} else if (ASItrgtdiff > 42) {
+			if (getprop("/it-autoflight/input/kts-mach") == 1) {
+				me["ASI_digit_UP"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-mach") * 1000));
+				me["ASI_decimal_UP"].show();
+				me["ASI_decimal_DN"].hide();
+			} else {
+				me["ASI_digit_UP"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/spd-kts")));
+				me["ASI_decimal_UP"].hide();
+				me["ASI_decimal_DN"].hide();
+			}
+			me["ASI_digit_UP"].show();
+			me["ASI_digit_DN"].hide();
+			me["ASI_target"].hide();
+		}
 		
 		me["ASI_ten_sec"].hide();
 		
@@ -1026,11 +1115,24 @@ var canvas_PFD_2 = {
 		me["HDG_seven"].setText(sprintf("%d", me.rightText3));
 		me["HDG_one"].setText(sprintf("%d", me.leftText3));
 		
-		me["HDG_target"].setTranslation((getprop("/instrumentation/pfd/hdg-diff") / 10) * 98.5416, 0);
-		
-		if (getprop("/it-autoflight/custom/show-hdg") == 1) {
+		if (getprop("/it-autoflight/custom/show-hdg") == 1 and getprop("/instrumentation/pfd/hdg-diff") >= -23.62 and getprop("/instrumentation/pfd/hdg-diff") <= 23.62) {
+			me["HDG_target"].setTranslation((getprop("/instrumentation/pfd/hdg-diff") / 10) * 98.5416, 0);
+			me["HDG_digit_L"].hide();
+			me["HDG_digit_R"].hide();
 			me["HDG_target"].show();
+		} else if (getprop("/it-autoflight/custom/show-hdg") == 1 and getprop("/instrumentation/pfd/hdg-diff") < -23.62 and getprop("/instrumentation/pfd/hdg-diff") >= -180) {
+			me["HDG_digit_L"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/hdg")));
+			me["HDG_digit_L"].show();
+			me["HDG_digit_R"].hide();
+			me["HDG_target"].hide();
+		} else if (getprop("/it-autoflight/custom/show-hdg") == 1 and getprop("/instrumentation/pfd/hdg-diff") > 23.62 and getprop("/instrumentation/pfd/hdg-diff") <= 180) {
+			me["HDG_digit_R"].setText(sprintf("%3.0f", getprop("/it-autoflight/input/hdg")));
+			me["HDG_digit_R"].show();
+			me["HDG_digit_L"].hide();
+			me["HDG_target"].hide();
 		} else {
+			me["HDG_digit_L"].hide();
+			me["HDG_digit_R"].hide();
 			me["HDG_target"].hide();
 		}
 		
