@@ -27,7 +27,7 @@ setlistener("sim/signals/fdm-initialized", func() {
 		'toggle_rh_vor_adf':	{path: '/input/rh-vor-adf',value:0, type:'INT'},
 		'toggle_display_mode': 	{path: '/nd/canvas-display-mode', value:'NAV', type:'STRING'},
 		'toggle_display_type': 	{path: '/mfd/display-type', value:'LCD', type:'STRING'},
-		'toggle_true_north': 	{path: '/mfd/true-north', value:1, type:'BOOL'},
+		'toggle_true_north': 	{path: '/mfd/true-north', value:0, type:'BOOL'},
 		'toggle_track_heading': 	{path: '/trk-selected', value:0, type:'BOOL'},
 		'toggle_wpt_idx': {path: '/inputs/plan-wpt-index', value: -1, type: 'INT'},
 		'toggle_plan_loop': {path: '/nd/plan-mode-loop', value: 0, type: 'INT'},
