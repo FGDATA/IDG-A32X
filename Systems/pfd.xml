@@ -112,7 +112,7 @@
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<gain>1.0</gain>
 		<input>
-			<property>/it-autoflight/settings/heading-bug-deg</property>
+			<property>/it-autoflight/input/hdg</property>
 			<period>
 				<min>-180.0</min>
 				<max>180.0</max>
@@ -407,10 +407,36 @@
 		<name>Horizon Heading Pitch</name>
 		<type>gain</type>
 		<gain>1</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>/options/test-canvas</property>
+					<value>1</value>
+				</not-equals>
+			</condition>
+		</enable>
 		<input>/orientation/pitch-deg</input>
 		<output>/instrumentation/pfd/horizon-pitch</output>
 		<min>-15</min>
 		<max>16</max>
+	</filter>
+	
+	<filter>
+		<name>Horizon Heading Pitch</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<enable>
+			<condition>
+				<equals>
+					<property>/options/test-canvas</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>/orientation/pitch-deg</input>
+		<output>/instrumentation/pfd/horizon-pitch</output>
+		<min>-17.35</min>
+		<max>17.35</max>
 	</filter>
 	
 	<filter>

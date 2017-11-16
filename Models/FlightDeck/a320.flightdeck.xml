@@ -152,7 +152,7 @@
 
 	<!-- Primary Flight Displays -->
 	<model>
-		<name>PFD1-WIP</name>
+		<name>PFD1</name>
 		<path>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD1.xml</path>
 		<offsets>
 			<x-m>-0.55415</x-m>
@@ -162,20 +162,6 @@
 		</offsets>
 		<condition>
 			<and>
-				<or>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac1</property>
-						<value>110</value>
-					</greater-than-equals>
-					<greater-than-equals>
-						<property>systems/electrical/bus/ac2</property>
-						<value>110</value>
-					</greater-than-equals>
-				</or>
-				<not-equals>
-					<property>modes/cpt-du-xfr</property>
-					<value>2</value>
-				</not-equals>
 				<equals>
 					<property>systems/acconfig/mismatch-code</property>
 					<value>0x000</value>
@@ -209,10 +195,6 @@
 						<value>110</value>
 					</greater-than-equals>
 				</or>
-				<not-equals>
-					<property>modes/cpt-du-xfr</property>
-					<value>2</value>
-				</not-equals>
 				<equals>
 					<property>systems/acconfig/mismatch-code</property>
 					<value>0x000</value>
@@ -257,6 +239,29 @@
 	
 	<model>
 		<name>PFD2</name>
+		<path>Aircraft/IDG-A32X/Models/Instruments/PFD-WIP/PFD2.xml</path>
+		<offsets>
+			<x-m>-0.55415</x-m>
+			<y-m>0.5526</y-m>
+			<z-m>0.22256</z-m>
+			<pitch-deg>-16.534</pitch-deg>
+		</offsets>
+		<condition>
+			<and>
+				<equals>
+					<property>systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+				<equals>
+					<property>options/test-canvas</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</model>
+	
+	<model>
+		<name>PFD2</name>
 		<path>Aircraft/IDG-A32X/Models/Instruments/PFD/PFD2.xml</path>
 		<offsets>
 			<x-m>-0.55415</x-m>
@@ -274,10 +279,6 @@
 					<property>systems/electrical/bus/ac2</property>
 					<value>25</value>
 				</greater-than-equals>
-				<not-equals>
-					<property>modes/fo-du-xfr</property>
-					<value>2</value>
-				</not-equals>
 				<not-equals>
 					<property>controls/electrical/switches/emer-gen</property>
 					<value>1</value>

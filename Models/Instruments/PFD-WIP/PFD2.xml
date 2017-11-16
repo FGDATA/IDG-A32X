@@ -8,7 +8,7 @@
 
 <PropertyList>
 
-	<path>res/PFD1.ac</path>
+	<path>res/PFD2.ac</path>
 	
 	<animation>
 		<type>scale</type>
@@ -19,25 +19,25 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>pfd1.screen</object-name>
+		<object-name>pfd2.screen</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>canvas_pfd.showPFD1();</script>
+				<script>canvas_pfd.showPFD2();</script>
 			</binding>
 		</action>
 	</animation>
 	
 	<animation>
 		<type>material</type>
-		<object-name>pfd1.screen</object-name>
+		<object-name>pfd2.screen</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
-			<factor-prop>controls/lighting/DU/du1</factor-prop>
+			<factor-prop>controls/lighting/DU/du6</factor-prop>
 		</emission>
 	</animation>
 

@@ -297,8 +297,11 @@
 						<binding>
 							<command>nasal</command>
 							<script>
-							setprop("/options/test-canvas", 1);
-							canvas_pfd.showPFD1();
+							if (getprop("/options/test-canvas") != 1) {
+								setprop("/options/test-canvas", 1);
+							} else {
+								setprop("/options/test-canvas", 0);
+							}
 							</script>
 						</binding>
 					</item>
