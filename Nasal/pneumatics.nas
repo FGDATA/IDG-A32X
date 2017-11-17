@@ -1,9 +1,9 @@
 # A3XX Pneumatic System
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 #############
 # Init Vars #

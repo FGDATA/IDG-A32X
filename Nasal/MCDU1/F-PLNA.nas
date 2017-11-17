@@ -1,8 +1,8 @@
 # A3XX mCDU by Joshua Davidson (it0uchpods) and Jonathan Redpath
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 setprop("/MCDUC/F-PLNA/left-1", "F-PLN PAGE IS NOT ENABLED");
 setprop("/MCDUC/F-PLNA/left-2", "BECAUSE IT IS NOT READY");

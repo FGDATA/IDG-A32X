@@ -1,9 +1,9 @@
 # A3XX ADIRS system
 # Jonathan Redpath and Joshua Davidson
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 #####################
 # Initializing Vars #

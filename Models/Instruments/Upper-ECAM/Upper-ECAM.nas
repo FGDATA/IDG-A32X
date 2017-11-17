@@ -1,9 +1,9 @@
 # A3XX Upper ECAM Canvas
 # Joshua Davidson (it0uchpods)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 var upperECAM_cfm_eis2 = nil;
 var upperECAM_iae_eis2 = nil;

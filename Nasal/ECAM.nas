@@ -1,9 +1,9 @@
 # A3XX ECAM Messages
 # Joshua Davidson (it0uchpods)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 # It no works yet, so please don't touch a thing until it works. Thanks -JD
 
@@ -16,9 +16,9 @@ setprop("/ECAM/noupdate", 0);
 setprop("/ECAM/donotrevert", 0);
 setprop("/ECAM/Lower/page", "eng");
 
-######################################################
+###########################################################
 # w = White, b = Blue, g = Green, a = Amber, r = Red #
-######################################################
+###########################################################
 
 var ECAMinit = func {
 	if (getprop("/options/enable-ecam-actions") == 1) {

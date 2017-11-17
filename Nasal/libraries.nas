@@ -1,12 +1,12 @@
 # A320 Main Libraries
 # Joshua Davidson (it0uchpods)
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 print("-----------------------------------------------------------------------------");
-print("Copyright (c) 2016-2017 it0uchpods Design Group");
+print("Copyright (c) 2017 it0uchpods Design Group");
 print("-----------------------------------------------------------------------------");
 
 # Dimmers

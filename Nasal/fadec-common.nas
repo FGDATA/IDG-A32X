@@ -1,9 +1,9 @@
 # A3XX FADEC/Throttle Control System by Joshua Davidson (it0uchpods)
 # V2.0.0
 
-#########################################
-# Copyright (c) it0uchpods Design Group #
-#########################################
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 setprop("/systems/thrust/alpha-floor", 0);
 setprop("/systems/thrust/toga-lk", 0);
@@ -254,13 +254,15 @@ var thrust_loop = func {
 	} else {
 		var status = getprop("/systems/thrust/lvrclb");
 		if (status == 0) {
-			if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
-				setprop("/systems/thrust/lvrclb", "1");
-			} else {
-				if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft") and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
+			if (getprop("/gear/gear[0]/wow") == 0) {
+				if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
 					setprop("/systems/thrust/lvrclb", "1");
 				} else {
-					setprop("/systems/thrust/lvrclb", "0");
+					if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft") and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
+						setprop("/systems/thrust/lvrclb", "1");
+					} else {
+						setprop("/systems/thrust/lvrclb", "0");
+					}
 				}
 			}
 		} else if (status == 1) {
