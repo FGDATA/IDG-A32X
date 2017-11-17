@@ -246,6 +246,108 @@
 		</axis>
 	</animation>
 
+	<!-- Cargo doors -->
+	<animation>
+		<name>Cargo forward door pick</name>
+		<type>pick</type>
+		<object-name>Cargo1</object-name>
+		<object-name>Cargo1int</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 libraries.triggerDoor(libraries.cargofwd, "cargofwd", "forward cargo");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Cargo forward door rotate</name>
+		<type>rotate</type>
+		<object-name>Cargo1</object-name>
+		<object-name>Cargo1int</object-name>
+		<property>sim/model/door-positions/cargofwd/position-norm</property>
+		<factor>150</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>1.92</y-m>
+			<z-m>-0.507</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>Cargo aft door pick</name>
+		<type>pick</type>
+		<object-name>Cargo2</object-name>
+		<object-name>Cargo2int</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 libraries.triggerDoor(libraries.cargoaft, "cargoaft", "aft cargo");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Cargo aft door rotate</name>
+		<type>rotate</type>
+		<object-name>Cargo2</object-name>
+		<object-name>Cargo2int</object-name>
+		<property>sim/model/door-positions/cargoaft/position-norm</property>
+		<factor>150</factor>
+		<axis>
+			<x1-m>24.442</x1-m>
+			<y1-m>1.912</y1-m>
+			<z1-m>-0.507</z1-m>
+			<x2-m>26.022</x2-m>
+			<y2-m>1.914</y2-m>
+			<z2-m>-0.509</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Cargo bulk door pick</name>
+		<type>pick</type>
+		<object-name>Cargo3</object-name>
+		<object-name>Cargo3int</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 libraries.triggerDoor(libraries.cargobulk, "cargobulk", "bulk cargo");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Cargo bulk door rotate</name>
+		<type>rotate</type>
+		<object-name>Cargo3</object-name>
+		<object-name>Cargo3int</object-name>
+		<property>sim/model/door-positions/cargobulk/position-norm</property>
+		<factor>150</factor>
+		<axis>
+			<x1-m>28.367</x1-m>
+			<y1-m>1.735</y1-m>
+			<z1-m>-0.972</z1-m>
+			<x2-m>29.166</x2-m>
+			<y2-m>1.702</y2-m>
+			<z2-m>-0.942</z2-m>
+		</axis>
+	</animation>
+
 	<!-- Animation for the doors of the main gears. -->
 	<animation>
 		<name>Main_Gear_Doors.Left</name>
