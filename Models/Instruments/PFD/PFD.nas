@@ -136,8 +136,8 @@ var canvas_PFD_1 = {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
 		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky",
-		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target",
-		"HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box",
+		"LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -513,6 +513,23 @@ var canvas_PFD_1 = {
 		me["AI_stick_pos"].setTranslation(getprop("/controls/flight/aileron-input-fast") * 196.8, getprop("/controls/flight/elevator-input-fast") * 151.5);
 		
 		# Altitude
+		me.altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+		me.altOffset = me.altitude / 500 - int(me.altitude / 500);
+		me.middleAltText = roundaboutAlt(me.altitude / 100);
+		me.middleAltOffset = nil;
+		if (me.altOffset > 0.5) {
+			me.middleAltOffset = -(me.altOffset - 1) * 486.6856;
+		} else {
+			me.middleAltOffset = -me.altOffset * 486.6856;
+		}
+		me["ALT_scale"].setTranslation(0, -me.middleAltOffset);
+		me["ALT_scale"].update();
+		me["ALT_five"].setText(sprintf("%03d",me.middleAltText+10));
+		me["ALT_four"].setText(sprintf("%03d",me.middleAltText+5));
+		me["ALT_three"].setText(sprintf("%03d",me.middleAltText));
+		me["ALT_two"].setText(sprintf("%03d",me.middleAltText-5));
+		me["ALT_one"].setText(sprintf("%03d",me.middleAltText-10));
+		
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
 		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
 		me["ALT_tens"].setTranslation(0, altTens * 1.392);
@@ -549,9 +566,9 @@ var canvas_PFD_1 = {
 		}
 		
 		if (getprop("/it-autoflight/internal/vert-speed-fpm-pfd") < 10) {
-			me["VS_digit"].setText(sprintf("%s", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%2.0f", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		} else {
-			me["VS_digit"].setText(sprintf("%s", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%2.0f", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		}
 		
 		# ILS
@@ -579,7 +596,7 @@ var canvas_PFD_1 = {
 		
 		# Heading
 		me.heading = getprop("/instrumentation/pfd/heading-scale");
-		me.headOffset = me.heading / 10 - int (me.heading / 10);
+		me.headOffset = me.heading / 10 - int(me.heading / 10);
 		me.middleText = roundabout(me.heading / 10);
 		me.middleOffset = nil;
 		if(me.middleText == 36) {
@@ -592,7 +609,7 @@ var canvas_PFD_1 = {
 		me.leftText3 = me.leftText2 == 0?35:me.leftText2 - 1;
 		me.rightText3 = me.rightText2 == 35?0:me.rightText2 + 1;
 		if (me.headOffset > 0.5) {
-			me.middleOffset = -(me.headOffset-1) * 98.5416;
+			me.middleOffset = -(me.headOffset - 1) * 98.5416;
 		} else {
 			me.middleOffset = -me.headOffset * 98.5416;
 		}
@@ -649,8 +666,8 @@ var canvas_PFD_2 = {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
 		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky",
-		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target",
-		"HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box",
+		"LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		state1 = getprop("/systems/thrust/state1");
@@ -1026,6 +1043,27 @@ var canvas_PFD_2 = {
 		me["AI_stick_pos"].setTranslation(getprop("/controls/flight/aileron-input-fast") * 196.8, getprop("/controls/flight/elevator-input-fast") * 151.5);
 		
 		# Altitude
+		me.altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+		me.altOffset = me.altitude / 500 - int(me.altitude / 500);
+		me.middleAltText = roundaboutAlt(me.altitude / 100);
+		me.middleAltOffset = nil;
+		if (me.altOffset > 0.5) {
+			me.middleAltOffset = -(me.altOffset - 1) * 486.6856;
+		} else {
+			me.middleAltOffset = -me.altOffset * 486.6856;
+		}
+		me["ALT_scale"].setTranslation(0, -me.middleAltOffset);
+		me["ALT_scale"].update();
+		me["ALT_five"].setText(sprintf("%03d",me.middleAltText+10));
+		me["ALT_four"].setText(sprintf("%03d",me.middleAltText+5));
+		me["ALT_three"].setText(sprintf("%03d",me.middleAltText));
+		me["ALT_two"].setText(sprintf("%03d",me.middleAltText-5));
+		me["ALT_one"].setText(sprintf("%03d",me.middleAltText-10));
+		
+		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
+		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
+		me["ALT_tens"].setTranslation(0, altTens * 1.392);
+		
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
 		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
 		me["ALT_tens"].setTranslation(0, altTens * 1.392);
@@ -1062,9 +1100,9 @@ var canvas_PFD_2 = {
 		}
 		
 		if (getprop("/it-autoflight/internal/vert-speed-fpm-pfd") < 10) {
-			me["VS_digit"].setText(sprintf("%s", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%2.0f", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		} else {
-			me["VS_digit"].setText(sprintf("%s", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%2.0f", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		}
 		
 		# ILS
@@ -1092,7 +1130,7 @@ var canvas_PFD_2 = {
 		
 		# Heading
 		me.heading = getprop("/instrumentation/pfd/heading-scale");
-		me.headOffset = me.heading / 10 - int (me.heading / 10);
+		me.headOffset = me.heading / 10 - int(me.heading / 10);
 		me.middleText = roundabout(me.heading / 10);
 		me.middleOffset = nil;
 		if(me.middleText == 36) {
@@ -1105,7 +1143,7 @@ var canvas_PFD_2 = {
 		me.leftText3 = me.leftText2 == 0?35:me.leftText2 - 1;
 		me.rightText3 = me.rightText2 == 35?0:me.rightText2 + 1;
 		if (me.headOffset > 0.5) {
-			me.middleOffset = -(me.headOffset-1) * 98.5416;
+			me.middleOffset = -(me.headOffset - 1) * 98.5416;
 		} else {
 			me.middleOffset = -me.headOffset * 98.5416;
 		}
@@ -1194,4 +1232,9 @@ var showPFD2 = func {
 var roundabout = func(x) {
 	var y = x - int(x);
 	return y < 0.5 ? int(x) : 1 + int(x) ;
+};
+
+var roundaboutAlt = func(x) {
+	var y = x * 0.2 - int(x * 0.2);
+	return y < 0.5 ? 5 * int(x*0.2) : 5 + 5 * int(x*0.2) ;
 };
