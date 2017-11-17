@@ -658,10 +658,10 @@
 		<gain>1.0</gain>
 		<min>
 			<condition>
-				<equals>
+				<not-equals>
 					<property>/options/steep-ils</property>
-					<value>0</value>
-				</equals>
+					<value>1</value>
+				</not-equals>
 			</condition>
 			<value>-1200</value>
 		</min>
