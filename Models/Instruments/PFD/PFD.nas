@@ -623,6 +623,14 @@ var canvas_PFD_1 = {
 		me["HDG_seven"].setText(sprintf("%d", me.rightText3));
 		me["HDG_one"].setText(sprintf("%d", me.leftText3));
 		
+		me["HDG_four"].setFontSize(fontSizeHDG(me.middleText), 1);
+		me["HDG_five"].setFontSize(fontSizeHDG(me.rightText1), 1);
+		me["HDG_three"].setFontSize(fontSizeHDG(me.leftText1), 1);
+		me["HDG_six"].setFontSize(fontSizeHDG(me.rightText2), 1);
+		me["HDG_two"].setFontSize(fontSizeHDG(me.leftText2), 1);
+		me["HDG_seven"].setFontSize(fontSizeHDG(me.rightText3), 1);
+		me["HDG_one"].setFontSize(fontSizeHDG(me.leftText3), 1);
+		
 		if (getprop("/it-autoflight/custom/show-hdg") == 1 and getprop("/instrumentation/pfd/hdg-diff") >= -23.62 and getprop("/instrumentation/pfd/hdg-diff") <= 23.62) {
 			me["HDG_target"].setTranslation((getprop("/instrumentation/pfd/hdg-diff") / 10) * 98.5416, 0);
 			me["HDG_digit_L"].hide();
@@ -1157,6 +1165,14 @@ var canvas_PFD_2 = {
 		me["HDG_seven"].setText(sprintf("%d", me.rightText3));
 		me["HDG_one"].setText(sprintf("%d", me.leftText3));
 		
+		me["HDG_four"].setFontSize(fontSizeHDG(me.middleText), 1);
+		me["HDG_five"].setFontSize(fontSizeHDG(me.rightText1), 1);
+		me["HDG_three"].setFontSize(fontSizeHDG(me.leftText1), 1);
+		me["HDG_six"].setFontSize(fontSizeHDG(me.rightText2), 1);
+		me["HDG_two"].setFontSize(fontSizeHDG(me.leftText2), 1);
+		me["HDG_seven"].setFontSize(fontSizeHDG(me.rightText3), 1);
+		me["HDG_one"].setFontSize(fontSizeHDG(me.leftText3), 1);
+		
 		if (getprop("/it-autoflight/custom/show-hdg") == 1 and getprop("/instrumentation/pfd/hdg-diff") >= -23.62 and getprop("/instrumentation/pfd/hdg-diff") <= 23.62) {
 			me["HDG_target"].setTranslation((getprop("/instrumentation/pfd/hdg-diff") / 10) * 98.5416, 0);
 			me["HDG_digit_L"].hide();
@@ -1237,4 +1253,13 @@ var roundabout = func(x) {
 var roundaboutAlt = func(x) {
 	var y = x * 0.2 - int(x * 0.2);
 	return y < 0.5 ? 5 * int(x*0.2) : 5 + 5 * int(x*0.2) ;
+};
+
+var fontSizeHDG = func(input) {
+	var test = input / 3;
+	if (test == int(test)) {
+		return 42;
+	} else {
+		return 32;
+	}
 };
