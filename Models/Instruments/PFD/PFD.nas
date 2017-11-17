@@ -497,21 +497,55 @@ var canvas_PFD_base = {
 		me.middleAltText = roundaboutAlt(me.altitude / 100);
 		me.middleAltOffset = nil;
 		if (me.altOffset > 0.5) {
-			me.middleAltOffset = -(me.altOffset - 1) * 486.6856;
+			me.middleAltOffset = -(me.altOffset - 1) * 243.3424;
 		} else {
-			me.middleAltOffset = -me.altOffset * 486.6856;
+			me.middleAltOffset = -me.altOffset * 243.3424;
 		}
 		me["ALT_scale"].setTranslation(0, -me.middleAltOffset);
 		me["ALT_scale"].update();
-		me["ALT_five"].setText(sprintf("%03d",me.middleAltText+10));
-		me["ALT_four"].setText(sprintf("%03d",me.middleAltText+5));
-		me["ALT_three"].setText(sprintf("%03d",me.middleAltText));
-		me["ALT_two"].setText(sprintf("%03d",me.middleAltText-5));
-		me["ALT_one"].setText(sprintf("%03d",me.middleAltText-10));
+		me["ALT_five"].setText(sprintf("%03d", me.middleAltText+10));
+		me["ALT_four"].setText(sprintf("%03d", me.middleAltText+5));
+		me["ALT_three"].setText(sprintf("%03d", me.middleAltText));
+		me["ALT_two"].setText(sprintf("%03d", me.middleAltText-5));
+		me["ALT_one"].setText(sprintf("%03d", me.middleAltText-10));
 		
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
 		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
 		me["ALT_tens"].setTranslation(0, altTens * 1.392);
+		
+		if (getprop("/instrumentation/pfd/alt-diff") >= -565 and getprop("/instrumentation/pfd/alt-diff") <= 565) {
+			me["ALT_target"].setTranslation(0, (getprop("/instrumentation/pfd/alt-diff") / 100) * -48.66856);
+			me["ALT_target_digit"].setText(sprintf("%03d", math.round(getprop("/it-autoflight/internal/alt") / 100)));
+			me["ALT_digit_UP"].hide();
+			me["ALT_digit_DN"].hide();
+			me["ALT_target"].show();
+		} else if (getprop("/instrumentation/pfd/alt-diff") < -565) {
+			if (getprop("/modes/altimeter/std") == 1) {
+				if (getprop("/it-autoflight/internal/alt") < 10000) {
+					me["ALT_digit_DN"].setText(sprintf("%s", "FL   " ~ getprop("/it-autoflight/internal/alt") / 100));
+				} else {
+					me["ALT_digit_DN"].setText(sprintf("%s", "FL " ~ getprop("/it-autoflight/internal/alt") / 100));
+				}
+			} else {
+				me["ALT_digit_DN"].setText(sprintf("%5.0f", getprop("/it-autoflight/internal/alt")));
+			}
+			me["ALT_digit_DN"].show();
+			me["ALT_digit_UP"].hide();
+			me["ALT_target"].hide();
+		} else if (getprop("/instrumentation/pfd/alt-diff") > 565) {
+			if (getprop("/modes/altimeter/std") == 1) {
+				if (getprop("/it-autoflight/internal/alt") < 10000) {
+					me["ALT_digit_UP"].setText(sprintf("%s", "FL   " ~ getprop("/it-autoflight/internal/alt") / 100));
+				} else {
+					me["ALT_digit_UP"].setText(sprintf("%s", "FL " ~ getprop("/it-autoflight/internal/alt") / 100));
+				}
+			} else {
+				me["ALT_digit_UP"].setText(sprintf("%5.0f", getprop("/it-autoflight/internal/alt")));
+			}
+			me["ALT_digit_UP"].show();
+			me["ALT_digit_DN"].hide();
+			me["ALT_target"].hide();
+		}
 		
 		# QNH
 		if (getprop("/modes/altimeter/std") == 1) {
@@ -545,9 +579,9 @@ var canvas_PFD_base = {
 		}
 		
 		if (getprop("/it-autoflight/internal/vert-speed-fpm-pfd") < 10) {
-			me["VS_digit"].setText(sprintf("%2.0f", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%02d", "0" ~ getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		} else {
-			me["VS_digit"].setText(sprintf("%2.0f", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
+			me["VS_digit"].setText(sprintf("%02d", getprop("/it-autoflight/internal/vert-speed-fpm-pfd")));
 		}
 		
 		# ILS		
@@ -635,8 +669,9 @@ var canvas_PFD_1 = {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
 		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_bank_lim","AI_slipskid","AI_horizon","AI_horizon_ground",
-		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std",
-		"QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN",
+		"VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L",
+		"HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		fd1 = getprop("/it-autoflight/output/fd1");
@@ -669,6 +704,7 @@ var canvas_PFD_1 = {
 			me["LOC_scale"].hide();
 			me["GS_scale"].hide();
 		}
+		
 		if (getprop("/modes/pfd/ILS1") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["LOC_pointer"].show();
 		} else {
@@ -695,8 +731,9 @@ var canvas_PFD_2 = {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
 		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_bank_lim","AI_slipskid","AI_horizon","AI_horizon_ground",
-		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std",
-		"QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","TRK_pointer"];
+		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN",
+		"VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L",
+		"HDG_digit_R","TRK_pointer"];
 	},
 	update: func() {
 		fd1 = getprop("/it-autoflight/output/fd1");
@@ -729,6 +766,7 @@ var canvas_PFD_2 = {
 			me["LOC_scale"].hide();
 			me["GS_scale"].hide();
 		}
+		
 		if (getprop("/modes/pfd/ILS2") == 1 and getprop("/instrumentation/nav[0]/in-range") == 1 and getprop("/instrumentation/nav[0]/nav-loc") == 1 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
 			me["LOC_pointer"].show();
 		} else {

@@ -286,8 +286,8 @@ var phasecheck = maketimer(0.2, func {
 		setprop("/FMGC/internal/alpha-prot-speed", 138);
 	} else if (flap == 5) {
 		setprop("/FMGC/internal/overspeed", 163);
-		setprop("/FMGC/internal/minspeed", 134);
-		setprop("/FMGC/internal/alpha-prot-speed", 123);
+		setprop("/FMGC/internal/minspeed", 131);
+		setprop("/FMGC/internal/alpha-prot-speed", 122);
 	}
 	
 	if (gear0 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 5) {

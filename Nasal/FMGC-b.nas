@@ -723,7 +723,7 @@ var altcapt = func {
 		setprop("/it-autoflight/internal/captvs", 1500);
 		setprop("/it-autoflight/internal/captvsneg", -1500);
 	}
-	if (getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) {
+	if ((getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) and getprop("/it-autoflight/output/vert") != 9) {
 		var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		var alt = getprop("/it-autoflight/internal/alt");
 		var dif = calt - alt;
