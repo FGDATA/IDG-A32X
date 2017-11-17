@@ -575,12 +575,12 @@
 			<item>
 				<name>ECAM MEMO</name>
 				<value>TO NO BLUE</value>
-                                <condition>
+				<condition>
 					<and>
-                                                <equals>
-                                                        <property>controls/autobrake/mode</property>
-                                                        <value>3</value>
-                                                </equals>
+						<equals>
+							<property>controls/autobrake/mode</property>
+							<value>3</value>
+						</equals>
 						<equals>
 							<property>controls/switches/seatbelt-sign</property>
 							<value>true</value>
@@ -589,11 +589,11 @@
 							<property>controls/switches/no-smoking-sign</property>
 							<value>true</value>
 						</equals>
-                                                <equals>
-                                                        <property>controls/flight/speedbrake-arm</property>
-                                                        <value>1</value>
-                                                </equals>
-                                                <greater-than>
+						<equals>
+							<property>controls/flight/speedbrake-arm</property>
+							<value>1</value>
+						</equals>
+						<greater-than>
 							<property>controls/flight/flap-lever</property>
 							<value>0</value>
 						</greater-than>
@@ -1122,7 +1122,7 @@
 		<item>
 			<name>ECAM MEMO</name>
 			<value>LDG NO BLUE</value>
-                        <condition>
+			<condition>
 				<and>
 					<equals>
 						<property>gear/gear/position-norm</property>
@@ -1136,7 +1136,7 @@
 						<property>gear/gear[2]/position-norm</property>
 						<value>1</value>
 					</equals>
-                                        <equals>
+					<equals>
 						<property>controls/switches/seatbelt-sign</property>
 						<value>true</value>
 					</equals>
@@ -1144,11 +1144,11 @@
 						<property>controls/switches/no-smoking-sign</property>
 						<value>true</value>
 					</equals>
-                                        <equals>
-                                                <property>controls/flight/speedbrake-arm</property>
-                                                <value>1</value>
-                                        </equals>
-                                        <equals>
+					<equals>
+						<property>controls/flight/speedbrake-arm</property>
+						<value>1</value>
+					</equals>
+					<equals>
 						<property>controls/flight/flap-lever</property>
 						<value>4</value>
 					</equals>
@@ -1224,7 +1224,7 @@
 		<item>
 			<name>FLAPS SET</name>
 			<value>GREEN</value>
-                                <condition>
+			<condition>
 					<equals>
 						<property>controls/flight/flap-lever</property>
 						<value>4</value>
