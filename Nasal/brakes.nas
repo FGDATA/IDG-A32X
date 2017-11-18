@@ -14,8 +14,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var thr1 = 0;
 	var thr2 = 0;
 	var wow0 = getprop("/gear/gear[0]/wow");
-	var wow1 = getprop("/gear/gear[1]/wow");
-	var wow2 = getprop("/gear/gear[2]/wow");
 	var gnd_speed = getprop("/velocities/groundspeed-kt");
 });
 
@@ -29,7 +27,7 @@ controls.applyBrakes = func(v, which = 0) {
 	if (getprop("/systems/acconfig/autoconfig-running") != 1) {
 		wow1 = getprop("/gear/gear[1]/wow");
 		wow2 = getprop("/gear/gear[2]/wow");
-		if (getprop("/controls/autobrake/mode") != 0 and (wow1 or wow2) and getprop("/controls/autobrake/active") == 1) {
+		if (getprop("/controls/autobrake/mode") != 0 and wow0 == 1 and getprop("/controls/autobrake/active") == 1) {
 			arm_autobrake(0);
 		}
 		if (which <= 0) {
@@ -43,8 +41,7 @@ controls.applyBrakes = func(v, which = 0) {
 
 # Set autobrake mode
 var arm_autobrake = func(mode) {
-	wow1 = getprop("/gear/gear[1]/wow");
-	wow2 = getprop("/gear/gear[2]/wow");
+	wow0 = getprop("/gear/gear[0]/wow");
 	if (mode == 0) { # OFF
 		absChk.stop();
 		if (getprop("/controls/autobrake/active") == 1) {
@@ -53,13 +50,13 @@ var arm_autobrake = func(mode) {
 			setprop("/controls/gear/brake-right", 0);
 		}
 		setprop("/controls/autobrake/mode", 0);
-	} else if (mode == 1 and !wow1 and !wow2) { # LO
+	} else if (mode == 1 and wow0 != 1) { # LO
 		setprop("/controls/autobrake/mode", 1);
 		absChk.start();
-	} else if (mode == 2 and !wow1 and !wow2) { # MED
+	} else if (mode == 2 and wow0 != 1) { # MED
 		setprop("/controls/autobrake/mode", 2);
 		absChk.start();
-	} else if (mode == 3 and (wow1 or wow2)) { # MAX
+	} else if (mode == 3 and wow0 == 1) { # MAX
 		setprop("/controls/autobrake/mode", 3);
 		absChk.start();
 	}
@@ -74,7 +71,7 @@ var absChk = maketimer(0.2, func {
 	wow0 = getprop("/gear/gear[0]/wow");
 	gnd_speed = getprop("/velocities/groundspeed-kt");
 	if (gnd_speed > 60 and rev1 < 0.01 and rev2 < 0.01) {
-		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow0) {
+		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow0 == 1) {
 			setprop("/controls/autobrake/active", 1);
 			if (getprop("/controls/autobrake/mode") == 1) { # LO
 				interpolate("/controls/gear/brake-left", 0.4, 0.5);

@@ -746,13 +746,13 @@ var canvas_PFD_2 = {
 		wow2 = getprop("/gear/gear[2]/wow");
 		
 		# FD
-		if (fd1 == 2 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
+		if (fd2 == 1 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
 			me["FD_roll"].show();
 		} else {
 			me["FD_roll"].hide();
 		}
 		
-		if (fd1 == 2 and ((!wow1 and !wow2 and pitch_mode != " ") or pitch_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
+		if (fd2 == 1 and ((!wow1 and !wow2 and pitch_mode != " ") or pitch_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
 			me["FD_pitch"].show();
 		} else {
 			me["FD_pitch"].hide();
