@@ -12,7 +12,7 @@
 
 	<!-- ANIMATIONS -->
 	<!-- Lighting -->
-	<!--animation>
+	<animation>
 		<name>Cabin illumination</name>
 		<type>material</type>
 		<object-name>Cabin</object-name>
@@ -22,15 +22,13 @@
 		<object-name>Floor</object-name>
 		<object-name>OverheadBins</object-name>
 		<object-name>Seats</object-name>
-		<object-name>SeatFabric</object-name>
-		<object-name>SeatTrays</object-name>
 		<emission>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-			<factor-prop></factor-prop>
+			<red>0.2</red>
+			<green>0.2</green>
+			<blue>0.2</blue>
+			<!--factor-prop>tbd</factor-prop-->
 		</emission>
-	</animation-->
+	</animation>
 
    <!-- Door animations placed in fuselage.xml (th) -->
 	<!-- PAX doors -->
