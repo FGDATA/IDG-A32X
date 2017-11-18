@@ -551,7 +551,7 @@ var ap_various = func {
 	}
 }
 
-var lnavCalc = maketimer(0.001, func {
+var lnavCalc = maketimer(0.05, func {
 	if (getprop("/autopilot/route-manager/active") == 1) {
 		var f = flightplan();
 		var total_distance = getprop("/autopilot/route-manager/total-distance");
