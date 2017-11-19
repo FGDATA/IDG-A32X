@@ -30,6 +30,9 @@ setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
 setprop("/position/gear-agl-ft", 0);
 setprop("/controls/flight/aileron-input-fast", 0);
 setprop("/controls/flight/elevator-input-fast", 0);
+setprop("/instrumentation/adirs/ir[0]/aligned", 0);
+setprop("/instrumentation/adirs/ir[1]/aligned", 0);
+setprop("/instrumentation/adirs/ir[2]/aligned", 0);
 var ASI = 0;
 var ASItrgt = 0;
 var ASItrgtdiff = 0;
@@ -107,7 +110,12 @@ var canvas_PFD_base = {
 		return me;
 	},
 	getKeys: func() {
-		return [];
+		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
+		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
+		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","ASI_index","ASI_error","ASI_group","ASI_frame","AI_center","AI_bank","AI_bank_lim",
+		"AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","AI_error","AI_group","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four",
+		"ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN","ALT_error","ALT_group","ALT_group2","ALT_frame","VS_pointer","VS_box","VS_digit","VS_error","VS_group","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale",
+		"GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","HDG_error","HDG_group","HDG_frame","TRK_pointer"];
 	},
 	update: func() {
 		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/lighting/DU/du1") > 0) {
@@ -665,14 +673,6 @@ var canvas_PFD_1 = {
 
 		return m;
 	},
-	getKeys: func() {
-		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
-		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_bank_lim","AI_slipskid","AI_horizon","AI_horizon_ground",
-		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN",
-		"VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L",
-		"HDG_digit_R","TRK_pointer"];
-	},
 	update: func() {
 		fd1 = getprop("/it-autoflight/output/fd1");
 		fd2 = getprop("/it-autoflight/output/fd2");
@@ -682,6 +682,41 @@ var canvas_PFD_1 = {
 		roll = getprop("/orientation/roll-deg");
 		wow1 = getprop("/gear/gear[1]/wow");
 		wow2 = getprop("/gear/gear[2]/wow");
+		
+		# Errors
+		if (getprop("/instrumentation/adirs/ir[0]/aligned") == 1) {
+			me["ASI_group"].show();
+			me["AI_group"].show();
+			me["ALT_group"].show();
+			me["ALT_group2"].show();
+			me["ALT_scale"].show();
+			me["VS_group"].show();
+			me["HDG_group"].show();
+			me["ASI_error"].hide();
+			me["ASI_frame"].setColor(1,1,1);
+			me["AI_error"].hide();
+			me["ALT_error"].hide();
+			me["ALT_frame"].setColor(1,1,1);
+			me["VS_error"].hide();
+			me["HDG_error"].hide();
+			me["HDG_frame"].setColor(1,1,1);
+		} else {
+			me["ASI_error"].show();
+			me["ASI_frame"].setColor(1,0,0);
+			me["AI_error"].show();
+			me["ALT_error"].show();
+			me["ALT_frame"].setColor(1,0,0);
+			me["VS_error"].show();
+			me["HDG_error"].show();
+			me["HDG_frame"].setColor(1,0,0);
+			me["ASI_group"].hide();
+			me["AI_group"].hide();
+			me["ALT_group"].hide();
+			me["ALT_group2"].hide();
+			me["ALT_scale"].hide();
+			me["VS_group"].hide();
+			me["HDG_group"].hide();
+		}
 		
 		# FD
 		if (fd1 == 1 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
@@ -727,14 +762,6 @@ var canvas_PFD_2 = {
 
 		return m;
 	},
-	getKeys: func() {
-		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
-		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","AI_center","AI_bank","AI_bank_lim","AI_slipskid","AI_horizon","AI_horizon_ground",
-		"AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN",
-		"VS_pointer","VS_box","VS_digit","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale","GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L",
-		"HDG_digit_R","TRK_pointer"];
-	},
 	update: func() {
 		fd1 = getprop("/it-autoflight/output/fd1");
 		fd2 = getprop("/it-autoflight/output/fd2");
@@ -744,6 +771,41 @@ var canvas_PFD_2 = {
 		roll = getprop("/orientation/roll-deg");
 		wow1 = getprop("/gear/gear[1]/wow");
 		wow2 = getprop("/gear/gear[2]/wow");
+		
+		# Errors
+		if (getprop("/instrumentation/adirs/ir[1]/aligned") == 1) {
+			me["ASI_group"].show();
+			me["AI_group"].show();
+			me["ALT_group"].show();
+			me["ALT_group2"].show();
+			me["ALT_scale"].show();
+			me["VS_group"].show();
+			me["HDG_group"].show();
+			me["ASI_error"].hide();
+			me["ASI_frame"].setColor(1,1,1);
+			me["AI_error"].hide();
+			me["ALT_error"].hide();
+			me["ALT_frame"].setColor(1,1,1);
+			me["VS_error"].hide();
+			me["HDG_error"].hide();
+			me["HDG_frame"].setColor(1,1,1);
+		} else {
+			me["ASI_error"].show();
+			me["ASI_frame"].setColor(1,0,0);
+			me["AI_error"].show();
+			me["ALT_error"].show();
+			me["ALT_frame"].setColor(1,0,0);
+			me["VS_error"].show();
+			me["HDG_error"].show();
+			me["HDG_frame"].setColor(1,0,0);
+			me["ASI_group"].hide();
+			me["AI_group"].hide();
+			me["ALT_group"].hide();
+			me["ALT_group2"].hide();
+			me["ALT_scale"].hide();
+			me["VS_group"].hide();
+			me["HDG_group"].hide();
+		}
 		
 		# FD
 		if (fd2 == 1 and ((!wow1 and !wow2 and roll_mode != " ") or roll_mode != " ") and getprop("/it-autoflight/custom/trk-fpa") == 0 and pitch < 25 and pitch > -13 and roll < 45 and roll > -45) {
