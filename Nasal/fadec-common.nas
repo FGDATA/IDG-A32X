@@ -254,7 +254,7 @@ var thrust_loop = func {
 	} else {
 		var status = getprop("/systems/thrust/lvrclb");
 		if (status == 0) {
-			if (getprop("/gear/gear[0]/wow") == 0 and getprop("/MCDUC/thracc-set") == 1) {
+			if (getprop("/gear/gear[0]/wow") == 0) {
 				if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
 					setprop("/systems/thrust/lvrclb", "1");
 				} else {
