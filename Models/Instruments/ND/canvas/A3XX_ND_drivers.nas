@@ -13,7 +13,7 @@ var A3XXRouteDriver = {
         me.flightplan = flightplan();
     },
     getNumberOfFlightPlans: func(){1},
-    getFlightPlanType: func(fpNum){'current'},
+    getFlightPlanType: func(fpNum){"current"},
     getFlightPlan: func(fpNum){me.flightplan},
     getPlanSize: func(fpNum){me.flightplan.getPlanSize()},
     getWP: func(fpNum, idx){me.flightplan.getWP(idx)},
@@ -55,16 +55,16 @@ var MultiA3XXRouteDriver = {
                 me._flightplans = subv_l ~ subv_r;
             }
         }
-        me.triggerSignal('fp-added');
+        me.triggerSignal("fp-added");
     },
     removeFlightPlanOfType: func(type){
         var new_vec = [];
         foreach(var fp; me._flightplans){
-            if(fp['type'] != type)
+            if(fp["type"] != type)
                 append(new_vec, fp);
         }
         me._flightplans = new_vec;
-        me.triggerSignal('fp-removed');
+        me.triggerSignal("fp-removed");
     },
     getNumberOfFlightPlans: func(){
         size(me._flightplans);
@@ -96,10 +96,10 @@ var MultiA3XXRouteDriver = {
         setprop(me.signalPath(signal));
     },
     signalPath: func(signal){
-        'autopilot/route-manager/signals/rd-'~ signal;
+        "autopilot/route-manager/signals/rd-"~ signal;
     },
     getListeners: func(){[
-        me.getSignal('fp-added'),
-        me.getSignal('fp-removed')
+        me.getSignal("fp-added"),
+        me.getSignal("fp-removed")
     ]}
 };

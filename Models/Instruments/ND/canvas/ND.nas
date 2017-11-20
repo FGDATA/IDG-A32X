@@ -5,45 +5,52 @@
 # Copyright (c) Joshua Davidson (it0uchpods) #
 ##############################################
 
-io.include('A3XX_ND.nas');
+io.include("A3XX_ND.nas");
 
-io.include('A3XX_ND_drivers.nas');
-canvas.NDStyles['Airbus'].options.defaults.route_driver = A3XXRouteDriver.new();
+io.include("A3XX_ND_drivers.nas");
+canvas.NDStyles["Airbus"].options.defaults.route_driver = A3XXRouteDriver.new();
 
-var nd_nd = nil;
-var nd_nd2 = nil;
+var ND_1 = nil;
+var ND_2 = nil;
+var ND_1_test = nil;
+var ND_2_test = nil;
+var elapsedtime = 0;
+setprop("/instrumentation/du/du2-test", 0);
+setprop("/instrumentation/du/du2-test-time", 0);
+setprop("/instrumentation/du/du5-test", 0);
+setprop("/instrumentation/du/du5-test-time", 0);
 
 var nd_display = {};
 
 var ND = canvas.NavDisplay;
 
 var myCockpit_switches = {
-	'toggle_range': {path: '/inputs/range-nm', value:40, type:'INT'},
-	'toggle_weather': {path: '/inputs/wxr', value:0, type:'BOOL'},
-	'toggle_airports': {path: '/inputs/arpt', value:0, type:'BOOL'},
-	'toggle_ndb': {path: '/inputs/NDB', value:0, type:'BOOL'},
-	'toggle_stations': {path: '/inputs/sta', value:0, type:'BOOL'},
-	'toggle_vor': {path: '/inputs/VORD', value:0, type:'BOOL'},
-	'toggle_dme': {path: '/inputs/DME', value:0, type:'BOOL'},
-	'toggle_cstr': {path: '/inputs/CSTR', value:0, type:'BOOL'},
-	'toggle_waypoints': {path: '/inputs/wpt', value:0, type:'BOOL'},
-	'toggle_position': {path: '/inputs/pos', value:0, type:'BOOL'},
-	'toggle_data': {path: '/inputs/data',value:0, type:'BOOL'},
-	'toggle_terrain': {path: '/inputs/terr',value:0, type:'BOOL'},
-	'toggle_traffic': {path: '/inputs/tfc',value:0, type:'BOOL'},
-	'toggle_centered': {path: '/inputs/nd-centered',value:0, type:'BOOL'},
-	'toggle_lh_vor_adf': {path: '/input/lh-vor-adf',value:0, type:'INT'},
-	'toggle_rh_vor_adf': {path: '/input/rh-vor-adf',value:0, type:'INT'},
-	'toggle_display_mode': {path: '/nd/canvas-display-mode', value:'NAV', type:'STRING'},
-	'toggle_display_type': {path: '/nd/display-type', value:'LCD', type:'STRING'},
-	'toggle_true_north': {path: '/nd/true-north', value:0, type:'BOOL'},
-	'toggle_track_heading': {path: '/trk-selected', value:0, type:'BOOL'},
-	'toggle_wpt_idx': {path: '/inputs/plan-wpt-index', value: -1, type: 'INT'},
-	'toggle_plan_loop': {path: '/nd/plan-mode-loop', value: 0, type: 'INT'},
-	'toggle_weather_live': {path: '/nd/wxr-live-enabled', value: 0, type: 'BOOL'},
-	'toggle_chrono': {path: '/inputs/CHRONO', value: 0, type: 'INT'},
-	'toggle_xtrk_error': {path: '/nd/xtrk-error', value: 0, type: 'BOOL'},
-	'toggle_trk_line': {path: '/nd/trk-line', value: 0, type: 'BOOL'},
+	"toggle_range": {path: "/inputs/range-nm", value:40, type:"INT"},
+	"toggle_weather": {path: "/inputs/wxr", value:0, type:"BOOL"},
+	"toggle_airports": {path: "/inputs/arpt", value:0, type:"BOOL"},
+	"toggle_ndb": {path: "/inputs/NDB", value:0, type:"BOOL"},
+	"toggle_stations": {path: "/inputs/sta", value:0, type:"BOOL"},
+	"toggle_vor": {path: "/inputs/VORD", value:0, type:"BOOL"},
+	"toggle_dme": {path: "/inputs/DME", value:0, type:"BOOL"},
+	"toggle_cstr": {path: "/inputs/CSTR", value:0, type:"BOOL"},
+	"toggle_waypoints": {path: "/inputs/wpt", value:0, type:"BOOL"},
+	"toggle_position": {path: "/inputs/pos", value:0, type:"BOOL"},
+	"toggle_data": {path: "/inputs/data",value:0, type:"BOOL"},
+	"toggle_terrain": {path: "/inputs/terr",value:0, type:"BOOL"},
+	"toggle_traffic": {path: "/inputs/tfc",value:0, type:"BOOL"},
+	"toggle_centered": {path: "/inputs/nd-centered",value:0, type:"BOOL"},
+	"toggle_lh_vor_adf": {path: "/input/lh-vor-adf",value:0, type:"INT"},
+	"toggle_rh_vor_adf": {path: "/input/rh-vor-adf",value:0, type:"INT"},
+	"toggle_display_mode": {path: "/nd/canvas-display-mode", value:"NAV", type:"STRING"},
+	"toggle_display_type": {path: "/nd/display-type", value:"LCD", type:"STRING"},
+	"toggle_true_north": {path: "/nd/true-north", value:0, type:"BOOL"},
+	"toggle_track_heading": {path: "/trk-selected", value:0, type:"BOOL"},
+	"toggle_wpt_idx": {path: "/inputs/plan-wpt-index", value: -1, type: "INT"},
+	"toggle_plan_loop": {path: "/nd/plan-mode-loop", value: 0, type: "INT"},
+	"toggle_weather_live": {path: "/nd/wxr-live-enabled", value: 0, type: "BOOL"},
+	"toggle_chrono": {path: "/inputs/CHRONO", value: 0, type: "INT"},
+	"toggle_xtrk_error": {path: "/nd/xtrk-error", value: 0, type: "BOOL"},
+	"toggle_trk_line": {path: "/nd/trk-line", value: 0, type: "BOOL"},
 };
 
 var canvas_nd_base = {
@@ -53,7 +60,7 @@ var canvas_nd_base = {
 		};
 
 		if (file != nil) {
-			canvas.parsesvg(canvas_group, file, {'font-mapper': font_mapper});
+			canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
 
 			var svg_keys = me.getKeys();
 			foreach(var key; svg_keys) {
@@ -68,28 +75,63 @@ var canvas_nd_base = {
 		return [];
 	},
 	update: func() {
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du2") > 0) {
-			nd_nd.page.show();
-			nd_nd.NDCpt.update();
+		elapsedtime = getprop("/sim/time/elapsed-sec");
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110) {
+			if (getprop("/instrumentation/du/du2-test") != 1) {
+				setprop("/instrumentation/du/du2-test", 1);
+				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec"));
+			}
+			if (getprop("/instrumentation/du/du5-test") != 1) {
+				setprop("/instrumentation/du/du5-test", 1);
+				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else {
-			nd_nd.page.hide();
+			setprop("/instrumentation/du/du2-test", 0);
+			setprop("/instrumentation/du/du5-test", 0);
+		}
+		
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du2") > 0) {
+			if (getprop("/instrumentation/du/du2-test-time") + 38.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+				ND_1.page.hide();
+				ND_1_test.page.show();
+			} else if (getprop("/instrumentation/du/du1-test-time") + 39.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+				ND_1.page.hide();
+				ND_1_test.page.show();
+			} else {
+				ND_1_test.page.hide();
+				ND_1.page.show();
+				ND_1.NDCpt.update();
+			}
+		} else {
+			ND_1_test.page.hide();
+			ND_1.page.hide();
 		}
 		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du5") > 0) {
-			nd_nd2.page.show();
-			nd_nd2.NDFo.update();
+			if (getprop("/instrumentation/du/du5-test-time") + 38.5 >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
+				ND_2.page.hide();
+				ND_2_test.page.show();
+			} else if (getprop("/instrumentation/du/du6-test-time") + 39.5 >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
+				ND_2.page.hide();
+				ND_2_test.page.show();
+			} else {
+				ND_2_test.page.hide();
+				ND_2.page.show();
+				ND_2.NDFo.update();
+			}
 		} else {
-			nd_nd2.page.hide();
+			ND_2_test.page.hide();
+			ND_2.page.hide();
 		}
 	},
 };
 
-var canvas_nd_nd = {
+var canvas_ND_1 = {
 	new: func(canvas_group) {
-		var m = {parents: [canvas_nd_nd, canvas_nd_base]};
+		var m = {parents: [canvas_ND_1, canvas_nd_base]};
 		m.init(canvas_group);
 
 		# here we make the ND:
-		me.NDCpt = ND.new("instrumentation/efis", myCockpit_switches, 'Airbus');
+		me.NDCpt = ND.new("instrumentation/efis", myCockpit_switches, "Airbus");
 		me.NDCpt.newMFD(canvas_group);
 		me.NDCpt.update();
 
@@ -103,13 +145,13 @@ var canvas_nd_nd = {
 	},
 };
 
-var canvas_nd_nd_r = {
+var canvas_ND_2 = {
 	new: func(canvas_group) {
-		var m = {parents: [canvas_nd_nd_r, canvas_nd_base]};
+		var m = {parents: [canvas_ND_2, canvas_nd_base]};
 		m.init(canvas_group);
 
 		# here we make the ND:
-		me.NDFo = ND.new("instrumentation/efis[1]", myCockpit_switches, 'Airbus');
+		me.NDFo = ND.new("instrumentation/efis[1]", myCockpit_switches, "Airbus");
 		me.NDFo.newMFD(canvas_group);
 		me.NDFo.update();
 
@@ -120,6 +162,46 @@ var canvas_nd_nd_r = {
 	},
 	update: func() {
 
+	},
+};
+
+var canvas_ND_1_test = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_ND_1_test]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+};
+
+var canvas_ND_2_test = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_ND_2_test]};
+		m.init(canvas_group, file);
+
+		return m;
 	},
 };
 
@@ -143,11 +225,15 @@ setlistener("sim/signals/fdm-initialized", func {
 
 	nd_display.main.addPlacement({"node": "ND.screen"});
 	nd_display.right.addPlacement({"node": "ND_R.screen"});
-	var group_nd = nd_display.main.createGroup();
+	var group_nd1 = nd_display.main.createGroup();
+	var group_nd1_test = nd_display.main.createGroup();
 	var group_nd2 = nd_display.right.createGroup();
+	var group_nd2_test = nd_display.right.createGroup();
 
-	nd_nd = canvas_nd_nd.new(group_nd);
-	nd_nd2 = canvas_nd_nd_r.new(group_nd2);
+	ND_1 = canvas_ND_1.new(group_nd1);
+	ND_1_test = canvas_ND_1_test.new(group_nd1_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
+	ND_2 = canvas_ND_2.new(group_nd2);
+	ND_2_test = canvas_ND_2_test.new(group_nd2_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 
 	nd_update.start();
 });
@@ -204,7 +290,7 @@ setlistener("/flight-management/control/capture-leg", func(n) {
 }, 0, 0);
 
 var showNd = func(nd = nil) {
-	if(nd == nil) nd = 'main';
+	if(nd == nil) nd = "main";
 	var dlg = canvas.Window.new([512, 512], "dialog");
 	dlg.setCanvas(nd_display[nd]);
 }

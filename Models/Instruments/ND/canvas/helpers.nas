@@ -3,21 +3,21 @@ var SymbolPainter = {
     getOpts: func(opts){
         if(opts == nil) opts = {};
         var defOpts = {id:nil,color:nil,scale:1,create_group:0,update_center:0};
-        if(contains(opts, 'id'))
+        if(contains(opts, "id"))
         defOpts.id = opts.id;
-        if(contains(opts, 'color'))
+        if(contains(opts, "color"))
         defOpts.color = opts.color;
-        if(contains(opts, 'scale'))
+        if(contains(opts, "scale"))
         defOpts.scale = opts.scale;
-        if(contains(opts, 'create_group'))
+        if(contains(opts, "create_group"))
         defOpts.create_group = opts.create_group;
-        if(contains(opts, 'update_center'))
+        if(contains(opts, "update_center"))
         defOpts.update_center = opts.update_center;
         return defOpts;
     },
     getAircraftDir: func(){
         if(me.aircraft_dir == nil)
-            me.aircraft_dir = split('/', getprop("/sim/aircraft-dir"))[-1];
+            me.aircraft_dir = split("/", getprop("/sim/aircraft-dir"))[-1];
         return me.aircraft_dir;
     },
     svgPath: func(file){
@@ -60,16 +60,16 @@ var SymbolPainter = {
             else 
                 grp = grp.createChild("group");
         }
-        var svg_path = me.svgPath('airbus_vor.svg');
+        var svg_path = me.svgPath("airbus_vor.svg");
         canvas.parsesvg(grp, svg_path);
         var scale = opts.scale;
         if(scale == nil) scale = 0.8;
         grp.setScale(scale,scale);
         if(opts.update_center)
             grp.setTranslation(-24 * scale,-24 * scale);
-        if(!contains(grp, 'setColor')){
+        if(!contains(grp, "setColor")){
             grp.setColor = func {
-                var layer1 = grp.getElementById('layer1');
+                var layer1 = grp.getElementById("layer1");
                 if(layer1 == nil) return;
                 var children = layer1.getChildren();
                 foreach(var c; children){
@@ -117,7 +117,7 @@ var SymbolPainter = {
             else 
                 grp = grp.createChild("group");
         }
-        var svg_path = me.svgPath('airbus_airport.svg');
+        var svg_path = me.svgPath("airbus_airport.svg");
         canvas.parsesvg(grp, svg_path);
         var scale = opts.scale;
         if(scale == nil) scale = 0.8;
@@ -127,11 +127,11 @@ var SymbolPainter = {
         return grp;
     },
     draw: func(type, grp, opts = nil){
-        if(type == 'VOR' or type == 'vor')
+        if(type == "VOR" or type == "vor")
             return me.drawVOR(grp, opts);
-        elsif(type == 'NDB' or type == 'ndb')
+        elsif(type == "NDB" or type == "ndb")
         return me.drawNDB(grp, opts);
-        elsif(type == 'ARPT' or type == 'arpt')
+        elsif(type == "ARPT" or type == "arpt")
         return me.drawAirport(grp, opts);
         else 
             return me.drawFIX(grp, opts);

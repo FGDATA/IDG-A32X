@@ -7,32 +7,11 @@
 
 var PFD_1 = nil;
 var PFD_2 = nil;
+var PFD_1_test = nil;
+var PFD_2_test = nil;
 var PFD1_display = nil;
 var PFD2_display = nil;
-setprop("/instrumentation/pfd/vs-needle", 0);
-setprop("/instrumentation/pfd/vs-digit-trans", 0);
-setprop("/it-autoflight/input/spd-managed", 0);
-setprop("/FMGC/internal/target-ias-pfd", 0);
-setprop("/it-autoflight/output/ap1", 0);
-setprop("/it-autoflight/output/ap2", 0);
-setprop("/it-autoflight/output/fd1", 0);
-setprop("/it-autoflight/output/fd2", 0);
-setprop("/it-autoflight/output/athr", 0);
-setprop("/instrumentation/pfd/alt-diff", 0);
-setprop("/instrumentation/pfd/heading-deg", 0);
-setprop("/instrumentation/pfd/horizon-pitch", 0);
-setprop("/instrumentation/pfd/horizon-ground", 0);
-setprop("/instrumentation/pfd/hdg-diff", 0);
-setprop("/instrumentation/pfd/heading-scale", 0);
-setprop("/instrumentation/pfd/track-deg", 0);
-setprop("/instrumentation/pfd/track-hdg-diff", 0);
-setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
-setprop("/position/gear-agl-ft", 0);
-setprop("/controls/flight/aileron-input-fast", 0);
-setprop("/controls/flight/elevator-input-fast", 0);
-setprop("/instrumentation/adirs/ir[0]/aligned", 0);
-setprop("/instrumentation/adirs/ir[1]/aligned", 0);
-setprop("/instrumentation/adirs/ir[2]/aligned", 0);
+var elapsedtime = 0;
 var ASI = 0;
 var ASItrgt = 0;
 var ASItrgtdiff = 0;
@@ -60,6 +39,34 @@ var wow2 = getprop("/gear/gear[2]/wow");
 var pitch = 0;
 var roll = 0;
 var spdTrend_c = 0;
+setprop("/instrumentation/pfd/vs-needle", 0);
+setprop("/instrumentation/pfd/vs-digit-trans", 0);
+setprop("/it-autoflight/input/spd-managed", 0);
+setprop("/FMGC/internal/target-ias-pfd", 0);
+setprop("/it-autoflight/output/ap1", 0);
+setprop("/it-autoflight/output/ap2", 0);
+setprop("/it-autoflight/output/fd1", 0);
+setprop("/it-autoflight/output/fd2", 0);
+setprop("/it-autoflight/output/athr", 0);
+setprop("/instrumentation/pfd/alt-diff", 0);
+setprop("/instrumentation/pfd/heading-deg", 0);
+setprop("/instrumentation/pfd/horizon-pitch", 0);
+setprop("/instrumentation/pfd/horizon-ground", 0);
+setprop("/instrumentation/pfd/hdg-diff", 0);
+setprop("/instrumentation/pfd/heading-scale", 0);
+setprop("/instrumentation/pfd/track-deg", 0);
+setprop("/instrumentation/pfd/track-hdg-diff", 0);
+setprop("/instrumentation/du/du1-test", 0);
+setprop("/instrumentation/du/du1-test-time", 0);
+setprop("/instrumentation/du/du6-test", 0);
+setprop("/instrumentation/du/du6-test-time", 0);
+setprop("/it-autoflight/internal/vert-speed-fpm-pfd", 0);
+setprop("/position/gear-agl-ft", 0);
+setprop("/controls/flight/aileron-input-fast", 0);
+setprop("/controls/flight/elevator-input-fast", 0);
+setprop("/instrumentation/adirs/ir[0]/aligned", 0);
+setprop("/instrumentation/adirs/ir[1]/aligned", 0);
+setprop("/instrumentation/adirs/ir[2]/aligned", 0);
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -67,7 +74,7 @@ var canvas_PFD_base = {
 			return "LiberationFonts/LiberationSans-Regular.ttf";
 		};
 
-		canvas.parsesvg(canvas_group, file, {'font-mapper': font_mapper});
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
 
 		var svg_keys = me.getKeys();
 		foreach(var key; svg_keys) {
@@ -93,8 +100,6 @@ var canvas_PFD_base = {
 				}
 			}
 		}
-
-		me.page = canvas_group;
 		
 		me.AI_horizon_trans = me["AI_horizon"].createTransform();
 		me.AI_horizon_rot = me["AI_horizon"].createTransform();
@@ -107,6 +112,8 @@ var canvas_PFD_base = {
 		me.AI_horizon_hdg_trans = me["AI_heading"].createTransform();
 		me.AI_horizon_hdg_rot = me["AI_heading"].createTransform();
 
+		me.page = canvas_group;
+
 		return me;
 	},
 	getKeys: func() {
@@ -118,17 +125,54 @@ var canvas_PFD_base = {
 		"GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","HDG_error","HDG_group","HDG_frame","TRK_pointer"];
 	},
 	update: func() {
-		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/lighting/DU/du1") > 0) {
-			PFD_1.page.show();
-			PFD_1.update();
+		elapsedtime = getprop("/sim/time/elapsed-sec");
+		if (getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) {
+			if (getprop("/instrumentation/du/du1-test") != 1) {
+				setprop("/instrumentation/du/du1-test", 1);
+				setprop("/instrumentation/du/du1-test-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else {
-			PFD_1.page.hide();
+			setprop("/instrumentation/du/du1-test", 0);
+		}
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110) {
+			if (getprop("/instrumentation/du/du6-test") != 1) {
+				setprop("/instrumentation/du/du6-test", 1);
+				setprop("/instrumentation/du/du6-test-time", getprop("/sim/time/elapsed-sec"));
+			}
+		} else {
+			setprop("/instrumentation/du/du6-test", 0);
 		}
 		
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du6") > 0) {
-			PFD_2.page.show();
-			PFD_2.update();
+		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/lighting/DU/du1") > 0) {
+			if (getprop("/instrumentation/du/du1-test-time") + 39.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+				PFD_1.page.hide();
+				PFD_1_test.page.show();
+			} else if (getprop("/instrumentation/du/du2-test-time") + 38.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+				PFD_1.page.hide();
+				PFD_1_test.page.show();
+			} else {
+				PFD_1_test.page.hide();
+				PFD_1.page.show();
+				PFD_1.update();
+			}
 		} else {
+			PFD_1_test.page.hide();
+			PFD_1.page.hide();
+		}
+		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du6") > 0) {
+			if (getprop("/instrumentation/du/du6-test-time") + 39.5 >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
+				PFD_2.page.hide();
+				PFD_2_test.page.show();
+			} else if (getprop("/instrumentation/du/du5-test-time") + 38.5 >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
+				PFD_2.page.hide();
+				PFD_2_test.page.show();
+			} else {
+				PFD_2_test.page.hide();
+				PFD_2.page.show();
+				PFD_2.update();
+			}
+		} else {
+			PFD_2_test.page.hide();
 			PFD_2.page.hide();
 		}
 	},
@@ -359,7 +403,7 @@ var canvas_PFD_base = {
 		}
 		
 		# Airspeed
-		# Subtract 30, since the scale starts at 30, but don't allow less than 0, or more than 420 situations
+		# Subtract 30, since the scale starts at 30, but don"t allow less than 0, or more than 420 situations
 		if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") <= 30) {
 			ASI = 0;
 		} else if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") >= 420) {
@@ -844,6 +888,46 @@ var canvas_PFD_2 = {
 	},
 };
 
+var canvas_PFD_1_test = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_PFD_1_test]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+};
+
+var canvas_PFD_2_test = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_PFD_2_test]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+};
+
 setprop("/testing", 0); # REMOVE WHEN PFD FINISHED
 
 setlistener("sim/signals/fdm-initialized", func {
@@ -862,10 +946,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	PFD1_display.addPlacement({"node": "pfd1.screen"});
 	PFD2_display.addPlacement({"node": "pfd2.screen"});
 	var group_pfd1 = PFD1_display.createGroup();
+	var group_pfd1_test = PFD1_display.createGroup();
 	var group_pfd2 = PFD2_display.createGroup();
+	var group_pfd2_test = PFD2_display.createGroup();
 
 	PFD_1 = canvas_PFD_1.new(group_pfd1, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
+	PFD_1_test = canvas_PFD_1_test.new(group_pfd1_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 	PFD_2 = canvas_PFD_2.new(group_pfd2, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
+	PFD_2_test = canvas_PFD_2_test.new(group_pfd2_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 	
 	PFD_update.start();
 });

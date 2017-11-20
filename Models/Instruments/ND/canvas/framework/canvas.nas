@@ -10,7 +10,7 @@ canvas.Group.getChildrenOfType = func(type, array = nil){
     if(children == nil)
         children = [];
     var my_children = me.getChildren();
-    if(typeof(type) != 'vector')
+    if(typeof(type) != "vector")
         type = [type];
     foreach(var c; my_children){
         foreach(var t; type){
@@ -32,14 +32,14 @@ canvas.Group.setColor = func(){
     var color = arg;
     var types = [Path, Text];
     var arg_c = size(color);
-    if(arg_c > 1 and typeof(color[-1]) == 'vector'){
+    if(arg_c > 1 and typeof(color[-1]) == "vector"){
         types = color[-1];
         color = subvec(color, 0, arg_c - 1);
     }
     var children = me.getChildrenOfType(types);
-    if(typeof(color) == 'vector'){
+    if(typeof(color) == "vector"){
         var first = color[0];
-        if(typeof(first) == 'vector')
+        if(typeof(first) == "vector")
             color = first;
     }
     foreach(var c; children)
@@ -97,8 +97,8 @@ canvas.Symbol.formattedString = func(frmt, model_props){
         if(contains(me.model, prop)){
             var val = me.model[prop];
             var tp = typeof(val);
-            if(tp != 'scalar'){
-                val = '';
+            if(tp != "scalar"){
+                val = "";
                 #printlog("warn", "formattedString: invalid type for "~prop~" (" ~ tp ~ ")");
             } else {
                 append(args, val);
@@ -124,7 +124,7 @@ canvas.Symbol.getStyle = func(name, default = nil){
         st = me.layer.style;
     if(st == nil) return default;
     var val = opt_member(st, name);
-    if(typeof(val) == 'func'){
+    if(typeof(val) == "func"){
         val = (call(val,[],me));
     }
     if(val == nil) return default;
@@ -133,14 +133,14 @@ canvas.Symbol.getStyle = func(name, default = nil){
 
 canvas.Symbol.getLabelFromModel = func(default_val = nil){
     if(me.model == nil) return default_val;
-    if(default_val == nil and contains(me.model, 'id'))
+    if(default_val == nil and contains(me.model, "id"))
         default_val = me.model.id;
-    var label_content = me.getOption('label_content');
+    var label_content = me.getOption("label_content");
     if(label_content == nil) return default_val;
-    if(typeof(label_content) == 'scalar')
+    if(typeof(label_content) == "scalar")
         label_content = [label_content];
-    var format_s = me.getOption('label_format');
-    var label = '';
+    var format_s = me.getOption("label_format");
+    var label = "";
     if(format_s == nil){
         format_s = "%s";
     }
@@ -148,9 +148,9 @@ canvas.Symbol.getLabelFromModel = func(default_val = nil){
 };
 
 canvas.Symbol.callback = func(name, args...){
-    name = name ~'_callback';
+    name = name ~"_callback";
     var f = me.getOption(name);
-    if(typeof(f) == 'func'){
+    if(typeof(f) == "func"){
         return call(f, args, me);
     }
 };
@@ -167,7 +167,7 @@ canvas.DotSym.update = func() {
     } else
         me.element.show();
     me.draw();
-    if(me.getOption('disable_position', 0)) return; # << CHECK FOR OPTION 'disable_position'
+    if(me.getOption("disable_position", 0)) return; # << CHECK FOR OPTION "disable_position"
     var pos = me.controller.getpos(me.model);
     if (size(pos) == 2)
         pos~=[nil]; # fall through
@@ -183,27 +183,27 @@ canvas.DotSym.update = func() {
 # SVGSymbol
 
 canvas.SVGSymbol.init = func() {
-    me.callback('init_before');
-    var opt_path = me.getStyle('svg_path');
+    me.callback("init_before");
+    var opt_path = me.getStyle("svg_path");
     if(opt_path != nil)
         me.svg_path = opt_path;
     if (!me.cacheable) {
-        if(me.svg_path != nil and me.svg_path != '')
+        if(me.svg_path != nil and me.svg_path != "")
             canvas.parsesvg(me.element, me.svg_path);
         # hack:
-        if (var scale = me.layer.style['scale_factor'])
+        if (var scale = me.layer.style["scale_factor"])
             me.element.setScale(scale);
-        if ((var transl = me.layer.style['translate']) != nil)
+        if ((var transl = me.layer.style["translate"]) != nil)
             me.element.setTranslation(transl);
     } else {
         __die("cacheable not implemented yet!");
     }
-    me.callback('init_after');
+    me.callback("init_after");
     me.draw();
 };
 
 canvas.SVGSymbol.draw = func{
-    me.callback('draw');
+    me.callback("draw");
 };
 
 # SymbolLayer
@@ -223,13 +223,13 @@ canvas.SymbolLayer._new = func(m, style, controller, options) {
     if (controller.parents[0].parents[0] != SymbolLayer.Controller)
         __die("MultiSymbolLayer: OOP error");
     if(options != nil){ # << CHECK FOR CONFIGURABLE LISTENERS
-        var listeners = opt_member(controller, 'listeners');
-        var listen = opt_member(options, 'listen');
+        var listeners = opt_member(controller, "listeners");
+        var listen = opt_member(options, "listen");
         if (listen != nil and listeners != nil){
             var listen_tp = typeof(listen);
-            if(listen_tp != 'vector' and listen_tp != 'scalar')
+            if(listen_tp != "vector" and listen_tp != "scalar")
                 __die("Options 'listen' cannot be a "~ listen_tp);
-            if(typeof(listen) == 'scalar')
+            if(typeof(listen) == "scalar")
                 listen = [listen];
             foreach(var node_name; listen){
                 var node = opt_member(options, node_name);
@@ -247,9 +247,9 @@ canvas.SymbolLayer._new = func(m, style, controller, options) {
 
 canvas.LineSymbol.new = func(group, layer, model, controller=nil) {
 	if (me == nil) __die("Need me reference for LineSymbol.new()");
-	if (typeof(model) != 'vector') {
-		if(typeof(model) == 'hash'){
-			if(!contains(model, 'path'))
+	if (typeof(model) != "vector") {
+		if(typeof(model) == "hash"){
+			if(!contains(model, "path"))
 			canvas.__die("LineSymbol.new(): model hash requires path");
 		}
 		else canvas.__die("LineSymbol.new(): need a vector of points or a hash");
@@ -272,7 +272,7 @@ canvas.LineSymbol.new = func(group, layer, model, controller=nil) {
 };
 	# Non-static:
 canvas.LineSymbol.draw = func() {
-	me.callback('draw_before');
+	me.callback("draw_before");
 	if (!me.needs_update) return;
 	#printlog(_MP_dbg_lvl, "redrawing a LineSymbol "~me.layer.type);
 	me.element.reset();
@@ -280,7 +280,7 @@ canvas.LineSymbol.draw = func() {
 	var coords = [];
 	var cmd = canvas.Path.VG_MOVE_TO;
 	var path = me.model;
-	if(typeof(path) == 'hash'){
+	if(typeof(path) == "hash"){
 		path = me.model.path;
 		if(path == nil) 
 			canvas.__die("LineSymbol model requires a 'path' member (vector)");
@@ -297,7 +297,7 @@ canvas.LineSymbol.draw = func() {
 		}
 	}
 	me.element.setDataGeo(cmds, coords);
-	me.element.update(); # this doesn't help with flickering, it seems
-	me.callback('draw_after');
+	me.element.update(); # this doesn"t help with flickering, it seems
+	me.callback("draw_after");
 };
 

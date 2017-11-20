@@ -1,6 +1,6 @@
-var version = getprop('sim/version/flightgear');
-var v = split('.', version);
-version = num(v[0]~'.'~v[1]);
+var version = getprop("sim/version/flightgear");
+var v = split(".", version);
+version = num(v[0]~"."~v[1]);
 
 setlistener("/nasal/canvas/loaded", func() {
 
@@ -40,14 +40,14 @@ setlistener("/nasal/canvas/loaded", func() {
     };
 
     var load_deps = func(name) {
-        print('Loading MapStructure Layer: '~ name);
+        print("Loading MapStructure Layer: "~ name);
         load(aircraft_root~"/Models/Instruments/ND/map/"~name~".lcontroller",  name);
         load(aircraft_root~"/Models/Instruments/ND/map/"~name~".symbol", name);
         if(version < 3.2)
             load(aircraft_root~"/Models/Instruments/ND/map/"~name~".scontroller", name);
     }
 
-    #foreach( var name; ['APS','ALT-profile','SPD-profile','RTE','WPT','DECEL','NDB'] )
+    #foreach( var name; ["APS","ALT-profile","SPD-profile","RTE","WPT","DECEL","NDB"] )
     #load_deps( name );
     var dep_names = [
         # With these extensions, in this order:

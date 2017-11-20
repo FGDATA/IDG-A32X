@@ -16,8 +16,8 @@ canvas.NavDisplay.set_switch = func(s, v) {
 };
 
 canvas.NavDisplay.get_nav_path = func (type, idx) {
-	var name = (type == 'dme' ? type : 'nav');
-	var path = 'instrumentation/%s[%d]/';
+	var name = (type == "dme" ? type : "nav");
+	var path = "instrumentation/%s[%d]/";
 	var indexes = me.radio_cfg[type];
 	if (indexes != nil) {
 		idx = indexes[idx];
@@ -34,32 +34,32 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 	me.nd = canvas_group;
 	me.canvas_handle = parent;
 	me.df_options = nil;
-	if(contains(me.nd_style, 'options'))
+	if(contains(me.nd_style, "options"))
 		me.df_options = me.nd_style.options;
 	nd_options = default_hash(nd_options, me.df_options);
 	me.options = nd_options;
 	me.route_driver = nil;
-	if(contains(me.options, 'route_driver')){
+	if(contains(me.options, "route_driver")){
 		me.route_driver = me.options.route_driver;
 	}
-	elsif(contains(me.options, 'defaults')){
-		if(contains(me.options.defaults, 'route_driver'))
+	elsif(contains(me.options, "defaults")){
+		if(contains(me.options.defaults, "route_driver"))
 			me.route_driver = me.options.defaults.route_driver;
 	}
-	me.radio_cfg = me.options['radio'];
+	me.radio_cfg = me.options["radio"];
 	if (me.radio_cfg == nil) me.radio_cfg = {};
 
 	# load the specified SVG file into the me.nd group and populate all sub groups
 
-	canvas.parsesvg(me.nd, me.nd_style.svg_filename, {'font-mapper': me.nd_style.font_mapper});
+	canvas.parsesvg(me.nd, me.nd_style.svg_filename, {"font-mapper": me.nd_style.font_mapper});
 	me.symbols = {}; # storage for SVG elements, to avoid namespace pollution (all SVG elements end up  here)
 
 	foreach(var feature; me.nd_style.features ) {
 		me.symbols[feature.id] = me.nd.getElementById(feature.id).updateCenter();
-		if(contains(feature.impl,'init')) feature.impl.init(me.nd, feature); # call The element's init code (i.e. updateCenter)
+		if(contains(feature.impl,"init")) feature.impl.init(me.nd, feature); # call The element"s init code (i.e. updateCenter)
 	}
 
-	### this is the "old" method that's less flexible, we want to use the style hash instead (see above)
+	### this is the "old" method that"s less flexible, we want to use the style hash instead (see above)
 	# because things are much better configurable that way
 	# now look up all required SVG elements and initialize member fields using the same name  to have a convenient handle
 	foreach(var element; ["dmeLDist","dmeRDist","dmeL","dmeR","vorL","vorR","vorLId","vorRId",
@@ -78,7 +78,7 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 	me.map = me.nd.createChild("map","map")
 	.set("clip", "rect(124, 1024, 1024, 0)")
 	.set("screen-range", 700)
-	.set('z-index',-1);
+	.set("z-index",-1);
 
 	me.update_sub(); # init some map properties based on switches
 
@@ -108,7 +108,7 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 	}
 
 	# a hash with controller callbacks, will be passed onto draw routines to customize behavior/appearance
-	# the point being that draw routines don't know anything about their frontends (instrument or GUI dialog)
+	# the point being that draw routines don"t know anything about their frontends (instrument or GUI dialog)
 	# so we need some simple way to communicate between frontend<->backend until we have real controllers
 	# for now, a single controller hash is shared by most layers - unsupported callbacks are simply ignored by the draw files
 	#
@@ -148,32 +148,32 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 
 	###
 	# set up various layers, controlled via callbacks in the controller hash
-	# revisit this code once Philosopher's "Smart MVC Symbols/Layers" work is committed and integrated
+	# revisit this code once Philosopher"s "Smart MVC Symbols/Layers" work is committed and integrated
 
 	# helper / closure generator
 	var make_event_handler = func(predicate, layer) func predicate(me, layer);
 
 	me.layers={}; # storage container for all ND specific layers
 	# look up all required layers as specified per the NDStyle hash and do the initial setup for event handling
-	var default_opts = me.options != nil and contains(me.options, 'defaults') ? me.options.defaults : nil;
+	var default_opts = me.options != nil and contains(me.options, "defaults") ? me.options.defaults : nil;
 	foreach(var layer; me.nd_style.layers) {
-		if(layer['disabled']) continue; # skip this layer
+		if(layer["disabled"]) continue; # skip this layer
 		#print("newMFD(): Setting up ND layer:", layer.name);
 
 		var the_layer = nil;
-		if(!layer['isMapStructure']) # set up an old INEFFICIENT and SLOW layer
+		if(!layer["isMapStructure"]) # set up an old INEFFICIENT and SLOW layer
 			the_layer = me.layers[layer.name] = canvas.MAP_LAYERS[layer.name].new( me.map, layer.name, controller );
 		else {
 			printlog(_MP_dbg_lvl, "Setting up MapStructure-based layer for ND, name:", layer.name);
 			var opt = me.options != nil and me.options[layer.name] != nil ? me.options[layer.name] :nil;
-			if(opt == nil and contains(layer, 'options'))
+			if(opt == nil and contains(layer, "options"))
 				opt = layer.options;
 			if(opt != nil and default_opts != nil)
 				opt = default_hash(opt, default_opts);
 			#elsif(default_opts != nil)
 			#    opt = default_opts;
 			var style = nil;
-			if(contains(layer, 'style'))
+			if(contains(layer, "style"))
 				style = layer.style;
 			#print("Options is: ", opt!=nil?"enabled":"disabled");
 			#debug.dump(opt);
@@ -183,15 +183,15 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 				opts: opt,
 				visible:0,
 				style: style,
-				priority: layer['z-index']
+				priority: layer["z-index"]
 			);
-			#me.map.addLayer(canvas.SymbolLayer, layer.name, layer['z-index'], style, opt, 0);
+			#me.map.addLayer(canvas.SymbolLayer, layer.name, layer["z-index"], style, opt, 0);
 			the_layer = me.layers[layer.name] = me.map.getLayer(layer.name);
-			if(opt != nil and contains(opt, 'range_dependant')){
+			if(opt != nil and contains(opt, "range_dependant")){
 				if(opt.range_dependant)
 					append(me.range_dependant_layers, the_layer);
 			}
-			if(contains(layer, 'always_update'))
+			if(contains(layer, "always_update"))
 				me.always_update_layers[layer.name] = layer.always_update;
 			if (1) (func {
 				var l = layer;
@@ -206,11 +206,11 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 
 		# now register all layer specific notification listeners and their corresponding update predicate/callback
 		# pass the ND instance and the layer handle to the predicate when it is called
-		# so that it can directly access the ND instance and its own layer (without having to know the layer's name)
+		# so that it can directly access the ND instance and its own layer (without having to know the layer"s name)
 		var event_handler = make_event_handler(layer.predicate, the_layer);
 		foreach(var event; layer.update_on) {
 			# this handles timers
-			if (typeof(event)=='hash' and contains(event, 'rate_hz')) {
+			if (typeof(event)=="hash" and contains(event, "rate_hz")) {
 				#print("FIXME: navdisplay.mfd timer handling is broken ATM");
 				var job=me.addtimer(1/event.rate_hz, event_handler);
 				job.start();
@@ -239,14 +239,14 @@ canvas.NavDisplay.update_sub = func(){
 	var userLon = me.aircraft_source.get_lon();
 	var userGndSpd = me.aircraft_source.get_gnd_spd();
 	var userVSpd = me.aircraft_source.get_vspd();
-	var dispLCD = me.get_switch('toggle_display_type') == "LCD";
+	var dispLCD = me.get_switch("toggle_display_type") == "LCD";
 	# Heading update
 	var userHdgMag = me.aircraft_source.get_hdg_mag();
 	var userHdgTru = me.aircraft_source.get_hdg_tru();
 	var userTrkMag = me.aircraft_source.get_trk_mag();
 	var userTrkTru = me.aircraft_source.get_trk_tru();
 
-	if(me.get_switch('toggle_true_north')) {
+	if(me.get_switch("toggle_true_north")) {
 		var userHdg=userHdgTru;
 		me.userHdg=userHdgTru;
 		var userTrk=userTrkTru;
@@ -268,8 +268,8 @@ canvas.NavDisplay.update_sub = func(){
 		me.userTrk=userHdg;
 	}
 
-	if((me.in_mode('toggle_display_mode', ['MAP']) and me.get_switch('toggle_display_type') == "CRT")
-	   or (me.get_switch('toggle_track_heading') and me.get_switch('toggle_display_type') == "LCD"))
+	if((me.in_mode("toggle_display_mode", ["MAP"]) and me.get_switch("toggle_display_type") == "CRT")
+	   or (me.get_switch("toggle_track_heading") and me.get_switch("toggle_display_type") == "LCD"))
 	{
 		userHdgTrk = userTrk;
 		me.userHdgTrk = userTrk;
@@ -291,7 +291,7 @@ canvas.NavDisplay.update_sub = func(){
 	};
 	# reposition the map, change heading & range:
 	var pln_wpt_idx = getprop(me.efis_path ~ "/inputs/plan-wpt-index");
-	if(me.in_mode('toggle_display_mode', ['PLAN']) and pln_wpt_idx >= 0) {
+	if(me.in_mode("toggle_display_mode", ["PLAN"]) and pln_wpt_idx >= 0) {
 		if(me.route_driver != nil){
 			var wp = me.route_driver.getPlanModeWP(pln_wpt_idx);
 			if(wp != nil){
@@ -309,14 +309,14 @@ canvas.NavDisplay.update_sub = func(){
 		pos.lat = userLat;
 		pos.lon = userLon;
 	}
-	if(me.in_mode('toggle_display_mode', ['PLAN'])) {
+	if(me.in_mode("toggle_display_mode", ["PLAN"])) {
 		pos.hdg = 0;
 		pos.range = me.rangeNm()*2
 	} else {
 		pos.range = me.rangeNm(); # avoid this  here, use a listener instead
 		pos.hdg = userHdgTrkTru;
 	}
-	if(me.options != nil and (var pos_callback = me.options['position_callback']) != nil)
+	if(me.options != nil and (var pos_callback = me.options["position_callback"]) != nil)
 		pos_callback(me, pos);
 	call(me.map.setPos, [pos.lat, pos.lon], me.map, pos);
 	if(pos.range != oldRange){
@@ -329,12 +329,12 @@ canvas.NavDisplay.update_sub = func(){
 canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft specific, cannot easily be reused by other aircraft
 {
 	var _time = systime();
-	# Disables WXR Live if it's not enabled. The toggle_weather_live should be common to all 
+	# Disables WXR Live if it"s not enabled. The toggle_weather_live should be common to all 
 	# ND instances.
-	var wxr_live_enabled = getprop(wxr_live_tree~'/enabled');
-	if(wxr_live_enabled == nil or wxr_live_enabled == '') 
+	var wxr_live_enabled = getprop(wxr_live_tree~"/enabled");
+	if(wxr_live_enabled == nil or wxr_live_enabled == "") 
 		wxr_live_enabled = 0;
-	me.set_switch('toggle_weather_live', wxr_live_enabled);
+	me.set_switch("toggle_weather_live", wxr_live_enabled);
 	call(me.update_sub, nil, nil, caller(0)[0]); # call this in the same namespace to "steal" its variables
 
 	# MapStructure update!
@@ -351,14 +351,14 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 	# TODO: should be refactored!
 	var translation_callback = nil;
 	if(me.options != nil)
-		translation_callback = me.options['translation_callback'];
-	if(typeof(translation_callback) == 'func'){
+		translation_callback = me.options["translation_callback"];
+	if(typeof(translation_callback) == "func"){
 		var trsl = translation_callback(me);
 		me.map.setTranslation(trsl.x, trsl.y);
 	} else {
-		if(me.in_mode('toggle_display_mode', ['PLAN']))
+		if(me.in_mode("toggle_display_mode", ["PLAN"]))
 			me.map.setTranslation(512,512);
-		elsif(me.get_switch('toggle_centered'))
+		elsif(me.get_switch("toggle_centered"))
 		me.map.setTranslation(512,565);
 		else
 			me.map.setTranslation(512,824);
@@ -368,7 +368,7 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 	var dme1_path = "/instrumentation/dme[2]";
 	var dme2_path = "/instrumentation/dme[3]";
 
-	if(me.get_switch('toggle_rh_vor_adf') == 1) {
+	if(me.get_switch("toggle_rh_vor_adf") == 1) {
 		me.symbols.vorR.setText("VOR R");
 		me.symbols.vorR.setColor(0.195,0.96,0.097);
 		me.symbols.dmeR.setText("DME");
@@ -382,7 +382,7 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 			me.symbols.dmeRDist.setText(sprintf("%3.1f",getprop(dme2_path~ "indicated-distance-nm")));
 		else me.symbols.dmeRDist.setText(" ---");
 			me.symbols.dmeRDist.setColor(0.195,0.96,0.097);
-	} elsif(me.get_switch('toggle_rh_vor_adf') == -1) {
+	} elsif(me.get_switch("toggle_rh_vor_adf") == -1) {
 		me.symbols.vorR.setText("ADF R");
 		me.symbols.vorR.setColor(0,0.6,0.85);
 		me.symbols.dmeR.setText("");
@@ -406,8 +406,8 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 	if (hdg_bug_active == nil)
 		hdg_bug_active = 1;
 
-	if((me.in_mode('toggle_display_mode', ['MAP']) and me.get_switch('toggle_display_type') == "CRT")
-	   or (me.get_switch('toggle_track_heading') and me.get_switch('toggle_display_type') == "LCD"))
+	if((me.in_mode("toggle_display_mode", ["MAP"]) and me.get_switch("toggle_display_type") == "CRT")
+	   or (me.get_switch("toggle_track_heading") and me.get_switch("toggle_display_type") == "LCD"))
 	{
 		me.symbols.trkInd.setRotation(0);
 		me.symbols.curHdgPtr.setRotation((userHdg-userTrk)*D2R);
@@ -419,7 +419,7 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		me.symbols.curHdgPtr.setRotation(0);
 		me.symbols.curHdgPtr2.setRotation(0);
 	}
-	if(!me.in_mode('toggle_display_mode', ['PLAN']))
+	if(!me.in_mode("toggle_display_mode", ["PLAN"]))
 	{
 		var hdgBugRot = (vhdg_bug-userHdgTrk)*D2R;
 		me.symbols.selHdgLine.setRotation(hdgBugRot);
@@ -428,9 +428,9 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		me.symbols.selHdgLine2.setRotation(hdgBugRot);
 	}
 
-	var staPtrVis = !me.in_mode('toggle_display_mode', ['PLAN']);
-	if((me.in_mode('toggle_display_mode', ['MAP']) and me.get_switch('toggle_display_type') == "CRT")
-	   or (me.get_switch('toggle_track_heading') and me.get_switch('toggle_display_type') == "LCD"))
+	var staPtrVis = !me.in_mode("toggle_display_mode", ["PLAN"]);
+	if((me.in_mode("toggle_display_mode", ["MAP"]) and me.get_switch("toggle_display_type") == "CRT")
+	   or (me.get_switch("toggle_track_heading") and me.get_switch("toggle_display_type") == "LCD"))
 	{
 		var vorheading = userTrkTru;
 		var adfheading = userTrkMag;
@@ -440,35 +440,35 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		var vorheading = userHdgTru;
 		var adfheading = userHdgMag;
 	}
-	if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch('toggle_true_north') == 0) {
+	if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch("toggle_true_north") == 0) {
 		var nav0hdg = getprop("/instrumentation/nav[2]/heading-deg") - getprop("/orientation/heading-magnetic-deg");
-	} else if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch('toggle_true_north') == 1) {
+	} else if (getprop("/instrumentation/nav[2]/heading-deg") != nil and me.get_switch("toggle_true_north") == 1) {
 		var nav0hdg = getprop("/instrumentation/nav[2]/heading-deg") - getprop("/orientation/heading-deg");
 	} else {
 		var nav0hdg = 0;
 	}
-	if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch('toggle_true_north') == 0) {
+	if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch("toggle_true_north") == 0) {
 		var nav1hdg = getprop("/instrumentation/nav[3]/heading-deg") - getprop("/orientation/heading-magnetic-deg");
-	} else if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch('toggle_true_north') == 1) {
+	} else if (getprop("/instrumentation/nav[3]/heading-deg") != nil and me.get_switch("toggle_true_north") == 1) {
 		var nav1hdg = getprop("/instrumentation/nav[3]/heading-deg") - getprop("/orientation/heading-deg");
 	} else {
 		var nav1hdg = 0;
 	}
 	var adf0hdg=getprop("instrumentation/adf/indicated-bearing-deg");
 	var adf1hdg=getprop("instrumentation/adf[1]/indicated-bearing-deg");
-	if(!me.get_switch('toggle_centered'))
+	if(!me.get_switch("toggle_centered"))
 	{
-		if(me.in_mode('toggle_display_mode', ['PLAN']))
+		if(me.in_mode("toggle_display_mode", ["PLAN"]))
 			me.symbols.trkInd.hide();
 		else
 			me.symbols.trkInd.show();
-		if((getprop("instrumentation/nav[2]/in-range") and me.get_switch('toggle_lh_vor_adf') == 1)) {
+		if((getprop("instrumentation/nav[2]/in-range") and me.get_switch("toggle_lh_vor_adf") == 1)) {
 			me.symbols.staArrowL.setVisible(staPtrVis);
 			me.symbols.staToL.setColor(0.195,0.96,0.097);
 			me.symbols.staFromL.setColor(0.195,0.96,0.097);
 			me.symbols.staArrowL.setRotation(nav0hdg*D2R);
 		}
-		elsif(getprop("instrumentation/adf/in-range") and (me.get_switch('toggle_lh_vor_adf') == -1)) {
+		elsif(getprop("instrumentation/adf/in-range") and (me.get_switch("toggle_lh_vor_adf") == -1)) {
 			me.symbols.staArrowL.setVisible(staPtrVis);
 			me.symbols.staToL.setColor(0,0.6,0.85);
 			me.symbols.staFromL.setColor(0,0.6,0.85);
@@ -476,12 +476,12 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		} else {
 			me.symbols.staArrowL.hide();
 		}
-		if((getprop("instrumentation/nav[3]/in-range") and me.get_switch('toggle_rh_vor_adf') == 1)) {
+		if((getprop("instrumentation/nav[3]/in-range") and me.get_switch("toggle_rh_vor_adf") == 1)) {
 			me.symbols.staArrowR.setVisible(staPtrVis);
 			me.symbols.staToR.setColor(0.195,0.96,0.097);
 			me.symbols.staFromR.setColor(0.195,0.96,0.097);
 			me.symbols.staArrowR.setRotation(nav1hdg*D2R);
-		} elsif(getprop("instrumentation/adf[1]/in-range") and (me.get_switch('toggle_rh_vor_adf') == -1)) {
+		} elsif(getprop("instrumentation/adf[1]/in-range") and (me.get_switch("toggle_rh_vor_adf") == -1)) {
 			me.symbols.staArrowR.setVisible(staPtrVis);
 			me.symbols.staToR.setColor(0,0.6,0.85);
 			me.symbols.staFromR.setColor(0,0.6,0.85);
@@ -498,7 +498,7 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		me.symbols.selHdgLine2.hide();
 		me.symbols.curHdgPtr.setVisible(staPtrVis);
 		me.symbols.HdgBugCRT.setVisible(staPtrVis and !dispLCD);
-		if(me.get_switch('toggle_track_heading'))
+		if(me.get_switch("toggle_track_heading"))
 		{
 			me.symbols.HdgBugLCD.hide();
 			me.symbols.TrkBugLCD.setVisible(staPtrVis and dispLCD);
@@ -511,12 +511,12 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		me.symbols.selHdgLine.setVisible(staPtrVis and hdg_bug_active);
 	} else {
 		me.symbols.trkInd.hide();
-		if((getprop("instrumentation/nav[2]/in-range") and me.get_switch('toggle_lh_vor_adf') == 1)) {
+		if((getprop("instrumentation/nav[2]/in-range") and me.get_switch("toggle_lh_vor_adf") == 1)) {
 			me.symbols.staArrowL2.setVisible(staPtrVis);
 			me.symbols.staFromL2.setColor(0.195,0.96,0.097);
 			me.symbols.staToL2.setColor(0.195,0.96,0.097);
 			me.symbols.staArrowL2.setRotation(nav0hdg*D2R);
-		} elsif(getprop("instrumentation/adf/in-range") and (me.get_switch('toggle_lh_vor_adf') == -1)) {
+		} elsif(getprop("instrumentation/adf/in-range") and (me.get_switch("toggle_lh_vor_adf") == -1)) {
 			me.symbols.staArrowL2.setVisible(staPtrVis);
 			me.symbols.staFromL2.setColor(0,0.6,0.85);
 			me.symbols.staToL2.setColor(0,0.6,0.85);
@@ -524,12 +524,12 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		} else {
 			me.symbols.staArrowL2.hide();
 		}
-		if((getprop("instrumentation/nav[3]/in-range") and me.get_switch('toggle_rh_vor_adf') == 1)) {
+		if((getprop("instrumentation/nav[3]/in-range") and me.get_switch("toggle_rh_vor_adf") == 1)) {
 			me.symbols.staArrowR2.setVisible(staPtrVis);
 			me.symbols.staFromR2.setColor(0.195,0.96,0.097);
 			me.symbols.staToR2.setColor(0.195,0.96,0.097);
 			me.symbols.staArrowR2.setRotation(nav1hdg*D2R);
-		} elsif(getprop("instrumentation/adf[1]/in-range") and (me.get_switch('toggle_rh_vor_adf') == -1)) {
+		} elsif(getprop("instrumentation/adf[1]/in-range") and (me.get_switch("toggle_rh_vor_adf") == -1)) {
 			me.symbols.staArrowR2.setVisible(staPtrVis);
 			me.symbols.staFromR2.setColor(0,0.6,0.85);
 			me.symbols.staToR2.setColor(0,0.6,0.85);
@@ -546,7 +546,7 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 		me.symbols.selHdgLine.hide();
 		me.symbols.curHdgPtr2.setVisible(staPtrVis);
 		me.symbols.HdgBugCRT2.setVisible(staPtrVis and !dispLCD);
-		if(me.get_switch('toggle_track_heading'))
+		if(me.get_switch("toggle_track_heading"))
 		{
 			me.symbols.HdgBugLCD2.hide();
 			me.symbols.TrkBugLCD2.setVisible(staPtrVis and dispLCD);
@@ -560,16 +560,16 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 	}
 
 	## run all predicates in the NDStyle hash and evaluate their true/false behavior callbacks
-	## this is in line with the original design, but normally we don't need to getprop/poll here,
+	## this is in line with the original design, but normally we don"t need to getprop/poll here,
 	## using listeners or timers would be more canvas-friendly whenever possible
 	## because running setprop() on any group/canvas element at framerate means that the canvas
 	## will be updated at frame rate too - wasteful ... (check the performance monitor!)
 
 	foreach(var feature; me.nd_style.features ) {
 		# for stuff that always needs to be updated
-		if (contains(feature.impl, 'common')) feature.impl.common(me);
+		if (contains(feature.impl, "common")) feature.impl.common(me);
 		# conditional stuff
-		if(!contains(feature.impl, 'predicate')) continue; # no conditional stuff
+		if(!contains(feature.impl, "predicate")) continue; # no conditional stuff
 		if ( var result=feature.impl.predicate(me) )
 		feature.impl.is_true(me, result); # pass the result to the predicate
 		else
@@ -578,10 +578,10 @@ canvas.NavDisplay.update = func() # FIXME: This stuff is still too aircraft spec
 
 	## update the status flags shown on the ND (wxr, wpt, arpt, sta)
 	# this could/should be using listeners instead ...
-	me.symbols['status.wxr'].setVisible( me.get_switch('toggle_weather') and me.in_mode('toggle_display_mode', ['MAP']));
-	me.symbols['status.wpt'].setVisible( me.get_switch('toggle_waypoints') and me.in_mode('toggle_display_mode', ['MAP']));
-	me.symbols['status.arpt'].setVisible( me.get_switch('toggle_airports') and me.in_mode('toggle_display_mode', ['MAP']));
-	me.symbols['status.sta'].setVisible( me.get_switch('toggle_stations') and  me.in_mode('toggle_display_mode', ['MAP']));
+	me.symbols["status.wxr"].setVisible( me.get_switch("toggle_weather") and me.in_mode("toggle_display_mode", ["MAP"]));
+	me.symbols["status.wpt"].setVisible( me.get_switch("toggle_waypoints") and me.in_mode("toggle_display_mode", ["MAP"]));
+	me.symbols["status.arpt"].setVisible( me.get_switch("toggle_airports") and me.in_mode("toggle_display_mode", ["MAP"]));
+	me.symbols["status.sta"].setVisible( me.get_switch("toggle_stations") and  me.in_mode("toggle_display_mode", ["MAP"]));
 	# Okay, _how_ do we hook this up with FGPlot?
 	printlog(_MP_dbg_lvl, "Total ND update took "~((systime()-_time)*100)~"ms");
 	setprop("/instrumentation/navdisplay["~ canvas.NavDisplay.id ~"]/update-ms", systime() - _time);

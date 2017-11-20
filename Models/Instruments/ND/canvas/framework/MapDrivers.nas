@@ -13,7 +13,7 @@ canvas.RouteDriver = {
         me.flightplan = flightplan();
     },
     getNumberOfFlightPlans: func(){1},
-    getFlightPlanType: func(fpNum){'active'},
+    getFlightPlanType: func(fpNum){"active"},
     getFlightPlan: func(fpNum){me.flightplan},
     getPlanSize: func(fpNum){me.flightplan.getPlanSize()},
     getWP: func(fpNum, idx){me.flightplan.getWP(idx)},
@@ -24,7 +24,7 @@ canvas.RouteDriver = {
     getHoldPatterns: func(fpNum){[]},
     shouldUpdate: func 1,
     shouldDisplayWP: func(fpNum, idx) 1,
-    getCurrentWPIdx: func(fpNum) getprop('autopilot/route-manager/current-wp'),
+    getCurrentWPIdx: func(fpNum) getprop("autopilot/route-manager/current-wp"),
     getTimeConstraint: func (fpNum, wp_idx) {nil}
 };
 
@@ -60,16 +60,16 @@ canvas.MultiRouteDriver = {
                 me._flightplans = subv_l ~ subv_r;
             }
         }
-        me.triggerSignal('fp-added');
+        me.triggerSignal("fp-added");
     },
     removeFlightPlanOfType: func(type){
         var new_vec = [];
         foreach(var fp; me._flightplans){
-            if(fp['type'] != type)
+            if(fp["type"] != type)
                 append(new_vec, fp);
         }
         me._flightplans = new_vec;
-        me.triggerSignal('fp-removed');
+        me.triggerSignal("fp-removed");
     },
     getNumberOfFlightPlans: func(){
         size(me._flightplans);
@@ -101,11 +101,11 @@ canvas.MultiRouteDriver = {
         setprop(me.signalPath(signal));
     },
     signalPath: func(signal){
-        'autopilot/route-manager/signals/rd-'~ signal;
+        "autopilot/route-manager/signals/rd-"~ signal;
     },
     getListeners: func(){[
-        me.getSignal('fp-added'),
-        me.getSignal('fp-removed')
+        me.getSignal("fp-added"),
+        me.getSignal("fp-removed")
     ]},
     getCurrentWPIdx: func(fpNum) {
         var fp = me.getFlightPlan(fpNum);
