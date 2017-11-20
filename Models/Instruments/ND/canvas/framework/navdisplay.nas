@@ -31,7 +31,6 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 	me.range_dependant_layers = [];
 	me.always_update_layers = {};
 	me.inited = 1;
-	me.update_timer = maketimer(update_time, func me.update() );
 	me.nd = canvas_group;
 	me.canvas_handle = parent;
 	me.df_options = nil;
@@ -226,9 +225,6 @@ canvas.NavDisplay.newMFD = func(canvas_group, parent=nil, nd_options=nil, update
 	} # foreach layer
 
 	#print("navdisplay.mfd:ND layer setup completed");
-
-	# start the update timer, which makes sure that the update() will be called
-	me.update_timer.start();
 
 	# TODO: move this to RTE.lcontroller ?
 	me.listen("/autopilot/route-manager/current-wp", func(activeWp) {

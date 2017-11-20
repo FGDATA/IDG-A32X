@@ -25,11 +25,6 @@ var SymbolCache32x32 = canvas.SymbolCache32x32;
 var SymbolCache = canvas.SymbolCache;
 var Text = canvas.Text;
 
-
-if(version < 3.2){
-    io.include('canvas_compat.nas');
-}
-
 io.include('ND_config.nas');
 io.include('framework/canvas.nas');
 io.include('framework/navdisplay.nas');

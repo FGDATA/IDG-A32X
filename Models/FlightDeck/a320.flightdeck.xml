@@ -255,34 +255,6 @@
 			<z-m>0.22255</z-m>
 			<pitch-deg>-16.534</pitch-deg>
 		</offsets>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>systems/electrical/bus/ac1</property>
-					<value>110</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/bus/ac2</property>
-					<value>110</value>
-				</greater-than-equals>
-				<not-equals>
-					<property>modes/cpt-du-xfr</property>
-					<value>2</value>
-				</not-equals>
-				<not-equals>
-					<property>systems/electrical/ac1-src</property>
-					<value>RAT</value>
-				</not-equals>
-				<not-equals>
-					<property>systems/electrical/ac2-src</property>
-					<value>RAT</value>
-				</not-equals>
-				<greater-than>
-					<property>controls/lighting/DU/du2</property>
-					<value>0</value>
-				</greater-than>
-			</and>
-		</condition>
 	</model>
 	
 	<animation>
@@ -306,34 +278,6 @@
 			<z-m>0.22255</z-m>
 			<pitch-deg>-16.534</pitch-deg>
 		</offsets>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>systems/electrical/bus/ac1</property>
-					<value>110</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/bus/ac2</property>
-					<value>110</value>
-				</greater-than-equals>
-				<not-equals>
-					<property>modes/fo-du-xfr</property>
-					<value>2</value>
-				</not-equals>
-				<not-equals>
-					<property>systems/electrical/ac1-src</property>
-					<value>RAT</value>
-				</not-equals>
-				<not-equals>
-					<property>systems/electrical/ac2-src</property>
-					<value>RAT</value>
-				</not-equals>
-				<greater-than>
-					<property>controls/lighting/DU/du5</property>
-					<value>0</value>
-				</greater-than>
-			</and>
-		</condition>
 	</model>
 	
 	<animation>
