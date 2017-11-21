@@ -1,27 +1,33 @@
-# A3XX ADIRS system
+# A3XX ADIRS System
 # Joshua Davidson
 
 ##############################################
 # Copyright (c) Joshua Davidson (it0uchpods) #
 ##############################################
 
+var knob = 0;
+setprop("/controls/adirs/align-time", 600);
+
 setlistener("/sim/signals/fdm-initialized", func {
 	var roll = getprop("/orientation/roll-deg");
 	var pitch = getprop("/orientation/pitch-deg");
 	var gs = getprop("/velocities/groundspeed-kt");
-	var data_knob = getprop("/controls/adirs/display/dataknob");
-	var selected_ir = getprop("/controls/adirs/display/selected");
+	var ac1 = 0;
+	var ac2 = 0;
+	var batt1_amps = 0;
+	var batt2_amps = 0;
+	var pwr_src = "XX";
 });
 
 var ADIRS = {
 	init: func() {
 		setprop("/controls/adirs/numm", 0);
+		setprop("/instrumentation/adirs/adr[0]/active", 0);
+		setprop("/instrumentation/adirs/adr[1]/active", 0);
+		setprop("/instrumentation/adirs/adr[2]/active", 0);
 		setprop("/instrumentation/adirs/ir[0]/aligned", 0);
 		setprop("/instrumentation/adirs/ir[1]/aligned", 0);
 		setprop("/instrumentation/adirs/ir[2]/aligned", 0);
-		setprop("/instrumentation/adirs/ir[0]/display/ttn", 0);
-		setprop("/instrumentation/adirs/ir[1]/display/ttn", 0);
-		setprop("/instrumentation/adirs/ir[2]/display/ttn", 0);
 		setprop("/controls/adirs/adr[0]/fault", 0);
 		setprop("/controls/adirs/adr[1]/fault", 0);
 		setprop("/controls/adirs/adr[2]/fault", 0);
@@ -31,6 +37,9 @@ var ADIRS = {
 		setprop("/controls/adirs/ir[0]/align", 0);
 		setprop("/controls/adirs/ir[1]/align", 0);
 		setprop("/controls/adirs/ir[2]/align", 0);
+		setprop("/controls/adirs/ir[0]/time", 0);
+		setprop("/controls/adirs/ir[1]/time", 0);
+		setprop("/controls/adirs/ir[2]/time", 0);
 		setprop("/controls/adirs/ir[0]/knob", 0);
 		setprop("/controls/adirs/ir[1]/knob", 0);
 		setprop("/controls/adirs/ir[2]/knob", 0);
@@ -52,9 +61,177 @@ var ADIRS = {
 		setprop("/controls/adirs/mcducbtn",0);
 	},
 	loop: func() {
-		# Temporary to make instruments work for now
-		setprop("/instrumentation/adirs/ir[0]/aligned", 1);
-		setprop("/instrumentation/adirs/ir[1]/aligned", 1);
-		setprop("/instrumentation/adirs/ir[2]/aligned", 1);
+		roll = getprop("/orientation/roll-deg");
+		pitch = getprop("/orientation/pitch-deg");
+		gs = getprop("/velocities/groundspeed-kt");
+		ac1 = getprop("/systems/electrical/bus/ac1");
+		ac2 = getprop("/systems/electrical/bus/ac2");
+		batt1_amps = getprop("/systems/electrical/battery1-amps");
+		batt2_amps = getprop("/systems/electrical/battery2-amps");
+		
+		if (getprop("/controls/adirs/skip") == 1) {
+			if (getprop("/controls/adirs/align-time") != 5) {
+				setprop("/controls/adirs/align-time", 5);
+			}
+		} else {
+			if (getprop("/controls/adirs/align-time") != 600) {
+				setprop("/controls/adirs/align-time", 600);
+			}
+		}
+		
+		if (gs > 5 or pitch > 5 or pitch < -5 or roll > 10 or roll < -10 or (ac1 < 110 and ac2 < 110 and batt1_amps < 120 and batt2_amps < 120)) {
+			if (getprop("/controls/adirs/ir[0]/align") == 1) {
+				me.stopAlign(0,1);
+			}
+			if (getprop("/controls/adirs/ir[1]/align") == 1) {
+				me.stopAlign(1,1);
+			}
+			if (getprop("/controls/adirs/ir[2]/align") == 1) {
+				me.stopAlign(2,1);
+			}
+		}
+		
+		if (ac1 >= 110 or ac2 >= 110) {
+			pwr_src = "AC";
+		} else if (batt1_amps >= 120 or batt2_amps >= 120) {
+			pwr_src = "BATT";
+		} else {
+			pwr_src = "XX";
+		}
+		
+		if (getprop("/controls/adirs/ir[0]/time") + 3 >= getprop("/sim/time/elapsed-sec") or getprop("/controls/adirs/ir[1]/time") + 3 >= getprop("/sim/time/elapsed-sec") or getprop("/controls/adirs/ir[2]/time") + 3 >= getprop("/sim/time/elapsed-sec")) {
+			setprop("/controls/adirs/onbat", 1);
+		} else if (pwr_src == "BATT") {
+			setprop("/controls/adirs/onbat", 1);
+		} else {
+			setprop("/controls/adirs/onbat", 0);
+		}
+	},
+	knob: func(k) {
+		knob = getprop("/controls/adirs/ir[" ~ k ~ "]/knob");
+		if (knob == 0) {
+			me.stopAlign(k,0);
+		} else if (knob == 1) {
+			me.beginAlign(k);
+		} else if (knob == 2) {
+			me.beginAlign(k);
+		}
+	},
+	beginAlign: func(n) {
+		ac1 = getprop("/systems/electrical/bus/ac1");
+		ac2 = getprop("/systems/electrical/bus/ac2");
+		batt1_amps = getprop("/systems/electrical/battery1-amps");
+		batt2_amps = getprop("/systems/electrical/battery2-amps");
+		setprop("/instrumentation/adirs/adr[" ~ n ~ "]/active", 1);
+		if (getprop("/controls/adirs/ir[" ~ n ~ "]/align") != 1 and getprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned") != 1 and (ac1 >= 110 or ac2 >= 110 or batt1_amps >= 120 or batt2_amps >= 120)) {
+			setprop("/controls/adirs/ir[" ~ n ~ "]/time", getprop("/sim/time/elapsed-sec"));
+			setprop("/controls/adirs/ir[" ~ n ~ "]/align", 1);
+			setprop("/controls/adirs/ir[" ~ n ~ "]/fault", 0);
+			if (n == 0) {
+				alignOne.start();
+			} else if (n == 1) {
+				alignTwo.start();
+			} else if (n == 2) {
+				alignThree.start();
+			}
+		}
+	},
+	stopAlign: func(n,f) {
+		setprop("/controls/adirs/ir[" ~ n ~ "]/align", 0);
+		if (f == 1) {
+			setprop("/controls/adirs/ir[" ~ n ~ "]/fault", 1);
+		} else {
+			setprop("/controls/adirs/ir[" ~ n ~ "]/fault", 0);
+		}
+		if (n == 0) {
+			alignOne.stop();
+		} else if (n == 1) {
+			alignTwo.stop();
+		} else if (n == 2) {
+			alignThree.stop();
+		}
+		setprop("/instrumentation/adirs/adr[" ~ n ~ "]/active", 0);
+		setprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned", 0);
+	},
+	skip: func(n) {
+		if (n == 0) {
+			alignOne.stop();
+		} else if (n == 1) {
+			alignTwo.stop();
+		} else if (n == 2) {
+			alignThree.stop();
+		}
+		setprop("/controls/adirs/ir[" ~ n ~ "]/align", 0);
+		setprop("/controls/adirs/ir[" ~ n ~ "]/fault", 0);
+		setprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned", 1);
 	},
 };
+
+var alignOne = maketimer(0.1, func {
+	if (getprop("/controls/adirs/ir[0]/time") + getprop("/controls/adirs/align-time") >= getprop("/sim/time/elapsed-sec")) {
+		if (getprop("/instrumentation/adirs/ir[0]/aligned") != 0) {
+			setprop("/instrumentation/adirs/ir[0]/aligned", 0);
+		}
+		if (getprop("/controls/adirs/ir[0]/align") != 1) {
+			setprop("/controls/adirs/ir[0]/align", 1);
+		}
+	} else {
+		if (getprop("/instrumentation/adirs/ir[0]/aligned") != 1 and getprop("/controls/adirs/mcducbtn") == 1) {
+			alignOne.stop();
+			setprop("/instrumentation/adirs/ir[0]/aligned", 1);
+		}
+		if (getprop("/controls/adirs/ir[0]/align") != 0) {
+			setprop("/controls/adirs/ir[0]/align", 0);
+		}
+	}
+});
+
+var alignTwo = maketimer(0.1, func {
+	if (getprop("/controls/adirs/ir[1]/time") + getprop("/controls/adirs/align-time") >= getprop("/sim/time/elapsed-sec")) {
+		if (getprop("/instrumentation/adirs/ir[1]/aligned") != 0) {
+			setprop("/instrumentation/adirs/ir[1]/aligned", 0);
+		}
+		if (getprop("/controls/adirs/ir[1]/align") != 1) {
+			setprop("/controls/adirs/ir[1]/align", 1);
+		}
+	} else {
+		if (getprop("/instrumentation/adirs/ir[1]/aligned") != 1 and getprop("/controls/adirs/mcducbtn") == 1) {
+			alignTwo.stop();
+			setprop("/instrumentation/adirs/ir[1]/aligned", 1);
+		}
+		if (getprop("/controls/adirs/ir[1]/align") != 0) {
+			setprop("/controls/adirs/ir[1]/align", 0);
+		}
+	}
+});
+
+var alignThree = maketimer(0.1, func {
+	if (getprop("/controls/adirs/ir[2]/time") + getprop("/controls/adirs/align-time") >= getprop("/sim/time/elapsed-sec")) {
+		if (getprop("/instrumentation/adirs/ir[2]/aligned") != 0) {
+			setprop("/instrumentation/adirs/ir[2]/aligned", 0);
+		}
+		if (getprop("/controls/adirs/ir[2]/align") != 1) {
+			setprop("/controls/adirs/ir[2]/align", 1);
+		}
+	} else {
+		if (getprop("/instrumentation/adirs/ir[2]/aligned") != 1 and getprop("/controls/adirs/mcducbtn") == 1) {
+			alignThree.stop();
+			setprop("/instrumentation/adirs/ir[2]/aligned", 1);
+		}
+		if (getprop("/controls/adirs/ir[2]/align") != 0) {
+			setprop("/controls/adirs/ir[2]/align", 0);
+		}
+	}
+});
+
+setlistener("/controls/adirs/ir[0]/knob", func {
+	ADIRS.knob(0);
+});
+
+setlistener("/controls/adirs/ir[1]/knob", func {
+	ADIRS.knob(1);
+});
+
+setlistener("/controls/adirs/ir[2]/knob", func {
+	ADIRS.knob(2);
+});
