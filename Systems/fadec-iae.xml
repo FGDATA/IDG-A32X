@@ -418,7 +418,7 @@
 		<input>
 			<expression>
 				<table>
-					<property>/engines/engine[0]/epr-thr-input</property>
+					<property>/engines/engine[1]/epr-thr-input</property>
 					<entry><ind>  22.4</ind><dep>0.03</dep></entry>
 					<entry><ind>5190.0</ind><dep>1.00</dep></entry>
 				</table>
