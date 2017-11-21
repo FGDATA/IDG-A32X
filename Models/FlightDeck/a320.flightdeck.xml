@@ -44,12 +44,9 @@
 		<object-name>visor_cpt</object-name>
 		<object-name>cpit_lamp_cpt</object-name>
 		<condition>
-			<not>
-				<property>options/enable-hud</property>
-			</not>
+			<not><property>options/enable-hud</property></not>
 		</condition>
 	</animation>
-
 
 	<!-- WIP ;) -->
 	<!--model>
@@ -353,6 +350,22 @@
 		<object-name>dec_low_on</object-name>
 		<object-name>dec_med_on</object-name>
 		<object-name>dec_max_on</object-name>
+		<object-name>ecam_apu_led</object-name>
+		<object-name>ecam_bleed_led</object-name>
+		<object-name>ecam_cond_led</object-name>
+		<object-name>ecam_clr_l_led</object-name>
+		<object-name>ecam_clr_r_led</object-name>
+		<object-name>ecam_c_b_led</object-name>
+		<object-name>ecam_door_led</object-name>
+		<object-name>ecam_elec_led</object-name>
+		<object-name>ecam_el_dc_led</object-name>
+		<object-name>ecam_eng_led</object-name>
+		<object-name>ecam_fctl_led</object-name>
+		<object-name>ecam_fuel_led</object-name>
+		<object-name>ecam_hyd_led</object-name>
+		<object-name>ecam_press_led</object-name>
+		<object-name>ecam_sts_led</object-name>
+		<object-name>ecam_wheel_led</object-name>
 		<object-name>exped_led</object-name>
 		<object-name>fcu_screen</object-name>
 		<object-name>fd1_led</object-name>
@@ -388,22 +401,6 @@
 		<object-name>vs-text-test</object-name>
 		<object-name>wpt_led</object-name>
 		<object-name>wpt_led.001</object-name>
-		<object-name>ecam_eng_led</object-name>
-		<object-name>ecam_bleed_led</object-name>
-		<object-name>ecam_press_led</object-name>
-		<object-name>ecam_elec_led</object-name>
-		<object-name>ecam_el_dc_led</object-name>
-		<object-name>ecam_hyd_led</object-name>
-		<object-name>ecam_c_b_led</object-name>
-		<object-name>ecam_apu_led</object-name>
-		<object-name>ecam_cond_led</object-name>
-		<object-name>ecam_door_led</object-name>
-		<object-name>ecam_wheel_led</object-name>
-		<object-name>ecam_fctl_led</object-name>
-		<object-name>ecam_fuel_led</object-name>
-		<object-name>ecam_clr_r_led</object-name>
-		<object-name>ecam_clr_l_led</object-name>
-		<object-name>ecam_sts_led</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -424,6 +421,22 @@
 		<type>select</type>
 		<object-name>alt-text-test</object-name>
 		<object-name>autoland_light_on</object-name>
+		<object-name>ecam_apu_led</object-name>
+		<object-name>ecam_bleed_led</object-name>
+		<object-name>ecam_cond_led</object-name>
+		<object-name>ecam_clr_l_led</object-name>
+		<object-name>ecam_clr_r_led</object-name>
+		<object-name>ecam_c_b_led</object-name>
+		<object-name>ecam_door_led</object-name>
+		<object-name>ecam_elec_led</object-name>
+		<object-name>ecam_el_dc_led</object-name>
+		<object-name>ecam_eng_led</object-name>
+		<object-name>ecam_fctl_led</object-name>
+		<object-name>ecam_fuel_led</object-name>
+		<object-name>ecam_hyd_led</object-name>
+		<object-name>ecam_press_led</object-name>
+		<object-name>ecam_sts_led</object-name>
+		<object-name>ecam_wheel_led</object-name>
 		<object-name>exped_led</object-name>
 		<object-name>hdg-text-test</object-name>
 		<object-name>master_caution_on</object-name>
@@ -1065,6 +1078,86 @@
 	</animation>
 	
 	<!-- ECAM Controls -->
+	<animation>
+		<type>pick</type>
+		<object-name>ecam_brt_upper</object-name>
+		<object-name>ecam_brt_upper.mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du3</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du3</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ecam_brt_upper</object-name>
+		<property>controls/lighting/DU/du3</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>ecam_brt_upper.axis</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam_brt_lower</object-name>
+		<object-name>ecam_brt_lower.mark</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du4</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/DU/du4</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ecam_brt_lower</object-name>
+		<property>controls/lighting/DU/du4</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-129</dep></entry>
+			<entry><ind>1</ind><dep>129</dep></entry>
+		</interpolation>
+		<axis>
+			<object-name>ecam_brt_lower.axis</object-name>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>ecam_sts</object-name>
@@ -4842,13 +4935,13 @@
 		<object-name>integ_lt.mark</object-name>
 		<object-name>eng_mode.mark</object-name>
 		<object-name>RudderTrim.mark</object-name>
-		<object-name>ecam_glare</object-name>
 		<object-name>ecam_att_hdg_sw.mark</object-name>
 		<object-name>ecam_air_data_sw.mark</object-name>
-		<object-name>ecam_eis_dmc_sw.mark</object-name>
-		<object-name>ecam_nd_xfr_sw.mark</object-name>
 		<object-name>ecam_brt_upper.mark</object-name>
 		<object-name>ecam_brt_lower.mark</object-name>
+		<object-name>ecam_eis_dmc_sw.mark</object-name>
+		<object-name>ecam_glare</object-name>
+		<object-name>ecam_nd_xfr_sw.mark</object-name>
 		<object-name>pfd_brt_cpt.mark</object-name>
 		<object-name>speaker_volume_cpt.mark</object-name>
 		<object-name>light_console_cpt_sw.mark</object-name>
@@ -5798,40 +5891,5 @@
 			<blue>0.08</blue>
 		</emission>
 	</animation>
-	
-	<!--effect>
-		<inherits-from>Models/Effects/IDG-A32X-interior</inherits-from>
-		<object-name>fcu_panel</object-name>
-		<object-name>main_panel</object-name>
-		<object-name>ped_labels_1</object-name>
-		<object-name>ped_labels_2</object-name>
-		<object-name>carpet</object-name>
-		<object-name>so.1</object-name>
-		<object-name>sts.002</object-name>
-		<object-name>Seat</object-name>
-		<object-name>beam_a</object-name>
-		<object-name>beam_f</object-name>
-		<object-name>wall_1</object-name>
-		<object-name>seat3.001</object-name>
-		<object-name>seat4.002</object-name>
-		<object-name>pedal_adjust</object-name>
-		<object-name>pedals_block_capt</object-name>
-		<object-name>ped_surface</object-name>
-		<object-name>ped_wf</object-name>
-		<object-name>pedestal1</object-name>
-		<object-name>pedestal2</object-name>
-		<object-name>pedestal3</object-name>
-		<object-name>sfl</object-name>
-		<object-name>sfl.003</object-name>
-		<object-name>sts</object-name>
-		<object-name>sfl.001</object-name>
-		<object-name>sts.003</object-name>
-		<object-name>sts.001</object-name>
-		<object-name>speaker_front</object-name>
-		<object-name>efis_box_1</object-name>
-		<object-name>efis_box_2</object-name>
-		<object-name>efis_box_3</object-name>
-		<object-name>efis_box_4</object-name>
-	</effect--><!-- Makes lag -->
 
 </PropertyList>
