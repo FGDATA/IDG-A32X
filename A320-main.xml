@@ -157,29 +157,6 @@
 
 		<instrumentation>
 			<path>Aircraft/IDG-A32X/Systems/instrumentation.xml</path>
-			<adirs n="0">
-				<ir n="0">
-					<aligned type="bool">false</aligned>
-					<display>
-						<status type="string"></status>
-						<ttn type="int">0</ttn>
-					</display>
-				</ir>
-				<ir n="1">
-					<aligned type="bool">false</aligned>
-					<display>
-						<status type="string"></status>
-						<ttn type="int">0</ttn>
-					</display>
-				</ir>
-				<ir n="2">
-					<aligned type="bool">false</aligned>
-					<display>
-						<status type="string"></status>
-						<ttn type="int">0</ttn>
-					</display>
-				</ir>
-			</adirs>
 		</instrumentation>
 
 		<alarms>

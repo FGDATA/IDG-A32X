@@ -58,7 +58,7 @@ var canvas_upperECAM_base = {
 			setprop("/instrumentation/du/du3-test", 0);
 		}
 		
-		if (getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du3") > 0) {
+		if ((getprop("/systems/electrical/bus/ac1") >= 110 or getprop("/systems/electrical/bus/ac2") >= 110) and getprop("/controls/lighting/DU/du3") > 0) {
 			if (getprop("/instrumentation/du/du3-test-time") + 39 >= elapsedtime) {
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis2.page.hide();

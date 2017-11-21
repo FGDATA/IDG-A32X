@@ -151,11 +151,11 @@ saveSettings();
 
 var systemsReset = func {
 	fbw.fctlInit();
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	systems.fuel_init();
+	systems.ELEC.init();
+	systems.PNEU.init();
+	systems.HYD.init();
+	systems.FUEL.init();
+	systems.ADIRS.init();
 	systems.eng_init();
 	systems.autobrake_init();
 	fmgc.FMGCinit();
@@ -290,12 +290,9 @@ var beforestart_b = func {
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
-	setprop("instrumentation/adirs/ir[0]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[1]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[2]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[0]/aligned",1);
-	setprop("instrumentation/adirs/ir[1]/aligned",1);
-	setprop("instrumentation/adirs/ir[2]/aligned",1);
+	systems.ADIRS.skip(0);
+	systems.ADIRS.skip(1);
+	systems.ADIRS.skip(2);
 	setprop("/controls/adirs/mcducbtn", 1);
 	setprop("/controls/lighting/beacon", 1);
 	setprop("/controls/lighting/nav-lights-switch", 1);
@@ -367,12 +364,9 @@ var taxi_b = func {
 	setprop("controls/adirs/ir[0]/knob","2");
 	setprop("controls/adirs/ir[1]/knob","2");
 	setprop("controls/adirs/ir[2]/knob","2");
-	setprop("instrumentation/adirs/ir[0]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[1]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[2]/display/ttn",0);
-	setprop("instrumentation/adirs/ir[0]/aligned",1);
-	setprop("instrumentation/adirs/ir[1]/aligned",1);
-	setprop("instrumentation/adirs/ir[2]/aligned",1);
+	systems.ADIRS.skip(0);
+	systems.ADIRS.skip(1);
+	systems.ADIRS.skip(2);
 	setprop("/controls/adirs/mcducbtn", 1);
 	setprop("/controls/lighting/beacon", 1);
 	setprop("/controls/lighting/nav-lights-switch", 1);
