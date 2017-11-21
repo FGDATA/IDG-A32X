@@ -1,3 +1,11 @@
+# A3XX ND Canvas
+# Joshua Davidson (it0uchpods)
+# Based on work by artix
+
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+
 var SymbolPainter = {
     aircraft_dir: nil,
     getOpts: func(opts){

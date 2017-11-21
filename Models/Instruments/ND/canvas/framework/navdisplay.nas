@@ -1,3 +1,11 @@
+# A3XX ND Canvas
+# Joshua Davidson (it0uchpods)
+# Based on work by artix
+
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+
 # Override FGDATA/Nasal/canvas/map/navdisplay.mfd
 
 var default_hash = canvas.default_hash;
