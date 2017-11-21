@@ -1,25 +1,11 @@
-# ==============================================================================
-# Boeing Navigation Display by Gijs de Rooy
-# See: http://wiki.flightgear.org/Canvas_ND_Framework
-# ==============================================================================
-# This file makes use of the MapStructure framework, see: http://wiki.flightgear.org/Canvas_MapStructure
-#
-# Sooner or later, some parts will be revamped by coming up with a simple animation framework: http://wiki.flightgear.org/NavDisplay#mapping_vs._SVG_animation
+# A3XX ND Canvas
+# Joshua Davidson (it0uchpods)
+# Based on work by artix
 
-##
-# pseudo DSL-ish: use these as placeholders in the config hash	below
-var ALWAYS = func 1;
-var NOTHING = func nil;
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
-##
-# TODO: move ND-specific implementation details into this lookup hash
-# so that other aircraft and ND types can be more easily supported
-#
-# any aircraft-specific ND behavior should be wrapped here,
-# to isolate/decouple things in the generic NavDisplay class
-#
-# TODO: move this to an XML config file (maybe supporting SGCondition and/or SGStateMachine markup for the logic?)
-#
 canvas.NDStyles["Airbus"] = {
 	font_mapper: func(family, weight) {
 		if( family == "Liberation Sans" and weight == "normal" )
@@ -1565,6 +1551,48 @@ canvas.NDStyles["Airbus"] = {
 				},
 				is_false: func(nd){
 					nd.symbols.vorLSym.hide();
+				}
+			}
+		},
+		{
+			id: "vorR",
+			impl: {
+				init: func(nd,symbol),
+				predicate: func(nd) (nd.get_switch("toggle_rh_vor_adf") != 0),
+				is_true: func(nd) {
+					nd.symbols.vorR.show();
+					nd.symbols.vorRId.show();
+					nd.symbols.dmeRDist.show();
+					if(nd.get_switch("toggle_rh_vor_adf") < 0){
+						var adf = "instrumentation/adf[1]/";
+						var navident = getprop(adf~ "ident");
+						var frq = getprop(adf~ "frequencies/selected-khz");
+						if(navident != "")
+							nd.symbols.vorRId.setText(navident);
+						else 
+							nd.symbols.vorRId.setText(sprintf("%3d", frq));
+						nd.symbols.dmeRDist.setText("");
+					} else {
+						var nav = nd.get_nav_path("vor", 1);
+						var navID = getprop(nav~"nav-id");
+						var frq = getprop(nav~"frequencies/selected-mhz-fmt");
+						var dme = nd.get_nav_path("dme", 1);
+						var dst = getprop(dme~ "indicated-distance-nm");
+						#print(dme~ "indicated-distance-nm");
+						if(getprop(nav~ "in-range"))
+							nd.symbols.vorRId.setText(navID);
+						else
+							nd.symbols.vorRId.setText(frq);
+						if(getprop(dme~ "in-range"))
+							nd.symbols.dmeRDist.setText(sprintf("%3.1f",
+											dst));
+						else nd.symbols.dmeRDist.setText(" ---");
+					}
+				},
+				is_false: func(nd){
+					nd.symbols.vorR.hide();
+					nd.symbols.vorRId.hide();
+					nd.symbols.dmeRDist.hide();
 				}
 			}
 		},

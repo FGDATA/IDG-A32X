@@ -1,3 +1,11 @@
+# A3XX ND Canvas
+# Joshua Davidson (it0uchpods)
+# Based on work by artix
+
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+
 var version = getprop("sim/version/flightgear");
 var v = split(".", version);
 version = num(v[0]~"."~v[1]);

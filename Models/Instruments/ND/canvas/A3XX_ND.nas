@@ -1,4 +1,10 @@
-# A3XX ND Implementation
+# A3XX ND Canvas
+# Joshua Davidson (it0uchpods)
+# Based on work by artix
+
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
 
 var get_local_path = func(file){
     var aircraft_dir = split("/", getprop("/sim/aircraft-dir"))[-1];
