@@ -6,6 +6,9 @@
 # Copyright (c) Joshua Davidson (it0uchpods) #
 ##############################################
 
+var ALWAYS = func 1;
+var NOTHING = func nil;
+
 canvas.NDStyles["Airbus"] = {
 	font_mapper: func(family, weight) {
 		if( family == "Liberation Sans" and weight == "normal" )
