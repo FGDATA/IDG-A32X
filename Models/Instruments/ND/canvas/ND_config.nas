@@ -11,11 +11,11 @@ canvas.NDConfig = {
         spd_node: "/autopilot/route-manager/spd/",
         holding: "/flight-management/hold",
         holding_points: "/flight-management/hold/points",
-        adf1_frq: "instrumentation/adf/frequencies/selected-khz",
+        adf1_frq: "instrumentation/adf[0]/frequencies/selected-khz",
         adf2_frq: "instrumentation/adf[1]/frequencies/selected-khz",
-        nav1_frq: "instrumentation/nav/frequencies/selected-mhz",
+        nav1_frq: "instrumentation/nav[0]/frequencies/selected-mhz",
         nav2_frq: "instrumentation/nav[1]/frequencies/selected-mhz",
-        lat_ctrl: "flight-management/control/lat-ctrl",
-        ver_ctrl: "flight-management/control/ver-ctrl",
+        lat_ctrl: "/it-autoflight/output/lat",
+        ver_ctrl: "/it-autoflight/output/vert",
     }
 };
