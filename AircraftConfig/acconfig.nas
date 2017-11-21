@@ -151,11 +151,11 @@ saveSettings();
 
 var systemsReset = func {
 	fbw.fctlInit();
-	systems.elec_init();
-	systems.ADIRSreset();
-	systems.pneu_init();
-	systems.hyd_init();
-	systems.fuel_init();
+	systems.ELEC.init();
+	systems.PNEU.init();
+	systems.HYD.init();
+	systems.FUEL.init();
+	systems.ADIRS.init();
 	systems.eng_init();
 	systems.autobrake_init();
 	fmgc.FMGCinit();

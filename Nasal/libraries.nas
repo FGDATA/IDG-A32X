@@ -199,16 +199,16 @@ var triggerDoor = func(door, doorName, doorDesc) {
  
 setlistener("/sim/signals/fdm-initialized", func {
 	fbw.fctlInit();
-	systems.elec_init();
-	systems.adirs_init();
-	systems.pneu_init();
-	systems.hyd_init();
-	systems.fuel_init();
-	systems.fire_init();
+	systems.ELEC.init();
+	systems.PNEU.init();
+	systems.HYD.init();
+	systems.FUEL.init();
+	systems.ADIRS.init();
 	systems.eng_init();
+	systems.fire_init();
 	systems.autobrake_init();
   	fmgc.APinit();			
-	librariesLoop.start();
+	systemsLoop.start();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_init();
 	mcdu2.MCDU_init();
@@ -217,14 +217,19 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/IDG-A32X/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
-	setprop("/sim/model/lights/floor-light", 0);
 	libraries.ECAMinit();
 	libraries.variousReset();
 	logoTimer.start();
 	noseLoop.start();
 });
 
-var librariesLoop = maketimer(0.1, func {
+var systemsLoop = maketimer(0.1, func {
+	systems.ELEC.loop();
+	systems.PNEU.loop();
+	systems.HYD.loop();
+	systems.FUEL.loop();
+	systems.ADIRS.loop();
+
 	if ((getprop("/controls/pneumatic/switches/groundair") or getprop("/controls/switches/cart")) and ((getprop("/velocities/groundspeed-kt") > 2) or getprop("/controls/gear/brake-parking") == 0)) {
 		setprop("/controls/switches/cart", 0);
 		setprop("/controls/pneumatic/switches/groundair", 0);
