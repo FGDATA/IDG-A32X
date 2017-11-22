@@ -121,7 +121,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/cl-squared</property>
-				<value>0.035</value>
+				<value>0.036</value>
 			</product>
 		</function>
 
@@ -134,7 +134,7 @@
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<tableData>
 						 0.00      0.000
-						 1.10      0.018
+						 1.10      0.017
 						 1.80      0.015
 					</tableData>
 				</table>
@@ -147,7 +147,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>fcs/flap-pos-deg</property>
-				<value> 0.00110 </value>
+				<value> 0.00120 </value>
 			</product>
 		</function>
 
@@ -157,7 +157,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>fcs/slat-pos-deg</property>
-				<value> 0.00080 </value>
+				<value> 0.00100 </value>
 			</product>
 		</function>
 

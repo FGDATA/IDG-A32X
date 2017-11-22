@@ -12,6 +12,30 @@
 <PropertyList>
 
 	<filter>
+		<name>IDLE Limit</name>
+		<type>gain</type>
+		<gain>1</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<condition>
+				<greater-than-equals>
+					<property>/position/gear-agl-ft</property>
+					<value>50</value>
+				</greater-than-equals>
+			</condition>
+			<expression>
+				<table>
+					<property>/position/altitude-ft</property> 
+					<entry><ind>    0</ind><dep>0.035</dep></entry>
+					<entry><ind>42000</ind><dep>0.285</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>0</input>
+		<output>/controls/engines/idle-limit</output>
+	</filter>
+
+	<filter>
 		<name>MAN One</name>
 		<type>gain</type>
 		<gain>1</gain>
@@ -488,6 +512,10 @@
 			</expression>
 		</input>
 		<output>/controls/engines/engine[0]/throttle-output</output>
+		<min>
+			<property>/controls/engines/idle-limit</property>
+		</min>
+		<max>1.0</max>
 	</filter>
 	
 	<filter>
@@ -523,6 +551,10 @@
 			</expression>
 		</input>
 		<output>/controls/engines/engine[1]/throttle-output</output>
+		<min>
+			<property>/controls/engines/idle-limit</property>
+		</min>
+		<max>1.0</max>
 	</filter>
 	
 	<filter>
