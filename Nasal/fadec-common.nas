@@ -1,5 +1,5 @@
-# A3XX FADEC/Throttle Control System by Joshua Davidson (it0uchpods)
-# V2.0.0
+# A3XX FADEC/Throttle Control System
+# Joshua Davidson (it0uchpods)
 
 ##############################################
 # Copyright (c) Joshua Davidson (it0uchpods) #
@@ -7,7 +7,6 @@
 
 setprop("/systems/thrust/alpha-floor", 0);
 setprop("/systems/thrust/toga-lk", 0);
-
 setprop("/systems/thrust/epr/toga-lim", 0.0);
 setprop("/systems/thrust/epr/mct-lim", 0.0);
 setprop("/systems/thrust/epr/flx-lim", 0.0);
@@ -198,6 +197,8 @@ setlistener("/systems/thrust/state2", func {
 var thrust_lim = func {
 	state1 = getprop("/systems/thrust/state1");
 	state2 = getprop("/systems/thrust/state2");
+	engstate1 = getprop("/engines/engine[0]/state");
+	engstate2 = getprop("/engines/engine[1]/state");
 	thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	eprtoga = getprop("/systems/thrust/epr/toga-lim");
@@ -208,7 +209,12 @@ var thrust_lim = func {
 	n1mct = getprop("/systems/thrust/n1/mct-lim");
 	n1flx = getprop("/systems/thrust/n1/flx-lim");
 	n1clb = getprop("/systems/thrust/n1/clb-lim");
-	if (getprop("/gear/gear[1]/wow") == 0 or getprop("/gear/gear[2]/wow") == 0) {
+	if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0 and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
+		setprop("/systems/thrust/lim-flex", 1);
+	} else if (getprop("/FMGC/internal/flex-set") == 0 and engstate1 != 3 and engstate2 != 3) {
+		setprop("/systems/thrust/lim-flex", 0);
+	}
+	if (getprop("/gear/gear[1]/wow") == 0 or getprop("/gear/gear[2]/wow") == 0 or (engstate1 != 3 and engstate2 != 3)) {
 		if ((state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) or getprop("/systems/thrust/alpha-floor") == 1 or getprop("/systems/thrust/toga-lk") == 1) {
 			setprop("/controls/engines/thrust-limit", "TOGA");
 			setprop("/controls/engines/epr-limit", eprtoga);
@@ -227,7 +233,6 @@ var thrust_lim = func {
 			setprop("/controls/engines/n1-limit", n1clb);
 		}
 	} else if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0) {
-		setprop("/systems/thrust/lim-flex", 1);
 		setprop("/controls/engines/thrust-limit", "FLX");
 		setprop("/controls/engines/epr-limit", eprflx);
 		setprop("/controls/engines/n1-limit", n1flx);

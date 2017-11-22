@@ -1229,7 +1229,7 @@
 			<file>Aircraft/IDG-A32X/Nasal/pneumatics.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/hydraulics.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/fuel.nas</file>
-			<file>Aircraft/IDG-A32X/Nasal/engines.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/engines-common.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/ADIRS.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/fire.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/brakes.nas</file>

@@ -58,38 +58,28 @@ var fadecLoop = maketimer(0.7, func {
 	
 	var powered1 = getprop("/systems/fadec/powered1");
 	var powered2 = getprop("/systems/fadec/powered2");
-	var N21 = getprop("/engines/engine[0]/n2-actual");
-	var N22 = getprop("/engines/engine[1]/n2-actual");
 	
 	if (powered1) {
 		setprop("/systems/fadec/eng1/n1", 1);
 		setprop("/systems/fadec/eng1/egt", 1);
+		setprop("/systems/fadec/eng1/n2", 1);
 		setprop("/systems/fadec/eng1/ff", 1);
 	} else {
 		setprop("/systems/fadec/eng1/n1", 0);
 		setprop("/systems/fadec/eng1/egt", 0);
+		setprop("/systems/fadec/eng1/n2", 0);
 		setprop("/systems/fadec/eng1/ff", 0);
 	}
 	
 	if (powered2) {
 		setprop("/systems/fadec/eng2/n1", 1);
 		setprop("/systems/fadec/eng2/egt", 1);
+		setprop("/systems/fadec/eng2/n2", 1);
 		setprop("/systems/fadec/eng2/ff", 1);
 	} else {
 		setprop("/systems/fadec/eng2/n1", 0);
 		setprop("/systems/fadec/eng2/egt", 0);
-		setprop("/systems/fadec/eng2/ff", 0);
-	}
-	
-	if (powered1 and N21 >= 3.5) {
-		setprop("/systems/fadec/eng1/n2", 1);
-	} else {
-		setprop("/systems/fadec/eng1/n2", 0);
-	}
-	
-	if (powered2 and N22 >= 3.5) {
-		setprop("/systems/fadec/eng2/n2", 1);
-	} else {
 		setprop("/systems/fadec/eng2/n2", 0);
+		setprop("/systems/fadec/eng2/ff", 0);
 	}
 });
