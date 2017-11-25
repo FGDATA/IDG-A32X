@@ -53,32 +53,32 @@
 					<and>
 						<equals>
 							<property>controls/adirs/ir/knob</property>
-							<value>2</value>
+							<value>1</value>
 						</equals>
 						<equals>
 							<property>controls/adirs/ir[1]/knob</property>
-							<value>2</value>
+							<value>1</value>
 						</equals>
 						<equals>
 							<property>controls/adirs/ir[2]/knob</property>
-							<value>2</value>
+							<value>1</value>
 						</equals>
 					</and>
 				</condition>
 				<binding>
 					<command>property-assign</command>
 					<property>controls/adirs/ir/knob</property>
-					<value>2</value>
+					<value>1</value>
 				</binding>
 				<binding>
 					<command>property-assign</command>
 					<property>controls/adirs/ir[1]/knob</property>
-					<value>2</value>
+					<value>1</value>
 				</binding>
 				<binding>
 					<command>property-assign</command>
 					<property>controls/adirs/ir[2]/knob</property>
-					<value>2</value>
+					<value>1</value>
 				</binding>
 			</item>
 			<item>
@@ -129,11 +129,72 @@
 				<name>WINDOWS/DOORS</name>      
 				<value>CLOSED</value>
 				<condition>
-					<equals>
-						<property>/aircraft/door/x-m</property>
-						<value>16.582</value>
-					</equals>
+                                        <and>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/doorl1/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/doorl4/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/doorr1/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/doorr4/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/cargoaft/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/cargobulk/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                                <equals>
+                                                        <property>/sim/model/door-positions/cargofwd/position-norm</property>
+                                                        <value>0</value>
+                                                </equals>
+                                        </and>
 				</condition>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/doorl1/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/doorl4/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/doorr1/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/doorr4/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/cargoaft/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/cargofwd/position-norm</property>
+                                        <value>0</value>
+				</binding>
+                                <binding>
+					<command>property-assign</command>
+					<property>/sim/model/door-positions/cargobulk/position-norm</property>
+                                        <value>0</value>
+				</binding>
 			</item>
 			<item>
 				<name>BEACON</name>
@@ -439,10 +500,28 @@
 			<name>GROUND CREW</name>
 			<value>CLEAR</value>
 			<condition>
-				<equals>
-					<property>/sim/model/pushback/enabled</property>
-					<value>false</value>
-				</equals>
+                                <and>
+                                        <not>
+                                                <property>/services/baggage/enable</property>
+                                                <value>1</value>
+                                        </not>
+                                        <not>
+                                                <property>/services/catering/enable</property>
+                                                <value>1</value>
+                                        </not>
+                                        <not>
+                                                <property>/services/deicing_truck/enable</property>
+                                                <value>0</value>
+                                        </not>
+                                        <not>
+                                                <property>/services/ext-pwr/enable</property>
+                                                <value>0</value>
+                                        </not>
+                                        <not>
+                                                <property>/services/fuel-truck/enable</property>
+                                                <value>0</value>
+                                        </not>
+                                </and>
 			</condition>
 		</item>
 		<item>
@@ -968,7 +1047,7 @@
 		</item>
 		<item>
 			<name></name>
-			<value>passing 10.000ft/FL100</value>
+			<value>(passing 10.000ft/FL100)</value>
 			<condition>
 				<greater-than>
 					<property>/position/altitude-ft/</property>
@@ -1499,15 +1578,15 @@
 				<and>
 					<equals>
 						<property>controls/adirs/ir/knob</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
 						<property>controls/adirs/ir[1]/knob</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
 						<property>controls/adirs/ir[2]/knob</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
 						<property>controls/adirs/adr/off</property>
