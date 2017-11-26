@@ -265,9 +265,9 @@ var canvas_upperECAM_cfm_eis2 = {
 		return m;
 	},
 	getKeys: func() {
-		return ["N11-needle","N11-thr","N11-ylim","N11","N11-decpnt","N11-decimal","N11-box","N11-scale","N11-scale2","N11-scalenum","N11-XX","N11-XX2","N11-XX-box","EGT1-needle","EGT1","EGT1-scale","EGT1-box","EGT1-scale2","EGT1-scaletick","EGT1-XX","N21",
-		"N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal","N12-box","N12-scale","N12-scale2","N12-scalenum","N12-XX","N12-XX2","N12-XX-box","EGT2-needle","EGT2","EGT2-scale","EGT2-box",
-		"EGT2-scale2","EGT2-scaletick","EGT2-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX",
+		return ["N11-needle","N11-thr","N11-ylim","N11","N11-decpnt","N11-decimal","N11-box","N11-scale","N11-scale2","N11-scaletick","N11-scalenum","N11-XX","N11-XX2","N11-XX-box","EGT1-needle","EGT1","EGT1-scale","EGT1-box","EGT1-scale2","EGT1-scaletick",
+		"EGT1-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal","N12-box","N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N12-XX2","N12-XX-box","EGT2-needle","EGT2",
+		"EGT2-scale","EGT2-box","EGT2-scale2","EGT2-scaletick","EGT2-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX",
 		"FOB-LBS","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","FlapTxt","FlapDots","N1Lim-mode","N1Lim","N1Lim-decpnt","N1Lim-decimal","N1Lim-percent","N1Lim-XX","N1Lim-XX2","REV1","REV1-box","REV2","REV2-box"];
 	},
 	update: func() {
@@ -293,6 +293,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N11-decimal"].show();
 			me["N11-decpnt"].show();
 			me["N11-needle"].show();
+			me["N11-scaletick"].show();
 			me["N11-ylim"].show();
 			me["N11-scalenum"].show();
 			me["N11-box"].show();
@@ -306,6 +307,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N11-decimal"].hide();
 			me["N11-decpnt"].hide();
 			me["N11-needle"].hide();
+			me["N11-scaletick"].hide();
 			me["N11-ylim"].hide();
 			me["N11-scalenum"].hide();
 			me["N11-box"].hide();
@@ -327,6 +329,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N12-decimal"].show();
 			me["N12-decpnt"].show();
 			me["N12-needle"].show();
+			me["N12-scaletick"].show();
 			me["N12-ylim"].show();
 			me["N12-scalenum"].show();
 			me["N12-box"].show();
@@ -340,6 +343,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N12-decimal"].hide();
 			me["N12-decpnt"].hide();
 			me["N12-needle"].hide();
+			me["N12-scaletick"].hide();
 			me["N12-ylim"].hide();
 			me["N12-scalenum"].hide();
 			me["N12-box"].hide();
