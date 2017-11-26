@@ -253,7 +253,6 @@
 				<table>
 					<property>/engines/engine[0]/n1-actual</property>
 					<entry><ind> 20.0</ind><dep>-112.5</dep></entry>
-					<entry><ind> 22.4</ind><dep>-108.0</dep></entry>
 					<entry><ind> 40.0</ind><dep> -67.5</dep></entry>
 					<entry><ind>100.0</ind><dep>  67.5</dep></entry>
 					<entry><ind>110.0</ind><dep>  90.0</dep></entry>
@@ -295,7 +294,6 @@
 				<table>
 					<property>/engines/engine[0]/n1-actual-cmd</property>
 					<entry><ind> 20.0</ind><dep>-112.5</dep></entry>
-					<entry><ind> 22.4</ind><dep>-108.0</dep></entry>
 					<entry><ind> 40.0</ind><dep> -67.5</dep></entry>
 					<entry><ind>100.0</ind><dep>  67.5</dep></entry>
 					<entry><ind>110.0</ind><dep>  90.0</dep></entry>
@@ -337,7 +335,6 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind> 20.0</ind><dep>-112.5</dep></entry>
-					<entry><ind> 22.4</ind><dep>-108.0</dep></entry>
 					<entry><ind> 40.0</ind><dep> -67.5</dep></entry>
 					<entry><ind>100.0</ind><dep>  67.5</dep></entry>
 					<entry><ind>110.0</ind><dep>  90.0</dep></entry>
@@ -379,7 +376,6 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual-cmd</property>
 					<entry><ind> 20.0</ind><dep>-112.5</dep></entry>
-					<entry><ind> 22.4</ind><dep>-108.0</dep></entry>
 					<entry><ind> 40.0</ind><dep> -67.5</dep></entry>
 					<entry><ind>100.0</ind><dep>  67.5</dep></entry>
 					<entry><ind>110.0</ind><dep>  90.0</dep></entry>
