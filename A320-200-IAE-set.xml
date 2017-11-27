@@ -124,7 +124,7 @@
             <autopilot n="0">
                 <path>Aircraft/IDG-A32X/Systems/fadec-iae.xml</path>
             </autopilot>
-			<autopilot n="8">
+			<autopilot n="10">
 				<path>Aircraft/IDG-A32X/Systems/v2500-sound.xml</path>
 			</autopilot>
 		</systems>

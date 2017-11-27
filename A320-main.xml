@@ -116,30 +116,36 @@
 				<path>Aircraft/IDG-A32X/Systems/hydraulics.xml</path>
 			</autopilot>
 			<autopilot n="2">
-				<path>Aircraft/IDG-A32X/Systems/it-fbw.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/fbw-drivers.xml</path>
 			</autopilot>
 			<autopilot n="3">
-				<path>Aircraft/IDG-A32X/Systems/fmgc-drivers.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/fbw-roll-yaw.xml</path>
 			</autopilot>
 			<autopilot n="4">
-				<path>Aircraft/IDG-A32X/Systems/fmgc-roll-yaw.xml</path>
+				<path>Aircraft/IDG-A32X/Systems/fbw-pitch.xml</path>
 			</autopilot>
 			<autopilot n="5">
+				<path>Aircraft/IDG-A32X/Systems/fmgc-drivers.xml</path>
+			</autopilot>
+			<autopilot n="6">
+				<path>Aircraft/IDG-A32X/Systems/fmgc-roll-yaw.xml</path>
+			</autopilot>
+			<autopilot n="7">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-pitch.xml</path>
 			</autopilot>
-            <autopilot n="6">
+            <autopilot n="8">
                 <path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
             </autopilot>
-            <autopilot n="7">
+            <autopilot n="9">
                 <path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
             </autopilot>
-            <autopilot n="9">
+            <autopilot n="11">
 				<path>Aircraft/IDG-A32X/Systems/upper-ecam.xml</path>
             </autopilot>
-            <autopilot n="10">
+            <autopilot n="12">
 				<path>Aircraft/IDG-A32X/Systems/lower-ecam.xml</path>
             </autopilot>
-			<autopilot n="11">
+			<autopilot n="13">
 				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
 			</autopilot>
 		</systems>

@@ -124,7 +124,7 @@
             <autopilot n="0"> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
                 <path>Aircraft/IDG-A32X/Systems/fadec-cfm.xml</path>
             </autopilot>
-			<autopilot n="8">
+			<autopilot n="10">
 				<path>Aircraft/IDG-A32X/Systems/cfm56-sound.xml</path>
 			</autopilot>
 		</systems>

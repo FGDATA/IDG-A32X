@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+
+<!--
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+-->
+
+<!-- Airbus A3XX FBW System -->
+<!-- Joshua Davidson (it0uchpods) -->
+
+<PropertyList>
+
+ <!-- =============================================================== -->
+ <!-- Surface Position Feeding                                        -->
+ <!-- =============================================================== -->
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/controls/flight/aileron</input>
+		<output>/controls/flight/aileron-input-fast</output>
+		<max-rate-of-change>5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>/controls/flight/elevator</input>
+		<output>/controls/flight/elevator-input-fast</output>
+		<max-rate-of-change>5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/it-autoflight/internal/aileron-cmd</property>
+		</input>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/aileron</property>
+					<entry><ind>-1.00</ind><dep>-1</dep></entry>
+					<entry><ind>-0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 0.00</ind><dep> 0</dep></entry>
+					<entry><ind> 0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 1.00</ind><dep> 1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/flight/aileron-input</output>
+		<max-rate-of-change>1.5</max-rate-of-change>
+	</filter>
+
+	<filter>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/systems/acconfig/mismatch-code</property>
+					<value>0x000</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than>
+					<greater-than-equals>
+						<property>/controls/flight/flap-pos</property>
+						<value>4</value>
+					</greater-than-equals>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<less-than>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<equals>
+						<property>/FMGC/status/to-state</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator</property>
+						<entry><ind>-1.00</ind><dep>-1</dep></entry>
+						<entry><ind>-0.04</ind><dep> 0</dep></entry>
+						<entry><ind> 0.00</ind><dep> 0</dep></entry>
+						<entry><ind> 0.04</ind><dep> 0</dep></entry>
+						<entry><ind> 1.00</ind><dep> 1</dep></entry>
+					</table>
+					<table>
+						<property>/position/gear-agl-ft</property> 
+						<entry><ind> 5</ind><dep>0.20</dep></entry>
+						<entry><ind>30</ind><dep>0.10</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<less-than>
+						<property>/position/gear-agl-ft</property>
+						<value>50</value>
+					</less-than>
+					<greater-than-equals>
+						<property>/controls/flight/flap-pos</property>
+						<value>4</value>
+					</greater-than-equals>
+					<less-than>
+						<property>/controls/engines/engine[0]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<less-than>
+						<property>/controls/engines/engine[1]/throttle</property>
+						<value>0.65</value>
+					</less-than>
+					<equals>
+						<property>/FMGC/status/to-state</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator</property>
+						<entry><ind>-1.00</ind><dep>-1</dep></entry>
+						<entry><ind>-0.04</ind><dep> 0</dep></entry>
+						<entry><ind> 0.00</ind><dep> 0</dep></entry>
+						<entry><ind> 0.04</ind><dep> 0</dep></entry>
+						<entry><ind> 1.00</ind><dep> 1</dep></entry>
+					</table>
+					<value>0.15</value>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<property>/it-autoflight/internal/elevator-cmd</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<or>
+						<equals>
+							<property>/gear/gear[1]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/gear/gear[2]/wow</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<value>0.0</value>
+		</input>
+		<input>
+			<expression>
+				<table>
+					<property>/controls/flight/elevator</property>
+					<entry><ind>-1.00</ind><dep>-1</dep></entry>
+					<entry><ind>-0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 0.00</ind><dep> 0</dep></entry>
+					<entry><ind> 0.04</ind><dep> 0</dep></entry>
+					<entry><ind> 1.00</ind><dep> 1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/flight/elevator-input</output>
+		<max-rate-of-change>1.5</max-rate-of-change>
+	</filter>
+
+</PropertyList>
