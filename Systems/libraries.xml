@@ -182,17 +182,6 @@
 	</filter>
 
 	<filter>
-		<name>V/S 2 PFD</name>
-		<type>noise-spike</type>
-		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
-			<property>/it-autoflight/internal/vert-speed-fpm</property> 
-		</input>
-		<output>/it-autoflight/internal/vert-speed-fpm-filtered</output>
-		<max-rate-of-change>5000</max-rate-of-change>
-	</filter>
-
-	<filter>
 		<name>Throttle L</name>
 		<type>gain</type>
 		<gain>1</gain>

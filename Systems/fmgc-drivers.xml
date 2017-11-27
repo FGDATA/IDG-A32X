@@ -642,7 +642,7 @@
 		<name>INTERNAL VERTICAL SPEED COMPUTER</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>55.5</gain>
+		<gain>60.0</gain>
 		<input>/velocities/vertical-speed-fps</input>
 		<output>/it-autoflight/internal/vert-speed-fpm</output>
 	</filter>
@@ -651,7 +651,7 @@
 		<name>INTERNAL VERTICAL SPEED COMPUTER SYNC 4</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>55.5</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -666,7 +666,7 @@
 				</and>
 			</condition>
 		</enable>
-		<input>/velocities/vertical-speed-fps</input>
+		<input>/it-autoflight/internal/vert-speed-fpm</input>
 		<output>/it-autoflight/internal/target-fpm-b</output>
 	</filter>
 	
@@ -674,7 +674,7 @@
 		<name>INTERNAL VERTICAL SPEED COMPUTER SYNC 5</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>55.5</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<not-equals>
@@ -683,7 +683,7 @@
 				</not-equals>
 			</condition>
 		</enable>
-		<input>/velocities/vertical-speed-fps</input>
+		<input>/it-autoflight/internal/vert-speed-fpm</input>
 		<output>/it-autoflight/internal/target-fpm-d</output>
 	</filter>
 	
