@@ -9,9 +9,9 @@
 # Init Functions #
 ##################
 
-setprop("/FMGC/internal/overspeed", 338);
-setprop("/FMGC/internal/minspeed", 204);
-setprop("/FMGC/internal/alpha-prot-speed", 193);
+setprop("/FMGC/internal/maxspeed", 0);
+setprop("/FMGC/internal/minspeed", 0);
+setprop("/FMGC/internal/alpha-prot-speed", 0);
 setprop("/position/gear-agl-ft", 0);
 setprop("/FMGC/internal/mng-spd", 157);
 setprop("/FMGC/internal/mng-spd-cmd", 157);
@@ -97,7 +97,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var kts_sel = getprop("/it-autoflight/input/spd-kts");
 	var mach_sel = getprop("/it-autoflight/input/spd-mach");
 	var srsSPD = getprop("/it-autoflight/settings/togaspd");
-	var overspeed = getprop("/FMGC/internal/overspeed");
+	var maxspeed = getprop("/FMGC/internal/maxspeed");
 	var minspeed = getprop("/FMGC/internal/minspeed");
 	var mach_switchover = getprop("/FMGC/internal/mach-switchover");
 	var decel = getprop("/FMGC/internal/decel");
@@ -122,7 +122,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 var FMGCinit = func {
 	setprop("/FMGC/status/to-state", 0);
 	setprop("/FMGC/status/phase", "0"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
-	setprop("/FMGC/internal/overspeed", 338);
+	setprop("/FMGC/internal/maxspeed", 338);
 	setprop("/FMGC/internal/mng-spd", 157);
 	setprop("/FMGC/internal/mng-spd-cmd", 157);
 	setprop("/FMGC/internal/mng-kts-mach", 0);
@@ -131,7 +131,7 @@ var FMGCinit = func {
 	setprop("/FMGC/internal/decel", 0);
 	setprop("/FMGC/internal/loc-source", "NAV0");
 	setprop("/FMGC/internal/optalt", 0);
-	phasecheck.start();
+	masterFMGC.start();
 	various.start();
 	various2.start();
 }
@@ -174,7 +174,7 @@ setlistener("/FMGC/internal/cruise-ft", func {
 # Flight Phase and Various #
 ############################
 
-var phasecheck = maketimer(0.2, func {
+var masterFMGC = maketimer(0.2, func {
 	n1_left = getprop("/engines/engine[0]/n1-actual");
 	n1_right = getprop("/engines/engine[1]/n1-actual");
 	flaps = getprop("/controls/flight/flap-pos");
@@ -269,30 +269,24 @@ var phasecheck = maketimer(0.2, func {
 	}
 	
 	flap = getprop("/controls/flight/flap-pos");
-	if (flap == 0) {
-		setprop("/FMGC/internal/overspeed", 338);
+	if (flap == 0) { # 0
+		setprop("/FMGC/internal/maxspeed", 350);
 		setprop("/FMGC/internal/minspeed", 202);
-		setprop("/FMGC/internal/alpha-prot-speed", 187);
-	} else if (flap == 1) {
-		setprop("/FMGC/internal/overspeed", 216);
+	} else if (flap == 1) { # 1
+		setprop("/FMGC/internal/maxspeed", 230);
 		setprop("/FMGC/internal/minspeed", 184);
-		setprop("/FMGC/internal/alpha-prot-speed", 167);
-	} else if (flap == 2) {
-		setprop("/FMGC/internal/overspeed", 207);
+	} else if (flap == 2) { # 1+F
+		setprop("/FMGC/internal/maxspeed", 215);
 		setprop("/FMGC/internal/minspeed", 171);
-		setprop("/FMGC/internal/alpha-prot-speed", 154);
-	} else if (flap == 3) {
-		setprop("/FMGC/internal/overspeed", 189);
+	} else if (flap == 3) { # 2
+		setprop("/FMGC/internal/maxspeed", 200);
 		setprop("/FMGC/internal/minspeed", 156);
-		setprop("/FMGC/internal/alpha-prot-speed", 143);
-	} else if (flap == 4) {
-		setprop("/FMGC/internal/overspeed", 174);
+	} else if (flap == 4) { # 3
+		setprop("/FMGC/internal/maxspeed", 185);
 		setprop("/FMGC/internal/minspeed", 147);
-		setprop("/FMGC/internal/alpha-prot-speed", 138);
-	} else if (flap == 5) {
-		setprop("/FMGC/internal/overspeed", 163);
+	} else if (flap == 5) { # FULL
+		setprop("/FMGC/internal/maxspeed", 177);
 		setprop("/FMGC/internal/minspeed", 131);
-		setprop("/FMGC/internal/alpha-prot-speed", 122);
 	}
 	
 	if (gear0 == 1 and (state1 == "MCT" or state1 == "MAN THR" or state1 == "TOGA") and (state2 == "MCT" or state2 == "MAN THR" or state2 == "TOGA") and flaps < 5) {
@@ -466,7 +460,7 @@ var ManagedSPD = maketimer(0.25, func {
 			srsSPD = getprop("/it-autoflight/settings/togaspd");
 			phase = getprop("/FMGC/status/phase"); # 0 is Preflight 1 is Takeoff 2 is Climb 3 is Cruise 4 is Descent 5 is Decel/Approach 6 is Go Around 7 is Done
 			flap = getprop("/controls/flight/flap-pos");
-			overspeed = getprop("/FMGC/internal/overspeed");
+			maxspeed = getprop("/FMGC/internal/maxspeed");
 			minspeed = getprop("/FMGC/internal/minspeed");
 			mach_switchover = getprop("/FMGC/internal/mach-switchover");
 			decel = getprop("/FMGC/internal/decel");
@@ -551,8 +545,8 @@ var ManagedSPD = maketimer(0.25, func {
 			
 			mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
 			
-			if (mng_spd_cmd > overspeed) {
-				setprop("/FMGC/internal/mng-spd", overspeed);
+			if (mng_spd_cmd > maxspeed) {
+				setprop("/FMGC/internal/mng-spd", maxspeed);
 			} else {
 				setprop("/FMGC/internal/mng-spd", mng_spd_cmd);
 			}

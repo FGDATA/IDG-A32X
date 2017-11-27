@@ -15,6 +15,7 @@ var elapsedtime = 0;
 var ASI = 0;
 var ASItrgt = 0;
 var ASItrgtdiff = 0;
+var ASImax = 0;
 var alt = 0;
 var altTens = 0;
 var state1 = getprop("/systems/thrust/state1");
@@ -122,7 +123,7 @@ var canvas_PFD_base = {
 	getKeys: func() {
 		return ["FMA_man","FMA_manmode","FMA_flxtemp","FMA_thrust","FMA_lvrclb","FMA_pitch","FMA_pitcharm","FMA_pitcharm2","FMA_roll","FMA_rollarm","FMA_combined","FMA_ctr_msg","FMA_catmode","FMA_cattype","FMA_nodh","FMA_dh","FMA_dhn","FMA_ap","FMA_fd",
 		"FMA_athr","FMA_man_box","FMA_flx_box","FMA_thrust_box","FMA_pitch_box","FMA_pitcharm_box","FMA_roll_box","FMA_rollarm_box","FMA_combined_box","FMA_catmode_box","FMA_cattype_box","FMA_cat_box","FMA_dh_box","FMA_ap_box","FMA_fd_box","FMA_athr_box",
-		"FMA_Middle1","FMA_Middle2","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","ASI_index","ASI_error","ASI_group","ASI_frame","AI_center","AI_bank","AI_bank_lim",
+		"FMA_Middle1","FMA_Middle2","ASI_max","ASI_scale","ASI_target","ASI_mach","ASI_mach_decimal","ASI_ten_sec","ASI_digit_UP","ASI_digit_DN","ASI_decimal_UP","ASI_decimal_DN","ASI_index","ASI_error","ASI_group","ASI_frame","AI_center","AI_bank","AI_bank_lim",
 		"AI_slipskid","AI_horizon","AI_horizon_ground","AI_horizon_sky","AI_stick","AI_stick_pos","AI_heading","AI_agl_g","AI_agl","AI_error","AI_group","FD_roll","FD_pitch","ALT_scale","ALT_target","ALT_target_digit","ALT_one","ALT_two","ALT_three","ALT_four",
 		"ALT_five","ALT_digits","ALT_tens","ALT_digit_UP","ALT_digit_DN","ALT_error","ALT_group","ALT_group2","ALT_frame","VS_pointer","VS_box","VS_digit","VS_error","VS_group","QNH","QNH_setting","QNH_std","QNH_box","LOC_pointer","LOC_scale","GS_scale",
 		"GS_pointer","CRS_pointer","HDG_target","HDG_scale","HDG_one","HDG_two","HDG_three","HDG_four","HDG_five","HDG_six","HDG_seven","HDG_digit_L","HDG_digit_R","HDG_error","HDG_group","HDG_frame","TRK_pointer"];
@@ -414,7 +415,17 @@ var canvas_PFD_base = {
 		} else {
 			ASI = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") - 30;
 		}
+		
+		if (getprop("/FMGC/internal/maxspeed") <= 30) {
+			ASImax = 0 - ASI;
+		} else if (getprop("/FMGC/internal/maxspeed") >= 420) {
+			ASImax = 390 - ASI;
+		} else {
+			ASImax = getprop("/FMGC/internal/maxspeed") - 30 - ASI;
+		}
+		
 		me["ASI_scale"].setTranslation(0, ASI * 6.6);
+		me["ASI_max"].setTranslation(0, ASImax * -6.6);
 		
 		if (getprop("/instrumentation/airspeed-indicator/indicated-mach") >= 0.5) {
 			me["ASI_mach_decimal"].show();
@@ -501,7 +512,7 @@ var canvas_PFD_base = {
 		me.AI_horizon_ground_rot.setRotation(-roll * D2R, me["AI_center"].getCenter());
 		me.AI_horizon_sky_rot.setRotation(-roll * D2R, me["AI_center"].getCenter());
 		
-		me["AI_slipskid"].setTranslation(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid") * -15, 0);
+		me["AI_slipskid"].setTranslation(math.clamp(getprop("/instrumentation/slip-skid-ball/indicated-slip-skid"), -7, 7) * -15, 0);
 		me["AI_bank"].setRotation(-roll * D2R);
 		
 		if (getprop("/it-fbw/law") == 0) {
