@@ -333,6 +333,10 @@
 							</equals>
 						</and>
 					</or>
+					<less-than>
+						<property>/fdm/jsbsim/forces/load-factor</property>
+						<value>-0.5</value>
+					</less-than>
 				</and>
 			</condition>
 		</enable>
@@ -352,8 +356,8 @@
 			<gamma>0.0</gamma>
 			<Ti>10</Ti>
 			<Td>0.00001</Td>
-			<u_min>-1.00</u_min>
-			<u_max>1.00</u_max>
+			<u_min>-1.0</u_min>
+			<u_max>1.0</u_max>
 		</config>
 	</pid-controller>
 	
@@ -417,6 +421,10 @@
 							</equals>
 						</and>
 					</or>
+					<less-than>
+						<property>/fdm/jsbsim/forces/load-factor</property>
+						<value>-0.5</value>
+					</less-than>
 				</and>
 			</condition>
 		</enable>
@@ -436,8 +444,8 @@
 			<gamma>0.0</gamma>
 			<Ti>10</Ti>
 			<Td>0.00001</Td>
-			<u_min>-1.00</u_min>
-			<u_max>1.00</u_max>
+			<u_min>-1.0</u_min>
+			<u_max>1.0</u_max>
 		</config>
 	</pid-controller>
 		
@@ -511,6 +519,10 @@
 							<value>-0.01</value>
 						</less-than>
 					</or>
+					<less-than>
+						<property>/fdm/jsbsim/forces/load-factor</property>
+						<value>-0.5</value>
+					</less-than>
 				</and>
 			</condition>
 		</enable>
