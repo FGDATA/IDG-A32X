@@ -272,7 +272,7 @@ var masterFMGC = maketimer(0.2, func {
 	flap = getprop("/controls/flight/flap-pos");
 	mmoIAS = (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") / getprop("/instrumentation/airspeed-indicator/indicated-mach")) * 0.82;
 	if (flap == 0) { # 0
-		if (mmoIAS > 350) {
+		if (mmoIAS < 350) {
 			setprop("/FMGC/internal/maxspeed", mmoIAS);
 		} else {
 			setprop("/FMGC/internal/maxspeed", 350);
