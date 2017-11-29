@@ -141,10 +141,10 @@
 						<property>/it-autoflight/output/ap2</property>
 						<value>0</value>
 					</equals>
-					<less-than>
+					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
-						<value>50</value>
-					</less-than>
+						<value>30</value>
+					</less-than-equals>
 					<greater-than-equals>
 						<property>/controls/flight/flap-pos</property>
 						<value>4</value>
@@ -208,10 +208,10 @@
 						<property>/it-autoflight/output/ap2</property>
 						<value>0</value>
 					</equals>
-					<less-than>
+					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
-						<value>50</value>
-					</less-than>
+						<value>30</value>
+					</less-than-equals>
 					<greater-than-equals>
 						<property>/controls/flight/flap-pos</property>
 						<value>4</value>
