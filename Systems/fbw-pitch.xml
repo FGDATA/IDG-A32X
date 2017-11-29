@@ -66,10 +66,10 @@
 					</product>
 					<table>
 						<property>/orientation/pitch-deg</property>
-						<entry><ind>-18</ind><dep> 4</dep></entry>
+						<entry><ind>-18</ind><dep> 5</dep></entry>
 						<entry><ind>-15</ind><dep> 0</dep></entry>
 						<entry><ind> 30</ind><dep> 0</dep></entry>
-						<entry><ind> 33</ind><dep>-4</dep></entry>
+						<entry><ind> 33</ind><dep>-5</dep></entry>
 					</table>
 				</sum>
 			</expression>
@@ -115,7 +115,7 @@
 				<sum>
 					<table>
 						<property>/controls/flight/elevator-input</property> 
-						<entry><ind> 0.0</ind><dep> 2.5</dep></entry>
+						<entry><ind> 0.0</ind><dep> 1.5</dep></entry>
 						<entry><ind>-1.0</ind><dep> 5.0</dep></entry>
 					</table>
 					<product>
@@ -126,14 +126,69 @@
 						</table>
 						<table>
 							<property>/controls/flight/elevator-input</property> 
-							<entry><ind> 0</ind><dep>-2.5</dep></entry>
+							<entry><ind> 0</ind><dep>-1.5</dep></entry>
 							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
 					</product>
 					<table>
 						<property>/orientation/pitch-deg</property>
 						<entry><ind> 30</ind><dep> 0</dep></entry>
-						<entry><ind> 33</ind><dep>-4</dep></entry>
+						<entry><ind> 33</ind><dep>-5</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</not-equals>
+					<equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator-input</property>
+						<entry><ind> 1.0</ind><dep>-3.5</dep></entry>
+						<entry><ind> 0.0</ind><dep> 1.5</dep></entry>
+						<entry><ind>-1.0</ind><dep> 5.0</dep></entry>
+					</table>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>-15.00000</ind><dep>1</dep></entry>
+							<entry><ind>-14.99999</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind>1</ind><dep> 3.5</dep></entry>
+							<entry><ind>0</ind><dep>-1.5</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>0</dep></entry>
+							<entry><ind>30.00000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep>-1.5</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
+						</table>
+					</product>
+					<table>
+						<property>/orientation/pitch-deg</property>
+						<entry><ind>-18</ind><dep> 5</dep></entry>
+						<entry><ind>-15</ind><dep> 0</dep></entry>
+						<entry><ind> 30</ind><dep> 0</dep></entry>
+						<entry><ind> 33</ind><dep>-5</dep></entry>
 					</table>
 				</sum>
 			</expression>

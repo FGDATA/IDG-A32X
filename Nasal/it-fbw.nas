@@ -169,7 +169,7 @@ var update_loop = func {
 		setprop("/it-fbw/speeds/vmo-mmo", 350);
 	}
 	
-	if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") > getprop("/it-fbw/speeds/vmo-mmo") + 6 and getprop("/it-fbw/law") == 0) {
+	if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") > getprop("/it-fbw/speeds/vmo-mmo") + 6 and (law == 0 or law == 1)) {
 		if (getprop("/it-fbw/protections/overspeed") != 1) {
 			setprop("/it-fbw/protections/overspeed", 1);
 		}
