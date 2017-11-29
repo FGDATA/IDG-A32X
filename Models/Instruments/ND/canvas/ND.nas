@@ -77,13 +77,19 @@ var canvas_nd_base = {
 	update: func() {
 		elapsedtime = getprop("/sim/time/elapsed-sec");
 		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110) {
-			if (getprop("/instrumentation/du/du2-test") != 1) {
+			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du2-test") != 1) {
 				setprop("/instrumentation/du/du2-test", 1);
 				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec"));
+			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du2-test") != 1) {
+				setprop("/instrumentation/du/du2-test", 1);
+				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec") - 35);
 			}
-			if (getprop("/instrumentation/du/du5-test") != 1) {
+			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du5-test") != 1) {
 				setprop("/instrumentation/du/du5-test", 1);
 				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec"));
+			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du5-test") != 1) {
+				setprop("/instrumentation/du/du5-test", 1);
+				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec") - 35);
 			}
 		} else {
 			setprop("/instrumentation/du/du2-test", 0);
