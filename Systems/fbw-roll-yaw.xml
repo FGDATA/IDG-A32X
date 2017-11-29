@@ -27,10 +27,14 @@
 						<property>/it-fbw/roll-lim</property>
 						<value>33</value>
 					</equals>
-					<equals>
+					<not-equals>
 						<property>/it-fbw/roll-back</property>
-						<value>0</value>
-					</equals>
+						<value>1</value>
+					</not-equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
 				</and>
 			</condition>
 			<expression>
@@ -70,10 +74,16 @@
 		</input>
 		<input>
 			<condition>
-				<equals>
-					<property>/it-fbw/roll-lim</property>
-					<value>67</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/it-fbw/roll-lim</property>
+						<value>67</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<sum>
@@ -112,10 +122,16 @@
 		</input>
 		<input>
 			<condition>
-				<equals>
-					<property>/it-fbw/roll-back</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<equals>
+						<property>/it-fbw/roll-back</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<table>
@@ -126,6 +142,78 @@
 					<entry><ind> 33</ind><dep>  0.0</dep></entry>
 					<entry><ind> 40</ind><dep>-10.0</dep></entry>
 					<entry><ind> 67</ind><dep>-25.0</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed-roll-back</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</condition>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/aileron-input</property> 
+						<entry><ind>-1</ind><dep>-12.0</dep></entry>
+						<entry><ind> 0</ind><dep>  0.0</dep></entry>
+						<entry><ind> 1</ind><dep> 12.0</dep></entry>
+					</table>
+					<product>
+						<table>
+							<property>/orientation/roll-deg</property>
+							<entry><ind>-40.00000</ind><dep>1</dep></entry>
+							<entry><ind>-39.99999</ind><dep>0</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/aileron-input</property> 
+							<entry><ind>-1</ind><dep>12.0</dep></entry>
+							<entry><ind> 0</ind><dep> 0.0</dep></entry>
+						</table>
+					</product>
+					<product>
+						<table>
+							<property>/orientation/roll-deg</property>
+							<entry><ind>39.99999</ind><dep>0</dep></entry>
+							<entry><ind>40.00000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/aileron-input</property> 
+							<entry><ind>0</ind><dep>  0.0</dep></entry>
+							<entry><ind>1</ind><dep>-12.0</dep></entry>
+						</table>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/protections/overspeed-roll-back</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<table>
+					<property>/orientation/roll-deg</property>
+					<entry><ind>-40</ind><dep> 25.0</dep></entry>
+					<entry><ind>-15</ind><dep> 10.0</dep></entry>
+					<entry><ind>  0</ind><dep>  0.0</dep></entry>
+					<entry><ind> 15</ind><dep>-10.0</dep></entry>
+					<entry><ind> 40</ind><dep>-25.0</dep></entry>
 				</table>
 			</expression>
 		</input>

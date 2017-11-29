@@ -21,10 +21,16 @@
 		<gain>1</gain>
 		<input>
 			<condition>
-				<not-equals>
-					<property>/it-fbw/law</property>
-					<value>1</value>
-				</not-equals>
+				<and>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<sum>
@@ -70,10 +76,16 @@
 		</input>
 		<input>
 			<condition>
-				<equals>
-					<property>/it-fbw/law</property>
-					<value>1</value>
-				</equals>
+				<and>
+					<not-equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</not-equals>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
+				</and>
 			</condition>
 			<expression>
 				<sum>
@@ -82,6 +94,46 @@
 						<entry><ind> 1</ind><dep>-5.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						<entry><ind>-1</ind><dep> 5.0</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-fbw/law</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator-input</property> 
+						<entry><ind> 0.0</ind><dep> 2.5</dep></entry>
+						<entry><ind>-1.0</ind><dep> 5.0</dep></entry>
+					</table>
+					<product>
+						<table>
+							<property>/orientation/pitch-deg</property>
+							<entry><ind>29.99999</ind><dep>0</dep></entry>
+							<entry><ind>30.00000</ind><dep>1</dep></entry>
+						</table>
+						<table>
+							<property>/controls/flight/elevator-input</property> 
+							<entry><ind> 0</ind><dep>-2.5</dep></entry>
+							<entry><ind>-1</ind><dep>-5.0</dep></entry>
+						</table>
+					</product>
+					<table>
+						<property>/orientation/pitch-deg</property>
+						<entry><ind> 30</ind><dep> 0</dep></entry>
+						<entry><ind> 33</ind><dep>-4</dep></entry>
 					</table>
 				</sum>
 			</expression>
@@ -280,50 +332,48 @@
 		<enable>
 			<condition>
 				<and>
-					<and>
-						<or>
-							<equals>
-								<property>/it-fbw/law</property>
-								<value>0</value>
-							</equals>
-							<equals>
-								<property>/it-fbw/law</property>
-								<value>1</value>
-							</equals>
-						</or>
-						<or>
-							<and>
-								<greater-than-equals>
-									<property>/position/gear-agl-ft</property>
-									<value>100</value>
-								</greater-than-equals>
-								<or>
-									<equals>
-										<property>/it-autoflight/output/ap1</property>
-										<value>1</value>
-									</equals>
-									<equals>
-										<property>/it-autoflight/output/ap2</property>
-										<value>1</value>
-									</equals>
-								</or>
-							</and>
-							<and>
-								<greater-than-equals>
-									<property>/position/gear-agl-ft</property>
-									<value>50</value>
-								</greater-than-equals>
+					<or>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<or>
+						<and>
+							<greater-than-equals>
+								<property>/position/gear-agl-ft</property>
+								<value>100</value>
+							</greater-than-equals>
+							<or>
 								<equals>
 									<property>/it-autoflight/output/ap1</property>
-									<value>0</value>
+									<value>1</value>
 								</equals>
 								<equals>
 									<property>/it-autoflight/output/ap2</property>
-									<value>0</value>
+									<value>1</value>
 								</equals>
-							</and>
-						</or>
-					</and>
+							</or>
+						</and>
+						<and>
+							<greater-than-equals>
+								<property>/position/gear-agl-ft</property>
+								<value>50</value>
+							</greater-than-equals>
+							<equals>
+								<property>/it-autoflight/output/ap1</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/ap2</property>
+								<value>0</value>
+							</equals>
+						</and>
+					</or>
 					<less-than>
 						<property>/orientation/roll-deg</property>
 						<value>40</value>
@@ -346,6 +396,10 @@
 						<property>/fdm/jsbsim/forces/load-factor</property>
 						<value>-0.5</value>
 					</less-than>
+					<not-equals>
+						<property>/it-fbw/protections/overspeed</property>
+						<value>1</value>
+					</not-equals>
 				</and>
 			</condition>
 		</enable>

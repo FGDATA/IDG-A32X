@@ -117,7 +117,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var newvertarm = getprop("/modes/pfd/fma/pitch-mode2-armed");
 	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
 	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
-	var mmoIAS = 0;
 });
 
 var FMGCinit = func {
@@ -270,13 +269,8 @@ var masterFMGC = maketimer(0.2, func {
 	}
 	
 	flap = getprop("/controls/flight/flap-pos");
-	mmoIAS = (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") / getprop("/instrumentation/airspeed-indicator/indicated-mach")) * 0.82;
 	if (flap == 0) { # 0
-		if (mmoIAS < 350) {
-			setprop("/FMGC/internal/maxspeed", mmoIAS);
-		} else {
-			setprop("/FMGC/internal/maxspeed", 350);
-		}
+		setprop("/FMGC/internal/maxspeed", getprop("/it-fbw/speeds/vmo-mmo"));
 		setprop("/FMGC/internal/minspeed", 202);
 	} else if (flap == 1) { # 1
 		setprop("/FMGC/internal/maxspeed", 230);

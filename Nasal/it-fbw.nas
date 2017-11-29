@@ -7,6 +7,13 @@
 
 # If All ELACs Fail, Alternate Law
 
+setprop("/it-fbw/roll-back", 0);
+setprop("/it-fbw/spd-hold", 0);
+setprop("/it-fbw/protections/overspeed", 0);
+setprop("/it-fbw/protections/overspeed-roll-back", 0);
+setprop("/it-fbw/speeds/vmo-mmo", 350);
+var mmoIAS = 0;
+
 var fctlInit = func {
 	setprop("/controls/fctl/elac1", 1);
 	setprop("/controls/fctl/elac2", 1);
@@ -23,14 +30,11 @@ var fctlInit = func {
 	setprop("/systems/fctl/fac1", 0);
 	setprop("/systems/fctl/fac2", 0);
 	setprop("/it-fbw/degrade-law", 0);
+	setprop("/it-fbw/override", 0);
+	setprop("/it-fbw/law", 0);
+	updatet.start();
+	fbwt.start();
 }
-
-setprop("/it-fbw/roll-back", 0);
-setprop("/it-fbw/spd-hold", 0);
-
-###################
-# Update Function #
-###################
 
 var update_loop = func {
 	var elac1_sw = getprop("/controls/fctl/elac1");
@@ -158,10 +162,31 @@ var update_loop = func {
 		setprop("/it-fbw/degrade-law", 2);
 	}
 	
+	mmoIAS = (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") / getprop("/instrumentation/airspeed-indicator/indicated-mach")) * 0.82;
+	if (mmoIAS < 350) {
+		setprop("/it-fbw/speeds/vmo-mmo", mmoIAS);
+	} else {
+		setprop("/it-fbw/speeds/vmo-mmo", 350);
+	}
+	
+	if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") > getprop("/it-fbw/speeds/vmo-mmo") + 6 and getprop("/it-fbw/law") == 0) {
+		if (getprop("/it-fbw/protections/overspeed") != 1) {
+			setprop("/it-fbw/protections/overspeed", 1);
+		}
+		if (getprop("/it-autoflight/output/ap1") == 1) {
+			setprop("/it-autoflight/input/ap1", 0);
+		}
+		if (getprop("/it-autoflight/output/ap2") == 1) {
+			setprop("/it-autoflight/input/ap2", 0);
+		}
+	} else {
+		if (getprop("/it-fbw/protections/overspeed") != 0) {
+			setprop("/it-fbw/protections/overspeed", 0);
+		}
+	}
 }
 	
 var fbw_loop = func {
-	
 	var ail = getprop("/controls/flight/aileron");
 	
 	if (ail > 0.4 or ail < -0.4) {
@@ -172,11 +197,17 @@ var fbw_loop = func {
 		if (getprop("/it-fbw/roll-back") == 0 and (getprop("/orientation/roll-deg") > 33.5 or getprop("/orientation/roll-deg") < -33.5)) {
 			setprop("/it-fbw/roll-back", 1);
 		}
-	} else if (ail < 0.05 and ail > -0.05) {
+	} else if (ail < 0.04 and ail > -0.04) {
 		setprop("/it-fbw/roll-lim", "33");
 		if (getprop("/it-fbw/roll-back") == 1 and getprop("/orientation/roll-deg") <= 33.5 and getprop("/orientation/roll-deg") >= -33.5) {
 			setprop("/it-fbw/roll-back", 0);
 		}
+	}
+	
+	if (ail > 0.04 or ail < -0.04) {
+		setprop("/it-fbw/protections/overspeed-roll-back", 0);
+	} else if (ail < 0.04 and ail > -0.04) {
+		setprop("/it-fbw/protections/overspeed-roll-back", 1);
 	}
 
 	if (getprop("/it-fbw/override") == 0) {
@@ -210,19 +241,5 @@ var fbw_loop = func {
 	}
 }
 
-###########################
-# Various Other Functions #
-###########################
-
-setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/it-fbw/override", 0);
-	setprop("/it-fbw/law", 0);
-	updatet.start();
-	fbwt.start();
-});
-
-##########
-# Timers #
-##########
 var updatet = maketimer(0.1, update_loop);
 var fbwt = maketimer(0.03, fbw_loop);
