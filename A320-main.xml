@@ -206,6 +206,15 @@
 						</binding>
 					</item>
 					<item>
+						<label>Ground Services</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							acconfig.groundservices_dlg.open();
+							</script>
+						</binding>
+					</item>
+					<item>
 						<label>Announcements</label>
 						<binding>
 							<command>nasal</command>
@@ -1239,6 +1248,8 @@
 			<file>Aircraft/IDG-A32X/Nasal/ADIRS.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/fire.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/brakes.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/ground_services.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/effects.nas</file>
 		</systems>
 		<thrust>
 			<file>Aircraft/IDG-A32X/Nasal/fadec-common.nas</file>
