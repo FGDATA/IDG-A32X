@@ -247,7 +247,7 @@ var locupdate = maketimer(0.5, func {
 	var newlat = getprop("/modes/pfd/fma/roll-mode");
 	var nav_defl = getprop("/instrumentation/nav[0]/heading-needle-deflection-norm");
 	if (lat == "LOC") {
-		if (nav_defl > -0.15 and nav_defl < 0.15) {
+		if (nav_defl > -0.06 and nav_defl < 0.06) {
 			locupdate.stop();
 			if (newlat != "LOC") {
 				setprop("/modes/pfd/fma/roll-mode", "LOC");
