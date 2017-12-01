@@ -4876,7 +4876,62 @@
 			<z-m>-0.265</z-m>
 		</center>
 	</animation>
-
+	
+	<animation>
+		<name>Turnoff light pick</name>
+		<type>pick</type>
+		<object-name>TurnoffLtSwtch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/lighting/turnoff-light-switch</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/lighting/turnoff-light-switch</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>turnoff light rotate</name>
+		<type>rotate</type>
+		<object-name>TurnoffLtSwtch</object-name>
+		<property>controls/lighting/turnoff-light-switch</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.01</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3037</z-m>
+		</center>
+	</animation>
+	
 	<animation>
 		<name>landing light pick</name>
 		<type>pick</type>
@@ -4948,6 +5003,7 @@
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>landing light rotate</name>
 		<type>rotate</type>
@@ -4968,6 +5024,7 @@
 			<z-m>-0.3037</z-m>
 		</center>
 	</animation>
+	
 	<animation>
 		<name>landing light rotate</name>
 		<type>rotate</type>
