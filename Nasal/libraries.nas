@@ -20,6 +20,7 @@ setprop("/controls/tray/surprise", 1);
 # Lights
 setprop("/sim/model/lights/nose-lights", 0);
 setprop("/sim/model/lights/turnoffsw", 0);
+setprop("/controls/lighting/turnoff-light-switch", 0);
 setprop("/controls/lighting/leftturnoff", 0);
 setprop("/controls/lighting/rightturnoff", 0);
 
@@ -50,6 +51,19 @@ setlistener("controls/lighting/nav-lights-switch", func {
 		nav_lights.setBoolValue(1);
 	} else {
 		nav_lights.setBoolValue(0);
+	}
+});
+
+setlistener("controls/lighting/turnoff-light-switch", func {
+	var left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
+	var right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
+	var settingT = getprop("/controls/lighting/turnoff-lights-switch");
+	if (settingT == 1) {
+		left_turnoff_light.setBoolValue(1);
+		right_turnoff_light.setBoolValue(1);
+	} else {
+		left_turnoff_light.setBoolValue(0);
+		right_turnoff_light.setBoolValue(0);
 	}
 });
 
