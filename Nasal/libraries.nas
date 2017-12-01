@@ -57,7 +57,7 @@ setlistener("controls/lighting/nav-lights-switch", func {
 setlistener("controls/lighting/turnoff-light-switch", func {
 	var left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
 	var right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
-	var settingT = getprop("/controls/lighting/turnoff-lights-switch");
+	var settingT = getprop("/controls/lighting/turnoff-light-switch");
 	if (settingT == 1) {
 		left_turnoff_light.setBoolValue(1);
 		right_turnoff_light.setBoolValue(1);
