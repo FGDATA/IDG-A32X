@@ -47,6 +47,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var ias = getprop("/velocities/airspeed-kt");
 	var flaps = getprop("/controls/flight/flap-pos");
 	var alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
+	var gs = getprop("/velocities/groundspeed-kt");
 	thrustt.start();
 });
 
@@ -209,7 +210,8 @@ var thrust_lim = func {
 	n1mct = getprop("/systems/thrust/n1/mct-lim");
 	n1flx = getprop("/systems/thrust/n1/flx-lim");
 	n1clb = getprop("/systems/thrust/n1/clb-lim");
-	if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0 and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
+	gs = getprop("/velocities/groundspeed-kt");
+	if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0 and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1 and gs < 40) {
 		setprop("/systems/thrust/lim-flex", 1);
 	} else if (getprop("/FMGC/internal/flex-set") == 0 and engstate1 != 3 and engstate2 != 3) {
 		setprop("/systems/thrust/lim-flex", 0);
@@ -233,9 +235,15 @@ var thrust_lim = func {
 			setprop("/controls/engines/n1-limit", n1clb);
 		}
 	} else if (getprop("/FMGC/internal/flex-set") == 1 and getprop("/systems/fadec/n1mode1") == 0 and getprop("/systems/fadec/n1mode2") == 0) {
-		setprop("/controls/engines/thrust-limit", "FLX");
-		setprop("/controls/engines/epr-limit", eprflx);
-		setprop("/controls/engines/n1-limit", n1flx);
+		if ((state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) or getprop("/systems/thrust/alpha-floor") == 1 or getprop("/systems/thrust/toga-lk") == 1) {
+			setprop("/controls/engines/thrust-limit", "TOGA");
+			setprop("/controls/engines/epr-limit", eprtoga);
+			setprop("/controls/engines/n1-limit", n1toga);
+		} else {
+			setprop("/controls/engines/thrust-limit", "FLX");
+			setprop("/controls/engines/epr-limit", eprflx);
+			setprop("/controls/engines/n1-limit", n1flx);
+		}
 	} else {
 		setprop("/controls/engines/thrust-limit", "TOGA");
 		setprop("/controls/engines/epr-limit", eprtoga);
