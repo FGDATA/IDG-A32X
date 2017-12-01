@@ -65,8 +65,8 @@
         <factor>6</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.5</min>
-        <max>80</max>
+        <min>0.1</min>
+        <max>1.5</max>
     </animation>
 
 

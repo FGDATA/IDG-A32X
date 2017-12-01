@@ -14,7 +14,7 @@
 
  
 <effect>
-   <inherits-from>Aircraft/IDG-A32X/Models/lights/ALS/taxilight</inherits-from>
+   <inherits-from>Aircraft/IDG-A32X/Models/lights/ALS/turnoffR</inherits-from>
    <object-name>landinglightals</object-name>
  </effect>
  
@@ -58,15 +58,15 @@
         </center>
         <axis>
             <x>-1</x>
-            <y>0</y>
+            <y>0.75</y>
             <z>0</z>
         </axis>
         <power>8</power>
-        <factor>3</factor>
+        <factor>6</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.1</min>
-        <max>0.8</max>
+        <min>0.15</min>
+        <max>0.5</max>
     </animation>
 
 

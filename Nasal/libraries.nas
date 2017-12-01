@@ -20,6 +20,8 @@ setprop("/controls/tray/surprise", 1);
 # Lights
 setprop("/sim/model/lights/nose-lights", 0);
 setprop("/sim/model/lights/turnoffsw", 0);
+setprop("/controls/lighting/leftturnoff", 0);
+setprop("/controls/lighting/rightturnoff", 0);
 
 # Oil Qty
 var qty1 = math.round((rand() * 5 ) + 20, 0.1);

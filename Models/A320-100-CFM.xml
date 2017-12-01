@@ -259,7 +259,7 @@
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>-3.16</y-m>
-			<z-m>-1.4</z-m>
+			<z-m>-1.25</z-m>
 		</offsets>
 	</model>
 
@@ -267,9 +267,39 @@
 		<name>Nosegear landing light ALS</name>
 		<path>Aircraft/IDG-A32X/Models/Lights/ALS/taxilight.xml</path>
 		<offsets>
-			<x-m>7.81</x-m>
-			<y-m>0</y-m>
+			<x-m>7.6</x-m>
+			<y-m>-0.1018315</y-m>
 			<z-m>-2.5</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Second Nosegear landing light ALS</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/taxilight.xml</path>
+		<offsets>
+			<x-m>7.6</x-m>
+			<y-m>0.1018315</y-m>
+			<z-m>-2.5</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Left Turnoff ALS</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/turnoffL.xml</path>
+		<offsets>
+			<x-m>7.7</x-m>
+			<y-m>-0.1518315</y-m>
+			<z-m>-2.9</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Turnoff ALS</name>
+		<path>Aircraft/IDG-A32X/Models/Lights/ALS/turnoffR.xml</path>
+		<offsets>
+			<x-m>7.7</x-m>
+			<y-m>0.1518315</y-m>
+			<z-m>-2.9</z-m>
 		</offsets>
 	</model>
 
@@ -279,7 +309,7 @@
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>3.16</y-m>
-			<z-m>-1.4</z-m>
+			<z-m>-1.25</z-m>
 		</offsets>
 	</model>
 
