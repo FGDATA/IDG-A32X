@@ -14,7 +14,7 @@
 	<filter>
 		<name>OAT Thrust Scale</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -32,7 +32,7 @@
 	<filter>
 		<name>FLX Thrust Scale</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -50,7 +50,7 @@
 	<filter>
 		<name>IDLE Limit</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<condition>
@@ -89,7 +89,7 @@
 	<filter>
 		<name>MAN One</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -111,7 +111,7 @@
 	<filter>
 		<name>MAN Two</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -133,7 +133,7 @@
 	<filter>
 		<name>MAN CMD One</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -158,7 +158,7 @@
 	<filter>
 		<name>MAN CMD Two</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -183,7 +183,7 @@
 	<filter>
 		<name>N1 CMD 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<condition>
@@ -224,7 +224,7 @@
 	<filter>
 		<name>N1 CMD 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<condition>
@@ -266,7 +266,7 @@
 		<name>Throttle 1</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -360,7 +360,7 @@
 		<name>Throttle 2</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -453,7 +453,7 @@
 	<filter>
 		<name>N1 Limit TOGA</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -473,7 +473,7 @@
 	<filter>
 		<name>N1 Limit MCT</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -493,7 +493,7 @@
 	<filter>
 		<name>N1 Limit FLX</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -513,7 +513,7 @@
 	<filter>
 		<name>N1 Limit CLB</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -533,7 +533,16 @@
 	<filter>
 		<name>Throttle Output One</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[0]/throttle-rev</property>
+		</input>
 		<input>
 			<condition>
 				<and>
@@ -572,7 +581,16 @@
 	<filter>
 		<name>Throttle Output Two</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[1]/throttle-rev</property>
+		</input>
 		<input>
 			<condition>
 				<and>
@@ -611,7 +629,7 @@
 	<filter>
 		<name>EGT L</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -641,7 +659,7 @@
 	<filter>
 		<name>EGT R</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>

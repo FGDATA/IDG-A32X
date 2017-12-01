@@ -11,7 +11,7 @@
 	<filter>
 		<name>Gear AGL Altitude FT</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -29,7 +29,7 @@
 	<filter>
 		<name>Gear AGL Altitude M</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -56,7 +56,7 @@
 	<filter>
 		<name>Rudder Trim</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -74,7 +74,7 @@
 	<filter>
 		<name>FF 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -92,7 +92,7 @@
 	<filter>
 		<name>FF 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -110,7 +110,7 @@
 	<filter>
 		<name>OIL PSI 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -127,7 +127,7 @@
 	<filter>
 		<name>OIL PSI 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -144,7 +144,7 @@
 	<filter>
 		<name>Altitude PFD</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>
@@ -184,7 +184,7 @@
 	<filter>
 		<name>Throttle L</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -203,13 +203,16 @@
 			</condition>
 			<value>0</value>
 		</input>
-		<output>/controls/engines/engine[0]/throttle-lever</output>
+		<output>
+			<property>/controls/engines/engine[0]/throttle-lever</property>
+			<property>/controls/engines/engine[0]/throttle-pos</property>
+		</output>
 	</filter>
 
 	<filter>
 		<name>Throttle R</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -228,63 +231,16 @@
 			</condition>
 			<value>0</value>
 		</input>
-		<output>/controls/engines/engine[1]/throttle-lever</output>
-	</filter>
-
-	<filter>
-		<name>Throttle L</name>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<condition>
-				<equals>
-					<property>/controls/engines/engine[0]/reverser</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<property>/controls/engines/engine[0]/throttle</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/controls/engines/engine[0]/reverser</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<property>/controls/engines/engine[0]/throttle-rev</property>
-		</input>
-		<output>/controls/engines/engine[0]/throttle-pos</output>
-	</filter>
-
-	<filter>
-		<name>Throttle R</name>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<condition>
-				<equals>
-					<property>/controls/engines/engine[1]/reverser</property>
-					<value>0</value>
-				</equals>
-			</condition>
-			<property>/controls/engines/engine[1]/throttle</property>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/controls/engines/engine[1]/reverser</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<property>/controls/engines/engine[1]/throttle-rev</property>
-		</input>
-		<output>/controls/engines/engine[1]/throttle-pos</output>
+		<output>
+			<property>/controls/engines/engine[1]/throttle-lever</property>
+			<property>/controls/engines/engine[1]/throttle-pos</property>
+		</output>
 	</filter>
 
 	<filter>
 		<name>Target Pressurize Altitude CMD</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
@@ -306,7 +262,7 @@
 	<filter>
 		<name>Target Pressurize Altitude</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<condition>
@@ -338,7 +294,7 @@
 	<filter>
 		<name>Cabin PSI target</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
@@ -364,7 +320,7 @@
 	<filter>
 		<name>VS-target</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<condition>
@@ -390,7 +346,7 @@
 	<filter>
 		<name>Ambient PSI (ICAO std)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
@@ -450,7 +406,7 @@
 	<filter>
 		<name>Outflow logic</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<condition>
@@ -506,7 +462,7 @@
 	<filter>
 		<name>VS-target-cmd</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -532,7 +488,7 @@
 	<filter>
 		<name>VS-target-cmd-man</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -550,7 +506,7 @@
 	<filter>
 		<name>VS-target</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<condition>
@@ -576,7 +532,7 @@
 	<filter>
 		<name>Icing Severity</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
@@ -597,7 +553,7 @@
 	<filter>
 		<name>TAS</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input> 
 			<expression>
 				<product>
@@ -612,7 +568,7 @@
 	<filter>
 		<name>LBtoKG</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<product>
@@ -626,7 +582,7 @@
 	<filter>
 		<name>optalt</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<expression>
@@ -658,7 +614,7 @@
 	<filter>
 		<name>Ambient Temp (ICAO std)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<expression>
@@ -708,7 +664,7 @@
 	<filter>
 		<name>Difference to ISA Temp (Actual - ISA)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.1</update-interval-secs>
 		<input> 
 			<difference>
@@ -722,7 +678,7 @@
 	<filter>
 		<name>Rudder Limit</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input> 
 			<expression>

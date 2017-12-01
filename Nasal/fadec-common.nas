@@ -216,7 +216,11 @@ var thrust_lim = func {
 	} else if (getprop("/FMGC/internal/flex-set") == 0 and engstate1 != 3 and engstate2 != 3) {
 		setprop("/systems/thrust/lim-flex", 0);
 	}
-	if (getprop("/gear/gear[1]/wow") == 0 or getprop("/gear/gear[2]/wow") == 0 or (engstate1 != 3 and engstate2 != 3)) {
+	if (getprop("/controls/engines/engine[0]/reverser") == "1" or getprop("/controls/engines/engine[1]/reverser") == "1") {
+		setprop("/controls/engines/thrust-limit", "MREV");
+		setprop("/controls/engines/epr-limit", 1.000);
+		setprop("/controls/engines/n1-limit", 0.0);
+	} else if (getprop("/gear/gear[1]/wow") == 0 or getprop("/gear/gear[2]/wow") == 0 or (engstate1 != 3 and engstate2 != 3)) {
 		if ((state1 == "TOGA" or state2 == "TOGA" or (state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) or getprop("/systems/thrust/alpha-floor") == 1 or getprop("/systems/thrust/toga-lk") == 1) {
 			setprop("/controls/engines/thrust-limit", "TOGA");
 			setprop("/controls/engines/epr-limit", eprtoga);
