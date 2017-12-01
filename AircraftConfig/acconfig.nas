@@ -96,6 +96,7 @@ var fail_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/fail/dialog", "Aircraft/
 var about_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/about/dialog", "Aircraft/IDG-A32X/AircraftConfig/about.xml");
 var update_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/update/dialog", "Aircraft/IDG-A32X/AircraftConfig/update.xml");
 var error_mismatch = gui.Dialog.new("sim/gui/dialogs/acconfig/error/mismatch/dialog", "Aircraft/IDG-A32X/AircraftConfig/error-mismatch.xml");
+var groundservices_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/groundsrvc/dialog", "Aircraft/IDG-A32X/AircraftConfig/groundservices.xml");
 spinning.start();
 init_dlg.open();
 
