@@ -1,3 +1,6 @@
+# adapted from 787-8 (omega)
+
+
 var door = aircraft.door.new("/services/deicing_truck/crane", 20);
 var door3 = aircraft.door.new("/services/deicing_truck/deicing", 20);
 
@@ -12,14 +15,6 @@ var ground_services = {
 	
 	setprop("/services/catering/scissor-deg", 0);
 	setprop("/services/catering/position-norm", 0);
-
-	# Fuel Truck
-	
-	setprop("/services/fuel-truck/enable", 0);
-	setprop("/services/fuel-truck/connect", 0);
-	setprop("/services/fuel-truck/transfer", 0);
-	setprop("/services/fuel-truck/clean", 0);
-	setprop("/services/fuel-truck/request-kg", 0);
 	
 	# De-icing Truck
 	
@@ -67,26 +62,26 @@ var ground_services = {
 		
 			if (me.ice_time == 2){
 				door.move(1);
-				print ("Lifting De-icing Crane...");
+				ground_message ("Lifting De-icing Crane...");
 			}
 			
 			if (me.ice_time == 220){
 				door3.move(1);
-				print ("Starting De-icing Process...");
+				ground_message ("Starting De-icing Process...");
 			}
 			
 			if (me.ice_time == 420){
 				door3.move(0);
-				print ("De-icing Process Completed...");
+				ground_message ("De-icing Process Completed...");
 			}
 				
 			if (me.ice_time == 650){
 				door.move(0);
-				print ("Lowering De-icing Crane...");
+				ground_message ("Lowering De-icing Crane...");
 			}
 			
 			if (me.ice_time == 900) {
-				screen.log.write("De-icing Completed!", 1, 1, 1);
+				ground_message("De-icing Completed!", 1, 1, 1);
 				setprop("/services/deicing_truck/de-ice", 0);
 				setprop("/controls/ice/wing/temp", 30);
 				setprop("/controls/ice/wing/eng1", 30);
@@ -110,6 +105,10 @@ var ground_services = {
 		settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
 	}
 };
+
+var ground_message = func (string) {
+	setprop("/sim/messages/ground", string);
+}
 
 
 setlistener("sim/signals/fdm-initialized", func {
