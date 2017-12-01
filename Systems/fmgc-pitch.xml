@@ -638,7 +638,7 @@
 		<name>PITCH DEG SYNC</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>

@@ -18,7 +18,7 @@
 	<filter>
 	   <name>IT-CONTROLLER: ROLL</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<condition>
@@ -221,9 +221,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: ROLL KP (P Gain)</name>
+		<name>IT-CONTROLLER: ROLL KP (P Gain)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
@@ -237,9 +237,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: ROLL TI (I Time)</name>
+		<name>IT-CONTROLLER: ROLL TI (I Time)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
@@ -253,7 +253,7 @@
 	</filter>
 	
 	<pid-controller>
-		<name>IT-FBW: ROLL</name>
+		<name>IT-CONTROLLER: ROLL</name>
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -299,10 +299,10 @@
 	</pid-controller>
 	
 	<filter>
-		<name>IT-FBW: ROLL OPTION</name>
+		<name>IT-CONTROLLER: ROLL OPTION</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>
@@ -414,9 +414,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: SPOILER</name>
+		<name>IT-CONTROLLER: SPOILER</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -448,9 +448,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: LEFT SPOILER</name>
+		<name>IT-CONTROLLER: LEFT SPOILER</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<and>
@@ -504,9 +504,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: RIGHT SPOILER</name>
+		<name>IT-CONTROLLER: RIGHT SPOILER</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<and>
@@ -564,7 +564,7 @@
  <!-- =============================================================== -->
 
 	<filter>
-		<name>IT-FBW: YAW DAMPER/TURN COORDINATOR FEEDBACK IF DISABLED</name>
+		<name>IT-CONTROLLER: YAW DAMPER/TURN COORDINATOR FEEDBACK IF DISABLED</name>
 		<enable>
 			<condition>
 				<or>
@@ -600,7 +600,7 @@
 			</condition>
 		</enable>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>0</input>
 		<output>/controls/flight/rudder-fbw-cmd</output>
 		<min>-0.2</min>
@@ -608,7 +608,7 @@
 	</filter>
 	
 	<pid-controller>
-		<name>IT-FBW: YAW DAMPER/TURN COORDINATOR</name>
+		<name>IT-CONTROLLER: YAW DAMPER/TURN COORDINATOR</name>
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -666,7 +666,7 @@
 	</pid-controller>
 	
 	<filter>
-		<name>IT-FBW: RUDDER OPTION</name>
+		<name>IT-CONTROLLER: RUDDER OPTION</name>
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>

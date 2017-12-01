@@ -14,11 +14,156 @@
  <!-- =============================================================== -->
  <!-- Vertical                                                        -->
  <!-- =============================================================== -->
+
+	<filter>
+		<name>IT-CONTROLLER: LOAD FACTOR CMD</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<table>
+						<property>/controls/flight/elevator-input</property> 
+						<entry><ind> 1</ind><dep>-0.5</dep></entry>
+						<entry><ind> 0</ind><dep> 1.0</dep></entry>
+						<entry><ind>-1</ind><dep> 2.5</dep></entry>
+					</table>
+				</sum>
+			</expression>
+		</input>
+		<output>/it-fbw/g-target</output>
+		<min>
+			<condition>
+				<not-equals>
+					<property>/controls/flight/flap-pos</property>
+					<value>0</value>
+				</not-equals>
+			</condition>
+			<value>0.0</value>
+		</min>
+		<min>-1.0</min>
+		<max>
+			<condition>
+				<not-equals>
+					<property>/controls/flight/flap-pos</property>
+					<value>0</value>
+				</not-equals>
+			</condition>
+			<value>2.0</value>
+		</max>
+		<max>2.5</max>
+	</filter>
+	
+	<filter>
+		<name>IT-CONTROLLER: COMPUTED G</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<sum>
+					<product>
+						<property>/fdm/jsbsim/forces/load-factor</property>
+						<value>-1</value>
+					</product>
+					<div>
+						<value>-1</value>
+						<cos>
+							<deg2rad>
+								<product>
+									<property>/orientation/roll-deg</property>
+									<value>0.965</value>
+								</product>
+							</deg2rad>
+						</cos>
+					</div>
+					<value>1</value>
+				</sum>
+			</expression>
+		</input>
+		<output>/it-fbw/g-computed</output>
+	</filter>
+	
+	<filter>
+		<name>IT-CONTROLLER: G ERROR</name>
+		<type>gain</type>
+		<gain>-1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/it-fbw/g-target</property>
+					<property>/it-fbw/g-computed</property>
+				</dif>
+			</expression>
+		</input>
+		<output>/it-fbw/g-error</output>
+	</filter>
+	
+	<pi-simple-controller>
+		<name>IT-CONTROLLER: G ELEVATOR</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-fbw/law</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<property>/it-fbw/g-error</property>
+		</input>
+		<reference>
+			<value>0</value>
+		</reference>
+		<output>
+			<property>/it-fbw/g-elevator</property>
+		</output>
+		<config>
+			<Kp>-2.5</Kp>
+			<Ki>-1.5</Ki>
+			<min>
+				<condition>
+					<less-than>
+						<property>/controls/flight/elevator-input</property>
+						<value>0</value>
+					</less-than>
+				</condition>
+				<property>/controls/flight/elevator-input</property>
+			</min>
+			<min>0.0</min>
+			<max>
+				<condition>
+					<greater-than>
+						<property>/controls/flight/elevator-input</property>
+						<value>0</value>
+					</greater-than>
+				</condition>
+				<property>/controls/flight/elevator-input</property>
+			</max>
+			<max>0.0</max>
+		</config>
+	</pi-simple-controller>
  
 	<filter>
 	   <name>IT-CONTROLLER: PITCH RATE CMD</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<and>
@@ -35,7 +180,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/controls/flight/elevator-input</property> 
+						<property>/it-fbw/g-elevator</property> 
 						<entry><ind> 1</ind><dep>-5.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						<entry><ind>-1</ind><dep> 5.0</dep></entry>
@@ -47,7 +192,7 @@
 							<entry><ind>-14.99999</ind><dep>0</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/elevator-input</property> 
+							<property>/it-fbw/g-elevator</property> 
 							<entry><ind>1</ind><dep>5.0</dep></entry>
 							<entry><ind>0</ind><dep>0.0</dep></entry>
 						</table>
@@ -59,7 +204,7 @@
 							<entry><ind>30.00000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/elevator-input</property> 
+							<property>/it-fbw/g-elevator</property> 
 							<entry><ind> 0</ind><dep> 0.0</dep></entry>
 							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
@@ -90,7 +235,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/controls/flight/elevator-input</property> 
+						<property>/it-fbw/g-elevator</property> 
 						<entry><ind> 1</ind><dep>-5.0</dep></entry>
 						<entry><ind> 0</ind><dep> 0.0</dep></entry>
 						<entry><ind>-1</ind><dep> 5.0</dep></entry>
@@ -114,7 +259,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/controls/flight/elevator-input</property> 
+						<property>/it-fbw/g-elevator</property> 
 						<entry><ind> 0.0</ind><dep> 1.5</dep></entry>
 						<entry><ind>-1.0</ind><dep> 5.0</dep></entry>
 					</table>
@@ -125,7 +270,7 @@
 							<entry><ind>30.00000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/elevator-input</property> 
+							<property>/it-fbw/g-elevator</property> 
 							<entry><ind> 0</ind><dep>-1.5</dep></entry>
 							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
@@ -154,7 +299,7 @@
 			<expression>
 				<sum>
 					<table>
-						<property>/controls/flight/elevator-input</property>
+						<property>/it-fbw/g-elevator</property>
 						<entry><ind> 1.0</ind><dep>-3.5</dep></entry>
 						<entry><ind> 0.0</ind><dep> 1.5</dep></entry>
 						<entry><ind>-1.0</ind><dep> 5.0</dep></entry>
@@ -166,7 +311,7 @@
 							<entry><ind>-14.99999</ind><dep>0</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/elevator-input</property> 
+							<property>/it-fbw/g-elevator</property> 
 							<entry><ind>1</ind><dep> 3.5</dep></entry>
 							<entry><ind>0</ind><dep>-1.5</dep></entry>
 						</table>
@@ -178,7 +323,7 @@
 							<entry><ind>30.00000</ind><dep>1</dep></entry>
 						</table>
 						<table>
-							<property>/controls/flight/elevator-input</property> 
+							<property>/it-fbw/g-elevator</property> 
 							<entry><ind> 0</ind><dep>-1.5</dep></entry>
 							<entry><ind>-1</ind><dep>-5.0</dep></entry>
 						</table>
@@ -197,9 +342,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: PITCH KP (P Gain)</name>
+		<name>IT-CONTROLLER: PITCH KP (P Gain)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
@@ -213,9 +358,9 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: PITCH TI (I Time)</name>
+		<name>IT-CONTROLLER: PITCH TI (I Time)</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
@@ -229,7 +374,7 @@
 	</filter>
 	
 	<pid-controller>
-		<name>IT-FBW: PITCH</name>
+		<name>IT-CONTROLLER: PITCH</name>
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -281,10 +426,10 @@
 	</pid-controller>
 	
 	<filter>
-		<name>IT-FBW: PITCH OPTION</name>
+		<name>IT-CONTROLLER: PITCH OPTION</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>
@@ -381,7 +526,7 @@
 	</filter>
 	
 	<filter>
-		<name>IT-FBW: PITCH TRIM</name>
+		<name>IT-CONTROLLER: PITCH TRIM</name>
 		<debug>false</debug>
 		<initialize-to>output</initialize-to>
 		<enable>

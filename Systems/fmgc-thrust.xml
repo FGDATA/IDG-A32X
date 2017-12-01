@@ -131,7 +131,7 @@
 	<filter>
 		<name>Throttle Comparator</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<greater-than-equals>
@@ -286,7 +286,7 @@
 		<name>IDLE</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -337,7 +337,7 @@
 		<name>CLB</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<and>
@@ -378,7 +378,7 @@
 	<filter>
 		<name>Thrust Filter 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>/controls/engines/throttle-cmd-pid</input>
 		<output>/controls/engines/engine[0]/throttle-cmd</output>
 		<max>
@@ -390,7 +390,7 @@
 	<filter>
 		<name>Thrust Filter 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>/controls/engines/throttle-cmd-pid</input>
 		<output>/controls/engines/engine[1]/throttle-cmd</output>
 		<max>
