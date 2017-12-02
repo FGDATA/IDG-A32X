@@ -43,7 +43,7 @@
 			
 			<text>
 				<halign>left</halign>
-				<label>IDG A32X Professional Pre V1.0</label>
+				<label>IDG A32X Pre V1.0</label>
 			</text>
 			
 			<hrule/>
@@ -70,6 +70,18 @@
 			<text>
 				<halign>left</halign>
 				<label>3 - Show Overhead View</label>
+			</text>
+			<text>
+				<halign>left</halign>
+				<label>4 - Show Forward Pedestal View</label>
+			</text>
+			<text>
+				<halign>left</halign>
+				<label>5 - Show Aft Pedestal View</label>
+			</text>
+			<text>
+				<halign>left</halign>
+				<label>6 - Show FCU Panel View</label>
 			</text>
 			<text>
 				<halign>left</halign>

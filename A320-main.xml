@@ -993,15 +993,15 @@
 			</key>
 			<key n="52">
 				<name>4</name>
-				<desc>Aileron Left</desc>
-				<!--binding>
+				<desc>Forward Pedestal/Aileron Left</desc>
+				<binding>
 					<condition>
 						<not><property>/options/system/keyboard-mode</property></not>
 					</condition>
 					<command>property-assign</command>
 					<property>/sim/current-view/view-number</property>
-					<value></value>
-				</binding-->
+					<value>10</value>
+				</binding>
 				<binding>
 					<condition>
 						<property>/options/system/keyboard-mode</property>
@@ -1014,15 +1014,15 @@
 			</key>
 			<key n="53">
 				<name>5</name>
-				<desc>Center Controls</desc>
-				<!--binding>
+				<desc>Aft Pedestal/Center Controls</desc>
+				<binding>
 					<condition>
 						<not><property>/options/system/keyboard-mode</property></not>
 					</condition>
 					<command>property-assign</command>
 					<property>/sim/current-view/view-number</property>
-					<value></value>
-				</binding-->
+					<value>11</value>
+				</binding>
 				<binding>
 					<condition>
 						<property>/options/system/keyboard-mode</property>
@@ -1037,15 +1037,15 @@
 			</key>
 			<key n="54">
 				<name>6</name>
-				<desc>Aileron Right</desc>
-				<!--binding>
+				<desc>FCU Panel/Aileron Right</desc>
+				<binding>
 					<condition>
 						<not><property>/options/system/keyboard-mode</property></not>
 					</condition>
 					<command>property-assign</command>
 					<property>/sim/current-view/view-number</property>
-					<value></value>
-				</binding-->
+					<value>12</value>
+				</binding>
 				<binding>
 					<condition>
 						<property>/options/system/keyboard-mode</property>
