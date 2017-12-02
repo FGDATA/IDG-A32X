@@ -40,45 +40,16 @@ var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.05, 0.06, 0.05, 1
 var tail_strobe_switch = props.globals.getNode("/controls/switches/tailstrobe", 2);
 var tail_strobe = aircraft.light.new("/sim/model/lights/tailstrobe", [0.11, 1], "/controls/lighting/strobe");
 var logo_lights = getprop("/sim/model/lights/logo-lights");
-var setting = getprop("/controls/lighting/nav-lights-switch");
+var nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
 var wow = getprop("/gear/gear[2]/wow");
 var slats = getprop("/controls/flight/slats");
-
-setlistener("controls/lighting/nav-lights-switch", func {
-	var nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
-	var setting = getprop("/controls/lighting/nav-lights-switch");
-	if (setting == 1 or setting == 2) {
-		nav_lights.setBoolValue(1);
-	} else {
-		nav_lights.setBoolValue(0);
-	}
-});
-
-setlistener("controls/lighting/turnoff-light-switch", func {
-	var left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
-	var right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
-	var settingT = getprop("/controls/lighting/turnoff-light-switch");
-	if (settingT == 1) {
-		left_turnoff_light.setBoolValue(1);
-		right_turnoff_light.setBoolValue(1);
-	} else {
-		left_turnoff_light.setBoolValue(0);
-		right_turnoff_light.setBoolValue(0);
-	}
-});
-
-setlistener("controls/lighting/taxi-light-switch", func {
-	var nose_lights = getprop("/sim/model/lights/nose-lights");
-	var settingT = getprop("/controls/lighting/taxi-light-switch");
-	var gear = getprop("/gear/gear[0]/position-norm");
-	if (settingT == 0) {
-		setprop("/sim/model/lights/nose-lights", 0);
-	} else if (settingT == 0.5 and gear > 0.9) {
-		setprop("/sim/model/lights/nose-lights", 0.85);
-	} else if (settingT == 1 and gear > 0.9) {
-		setprop("/sim/model/lights/nose-lights", 1);
-	}
-}, 1, 0);
+var gear = getprop("/gear/gear[0]/position-norm");
+var nose_lights = getprop("/sim/model/lights/nose-lights");
+var left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
+var right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
+var settingT = getprop("/controls/lighting/taxi-light-switch");
+var settingTurnoff = getprop("/controls/lighting/turnoff-light-switch");
+var setting = getprop("/controls/lighting/nav-lights-switch");
 
 setlistener("controls/lighting/landing-lights[1]", func {
 	var landl = getprop("/controls/lighting/landing-lights[1]");
@@ -224,19 +195,18 @@ setlistener("/sim/signals/fdm-initialized", func {
 	systems.fire_init();
 	systems.autobrake_init();
   	fmgc.APinit();			
-	systemsLoop.start();
 	fmgc.FMGCinit();
 	mcdu1.MCDU_init();
 	mcdu2.MCDU_init();
+	systemsLoop.start();
 	libraries.CVR.start();
 	icing.icingInit();
+	lightsLoop.start();
 	var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/IDG-A32X/Systems/autopilot-dlg.xml");
 	setprop("/it-autoflight/input/fd1", 1);
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();
 	libraries.variousReset();
-	logoTimer.start();
-	noseLoop.start();
 });
 
 var systemsLoop = maketimer(0.1, func {
@@ -404,11 +374,38 @@ var flaptimer = maketimer(0.5, func {
 	}
 });
 
-var logoTimer = maketimer(0.1, func {
+var lightsLoop = maketimer(0.2, func {
+	gear = getprop("/gear/gear[0]/position-norm");
+	nose_lights = getprop("/sim/model/lights/nose-lights");
+	left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
+	right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
 	logo_lights = getprop("/sim/model/lights/logo-lights");
-	setting = getprop("/controls/lighting/nav-lights-switch");
+	nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
 	wow = getprop("/gear/gear[2]/wow");
 	slats = getprop("/controls/flight/slats");
+	settingT = getprop("/controls/lighting/taxi-light-switch");
+	settingTurnoff = getprop("/controls/lighting/turnoff-light-switch");
+	setting = getprop("/controls/lighting/nav-lights-switch");
+	
+	# nose lights
+	if (settingT == 0.5 and gear > 0.9) {
+		setprop("/sim/model/lights/nose-lights", 0.85);
+	} else if (settingT == 1 and gear > 0.9) {
+		setprop("/sim/model/lights/nose-lights", 1);
+	} else {
+		setprop("/sim/model/lights/nose-lights", 0);
+	}
+	
+	# turnoff lights
+	if (settingT == 1 and gear > 0.9) {
+		left_turnoff_light.setBoolValue(1);
+		right_turnoff_light.setBoolValue(1);
+	} else {
+		left_turnoff_light.setBoolValue(0);
+		right_turnoff_light.setBoolValue(0);
+	}
+	
+	# logo light
 	if (setting == 0 and logo_lights == 1) {
 		 setprop("/sim/model/lights/logo-lights", 0);
 	} else if (setting == 1 or setting == 2) {
@@ -419,25 +416,14 @@ var logoTimer = maketimer(0.1, func {
 		} else {
 			setprop("/sim/model/lights/logo-lights", 0);
 		}
-	} else {
-	 # do nothing
 	}
-});
-
-var noseLoop = maketimer(0.1, func {
-	var gear = getprop("/gear/gear[0]/position-norm");
-	var nose_lights = getprop("/sim/model/lights/nose-lights");
-	var settingT = getprop("/controls/lighting/taxi-light-switch");
-	if (gear < 1) { 
-		setprop("/sim/model/lights/nose-lights", 0);
-	} else if (settingT == 0) {
-		setprop("/sim/model/lights/nose-lights", 0);
-	} else if (settingT == 0.5 and gear > 0.9) {
-		setprop("/sim/model/lights/nose-lights", 0.85);
-	} else if (settingT == 1 and gear > 0.9) {
-		setprop("/sim/model/lights/nose-lights", 1);
+	
+	# navigation lights
+	
+	if (setting == 1 or setting == 2) {
+		nav_lights.setBoolValue(1);
 	} else {
-		# do nothing
+		nav_lights.setBoolValue(0);
 	}
 });
 
