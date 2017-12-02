@@ -71,6 +71,8 @@ setprop("/instrumentation/adirs/adr[2]/active", 0);
 setprop("/instrumentation/adirs/ir[0]/aligned", 0);
 setprop("/instrumentation/adirs/ir[1]/aligned", 0);
 setprop("/instrumentation/adirs/ir[2]/aligned", 0);
+setprop("/controls/switching/ATTHDG", 0);
+setprop("/controls/switching/AIRDATA", 0);
 
 var canvas_PFD_base = {
 	init: func(canvas_group, file) {
@@ -748,7 +750,7 @@ var canvas_PFD_1 = {
 		wow2 = getprop("/gear/gear[2]/wow");
 		
 		# Errors
-		if (getprop("/instrumentation/adirs/adr[0]/active") == 1) {
+		if ((getprop("/instrumentation/adirs/adr[0]/active") == 1) or (getprop("/controls/switching/AIRDATA") == -1 and getprop("/instrumentation/adirs/adr[2]/active") == 1)) {
 			me["ASI_group"].show();
 			me["ALT_group"].show();
 			me["ALT_group2"].show();
@@ -772,7 +774,7 @@ var canvas_PFD_1 = {
 			me["VS_group"].hide();
 		}
 		
-		if (getprop("/instrumentation/adirs/ir[0]/aligned") == 1) {
+		if ((getprop("/instrumentation/adirs/ir[0]/aligned") == 1) or (getprop("/instrumentation/adirs/ir[2]/aligned") == 1 and getprop("/controls/switching/ATTHDG") == -1)) {
 			me["AI_group"].show();
 			me["HDG_group"].show();
 			me["AI_error"].hide();
@@ -841,7 +843,7 @@ var canvas_PFD_2 = {
 		wow2 = getprop("/gear/gear[2]/wow");
 		
 		# Errors
-		if (getprop("/instrumentation/adirs/adr[1]/active") == 1) {
+		if ((getprop("/instrumentation/adirs/adr[1]/active") == 1) or (getprop("/controls/switching/AIRDATA") == 1 and getprop("/instrumentation/adirs/adr[2]/active") == 1)) {
 			me["ASI_group"].show();
 			me["ALT_group"].show();
 			me["ALT_group2"].show();
@@ -865,7 +867,7 @@ var canvas_PFD_2 = {
 			me["VS_group"].hide();
 		}
 		
-		if (getprop("/instrumentation/adirs/ir[1]/aligned") == 1) {
+		if ((getprop("/instrumentation/adirs/ir[1]/aligned") == 1) or (getprop("/instrumentation/adirs/ir[2]/aligned") == 1 and getprop("/controls/switching/ATTHDG") == 1)) {
 			me["AI_group"].show();
 			me["HDG_group"].show();
 			me["AI_error"].hide();
