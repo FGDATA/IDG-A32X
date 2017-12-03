@@ -50,24 +50,8 @@ var right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff
 var settingT = getprop("/controls/lighting/taxi-light-switch");
 var settingTurnoff = getprop("/controls/lighting/turnoff-light-switch");
 var setting = getprop("/controls/lighting/nav-lights-switch");
-
-setlistener("controls/lighting/landing-lights[1]", func {
-	var landl = getprop("/controls/lighting/landing-lights[1]");
-	if (landl == 1) {
-		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 1);
-	} else {
-		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 0);
-	}
-});
-
-setlistener("controls/lighting/landing-lights[2]", func {
-	var landr = getprop("/controls/lighting/landing-lights[2]");
-	if (landr == 1) {
-		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
-	} else {
-		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
-	}
-});
+var landl = getprop("/controls/lighting/landing-lights[1]");
+var landr = getprop("/controls/lighting/landing-lights[2]");
 
 ###################
 # Tire Smoke/Rain #
@@ -377,17 +361,10 @@ var flaptimer = maketimer(0.5, func {
 var lightsLoop = maketimer(0.2, func {
 	gear = getprop("/gear/gear[0]/position-norm");
 	nose_lights = getprop("/sim/model/lights/nose-lights");
-	left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
-	right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
-	logo_lights = getprop("/sim/model/lights/logo-lights");
-	nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
-	wow = getprop("/gear/gear[2]/wow");
-	slats = getprop("/controls/flight/slats");
 	settingT = getprop("/controls/lighting/taxi-light-switch");
-	settingTurnoff = getprop("/controls/lighting/turnoff-light-switch");
-	setting = getprop("/controls/lighting/nav-lights-switch");
 	
 	# nose lights
+	
 	if (settingT == 0.5 and gear > 0.9) {
 		setprop("/sim/model/lights/nose-lights", 0.85);
 	} else if (settingT == 1 and gear > 0.9) {
@@ -397,7 +374,11 @@ var lightsLoop = maketimer(0.2, func {
 	}
 	
 	# turnoff lights
-	if (settingT == 1 and gear > 0.9) {
+	settingTurnoff = getprop("/controls/lighting/turnoff-light-switch");
+	left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
+	right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
+	
+	if (settingTurnoff == 1 and gear > 0.9) {
 		left_turnoff_light.setBoolValue(1);
 		right_turnoff_light.setBoolValue(1);
 	} else {
@@ -405,25 +386,45 @@ var lightsLoop = maketimer(0.2, func {
 		right_turnoff_light.setBoolValue(0);
 	}
 	
-	# logo light
+	# logo and navigation lights
+	setting = getprop("/controls/lighting/nav-lights-switch");
+	nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
+	logo_lights = props.globals.getNode("/sim/model/lights/logo-lights");
+	wow = getprop("/gear/gear[2]/wow");
+	slats = getprop("/controls/flight/slats");
+	
 	if (setting == 0 and logo_lights == 1) {
-		 setprop("/sim/model/lights/logo-lights", 0);
+		 logo_lights.setBoolValue(0);
 	} else if (setting == 1 or setting == 2) {
-		if (wow) {
-			setprop("/sim/model/lights/logo-lights", 1);
-		} else if (!wow and slats > 0) {
-			setprop("/sim/model/lights/logo-lights", 1);
+		if ((wow) or (!wow and slats > 0)) {
+			logo_lights.setBoolValue(1);
 		} else {
-			setprop("/sim/model/lights/logo-lights", 0);
+			logo_lights.setBoolValue(0);
 		}
+	} else {
+		logo_lights.setBoolValue(0);
 	}
-	
-	# navigation lights
-	
+
 	if (setting == 1 or setting == 2) {
 		nav_lights.setBoolValue(1);
 	} else {
 		nav_lights.setBoolValue(0);
+	}
+	
+	# landing lights
+	landl = getprop("/controls/lighting/landing-lights[1]");
+	landr = getprop("/controls/lighting/landing-lights[2]");
+	
+	if (landl == 1) {
+		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 1);
+	} else {
+		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 0);
+	}
+	
+	if (landr == 1) {
+		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+	} else {
+		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
 	}
 });
 
