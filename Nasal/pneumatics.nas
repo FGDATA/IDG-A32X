@@ -371,6 +371,13 @@ var PNEU = {
 		} else {
 			setprop("/systems/pneumatic/pack2-fault", 0);
 		}
+		
+		# Oxygen
+		
+		if (cabinalt > 13500) { 
+			setprop("/controls/oxygen/masksDeploy", 1);
+			setprop("/controls/oxygen/masksSys", 1);
+		}
 	},
 };
 
@@ -419,6 +426,9 @@ var flashfault2 = func {
 # Oxygen (Cabin)
 
 setlistener("/controls/oxygen/masksDeployMan", func {
+	guard = getprop("/controls/oxygen/masksGuard");
+	masks = getprop("/controls/oxygen/masksDeployMan");
+	
 	if (guard and masks) {
 		setprop("/controls/oxygen/masksDeployMan", 0);
 	} else if (!guard and masks) {
@@ -428,22 +438,17 @@ setlistener("/controls/oxygen/masksDeployMan", func {
 	}
 });
 
-if (cabinalt > 13500) { 
-	setprop("/controls/oxygen/masksDeploy", 1);
-	setprop("/controls/oxygen/masksSys", 1);
-}
-
 setlistener("/controls/oxygen/masksDeployMan", func {
-	var masks = getprop("/controls/oxygen/masksDeployMan");
-	var autoMasks = getprop("/controls/oxygen/masksDeploy");
+	masks = getprop("/controls/oxygen/masksDeployMan");
+	autoMasks = getprop("/controls/oxygen/masksDeploy");
 	if (!masks) { 
 		setprop("/controls/oxygen/masksDeployMan", 1);
 	}
 });
 
 setlistener("/controls/oxygen/masksDeploy", func {
-	var masks = getprop("/controls/oxygen/masksDeployMan");
-	var autoMasks = getprop("/controls/oxygen/masksDeploy");
+	masks = getprop("/controls/oxygen/masksDeployMan");
+	autoMasks = getprop("/controls/oxygen/masksDeploy");
 	if (!autoMasks) { 
 		setprop("/controls/oxygen/masksDeploy", 1);
 	}
