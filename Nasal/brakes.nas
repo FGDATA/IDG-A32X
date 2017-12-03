@@ -65,7 +65,7 @@ var absChk = maketimer(0.2, func {
 	thr2 = getprop("/controls/engines/engine[1]/throttle");
 	wow0 = getprop("/gear/gear[0]/wow");
 	gnd_speed = getprop("/velocities/groundspeed-kt");
-	if (gnd_speed > 60) {
+	if (gnd_speed > 72) {
 		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow0 == 1) {
 			setprop("/controls/autobrake/active", 1);
 			if (getprop("/controls/autobrake/mode") == 1) { # LO

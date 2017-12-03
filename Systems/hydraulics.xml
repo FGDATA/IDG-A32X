@@ -1793,7 +1793,7 @@
 		<S>
 			<and>
 				<less-than>
-					<property>/controls/engines/engine/throttle</property>
+					<property>/controls/engines/engine[0]/throttle</property>
 					<value>0.15</value>
 				</less-than>
 				<less-than>
@@ -1804,14 +1804,14 @@
 				<property>/gear/gear[2]/wow</property>
 				<greater-than>
 					<property>/velocities/groundspeed-kt</property>
-					<value>60</value>
+					<value>72</value>
 				</greater-than>
 			</and>
 		</S>
 		<R>
 			<or>
 				<greater-than>
-					<property>/controls/engines/engine/throttle</property>
+					<property>/controls/engines/engine[0]/throttle</property>
 					<value>0.16</value>
 				</greater-than>
 				<greater-than>
@@ -1849,6 +1849,7 @@
 	</filter>
 	
 	<!-- Braking -->
+	
 	<filter>
 		<name>Left Press</name>
 		<type>gain</type>
@@ -1887,9 +1888,9 @@
 		<output>/systems/hydraulic/brakes/pressure-right-psi</output>
 	</filter>
 	
-	<!-- =============================================================== -->
-	<!-- Landing Gear                                                    -->
-	<!-- =============================================================== -->
+ <!-- =============================================================== -->
+ <!-- Landing Gear                                                    -->
+ <!-- =============================================================== -->
 	
 	<filter>
 		<name>Left Door</name>
