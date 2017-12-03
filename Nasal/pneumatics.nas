@@ -414,7 +414,7 @@ var flashfault2 = func {
 	settimer(func {
 		setprop("/controls/deice/eng2-fault", 0);
 	}, 0.5);
-	
+}
 	# Oxygen (Cabin)
 
 	setlistener("/controls/oxygen/masksDeployMan", func {
