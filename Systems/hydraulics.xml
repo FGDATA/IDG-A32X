@@ -17,9 +17,9 @@
 	<filter>
 		<name>Aileron Droop</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
@@ -34,9 +34,9 @@
 	<filter>
 		<name>Elevator Droop</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
@@ -1853,9 +1853,9 @@
 	<filter>
 		<name>Left Press</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/gear/brake-left</property>
@@ -1872,9 +1872,9 @@
 	<filter>
 		<name>Right Press</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/gear/brake-right</property>
@@ -1895,9 +1895,9 @@
 	<filter>
 		<name>Left Door</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/gear/gear[1]/position-norm</property>
@@ -1914,9 +1914,9 @@
 	<filter>
 		<name>Left Door Conversion to Degrees</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/systems/hydraulic/gear/door-left</property>
@@ -1931,9 +1931,9 @@
 	<filter>
 		<name>Right Door</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/gear/gear[2]/position-norm</property>
@@ -1950,9 +1950,9 @@
 	<filter>
 		<name>Right Door Conversion to Degrees</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/systems/hydraulic/gear/door-right</property>
@@ -1967,9 +1967,9 @@
 	<filter>
 		<name>Nose Door</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/gear/gear[0]/position-norm</property>
@@ -1986,9 +1986,9 @@
 	<filter>
 		<name>NLG Left Door Conversion to Degrees</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/systems/hydraulic/gear/door-nose</property>
@@ -2003,9 +2003,9 @@
 	<filter>
 		<name>NLG Right Door Conversion to Degrees</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/systems/hydraulic/gear/door-nose</property>
@@ -2016,5 +2016,53 @@
 		</input>
 		<output>/ECAM/Lower/door-nose-right</output>
 	</filter>
+	
+ <!-- =============================================================== -->
+ <!-- Autobrake                                                       -->
+ <!-- =============================================================== -->
+
+	<filter>
+		<name>Autobrake Decel Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/velocities/groundspeed-mps</property>
+					<property>/velocities/groundspeed-mps-ahead</property>
+				</dif>
+			</expression>
+		</input>
+		<output>/controls/autobrake/decel-error</output>
+	</filter>
+	
+	<pi-simple-controller>
+		<name>IT-CONTROLLER: AUTOBRAKE DECEL</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<equals>
+					<property>/controls/autobrake/active</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<property>/controls/autobrake/decel-error</property>
+		</input>
+		<reference>
+			<property>/controls/autobrake/decel-rate</property>
+		</reference>
+		<output>
+			<property>/controls/gear/brake-left</property>
+			<property>/controls/gear/brake-right</property>
+		</output>
+		<config>
+			<Kp>0.45</Kp>
+			<Ki>0.25</Ki>
+			<min>0.0</min>
+			<max>1.0</max>
+		</config>
+	</pi-simple-controller>
 
 </PropertyList>

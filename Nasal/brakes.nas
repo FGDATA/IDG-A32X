@@ -7,6 +7,7 @@
 
 setprop("/controls/autobrake/active", 0);
 setprop("/controls/autobrake/mode", 0);
+setprop("/controls/autobrake/decel-rate", 0);
 
 setlistener("/sim/signals/fdm-initialized", func {
 	var thr1 = 0;
@@ -46,14 +47,18 @@ var arm_autobrake = func(mode) {
 			setprop("/controls/gear/brake-left", 0);
 			setprop("/controls/gear/brake-right", 0);
 		}
+		setprop("/controls/autobrake/decel-rate", 0);
 		setprop("/controls/autobrake/mode", 0);
 	} else if (mode == 1 and wow0 != 1) { # LO
+		setprop("/controls/autobrake/decel-rate", 1.7);
 		setprop("/controls/autobrake/mode", 1);
 		absChk.start();
 	} else if (mode == 2 and wow0 != 1) { # MED
+		setprop("/controls/autobrake/decel-rate", 3);
 		setprop("/controls/autobrake/mode", 2);
 		absChk.start();
 	} else if (mode == 3 and wow0 == 1) { # MAX
+		setprop("/controls/autobrake/decel-rate", 6);
 		setprop("/controls/autobrake/mode", 3);
 		absChk.start();
 	}
@@ -68,16 +73,6 @@ var absChk = maketimer(0.2, func {
 	if (gnd_speed > 72) {
 		if (getprop("/controls/autobrake/mode") != 0 and thr1 < 0.15 and thr2 < 0.15 and wow0 == 1) {
 			setprop("/controls/autobrake/active", 1);
-			if (getprop("/controls/autobrake/mode") == 1) { # LO
-				interpolate("/controls/gear/brake-left", 0.4, 0.5);
-				interpolate("/controls/gear/brake-right", 0.4, 0.5);
-			} else if (getprop("/controls/autobrake/mode") == 2) { # MED
-				interpolate("/controls/gear/brake-left", 0.65, 0.5);
-				interpolate("/controls/gear/brake-right", 0.65, 0.5);
-			} else if (getprop("/controls/autobrake/mode") == 3) { # MAX
-				interpolate("/controls/gear/brake-left", 0.9, 0.5);
-				interpolate("/controls/gear/brake-right", 0.9, 0.5);
-			}
 		} else {
 			setprop("/controls/autobrake/active", 0);
 			setprop("/controls/gear/brake-left", 0);
