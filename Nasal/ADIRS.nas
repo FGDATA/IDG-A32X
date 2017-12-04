@@ -1,5 +1,5 @@
 # A3XX ADIRS System
-# Joshua Davidson
+# Joshua Davidson (it0uchpods)
 
 ##############################################
 # Copyright (c) Joshua Davidson (it0uchpods) #
