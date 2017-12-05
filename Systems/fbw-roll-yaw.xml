@@ -19,7 +19,6 @@
 	   <name>IT-CONTROLLER: ROLL</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<condition>
 				<and>
