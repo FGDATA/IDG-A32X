@@ -61,7 +61,7 @@
 		<input>
 			<expression>
 				<sum>
-					<property>/accelerations/pilot-g</property>
+					<property>/accelerations/pilot-gdamped</property>
 					<div>
 						<value>1</value>
 						<cos>
@@ -132,7 +132,7 @@
 			<property>/it-fbw/g-elevator</property>
 		</output>
 		<config>
-			<Kp>-2.5</Kp>
+			<Kp>-1.5</Kp>
 			<Ki>-1.5</Ki>
 			<min>
 				<condition>
@@ -404,7 +404,7 @@
 			<property>/it-fbw/pitch-rate</property>
 		</reference>
 		<output>
-			<property>/controls/flight/elevator-fbw-cmd</property>
+			<property>/controls/flight/elevator-fbw-pid</property>
 		</output>
 		<config>
 			<Kp>
@@ -421,6 +421,32 @@
 			<u_max>1</u_max>
 		</config>
 	</pid-controller>
+	
+	<filter>
+		<name>IT-CONTROLLER: ELEVATOR INVERT</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<less-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>90</value>
+					</less-than-equals>
+					<greater-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>-90</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<property>/controls/flight/elevator-fbw-pid</property>
+		</input>
+		<input>
+			<property>/controls/flight/elevator-fbw-pid</property>
+			<scale>-1.0</scale>
+		</input>
+		<output>/controls/flight/elevator-fbw-cmd</output>
+	</filter>
 	
 	<filter>
 		<name>IT-CONTROLLER: PITCH OPTION</name>
