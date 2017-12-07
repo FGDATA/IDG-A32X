@@ -1298,6 +1298,9 @@
 			<file>Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/Upper-ECAM.nas</file>
 			<file>Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/Lower-ECAM.nas</file>
 		</canvas_ecam>
+		<canvas_mcdu>
+			<file>Aircraft/IDG-A32X/Models/Instruments/MCDU/MCDU.nas</file>
+		</canvas_mcdu>
 		<icing>
 			<file>Aircraft/IDG-A32X/Nasal/icing.nas</file>
 		</icing>

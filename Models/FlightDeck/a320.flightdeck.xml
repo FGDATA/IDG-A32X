@@ -144,7 +144,7 @@
 
 	<!-- Multi-purpose Control and Display Units -->
 	<model>
-		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU1/MCDU1.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU/MCDU1.xml</path>
 		<offsets>
 			<x-m>-0.35794</x-m>
 			<y-m>-0.18632</y-m>
@@ -154,7 +154,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU2/MCDU2.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/MCDU/MCDU2.xml</path>
 		<offsets>
 			<x-m>-0.35794</x-m>
 			<y-m>0.18632</y-m>
