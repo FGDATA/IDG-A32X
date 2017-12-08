@@ -49,6 +49,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var flaps = getprop("/controls/flight/flap-pos");
 	var alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
 	var gs = getprop("/velocities/groundspeed-kt");
+	thrust_lim.start();
 	thrustt.start();
 });
 
@@ -192,7 +193,7 @@ var atoff_request = func {
 	}
 }
 
-var thrust_lim = func {
+var thrust_lim = maketimer(0.04, func {
 	state1 = getprop("/systems/thrust/state1");
 	state2 = getprop("/systems/thrust/state2");
 	engstate1 = getprop("/engines/engine[0]/state");
@@ -250,7 +251,7 @@ var thrust_lim = func {
 		setprop("/controls/engines/epr-limit", eprtoga);
 		setprop("/controls/engines/n1-limit", n1toga);
 	}
-}
+});
 
 var unflex = func {
 	state1 = getprop("/systems/thrust/state1");
@@ -263,8 +264,6 @@ var unflex = func {
 var thrust_loop = func {
 	state1 = getprop("/systems/thrust/state1");
 	state2 = getprop("/systems/thrust/state2");
-	
-	thrust_lim();
 	
 	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and (getprop("/engines/engine[0]/state") != 3 or getprop("/engines/engine[1]/state") != 3)) {
 		setprop("/systems/thrust/eng-out", 1);
