@@ -210,7 +210,7 @@ var canvas_PFD_base = {
 		wow2 = getprop("/gear/gear[2]/wow");
 		
 		# FMA MAN TOGA MCT FLX THR
-		if (athr == 1 and (state1 == "TOGA" or state1 == "MCT" or state1 == "MAN THR" or state2 == "TOGA" or state2 == "MCT" or state2 == "MAN THR")) {
+		if (athr == 1 and (state1 == "TOGA" or state1 == "MCT" or state1 == "MAN THR" or state2 == "TOGA" or state2 == "MCT" or state2 == "MAN THR") and getprop("/systems/thrust/eng-out") != 1) {
 			me["FMA_man"].show();
 			me["FMA_manmode"].show();
 			if (state1 == "TOGA" or state2 == "TOGA") {
@@ -245,12 +245,42 @@ var canvas_PFD_base = {
 				me["FMA_manmode"].setText("THR");
 				me["FMA_man_box"].setColor(0.7333,0.3803,0);
 			}
+		} else if (athr == 1 and (state1 == "TOGA" or (state1 == "MCT" and getprop("/controls/engines/thrust-limit") == "FLX") or (state1 == "MAN THR" and thr1 >= 0.83) or state2 == "TOGA" or (state2 == "MCT" and 
+		getprop("/controls/engines/thrust-limit") == "FLX") or (state2 == "MAN THR" and thr2 >= 0.83)) and getprop("/systems/thrust/eng-out") == 1) {
+			me["FMA_man"].show();
+			me["FMA_manmode"].show();
+			if (state1 == "TOGA" or state2 == "TOGA") {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("TOGA");
+				me["FMA_man_box"].setColor(0.8078,0.8039,0.8078);
+			} else if ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) {
+				me["FMA_flx_box"].hide();
+				me["FMA_flxtemp"].hide();
+				me["FMA_man_box"].show();
+				me["FMA_manmode"].setText("THR");
+				me["FMA_man_box"].setColor(0.7333,0.3803,0);
+			} else if ((state1 == "MCT" or state2 == "MCT") and getprop("/controls/engines/thrust-limit") == "FLX") {
+				me["FMA_flxtemp"].setText(sprintf("%s", "+" ~ getprop("/FMGC/internal/flex")));
+				me["FMA_man_box"].hide();
+				me["FMA_flx_box"].show();
+				me["FMA_flxtemp"].show();
+				me["FMA_manmode"].setText("FLX            ");
+				me["FMA_man_box"].setColor(0.8078,0.8039,0.8078);
+			}
 		} else {
 			me["FMA_man"].hide();
 			me["FMA_manmode"].hide();
 			me["FMA_man_box"].hide();
 			me["FMA_flx_box"].hide();
 			me["FMA_flxtemp"].hide();
+		}
+		
+		if (getprop("/systems/thrust/eng-out") == 1) {
+			me["FMA_lvrclb"].setText("LVR MCT");
+		} else {
+			me["FMA_lvrclb"].setText("LVR CLB");
 		}
 		
 		if (athr == 1 and getprop("/systems/thrust/lvrclb") == 1) {
@@ -260,7 +290,15 @@ var canvas_PFD_base = {
 		}
 	
 		# FMA A/THR
-		if (athr == 1 and ((state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL"))) {
+		if (athr == 1 and getprop("/systems/thrust/eng-out") != 1 and (state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL")) {
+			me["FMA_thrust"].show();
+			if (getprop("/modes/pfd/fma/throttle-mode-box") == 1 and throttle_mode != " ") {
+				me["FMA_thrust_box"].show();
+			} else {
+				me["FMA_thrust_box"].hide();
+			}
+		} else if (athr == 1 and getprop("/systems/thrust/eng-out") == 1 and (state1 == "MAN" or state1 == "CL" or (state1 == "MAN THR" and thr1 < 0.83) or (state1 == "MCT" and getprop("/controls/engines/thrust-limit") != "FLX")) and 
+		(state2 == "MAN" or state2 == "CL" or (state2 == "MAN THR" and thr2 < 0.83) or (state2 == "MCT" and getprop("/controls/engines/thrust-limit") != "FLX"))) {
 			me["FMA_thrust"].show();
 			if (getprop("/modes/pfd/fma/throttle-mode-box") == 1 and throttle_mode != " ") {
 				me["FMA_thrust_box"].show();
@@ -390,7 +428,7 @@ var canvas_PFD_base = {
 		me["FMA_fd"].setText(sprintf("%s", getprop("/modes/pfd/fma/fd-mode")));
 		me["FMA_athr"].setText(sprintf("%s", getprop("/modes/pfd/fma/at-mode")));
 		
-		if ((state1 == "MAN" or state1 == "CL") and (state2 == "MAN" or state2 == "CL")) {
+		if (getprop("/modes/pfd/fma/athr-armed") != 1) {
 			me["FMA_athr"].setColor(0.8078,0.8039,0.8078);
 		} else {
 			me["FMA_athr"].setColor(0.0862,0.5176,0.6470);
