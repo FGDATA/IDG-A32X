@@ -279,6 +279,20 @@
 						<value>0</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>MCT</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN THR</value>
@@ -302,16 +316,60 @@
 		<input>
 			<condition>
 				<or>
-					<equals>
-						<property>/systems/thrust/state1</property>
-						<value>MAN THR</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/systems/thrust/eng-out</property>
+							<value>0</value>
+						</equals>
+						<less-than>
+							<property>/controls/engines/engine[0]/throttle-pos</property>
+							<value>0.83</value>
+						</less-than>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>MAN THR</value>
+						</equals>
+					</and>
+					<and>
+						<greater-than-equals>
+							<property>/controls/engines/engine[0]/throttle-pos</property>
+							<value>0.83</value>
+						</greater-than-equals>
+						<equals>
+							<property>/systems/thrust/state1</property>
+							<value>MAN THR</value>
+						</equals>
+					</and>
 					<and>
 						<equals>
 							<property>/it-autoflight/output/athr</property>
 							<value>0</value>
 						</equals>
 						<or>
+							<and>
+								<equals>
+									<property>/systems/thrust/eng-out</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/lim-flex</property>
+									<value>0</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+							</and>
+							<and>
+								<equals>
+									<property>/systems/thrust/eng-out</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MAN THR</value>
+								</equals>
+							</and>
 							<equals>
 								<property>/systems/thrust/state1</property>
 								<value>CL</value>
@@ -338,6 +396,34 @@
 						<value>1</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>MCT</value>
+							</equals>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/controls/engines/engine[0]/throttle-pos</property>
+								<value>0.83</value>
+							</less-than>
+							<equals>
+								<property>/systems/thrust/state1</property>
+								<value>MAN THR</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>CL</value>
@@ -373,6 +459,20 @@
 						<value>0</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>MCT</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/systems/thrust/state2</property>
 							<value>MAN THR</value>
@@ -396,16 +496,60 @@
 		<input>
 			<condition>
 				<or>
-					<equals>
-						<property>/systems/thrust/state2</property>
-						<value>MAN THR</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/systems/thrust/eng-out</property>
+							<value>0</value>
+						</equals>
+						<less-than>
+							<property>/controls/engines/engine[1]/throttle-pos</property>
+							<value>0.83</value>
+						</less-than>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>MAN THR</value>
+						</equals>
+					</and>
+					<and>
+						<greater-than-equals>
+							<property>/controls/engines/engine[1]/throttle-pos</property>
+							<value>0.83</value>
+						</greater-than-equals>
+						<equals>
+							<property>/systems/thrust/state2</property>
+							<value>MAN THR</value>
+						</equals>
+					</and>
 					<and>
 						<equals>
 							<property>/it-autoflight/output/athr</property>
 							<value>0</value>
 						</equals>
 						<or>
+							<and>
+								<equals>
+									<property>/systems/thrust/eng-out</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/lim-flex</property>
+									<value>0</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</and>
+							<and>
+								<equals>
+									<property>/systems/thrust/eng-out</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MAN THR</value>
+								</equals>
+							</and>
 							<equals>
 								<property>/systems/thrust/state2</property>
 								<value>CL</value>
@@ -432,6 +576,34 @@
 						<value>1</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>MCT</value>
+							</equals>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/controls/engines/engine[1]/throttle-pos</property>
+								<value>0.83</value>
+							</less-than>
+							<equals>
+								<property>/systems/thrust/state2</property>
+								<value>MAN THR</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/systems/thrust/state2</property>
 							<value>CL</value>

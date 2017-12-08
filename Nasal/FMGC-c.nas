@@ -46,17 +46,23 @@ var loopFMA = maketimer(0.05, func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
 	var newthr = getprop("/modes/pfd/fma/throttle-mode");
+	var thr1 = getprop("/controls/engines/engine[0]/throttle-pos");
+	var thr2 = getprop("/controls/engines/engine[1]/throttle-pos");
 	if (state1 == "TOGA" or state2 == "TOGA") {
-		if (newthr != " ") {
-			setprop("/modes/pfd/fma/throttle-mode", " ");
+		if (newthr != "   ") {
+			setprop("/modes/pfd/fma/throttle-mode", "   ");
 		}
-	} else if (state1 == "MCT" or state2 == "MCT") {
+	} else if ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)) {
+		if (newthr != "   ") {
+			setprop("/modes/pfd/fma/throttle-mode", "   ");
+		}
+	} else if ((state1 == "MCT" or state2 == "MCT") and getprop("/systems/thrust/eng-out") != 1) {
 		if (newthr != "  ") {
 			setprop("/modes/pfd/fma/throttle-mode", "  ");
 		}
-	} else if (state1 == "MAN THR" or state2 == "MAN THR") {
-		if (newthr != "   ") {
-			setprop("/modes/pfd/fma/throttle-mode", "   ");
+	} else if (((state1 == "MAN THR" and thr1 < 0.83) or (state2 == "MAN THR" and thr2 < 0.83)) and getprop("/systems/thrust/eng-out") != 1) {
+		if (newthr != " ") {
+			setprop("/modes/pfd/fma/throttle-mode", " ");
 		}
 	} else {
 		if ((getprop("/it-autoflight/output/vert") == 4) or (getprop("/it-autoflight/output/vert") == 6) or (getprop("/it-autoflight/output/vert") == 7) or (getprop("/it-autoflight/output/vert") == 8)) {
@@ -71,7 +77,11 @@ var loopFMA = maketimer(0.05, func {
 						setprop("/modes/pfd/fma/throttle-mode", "THR IDLE");
 					}
 				} else if (thr == 2) {
-					if (state1 == "CL" or state2 == "CL") {
+					if (state1 == "MCT" or state2 == "MCT" and getprop("/systems/thrust/eng-out") == 1) {
+						if (newthr != "THR MCT") {
+							setprop("/modes/pfd/fma/throttle-mode", "THR MCT");
+						}
+					} else if (state1 == "CL" or state2 == "CL") {
 						if (newthr != "THR CLB") {
 							setprop("/modes/pfd/fma/throttle-mode", "THR CLB");
 						}
@@ -88,7 +98,12 @@ var loopFMA = maketimer(0.05, func {
 	}
 	
 	# A/THR Armed/Active
-	if (getprop("/it-autoflight/output/athr") == 1 and (state1 == "MAN THR" or state2 == "MAN THR" or state1 == "MCT" or state2 == "MCT" or state1 == "TOGA" or state2 == "TOGA")) {
+	if (getprop("/it-autoflight/output/athr") == 1 and (state1 == "MAN THR" or state2 == "MAN THR" or state1 == "MCT" or state2 == "MCT" or state1 == "TOGA" or state2 == "TOGA") and getprop("/systems/thrust/eng-out") != 1) {
+		if (getprop("/modes/pfd/fma/athr-armed") != 1) {
+			setprop("/modes/pfd/fma/athr-armed", 1);
+		}
+	} else if (getprop("/it-autoflight/output/athr") == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83) or (state1 == "MCT" and getprop("/controls/engines/thrust-limit") == "FLX") or 
+	(state2 == "MCT" and getprop("/controls/engines/thrust-limit") == "FLX") or state1 == "TOGA" or state2 == "TOGA") and getprop("/systems/thrust/eng-out") == 1) {
 		if (getprop("/modes/pfd/fma/athr-armed") != 1) {
 			setprop("/modes/pfd/fma/athr-armed", 1);
 		}
@@ -612,8 +627,13 @@ setlistener("/modes/pfd/fma/athr-armed", func {
 setlistener("/modes/pfd/fma/throttle-mode", func {
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
-	if (getprop("/it-autoflight/output/athr") == 1 and state1 != "MCT" and state2 != "MCT" and state1 != "MAN THR" and state2 != "MAN THR" and state1 != "TOGA" and state2 != "TOGA" and state1 != "IDLE" and state2 != "IDLE") {
+	if (getprop("/it-autoflight/output/athr") == 1 and state1 != "MCT" and state2 != "MCT" and state1 != "MAN THR" and state2 != "MAN THR" and state1 != "TOGA" and state2 != "TOGA" and state1 != "IDLE" and state2 != "IDLE" and 
+	getprop("/systems/thrust/eng-out") != 1) {
 		setprop("/modes/pfd/fma/throttle-mode-time", getprop("/sim/time/elapsed-sec"));
+	} else 	if (getprop("/it-autoflight/output/athr") == 1 and state1 != "TOGA" and state2 != "TOGA" and state1 != "IDLE" and state2 != "IDLE" and getprop("/systems/thrust/eng-out") == 1) {
+		if (getprop("/controls/engines/engine[0]/throttle-pos") < 0.83 and getprop("/controls/engines/engine[1]/throttle-pos") < 0.83) {
+			setprop("/modes/pfd/fma/throttle-mode-time", getprop("/sim/time/elapsed-sec"));
+		}
 	}
 });
 

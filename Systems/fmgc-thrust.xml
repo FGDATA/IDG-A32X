@@ -192,6 +192,54 @@
 						</equals>
 					</or>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<or>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</or>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<or>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[0]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state1</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[1]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state2</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+							</or>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN</value>
@@ -276,6 +324,54 @@
 						</equals>
 					</or>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<or>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</or>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<or>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[0]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state1</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[1]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state2</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+							</or>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN</value>
@@ -358,6 +454,54 @@
 						<value>1</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<or>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</or>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<or>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[0]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state1</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[1]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state2</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+							</or>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN</value>
@@ -430,6 +574,54 @@
 						<value>2</value>
 					</equals>
 					<or>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<or>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</or>
+						</and>
+						<and>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<or>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[0]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state1</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[1]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state2</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+							</or>
+						</and>
 						<equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN</value>
@@ -471,6 +663,54 @@
 						<value>0</value>
 					</equals>
 					<and>
+						<not>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/systems/thrust/lim-flex</property>
+								<value>0</value>
+							</equals>
+							<or>
+								<equals>
+									<property>/systems/thrust/state1</property>
+									<value>MCT</value>
+								</equals>
+								<equals>
+									<property>/systems/thrust/state2</property>
+									<value>MCT</value>
+								</equals>
+							</or>
+						</not>
+						<not>
+							<equals>
+								<property>/systems/thrust/eng-out</property>
+								<value>1</value>
+							</equals>
+							<or>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[0]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state1</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+								<and>
+									<less-than>
+										<property>/controls/engines/engine[1]/throttle-pos</property>
+										<value>0.83</value>
+									</less-than>
+									<equals>
+										<property>/systems/thrust/state2</property>
+										<value>MAN THR</value>
+									</equals>
+								</and>
+							</or>
+						</not>
 						<not-equals>
 							<property>/systems/thrust/state1</property>
 							<value>MAN</value>
