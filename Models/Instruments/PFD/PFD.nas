@@ -431,7 +431,7 @@ var canvas_PFD_base = {
 		if (getprop("/modes/pfd/fma/athr-armed") != 1) {
 			me["FMA_athr"].setColor(0.8078,0.8039,0.8078);
 		} else {
-			me["FMA_athr"].setColor(0.0862,0.5176,0.6470);
+			me["FMA_athr"].setColor(0.0901,0.6039,0.7176);
 		}
 		
 		if (getprop("/modes/pfd/fma/ap-mode-box") == 1 and getprop("/modes/pfd/fma/ap-mode") != " ") {
@@ -494,11 +494,11 @@ var canvas_PFD_base = {
 			me["ASI_digit_DN"].setColor(0.6901,0.3333,0.7450);
 			me["ASI_decimal_DN"].setColor(0.6901,0.3333,0.7450);
 		} else {
-			me["ASI_target"].setColor(0.0862,0.5176,0.6470);
-			me["ASI_digit_UP"].setColor(0.0862,0.5176,0.6470);
-			me["ASI_decimal_UP"].setColor(0.0862,0.5176,0.6470);
-			me["ASI_digit_DN"].setColor(0.0862,0.5176,0.6470);
-			me["ASI_decimal_DN"].setColor(0.0862,0.5176,0.6470);
+			me["ASI_target"].setColor(0.0901,0.6039,0.7176);
+			me["ASI_digit_UP"].setColor(0.0901,0.6039,0.7176);
+			me["ASI_decimal_UP"].setColor(0.0901,0.6039,0.7176);
+			me["ASI_digit_DN"].setColor(0.0901,0.6039,0.7176);
+			me["ASI_decimal_DN"].setColor(0.0901,0.6039,0.7176);
 		}
 		
 		if (getprop("/FMGC/internal/target-ias-pfd") <= 30) {

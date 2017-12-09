@@ -145,7 +145,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line1c") == "w") {
 			me["ECAML1"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line1c") == "b") {
-			me["ECAML1"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML1"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line1c") == "g") {
 			me["ECAML1"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line1c") == "a") {
@@ -157,7 +157,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line2c") == "w") {
 			me["ECAML2"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line2c") == "b") {
-			me["ECAML2"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML2"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line2c") == "g") {
 			me["ECAML2"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line2c") == "a") {
@@ -169,7 +169,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line3c") == "w") {
 			me["ECAML3"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line3c") == "b") {
-			me["ECAML3"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML3"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line3c") == "g") {
 			me["ECAML3"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line3c") == "a") {
@@ -181,7 +181,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line4c") == "w") {
 			me["ECAML4"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line4c") == "b") {
-			me["ECAML4"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML4"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line4c") == "g") {
 			me["ECAML4"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line4c") == "a") {
@@ -193,7 +193,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line5c") == "w") {
 			me["ECAML5"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line5c") == "b") {
-			me["ECAML5"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML5"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line5c") == "g") {
 			me["ECAML5"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line5c") == "a") {
@@ -205,7 +205,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line6c") == "w") {
 			me["ECAML6"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line6c") == "b") {
-			me["ECAML6"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML6"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line6c") == "g") {
 			me["ECAML6"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line6c") == "a") {
@@ -217,7 +217,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line7c") == "w") {
 			me["ECAML7"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line7c") == "b") {
-			me["ECAML7"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML7"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line7c") == "g") {
 			me["ECAML7"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line7c") == "a") {
@@ -229,7 +229,7 @@ var canvas_upperECAM_base = {
 		if (getprop("/ECAM/msg/line8c") == "w") {
 			me["ECAML8"].setColor(0.8078,0.8039,0.8078);
 		} else if (getprop("/ECAM/msg/line8c") == "b") {
-			me["ECAML8"].setColor(0.0862,0.5176,0.6470);
+			me["ECAML8"].setColor(0.0901,0.6039,0.7176);
 		} else if (getprop("/ECAM/msg/line8c") == "g") {
 			me["ECAML8"].setColor(0.0509,0.7529,0.2941);
 		} else if (getprop("/ECAM/msg/line8c") == "a") {
