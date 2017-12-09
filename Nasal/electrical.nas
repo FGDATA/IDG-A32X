@@ -13,6 +13,9 @@ var dc_amps_std = 150;
 var ac_hz_std = 400;
 var ac1_src = "XX";
 var ac2_src = "XX";
+var power_consumption = nil;
+var screen_power_consumption = nil;
+var screens = nil;
 
 setlistener("/sim/signals/fdm-initialized", func {
 	var galley_sw = getprop("/controls/electrical/switches/galley");
@@ -37,6 +40,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var ac1 = getprop("/systems/electrical/bus/ac1");
 	var ac2 = getprop("/systems/electrical/bus/ac2");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var ac_ess_shed = getprop("/systems/electrical/bus/ac-ess-shed");
 	var dc1 = getprop("/systems/electrical/bus/dc1");
 	var dc2 = getprop("/systems/electrical/bus/dc2");
 	var dcbat = getprop("/systems/electrical/bus/dcbat");
@@ -58,7 +62,43 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var bat1_volts = getprop("/systems/electrical/battery1-volts");
 	var bat2_volts = getprop("/systems/electrical/battery2-volts");
 	var replay = getprop("/sim/replay/replay-state");
+	var wow = getprop("/gear/gear[1]/wow");
 });
+
+# Power Consumption, cockpit screens
+# According to pprune, each LCD uses 60W. Will assume that it reduces linearly to ~50 watts when dimmed, and to 0 watts when off
+
+var screen = {
+	name: "",
+	type: "", # LCD or CRT, will be used later when we have CRTs
+	max_watts: 0,
+	dim_watts: 0,
+	dim_prop: "",
+	elec_prop: "",
+	power_consumption: func() {
+		var dim_prop = me.dim_prop;
+		if (getprop(me.dim_prop) != 0) {
+			screen_power_consumption = (50 + (10 * getprop(dim_prop)));
+		} else {
+			screen_power_consumption = 0;
+		} 
+		return screen_power_consumption;
+	},
+	new: func(name,type,max_watts,dim_watts,dim_prop,elec_prop) {
+		var s = {parents:[screen]};
+		
+		s.name = name;
+		s.type = type;
+		s.max_watts = max_watts;
+		s.dim_watts = dim_watts;
+		s.dim_prop = dim_prop;
+		s.elec_prop = elec_prop;
+		
+		return s;
+	}
+};
+
+# Main Elec System
 
 var ELEC = {
 	init: func() {
@@ -90,6 +130,7 @@ var ELEC = {
 		setprop("/systems/electrical/bus/gen1-hz", 0);
 		setprop("/systems/electrical/bus/gen2-hz", 0);
 		setprop("/systems/electrical/bus/ac-ess", 0);
+		setprop("/systems/electrical/bus/ac-ess-shed", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
 		setprop("/systems/electrical/extra/apu-volts", 0);
 		setprop("/systems/electrical/extra/gen1-volts", 0);
@@ -145,6 +186,14 @@ var ELEC = {
 		setprop("/systems/electrical/outputs/taxi-lights", 0);
 		setprop("/systems/electrical/outputs/transponder", 0);
 		setprop("/systems/electrical/outputs/turn-coordinator", 0);
+		
+		screens = [screen.new("DU1","LCD",60,50,"/controls/lighting/DU/du1","/systems/electrical/bus/ac-ess"),
+				screen.new("DU2","LCD",60,50,"/controls/lighting/DU/du2","/systems/electrical/bus/ac-ess-shed"),
+				screen.new("DU3","LCD",60,50,"/controls/lighting/DU/du3","/systems/electrical/bus/ac-ess"),
+				screen.new("DU4","LCD",60,50,"/controls/lighting/DU/du4","/systems/electrical/bus/ac2"),
+				screen.new("DU5","LCD",60,50,"/controls/lighting/DU/du5","/systems/electrical/bus/ac2"),
+				screen.new("DU6","LCD",60,50,"/controls/lighting/DU/du6","/systems/electrical/bus/ac2")];
+		
 	},
 	loop: func() {
 		galley_sw = getprop("/controls/electrical/switches/galley");
@@ -167,6 +216,7 @@ var ELEC = {
 		ac1 = getprop("/systems/electrical/bus/ac1");
 		ac2 = getprop("/systems/electrical/bus/ac2");
 		ac_ess = getprop("/systems/electrical/bus/ac-ess");
+		ac_ess_shed = getprop("/systems/electrical/bus/ac-ess-shed");
 		dc1 = getprop("/systems/electrical/bus/dc1");
 		dc2 = getprop("/systems/electrical/bus/dc2");
 		dcbat = getprop("/systems/electrical/bus/dcbat");
@@ -186,6 +236,7 @@ var ELEC = {
 		gen1_fail = getprop("/systems/failures/elec-gen1");
 		gen2_fail = getprop("/systems/failures/elec-gen2");
 		replay = getprop("/sim/replay/replay-state");
+		wow = getprop("/gear/gear[1]/wow");
 		
 		if (extpwr_on and gen_ext_sw) {
 			setprop("/systems/electrical/gen-ext", 1);
@@ -363,13 +414,19 @@ var ELEC = {
 		ac1 = getprop("/systems/electrical/bus/ac1");
 		ac2 = getprop("/systems/electrical/bus/ac2");
 		
-		if (!ac_ess_fail and (ac1 >= 110 or ac2 >= 110)) {
-			setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-		} else {
+		if ((ac_ess_fail or (ac1 <= 110 or ac2 <= 110)) or (ias > 50 and getprop("/controls/hydraulic/rat-deployed") == 1 and (ac1 == 0) and (ac2 == 0) and wow)) {
 			setprop("/systems/electrical/bus/ac-ess", 0);
+		} else {
+			setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 		}
 		
 		ac_ess = getprop("/systems/electrical/bus/ac-ess");
+		
+		if (ac1 == 0 and ac2 == 0 and emergen == 0) {
+			setprop("/systems/electrical/bus/ac-ess-shed", 0);
+		} else {
+			setprop("/systems/electrical/bus/ac-ess-shed", ac_volt_std);
+		}
 		
 		if (ac_ess >= 110 and !gallery_fail) {
 			if (galley_sw == 1 and !galley_shed) { 
@@ -393,7 +450,7 @@ var ELEC = {
 			setprop("/controls/electrical/switches/emer-gen", 1);
 		}
 		
-		if (ias < 100) {
+		if (ias < 100 or (ac1 == 1) or (ac2 == 1)) {
 			setprop("/controls/electrical/switches/emer-gen", 0);
 		}
 		
@@ -572,6 +629,15 @@ var ELEC = {
 		} else {
 			setprop("/systems/electrical/gen2-fault", 0);
 		}
+		
+		foreach(var screena; screens) { 
+			power_consumption = screena.power_consumption();
+			if (getprop(screena.elec_prop) != 0) {
+				setprop("/systems/electrical/DU/" ~ screena.name ~ "/watts",power_consumption);
+			} else {
+				setprop("/systems/electrical/DU/" ~ screena.name ~ "/watts",0);
+			}
+		}
 	},
 };
 
@@ -591,3 +657,6 @@ var decharge2 = maketimer(69, func {
 	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });
+
+
+
