@@ -16,6 +16,11 @@ var small = 56;
 var page = "";
 var page1 = getprop("/MCDU[0]/page");
 var page2 = getprop("/MCDU[1]/page");
+var vor1 = "";
+var vor2 = "";
+var ils = "";
+var adf1 = "";
+var adf2 = "";
 setprop("/MCDUC/colors/wht/r", 1);
 setprop("/MCDUC/colors/wht/g", 1);
 setprop("/MCDUC/colors/wht/b", 1);
@@ -383,6 +388,140 @@ var canvas_MCDU_base = {
 			me["Simple_R2S"].setText("PILOTS ");
 			me["Simple_R3S"].setText("PILOTS ");
 			me["Simple_R4S"].setText("PILOTS ");
+		} else if (page == "RADNAV") {
+			me["Simple"].show();
+			me["Simple_Title"].setText("RADIO NAV");
+			me["Simple_PageNum"].setText("X/X");
+			me["Simple_PageNum"].hide();
+			me["ArrowLeft"].hide();
+			me["ArrowRight"].hide();
+			
+			me["Simple_L1"].show();
+			me["Simple_L2"].show();
+			me["Simple_L3"].show();
+			me["Simple_L4"].show();
+			me["Simple_L5"].show();
+			me["Simple_L6"].hide();
+			me["Simple_L1S"].show();
+			me["Simple_L2S"].show();
+			me["Simple_L3S"].show();
+			me["Simple_L4S"].show();
+			me["Simple_L5S"].show();
+			me["Simple_L6S"].hide();
+			me["Simple_L1_Arrow"].hide();
+			me["Simple_L2_Arrow"].hide();
+			me["Simple_L3_Arrow"].hide();
+			me["Simple_L4_Arrow"].hide();
+			me["Simple_L5_Arrow"].hide();
+			me["Simple_L6_Arrow"].hide();
+			me["Simple_R1"].show();
+			me["Simple_R2"].show();
+			me["Simple_R3"].show();
+			me["Simple_R4"].show();
+			me["Simple_R5"].show();
+			me["Simple_R6"].hide(); 
+			me["Simple_R1S"].show();
+			me["Simple_R2S"].show();
+			me["Simple_R3S"].show();
+			me["Simple_R4S"].show();
+			me["Simple_R5S"].show();
+			me["Simple_R6S"].hide();
+			me["Simple_R1_Arrow"].hide();
+			me["Simple_R2_Arrow"].hide();
+			me["Simple_R3_Arrow"].hide();
+			me["Simple_R4_Arrow"].hide();
+			me["Simple_R5_Arrow"].hide();
+			me["Simple_R6_Arrow"].hide();
+			
+			me.fontLeft(default, default, default, default, 0, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, bracket, bracket, 0, default);
+			me.fontRightS(default, default, default, default, default, default);
+			
+			me.fontSizeLeft(0, 0, 0, 0, 0, normal);
+			me.fontSizeRight(0, 0, small, small, 0, normal);
+			
+			me.colorLeft("blu", "blu", "blu", "blu", "blu", "blu");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("blu", "blu", "blu", "blu", "blu", "blu");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			
+			vor1 = getprop("FMGC/internal/vor1-mcdu");
+			vor2 = getprop("FMGC/internal/vor2-mcdu");
+			ils = getprop("FMGC/internal/ils1-mcdu");
+			adf1 = getprop("FMGC/internal/adf1-mcdu");
+			adf2 = getprop("FMGC/internal/adf2-mcdu");
+			
+			if (getprop("/FMGC/internal/vor1freq-set") == 1) {
+				me["Simple_L1"].setFontSize(normal); 
+			} else {
+				me["Simple_L1"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/vor1crs-set") == 1) {
+				me["Simple_L2"].setFontSize(normal); 
+			} else {
+				me["Simple_L2"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/ils1freq-set") == 1) {
+				me["Simple_L3"].setFontSize(normal); 
+			} else {
+				me["Simple_L3"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/ils1crs-set") == 1) {
+				me["Simple_L4"].setFontSize(normal); 
+			} else {
+				me["Simple_L4"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/adf1freq-set") == 1) {
+				me["Simple_L5"].setFont(default); 
+				me["Simple_L5"].setFontSize(normal); 
+				me["Simple_L5"].setText(adf1);
+			} else {
+				me["Simple_L5"].setFont(bracket); 
+				me["Simple_L5"].setFontSize(small); 
+				me["Simple_L5"].setText("[    ]/[     . ]");
+			}
+			
+			if (getprop("/FMGC/internal/vor2freq-set") == 1) {
+				me["Simple_R1"].setFontSize(normal); 
+			} else {
+				me["Simple_R1"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/vor2crs-set") == 1) {
+				me["Simple_R2"].setFontSize(normal); 
+			} else {
+				me["Simple_R2"].setFontSize(small); 
+			}
+			if (getprop("/FMGC/internal/adf2freq-set") == 1) {
+				me["Simple_R5"].setFont(default); 
+				me["Simple_R5"].setFontSize(normal); 
+				me["Simple_R5"].setText(adf2);
+			} else {
+				me["Simple_R5"].setFont(bracket); 
+				me["Simple_R5"].setFontSize(small); 
+				me["Simple_R5"].setText("[     . ]/[    ]");
+			}
+			
+			me["Simple_L1"].setText(" " ~ vor1);
+			me["Simple_L2"].setText(sprintf("%3.0f", getprop("/instrumentation/nav[2]/radials/selected-deg")));
+			me["Simple_L3"].setText(" " ~ ils);
+			me["Simple_L4"].setText(sprintf("%3.0f", getprop("/instrumentation/nav[0]/radials/selected-deg")));
+			me["Simple_L1S"].setText("VOR1/FREQ");
+			me["Simple_L2S"].setText("CRS");
+			me["Simple_L3S"].setText("ILS /FREQ");
+			me["Simple_L4S"].setText("CRS");
+			me["Simple_L5S"].setText("ADF1/FREQ");
+			me["Simple_R1"].setText(" " ~ vor2);
+			me["Simple_R2"].setText(sprintf("%3.0f", getprop("/instrumentation/nav[3]/radials/selected-deg")));
+			me["Simple_R3"].setText("[   ]/[    ]");
+			me["Simple_R4"].setText("-.-   [   ]");
+			me["Simple_R1S"].setText("FREQ/VOR2");
+			me["Simple_R2S"].setText("CRS");
+			me["Simple_R3S"].setText("CHAN/ MLS");
+			me["Simple_R4S"].setText("SLOPE   CRS");
+			me["Simple_R5S"].setText("FREQ/ADF2");
 		} else {
 			me["Simple"].hide();
 			me["ArrowLeft"].hide();
@@ -517,19 +656,19 @@ var canvas_MCDU_base = {
 		if (a != 0) {
 			me["Simple_L1"].setFont(a); 
 		}
-		if (b != "ack") {
+		if (b != 0) {
 			me["Simple_L2"].setFont(b); 
 		}
-		if (c != "ack") {
+		if (c != 0) {
 			me["Simple_L3"].setFont(c); 
 		}
-		if (d != "ack") {
+		if (d != 0) {
 			me["Simple_L4"].setFont(d); 
 		}
-		if (e != "ack") {
+		if (e != 0) {
 			me["Simple_L5"].setFont(e); 
 		}
-		if (f != "ack") {
+		if (f != 0) {
 			me["Simple_L6"].setFont(f); 
 		}
 	},
@@ -537,19 +676,19 @@ var canvas_MCDU_base = {
 		if (a != 0) {
 			me["Simple_L1S"].setFont(a); 
 		}
-		if (b != "ack") {
+		if (b != 0) {
 			me["Simple_L2S"].setFont(b); 
 		}
-		if (c != "ack") {
+		if (c != 0) {
 			me["Simple_L3S"].setFont(c); 
 		}
-		if (d != "ack") {
+		if (d != 0) {
 			me["Simple_L4S"].setFont(d); 
 		}
-		if (e != "ack") {
+		if (e != 0) {
 			me["Simple_L5S"].setFont(e); 
 		}
-		if (f != "ack") {
+		if (f != 0) {
 			me["Simple_L6S"].setFont(f); 
 		}
 	},
