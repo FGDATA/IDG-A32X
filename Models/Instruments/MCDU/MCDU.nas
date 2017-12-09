@@ -27,9 +27,9 @@ setprop("/MCDUC/colors/wht/b", 1);
 setprop("/MCDUC/colors/grn/r", 0.0509);
 setprop("/MCDUC/colors/grn/g", 0.7529);
 setprop("/MCDUC/colors/grn/b", 0.2941);
-setprop("/MCDUC/colors/blu/r", 0.0862);
-setprop("/MCDUC/colors/blu/g", 0.5176);
-setprop("/MCDUC/colors/blu/b", 0.6470);
+setprop("/MCDUC/colors/blu/r", 0.0901);
+setprop("/MCDUC/colors/blu/g", 0.6039);
+setprop("/MCDUC/colors/blu/b", 0.7176);
 setprop("/MCDUC/colors/amb/r", 0.7333);
 setprop("/MCDUC/colors/amb/g", 0.3803);
 setprop("/MCDUC/colors/amb/b", 0.0000);
@@ -159,7 +159,7 @@ var canvas_MCDU_base = {
 				me["Simple_L1"].setColor(1,1,1);
 			} else if (getprop("/MCDU[" ~ i ~ "]/active") == 1) {
 				me["Simple_L1"].setText(" FMGC(SEL)");
-				me["Simple_L1"].setColor(0.0862,0.5176,0.6470);
+				me["Simple_L1"].setColor(0.0901,0.6039,0.7176);
 			} else if (getprop("/MCDU[" ~ i ~ "]/active") == 2) {
 				me["Simple_L1"].setText(" FMGC");
 				me["Simple_L1"].setColor(0.0509,0.7529,0.2941);
