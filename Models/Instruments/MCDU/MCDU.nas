@@ -5,11 +5,6 @@
 # Copyright (c) Joshua Davidson (it0uchpods) #
 ##############################################
 
-# MCDU Colors are different from Main Displays
-# White: 1,1,1
-# Blue: 0.0862,0.5176,0.6470
-# Green: 0.0509,0.7529,0.2941
-
 var MCDU_1 = nil;
 var MCDU_2 = nil;
 var MCDU1_display = nil;
@@ -21,6 +16,21 @@ var small = 56;
 var page = "";
 var page1 = getprop("/MCDU[0]/page");
 var page2 = getprop("/MCDU[1]/page");
+setprop("/MCDUC/colors/wht/r", 1);
+setprop("/MCDUC/colors/wht/g", 1);
+setprop("/MCDUC/colors/wht/b", 1);
+setprop("/MCDUC/colors/grn/r", 0.0509);
+setprop("/MCDUC/colors/grn/g", 0.7529);
+setprop("/MCDUC/colors/grn/b", 0.2941);
+setprop("/MCDUC/colors/blu/r", 0.0862);
+setprop("/MCDUC/colors/blu/g", 0.5176);
+setprop("/MCDUC/colors/blu/b", 0.6470);
+setprop("/MCDUC/colors/amb/r", 0.7333);
+setprop("/MCDUC/colors/amb/g", 0.3803);
+setprop("/MCDUC/colors/amb/b", 0.0000);
+setprop("/MCDUC/colors/yel/r", 0.9333);
+setprop("/MCDUC/colors/yel/g", 0.9333);
+setprop("/MCDUC/colors/yel/b", 0.0000);
 
 var canvas_MCDU_base = {
 	init: func(canvas_group, file) {
@@ -124,79 +134,20 @@ var canvas_MCDU_base = {
 			me["Simple_R5_Arrow"].hide();
 			me["Simple_R6_Arrow"].show();
 			
-			me["Simple_L1"].setFont(default);
-			me["Simple_L2"].setFont(default);
-			me["Simple_L3"].setFont(default);
-			me["Simple_L4"].setFont(default);
-			me["Simple_L5"].setFont(default);
-			me["Simple_L6"].setFont(default);
-			me["Simple_L1S"].setFont(default);
-			me["Simple_L2S"].setFont(default);
-			me["Simple_L3S"].setFont(default);
-			me["Simple_L4S"].setFont(default);
-			me["Simple_L5S"].setFont(default);
-			me["Simple_L6S"].setFont(default);
-			me["Simple_R1"].setFont(default);
-			me["Simple_R2"].setFont(default);
-			me["Simple_R3"].setFont(default);
-			me["Simple_R4"].setFont(default);
-			me["Simple_R5"].setFont(default);
-			me["Simple_R6"].setFont(default);
-			me["Simple_R1S"].setFont(default);
-			me["Simple_R2S"].setFont(default);
-			me["Simple_R3S"].setFont(default);
-			me["Simple_R4S"].setFont(default);
-			me["Simple_R5S"].setFont(default);
-			me["Simple_R6S"].setFont(default);
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
 			
-			me["Simple_L1"].setFontSize(normal);
-			me["Simple_L2"].setFontSize(normal);
-			me["Simple_L3"].setFontSize(normal);
-			me["Simple_L4"].setFontSize(normal);
-			me["Simple_L5"].setFontSize(normal);
-			me["Simple_L6"].setFontSize(normal);
-			me["Simple_R1"].setFontSize(normal);
-			me["Simple_R2"].setFontSize(normal);
-			me["Simple_R3"].setFontSize(normal);
-			me["Simple_R4"].setFontSize(normal);
-			me["Simple_R5"].setFontSize(normal);
-			me["Simple_R6"].setFontSize(normal);
+			me.fontSizeLeft(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
 			
-			me["Simple_L2"].setColor(1,1,1);
-			me["Simple_L3"].setColor(1,1,1);
-			me["Simple_L4"].setColor(1,1,1);
-			me["Simple_L5"].setColor(1,1,1);
-			me["Simple_L6"].setColor(1,1,1);
-			me["Simple_L1S"].setColor(1,1,1);
-			me["Simple_L2S"].setColor(1,1,1);
-			me["Simple_L3S"].setColor(1,1,1);
-			me["Simple_L4S"].setColor(1,1,1);
-			me["Simple_L5S"].setColor(1,1,1);
-			me["Simple_L6S"].setColor(1,1,1);
-			me["Simple_L1_Arrow"].setColor(1,1,1);
-			me["Simple_L2_Arrow"].setColor(1,1,1);
-			me["Simple_L3_Arrow"].setColor(1,1,1);
-			me["Simple_L4_Arrow"].setColor(1,1,1);
-			me["Simple_L5_Arrow"].setColor(1,1,1);
-			me["Simple_L6_Arrow"].setColor(1,1,1);
-			me["Simple_R1"].setColor(1,1,1);
-			me["Simple_R2"].setColor(1,1,1);
-			me["Simple_R3"].setColor(1,1,1);
-			me["Simple_R4"].setColor(1,1,1);
-			me["Simple_R5"].setColor(1,1,1);
-			me["Simple_R6"].setColor(1,1,1);
-			me["Simple_R1S"].setColor(1,1,1);
-			me["Simple_R2S"].setColor(1,1,1);
-			me["Simple_R3S"].setColor(1,1,1);
-			me["Simple_R4S"].setColor(1,1,1);
-			me["Simple_R5S"].setColor(1,1,1);
-			me["Simple_R6S"].setColor(1,1,1);
-			me["Simple_R1_Arrow"].setColor(1,1,1);
-			me["Simple_R2_Arrow"].setColor(1,1,1);
-			me["Simple_R3_Arrow"].setColor(1,1,1);
-			me["Simple_R4_Arrow"].setColor(1,1,1);
-			me["Simple_R5_Arrow"].setColor(1,1,1);
-			me["Simple_R6_Arrow"].setColor(1,1,1);
+			me.colorLeft("ack", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
 			
 			if (getprop("/MCDU[" ~ i ~ "]/active") == 0) {
 				me["Simple_L1"].setText(" FMGC");
@@ -257,80 +208,20 @@ var canvas_MCDU_base = {
 			me["Simple_R5_Arrow"].hide();
 			me["Simple_R6_Arrow"].show();
 			
-			me["Simple_L1"].setFont(default);
-			me["Simple_L2"].setFont(default);
-			me["Simple_L3"].setFont(default);
-			me["Simple_L4"].setFont(default);
-			me["Simple_L5"].setFont(bracket);
-			me["Simple_L6"].setFont(default);
-			me["Simple_L1S"].setFont(default);
-			me["Simple_L2S"].setFont(default);
-			me["Simple_L3S"].setFont(default);
-			me["Simple_L4S"].setFont(default);
-			me["Simple_L5S"].setFont(default);
-			me["Simple_L6S"].setFont(default);
-			me["Simple_R1"].setFont(default);
-			me["Simple_R2"].setFont(default);
-			me["Simple_R3"].setFont(default);
-			me["Simple_R4"].setFont(default);
-			me["Simple_R5"].setFont(default);
-			me["Simple_R6"].setFont(default);
-			me["Simple_R1S"].setFont(default);
-			me["Simple_R2S"].setFont(default);
-			me["Simple_R3S"].setFont(default);
-			me["Simple_R4S"].setFont(default);
-			me["Simple_R5S"].setFont(default);
-			me["Simple_R6S"].setFont(default);
+			me.fontLeft(default, default, default, default, bracket, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
 			
-			me["Simple_L1"].setFontSize(normal);
-			me["Simple_L2"].setFontSize(normal);
-			me["Simple_L3"].setFontSize(normal);
-			me["Simple_L4"].setFontSize(normal);
-			me["Simple_L5"].setFontSize(small);
-			me["Simple_L6"].setFontSize(normal);
-			me["Simple_R1"].setFontSize(normal);
-			me["Simple_R2"].setFontSize(normal);
-			me["Simple_R3"].setFontSize(normal);
-			me["Simple_R4"].setFontSize(normal);
-			me["Simple_R5"].setFontSize(normal);
-			me["Simple_R6"].setFontSize(normal);
+			me.fontSizeLeft(normal, normal, normal, normal, small, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
 			
-			me["Simple_L1"].setColor(0.0509,0.7529,0.2941);
-			me["Simple_L2"].setColor(0.0862,0.5176,0.6470);
-			me["Simple_L3"].setColor(0.0862,0.5176,0.6470);
-			me["Simple_L4"].setColor(1,1,1);
-			me["Simple_L5"].setColor(0.0862,0.5176,0.6470);
-			me["Simple_L6"].setColor(0.0509,0.7529,0.2941);
-			me["Simple_L1S"].setColor(1,1,1);
-			me["Simple_L2S"].setColor(1,1,1);
-			me["Simple_L3S"].setColor(1,1,1);
-			me["Simple_L4S"].setColor(1,1,1);
-			me["Simple_L5S"].setColor(1,1,1);
-			me["Simple_L6S"].setColor(1,1,1);
-			me["Simple_L1_Arrow"].setColor(1,1,1);
-			me["Simple_L2_Arrow"].setColor(0.0862,0.5176,0.6470);
-			me["Simple_L3_Arrow"].setColor(0.0862,0.5176,0.6470);
-			me["Simple_L4_Arrow"].setColor(1,1,1);
-			me["Simple_L5_Arrow"].setColor(1,1,1);
-			me["Simple_L6_Arrow"].setColor(1,1,1);
-			me["Simple_R1"].setColor(1,1,1);
-			me["Simple_R2"].setColor(0.0509,0.7529,0.2941);
-			me["Simple_R3"].setColor(1,1,1);
-			me["Simple_R4"].setColor(1,1,1);
-			me["Simple_R5"].setColor(1,1,1);
-			me["Simple_R6"].setColor(1,1,1);
-			me["Simple_R1S"].setColor(1,1,1);
-			me["Simple_R2S"].setColor(1,1,1);
-			me["Simple_R3S"].setColor(1,1,1);
-			me["Simple_R4S"].setColor(1,1,1);
-			me["Simple_R5S"].setColor(1,1,1);
-			me["Simple_R6S"].setColor(1,1,1);
-			me["Simple_R1_Arrow"].setColor(1,1,1);
-			me["Simple_R2_Arrow"].setColor(1,1,1);
-			me["Simple_R3_Arrow"].setColor(1,1,1);
-			me["Simple_R4_Arrow"].setColor(1,1,1);
-			me["Simple_R5_Arrow"].setColor(1,1,1);
-			me["Simple_R6_Arrow"].setColor(1,1,1);
+			me.colorLeft("grn", "blu", "blu", "wht", "blu", "grn");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "blu", "blu", "wht", "wht", "wht");
+			me.colorRight("wht", "grn", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
 			
 			me["Simple_L1"].setText(sprintf("%s", getprop("/MCDUC/eng")));
 			me["Simple_L2"].setText(sprintf("%s", " " ~ getprop("/FMGC/internal/navdatabase")));
@@ -390,80 +281,20 @@ var canvas_MCDU_base = {
 			me["Simple_R5_Arrow"].show();
 			me["Simple_R6_Arrow"].show();
 			
-			me["Simple_L1"].setFont(default);
-			me["Simple_L2"].setFont(default);
-			me["Simple_L3"].setFont(default);
-			me["Simple_L4"].setFont(default);
-			me["Simple_L5"].setFont(default);
-			me["Simple_L6"].setFont(default);
-			me["Simple_L1S"].setFont(default);
-			me["Simple_L2S"].setFont(default);
-			me["Simple_L3S"].setFont(default);
-			me["Simple_L4S"].setFont(default);
-			me["Simple_L5S"].setFont(default);
-			me["Simple_L6S"].setFont(default);
-			me["Simple_R1"].setFont(default);
-			me["Simple_R2"].setFont(default);
-			me["Simple_R3"].setFont(default);
-			me["Simple_R4"].setFont(default);
-			me["Simple_R5"].setFont(default);
-			me["Simple_R6"].setFont(default);
-			me["Simple_R1S"].setFont(default);
-			me["Simple_R2S"].setFont(default);
-			me["Simple_R3S"].setFont(default);
-			me["Simple_R4S"].setFont(default);
-			me["Simple_R5S"].setFont(default);
-			me["Simple_R6S"].setFont(default);
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
 			
-			me["Simple_L1"].setFontSize(normal);
-			me["Simple_L2"].setFontSize(normal);
-			me["Simple_L3"].setFontSize(normal);
-			me["Simple_L4"].setFontSize(normal);
-			me["Simple_L5"].setFontSize(normal);
-			me["Simple_L6"].setFontSize(normal);
-			me["Simple_R1"].setFontSize(normal);
-			me["Simple_R2"].setFontSize(normal);
-			me["Simple_R3"].setFontSize(normal);
-			me["Simple_R4"].setFontSize(normal);
-			me["Simple_R5"].setFontSize(normal);
-			me["Simple_R6"].setFontSize(normal);
+			me.fontSizeLeft(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
 			
-			me["Simple_L1"].setColor(1,1,1);
-			me["Simple_L2"].setColor(1,1,1);
-			me["Simple_L3"].setColor(1,1,1);
-			me["Simple_L4"].setColor(1,1,1);
-			me["Simple_L5"].setColor(1,1,1);
-			me["Simple_L6"].setColor(1,1,1);
-			me["Simple_L1S"].setColor(1,1,1);
-			me["Simple_L2S"].setColor(1,1,1);
-			me["Simple_L3S"].setColor(1,1,1);
-			me["Simple_L4S"].setColor(1,1,1);
-			me["Simple_L5S"].setColor(1,1,1);
-			me["Simple_L6S"].setColor(1,1,1);
-			me["Simple_L1_Arrow"].setColor(1,1,1);
-			me["Simple_L2_Arrow"].setColor(1,1,1);
-			me["Simple_L3_Arrow"].setColor(1,1,1);
-			me["Simple_L4_Arrow"].setColor(1,1,1);
-			me["Simple_L5_Arrow"].setColor(1,1,1);
-			me["Simple_L6_Arrow"].setColor(1,1,1);
-			me["Simple_R1"].setColor(1,1,1);
-			me["Simple_R2"].setColor(1,1,1);
-			me["Simple_R3"].setColor(1,1,1);
-			me["Simple_R4"].setColor(1,1,1);
-			me["Simple_R5"].setColor(1,1,1);
-			me["Simple_R6"].setColor(1,1,1);
-			me["Simple_R1S"].setColor(1,1,1);
-			me["Simple_R2S"].setColor(1,1,1);
-			me["Simple_R3S"].setColor(1,1,1);
-			me["Simple_R4S"].setColor(1,1,1);
-			me["Simple_R5S"].setColor(1,1,1);
-			me["Simple_R6S"].setColor(1,1,1);
-			me["Simple_R1_Arrow"].setColor(1,1,1);
-			me["Simple_R2_Arrow"].setColor(1,1,1);
-			me["Simple_R3_Arrow"].setColor(1,1,1);
-			me["Simple_R4_Arrow"].setColor(1,1,1);
-			me["Simple_R5_Arrow"].setColor(1,1,1);
-			me["Simple_R6_Arrow"].setColor(1,1,1);
+			me.colorLeft("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
 			
 			me["Simple_L1"].setText(" MONITOR");
 			me["Simple_L2"].setText(" MONITOR");
@@ -521,80 +352,20 @@ var canvas_MCDU_base = {
 			me["Simple_R5_Arrow"].hide();
 			me["Simple_R6_Arrow"].hide();
 			
-			me["Simple_L1"].setFont(default);
-			me["Simple_L2"].setFont(default);
-			me["Simple_L3"].setFont(default);
-			me["Simple_L4"].setFont(default);
-			me["Simple_L5"].setFont(default);
-			me["Simple_L6"].setFont(default);
-			me["Simple_L1S"].setFont(default);
-			me["Simple_L2S"].setFont(default);
-			me["Simple_L3S"].setFont(default);
-			me["Simple_L4S"].setFont(default);
-			me["Simple_L5S"].setFont(default);
-			me["Simple_L6S"].setFont(default);
-			me["Simple_R1"].setFont(default);
-			me["Simple_R2"].setFont(default);
-			me["Simple_R3"].setFont(default);
-			me["Simple_R4"].setFont(default);
-			me["Simple_R5"].setFont(default);
-			me["Simple_R6"].setFont(default);
-			me["Simple_R1S"].setFont(default);
-			me["Simple_R2S"].setFont(default);
-			me["Simple_R3S"].setFont(default);
-			me["Simple_R4S"].setFont(default);
-			me["Simple_R5S"].setFont(default);
-			me["Simple_R6S"].setFont(default);
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
 			
-			me["Simple_L1"].setFontSize(normal);
-			me["Simple_L2"].setFontSize(normal);
-			me["Simple_L3"].setFontSize(normal);
-			me["Simple_L4"].setFontSize(normal);
-			me["Simple_L5"].setFontSize(normal);
-			me["Simple_L6"].setFontSize(normal);
-			me["Simple_R1"].setFontSize(normal);
-			me["Simple_R2"].setFontSize(normal);
-			me["Simple_R3"].setFontSize(normal);
-			me["Simple_R4"].setFontSize(normal);
-			me["Simple_R5"].setFontSize(normal);
-			me["Simple_R6"].setFontSize(normal);
+			me.fontSizeLeft(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
 			
-			me["Simple_L1"].setColor(1,1,1);
-			me["Simple_L2"].setColor(1,1,1);
-			me["Simple_L3"].setColor(1,1,1);
-			me["Simple_L4"].setColor(1,1,1);
-			me["Simple_L5"].setColor(1,1,1);
-			me["Simple_L6"].setColor(1,1,1);
-			me["Simple_L1S"].setColor(1,1,1);
-			me["Simple_L2S"].setColor(1,1,1);
-			me["Simple_L3S"].setColor(1,1,1);
-			me["Simple_L4S"].setColor(1,1,1);
-			me["Simple_L5S"].setColor(1,1,1);
-			me["Simple_L6S"].setColor(1,1,1);
-			me["Simple_L1_Arrow"].setColor(1,1,1);
-			me["Simple_L2_Arrow"].setColor(1,1,1);
-			me["Simple_L3_Arrow"].setColor(1,1,1);
-			me["Simple_L4_Arrow"].setColor(1,1,1);
-			me["Simple_L5_Arrow"].setColor(1,1,1);
-			me["Simple_L6_Arrow"].setColor(1,1,1);
-			me["Simple_R1"].setColor(1,1,1);
-			me["Simple_R2"].setColor(1,1,1);
-			me["Simple_R3"].setColor(1,1,1);
-			me["Simple_R4"].setColor(1,1,1);
-			me["Simple_R5"].setColor(1,1,1);
-			me["Simple_R6"].setColor(1,1,1);
-			me["Simple_R1S"].setColor(1,1,1);
-			me["Simple_R2S"].setColor(1,1,1);
-			me["Simple_R3S"].setColor(1,1,1);
-			me["Simple_R4S"].setColor(1,1,1);
-			me["Simple_R5S"].setColor(1,1,1);
-			me["Simple_R6S"].setColor(1,1,1);
-			me["Simple_R1_Arrow"].setColor(1,1,1);
-			me["Simple_R2_Arrow"].setColor(1,1,1);
-			me["Simple_R3_Arrow"].setColor(1,1,1);
-			me["Simple_R4_Arrow"].setColor(1,1,1);
-			me["Simple_R5_Arrow"].setColor(1,1,1);
-			me["Simple_R6_Arrow"].setColor(1,1,1);
+			me.colorLeft("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
 			
 			me["Simple_L1"].setText(" WAYPOINTS");
 			me["Simple_L2"].setText(" NAVAIDS");
@@ -619,6 +390,248 @@ var canvas_MCDU_base = {
 		}
 		
 		me["Scratchpad"].setText(sprintf("%s", getprop("/MCDU[" ~ i ~ "]/scratchpad")));
+	},
+	# ack = ignore, wht = white, grn = green, blu = blue, amb = amber, yel = yellow
+	colorLeft: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_L1"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_L2"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_L3"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_L4"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_L5"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_L6"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorLeftS: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_L1S"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_L2S"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_L3S"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_L4S"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_L5S"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_L6S"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorLeftArrow: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_L1_Arrow"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_L2_Arrow"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_L3_Arrow"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_L4_Arrow"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_L5_Arrow"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_L6_Arrow"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorRight: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_R1"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_R2"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_R3"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_R4"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_R5"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_R6"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorRightS: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_R1S"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_R2S"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_R3S"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_R4S"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_R5S"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_R6S"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorRightArrow: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_R1_Arrow"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_R2_Arrow"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_R3_Arrow"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_R4_Arrow"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_R5_Arrow"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_R6_Arrow"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	# 0 = ignore
+	fontLeft: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_L1"].setFont(a); 
+		}
+		if (b != "ack") {
+			me["Simple_L2"].setFont(b); 
+		}
+		if (c != "ack") {
+			me["Simple_L3"].setFont(c); 
+		}
+		if (d != "ack") {
+			me["Simple_L4"].setFont(d); 
+		}
+		if (e != "ack") {
+			me["Simple_L5"].setFont(e); 
+		}
+		if (f != "ack") {
+			me["Simple_L6"].setFont(f); 
+		}
+	},
+	fontLeftS: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_L1S"].setFont(a); 
+		}
+		if (b != "ack") {
+			me["Simple_L2S"].setFont(b); 
+		}
+		if (c != "ack") {
+			me["Simple_L3S"].setFont(c); 
+		}
+		if (d != "ack") {
+			me["Simple_L4S"].setFont(d); 
+		}
+		if (e != "ack") {
+			me["Simple_L5S"].setFont(e); 
+		}
+		if (f != "ack") {
+			me["Simple_L6S"].setFont(f); 
+		}
+	},
+	fontRight: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_R1"].setFont(a); 
+		}
+		if (b != 0) {
+			me["Simple_R2"].setFont(b); 
+		}
+		if (c != 0) {
+			me["Simple_R3"].setFont(c); 
+		}
+		if (d != 0) {
+			me["Simple_R4"].setFont(d); 
+		}
+		if (e != 0) {
+			me["Simple_R5"].setFont(e); 
+		}
+		if (f != 0) {
+			me["Simple_R6"].setFont(f); 
+		}
+	},
+	fontRightS: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_R1S"].setFont(a); 
+		}
+		if (b != 0) {
+			me["Simple_R2S"].setFont(b); 
+		}
+		if (c != 0) {
+			me["Simple_R3S"].setFont(c); 
+		}
+		if (d != 0) {
+			me["Simple_R4S"].setFont(d); 
+		}
+		if (e != 0) {
+			me["Simple_R5S"].setFont(e); 
+		}
+		if (f != 0) {
+			me["Simple_R6S"].setFont(f); 
+		}
+	},
+	fontSizeLeft: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_L1"].setFontSize(a); 
+		}
+		if (b != "ack") {
+			me["Simple_L2"].setFontSize(b); 
+		}
+		if (c != "ack") {
+			me["Simple_L3"].setFontSize(c); 
+		}
+		if (d != "ack") {
+			me["Simple_L4"].setFontSize(d); 
+		}
+		if (e != "ack") {
+			me["Simple_L5"].setFontSize(e); 
+		}
+		if (f != "ack") {
+			me["Simple_L6"].setFontSize(f); 
+		}
+	},
+	fontSizeRight: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_R1"].setFontSize(a); 
+		}
+		if (b != 0) {
+			me["Simple_R2"].setFontSize(b); 
+		}
+		if (c != 0) {
+			me["Simple_R3"].setFontSize(c); 
+		}
+		if (d != 0) {
+			me["Simple_R4"].setFontSize(d); 
+		}
+		if (e != 0) {
+			me["Simple_R5"].setFontSize(e); 
+		}
+		if (f != 0) {
+			me["Simple_R6"].setFontSize(f); 
+		}
 	},
 };
 
