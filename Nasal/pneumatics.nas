@@ -41,10 +41,12 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var start_psi = getprop("/systems/pneumatic/start-psi");
 	var total_psi = getprop("/systems/pneumatic/total-psi");
 	var xbleed = getprop("/systems/pneumatic/xbleed", 0);
+	var starting = getprop("/systems/pneumatic/starting");
 	var phase = getprop("/FMGC/status/phase");
 	var pressmode = getprop("/systems/pressurization/mode");
 	var state1 = getprop("/systems/thrust/state1");
 	var state2 = getprop("/systems/thrust/state2");
+	var wowc = getprop("/gear/gear[0]/wow");
 	var wowl = getprop("/gear/gear[1]/wow");
 	var wowr = getprop("/gear/gear[2]/wow");
 	var deltap = getprop("/systems/pressurization/deltap");
@@ -105,6 +107,7 @@ var PNEU = {
 		setprop("/systems/pneumatic/pack1-fault", 0);
 		setprop("/systems/pneumatic/pack2-fault", 0);
 		setprop("/systems/pneumatic/xbleed", 0);
+		setprop("/systems/pneumatic/starting", 0);
 		setprop("/FMGC/internal/dep-arpt", "");
 		altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		setprop("/systems/pressurization/mode", "GN");
@@ -165,6 +168,9 @@ var PNEU = {
 		pack2_fail = getprop("/systems/failures/pack2");
 		engantiice1 = getprop("/controls/deice/eng1-on");
 		engantiice2 = getprop("/controls/deice/eng2-on");
+		wowc = getprop("/gear/gear[0]/wow");
+		wowl = getprop("/gear/gear[1]/wow");
+		wowr = getprop("/gear/gear[2]/wow");
 		
 		# Air Sources/PSI
 		if (rpmapu >= 94.9 and bleedapu_sw and !bleedapu_fail) {
@@ -216,19 +222,29 @@ var PNEU = {
 		bleed1 = getprop("/systems/pneumatic/bleed1");
 		bleed2 = getprop("/systems/pneumatic/bleed2");
 		
-		if (stateL == 1 or stateR == 1) {
+		if (stateL == 1 or stateR == 1 or stateL == 2 or stateR == 2) {
 			setprop("/systems/pneumatic/start-psi", 18);
 		} else {
 			setprop("/systems/pneumatic/start-psi", 0);
 		}
 		
-		if (pack1_sw == 1 and (bleed1 >= 11 or bleedapu >= 11 or ground >= 11) and eng1_starter == 0 and eng2_starter == 0 and !pack1_fail) {
+		if (getprop("/controls/engines/engine-start-switch") == 2 and wowc == 1 and (stateL != 3 or stateR != 3)) {
+			setprop("/systems/pneumatic/starting", 1);
+		} else if (wowc == 1 and eng1_starter == 1 or eng2_starter == 1) {
+			setprop("/systems/pneumatic/starting", 1);
+		} else {
+			setprop("/systems/pneumatic/starting", 0);
+		}
+		
+		starting = getprop("/systems/pneumatic/starting");
+		
+		if (pack1_sw == 1 and (bleed1 >= 11 or bleedapu >= 11 or ground >= 11) and starting == 0 and !pack1_fail) {
 			setprop("/systems/pneumatic/pack1", pack_flo_sw);
 		} else {
 			setprop("/systems/pneumatic/pack1", 0);
 		}
 		
-		if (pack2_sw == 1 and (bleed2 >= 11 or (bleedapu >= 11 and xbleed == 1)) and eng1_starter == 0 and eng2_starter == 0 and !pack2_fail) {
+		if (pack2_sw == 1 and (bleed2 >= 11 or (bleedapu >= 11 and xbleed == 1)) and starting == 0 and !pack2_fail) {
 			setprop("/systems/pneumatic/pack2", pack_flo_sw);
 		} else {
 			setprop("/systems/pneumatic/pack2", 0);
@@ -285,8 +301,6 @@ var PNEU = {
 		pressmode = getprop("/systems/pressurization/mode");
 		state1 = getprop("/systems/thrust/state1");
 		state2 = getprop("/systems/thrust/state2");
-		wowl = getprop("/gear/gear[1]/wow");
-		wowr = getprop("/gear/gear[2]/wow");
 		deltap = getprop("/systems/pressurization/deltap");
 		outflow = getprop("/systems/pressurization/outflowpos"); 
 		speed = getprop("/velocities/groundspeed-kt");
@@ -373,7 +387,6 @@ var PNEU = {
 		}
 		
 		# Oxygen
-		
 		if (cabinalt > 13500) { 
 			setprop("/controls/oxygen/masksDeploy", 1);
 			setprop("/controls/oxygen/masksSys", 1);
