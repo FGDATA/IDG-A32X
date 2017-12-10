@@ -187,12 +187,12 @@ var ELEC = {
 		setprop("/systems/electrical/outputs/transponder", 0);
 		setprop("/systems/electrical/outputs/turn-coordinator", 0);
 		
-		screens = [screen.new("DU1","LCD",60,50,"/controls/lighting/DU/du1","/systems/electrical/bus/ac-ess"),
-				screen.new("DU2","LCD",60,50,"/controls/lighting/DU/du2","/systems/electrical/bus/ac-ess-shed"),
-				screen.new("DU3","LCD",60,50,"/controls/lighting/DU/du3","/systems/electrical/bus/ac-ess"),
-				screen.new("DU4","LCD",60,50,"/controls/lighting/DU/du4","/systems/electrical/bus/ac2"),
-				screen.new("DU5","LCD",60,50,"/controls/lighting/DU/du5","/systems/electrical/bus/ac2"),
-				screen.new("DU6","LCD",60,50,"/controls/lighting/DU/du6","/systems/electrical/bus/ac2")];
+		screens = [screen.new(name: "DU1", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du1", elec_prop:"systems/electrical/bus/ac-ess"),
+					screen.new(name: "DU2", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du2", elec_prop:"systems/electrical/bus/ac-ess"),
+					screen.new(name: "DU3", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du3", elec_prop:"systems/electrical/bus/ac-ess"),
+					screen.new(name: "DU4", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du4", elec_prop:"systems/electrical/bus/ac-ess"),
+					screen.new(name: "DU5", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du5", elec_prop:"systems/electrical/bus/ac-ess"),
+					screen.new(name: "DU6", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du6", elec_prop:"systems/electrical/bus/ac-ess")];
 		
 	},
 	loop: func() {
