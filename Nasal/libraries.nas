@@ -168,7 +168,7 @@ var triggerDoor = func(door, doorName, doorDesc) {
 # Various Other Stuff #
 #######################
  
-var sl = setlistener("/sim/signals/fdm-initialized", func {
+setlistener("/sim/signals/fdm-initialized", func {
 	fbw.fctlInit();
 	systems.ELEC.init();
 	systems.PNEU.init();
@@ -191,7 +191,6 @@ var sl = setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/it-autoflight/input/fd2", 1);
 	libraries.ECAMinit();
 	libraries.variousReset();
-	removelistener(sl);
 });
 
 var systemsLoop = maketimer(0.1, func {
