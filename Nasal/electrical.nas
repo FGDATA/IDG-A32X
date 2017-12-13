@@ -220,33 +220,32 @@ var ELEC = {
 		setprop("/systems/electrical/outputs/transponder", 0);
 		setprop("/systems/electrical/outputs/turn-coordinator", 0);
 		
-		screens = [screen.new(name: "DU1", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du1", elec_prop:"systems/electrical/bus/ac-ess"),
-					screen.new(name: "DU2", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du2", elec_prop:"systems/electrical/bus/ac-ess-shed"),
-					screen.new(name: "DU3", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du3", elec_prop:"systems/electrical/bus/ac-ess"),
-					screen.new(name: "DU4", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du4", elec_prop:"systems/electrical/bus/ac2"),
-					screen.new(name: "DU5", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du5", elec_prop:"systems/electrical/bus/ac2"),
-					screen.new(name: "DU6", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"controls/lighting/DU/du6", elec_prop:"systems/electrical/bus/ac2")];
+		screens = [screen.new(name: "DU1", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du1", elec_prop:"/systems/electrical/bus/ac-ess"),
+			screen.new(name: "DU2", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du2", elec_prop:"/systems/electrical/bus/ac-ess-shed"),
+			screen.new(name: "DU3", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du3", elec_prop:"/systems/electrical/bus/ac-ess"),
+			screen.new(name: "DU4", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du4", elec_prop:"/systems/electrical/bus/ac2"),
+			screen.new(name: "DU5", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du5", elec_prop:"/systems/electrical/bus/ac2"),
+			screen.new(name: "DU6", type:"LCD", max_watts:60, dim_watts:50, dim_prop:"/controls/lighting/DU/du6", elec_prop:"/systems/electrical/bus/ac2")];
 		
-		lights = [light.new(name: "logo-left", max_watts:31.5, control_prop:"sim/model/lights/logo-lights", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "logo-right", max_watts:31.5, control_prop:"sim/model/lights/logo-lights", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "upper-beacon", max_watts:40, control_prop:"sim/model/lights/beacon/state", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "lower-beacon", max_watts:40, control_prop:"sim/model/lights/beacon/state", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "strobe-left", max_watts:38, control_prop:"sim/model/lights/strobe/state", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "strobe-right", max_watts:38, control_prop:"sim/model/lights/strobe/state", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "tail-strobe", max_watts:12, control_prop:"sim/model/lights/tailstrobe/state", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "tail-strobe-ctl", max_watts:30, control_prop:"sim/model/lights/tailstrobe/state", elec_prop:"systems/electrical/bus/ac2"), 
-					light.new(name: "tail-nav", max_watts:12, control_prop:"sim/model/lights/nav-lights", elec_prop:"systems/electrical/nav-lights-power"),
-					light.new(name: "left-nav", max_watts:12, control_prop:"sim/model/lights/nav-lights", elec_prop:"systems/electrical/nav-lights-power"),
-					light.new(name: "right-nav", max_watts:12, control_prop:"sim/model/lights/nav-lights", elec_prop:"systems/electrical/nav-lights-power"),
-					light.new(name: "left-land", max_watts:39, control_prop:"controls/lighting/landing-lights[1]", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "right-land", max_watts:39, control_prop:"controls/lighting/landing-lights[2]", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "left-taxi", max_watts:31, control_prop:"sim/model/lights/nose-lights", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "right-taxi", max_watts:31, control_prop:"sim/model/lights/nose-lights", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "left-turnoff", max_watts:21, control_prop:"controls/lighting/leftturnoff", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "right-turnoff", max_watts:21, control_prop:"controls/lighting/rightturnoff", elec_prop:"systems/electrical/bus/ac2"),
-					light.new(name: "left-wing", max_watts:24, control_prop:"controls/lighting/wing-lights", elec_prop:"systems/electrical/bus/ac1"),
-					light.new(name: "right-wing", max_watts:24, control_prop:"controls/lighting/wing-lights", elec_prop:"systems/electrical/bus/ac2")];
-		
+		lights = [light.new(name: "logo-left", max_watts:31.5, control_prop:"/sim/model/lights/logo-lights", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "logo-right", max_watts:31.5, control_prop:"/sim/model/lights/logo-lights", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "upper-beacon", max_watts:40, control_prop:"/sim/model/lights/beacon/state", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "lower-beacon", max_watts:40, control_prop:"/sim/model/lights/beacon/state", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "strobe-left", max_watts:38, control_prop:"/sim/model/lights/strobe/state", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "strobe-right", max_watts:38, control_prop:"/sim/model/lights/strobe/state", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "tail-strobe", max_watts:12, control_prop:"/sim/model/lights/tailstrobe/state", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "tail-strobe-ctl", max_watts:30, control_prop:"/sim/model/lights/tailstrobe/state", elec_prop:"/systems/electrical/bus/ac2"), 
+			light.new(name: "tail-nav", max_watts:12, control_prop:"/sim/model/lights/nav-lights", elec_prop:"/systems/electrical/nav-lights-power"),
+			light.new(name: "left-nav", max_watts:12, control_prop:"/sim/model/lights/nav-lights", elec_prop:"/systems/electrical/nav-lights-power"),
+			light.new(name: "right-nav", max_watts:12, control_prop:"/sim/model/lights/nav-lights", elec_prop:"/systems/electrical/nav-lights-power"),
+			light.new(name: "left-land", max_watts:39, control_prop:"/controls/lighting/landing-lights[1]", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "right-land", max_watts:39, control_prop:"/controls/lighting/landing-lights[2]", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "left-taxi", max_watts:31, control_prop:"/sim/model/lights/nose-lights", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "right-taxi", max_watts:31, control_prop:"/sim/model/lights/nose-lights", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "left-turnoff", max_watts:21, control_prop:"/controls/lighting/leftturnoff", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "right-turnoff", max_watts:21, control_prop:"/controls/lighting/rightturnoff", elec_prop:"/systems/electrical/bus/ac2"),
+			light.new(name: "left-wing", max_watts:24, control_prop:"/controls/lighting/wing-lights", elec_prop:"/systems/electrical/bus/ac1"),
+			light.new(name: "right-wing", max_watts:24, control_prop:"/controls/lighting/wing-lights", elec_prop:"/systems/electrical/bus/ac2")];
 	},
 	loop: func() {
 		galley_sw = getprop("/controls/electrical/switches/galley");
@@ -719,6 +718,3 @@ var decharge2 = maketimer(69, func {
 	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });
-
-
-
