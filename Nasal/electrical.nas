@@ -290,6 +290,26 @@ var ELEC = {
 		replay = getprop("/sim/replay/replay-state");
 		wow = getprop("/gear/gear[1]/wow");
 		
+		if (battery1_sw and !batt1_fail) {
+			setprop("/systems/electrical/battery1-amps", dc_amps_std);
+		} else {
+			setprop("/systems/electrical/battery1-amps", 0);
+		}
+		
+		if (battery2_sw and !batt2_fail) {
+			setprop("/systems/electrical/battery2-amps", dc_amps_std);
+		} else {
+			setprop("/systems/electrical/battery2-amps", 0);
+		}
+		
+		if (getprop("/systems/electrical/battery1-amps") > 120 or getprop("/systems/electrical/battery2-amps") > 120) {
+			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
+		} else {
+			setprop("/systems/electrical/bus/dcbat", 0);
+		}
+		
+		dcbat = getprop("/systems/electrical/bus/dcbat");
+		
 		if (extpwr_on and gen_ext_sw) {
 			setprop("/systems/electrical/gen-ext", 1);
 		} else {
@@ -351,6 +371,10 @@ var ELEC = {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
+		} else if (dcbat and ias >= 50) {
+			setprop("/systems/electrical/bus/dc1", 0);
+			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/bus/dc1-amps", 0); 
 		} else {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
@@ -377,6 +401,10 @@ var ELEC = {
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 		} else if (emergen) {
+			setprop("/systems/electrical/bus/dc2", 0);
+			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/bus/dc2-amps", 0); 
+		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/dc2", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
@@ -429,6 +457,14 @@ var ELEC = {
 				setprop("/systems/electrical/bus/ac-ess", 0);
 			}
 			ac1_src = "ESSRAT";
+		} else if (dcbat and ias >= 50) {
+			setprop("/systems/electrical/bus/ac1", 0);
+			if (!ac_ess_fail) {
+				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+			} else {
+				setprop("/systems/electrical/bus/ac-ess", 0);
+			}
+			ac1_src = "ESSBAT";
 		} else {
 			setprop("/systems/electrical/bus/ac1", 0);
 			if (getprop("/systems/electrical/bus/ac2") == 0) {
@@ -478,6 +514,14 @@ var ELEC = {
 				setprop("/systems/electrical/bus/ac-ess", 0);
 			}
 			ac2_src = "ESSRAT";
+		} else if (dcbat and ias >= 50) {
+			setprop("/systems/electrical/bus/ac2", 0);
+			if (!ac_ess_fail) {
+				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+			} else {
+				setprop("/systems/electrical/bus/ac-ess", 0);
+			}
+			ac2_src = "ESSBAT";
 		} else {
 			setprop("/systems/electrical/bus/ac2", 0);
 			if (getprop("/systems/electrical/bus/ac1") == 0) {
@@ -553,25 +597,6 @@ var ELEC = {
 		
 		if (ias < 100 or (ac1 == 1) or (ac2 == 1)) {
 			setprop("/controls/electrical/switches/emer-gen", 0);
-		}
-		
-		# Battery Amps
-		if (battery1_sw and !batt1_fail) {
-			setprop("/systems/electrical/battery1-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery1-amps", 0);
-		}
-		
-		if (battery2_sw and !batt2_fail) {
-			setprop("/systems/electrical/battery2-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery2-amps", 0);
-		}
-		
-		if ((getprop("/systems/electrical/battery1-amps") > 120) or (getprop("/systems/electrical/battery2-amps") > 120)) {
-			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
-		} else {
-			setprop("/systems/electrical/bus/dcbat", 0);
 		}
 		
 		dc1 = getprop("/systems/electrical/bus/dc1");
