@@ -545,7 +545,7 @@ var ELEC = {
 			setprop("/systems/electrical/extra/galleyshed", 0); 
 		}
 		
-		if ((ac1 == 0) and (ac2 == 0) and (ias >= 100) or (manrat) and replay == 0) {
+		if (((ac1 == 0 and ac2 == 0 and ias >= 100) or manrat) and replay == 0) {
 			setprop("/controls/hydraulic/rat-deployed", 1);
 			setprop("/controls/hydraulic/rat", 1);
 			setprop("/controls/electrical/switches/emer-gen", 1);
