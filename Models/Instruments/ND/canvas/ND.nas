@@ -76,7 +76,7 @@ var canvas_nd_base = {
 	},
 	update: func() {
 		elapsedtime = getprop("/sim/time/elapsed-sec");
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/bus/ac2") >= 110) {
+		if (getprop("/systems/electrical/bus/ac-ess-shed") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du2-test") != 1) {
 				setprop("/instrumentation/du/du2-test", 1);
 				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec"));
@@ -84,6 +84,10 @@ var canvas_nd_base = {
 				setprop("/instrumentation/du/du2-test", 1);
 				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec") - 35);
 			}
+		} else {
+			setprop("/instrumentation/du/du2-test", 0);
+		}
+		if (getprop("/systems/electrical/bus/ac2") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du5-test") != 1) {
 				setprop("/instrumentation/du/du5-test", 1);
 				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec"));
@@ -92,11 +96,10 @@ var canvas_nd_base = {
 				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec") - 35);
 			}
 		} else {
-			setprop("/instrumentation/du/du2-test", 0);
 			setprop("/instrumentation/du/du5-test", 0);
 		}
 		
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du2") > 0) {
+		if (getprop("/systems/electrical/bus/ac-ess-shed") >= 110 and getprop("/controls/lighting/DU/du2") > 0) {
 			if (getprop("/instrumentation/du/du2-test-time") + 38.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
 				ND_1.page.hide();
 				ND_1_test.page.show();
@@ -112,7 +115,7 @@ var canvas_nd_base = {
 			ND_1_test.page.hide();
 			ND_1.page.hide();
 		}
-		if (getprop("/systems/electrical/bus/ac1") >= 110 and getprop("/systems/electrical/ac1-src") != "RAT" and getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/systems/electrical/ac2-src") != "RAT" and getprop("/controls/lighting/DU/du5") > 0) {
+		if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du5") > 0) {
 			if (getprop("/instrumentation/du/du5-test-time") + 38.5 >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
 				ND_2.page.hide();
 				ND_2_test.page.show();
