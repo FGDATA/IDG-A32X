@@ -11,7 +11,7 @@
 	<filter>
 		<name>Groundspeed Meters Per Second</name>
 		<type>gain</type>
-		<gain>0.51444444444</gain>
+		<gain>0.5144444444444</gain>
 		<input>/velocities/groundspeed-kt</input>
 		<output>/velocities/groundspeed-mps</output>
 		<min>0</min>
@@ -574,7 +574,7 @@
 		<input>
 			<expression>
 				<product>
-					<property>velocities/uBody-fps</property> 
+					<property>/velocities/uBody-fps</property> 
 					<value>0.592484</value>
 				</product>
 			</expression>
@@ -589,11 +589,11 @@
 		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<product>
-				<property>fdm/jsbsim/inertia/weight-lbs</property>
+				<property>/fdm/jsbsim/inertia/weight-lbs</property>
 				<value>0.45359237</value>
 			</product>
 		</input>
-		<output>fdm/jsbsim/inertia/weight-kg</output>
+		<output>/fdm/jsbsim/inertia/weight-kg</output>
 	</filter>
 	
 	<filter>

@@ -34,11 +34,11 @@ setprop("/engines/engine[1]/oil-qt-actual", qty2);
 # Lights #
 ##########
 var beacon_switch = props.globals.getNode("/controls/switches/beacon", 2);
-var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.16, 1], "/controls/lighting/beacon");
+var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.1, 1], "/controls/lighting/beacon");
 var strobe_switch = props.globals.getNode("/controls/switches/strobe", 2);
 var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.05, 0.06, 0.05, 1], "/controls/lighting/strobe");
 var tail_strobe_switch = props.globals.getNode("/controls/switches/tailstrobe", 2);
-var tail_strobe = aircraft.light.new("/sim/model/lights/tailstrobe", [0.11, 1], "/controls/lighting/strobe");
+var tail_strobe = aircraft.light.new("/sim/model/lights/tailstrobe", [0.1, 1], "/controls/lighting/strobe");
 var logo_lights = getprop("/sim/model/lights/logo-lights");
 var nav_lights = props.globals.getNode("/sim/model/lights/nav-lights");
 var wow = getprop("/gear/gear[2]/wow");
@@ -365,9 +365,9 @@ var lightsLoop = maketimer(0.2, func {
 	
 	# nose lights
 	
-	if (settingT == 0.5 and gear > 0.9) {
+	if (settingT == 0.5 and gear > 0.9 and (getprop("/systems/electrical/bus/ac1") > 0 or getprop("/systems/electrical/bus/ac2") > 0)) {
 		setprop("/sim/model/lights/nose-lights", 0.85);
-	} else if (settingT == 1 and gear > 0.9) {
+	} else if (settingT == 1 and gear > 0.9 and (getprop("/systems/electrical/bus/ac1") > 0 or getprop("/systems/electrical/bus/ac2") > 0)) {
 		setprop("/sim/model/lights/nose-lights", 1);
 	} else {
 		setprop("/sim/model/lights/nose-lights", 0);
@@ -378,11 +378,15 @@ var lightsLoop = maketimer(0.2, func {
 	left_turnoff_light = props.globals.getNode("/controls/lighting/leftturnoff");
 	right_turnoff_light = props.globals.getNode("/controls/lighting/rightturnoff");
 	
-	if (settingTurnoff == 1 and gear > 0.9) {
+	if (settingTurnoff == 1 and gear > 0.9 and getprop("/systems/electrical/bus/ac1") > 0) {
 		left_turnoff_light.setBoolValue(1);
-		right_turnoff_light.setBoolValue(1);
 	} else {
 		left_turnoff_light.setBoolValue(0);
+	}
+	
+	if (settingTurnoff == 1 and gear > 0.9 and getprop("/systems/electrical/bus/ac2") > 0) {
+		right_turnoff_light.setBoolValue(1);
+	} else {
 		right_turnoff_light.setBoolValue(0);
 	}
 	
@@ -393,9 +397,15 @@ var lightsLoop = maketimer(0.2, func {
 	wow = getprop("/gear/gear[2]/wow");
 	slats = getprop("/controls/flight/slats");
 	
+	if (getprop("/systems/electrical/bus/ac1") > 0 or getprop("/systems/electrical/bus/ac2") > 0) {
+		setprop("/systems/electrical/nav-lights-power", 1);
+	} else { 
+		setprop("/systems/electrical/nav-lights-power", 0);
+	}
+	
 	if (setting == 0 and logo_lights == 1) {
 		 logo_lights.setBoolValue(0);
-	} else if (setting == 1 or setting == 2) {
+	} else if (setting == 1 or setting == 2 and (getprop("/systems/electrical/bus/ac1") > 0 or getprop("/systems/electrical/bus/ac2") > 0)) {
 		if ((wow) or (!wow and slats > 0)) {
 			logo_lights.setBoolValue(1);
 		} else {
@@ -405,7 +415,7 @@ var lightsLoop = maketimer(0.2, func {
 		logo_lights.setBoolValue(0);
 	}
 
-	if (setting == 1 or setting == 2) {
+	if (setting == 1 or setting == 2 and (getprop("/systems/electrical/bus/ac1") > 0 or getprop("/systems/electrical/bus/ac2") > 0 or getprop("/systems/electrical/bus/dc1") > 0 or getprop("/systems/electrical/bus/dc2") > 0)) {
 		nav_lights.setBoolValue(1);
 	} else {
 		nav_lights.setBoolValue(0);
