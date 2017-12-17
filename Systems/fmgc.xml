@@ -6,7 +6,7 @@
 ##############################################
 -->
 
-<system name="fmgc">
+<system name="fmgs">
 	<property value="0">/FMGC/internal/greendot-kts</property>
 
 	<channel name="GreenDot">
