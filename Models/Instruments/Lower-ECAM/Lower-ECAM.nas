@@ -501,11 +501,11 @@ var canvas_lowerECAM_fctl = {
 		yellow_psi = getprop("/systems/hydraulic/yellow-psi");
 		
 		# Pitch Trim
-		me["PT"].setText(sprintf("%2.1f", getprop("/ECAM/Lower/elevator-trim-deg")));
+		me["PT"].setText(sprintf("%2.1f", math.round(getprop("/ECAM/Lower/elevator-trim-deg"), 0.1)));
 
-		if (getprop("/controls/flight/elevator-trim") <= 0) {
+		if (math.round(getprop("/ECAM/Lower/elevator-trim-deg"), 0.1) >= 0) {
 			me["PTupdn"].setText(sprintf("UP"));
-		} else if (getprop("/controls/flight/elevator-trim") > 0) {
+		} else if (math.round(getprop("/ECAM/Lower/elevator-trim-deg"), 0.1) < 0) {
 			me["PTupdn"].setText(sprintf("DN"));
 		}
 

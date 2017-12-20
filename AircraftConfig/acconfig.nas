@@ -279,9 +279,9 @@ var beforestart_b = func {
 	setprop("/controls/pneumatic/switches/bleed2", 1);
 	setprop("/controls/pneumatic/switches/pack1", 1);
 	setprop("/controls/pneumatic/switches/pack2", 1);
-	setprop("controls/adirs/ir[0]/knob","1");
-	setprop("controls/adirs/ir[1]/knob","1");
-	setprop("controls/adirs/ir[2]/knob","1");
+	setprop("/controls/adirs/ir[0]/knob","1");
+	setprop("/controls/adirs/ir[1]/knob","1");
+	setprop("/controls/adirs/ir[2]/knob","1");
 	systems.ADIRS.skip(0);
 	systems.ADIRS.skip(1);
 	systems.ADIRS.skip(2);
@@ -352,9 +352,9 @@ var taxi_b = func {
 	setprop("/controls/pneumatic/switches/bleed2", 1);
 	setprop("/controls/pneumatic/switches/pack1", 1);
 	setprop("/controls/pneumatic/switches/pack2", 1);
-	setprop("controls/adirs/ir[0]/knob","1");
-	setprop("controls/adirs/ir[1]/knob","1");
-	setprop("controls/adirs/ir[2]/knob","1");
+	setprop("/controls/adirs/ir[0]/knob","1");
+	setprop("/controls/adirs/ir[1]/knob","1");
+	setprop("/controls/adirs/ir[2]/knob","1");
 	systems.ADIRS.skip(0);
 	systems.ADIRS.skip(1);
 	systems.ADIRS.skip(2);

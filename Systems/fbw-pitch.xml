@@ -346,7 +346,7 @@
 			<expression>
 				<table>
 					<property>/velocities/mach</property>
-					<entry><ind>0.2</ind><dep>-0.26</dep></entry>
+					<entry><ind>0.2</ind><dep>-0.28</dep></entry>
 					<entry><ind>0.9</ind><dep>-0.13</dep></entry>
 				</table>
 			</expression>
@@ -552,6 +552,7 @@
 		<name>IT-CONTROLLER: PITCH TRIM</name>
 		<debug>false</debug>
 		<initialize-to>output</initialize-to>
+		<type>noise-spike</type>
 		<enable>
 			<condition>
 				<and>
@@ -645,7 +646,8 @@
 			<value>-1</value>
 		</input>
 		<output>/controls/flight/elevator-trim</output>
-		<type>noise-spike</type>
+		<min>-1.0</min>
+		<max>0.32</max>
 		<max-rate-of-change>0.01</max-rate-of-change>
 	</filter>
 

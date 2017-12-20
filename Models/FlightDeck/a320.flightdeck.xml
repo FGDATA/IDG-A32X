@@ -5014,8 +5014,9 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>trim_2_lts</object-name>
-		<property>controls/flight/elevator-trim</property>
-		<factor>-150</factor>
+		<property>fdm/jsbsim/fcs/pitch-trim-cmd-deg</property>
+		<factor>-15.55</factor>
+		<offset-deg>-0.9</offset-deg>
 		<center>
 			<x-m>-0.1507</x-m>
 			<y-m>0</y-m>
