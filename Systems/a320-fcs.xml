@@ -61,13 +61,10 @@
 				<product>
 					<sum>
 						<property>/controls/flight/speedbrake-norm</property>
-						<max>
-							<product>
-								<property>hydraulics/roll-fbw-summer</property>
-								<value>-1</value>
-							</product>
-							<value>0</value>
-						</max>
+						<product>
+							<property>hydraulics/roll-fbw-summer</property>
+							<value>-1</value>
+						</product>
 					</sum>
 					<value>-0.5</value>
 				</product>
@@ -143,10 +140,7 @@
 				<product>
 					<sum>
 						<property>/controls/flight/speedbrake-norm</property>
-						<max>
-							<property>hydraulics/roll-fbw-summer</property>
-							<value>0</value>
-						</max>
+						<property>hydraulics/roll-fbw-summer</property>
 					</sum>
 					<value>0.5</value>
 				</product>

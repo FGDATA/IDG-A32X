@@ -247,8 +247,8 @@
 		<output>
 			<property>/it-autoflight/internal/aileron-cmd</property> <!-- Inputs to the FBW Roll Rate -->
 		</output>   	
-		<min>-0.4</min>
-		<max>0.4</max>
+		<min>-0.32</min>
+		<max>0.32</max>
 	</filter>
 	
  <!-- =============================================================== -->
