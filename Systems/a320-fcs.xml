@@ -9,7 +9,7 @@
 <system name="A320: FCS">
 
 	<channel name="Surface Droop">
-	
+		
 		<fcs_function name="hydraulics/aileron-droop">
 			<function>
 				<table>
