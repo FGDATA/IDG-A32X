@@ -493,6 +493,76 @@
 	
 	<channel name="Rudder">
 		
+		<fcs_function name="hydraulics/rudder/max-deg-fac">
+			<function>
+				<table>
+					<independentVar lookup="row">/velocities/airspeed-kt</independentVar>
+					<tableData>
+						160.00  25.000
+						162.15  23.649
+						165.02  22.226
+						168.64  21.015
+						172.25  19.734
+						176.59  18.595
+						181.67  17.525
+						186.75  16.385
+						191.83  15.316
+						197.65  14.318
+						205.65  13.247
+						212.93  12.318
+						219.48  11.462
+						227.48  10.533
+						236.96  9.7450
+						246.43  8.8863
+						255.18  8.0990
+						266.12  7.4525
+						277.06  6.7704
+						288.00  6.0884
+						299.67  5.5124
+						311.35  5.0075
+						323.03  4.5736
+						335.44  4.2104
+						347.13  3.9186
+						358.81  3.6979
+						370.50  3.5482
+						380.00  3.4000
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<switch name="hydraulics/rudder/max-deg-switch">
+			<default value="25"/>
+			<test logic="AND" value="hydraulics/rudder/max-deg-fac">
+				/systems/fctl/fac1 EQ 1
+				/systems/fctl/fac2 EQ 1
+				/gear/gear[1]/wow EQ 0
+				/gear/gear[2]/wow EQ 0
+			</test>
+			<test logic="AND" value="hydraulics/rudder/max-deg-fac">
+				/controls/flight/slats EQ 0
+				/gear/gear[1]/wow EQ 0
+				/gear/gear[2]/wow EQ 0
+			</test>
+		</switch>
+		
+		<aerosurface_scale name="hydraulics/rudder/max-deg-scale">
+			<input>hydraulics/rudder/max-deg-switch</input>
+			<domain>
+				<min>-25</min>
+				<max>25</max>
+			</domain>
+			<range>
+				<min>-1</min>
+				<max>1</max>
+			</range>
+		</aerosurface_scale>
+		
+		<pure_gain name="hydraulics/rudder/max-deg-scale-neg">
+			<input>hydraulics/rudder/max-deg-scale</input>
+			<gain>-1.0</gain>
+		</pure_gain>
+		
 		<switch name="hydraulics/rudder/pressure-switch-or">
 			<default value="0"/>
 			<test logic="OR" value="1">
@@ -535,6 +605,10 @@
 					<time>1.1</time>
 				</setting>
 			</traverse>
+			<clipto>
+				<min>hydraulics/rudder/max-deg-scale-neg</min>
+				<max>hydraulics/rudder/max-deg-scale</max>
+			</clipto>
 			<output>/controls/flight/rudder-fdm</output>
 		</kinematic>
 	
@@ -603,19 +677,6 @@
 				<max>0.436332</max>
 			</range>
 			<output>fcs/rudder-pos-rad</output>
-		</aerosurface_scale>
-		
-		<aerosurface_scale name="rubbish/rudder-pos-norm">
-			<input>fcs/rudder-pos-rad</input>
-			<domain>
-				<min>-0.436332</min>
-				<max>0.436332</max>
-			</domain>
-			<range>
-				<min>-1</min>
-				<max>1</max>
-			</range>
-			<output>fcs/rudder-pos-norm</output>
 		</aerosurface_scale>
 	
 	</channel>

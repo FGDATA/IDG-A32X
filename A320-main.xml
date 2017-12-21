@@ -657,7 +657,7 @@
 	</gear>
 	
 	<systems>
-		<failures>
+		<failures n="0">
 			<aileron-left type="bool">0</aileron-left>
 			<aileron-right type="bool">0</aileron-right>
 			<elevator-left type="bool">0</elevator-left>
@@ -674,6 +674,10 @@
 			<spoiler-r4 type="bool">0</spoiler-r4>
 			<spoiler-r5 type="bool">0</spoiler-r5>
 		</failures>
+		<fctl n="0">
+			<fac1 type="bool">0</fac1>
+			<fac2 type="bool">0</fac2>
+		</fctl>
 		<fuel n="0">
 			<only-use-ctr-tank type="bool">0</only-use-ctr-tank>
 			<tank n="0">
