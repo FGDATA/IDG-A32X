@@ -479,7 +479,7 @@
 				<command>nasal</command>
 				<script>
 					var TrimVal = getprop("/controls/flight/rudder-trim");
-					setprop("/controls/flight/rudder-trim", TrimVal + 0.01);
+					setprop("/controls/flight/rudder-trim", TrimVal + 0.005);
 					setprop("/controls/switches/rudder-trim", 1);
 				</script>
 			</binding>
@@ -511,7 +511,7 @@
 				<command>nasal</command>
 				<script>
 					var TrimVal = getprop("/controls/flight/rudder-trim");
-					setprop("/controls/flight/rudder-trim", TrimVal - 0.01);
+					setprop("/controls/flight/rudder-trim", TrimVal - 0.005);
 					setprop("/controls/switches/rudder-trim", -1);
 				</script>
 			</binding>
