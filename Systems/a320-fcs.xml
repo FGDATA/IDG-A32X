@@ -55,7 +55,7 @@
 	</channel>
 	
 	<channel name="Aileron L">
-	
+		
 		<fcs_function name="hydraulics/aileron-l/extended">
 			<function>
 				<product>
@@ -134,7 +134,7 @@
 	</channel>
 	
 	<channel name="Aileron R">
-	
+		
 		<fcs_function name="hydraulics/aileron-r/extended">
 			<function>
 				<product>
