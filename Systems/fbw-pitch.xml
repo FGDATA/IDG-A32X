@@ -647,7 +647,7 @@
 		</input>
 		<output>/controls/flight/elevator-trim</output>
 		<min>-1.0</min>
-		<max>0.14</max>
+		<max>0.32</max>
 		<max-rate-of-change>0.01</max-rate-of-change>
 	</filter>
 
