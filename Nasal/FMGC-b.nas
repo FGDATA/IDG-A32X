@@ -245,15 +245,7 @@ var lateral = func {
 		setprop("/it-autoflight/mode/arm", " ");
 	} else if (latset == 1) {
 		if (getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1 and getprop("/position/gear-agl-ft") >= 30) {
-			alandt.stop();
-			alandt1.stop();
-			setprop("/it-autoflight/input/lat-arm", 0);
-			setprop("/it-autoflight/output/loc-armed", 0);
-			setprop("/it-autoflight/output/appr-armed", 0);
-			setprop("/it-autoflight/output/lat", 1);
-			setprop("/it-autoflight/mode/lat", "LNAV");
-			setprop("/it-autoflight/mode/arm", " ");
-			setprop("/it-autoflight/custom/show-hdg", 0);
+			make_lnav_active();
 		} else {
 			setprop("/it-autoflight/input/lat-arm", 1);
 			setprop("/it-autoflight/mode/arm", "LNV");
@@ -674,15 +666,6 @@ setlistener("/it-autoflight/input/kts-mach", func {
 
 # Takeoff Modes
 # Lat Active
-var latarms = func {
-	if () {
-		if (getprop("/it-autoflight/input/lat-arm") == 1) {
-			setprop("/it-autoflight/input/lat", getprop("/it-autoflight/input/lat-arm"));
-			setprop("/it-autoflight/input/lat-arm", 0);
-		}
-	}
-}
-
 # TOGA
 setlistener("/it-autoflight/input/toga", func {
 	if (getprop("/it-autoflight/input/toga") == 1) {
@@ -880,15 +863,7 @@ var check_arms = func {
 
 var update_arms = func {
 	if (getprop("/it-autoflight/input/lat-arm") == 1 and getprop("/autopilot/route-manager/route/num") > 0 and getprop("/autopilot/route-manager/active") == 1 and getprop("/position/gear-agl-ft") >= 30) {
-		alandt.stop();
-		alandt1.stop();
-		setprop("/it-autoflight/input/lat-arm", 0);
-		setprop("/it-autoflight/output/loc-armed", 0);
-		setprop("/it-autoflight/output/appr-armed", 0);
-		setprop("/it-autoflight/output/lat", 1);
-		setprop("/it-autoflight/mode/lat", "LNAV");
-		setprop("/it-autoflight/mode/arm", " ");
-		setprop("/it-autoflight/custom/show-hdg", 0);
+		make_lnav_active();
 	}
 	if (getprop("/instrumentation/nav[0]/in-range") == 1) {
 		if (getprop("/it-autoflight/output/loc-armed")) {
@@ -908,6 +883,18 @@ var update_arms = func {
 			}
 		}
 	}
+}
+
+var make_lnav_active = func {
+	alandt.stop();
+	alandt1.stop();
+	setprop("/it-autoflight/input/lat-arm", 0);
+	setprop("/it-autoflight/output/loc-armed", 0);
+	setprop("/it-autoflight/output/appr-armed", 0);
+	setprop("/it-autoflight/output/lat", 1);
+	setprop("/it-autoflight/mode/lat", "LNAV");
+	setprop("/it-autoflight/mode/arm", " ");
+	setprop("/it-autoflight/custom/show-hdg", 0);
 }
 
 var make_loc_active = func {
