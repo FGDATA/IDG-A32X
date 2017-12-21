@@ -133,18 +133,18 @@
 			<autopilot n="7">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-pitch.xml</path>
 			</autopilot>
-            <autopilot n="8">
-                <path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
-            </autopilot>
-            <autopilot n="9">
-                <path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
-            </autopilot>
-            <autopilot n="11">
+			<autopilot n="8">
+				<path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
+			</autopilot>
+			<autopilot n="9">
+				<path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
+			</autopilot>
+			<autopilot n="11">
 				<path>Aircraft/IDG-A32X/Systems/upper-ecam.xml</path>
-            </autopilot>
-            <autopilot n="12">
+			</autopilot>
+			<autopilot n="12">
 				<path>Aircraft/IDG-A32X/Systems/lower-ecam.xml</path>
-            </autopilot>
+			</autopilot>
 			<autopilot n="13">
 				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
 			</autopilot>
@@ -537,7 +537,7 @@
 		</flight>
 		<gear>
 			<brake-parking type="bool">0</brake-parking>
-            <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
 			<tiller-enabled type="bool">0</tiller-enabled>
 		</gear>
 		<lighting>
