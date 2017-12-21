@@ -253,7 +253,7 @@ var lateral = func {
 	} else if (latset == 2) {
 		if (getprop("/instrumentation/nav[0]/in-range") == 1) {
 			locdefl = abs(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm"));
-			if (locdefl < 0.95 and locdefl != 0 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
+			if (locdefl < 0.95 and locdefl != 0 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99 and getprop("/it-autoflight/output/lat") != 2) {
 				make_loc_active();
 			} else {
 				if (getprop("/it-autoflight/output/lat") != 2) {
@@ -366,7 +366,7 @@ var vertical = func {
 	} else if (vertset == 2) {
 		if (getprop("/instrumentation/nav[0]/in-range") == 1) {
 			locdefl = abs(getprop("/instrumentation/nav[0]/heading-needle-deflection-norm"));
-			if (locdefl < 0.95 and locdefl != 0 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99) {
+			if (locdefl < 0.95 and locdefl != 0 and getprop("/instrumentation/nav[0]/signal-quality-norm") > 0.99 and getprop("/it-autoflight/output/lat") != 2) {
 				make_loc_active();
 			} else {
 				if (getprop("/it-autoflight/output/lat") != 2) {
@@ -375,7 +375,7 @@ var vertical = func {
 				}
 			}
 			signal = getprop("/instrumentation/nav[0]/gs-needle-deflection-norm");
-			if (((signal < 0 and signal >= -0.20) or (signal > 0 and signal <= 0.20)) and getprop("/it-autoflight/output/lat") == 2) {
+			if (((signal < 0 and signal >= -0.20) or (signal > 0 and signal <= 0.20)) and getprop("/it-autoflight/output/lat") == 2 and getprop("/it-autoflight/output/vert") != 2) {
 				make_appr_active();
 			} else {
 				if (getprop("/it-autoflight/output/vert") != 2 and getprop("/it-autoflight/output/vert") != 6) {
