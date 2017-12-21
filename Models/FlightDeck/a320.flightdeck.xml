@@ -574,7 +574,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>controls/flight/rudder-trim-deg</property>
+		<property>fdm/jsbsim/fcs/rudder-trim-cmd-deg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>

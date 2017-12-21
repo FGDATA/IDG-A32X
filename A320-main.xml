@@ -516,6 +516,7 @@
 			<flap-pos type="int">0</flap-pos>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<roll-fbw>0</roll-fbw>
+			<rudder-trim-fdm>0.0</rudder-trim-fdm>
 			<spoiler-l1>0.0</spoiler-l1>
 			<spoiler-l2>0.0</spoiler-l2>
 			<spoiler-l3>0.0</spoiler-l3>

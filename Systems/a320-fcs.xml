@@ -572,9 +572,29 @@
 			</test>
 		</switch>
 		
+		<aerosurface_scale name="fcs/rudder-trim-cmd-deg">
+			<input>/controls/flight/rudder-trim</input>
+			<domain>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</domain>
+			<range>
+				<min>-20.0</min>
+				<max>20.0</max>
+			</range>
+		</aerosurface_scale>
+		
+		<aerosurface_scale name="hydraulics/rudder/trim-norm">
+			<input>/controls/flight/rudder-trim-fdm</input>
+			<range>
+				<min>-0.8</min>
+				<max>0.8</max>
+			</range>
+		</aerosurface_scale>
+		
 		<summer name="hydraulics/rudder/summer">
 			<input>/controls/flight/rudder-fbw</input>
-			<input>/controls/flight/rudder-trim</input>
+			<input>hydraulics/rudder/trim-norm</input>
 			<clipto>
 				<min>-1</min>
 				<max>1</max>
@@ -782,9 +802,9 @@
 					<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
 					<independentVar lookup="column">/controls/flight/rudder</independentVar>
 					<tableData>
-						        -1     0  1
-						30.000  -70.0  0  70.0
-						30.001  -10.0  0  10.0
+						       -1     0  1
+						30.000 -70.0  0  70.0
+						30.001 -10.0  0  10.0
 					</tableData>
 				</table>
 			</function>
