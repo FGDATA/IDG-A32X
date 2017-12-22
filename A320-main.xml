@@ -926,6 +926,12 @@
 							<script></script>
 						</binding>
 						<binding n="1">
+							<condition>
+								<and>
+									<property>/devices/status/mice/mouse[0]/button[2]</property>
+									<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+								</and>
+							</condition>
 							<command>nasal</command>
 							<script>
 							if (getprop("/sim/current-view/can-change-z-offset")) {
@@ -948,6 +954,12 @@
 							<script></script>
 						</binding>
 						<binding n="1">
+							<condition>
+								<and>
+									<property>/devices/status/mice/mouse[0]/button[2]</property>
+									<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+								</and>
+							</condition>
 							<command>nasal</command>
 							<script>
 								if (getprop("/sim/current-view/can-change-z-offset")) {
