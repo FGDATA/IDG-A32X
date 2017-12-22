@@ -63,7 +63,7 @@
 				<sum>
 					<property>/accelerations/pilot-gdamped</property>
 					<div>
-						<value>1</value>
+						<value>-1</value>
 						<cos>
 							<deg2rad>
 								<product>
@@ -73,7 +73,7 @@
 							</deg2rad>
 						</cos>
 					</div>
-					<value>-1</value>
+					<value>1</value>
 				</sum>
 			</expression>
 		</input>
