@@ -305,6 +305,15 @@
 							</script>
 						</binding>
 					</item>
+					<item>
+						<label>Show IESI</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							canvas_iesi.showIESI();
+							</script>
+						</binding>
+					</item>
 				</menu>
 			</default>
 		</menubar>
@@ -1433,6 +1442,9 @@
 			<file>Aircraft/IDG-A32X/Models/Instruments/Upper-ECAM/Upper-ECAM.nas</file>
 			<file>Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/Lower-ECAM.nas</file>
 		</canvas_ecam>
+		<canvas_iesi>
+			<file>Aircraft/IDG-A32X/Models/Instruments/IESI/IESI.nas</file>
+		</canvas_iesi>
 		<icing>
 			<file>Aircraft/IDG-A32X/Nasal/icing.nas</file>
 		</icing>

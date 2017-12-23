@@ -330,6 +330,12 @@
 		</offsets>
 	</model>
 	
+	<!-- Standby Indicator -->
+	<model>
+		<name>IESI</name>
+		<path>Aircraft/IDG-A32X/Models/Instruments/IESI/IESI.xml</path>
+	</model>
+	
 	<!-- No button lights without power! -->
 	<animation>
 		<type>select</type>
@@ -3813,7 +3819,7 @@
 				<property>it-autoflight/input/spd-mach</property>
 				<step>0.001</step>
 				<min>0.50</min>
-				<max>0.84</max>
+				<max>0.82</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -3863,7 +3869,7 @@
 				<property>it-autoflight/input/spd-mach</property>
 				<step>-0.001</step>
 				<min>0.50</min>
-				<max>0.84</max>
+				<max>0.82</max>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -5196,59 +5202,6 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<!-- Standby Indicator -->
-	<animation>
-		<type>select</type>
-		<object-name>stby_att_ind_screen</object-name>
-		<condition>
-			<or>
-				<greater-than-equals>
-					<property>systems/electrical/battery1-amps</property>
-					<value>120</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/battery2-amps</property>
-					<value>120</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/bus/dc1</property>
-					<value>25</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/bus/dc2</property>
-					<value>25</value>
-				</greater-than-equals>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>texmultiple</type>
-		<object-name>stby_att_ind_screen</object-name>
-		<transform>
-			<property>orientation/pitch-deg</property>
-			<subtype>textranslate</subtype>
-			<factor>0.003955078</factor>
-			<axis>
-				<x>0</x>
-				<y>1</y>
-			</axis>
-		</transform>
-		<transform>
-			<property>orientation/roll-deg</property>
-			<subtype>texrotate</subtype>
-			<center>
-				<x>0.50</x>
-				<y>0.50</y>
-			</center>
-			<axis>
-				<x>0</x>
-				<y>0</y>
-				<z>-1</z>
-			</axis>
-		</transform>
 	</animation>
 	
 	<!-- Sidestick Left -->
