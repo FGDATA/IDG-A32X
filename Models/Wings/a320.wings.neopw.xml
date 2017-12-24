@@ -36,7 +36,7 @@
 		<type>rotate</type>
 		<object-name>AileronL</object-name>
 		<property>sim/multiplay/generic/float[6]</property>
-		<factor>40</factor>
+		<factor>50</factor>
 		<axis>
 			<x1-m>8.7295</x1-m>
 			<y1-m>-16.3231163</y1-m>
@@ -51,7 +51,7 @@
 		<type>rotate</type>
 		<object-name>AileronR</object-name>
 		<property>sim/multiplay/generic/float[7]</property>
-		<factor>-40</factor>
+		<factor>-50</factor>
 		<axis>
 			<x1-m>7.6792</x1-m>
 			<y1-m>13.3967144</y1-m>
@@ -318,7 +318,7 @@
 		<property>controls/flight/spoiler-l1</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.879</x1-m>
@@ -336,7 +336,7 @@
 		<property>controls/flight/spoiler-l2</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>5.084</x1-m>
@@ -354,7 +354,7 @@
 		<property>controls/flight/spoiler-l3</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>5.685</x1-m>
@@ -372,7 +372,7 @@
 		<property>controls/flight/spoiler-l4</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>6.253</x1-m>
@@ -390,7 +390,7 @@
 		<property>controls/flight/spoiler-l5</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>6.776</x1-m>
@@ -408,7 +408,7 @@
 		<property>controls/flight/spoiler-r1</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.879</x1-m>
@@ -426,7 +426,7 @@
 		<property>controls/flight/spoiler-r2</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>5.678</x1-m>
@@ -444,7 +444,7 @@
 		<property>controls/flight/spoiler-r3</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>6.246</x1-m>
@@ -462,7 +462,7 @@
 		<property>controls/flight/spoiler-r4</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>6.769</x1-m>
@@ -480,7 +480,7 @@
 		<property>controls/flight/spoiler-r5</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>30</dep></entry>
+			<entry><ind>1.0</ind><dep>35</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>7.292</x1-m>

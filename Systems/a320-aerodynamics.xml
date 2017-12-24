@@ -8,7 +8,9 @@
 -->
 
 <aerodynamics>
+	
 	<property value="0.0">ice/wing</property>
+	
 	<axis name="LIFT">
 
 		<function name="aero/force/Lift_alpha">
@@ -204,8 +206,18 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<abs><property>fcs/pitch-pos-norm</property></abs>
-				<value>0.035</value>
+				<abs><property>fcs/pitch-pos-rad</property></abs>
+				<value>0.07</value>
+			</product>
+		</function>
+		
+		<function name="aero/force/Drag_pitch_trim_control">
+			<description>Drag due to pitch trim control deflection</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<abs><property>fcs/pitch-trim-pos-rad</property></abs>
+				<value>0.07</value>
 			</product>
 		</function>
 
@@ -239,6 +251,7 @@
 					</table>
 				</product>
 		</function>
+		
 	</axis>
 
 	<axis name="ROLL">
@@ -285,7 +298,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/roll-pos-rad</property>
-				<value>0.07</value>
+				<value>0.110</value>
 			</product>
 		</function>
 
@@ -322,7 +335,18 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>fcs/pitch-pos-geared</property>
-				<value>-1.350</value>
+				<value>-1.825</value>
+			</product>
+		</function>
+
+		<function name="aero/moment/Pitch_trim_control">
+			<description>Pitch moment due to pitch trim control</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>metrics/cbarw-ft</property>
+				<property>fcs/pitch-trim-pos-geared</property>
+				<value>-3.045</value>
 			</product>
 		</function>
 
@@ -384,7 +408,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/rudder-pos-rad</property>
-				<value>-0.2</value>
+				<value>-0.043</value>
 			</product>
 		</function>
 

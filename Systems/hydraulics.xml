@@ -6,288 +6,9 @@
 ##############################################
 -->
 
-<!-- Airbus A3XX Hydraulics System -->
+<!-- Airbus A32X Hydraulics System -->
 
 <PropertyList>
-
- <!-- =============================================================== -->
- <!-- Surface Droop                                                   -->
- <!-- =============================================================== -->
- 
-	<filter>
-		<name>Aileron Droop</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input>
-			<expression>
-				<table>
-					<property>/velocities/airspeed-kt</property>
-					<entry><ind> 62</ind><dep>0.5</dep></entry>
-					<entry><ind>116</ind><dep>0.0</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/systems/hydraulic/aileron-droop</output>
-	</filter>
-	
-	<filter>
-		<name>Elevator Droop</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input>
-			<expression>
-				<table>
-					<property>/velocities/airspeed-kt</property>
-					<entry><ind> 72</ind><dep>0.5</dep></entry>
-					<entry><ind>121</ind><dep>0.0</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/systems/hydraulic/elevator-droop</output>
-	</filter>
-
- <!-- =============================================================== -->
- <!-- Aileron Control                                                 -->
- <!-- =============================================================== -->
- 
-	<!-- Aileron L -->
-
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/controls/flight/speedbrake-norm</property>
-						<value>1.0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/systems/failures/aileron-left</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<sum>
-					<property>/controls/flight/speedbrake-norm</property>
-					<table>
-						<property>/controls/flight/roll-fbw</property> 
-						<entry><ind>0.0</ind><dep>   0</dep></entry>
-						<entry><ind>1.0</ind><dep>-1.0</dep></entry>
-					</table>
-				</sum>
-			</expression>
-			<scale>-0.5</scale>
-		</input>
-		<input>
-			<condition>
-				<or>
-					<and>
-						<less-than>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</less-than>
-					</and>
-					<equals>
-						<property>/systems/failures/aileron-left</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<property>/systems/hydraulic/aileron-droop</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/systems/failures/aileron-left</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<sum>
-					<table>
-						<property>/controls/flight/roll-fbw</property> 
-						<entry><ind>-1</ind><dep>-0.5</dep></entry>
-						<entry><ind> 0</ind><dep> 0.0</dep></entry>
-						<entry><ind> 1</ind><dep> 0.5</dep></entry>
-					</table>
-					<table>
-						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
-						<entry><ind>1</ind><dep>0.00</dep></entry>
-						<entry><ind>5</ind><dep>0.13</dep></entry>
-					</table>
-				</sum>
-			</expression>
-		</input>
-		<output>/controls/flight/aileron-left-cmd</output>
-		<min>-0.5</min>
-		<max>0.5</max>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<input>/controls/flight/aileron-left-cmd</input>
-		<output>/controls/flight/aileron-left</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
-	</filter>
-	
-	<!-- Aileron R -->
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/controls/flight/speedbrake-norm</property>
-						<value>1.0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/systems/failures/aileron-right</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<sum>
-					<property>/controls/flight/speedbrake-norm</property>
-					<table>
-						<property>/controls/flight/roll-fbw</property> 
-						<entry><ind>-0.0</ind><dep>   0</dep></entry>
-						<entry><ind>-1.0</ind><dep>-1.0</dep></entry>
-					</table>
-				</sum>
-			</expression>
-			<scale>0.5</scale>
-		</input>
-		<input>
-			<condition>
-				<or>
-					<and>
-						<less-than>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</less-than>
-					</and>
-					<equals>
-						<property>/systems/failures/aileron-right</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<property>/systems/hydraulic/aileron-droop</property>
-			<scale>-1.0</scale>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/systems/failures/aileron-right</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<sum>
-					<table>
-						<property>/controls/flight/roll-fbw</property> 
-						<entry><ind>-1</ind><dep>-0.5</dep></entry>
-						<entry><ind> 0</ind><dep> 0.0</dep></entry>
-						<entry><ind> 1</ind><dep> 0.5</dep></entry>
-					</table>
-					<table>
-						<property>/fdm/jsbsim/fcs/flap-pos-deg</property> 
-						<entry><ind>1</ind><dep> 0.00</dep></entry>
-						<entry><ind>5</ind><dep>-0.13</dep></entry>
-					</table>
-				</sum>
-			</expression>
-		</input>
-		<output>/controls/flight/aileron-right-cmd</output>
-		<min>-0.5</min>
-		<max>0.5</max>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<input>/controls/flight/aileron-right-cmd</input>
-		<output>/controls/flight/aileron-right</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
-	</filter>
 	
  <!-- =============================================================== -->
  <!-- Spoiler Control                                                 -->
@@ -1440,271 +1161,49 @@
 	</filter>
 	
  <!-- =============================================================== -->
- <!-- Roll Control                                                    -->
+ <!-- Trims                                                           -->
  <!-- =============================================================== -->
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<product>
-					<sum>
-						<product>
-							<sum>
-								<property>/controls/flight/aileron-left</property>
-								<property>/controls/flight/aileron-right</property>
-							</sum>
-							<value>1.75</value>
-						</product>
-						<product>
-							<sum>
-								<product>
-									<property>/controls/flight/spoiler-l-sum</property>
-									<value>-1.0</value>
-								</product>
-								<property>/controls/flight/spoiler-r-sum</property>
-							</sum>
-							<value>0.25</value>
-						</product>
-					</sum>
-					<value>0.444444</value>
-				</product>
-			</expression>
-		</input>
-		<output>/controls/flight/aileron-sum</output>
-		<min>-1.0</min>
-		<max>1.0</max>
-	</filter>
 
- <!-- =============================================================== -->
- <!-- Elevator Control                                                -->
- <!-- =============================================================== -->
- 
 	<filter>
 		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
+		<type>noise-spike</type>
+		<enable>
 			<condition>
-				<or>
-					<and>
-						<less-than>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</less-than>
-					</and>
-					<equals>
-						<property>/systems/failures/elevator-left</property>
-						<value>1</value>
-					</equals>
-				</or>
+				<greater-than-equals>
+					<property>/systems/hydraulic/green-psi</property>
+					<value>1500</value>
+				</greater-than-equals>
 			</condition>
-			<property>/systems/hydraulic/elevator-droop</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/systems/failures/elevator-left</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/controls/flight/elevator-fbw</property> 
-					<entry><ind>-1</ind><dep>-0.5</dep></entry>
-					<entry><ind> 0</ind><dep> 0.0</dep></entry>
-					<entry><ind> 1</ind><dep> 0.5</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/controls/flight/elevator-left-cmd</output>
-		<min>-0.5</min>
-		<max>0.5</max>
+		</enable>
+		<input>/controls/flight/elevator-trim</input>
+		<output>/controls/flight/elevator-trim-fdm</output>
+		<max-rate-of-change>0.1</max-rate-of-change>
 	</filter>
 	
 	<filter>
 		<debug>false</debug>
 		<type>noise-spike</type>
-		<input>/controls/flight/elevator-left-cmd</input>
-		<output>/controls/flight/elevator-left</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
+		<enable>
 			<condition>
 				<or>
-					<and>
-						<less-than>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</less-than>
-					</and>
-					<equals>
-						<property>/systems/failures/elevator-right</property>
-						<value>1</value>
-					</equals>
+					<greater-than-equals>
+						<property>/systems/hydraulic/green-psi</property>
+						<value>1500</value>
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>/systems/hydraulic/blue-psi</property>
+						<value>1500</value>
+					</greater-than-equals>
+					<greater-than-equals>
+						<property>/systems/hydraulic/yellow-psi</property>
+						<value>1500</value>
+					</greater-than-equals>
 				</or>
 			</condition>
-			<property>/systems/hydraulic/elevator-droop</property>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/systems/failures/elevator-right</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<table>
-					<property>/controls/flight/elevator-fbw</property> 
-					<entry><ind>-1</ind><dep>-0.5</dep></entry>
-					<entry><ind> 0</ind><dep> 0.0</dep></entry>
-					<entry><ind> 1</ind><dep> 0.5</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/controls/flight/elevator-right-cmd</output>
-		<min>-0.5</min>
-		<max>0.5</max>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<input>/controls/flight/elevator-right-cmd</input>
-		<output>/controls/flight/elevator-right</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<sum>
-					<property>/controls/flight/elevator-left</property>
-					<property>/controls/flight/elevator-right</property>
-				</sum>
-			</expression>
-		</input>
-		<output>/controls/flight/elevator-sum</output>
-		<min>-1.0</min>
-		<max>1.0</max>
-	</filter>
-	
- <!-- =============================================================== -->
- <!-- Rudder Control                                                  -->
- <!-- =============================================================== -->
- 
-	<filter>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<or>
-					<and>
-						<less-than>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</less-than>
-						<less-than>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</less-than>
-					</and>
-					<equals>
-						<property>/systems/failures/rudder</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<value>0</value>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<or>
-						<greater-than-equals>
-							<property>/systems/hydraulic/green-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/blue-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>/systems/hydraulic/yellow-psi</property>
-							<value>1500</value>
-						</greater-than-equals>
-					</or>
-					<equals>
-						<property>/systems/failures/rudder</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<expression>
-				<sum>
-					<property>/controls/flight/rudder-fbw</property>
-					<property>/controls/flight/rudder-trim</property> 
-				</sum>
-			</expression>
-		</input>
-		<output>/controls/flight/rudder-fdm-cmd</output>
-		<min>-1.0</min>
-		<max>1.0</max>
-	</filter>
-	
-	<filter>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<input>/controls/flight/rudder-fdm-cmd</input>
-		<output>/controls/flight/rudder-fdm</output>
-		<max-rate-of-change>2.5</max-rate-of-change>
+		</enable>
+		<input>/controls/flight/rudder-trim</input>
+		<output>/controls/flight/rudder-trim-fdm</output>
+		<max-rate-of-change>0.5</max-rate-of-change>
 	</filter>
 	
  <!-- =============================================================== -->
@@ -1765,8 +1264,6 @@
 		</input>
 		<output>/controls/flight/speedbrake-output</output>
 	</filter>
- 
-	<!-- Auto Speedbrake -->
 	
 	<flipflop>
 		<name>Auto Speedbrake</name>
@@ -1800,8 +1297,10 @@
 					<property>/controls/engines/engine[1]/throttle</property>
 					<value>0.15</value>
 				</less-than>
-				<property>/gear/gear[1]/wow</property>
-				<property>/gear/gear[2]/wow</property>
+				<or>
+					<property>/gear/gear[1]/wow</property>
+					<property>/gear/gear[2]/wow</property>
+				</or>
 				<greater-than>
 					<property>/velocities/groundspeed-kt</property>
 					<value>72</value>
@@ -1822,8 +1321,6 @@
 		</R>
 		<output>/controls/flight/speedbrake-lever</output>	
 	</flipflop>
-
-	<!-- Speedbrake Selector -->
 	
 	<filter>
 		<name>Main Speedbrake Controller</name>
@@ -1837,15 +1334,37 @@
 				</max>
 			</expression>
 		</input>
-		<output>/controls/flight/speedbrake</output>
-	</filter>
-	
-	<filter>
-		<name>Speedbrake Norm</name>
-		<type>noise-spike</type>
-		<input>/controls/flight/speedbrake</input>
-		<output>/controls/flight/speedbrake-norm</output>
-		<max-rate-of-change>0.7</max-rate-of-change>
+		<output>
+			<property>/controls/flight/speedbrake</property>
+			<property>/controls/flight/speedbrake-norm</property>
+		</output>
+		<min>0.0</min>
+		<max>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<value>0.5</value>
+		</max>
+		<max>1.0</max>
 	</filter>
 	
 	<!-- Braking -->

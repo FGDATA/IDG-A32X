@@ -16,7 +16,6 @@ var ASI = 0;
 var ASItrgt = 0;
 var ASItrgtdiff = 0;
 var ASImax = 0;
-var alt = 0;
 var altTens = 0;
 var state1 = getprop("/systems/thrust/state1");
 var state2 = getprop("/systems/thrust/state2");
@@ -615,11 +614,11 @@ var canvas_PFD_base = {
 		}
 		me["ALT_scale"].setTranslation(0, -me.middleAltOffset);
 		me["ALT_scale"].update();
-		me["ALT_five"].setText(sprintf("%03d", me.middleAltText+10));
-		me["ALT_four"].setText(sprintf("%03d", me.middleAltText+5));
-		me["ALT_three"].setText(sprintf("%03d", me.middleAltText));
-		me["ALT_two"].setText(sprintf("%03d", me.middleAltText-5));
-		me["ALT_one"].setText(sprintf("%03d", me.middleAltText-10));
+		me["ALT_five"].setText(sprintf("%03d", abs(me.middleAltText+10)));
+		me["ALT_four"].setText(sprintf("%03d", abs(me.middleAltText+5)));
+		me["ALT_three"].setText(sprintf("%03d", abs(me.middleAltText)));
+		me["ALT_two"].setText(sprintf("%03d", abs(me.middleAltText-5)));
+		me["ALT_one"].setText(sprintf("%03d", abs(me.middleAltText-10)));
 		
 		me["ALT_digits"].setText(sprintf("%s", getprop("/instrumentation/altimeter/indicated-altitude-ft-pfd")));
 		altTens = num(right(sprintf("%02d", getprop("/instrumentation/altimeter/indicated-altitude-ft")), 2));
@@ -996,8 +995,6 @@ var canvas_PFD_2_test = {
 	},
 };
 
-setprop("/testing", 0); # REMOVE WHEN PFD FINISHED
-
 setlistener("sim/signals/fdm-initialized", func {
 	PFD1_display = canvas.new({
 		"name": "PFD1",
@@ -1042,12 +1039,12 @@ var showPFD2 = func {
 
 var roundabout = func(x) {
 	var y = x - int(x);
-	return y < 0.5 ? int(x) : 1 + int(x) ;
+	return y < 0.5 ? int(x) : 1 + int(x);
 };
 
 var roundaboutAlt = func(x) {
 	var y = x * 0.2 - int(x * 0.2);
-	return y < 0.5 ? 5 * int(x*0.2) : 5 + 5 * int(x*0.2) ;
+	return y < 0.5 ? 5 * int(x * 0.2) : 5 + 5 * int(x * 0.2);
 };
 
 var fontSizeHDG = func(input) {

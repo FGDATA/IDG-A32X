@@ -469,7 +469,6 @@
 		</enable>
 		<input>
 			<property>/it-autoflight/internal/vert-speed-fpm</property>
-			<scale>0.16667</scale>
 		</input>
 		<reference>
 			<condition>
@@ -491,7 +490,6 @@
 				</or>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm</property>
-			<scale>0.16667</scale>
 		</reference>
 		<reference>
 			<condition>
@@ -501,7 +499,6 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/vs</property>
-			<scale>0.16667</scale>
 		</reference>
 		<reference>
 			<condition>
@@ -527,7 +524,6 @@
 				</or>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-b</property>
-			<scale>0.16667</scale>
 		</reference>
 		<reference>
 			<condition>
@@ -537,7 +533,6 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-c</property>
-			<scale>0.16667</scale>
 		</reference>
 		<reference>
 			<condition>
@@ -547,7 +542,6 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-d</property>
-			<scale>0.16667</scale>
 		</reference>
 		<reference>
 			<condition>
@@ -557,7 +551,6 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/nav1-rate-of-climb-fpm</property>
-			<scale>0.16667</scale>
 		</reference>
 		<output>
 			<property>/it-autoflight/internal/target-pitch-deg</property>
@@ -570,7 +563,7 @@
 						<value>6</value>
 					</not-equals>
 				</condition>
-				<property>/it-autoflight/config/cmd/vs</property>
+				<value>0.0017</value>
 			</Kp>
 			<Kp>
 				<condition>
@@ -579,7 +572,7 @@
 						<value>6</value>
 					</equals>
 				</condition>
-				<property>/it-autoflight/config/autoland/kp-pitch</property>
+				<value>0.0055</value>
 			</Kp>
 			<Ti>3.0</Ti>
 			<Td>0.0001</Td>
@@ -663,9 +656,7 @@
 		<name>System Command: Pitch Rate</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>
-			<property>/it-autoflight/config/pitch/gain</property>
-		</gain>
+		<gain>0.15</gain>
 		<enable>
 			<condition>
 				<or>
@@ -689,12 +680,8 @@
 		<output>
 			<property>/it-autoflight/internal/elevator-cmd</property> <!-- Inputs to the FBW Pitch Rate -->
 		</output>
-		<min>
-			<property>/it-autoflight/config/pitch/min</property>
-		</min>
-		<max>
-			<property>/it-autoflight/config/pitch/max</property>
-		</max>
+		<min>-0.3</min>
+		<max>0.3</max>
 	</filter>
 
 </PropertyList>

@@ -116,7 +116,22 @@
 			</expression>
 		</input>
 		<output>/controls/flight/aileron-input</output>
-		<max-rate-of-change>1.5</max-rate-of-change>
+		<max-rate-of-change>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>1.25</value>
+		</max-rate-of-change>
+		<max-rate-of-change>5</max-rate-of-change>
 	</filter>
 
 	<filter>
@@ -327,7 +342,22 @@
 			</expression>
 		</input>
 		<output>/controls/flight/elevator-input</output>
-		<max-rate-of-change>1.5</max-rate-of-change>
+		<max-rate-of-change>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>1.25</value>
+		</max-rate-of-change>
+		<max-rate-of-change>5</max-rate-of-change>
 	</filter>
 
 </PropertyList>

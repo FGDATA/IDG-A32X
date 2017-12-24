@@ -14,13 +14,13 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<fileheader>
 		<author>Joshua Davidson (it0uchpods)</author>
 		<version>Pre V1.0</version>
-		<description>A3XX FDE</description>
+		<description>A32X FDE</description>
 	</fileheader>
 
 	<metrics>
 		<wingarea  unit="FT2"> 1319.79 </wingarea>
 		<wingspan  unit="FT" >  111.26 </wingspan>
-		<wing_incidence>          1.03 </wing_incidence>
+		<wing_incidence      >    1.03 </wing_incidence>
 		<chord     unit="FT" >   13.76 </chord>
 		<htailarea unit="FT2">  334.24 </htailarea>
 		<htailarm  unit="FT" >   57.88 </htailarm>
@@ -28,7 +28,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		<vtailarm  unit="FT" >   57.33 </vtailarm>
 
 		<location name="AERORP" unit="M">
-			<x> 19.3974 </x>
+			<x> 19.3174 </x>
 			<y> 0 </y>
 			<z> 0.19249 </z>
 		</location>
@@ -453,7 +453,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<system file="fuel" />
 	<system file="glass-effect1" />
 	<system file="fmgc" />
-	<system file="fcs" />
+	<system file="a320-fcs" />
 
 	<flight_control name="none"/>
 		

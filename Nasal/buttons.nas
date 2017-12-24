@@ -176,8 +176,6 @@ var mcpSPDKnbPush = func {
 	if (getprop("/FMGC/internal/cruise-lvl-set") == 1 and getprop("/FMGC/internal/cost-index-set") == 1) {
 		setprop("/it-autoflight/input/spd-managed", 1);
 		fmgc.ManagedSPD.start();
-	} else {
-		gui.popupTip("Please make sure you have set a cruise altitude and cost index in the MCDU.");
 	}
 }
 

@@ -358,6 +358,24 @@ var flaptimer = maketimer(0.5, func {
 	}
 });
 
+var slewProp = func(prop, delta) {
+	delta *= getprop("/sim/time/delta-realtime-sec");
+	setprop(prop, getprop(prop) + delta);
+	return getprop(prop);
+}
+
+controls.elevatorTrim = func(speed) {
+	if (getprop("/systems/hydraulic/green-psi") >= 1500) {
+		slewProp("/controls/flight/elevator-trim", speed * 0.045);
+	}
+}
+
+setlistener("/controls/flight/elevator-trim", func {
+	if (getprop("/controls/flight/elevator-trim") > 0.32) {
+		setprop("/controls/flight/elevator-trim", 0.32);
+	}
+});
+
 var lightsLoop = maketimer(0.2, func {
 	gear = getprop("/gear/gear[0]/position-norm");
 	nose_lights = getprop("/sim/model/lights/nose-lights");
@@ -494,6 +512,12 @@ var r2Pedal = func {
 	} else {
 		interpolate("/controls/footrest-fo[1]", 0.0, 0.5);
 	}
+}
+
+if (getprop("/controls/flight/auto-coordination") == 1) {
+	setprop("/controls/flight/auto-coordination", 0);
+	gui.popupTip("System: Auto Coordination has been turned off for this session.");
+	print("System: Auto Coordination has been turned off for this session.");
 }
 
 setprop("/systems/acconfig/libraries-loaded", 1);

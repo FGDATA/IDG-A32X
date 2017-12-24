@@ -17,9 +17,9 @@
 		<object-name>ElevatorL</object-name>
 		<property>sim/multiplay/generic/float[4]</property>
 		<interpolation>
-			<entry><ind>-0.5</ind><dep>-20.0</dep></entry>
+			<entry><ind>-0.5</ind><dep>-30.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>20.0</dep></entry>
+			<entry><ind>0.5</ind><dep>17.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>4.8217428</x1-m>
@@ -36,9 +36,9 @@
 		<object-name>ElevatorR</object-name>
 		<property>sim/multiplay/generic/float[5]</property>
 		<interpolation>
-			<entry><ind>-0.5</ind><dep>-20.0</dep></entry>
+			<entry><ind>-0.5</ind><dep>-30.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>0.5</ind><dep>20.0</dep></entry>
+			<entry><ind>0.5</ind><dep>17.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>2.9796817</x1-m>
@@ -54,11 +54,8 @@
 	<animation>
 		<name>Horizontal Stabilizer</name>
 		<type>rotate</type>
-		<property>controls/flight/elevator-trim</property>
-		<interpolation>
-			<entry><ind>-1.0</ind><dep>-10.0</dep></entry>
-			<entry><ind>1.0</ind><dep>10.0</dep></entry>
-		</interpolation>
+		<property>sim/multiplay/generic/float[9]</property>
+		<factor>1.0</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>

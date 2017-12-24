@@ -11,7 +11,7 @@
 	<filter>
 		<name>EPR 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -38,7 +38,7 @@
 	<filter>
 		<name>EPR THR 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -65,7 +65,7 @@
 	<filter>
 		<name>EPR 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -92,7 +92,7 @@
 	<filter>
 		<name>EPR THR 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -119,7 +119,7 @@
 	<filter>
 		<name>EPR LIMIT</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -146,7 +146,7 @@
 	<filter>
 		<name>EGT 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -185,7 +185,7 @@
 	<filter>
 		<name>EGT 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -224,7 +224,7 @@
 	<filter>
 		<name>N1 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -265,7 +265,7 @@
 	<filter>
 		<name>N1 THR 1</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -306,7 +306,7 @@
 	<filter>
 		<name>N1 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -347,7 +347,7 @@
 	<filter>
 		<name>N1 THR 2</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<condition>
 				<equals>
@@ -388,7 +388,7 @@
 	<filter>
 		<name>N1 LIMIT</name>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
