@@ -796,11 +796,18 @@
 	
 	<channel name="Tiller">
 		
-		<fcs_function name="fcs/steer-nose-deg[0]">
+		<switch name="hydraulics/tiller/switch">
+			<default value="/controls/flight/rudder"/>
+			<test value="/controls/flight/aileron">
+				/controls/flight/aileron-drives-tiller EQ 1
+			</test>
+		</switch>
+		
+		<fcs_function name="hydraulics/tiller/function">
 			<function>
 				<table>
 					<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
-					<independentVar lookup="column">/controls/flight/rudder</independentVar>
+					<independentVar lookup="column">hydraulics/tiller/switch</independentVar>
 					<tableData>
 						       -1     0  1
 						30.000 -70.0  0  70.0
@@ -811,7 +818,7 @@
 		</fcs_function>
 		
 		<actuator name="fcs/steer-deg">
-			<input>fcs/steer-nose-deg[0]</input>
+			<input>hydraulics/tiller/function</input>
 			<rate_limit>70</rate_limit>
 			<output>fcs/steer-pos-deg[0]</output>
 		</actuator>
