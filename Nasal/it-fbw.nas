@@ -158,7 +158,7 @@ var update_loop = func {
 	var law = getprop("/it-fbw/law");
 	
 	# Mech Backup can always return to direct, if it can.
-	if (law == 3 and getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/systems/hydraulic/blue-psi") >= 1500) {
+	if (law == 3 and getprop("/systems/electrical/bus/ac-ess") >= 110 and (getprop("/systems/hydraulic/green-psi") >= 1500 or getprop("/systems/hydraulic/blue-psi") >= 1500 or getprop("/systems/hydraulic/yellow-psi") >= 1500)) {
 		setprop("/it-fbw/degrade-law", 2);
 	}
 	
