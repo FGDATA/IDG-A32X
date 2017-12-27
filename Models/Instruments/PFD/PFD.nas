@@ -276,10 +276,14 @@ var canvas_PFD_base = {
 			me["FMA_flxtemp"].hide();
 		}
 		
-		if (getprop("/systems/thrust/eng-out") == 1) {
-			me["FMA_lvrclb"].setText("LVR MCT");
+		if ((state1 == "CL" and state2 != "CL") or (state1 != "CL" and state2 == "CL") and getprop("/systems/thrust/eng-out") != 1) {
+			me["FMA_lvrclb"].setText("LVR ASYM");
 		} else {
-			me["FMA_lvrclb"].setText("LVR CLB");
+			if (getprop("/systems/thrust/eng-out") == 1) {
+				me["FMA_lvrclb"].setText("LVR MCT");
+			} else {
+				me["FMA_lvrclb"].setText("LVR CLB");
+			}
 		}
 		
 		if (athr == 1 and getprop("/systems/thrust/lvrclb") == 1) {

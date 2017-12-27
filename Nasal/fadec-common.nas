@@ -21,7 +21,7 @@ setprop("/controls/engines/epr-limit", 0.0);
 setprop("/controls/engines/n1-limit", 0.0);
 setprop("/systems/thrust/state1", "IDLE");
 setprop("/systems/thrust/state2", "IDLE");
-setprop("/systems/thrust/lvrclb", "0");
+setprop("/systems/thrust/lvrclb", 0);
 setprop("/systems/thrust/clbreduc-ft", "1500");
 setprop("/systems/thrust/toga-lim", 0.0);
 setprop("/systems/thrust/mct-lim", 0.0);
@@ -272,25 +272,27 @@ var thrust_loop = func {
 	}
 	
 	if (state1 == "CL" and state2 == "CL" and getprop("/systems/thrust/eng-out") != 1) {
-		setprop("/systems/thrust/lvrclb", "0");
+		setprop("/systems/thrust/lvrclb", 0);
 	} else if (state1 == "MCT" and state2 == "MCT" and getprop("/systems/thrust/lim-flex") != 1 and getprop("/systems/thrust/eng-out") == 1) {
-		setprop("/systems/thrust/lvrclb", "0");
+		setprop("/systems/thrust/lvrclb", 0);
 	} else {
 		var status = getprop("/systems/thrust/lvrclb");
 		if (status == 0) {
 			if (getprop("/gear/gear[0]/wow") == 0) {
 				if (getprop("/systems/thrust/state1") == "MAN" or getprop("/systems/thrust/state2") == "MAN") {
-					setprop("/systems/thrust/lvrclb", "1");
+					setprop("/systems/thrust/lvrclb", 1);
 				} else {
 					if (getprop("/instrumentation/altimeter/indicated-altitude-ft") >= getprop("/systems/thrust/clbreduc-ft") and getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0) {
-						setprop("/systems/thrust/lvrclb", "1");
+						setprop("/systems/thrust/lvrclb", 1);
+					} else if ((state1 == "CL" and state2 != "CL") or (state1 != "CL" and state2 == "CL") and getprop("/systems/thrust/eng-out") != 1) {
+						setprop("/systems/thrust/lvrclb", 1);
 					} else {
-						setprop("/systems/thrust/lvrclb", "0");
+						setprop("/systems/thrust/lvrclb", 0);
 					}
 				}
 			}
 		} else if (status == 1) {
-			setprop("/systems/thrust/lvrclb", "0");
+			setprop("/systems/thrust/lvrclb", 0);
 		}
 	}
 	
