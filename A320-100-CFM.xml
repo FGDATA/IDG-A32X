@@ -19,9 +19,9 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
 	<metrics>
 		<wingarea  unit="FT2"> 1319.79 </wingarea>
-		<wingspan  unit="FT" >  111.26 </wingspan>
+		<wingspan  unit="FT" >  117.26 </wingspan>
 		<wing_incidence      >    1.03 </wing_incidence>
-		<chord     unit="FT" >   13.76 </chord>
+		<chord     unit="FT" >   20.76 </chord>
 		<htailarea unit="FT2">  334.24 </htailarea>
 		<htailarm  unit="FT" >   57.88 </htailarm>
 		<vtailarea unit="FT2">  248.79 </vtailarea>
