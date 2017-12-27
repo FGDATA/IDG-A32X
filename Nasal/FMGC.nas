@@ -11,7 +11,6 @@
 
 setprop("/FMGC/internal/maxspeed", 0);
 setprop("/FMGC/internal/minspeed", 0);
-setprop("/FMGC/internal/alpha-prot-speed", 0);
 setprop("/position/gear-agl-ft", 0);
 setprop("/FMGC/internal/mng-spd", 157);
 setprop("/FMGC/internal/mng-spd-cmd", 157);

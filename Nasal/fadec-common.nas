@@ -45,9 +45,10 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var n1mct = getprop("/systems/thrust/n1/mct-lim");
 	var n1flx = getprop("/systems/thrust/n1/flx-lim");
 	var n1clb = getprop("/systems/thrust/n1/clb-lim");
-	var ias = getprop("/velocities/airspeed-kt");
+	var alpha = getprop("/fdm/jsbsim/aero/alpha-deg");
 	var flaps = getprop("/controls/flight/flap-pos");
-	var alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
+	var alphaProt = 0;
+	var togaLock = 0;
 	var gs = getprop("/velocities/groundspeed-kt");
 	thrust_lim.start();
 	thrustt.start();
@@ -296,24 +297,33 @@ var thrust_loop = func {
 		}
 	}
 	
-#	ias = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
-#	flaps = getprop("/controls/flight/flap-pos");
-#	alphaProtSpd = getprop("/FMGC/internal/alpha-prot-speed");
-#	togaLockSpd = alphaProtSpd + 3;
-#	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and getprop("/it-fbw/law") == 0) {
-#		if (ias < alphaProtSpd) {
-#			setprop("/systems/thrust/alpha-floor", 1);
-#			setprop("/systems/thrust/toga-lk", 0);
-#			setprop("/it-autoflight/input/athr", 1);
-#		} else if (getprop("/systems/thrust/alpha-floor") == 1 and ias > togaLockSpd) {
-#			setprop("/systems/thrust/alpha-floor", 0);
-#			setprop("/it-autoflight/input/athr", 1);
-#			setprop("/systems/thrust/toga-lk", 1);
-#		}
-#	} else {
-#		setprop("/systems/thrust/alpha-floor", 0);
-#		setprop("/systems/thrust/toga-lk", 0);
-#	}
+	alpha = getprop("/fdm/jsbsim/aero/alpha-deg");
+	flaps = getprop("/controls/flight/flap-pos");
+	if (flaps == 0) {
+		alphaProt = 9.5;
+	} else if (flaps == 1 or flaps == 2 or flaps == 3) {
+		alphaProt = 15.0;
+	} else if (flaps == 4) {
+		alphaProt = 14.0;
+	} else if (flaps == 5) {
+		alphaProt = 13.0;
+	}
+	togaLock = alphaProt - 1;
+	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and getprop("/it-fbw/law") == 0 and (getprop("/systems/thrust/eng-out") == 0 or (getprop("/systems/thrust/eng-out") == 1 and flaps == 0)) and getprop("/systems/fadec/n1mode1") == 0 
+	and getprop("/systems/fadec/n1mode2") == 0) {
+		if (alpha > alphaProt and getprop("/position/gear-agl-ft") >= 100) {
+			setprop("/systems/thrust/alpha-floor", 1);
+			setprop("/systems/thrust/toga-lk", 0);
+			setprop("/it-autoflight/input/athr", 1);
+		} else if (getprop("/systems/thrust/alpha-floor") == 1 and alpha < togaLock) {
+			setprop("/systems/thrust/alpha-floor", 0);
+			setprop("/it-autoflight/input/athr", 1);
+			setprop("/systems/thrust/toga-lk", 1);
+		}
+	} else {
+		setprop("/systems/thrust/alpha-floor", 0);
+		setprop("/systems/thrust/toga-lk", 0);
+	}
 }
 
 # Timers
