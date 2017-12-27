@@ -477,7 +477,7 @@ var canvas_MCDU_base = {
 			if (getprop("/FMGC/internal/adf1freq-set") == 1) {
 				me["Simple_L5"].setFont(default); 
 				me["Simple_L5"].setFontSize(normal); 
-				me["Simple_L5"].setText(adf1);
+				me["Simple_L5"].setText(sprintf("%3.0f", adf1));
 			} else {
 				me["Simple_L5"].setFont(bracket); 
 				me["Simple_L5"].setFontSize(small); 
@@ -497,7 +497,7 @@ var canvas_MCDU_base = {
 			if (getprop("/FMGC/internal/adf2freq-set") == 1) {
 				me["Simple_R5"].setFont(default); 
 				me["Simple_R5"].setFontSize(normal); 
-				me["Simple_R5"].setText(adf2);
+				me["Simple_R5"].setText(sprintf("%3.0f", adf2));
 			} else {
 				me["Simple_R5"].setFont(bracket); 
 				me["Simple_R5"].setFontSize(small); 
@@ -822,7 +822,7 @@ setlistener("sim/signals/fdm-initialized", func {
 	MCDU_update.start();
 });
 
-var MCDU_update = maketimer(0.2, func {
+var MCDU_update = maketimer(0.15, func {
 	canvas_MCDU_base.update();
 });
 
