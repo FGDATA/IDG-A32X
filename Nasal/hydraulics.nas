@@ -123,7 +123,7 @@ var HYD = {
 		
 		ptu_active = getprop("/systems/hydraulic/ptu-active");
 		
-		if ((elec_pump_blue_sw and dc_ess >= 25 and !blue_pump_fail) and (stateL == 3 or stateR == 3) and !blue_leak) {
+		if ((elec_pump_blue_sw and dc_ess >= 25 and !blue_pump_fail) and (stateL == 3 or stateR == 3 or getprop("/gear/gear[0]/wow") == 0) and !blue_leak) {
 			if (blue_psi < 2900) {
 				setprop("/systems/hydraulic/blue-psi", blue_psi + 50);
 			} else {

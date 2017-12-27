@@ -675,23 +675,17 @@
 	</filter>
 	
 	<filter>
-		<name>Rudder Limit</name>
+		<name>Force Auto Coordination Off</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input>
-			<expression>
-				<table>
-					<property>/velocities/airspeed-kt</property>
-					<entry><ind>   0</ind><dep> 30</dep></entry>
-					<entry><ind> 140</ind><dep> 30</dep></entry>
-					<entry><ind> 240</ind><dep> 10</dep></entry>
-					<entry><ind> 380</ind><dep>3.4</dep></entry>
-					<entry><ind>1000</ind><dep>3.4</dep></entry>
-				</table>
-			</expression>
-		</input>
-		<output>/controls/flight/rudder-limit</output>
+		<enable>
+			<condition>
+				<property>/controls/flight/aileron-drives-tiller</property>
+			</condition>
+		</enable>
+		<input>0</input>
+		<output>/controls/flight/auto-coordination</output>
 	</filter>
-	
+
 </PropertyList>
