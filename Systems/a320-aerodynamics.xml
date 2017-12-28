@@ -209,13 +209,23 @@
 			</product>
 		</function>
 		
-		<function name="aero/force/Drag_elevator">
-			<description>Drag due to Elevator Deflection</description>
+		<function name="aero/force/Drag_pitch_control">
+			<description>Drag due to pitch control deflection</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<abs><property>fcs/pitch-pos-geared</property></abs>
-				<value>0.04</value>
+				<value>0.02</value>
+			</product>
+		</function>
+		
+		<function name="aero/force/Drag_pitch_trim_control">
+			<description>Drag due to pitch trim control deflection</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<abs><property>fcs/pitch-trim-pos-geared</property></abs>
+				<value>0.02</value>
 			</product>
 		</function>
 		
