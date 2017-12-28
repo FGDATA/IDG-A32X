@@ -361,15 +361,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-rad</property>
-				<table>
-					<independentVar lookup="row">aero/alpha-rad</independentVar>
-					<independentVar lookup="column">aero/Re</independentVar>
-					<tableData>
-								 25661346 28227480 38492020 51187312
-						-0.0349 -0.1815  -0.0991  -0.0970  -0.1010
-						 0.3491 -1.6241  -0.3352  -0.3924  -0.6078
-					</tableData>
-				</table>
+				<value>-0.1</value>
 			</product>
 		</function>
 		
@@ -393,15 +385,7 @@
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/r-aero-rad_sec</property>
-				<table>
-					<independentVar lookup="row">aero/alpha-rad</independentVar>
-					<independentVar lookup="column">aero/Re</independentVar>
-					<tableData>
-								 25661346 28227480 38492020 51187312
-						-0.0349  0.0028   0.0028   0.0028   0.0028
-						 0.3491  2.2829   0.2608   0.2608   0.2608
-					</tableData>
-				</table>
+				<value>0.2</value>
 			</product>
 		</function>
 		
@@ -534,7 +518,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/rudder-pos-rad</property>
-				<value>-0.043</value>
+				<value>-0.053</value>
 			</product>
 		</function>
 		
