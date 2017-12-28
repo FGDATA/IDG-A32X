@@ -544,8 +544,8 @@ var ManagedSPD = maketimer(0.25, func {
 			
 			mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
 			
-			if (mng_spd_cmd > maxspeed) {
-				setprop("/FMGC/internal/mng-spd", maxspeed);
+			if (mng_spd_cmd > maxspeed -5) {
+				setprop("/FMGC/internal/mng-spd", maxspeed -5);
 			} else {
 				setprop("/FMGC/internal/mng-spd", mng_spd_cmd);
 			}
