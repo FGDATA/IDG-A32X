@@ -16,7 +16,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/environment/temperature-degc</property>
@@ -34,7 +34,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/FMGC/internal/flex</property>
@@ -76,7 +76,7 @@
 			</condition>
 			<expression>
 				<table>
-					<property>/position/altitude-ft</property> 
+					<property>/fdm/jsbsim/atmosphere/density-altitude</property> 
 					<entry><ind>    0</ind><dep>0.035</dep></entry>
 					<entry><ind>42000</ind><dep>0.285</dep></entry>
 				</table>
@@ -91,7 +91,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/engines/engine[0]/throttle-pos</property>
@@ -113,7 +113,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/engines/engine[1]/throttle-pos</property>
@@ -135,7 +135,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
@@ -160,7 +160,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
@@ -184,12 +184,12 @@
 		<name>EPR Scale</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<table>
-					<property>/position/altitude-ft</property> 
+					<property>/fdm/jsbsim/atmosphere/density-altitude</property> 
 					<entry><ind>    0</ind><dep>0.576</dep></entry>
-					<entry><ind>42000</ind><dep>1.076</dep></entry>
+					<entry><ind>42000</ind><dep>0.876</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -197,19 +197,61 @@
 	</filter>
 	
 	<filter>
-		<name>EPR Scale 2</name>
+		<name>Alpha Normalizer</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
+			<condition>
+				<equals>
+					<property>/gear/gear[0]/wow</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/fdm/jsbsim/aero/alpha-deg</property>
+		</input>
+		<input>0</input>
+		<output>/fdm/jsbsim/aero/alpha-deg-norm</output>
+	</filter>
+	
+	<filter>
+		<name>EPR Scale 2 Sum/Difference</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
 			<expression>
-				<table>
-					<property>/position/altitude-ft</property> 
-					<entry><ind>    0</ind><dep>0.988</dep></entry>
-					<entry><ind>42000</ind><dep>0.708</dep></entry>
-				</table>
+				<difference>
+					<table>
+						<property>/fdm/jsbsim/atmosphere/density-altitude</property> 
+						<entry><ind>    0</ind><dep>0.988</dep></entry>
+						<entry><ind>43000</ind><dep>0.858</dep></entry>
+					</table>
+					<table>
+						<property>/fdm/jsbsim/velocities/mach</property>
+						<entry><ind>0.00</ind><dep>0.000</dep></entry>
+						<entry><ind>0.09</ind><dep>0.000</dep></entry>
+						<entry><ind>0.15</ind><dep>0.016</dep></entry>
+						<entry><ind>0.22</ind><dep>0.022</dep></entry>
+						<entry><ind>1.00</ind><dep>0.010</dep></entry>
+					</table>
+					<table>
+						<property>/fdm/jsbsim/aero/alpha-deg-norm</property>
+						<entry><ind>  0.0</ind><dep> 0.00</dep></entry>
+						<entry><ind>  2.0</ind><dep> 0.00</dep></entry>
+						<entry><ind> 17.0</ind><dep> 0.06</dep></entry>
+					</table>
+				</difference>
 			</expression>
 		</input>
+		<output>/engines/epr-scale-b-cmd</output>
+	</filter>
+	
+	<filter>
+		<name>EPR Scale 2 Sum/Difference Exponential</name>
+		<type>exponential</type>
+		<gain>1.0</gain>
+		<input>/engines/epr-scale-b-cmd</input>
 		<output>/engines/epr-scale-b</output>
+		<filter-time>0.32</filter-time>
 	</filter>
 	
 	<!-- -->
@@ -218,7 +260,7 @@
 		<name>EPR N1 Input Engine 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<property>/engines/engine[0]/n1-actual</property> 
@@ -237,7 +279,7 @@
 		<name>EPR N1 Input Engine 2</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<property>/engines/engine[1]/n1-actual</property> 
@@ -256,7 +298,7 @@
 		<name>EPR THR Input Engine 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
@@ -283,7 +325,7 @@
 		<name>EPR THR Input Engine 2</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
@@ -310,7 +352,7 @@
 		<name>EPR THR Input Flex</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>

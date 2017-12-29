@@ -5183,7 +5183,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
-		<property>controls/flight/speedbrake</property>
+		<property>controls/flight/speedbrake-lever</property>
 		<factor>0.052</factor>
 		<axis>
 			<x>1</x>

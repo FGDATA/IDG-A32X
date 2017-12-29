@@ -16,7 +16,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/environment/temperature-degc</property>
@@ -34,7 +34,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/FMGC/internal/flex</property>
@@ -76,7 +76,7 @@
 			</condition>
 			<expression>
 				<table>
-					<property>/position/altitude-ft</property> 
+					<property>/fdm/jsbsim/atmosphere/density-altitude</property> 
 					<entry><ind>    0</ind><dep>0.035</dep></entry>
 					<entry><ind>42000</ind><dep>0.285</dep></entry>
 				</table>
@@ -91,7 +91,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/engines/engine[0]/throttle-pos</property>
@@ -113,7 +113,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<table>
 					<property>/controls/engines/engine[1]/throttle-pos</property>
@@ -135,7 +135,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
@@ -160,7 +160,7 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.05</update-interval-secs>
-		<input> 
+		<input>
 			<expression>
 				<product>
 					<table>
