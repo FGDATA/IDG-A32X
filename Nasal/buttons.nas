@@ -15,8 +15,8 @@ var variousReset = func {
 	setprop("/instrumentation/mk-viii/inputs/discretes/terr-inhibit", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/gpws-inhibit", 0);
 	setprop("/instrumentation/mk-viii/inputs/discretes/glideslope-cancel", 0);
-	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-override", 0);
-	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap3-override", 0);
+	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-all-override", 0);
+	setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override", 0);
 	setprop("/controls/switches/cabinCall", 0);
 	setprop("/controls/switches/mechCall", 0);
 	setprop("/controls/switches/emer-lights", 0.5);

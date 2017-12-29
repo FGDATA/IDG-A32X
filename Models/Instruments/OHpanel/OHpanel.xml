@@ -1740,7 +1740,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-all-override</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1755,7 +1755,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+					<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-all-override</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -1789,7 +1789,7 @@
 					</or>
 				</condition>
 				<command>property-toggle</command>
-				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1804,7 +1804,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+					<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override</property>
 					<value>1</value>
 				</equals>
 				<equals>
