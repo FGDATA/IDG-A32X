@@ -104,12 +104,12 @@ setlistener("/it-autoflight/input/ap1", func {
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
-		fmabox();
 		setprop("/it-autoflight/output/ap1", 0);
 		if (getprop("/it-autoflight/sound/enableapoffsound") == 1) {
 			setprop("/it-autoflight/sound/apoffsound", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 0);	  
 		}
+		fmabox();
 		updateTimers();
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
@@ -123,10 +123,10 @@ setlistener("/it-autoflight/input/ap1", func {
 					setprop("/it-autoflight/input/vert", 5);
 				}
 			}
-			fmabox();
 			setprop("/it-autoflight/output/ap1", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 1);
 			setprop("/it-autoflight/sound/apoffsound", 0);
+			fmabox();
 		}
 	}
 });
@@ -137,12 +137,12 @@ setlistener("/it-autoflight/input/ap2", func {
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
 	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
-		fmabox();
 		setprop("/it-autoflight/output/ap2", 0);
 		if (getprop("/it-autoflight/sound/enableapoffsound2") == 1) {
 			setprop("/it-autoflight/sound/apoffsound2", 1);	
 			setprop("/it-autoflight/sound/enableapoffsound2", 0);	  
 		}
+		fmabox();
 		updateTimers();
 	} else if (apmas == 1 and ac_ess >= 110 and law == 0) {
 		if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
@@ -156,10 +156,10 @@ setlistener("/it-autoflight/input/ap2", func {
 					setprop("/it-autoflight/input/vert", 5);
 				}
 			}
-			fmabox();
 			setprop("/it-autoflight/output/ap2", 1);
 			setprop("/it-autoflight/sound/enableapoffsound2", 1);
 			setprop("/it-autoflight/sound/apoffsound2", 0);
+			fmabox();
 		}
 	}
 });
@@ -179,12 +179,12 @@ setlistener("/it-autoflight/input/athr", func {
 setlistener("/it-autoflight/input/fd1", func {
 	var fdmas = getprop("/it-autoflight/input/fd1");
 	if (fdmas == 0) {
-		fmabox();
 		setprop("/it-autoflight/output/fd1", 0);
+		fmabox();
 		updateTimers();
 	} else if (fdmas == 1) {
-		fmabox();
 		setprop("/it-autoflight/output/fd1", 1);
+		fmabox();
 	}
 });
 
@@ -192,12 +192,12 @@ setlistener("/it-autoflight/input/fd1", func {
 setlistener("/it-autoflight/input/fd2", func {
 	var fdmas = getprop("/it-autoflight/input/fd2");
 	if (fdmas == 0) {
-		fmabox();
 		setprop("/it-autoflight/output/fd2", 0);
+		fmabox();
 		updateTimers();
 	} else if (fdmas == 1) {
-		fmabox();
 		setprop("/it-autoflight/output/fd2", 1);
+		fmabox();
 	}
 });
 
@@ -208,23 +208,33 @@ var fmabox = func {
 	var fd1 = getprop("/it-autoflight/output/fd1");
 	var fd2 = getprop("/it-autoflight/output/fd2");
 	if (!ap1 and !ap2 and !fd1 and !fd2) {
+		setprop("/it-autoflight/input/lat", 9);
+		setprop("/it-autoflight/input/vert", 9);
+		setprop("/it-autoflight/output/fma-pwr", 0);
+	} else {
+		setprop("/it-autoflight/output/fma-pwr", 1);
 		setprop("/it-autoflight/input/lat", 3);
 		if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
 			setprop("/it-autoflight/input/vert", 1);
 		} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
 			setprop("/it-autoflight/input/vert", 5);
 		}
-		setprop("/it-autoflight/output/fma-pwr", 0);
-	} else {
 		setprop("/it-autoflight/input/vs", math.round(getprop("/it-autoflight/internal/vert-speed-fpm"), 100));
 		setprop("/it-autoflight/input/fpa", math.round(getprop("/it-autoflight/internal/fpa"), 0.1));
-		setprop("/it-autoflight/output/fma-pwr", 1);
 	}
 }
 
 # Master Lateral
 setlistener("/it-autoflight/input/lat", func {
-	if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
+	var fd1 = getprop("/it-autoflight/output/fd1");
+	var fd2 = getprop("/it-autoflight/output/fd2");
+	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and (ap1 or ap2 or fd1 or fd2)) {
+		setprop("/it-autoflight/input/lat-arm", 0);
+		lateral();
+	} else if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and !ap1 and !ap2 and !fd1 and !fd2) {
+		setprop("/it-autoflight/input/lat", 9);
 		setprop("/it-autoflight/input/lat-arm", 0);
 		lateral();
 	} else {
@@ -321,7 +331,14 @@ var lat_arm = func {
 
 # Master Vertical
 setlistener("/it-autoflight/input/vert", func {
-	if ((getprop("/gear/gear[1]/wow") == 0) and (getprop("/gear/gear[2]/wow") == 0)) {
+	var ap1 = getprop("/it-autoflight/output/ap1");
+	var ap2 = getprop("/it-autoflight/output/ap2");
+	var fd1 = getprop("/it-autoflight/output/fd1");
+	var fd2 = getprop("/it-autoflight/output/fd2");
+	if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and (ap1 or ap2 or fd1 or fd2)) {
+		vertical();
+	} else if (getprop("/gear/gear[1]/wow") == 0 and getprop("/gear/gear[2]/wow") == 0 and !ap1 and !ap2 and !fd1 and !fd2) {
+		setprop("/it-autoflight/input/vert", 9);
 		vertical();
 	}
 });
