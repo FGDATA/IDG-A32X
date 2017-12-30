@@ -133,129 +133,160 @@ var canvas_upperECAM_base = {
 		me["FOB-LBS"].setText(sprintf("%s", math.round(getprop("/consumables/fuel/total-fuel-lbs"), 10)));
 		
 		# Left ECAM Messages
-		me["ECAML1"].setText(sprintf("%s", getprop("/ECAM/msg/line1")));
-		me["ECAML2"].setText(sprintf("%s", getprop("/ECAM/msg/line2")));
-		me["ECAML3"].setText(sprintf("%s", getprop("/ECAM/msg/line3")));
-		me["ECAML4"].setText(sprintf("%s", getprop("/ECAM/msg/line4")));
-		me["ECAML5"].setText(sprintf("%s", getprop("/ECAM/msg/line5")));
-		me["ECAML6"].setText(sprintf("%s", getprop("/ECAM/msg/line6")));
-		me["ECAML7"].setText(sprintf("%s", getprop("/ECAM/msg/line7")));
-		me["ECAML8"].setText(sprintf("%s", getprop("/ECAM/msg/line8")));
-		
-		if (getprop("/ECAM/msg/line1c") == "w") {
-			me["ECAML1"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line1c") == "b") {
-			me["ECAML1"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line1c") == "g") {
-			me["ECAML1"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line1c") == "a") {
-			me["ECAML1"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line1c") == "r") {
-			me["ECAML1"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line2c") == "w") {
-			me["ECAML2"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line2c") == "b") {
-			me["ECAML2"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line2c") == "g") {
-			me["ECAML2"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line2c") == "a") {
-			me["ECAML2"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line2c") == "r") {
-			me["ECAML2"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line3c") == "w") {
-			me["ECAML3"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line3c") == "b") {
-			me["ECAML3"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line3c") == "g") {
-			me["ECAML3"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line3c") == "a") {
-			me["ECAML3"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line3c") == "r") {
-			me["ECAML3"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line4c") == "w") {
-			me["ECAML4"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line4c") == "b") {
-			me["ECAML4"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line4c") == "g") {
-			me["ECAML4"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line4c") == "a") {
-			me["ECAML4"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line4c") == "r") {
-			me["ECAML4"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line5c") == "w") {
-			me["ECAML5"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line5c") == "b") {
-			me["ECAML5"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line5c") == "g") {
-			me["ECAML5"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line5c") == "a") {
-			me["ECAML5"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line5c") == "r") {
-			me["ECAML5"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line6c") == "w") {
-			me["ECAML6"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line6c") == "b") {
-			me["ECAML6"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line6c") == "g") {
-			me["ECAML6"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line6c") == "a") {
-			me["ECAML6"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line6c") == "r") {
-			me["ECAML6"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line7c") == "w") {
-			me["ECAML7"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line7c") == "b") {
-			me["ECAML7"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line7c") == "g") {
-			me["ECAML7"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line7c") == "a") {
-			me["ECAML7"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line7c") == "r") {
-			me["ECAML7"].setColor(1,0,0);
-		}
-		
-		if (getprop("/ECAM/msg/line8c") == "w") {
-			me["ECAML8"].setColor(0.8078,0.8039,0.8078);
-		} else if (getprop("/ECAM/msg/line8c") == "b") {
-			me["ECAML8"].setColor(0.0901,0.6039,0.7176);
-		} else if (getprop("/ECAM/msg/line8c") == "g") {
-			me["ECAML8"].setColor(0.0509,0.7529,0.2941);
-		} else if (getprop("/ECAM/msg/line8c") == "a") {
-			me["ECAML8"].setColor(0.7333,0.3803,0);
-		} else if (getprop("/ECAM/msg/line8c") == "r") {
-			me["ECAML8"].setColor(1,0,0);
-		}
-		
 		if (getprop("/ECAM/left-msg") == "MSG") {
-			me["ECAML1"].show();
-			me["ECAML2"].show();
-			me["ECAML3"].show();
-			me["ECAML4"].show();
-			me["ECAML5"].show();
-			me["ECAML6"].show();
-			me["ECAML7"].show();
-			me["ECAML8"].show();
+			me["ECAML1"].setText(sprintf("%s", getprop("/ECAM/msg/line1")));
+			me["ECAML2"].setText(sprintf("%s", getprop("/ECAM/msg/line2")));
+			me["ECAML3"].setText(sprintf("%s", getprop("/ECAM/msg/line3")));
+			me["ECAML4"].setText(sprintf("%s", getprop("/ECAM/msg/line4")));
+			me["ECAML5"].setText(sprintf("%s", getprop("/ECAM/msg/line5")));
+			me["ECAML6"].setText(sprintf("%s", getprop("/ECAM/msg/line6")));
+			me["ECAML7"].setText(sprintf("%s", getprop("/ECAM/msg/line7")));
+			me["ECAML8"].setText(sprintf("%s", getprop("/ECAM/msg/line8")));
+			
+			if (getprop("/ECAM/msg/line1c") == "w") {
+				me["ECAML1"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line1c") == "b") {
+				me["ECAML1"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line1c") == "g") {
+				me["ECAML1"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line1c") == "a") {
+				me["ECAML1"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line1c") == "r") {
+				me["ECAML1"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line2c") == "w") {
+				me["ECAML2"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line2c") == "b") {
+				me["ECAML2"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line2c") == "g") {
+				me["ECAML2"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line2c") == "a") {
+				me["ECAML2"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line2c") == "r") {
+				me["ECAML2"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line3c") == "w") {
+				me["ECAML3"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line3c") == "b") {
+				me["ECAML3"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line3c") == "g") {
+				me["ECAML3"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line3c") == "a") {
+				me["ECAML3"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line3c") == "r") {
+				me["ECAML3"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line4c") == "w") {
+				me["ECAML4"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line4c") == "b") {
+				me["ECAML4"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line4c") == "g") {
+				me["ECAML4"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line4c") == "a") {
+				me["ECAML4"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line4c") == "r") {
+				me["ECAML4"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line5c") == "w") {
+				me["ECAML5"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line5c") == "b") {
+				me["ECAML5"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line5c") == "g") {
+				me["ECAML5"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line5c") == "a") {
+				me["ECAML5"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line5c") == "r") {
+				me["ECAML5"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line6c") == "w") {
+				me["ECAML6"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line6c") == "b") {
+				me["ECAML6"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line6c") == "g") {
+				me["ECAML6"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line6c") == "a") {
+				me["ECAML6"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line6c") == "r") {
+				me["ECAML6"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line7c") == "w") {
+				me["ECAML7"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line7c") == "b") {
+				me["ECAML7"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line7c") == "g") {
+				me["ECAML7"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line7c") == "a") {
+				me["ECAML7"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line7c") == "r") {
+				me["ECAML7"].setColor(1,0,0);
+			}
+			
+			if (getprop("/ECAM/msg/line8c") == "w") {
+				me["ECAML8"].setColor(0.8078,0.8039,0.8078);
+			} else if (getprop("/ECAM/msg/line8c") == "b") {
+				me["ECAML8"].setColor(0.0901,0.6039,0.7176);
+			} else if (getprop("/ECAM/msg/line8c") == "g") {
+				me["ECAML8"].setColor(0.0509,0.7529,0.2941);
+			} else if (getprop("/ECAM/msg/line8c") == "a") {
+				me["ECAML8"].setColor(0.7333,0.3803,0);
+			} else if (getprop("/ECAM/msg/line8c") == "r") {
+				me["ECAML8"].setColor(1,0,0);
+			}
+			
+			me["TO_Memo"].hide();
+			me["ECAM_Left"].show();
+		} else if (getprop("/ECAM/left-msg") == "TO-MEMO") {
+			if (getprop("/controls/autobrake/mode") == 3) {
+				me["TO_Autobrake"].setText("AUTO BRK MAX");
+				me["TO_Autobrake_B"].hide();
+			} else {
+				me["TO_Autobrake"].setText("AUTO BRK");
+				me["TO_Autobrake_B"].show();
+			}
+			
+			if (getprop("/controls/switches/no-smoking-sign") == 1 and getprop("/controls/switches/seatbelt-sign") == 1) {
+				me["TO_Signs"].setText("SIGNS ON");
+				me["TO_Signs_B"].hide();
+			} else {
+				me["TO_Signs"].setText("SIGNS");
+				me["TO_Signs_B"].show();
+			}
+			
+			if (getprop("/controls/flight/speedbrake-arm") == 1) {
+				me["TO_Spoilers"].setText("SPLRS ARM");
+				me["TO_Spoilers_B"].hide();
+			} else {
+				me["TO_Spoilers"].setText("SPLRS");
+				me["TO_Spoilers_B"].show();
+			}
+			
+			if (getprop("/controls/flight/flap-pos") > 0 and getprop("/controls/flight/flap-pos") < 5) {
+				me["TO_Flaps"].setText("FLAPS T.O");
+				me["TO_Flaps_B"].hide();
+			} else {
+				me["TO_Flaps"].setText("FLAPS");
+				me["TO_Flaps_B"].show();
+			}
+			
+			if (getprop("/ECAM/to-config") == 1) {
+				me["TO_Config"].setText("T.O CONFIG NORMAL");
+				me["TO_Config_B"].hide();
+			} else {
+				me["TO_Config"].setText("T.O CONFIG");
+				me["TO_Config_B"].show();
+			}
+			
+			me["ECAM_Left"].hide();
+			me["TO_Memo"].show();
 		} else {
-			me["ECAML1"].hide();
-			me["ECAML2"].hide();
-			me["ECAML3"].hide();
-			me["ECAML4"].hide();
-			me["ECAML5"].hide();
-			me["ECAML6"].hide();
-			me["ECAML7"].hide();
-			me["ECAML8"].hide();
+			me["ECAM_Left"].hide();
+			me["TO_Memo"].hide();
 		}
 	},
 };
@@ -270,8 +301,9 @@ var canvas_upperECAM_cfm_eis2 = {
 	getKeys: func() {
 		return ["N11-needle","N11-thr","N11-ylim","N11","N11-decpnt","N11-decimal","N11-box","N11-scale","N11-scale2","N11-scaletick","N11-scalenum","N11-XX","N11-XX2","N11-XX-box","EGT1-needle","EGT1","EGT1-scale","EGT1-box","EGT1-scale2","EGT1-scaletick",
 		"EGT1-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal","N12-box","N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N12-XX2","N12-XX-box","EGT2-needle","EGT2",
-		"EGT2-scale","EGT2-box","EGT2-scale2","EGT2-scaletick","EGT2-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","FlapTxt","FlapDots","N1Lim-mode","N1Lim",
-		"N1Lim-decpnt","N1Lim-decimal","N1Lim-percent","N1Lim-XX","N1Lim-XX2","REV1","REV1-box","REV2","REV2-box"];
+		"EGT2-scale","EGT2-box","EGT2-scale2","EGT2-scaletick","EGT2-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","FlapTxt","FlapDots","N1Lim-mode","N1Lim","N1Lim-decpnt","N1Lim-decimal","N1Lim-percent","N1Lim-XX","N1Lim-XX2","REV1",
+		"REV1-box","REV2","REV2-box","ECAM_Left","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","TO_Memo","TO_Autobrake","TO_Signs","TO_Spoilers","TO_Flaps","TO_Config","TO_Autobrake_B","TO_Signs_B","TO_Spoilers_B","TO_Flaps_B",
+		"TO_Config_B"];
 	},
 	update: func() {
 		# N1
@@ -459,7 +491,7 @@ var canvas_upperECAM_cfm_eis2 = {
 		me["N1Lim"].setText(sprintf("%s", math.floor(getprop("/controls/engines/n1-limit") + 0.05)));
 		me["N1Lim-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/controls/engines/n1-limit") + 0.05,1))));
 		
-		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) {
+		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) {
 			me["N1Lim-mode"].show();
 			me["N1Lim-XX"].hide();
 			me["N1Lim-XX2"].hide();
@@ -469,7 +501,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N1Lim-XX2"].show();
 		}
 		
-		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) and getprop("/controls/engines/thrust-limit") != "MREV") {
+		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) and getprop("/controls/engines/thrust-limit") != "MREV") {
 			me["N1Lim"].show();
 			me["N1Lim-decpnt"].show();
 			me["N1Lim-decimal"].show();
@@ -496,8 +528,8 @@ var canvas_upperECAM_iae_eis2 = {
 		return ["EPR1-needle","EPR1-thr","EPR1-ylim","EPR1","EPR1-decpnt","EPR1-decimal","EPR1-box","EPR1-scale","EPR1-scaletick","EPR1-scalenum","EPR1-XX","EPR1-XX2","EGT1-needle","EGT1","EGT1-scale","EGT1-box","EGT1-scale2","EGT1-scaletick","EGT1-XX",
 		"N11-needle","N11-thr","N11-ylim","N11","N11-decpnt","N11-decimal","N11-scale","N11-scale2","N11-scaletick","N11-scalenum","N11-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","EPR2-needle","EPR2-thr","EPR2-ylim","EPR2","EPR2-decpnt",
 		"EPR2-decimal","EPR2-box","EPR2-scale","EPR2-scaletick","EPR2-scalenum","EPR2-XX","EPR2-XX2","EGT2-needle","EGT2","EGT2-scale","EGT2-scale2","EGT2-box","EGT2-scaletick","EGT2-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal",
-		"N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","FlapTxt","FlapDots","EPRLim-mode","EPRLim",
-		"EPRLim-decpnt","EPRLim-decimal","EPRLim-XX","EPRLim-XX2","REV1","REV1-box","REV2","REV2-box"];
+		"N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","FlapTxt","FlapDots","EPRLim-mode","EPRLim","EPRLim-decpnt","EPRLim-decimal","EPRLim-XX","EPRLim-XX2","REV1","REV1-box",
+		"REV2","REV2-box","ECAM_Left","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","TO_Memo","TO_Autobrake","TO_Signs","TO_Spoilers","TO_Flaps","TO_Config","TO_Autobrake_B","TO_Signs_B","TO_Spoilers_B","TO_Flaps_B","TO_Config_B"];
 	},
 	update: func() {
 		# EPR
@@ -750,7 +782,7 @@ var canvas_upperECAM_iae_eis2 = {
 		me["EPRLim"].setText(sprintf("%1.0f", math.floor(getprop("/controls/engines/epr-limit"))));
 		me["EPRLim-decimal"].setText(sprintf("%03d", (getprop("/controls/engines/epr-limit") - int(getprop("/controls/engines/epr-limit"))) * 1000));
 		
-		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) {
+		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) {
 			me["EPRLim-mode"].show();
 			me["EPRLim-XX"].hide();
 			me["EPRLim-XX2"].hide();
@@ -760,7 +792,7 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPRLim-XX2"].show();
 		}
 		
-		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) and getprop("/controls/engines/thrust-limit") != "MREV") {
+		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) and getprop("/controls/engines/thrust-limit") != "MREV") {
 			me["EPRLim"].show();
 			me["EPRLim-decpnt"].show();
 			me["EPRLim-decimal"].show();

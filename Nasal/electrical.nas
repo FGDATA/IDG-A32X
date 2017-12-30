@@ -145,7 +145,7 @@ var ELEC = {
 		setprop("/controls/electrical/switches/gen-apu", 1);
 		setprop("/controls/electrical/switches/gen-ext", 0);
 		setprop("/controls/electrical/switches/apu-ext-crosstie", 1);
-		setprop("/controls/electrical/switches/ac-ess-feed", 1);
+		setprop("/controls/electrical/switches/ac-ess-feed", 0);
 		setprop("/controls/electrical/switches/battery1", 0);
 		setprop("/controls/electrical/switches/battery2", 0);
 		setprop("/systems/electrical/battery1-volts", 25.9);
@@ -419,116 +419,70 @@ var ELEC = {
 		# Left AC bus yes?
 		if (stateL == 3 and gen1_sw and !gen1_fail) {
 			setprop("/systems/electrical/bus/ac1", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "GEN";
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/ac1", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "EXT";
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/ac1", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "APU";
 		} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 			setprop("/systems/electrical/bus/ac1", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "XTIE";
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/ac1", 0);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "ESSRAT";
 		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/ac1", 0);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "ESSBAT";
 		} else {
 			setprop("/systems/electrical/bus/ac1", 0);
-			if (getprop("/systems/electrical/bus/ac2") == 0) {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac1_src = "XX";
 		}
 		
 		# Right AC bus yes?
 		if (stateR == 3 and gen2_sw and !gen2_fail) {
 			setprop("/systems/electrical/bus/ac2", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac2_src = "GEN";
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/ac2", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac2_src = "EXT";
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/ac2", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac2_src = "APU";
 		} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 			setprop("/systems/electrical/bus/ac2", ac_volt_std);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac2_src = "XTIE";
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/ac2", 0);
-			if (!ac_ess_fail) {
-				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
-			} else {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
 			ac2_src = "ESSRAT";
 		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/ac2", 0);
-			if (!ac_ess_fail) {
+			ac2_src = "ESSBAT";
+		} else {
+			setprop("/systems/electrical/bus/ac2", 0);
+			ac2_src = "XX";
+		}
+		
+		ac1 = getprop("/systems/electrical/bus/ac1");
+		ac2 = getprop("/systems/electrical/bus/ac2");
+		
+		# AC ESS bus yes?
+		if (!ac_ess_fail) {
+			if (ac1 >= 110 and !ac_ess_feed_sw) {
+				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+			} else if (ac2 >= 110 and ac_ess_feed_sw) {
+				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
+			} else if (emergen or (dcbat and ias >= 50)) {
 				setprop("/systems/electrical/bus/ac-ess", ac_volt_std);
 			} else {
 				setprop("/systems/electrical/bus/ac-ess", 0);
 			}
-			ac2_src = "ESSBAT";
 		} else {
-			setprop("/systems/electrical/bus/ac2", 0);
-			if (getprop("/systems/electrical/bus/ac1") == 0) {
-				setprop("/systems/electrical/bus/ac-ess", 0);
-			}
-			ac2_src = "XX";
+			setprop("/systems/electrical/bus/ac-ess", 0);
 		}
+		
+		ac_ess = getprop("/systems/electrical/bus/ac-ess");
 		
 		# HZ/Volts yes?
 		if (stateL == 3 and gen1_sw and !gen1_fail) {
@@ -562,10 +516,6 @@ var ELEC = {
 			setprop("/systems/electrical/extra/apu-volts", 0);
 			setprop("/systems/electrical/extra/apu-hz", 0);
 		}
-		
-		ac1 = getprop("/systems/electrical/bus/ac1");
-		ac2 = getprop("/systems/electrical/bus/ac2");
-		ac_ess = getprop("/systems/electrical/bus/ac-ess");
 		
 		if (ac1 == 0 and ac2 == 0 and emergen == 0) {
 			setprop("/systems/electrical/bus/ac-ess-shed", 0);
@@ -738,7 +688,7 @@ var ELEC = {
 			setprop("/systems/electrical/gen1-fault", 0);
 		}
 		
-		if (ac_ess_fail and ac_ess_feed_sw) {
+		if (ac_ess_fail) {
 			setprop("/systems/electrical/ac-ess-feed-fault", 1);
 		} else {
 			setprop("/systems/electrical/ac-ess-feed-fault", 0);

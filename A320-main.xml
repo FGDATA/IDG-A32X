@@ -1376,7 +1376,6 @@
 		<libraries>
 			<file>Aircraft/IDG-A32X/Nasal/libraries.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/buttons.nas</file>
-			<file>Aircraft/IDG-A32X/Nasal/gpws.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/efis.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/ECAM.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/shake.nas</file>
@@ -1396,9 +1395,9 @@
 			<file>Aircraft/IDG-A32X/Nasal/ground_services.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/effects.nas</file>
 		</systems>
-		<thrust>
+		<fadec>
 			<file>Aircraft/IDG-A32X/Nasal/fadec-common.nas</file>
-		</thrust>
+		</fadec>
 		<fbw>
 			<file>Aircraft/IDG-A32X/Nasal/it-fbw.nas</file>
 		</fbw>

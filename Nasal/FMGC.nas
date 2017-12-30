@@ -11,7 +11,6 @@
 
 setprop("/FMGC/internal/maxspeed", 0);
 setprop("/FMGC/internal/minspeed", 0);
-setprop("/FMGC/internal/alpha-prot-speed", 0);
 setprop("/position/gear-agl-ft", 0);
 setprop("/FMGC/internal/mng-spd", 157);
 setprop("/FMGC/internal/mng-spd-cmd", 157);
@@ -545,8 +544,8 @@ var ManagedSPD = maketimer(0.25, func {
 			
 			mng_spd_cmd = getprop("/FMGC/internal/mng-spd-cmd");
 			
-			if (mng_spd_cmd > maxspeed) {
-				setprop("/FMGC/internal/mng-spd", maxspeed);
+			if (mng_spd_cmd > maxspeed -5) {
+				setprop("/FMGC/internal/mng-spd", maxspeed -5);
 			} else {
 				setprop("/FMGC/internal/mng-spd", mng_spd_cmd);
 			}

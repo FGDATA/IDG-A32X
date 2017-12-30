@@ -21,12 +21,10 @@ setprop("/systems/fadec/eng2/ff", 1);
 setprop("/systems/fadec/power-avail", 0);
 setprop("/systems/fadec/powered1", 0);
 setprop("/systems/fadec/powered2", 0);
+setprop("/systems/fadec/powered-time", 0);
+setprop("/systems/fadec/powerup", 0);
 
-setlistener("/sim/signals/fdm-initialized", func {
-	fadecLoop.start();
-});
-
-var fadecLoop = maketimer(0.7, func {
+var fadecLoop = func {
 	var ac1 = getprop("/systems/electrical/bus/ac1");
 	var ac2 = getprop("/systems/electrical/bus/ac2");
 	var acess = getprop("/systems/electrical/bus/ac-ess");
@@ -39,12 +37,23 @@ var fadecLoop = maketimer(0.7, func {
 	var N1Mode2_sw = getprop("/controls/fadec/n1mode2");
 	
 	if (ac1 >= 110 or ac2 >= 110 or acess >= 110) {
-		setprop("/systems/fadec/power-avail", 1);
+		if (getprop("/systems/fadec/power-avail") != 1) {
+			setprop("/systems/fadec/powered-time", getprop("/sim/time/elapsed-sec"));
+			setprop("/systems/fadec/power-avail", 1);
+		}
 	} else {
-		setprop("/systems/fadec/power-avail", 0);
+		if (getprop("/systems/fadec/power-avail") != 0) {
+			setprop("/systems/fadec/power-avail", 0);
+		}
 	}
 	
 	var powerAvail = getprop("/systems/fadec/power-avail");
+	
+	if (getprop("/systems/fadec/powered-time") + 300 >= getprop("/sim/time/elapsed-sec")) {
+		setprop("/systems/fadec/powerup", 1);
+	} else {
+		setprop("/systems/fadec/powerup", 0);	
+	}
 	
 	if (state1 == 3) {
 		setprop("/systems/fadec/powered1", 1);
@@ -62,6 +71,18 @@ var fadecLoop = maketimer(0.7, func {
 		setprop("/systems/fadec/powered2", 0);
 	}
 	
+	if (N1Mode1_sw == 1) {
+		setprop("/systems/fadec/n1mode1", 1);
+	} else {
+		setprop("/systems/fadec/n1mode1", 0);
+	}
+	
+	if (N1Mode2_sw == 1) {
+		setprop("/systems/fadec/n1mode2", 1);
+	} else {
+		setprop("/systems/fadec/n1mode2", 0);
+	}
+	
 	var powered1 = getprop("/systems/fadec/powered1");
 	var powered2 = getprop("/systems/fadec/powered2");
 	var N1Mode1 = getprop("/systems/fadec/n1mode1");
@@ -71,19 +92,19 @@ var fadecLoop = maketimer(0.7, func {
 	var N21 = getprop("/engines/engine[0]/n2-actual");
 	var N22 = getprop("/engines/engine[1]/n2-actual");
 	
-	if (powered1 and N1Mode1 == 0) {
+	if ((powered1 or getprop("/systems/fadec/powerup")) and N1Mode1 == 0) {
 		setprop("/systems/fadec/eng1/epr", 1);
 	} else {
 		setprop("/systems/fadec/eng1/epr", 0);
 	}
 	
-	if (powered2 and N1Mode2 == 0) {
+	if ((powered2 or getprop("/systems/fadec/powerup")) and N1Mode2 == 0) {
 		setprop("/systems/fadec/eng2/epr", 1);
 	} else {
 		setprop("/systems/fadec/eng2/epr", 0);
 	}
 	
-	if (powered1) {
+	if (powered1 or getprop("/systems/fadec/powerup")) {
 		setprop("/systems/fadec/eng1/egt", 1);
 		setprop("/systems/fadec/eng1/ff", 1);
 	} else {
@@ -91,7 +112,7 @@ var fadecLoop = maketimer(0.7, func {
 		setprop("/systems/fadec/eng1/ff", 0);
 	}
 	
-	if (powered2) {
+	if (powered2 or getprop("/systems/fadec/powerup")) {
 		setprop("/systems/fadec/eng2/egt", 1);
 		setprop("/systems/fadec/eng2/ff", 1);
 	} else {
@@ -122,16 +143,4 @@ var fadecLoop = maketimer(0.7, func {
 	} else {
 		setprop("/systems/fadec/eng2/n2", 0);
 	}
-	
-	if (N1Mode1_sw == 1) {
-		setprop("/systems/fadec/n1mode1", 1);
-	} else {
-		setprop("/systems/fadec/n1mode1", 0);
-	}
-	
-	if (N1Mode2_sw == 1) {
-		setprop("/systems/fadec/n1mode2", 1);
-	} else {
-		setprop("/systems/fadec/n1mode2", 0);
-	}
-});
+}

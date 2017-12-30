@@ -195,9 +195,6 @@
 		<specific>
 			<file>Aircraft/IDG-A32X/Nasal/a320livery-neocfm.nas</file>
 		</specific>
-		<fadec>
-			<file>Aircraft/IDG-A32X/Nasal/fadec-cfm.nas</file>
-		</fadec>
 	</nasal>
 
 </PropertyList>
