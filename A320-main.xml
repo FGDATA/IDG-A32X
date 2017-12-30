@@ -1395,9 +1395,9 @@
 			<file>Aircraft/IDG-A32X/Nasal/ground_services.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/effects.nas</file>
 		</systems>
-		<thrust>
+		<fadec>
 			<file>Aircraft/IDG-A32X/Nasal/fadec-common.nas</file>
-		</thrust>
+		</fadec>
 		<fbw>
 			<file>Aircraft/IDG-A32X/Nasal/it-fbw.nas</file>
 		</fbw>

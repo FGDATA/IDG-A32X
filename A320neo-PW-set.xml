@@ -195,9 +195,6 @@
 		<specific>
 			<file>Aircraft/IDG-A32X/Nasal/a320livery-neopw.nas</file>
 		</specific>
-		<fadec> <!-- Apparently PW PurePower uses N1, not EPR.... sooo I use CFM FADEC -->
-			<file>Aircraft/IDG-A32X/Nasal/fadec-cfm.nas</file>
-		</fadec>
 	</nasal>
 
 </PropertyList>

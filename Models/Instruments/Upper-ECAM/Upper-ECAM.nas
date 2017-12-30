@@ -492,7 +492,7 @@ var canvas_upperECAM_cfm_eis2 = {
 		me["N1Lim"].setText(sprintf("%s", math.floor(getprop("/controls/engines/n1-limit") + 0.05)));
 		me["N1Lim-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/controls/engines/n1-limit") + 0.05,1))));
 		
-		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) {
+		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) {
 			me["N1Lim-mode"].show();
 			me["N1Lim-XX"].hide();
 			me["N1Lim-XX2"].hide();
@@ -502,7 +502,7 @@ var canvas_upperECAM_cfm_eis2 = {
 			me["N1Lim-XX2"].show();
 		}
 		
-		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) and getprop("/controls/engines/thrust-limit") != "MREV") {
+		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) and getprop("/controls/engines/thrust-limit") != "MREV") {
 			me["N1Lim"].show();
 			me["N1Lim-decpnt"].show();
 			me["N1Lim-decimal"].show();
@@ -783,7 +783,7 @@ var canvas_upperECAM_iae_eis2 = {
 		me["EPRLim"].setText(sprintf("%1.0f", math.floor(getprop("/controls/engines/epr-limit"))));
 		me["EPRLim-decimal"].setText(sprintf("%03d", (getprop("/controls/engines/epr-limit") - int(getprop("/controls/engines/epr-limit"))) * 1000));
 		
-		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) {
+		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) {
 			me["EPRLim-mode"].show();
 			me["EPRLim-XX"].hide();
 			me["EPRLim-XX2"].hide();
@@ -793,7 +793,7 @@ var canvas_upperECAM_iae_eis2 = {
 			me["EPRLim-XX2"].show();
 		}
 		
-		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1) and getprop("/controls/engines/thrust-limit") != "MREV") {
+		if ((getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) and getprop("/controls/engines/thrust-limit") != "MREV") {
 			me["EPRLim"].show();
 			me["EPRLim-decpnt"].show();
 			me["EPRLim-decimal"].show();
