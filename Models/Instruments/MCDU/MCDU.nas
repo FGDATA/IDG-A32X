@@ -75,9 +75,10 @@ var canvas_MCDU_base = {
 		return me;
 	},
 	getKeys: func() {
-		return ["Simple","Scratchpad","Simple_Title","Simple_PageNum","ArrowLeft","ArrowRight","Simple_L1","Simple_L2","Simple_L3","Simple_L4","Simple_L5","Simple_L6","Simple_L1S","Simple_L2S","Simple_L3S","Simple_L4S","Simple_L5S","Simple_L6S","Simple_L1_Arrow",
-		"Simple_L2_Arrow","Simple_L3_Arrow","Simple_L4_Arrow","Simple_L5_Arrow","Simple_L6_Arrow","Simple_R1","Simple_R2","Simple_R3","Simple_R4","Simple_R5","Simple_R6","Simple_R1S","Simple_R2S","Simple_R3S","Simple_R4S","Simple_R5S","Simple_R6S",
-		"Simple_R1_Arrow","Simple_R2_Arrow","Simple_R3_Arrow","Simple_R4_Arrow","Simple_R5_Arrow","Simple_R6_Arrow"];
+		return ["Simple","Simple_Center","Scratchpad","Simple_Title","Simple_PageNum","ArrowLeft","ArrowRight","Simple_L1","Simple_L2","Simple_L3","Simple_L4","Simple_L5","Simple_L6","Simple_L1S","Simple_L2S","Simple_L3S","Simple_L4S","Simple_L5S","Simple_L6S",
+		"Simple_L1_Arrow","Simple_L2_Arrow","Simple_L3_Arrow","Simple_L4_Arrow","Simple_L5_Arrow","Simple_L6_Arrow","Simple_R1","Simple_R2","Simple_R3","Simple_R4","Simple_R5","Simple_R6","Simple_R1S","Simple_R2S","Simple_R3S","Simple_R4S","Simple_R5S",
+		"Simple_R6S","Simple_R1_Arrow","Simple_R2_Arrow","Simple_R3_Arrow","Simple_R4_Arrow","Simple_R5_Arrow","Simple_R6_Arrow","Simple_C1","Simple_C2","Simple_C3","Simple_C4","Simple_C5","Simple_C6","Simple_C1S","Simple_C2S","Simple_C3S","Simple_C4S",
+		"Simple_C5S","Simple_C6S","INITA","INITA_CoRoute","INITA_FltNbr","INITA_CostIndex","INITA_CruiseFLTemp","INITA_FromTo","INITA_InitRequest","INITA_AlignIRS"];
 	},
 	update: func() {
 		if (getprop("/systems/electrical/bus/ac1") >= 110) {
@@ -97,6 +98,8 @@ var canvas_MCDU_base = {
 		page = getprop("/MCDU[" ~ i ~ "]/page");
 		if (page == "MCDU") {
 			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
 			me["Simple_Title"].setText("  MCDU MENU");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -170,6 +173,8 @@ var canvas_MCDU_base = {
 			me["Simple_R6"].setText("RETURN ");
 		} else if (page == "STATUS") {
 			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
 			me["Simple_Title"].setText(sprintf("%s", getprop("/MCDUC/type")));
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -243,6 +248,8 @@ var canvas_MCDU_base = {
 			me["Simple_R6S"].setText("SOFTWARE ");
 		} else if (page == "DATA") {
 			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("1/2");
 			me["Simple_PageNum"].show();
@@ -314,6 +321,8 @@ var canvas_MCDU_base = {
 			me["Simple_R6S"].setText("AOC ");
 		} else if (page == "DATA2") {
 			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("2/2");
 			me["Simple_PageNum"].show();
@@ -390,6 +399,8 @@ var canvas_MCDU_base = {
 			me["Simple_R4S"].setText("PILOTS ");
 		} else if (page == "RADNAV") {
 			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
 			me["Simple_Title"].setText("RADIO NAV");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -522,6 +533,137 @@ var canvas_MCDU_base = {
 			me["Simple_R3S"].setText("CHAN/ MLS");
 			me["Simple_R4S"].setText("SLOPE   CRS");
 			me["Simple_R5S"].setText("FREQ/ADF2");
+		} else if (page == "INITA") {
+			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].show();
+			me["Simple_Title"].setText("INIT");
+			me["Simple_PageNum"].setText("X/X");
+			me["Simple_PageNum"].hide();
+			me["ArrowLeft"].show();
+			me["ArrowRight"].show();
+			
+			me["Simple_L1"].hide();
+			me["Simple_L2"].show();
+			me["Simple_L4"].show();
+			me["Simple_L6"].show();
+			me["Simple_L1S"].show();
+			me["Simple_L2S"].show();
+			me["Simple_L3S"].show();
+			me["Simple_L4S"].show();
+			me["Simple_L5S"].show();
+			me["Simple_L6S"].show();
+			me["Simple_L1_Arrow"].hide();
+			me["Simple_L2_Arrow"].hide();
+			me["Simple_L3_Arrow"].hide();
+			me["Simple_L4_Arrow"].hide();
+			me["Simple_L5_Arrow"].hide();
+			me["Simple_L6_Arrow"].hide();
+			me["Simple_R2"].show();
+			me["Simple_R4"].show();
+			me["Simple_R5"].show();
+			me["Simple_R6"].show();
+			me["Simple_R1S"].show();
+			me["Simple_R2S"].show();
+			me["Simple_R3S"].hide();
+			me["Simple_R4S"].show();
+			me["Simple_R5S"].hide();
+			me["Simple_R6S"].show();
+			me["Simple_R1_Arrow"].hide();
+			me["Simple_R2_Arrow"].hide();
+			me["Simple_R3_Arrow"].hide();
+			me["Simple_R4_Arrow"].hide();
+			me["Simple_R5_Arrow"].show();
+			me["Simple_R6_Arrow"].hide();
+			
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
+			
+			me.fontSizeLeft(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, 0);
+			
+			me.colorLeft("blu", "wht", "blu", "blu", "ack", "ack");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("blu", "amb", "amb", "blu", "wht", "blu");
+			me.colorRightS("wht", "amb", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			
+			if (getprop("/MCDUC/flight-num-set") == 1) {
+				me["INITA_FltNbr"].hide();
+				me["Simple_L3"].show();
+			} else {
+				me["INITA_FltNbr"].show();
+				me["Simple_L3"].hide();
+			}
+			if (getprop("/FMGC/internal/tofrom-set") != 1 and getprop("/FMGC/internal/cost-index-set") != 1) {
+				me["INITA_CostIndex"].hide();
+				me["Simple_L5"].setColor(1,1,1);
+				me["Simple_L5"].show();
+				me["Simple_L5"].setText("---");
+			} else if (getprop("/FMGC/internal/cost-index-set") == 1) {
+				me["INITA_CostIndex"].hide();
+				me["Simple_L5"].setColor(0.0901,0.6039,0.7176);
+				me["Simple_L5"].show();
+				me["Simple_L5"].setText(sprintf("%s", getprop("/FMGC/internal/cost-index")));
+			} else {
+				me["INITA_CostIndex"].show();
+				me["Simple_L5"].hide();
+			}
+			if (getprop("/FMGC/internal/tofrom-set") != 1 and getprop("/FMGC/internal/cruise-lvl-set") != 1) {
+				me["INITA_CruiseFLTemp"].hide();
+				me["Simple_L6"].setColor(1,1,1);
+				me["Simple_L6"].setText("-----/---g");
+			} else if (getprop("/FMGC/internal/cruise-lvl-set") == 1) {
+				me["INITA_CruiseFLTemp"].hide();
+				me["Simple_L6"].setColor(0.0901,0.6039,0.7176);
+				me["Simple_L6"].setText(sprintf("%s", "FL" ~ getprop("/FMGC/internal/cruise-fl") ~ "/---g"));
+			} else {
+				me["INITA_CruiseFLTemp"].show();
+				me["Simple_L6"].setColor(0.7333,0.3803,0);
+				me["Simple_L6"].setText("         g");
+			}
+			if (getprop("/FMGC/internal/tofrom-set") == 1) {
+				me["INITA_FromTo"].hide();
+				me["Simple_R1"].show();
+			} else {
+				me["INITA_FromTo"].show();
+				me["Simple_R1"].hide();
+			}
+			if (getprop("/FMGC/internal/tofrom-set") == 1 and getprop("/controls/adirs/mcducbtn") != 1) {
+				me["INITA_AlignIRS"].show();
+				me["Simple_R3"].show();
+			} else {
+				me["INITA_AlignIRS"].hide();
+				me["Simple_R3"].hide();
+			}
+			if (getprop("/FMGC/internal/tropo-set") == 1) {
+				me["Simple_R6"].setFontSize(normal); 
+			} else {
+				me["Simple_R6"].setFontSize(small); 
+			}
+			
+			me["Simple_L1S"].setText(" CO RTE");
+			me["Simple_L2S"].setText("ALTN/CO RTE");
+			me["Simple_L3S"].setText("FLT NBR");
+			me["Simple_L4S"].setText("LAT");
+			me["Simple_L5S"].setText("COST INDEX");
+			me["Simple_L6S"].setText("CRZ FL/TEMP");
+			me["Simple_L2"].setText("----/----------");
+			me["Simple_L3"].setText(sprintf("%s", getprop("/MCDUC/flight-num")));
+			me["Simple_L4"].setText("----.-");
+			me["Simple_R1S"].setText("FROM/TO   ");
+			me["Simple_R2S"].setText("INIT ");
+			me["Simple_R4S"].setText("LONG");
+			me["Simple_R6S"].setText("TROPO");
+			me["Simple_R1"].setText(sprintf("%s", getprop("/FMGC/internal/dep-arpt") ~ "/" ~ getprop("/FMGC/internal/arr-arpt")));
+			me["Simple_R2"].setText("REQUEST ");
+			me["Simple_R3"].setText("ALIGN IRS ");
+			me["Simple_R4"].setText("-----.--");
+			me["Simple_R5"].setText("WIND ");
+			me["Simple_R6"].setText(sprintf("%5.0f", getprop("/FMGC/internal/tropo")));
 		} else {
 			me["Simple"].hide();
 			me["ArrowLeft"].hide();
@@ -822,7 +964,7 @@ setlistener("sim/signals/fdm-initialized", func {
 	MCDU_update.start();
 });
 
-var MCDU_update = maketimer(0.15, func {
+var MCDU_update = maketimer(0.125, func {
 	canvas_MCDU_base.update();
 });
 
