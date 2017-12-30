@@ -51,6 +51,8 @@ var variousReset = func {
 	setprop("/modes/fcu/hdg-time", 0);
 	setprop("/controls/switching/ATTHDG", 0);
 	setprop("/controls/switching/AIRDATA", 0);
+	setprop("/controls/switches/no-smoking-sign", 1);
+	setprop("/controls/switches/seatbelt-sign", 1);
 }
 
 setlistener("/sim/signals/fdm-initialized", func {
