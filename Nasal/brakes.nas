@@ -79,4 +79,7 @@ var absChk = maketimer(0.2, func {
 			setprop("/controls/gear/brake-right", 0);
 		}
 	}
+	if (getprop("/controls/autobrake/mode") == 3 and getprop("/controls/gear/gear-down") == 0) {
+		arm_autobrake(0);
+	}
 });

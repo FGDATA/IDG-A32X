@@ -59,6 +59,18 @@ var canvas_IESI_base = {
 	},
 	update: func() {
 		if (getprop("/systems/electrical/battery1-amps") >= 120 or getprop("/systems/electrical/battery2-amps") >= 120 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
+			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/iesi/iesi-init") != 1) {
+				setprop("/instrumentation/iesi/iesi-init", 1);
+				setprop("/instrumentation/iesi/iesi-init-time", getprop("/sim/time/elapsed-sec"));
+			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/iesi/iesi-init") != 1) {
+				setprop("/instrumentation/iesi/iesi-init", 1);
+				setprop("/instrumentation/iesi/iesi-init-time", getprop("/sim/time/elapsed-sec") - 87);
+			}
+		} else {
+			setprop("/instrumentation/iesi/iesi-init", 0);
+		}
+		
+		if (getprop("/systems/electrical/battery1-amps") >= 120 or getprop("/systems/electrical/battery2-amps") >= 120 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
 			IESI.page.show();
 			IESI.update();
 		} else {
@@ -75,9 +87,18 @@ var canvas_IESI = {
 		return m;
 	},
 	getKeys: func() {
-		return ["ASI_scale","ASI_mach","ASI_mach_decimal","AI_center","AI_horizon","AI_bank","AI_slipskid","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_meters","QNH_setting","QNH_std"];
+		return ["IESI","IESI_Init","ASI_scale","ASI_mach","ASI_mach_decimal","AI_center","AI_horizon","AI_bank","AI_slipskid","ALT_scale","ALT_one","ALT_two","ALT_three","ALT_four","ALT_five","ALT_digits","ALT_tens","ALT_meters","QNH_setting","QNH_std"];
 	},
 	update: func() {
+		elapsedtime = getprop("/sim/time/elapsed-sec");
+		if (getprop("/instrumentation/iesi/iesi-init-time") + 90 >= elapsedtime) {
+			me["IESI"].hide(); 
+			me["IESI_Init"].show();
+		} else {
+			me["IESI_Init"].hide();
+			me["IESI"].show();
+		}
+		
 		# Airspeed
 		# Subtract 30, since the scale starts at 30, but don"t allow less than 0, or more than 420 situations
 		if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") <= 30) {
@@ -163,7 +184,7 @@ setlistener("sim/signals/fdm-initialized", func {
 	IESI_update.start();
 });
 
-var IESI_update = maketimer(0.05, func {
+var IESI_update = maketimer(0.07, func {
 	canvas_IESI_base.update();
 });
 
