@@ -58,7 +58,7 @@ var ADIRS = {
 		setprop("/controls/adirs/mcdu/avgdrift1", "");
 		setprop("/controls/adirs/mcdu/avgdrift2", "");
 		setprop("/controls/adirs/mcdu/avgdrift3", "");
-		setprop("/controls/adirs/mcducbtn",0);
+		setprop("/controls/adirs/mcducbtn", 0);
 	},
 	loop: func() {
 		roll = getprop("/orientation/roll-deg");
@@ -152,6 +152,7 @@ var ADIRS = {
 		}
 		setprop("/instrumentation/adirs/adr[" ~ n ~ "]/active", 0);
 		setprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned", 0);
+		setprop("/controls/adirs/mcducbtn", 0);
 	},
 	skip: func(n) {
 		if (n == 0) {
