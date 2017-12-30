@@ -16,7 +16,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>ACESSFeedBtn1F</object-name>
-		<object-name>ACESSFeedBtn2O</object-name>
+		<object-name>ACESSFeedBtn2A</object-name>
 		<object-name>ACPack1Btn1F</object-name>
 		<object-name>ACPack1Btn2O</object-name>
 		<object-name>ACPack2Btn1F</object-name>
@@ -2939,11 +2939,11 @@
 	</animation>
 	
 	<animation>
-		<name>AC ESS pick</name>
+		<name>AC ESS FEED pick</name>
 		<type>pick</type>
 		<object-name>ACESSFeedBtn</object-name>
 		<object-name>ACESSFeedBtn1F</object-name>
-		<object-name>ACESSFeedBtn2O</object-name>
+		<object-name>ACESSFeedBtn2A</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -2979,16 +2979,10 @@
 		<object-name>ACESSFeedBtn1F</object-name>
 		<condition>
 			<or>
-				<and>
-					<equals>
-						<property>systems/electrical/ac-ess-feed-fault</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>controls/electrical/switches/ac-ess-feed</property>
-						<value>1</value>
-					</equals>
-				</and>
+				<equals>
+					<property>systems/electrical/ac-ess-feed-fault</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2999,12 +2993,12 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>ACESSFeedBtn2O</object-name>
+		<object-name>ACESSFeedBtn2A</object-name>
 		<condition>
 			<or>
 				<equals>
 					<property>controls/electrical/switches/ac-ess-feed</property>
-					<value>0</value>
+					<value>1</value>
 				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
