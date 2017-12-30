@@ -274,8 +274,7 @@ var canvas_upperECAM_base = {
 				me["TO_Flaps_B"].show();
 			}
 			
-			if (getprop("/controls/autobrake/mode") == 3 and getprop("/controls/switches/no-smoking-sign") == 1 and getprop("/controls/switches/seatbelt-sign") == 1 and getprop("/controls/flight/speedbrake-arm") == 1 and getprop("/controls/flight/flap-pos") > 0 
-			and getprop("/controls/flight/flap-pos") < 5) {
+			if (getprop("/ECAM/to-config") == 1) {
 				me["TO_Config"].setText("T.O CONFIG NORMAL");
 				me["TO_Config_B"].hide();
 			} else {

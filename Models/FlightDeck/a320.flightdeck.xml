@@ -1350,6 +1350,25 @@
 		</action>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam_to_config</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/dc-ess</property>
+						<value>25</value>
+					</greater-than-equals>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.ECAM.toConfig();</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Engine Cutoff/Mode Selector -->
 	<animation>
 		<type>pick</type>
