@@ -93,7 +93,7 @@ var ADIRS = {
 		
 		if (ac1 >= 110 or ac2 >= 110) {
 			pwr_src = "AC";
-		} else if (batt1_amps >= 120 or batt2_amps >= 120) {
+		} else if ((batt1_amps >= 120 or batt2_amps >= 120) and (getprop("/controls/adirs/ir[0]/knob") != 0 or getprop("/controls/adirs/ir[1]/knob") != 0 or getprop("/controls/adirs/ir[2]/knob") != 0)) {
 			pwr_src = "BATT";
 		} else {
 			pwr_src = "XX";
