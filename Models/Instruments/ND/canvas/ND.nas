@@ -17,8 +17,10 @@ var ND_2_test = nil;
 var elapsedtime = 0;
 setprop("/instrumentation/du/du2-test", 0);
 setprop("/instrumentation/du/du2-test-time", 0);
+setprop("/instrumentation/du/du2-test-amount", 0);
 setprop("/instrumentation/du/du5-test", 0);
 setprop("/instrumentation/du/du5-test-time", 0);
+setprop("/instrumentation/du/du5-test-amount", 0);
 
 var nd_display = {};
 
@@ -79,10 +81,12 @@ var canvas_nd_base = {
 		if (getprop("/systems/electrical/bus/ac-ess-shed") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du2-test") != 1) {
 				setprop("/instrumentation/du/du2-test", 1);
+				setprop("/instrumentation/du/du2-test-amount", math.round((rand() * 5 ) + 35, 0.1));
 				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec"));
 			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du2-test") != 1) {
 				setprop("/instrumentation/du/du2-test", 1);
-				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec") - 35);
+				setprop("/instrumentation/du/du2-test-amount", math.round((rand() * 5 ) + 35, 0.1));
+				setprop("/instrumentation/du/du2-test-time", getprop("/sim/time/elapsed-sec") - 30);
 			}
 		} else {
 			setprop("/instrumentation/du/du2-test", 0);
@@ -90,20 +94,22 @@ var canvas_nd_base = {
 		if (getprop("/systems/electrical/bus/ac2") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du5-test") != 1) {
 				setprop("/instrumentation/du/du5-test", 1);
+				setprop("/instrumentation/du/du5-test-amount", math.round((rand() * 5 ) + 35, 0.1));
 				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec"));
 			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du5-test") != 1) {
 				setprop("/instrumentation/du/du5-test", 1);
-				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec") - 35);
+				setprop("/instrumentation/du/du5-test-amount", math.round((rand() * 5 ) + 35, 0.1));
+				setprop("/instrumentation/du/du5-test-time", getprop("/sim/time/elapsed-sec") - 30);
 			}
 		} else {
 			setprop("/instrumentation/du/du5-test", 0);
 		}
 		
 		if (getprop("/systems/electrical/bus/ac-ess-shed") >= 110 and getprop("/controls/lighting/DU/du2") > 0) {
-			if (getprop("/instrumentation/du/du2-test-time") + 38.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+			if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
 				ND_1.page.hide();
 				ND_1_test.page.show();
-			} else if (getprop("/instrumentation/du/du1-test-time") + 39.5 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+			} else if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
 				ND_1.page.hide();
 				ND_1_test.page.show();
 			} else {
@@ -116,10 +122,10 @@ var canvas_nd_base = {
 			ND_1.page.hide();
 		}
 		if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du5") > 0) {
-			if (getprop("/instrumentation/du/du5-test-time") + 38.5 >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
+			if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
 				ND_2.page.hide();
 				ND_2_test.page.show();
-			} else if (getprop("/instrumentation/du/du6-test-time") + 39.5 >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
+			} else if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
 				ND_2.page.hide();
 				ND_2_test.page.show();
 			} else {
