@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="2.8284273"
-     inkscape:cx="324.67088"
-     inkscape:cy="851.22941"
+     inkscape:zoom="0.5"
+     inkscape:cx="299.82204"
+     inkscape:cy="530.33915"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1696,6 +1696,14 @@
      width="117.6912"
      id="ASI_scale_clip"
      style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <rect
+     style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="ASI_trend_up_clip"
+     width="117.6912"
+     height="275.79279"
+     x="8.3655996"
+     y="237.0336"
+     inkscape:label="#rect9211" />
   <path
      style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 975.91454,177.03888 47.58966,0 c -0.052,113.09539 0.026,226.19024 0,339.28612 -0.026,110.77565 -0.158,221.55229 0,332.33137 l -47.58966,0 z"
@@ -3218,6 +3226,14 @@
          y="895.61029"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1;stroke-width:0.75">000</tspan></text>
   </g>
+  <rect
+     inkscape:label="#rect9211"
+     y="512.82642"
+     x="8.3655996"
+     height="275.79279"
+     width="117.6912"
+     id="ASI_trend_down_clip"
+     style="opacity:0.46000001;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.27696717;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <g
      id="ASI_group"
      inkscape:label="#g4784">
@@ -4458,27 +4474,50 @@
          style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:4.5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
     </g>
     <g
-       style="stroke:#c9d121;stroke-opacity:1"
-       transform="matrix(1,0,0,-1,0.90463468,1027.5828)"
-       inkscape:label="#g4646"
-       id="ASI_ten_sec">
+       id="ASI_trend_up"
+       inkscape:label="#g4874">
       <path
+         inkscape:label="#path4632"
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
          id="path4632"
-         d="m 101.56619,514.15641 0,66.47209"
+         d="m 102.47083,892.24236 0,-377.61127"
          style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
       <path
-         style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
-         d="m 90.2872,560.82534 11.2792,20.70316"
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
          id="path4642"
+         d="M 91.191843,534.39032 102.47104,513.68716"
+         style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 113.75024,534.39032 -11.2792,-20.70316"
+         id="path4644"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       inkscape:label="#g4874"
+       id="ASI_trend_down"
+       transform="matrix(1,0,0,-1,0,1025.6524)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 102.47083,892.24236 0,-377.61127"
+         id="path4886"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc"
+         inkscape:label="#path4632" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="M 91.191843,534.39032 102.47104,513.68716"
+         id="path4888"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
       <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
-         id="path4644"
-         d="M 112.8456,560.82534 101.5664,581.5285"
+         id="path4890"
+         d="m 113.75024,534.39032 -11.2792,-20.70316"
          style="fill:none;fill-opacity:1;stroke:#c9d121;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
     </g>
     <text
