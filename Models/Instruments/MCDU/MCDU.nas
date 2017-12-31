@@ -543,7 +543,6 @@ var canvas_MCDU_base = {
 			me["ArrowLeft"].show();
 			me["ArrowRight"].show();
 			
-			me["Simple_L1"].hide();
 			me["Simple_L2"].show();
 			me["Simple_L4"].show();
 			me["Simple_L6"].show();
@@ -559,12 +558,10 @@ var canvas_MCDU_base = {
 			me["Simple_L4_Arrow"].hide();
 			me["Simple_L5_Arrow"].hide();
 			me["Simple_L6_Arrow"].hide();
-			me["Simple_R2"].show();
 			me["Simple_R4"].show();
 			me["Simple_R5"].show();
 			me["Simple_R6"].show();
 			me["Simple_R1S"].show();
-			me["Simple_R2S"].show();
 			me["Simple_R3S"].hide();
 			me["Simple_R4S"].show();
 			me["Simple_R5S"].hide();
@@ -626,11 +623,25 @@ var canvas_MCDU_base = {
 				me["Simple_L6"].setText("         g");
 			}
 			if (getprop("/FMGC/internal/tofrom-set") == 1) {
+				me["INITA_CoRoute"].hide();
 				me["INITA_FromTo"].hide();
+				me["Simple_L1"].show();
+				me["Simple_L2"].setColor(0.0901,0.6039,0.7176);
+				me["Simple_L2"].setText("NONE");
 				me["Simple_R1"].show();
+				me["Simple_R2"].hide();
+				me["Simple_R2S"].hide();
+				me["INITA_InitRequest"].hide();
 			} else {
+				me["INITA_CoRoute"].show();
 				me["INITA_FromTo"].show();
+				me["Simple_L1"].hide();
+				me["Simple_L2"].setColor(1,1,1);
+				me["Simple_L2"].setText("----/----------");
 				me["Simple_R1"].hide();
+				me["Simple_R2"].show();
+				me["Simple_R2S"].show();
+				me["INITA_InitRequest"].show();
 			}
 			if (getprop("/FMGC/internal/tofrom-set") == 1 and getprop("/controls/adirs/mcducbtn") != 1) {
 				me["INITA_AlignIRS"].show();
@@ -651,7 +662,7 @@ var canvas_MCDU_base = {
 			me["Simple_L4S"].setText("LAT");
 			me["Simple_L5S"].setText("COST INDEX");
 			me["Simple_L6S"].setText("CRZ FL/TEMP");
-			me["Simple_L2"].setText("----/----------");
+			me["Simple_L1"].setText("NONE");
 			me["Simple_L3"].setText(sprintf("%s", getprop("/MCDUC/flight-num")));
 			me["Simple_L4"].setText("----.-");
 			me["Simple_R1S"].setText("FROM/TO   ");
