@@ -111,6 +111,7 @@ var canvas_lowerECAM_base = {
 				lowerECAM_wheel.page.hide();
 				lowerECAM_door.page.hide();
 				lowerECAM_test.page.show();
+				lowerECAM_test.update();
 			} else {
 				lowerECAM_test.page.hide();
 				page = getprop("/ECAM/Lower/page");
@@ -1327,6 +1328,11 @@ var canvas_lowerECAM_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -1337,6 +1343,18 @@ var canvas_lowerECAM_test = {
 		m.init(canvas_group, file);
 
 		return m;
+	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du4-test-time") + 1 >= elapsedtime) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
 	},
 };
 

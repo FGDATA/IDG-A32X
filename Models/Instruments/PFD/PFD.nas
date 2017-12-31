@@ -87,25 +87,20 @@ var canvas_PFD_base = {
 		var svg_keys = me.getKeys();
 		foreach(var key; svg_keys) {
 			me[key] = canvas_group.getElementById(key);
-			var svg_keys = me.getKeys();
 
-			foreach (var key; svg_keys) {
-				me[key] = canvas_group.getElementById(key);
+			var clip_el = canvas_group.getElementById(key ~ "_clip");
+			if (clip_el != nil) {
+				clip_el.setVisible(0);
+				var tran_rect = clip_el.getTransformedBounds();
 
-				var clip_el = canvas_group.getElementById(key ~ "_clip");
-				if (clip_el != nil) {
-					clip_el.setVisible(0);
-					var tran_rect = clip_el.getTransformedBounds();
-
-					var clip_rect = sprintf("rect(%d,%d, %d,%d)", 
-					tran_rect[1], # 0 ys
-					tran_rect[2], # 1 xe
-					tran_rect[3], # 2 ye
-					tran_rect[0]); #3 xs
-					#   coordinates are top,right,bottom,left (ys, xe, ye, xs) ref: l621 of simgear/canvas/CanvasElement.cxx
-					me[key].set("clip", clip_rect);
-					me[key].set("clip-frame", canvas.Element.PARENT);
-				}
+				var clip_rect = sprintf("rect(%d,%d, %d,%d)", 
+				tran_rect[1], # 0 ys
+				tran_rect[2], # 1 xe
+				tran_rect[3], # 2 ye
+				tran_rect[0]); #3 xs
+				#   coordinates are top,right,bottom,left (ys, xe, ye, xs) ref: l621 of simgear/canvas/CanvasElement.cxx
+				me[key].set("clip", clip_rect);
+				me[key].set("clip-frame", canvas.Element.PARENT);
 			}
 		}
 		
@@ -165,9 +160,11 @@ var canvas_PFD_base = {
 			if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
 				PFD_1.page.hide();
 				PFD_1_test.page.show();
+				PFD_1_test.update();
 			} else if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
 				PFD_1.page.hide();
 				PFD_1_test.page.show();
+				PFD_1_test.update();
 			} else {
 				PFD_1_test.page.hide();
 				PFD_1.page.show();
@@ -181,9 +178,11 @@ var canvas_PFD_base = {
 			if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
 				PFD_2.page.hide();
 				PFD_2_test.page.show();
+				PFD_2_test.update();
 			} else if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
 				PFD_2.page.hide();
 				PFD_2_test.page.show();
+				PFD_2_test.update();
 			} else {
 				PFD_2_test.page.hide();
 				PFD_2.page.show();
@@ -1001,6 +1000,11 @@ var canvas_PFD_1_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -1012,6 +1016,21 @@ var canvas_PFD_1_test = {
 
 		return m;
 	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du1-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else if (getprop("/instrumentation/du/du2-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
+	},
 };
 
 var canvas_PFD_2_test = {
@@ -1021,6 +1040,11 @@ var canvas_PFD_2_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -1031,6 +1055,21 @@ var canvas_PFD_2_test = {
 		m.init(canvas_group, file);
 
 		return m;
+	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du6-test-time") + 1 >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else if (getprop("/instrumentation/du/du5-test-time") + 1 >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
 	},
 };
 
