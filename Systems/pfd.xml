@@ -7,7 +7,7 @@
 -->
 
 <PropertyList>
-
+	
 	<filter>
 		<name>Ground level diff</name>
 		<type>gain</type>
@@ -171,94 +171,41 @@
 		</period>
 	</filter>
 	
-  <!-- =============================================================== -->
-  <!--                        PFD display preprocessors                -->
-  <!-- =============================================================== -->
-
-  <filter>
-	  <name>Stall speed margin computer</name> 
-	  <type>gain</type>
-	  <gain>1.0</gain>
-	  <input>
-		  <property>/instrumentation/weu/state/stall-speed</property>
-	  </input>
-	  <reference>
-		  <property>/velocities/airspeed-kt</property>
-		  <offset>85</offset>
-	  </reference>
-	  <output>/instrumentation/pfd/stallspeed-diff</output>
-	  <min>-205</min>
-	  <max>10</max>
-  </filter>
-  
-  <filter>
-	  <name>Over speed margin computer</name> 
-	  <type>gain</type>
-	  <gain>-1.0</gain>
-	  <input>
-		  <property>/instrumentation/afds/max-airspeed-kts</property>
-	  </input>
-	  <reference>
-		  <property>/velocities/airspeed-kt</property>
-		  <offset>-95</offset>
-	  </reference>
-	  <output>/instrumentation/pfd/overspeed-diff</output>
-	  <min>-200</min>
-	  <max>-10</max>
-  </filter>  
-
-  <!-- =============================================================== -->
-  <!--                 speed trend vector processing                   -->
-  <!-- =============================================================== -->
-
-  <predict-simple>
-	<name>speed predictor (smoothed)</name>
-	<debug>false</debug>
-	<input>/velocities/airspeed-kt</input>
-	<output>/instrumentation/pfd/speed-lookahead</output>
-	<seconds>10.0</seconds>
-	<filter-gain>0.01</filter-gain>
-  </predict-simple>
-
-  <filter>
-	<name>PFD preprocessor (spd trend up)</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<input>
-	  <property>/instrumentation/pfd/speed-lookahead</property>
-	</input>
-	<reference>
-	  <property>/velocities/airspeed-kt</property>
-	  <offset>90</offset>
-	</reference>
-	<gain>-0.002667</gain>
-	<output>/instrumentation/pfd/speed-trend-up</output>
-	<max>0.24</max>
-	<min>0</min>
-  </filter>
-
-  <filter>
-	<name>PFD preprocessor (spd trend down)</name>
-	<debug>false</debug>
-	<type>gain</type>
-	<input>
-	  <property>/instrumentation/pfd/speed-lookahead</property>
-	  <min>0</min>
-	</input>
-	<reference>
-	  <property>/velocities/airspeed-kt</property>
-	  <offset>-90</offset>
-	</reference>
-	<gain>-0.002667</gain>
-	<output>/instrumentation/pfd/speed-trend-down</output>
-	<min>-0.24</min>
-	<max>0</max>
-  </filter>
-  
-  <!-- =============================================================== -->
-  <!--                            Other stuff                          -->
-  <!-- =============================================================== -->
-  
+	<filter>
+		<name>Speed Predictor Input</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<difference>
+					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					<value>30</value>
+				</difference>
+			</expression>
+		</input>
+		<output>/instrumentation/pfd/speed-minus-30</output>
+		<min>0</min>
+		<max>390</max>
+	</filter>
+	
+	<predict-simple>
+		<name>Speed Predictor (Smoothed)</name>
+		<debug>false</debug>
+		<input>/instrumentation/pfd/speed-minus-30</input>
+		<output>/instrumentation/pfd/speed-lookahead-cmd</output>
+		<seconds>10.0</seconds>
+		<filter-gain>0.01</filter-gain>
+	</predict-simple>
+	
+	<filter>
+		<name>Speed Predictor Exponential</name>
+		<debug>false</debug>
+		<type>exponential</type>
+		<input>/instrumentation/pfd/speed-lookahead-cmd</input>
+		<output>/instrumentation/pfd/speed-lookahead</output>
+		<filter-time>0.32</filter-time>
+	</filter>
+	
 	<filter>
 		<name>Ground Horizon</name>
 		<type>gain</type>
@@ -394,5 +341,5 @@
 		</input>
 		<output>/instrumentation/pfd/vs-digit-trans</output>
 	</filter>
-	
+
 </PropertyList>
