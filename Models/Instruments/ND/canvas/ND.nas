@@ -109,9 +109,11 @@ var canvas_nd_base = {
 			if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
 				ND_1.page.hide();
 				ND_1_test.page.show();
+				ND_1_test.update();
 			} else if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
 				ND_1.page.hide();
 				ND_1_test.page.show();
+				ND_1_test.update();
 			} else {
 				ND_1_test.page.hide();
 				ND_1.page.show();
@@ -125,9 +127,11 @@ var canvas_nd_base = {
 			if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
 				ND_2.page.hide();
 				ND_2_test.page.show();
+				ND_2_test.update();
 			} else if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
 				ND_2.page.hide();
 				ND_2_test.page.show();
+				ND_2_test.update();
 			} else {
 				ND_2_test.page.hide();
 				ND_2.page.show();
@@ -187,6 +191,11 @@ var canvas_ND_1_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -198,6 +207,21 @@ var canvas_ND_1_test = {
 
 		return m;
 	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du2-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else if (getprop("/instrumentation/du/du1-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
+	},
 };
 
 var canvas_ND_2_test = {
@@ -207,6 +231,11 @@ var canvas_ND_2_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -217,6 +246,21 @@ var canvas_ND_2_test = {
 		m.init(canvas_group, file);
 
 		return m;
+	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du5-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else if (getprop("/instrumentation/du/du6-test-time") + 1 >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
 	},
 };
 

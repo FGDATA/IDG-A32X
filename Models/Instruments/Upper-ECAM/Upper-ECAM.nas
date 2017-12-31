@@ -69,6 +69,7 @@ var canvas_upperECAM_base = {
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis2.page.hide();
 				upperECAM_test.page.show();
+				upperECAM_test.update();
 			} else {
 				upperECAM_test.page.hide();
 				if (getprop("/options/eng") == "CFM") {
@@ -816,6 +817,11 @@ var canvas_upperECAM_test = {
 		};
 
 		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
 
 		me.page = canvas_group;
 
@@ -826,6 +832,18 @@ var canvas_upperECAM_test = {
 		m.init(canvas_group, file);
 
 		return m;
+	},
+	getKeys: func() {
+		return ["Test_white","Test_text"];
+	},
+	update: func() {
+		if (getprop("/instrumentation/du/du3-test-time") + 1 >= elapsedtime) {
+			me["Test_white"].show();
+			me["Test_text"].hide();
+		} else {
+			me["Test_white"].hide();
+			me["Test_text"].show();
+		}
 	},
 };
 
