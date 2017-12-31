@@ -65,6 +65,7 @@ setprop("/controls/flight/spoiler-r4-failed", 0);
 setprop("/controls/flight/spoiler-r5-failed", 0);
 setprop("/instrumentation/du/du4-test", 0);
 setprop("/instrumentation/du/du4-test-time", 0);
+setprop("/instrumentation/du/du4-test-amount", 0);
 
 var canvas_lowerECAM_base = {
 	init: func(canvas_group, file) {
@@ -91,17 +92,19 @@ var canvas_lowerECAM_base = {
 		if (getprop("/systems/electrical/bus/ac2") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du4-test") != 1) {
 				setprop("/instrumentation/du/du4-test", 1);
+				setprop("/instrumentation/du/du4-test-amount", math.round((rand() * 5 ) + 35, 0.1));
 				setprop("/instrumentation/du/du4-test-time", getprop("/sim/time/elapsed-sec"));
 			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du4-test") != 1) {
 				setprop("/instrumentation/du/du4-test", 1);
-				setprop("/instrumentation/du/du4-test-time", getprop("/sim/time/elapsed-sec") - 35);
+				setprop("/instrumentation/du/du4-test-amount", math.round((rand() * 5 ) + 35, 0.1));
+				setprop("/instrumentation/du/du4-test-time", getprop("/sim/time/elapsed-sec") - 30);
 			}
 		} else if (getprop("/systems/electrical/ac1-src") == "XX" or getprop("/systems/electrical/ac2-src") == "XX") {
 			setprop("/instrumentation/du/du4-test", 0);
 		}
 		
 		if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du4") > 0) {
-			if (getprop("/instrumentation/du/du4-test-time") + 40 >= elapsedtime) {
+			if (getprop("/instrumentation/du/du4-test-time") + getprop("/instrumentation/du/du4-test-amount") >= elapsedtime) {
 				lowerECAM_apu.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();

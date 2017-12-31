@@ -26,6 +26,7 @@ setprop("/ECAM/Upper/N1thr[1]", 0);
 setprop("/ECAM/Upper/N1ylim", 0);
 setprop("/instrumentation/du/du3-test", 0);
 setprop("/instrumentation/du/du3-test-time", 0);
+setprop("/instrumentation/du/du3-test-amount", 0);
 
 var canvas_upperECAM_base = {
 	init: func(canvas_group, file) {
@@ -52,17 +53,19 @@ var canvas_upperECAM_base = {
 		if (getprop("/systems/electrical/bus/ac-ess") >= 110) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/du/du3-test") != 1) {
 				setprop("/instrumentation/du/du3-test", 1);
+				setprop("/instrumentation/du/du3-test-amount", math.round((rand() * 5 ) + 35, 0.1));
 				setprop("/instrumentation/du/du3-test-time", getprop("/sim/time/elapsed-sec"));
 			} else if (getprop("/systems/acconfig/autoconfig-running") == 1 and getprop("/instrumentation/du/du3-test") != 1) {
 				setprop("/instrumentation/du/du3-test", 1);
-				setprop("/instrumentation/du/du3-test-time", getprop("/sim/time/elapsed-sec") - 35);
+				setprop("/instrumentation/du/du3-test-amount", math.round((rand() * 5 ) + 35, 0.1));
+				setprop("/instrumentation/du/du3-test-time", getprop("/sim/time/elapsed-sec") - 30);
 			}
 		} else {
 			setprop("/instrumentation/du/du3-test", 0);
 		}
 		
 		if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/controls/lighting/DU/du3") > 0) {
-			if (getprop("/instrumentation/du/du3-test-time") + 39 >= elapsedtime) {
+			if (getprop("/instrumentation/du/du3-test-time") + getprop("/instrumentation/du/du3-test-amount") >= elapsedtime) {
 				upperECAM_cfm_eis2.page.hide();
 				upperECAM_iae_eis2.page.hide();
 				upperECAM_test.page.show();
