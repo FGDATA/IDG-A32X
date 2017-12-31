@@ -78,7 +78,7 @@ var canvas_MCDU_base = {
 		return ["Simple","Simple_Center","Scratchpad","Simple_Title","Simple_PageNum","ArrowLeft","ArrowRight","Simple_L1","Simple_L2","Simple_L3","Simple_L4","Simple_L5","Simple_L6","Simple_L1S","Simple_L2S","Simple_L3S","Simple_L4S","Simple_L5S","Simple_L6S",
 		"Simple_L1_Arrow","Simple_L2_Arrow","Simple_L3_Arrow","Simple_L4_Arrow","Simple_L5_Arrow","Simple_L6_Arrow","Simple_R1","Simple_R2","Simple_R3","Simple_R4","Simple_R5","Simple_R6","Simple_R1S","Simple_R2S","Simple_R3S","Simple_R4S","Simple_R5S",
 		"Simple_R6S","Simple_R1_Arrow","Simple_R2_Arrow","Simple_R3_Arrow","Simple_R4_Arrow","Simple_R5_Arrow","Simple_R6_Arrow","Simple_C1","Simple_C2","Simple_C3","Simple_C4","Simple_C5","Simple_C6","Simple_C1S","Simple_C2S","Simple_C3S","Simple_C4S",
-		"Simple_C5S","Simple_C6S","INITA","INITA_CoRoute","INITA_FltNbr","INITA_CostIndex","INITA_CruiseFLTemp","INITA_FromTo","INITA_InitRequest","INITA_AlignIRS"];
+		"Simple_C5S","Simple_C6S","INITA","INITA_CoRoute","INITA_FltNbr","INITA_CostIndex","INITA_CruiseFLTemp","INITA_FromTo","INITA_InitRequest","INITA_AlignIRS","INITB","INITB_ZFWCGZFW","INITB_Block"];
 	},
 	update: func() {
 		if (getprop("/systems/electrical/bus/ac1") >= 110) {
@@ -100,6 +100,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
+			me["INITB"].hide();
 			me["Simple_Title"].setText("  MCDU MENU");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -175,6 +176,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
+			me["INITB"].hide();
 			me["Simple_Title"].setText(sprintf("%s", getprop("/MCDUC/type")));
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -250,6 +252,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
+			me["INITB"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("1/2");
 			me["Simple_PageNum"].show();
@@ -323,6 +326,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
+			me["INITB"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("2/2");
 			me["Simple_PageNum"].show();
@@ -401,6 +405,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
+			me["INITB"].hide();
 			me["Simple_Title"].setText("RADIO NAV");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -537,6 +542,7 @@ var canvas_MCDU_base = {
 			me["Simple"].show();
 			me["Simple_Center"].hide();
 			me["INITA"].show();
+			me["INITB"].hide();
 			me["Simple_Title"].setText("INIT");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -675,6 +681,96 @@ var canvas_MCDU_base = {
 			me["Simple_R4"].setText("-----.--");
 			me["Simple_R5"].setText("WIND ");
 			me["Simple_R6"].setText(sprintf("%5.0f", getprop("/FMGC/internal/tropo")));
+		} else if (page == "INITB") {
+			me["Simple"].show();
+			me["Simple_Center"].hide();
+			me["INITA"].hide();
+			me["INITB"].show();
+			me["Simple_Title"].setText("INIT");
+			me["Simple_PageNum"].setText("X/X");
+			me["Simple_PageNum"].hide();
+			me["ArrowLeft"].show();
+			me["ArrowRight"].show();
+			
+			me["Simple_L1"].show();
+			me["Simple_L2"].show();
+			me["Simple_L3"].show();
+			me["Simple_L4"].show();
+			me["Simple_L5"].show();
+			me["Simple_L6"].show();
+			me["Simple_L1S"].show();
+			me["Simple_L2S"].show();
+			me["Simple_L3S"].show();
+			me["Simple_L4S"].show();
+			me["Simple_L5S"].show();
+			me["Simple_L6S"].show();
+			me["Simple_L1_Arrow"].hide();
+			me["Simple_L2_Arrow"].hide();
+			me["Simple_L3_Arrow"].hide();
+			me["Simple_L4_Arrow"].hide();
+			me["Simple_L5_Arrow"].hide();
+			me["Simple_L6_Arrow"].hide();
+			me["Simple_R1"].hide();
+			me["Simple_R2"].show();
+			me["Simple_R3"].hide();
+			me["Simple_R4"].show();
+			me["Simple_R5"].show();
+			me["Simple_R6"].hide();
+			me["Simple_R1S"].show();
+			me["Simple_R2S"].show();
+			me["Simple_R3S"].hide();
+			me["Simple_R4S"].show();
+			me["Simple_R5S"].show();
+			me["Simple_R6S"].hide();
+			me["Simple_R1_Arrow"].hide();
+			me["Simple_R2_Arrow"].hide();
+			me["Simple_R3_Arrow"].hide();
+			me["Simple_R4_Arrow"].hide();
+			me["Simple_R5_Arrow"].hide();
+			me["Simple_R6_Arrow"].hide();
+			
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
+			
+			me.fontSizeLeft(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
+			
+			me.colorLeft("blu", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("blu", "blu", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			
+			if (getprop("/FMGC/internal/block-set") == 1) {
+				me["INITB_Block"].hide();
+				me["Simple_R2"].show(); 
+			} else {
+				me["INITB_Block"].show();
+				me["Simple_R2"].hide(); 
+			}
+			
+			me["Simple_L1"].setText("0.2");
+			me["Simple_L2"].setText("---.-/----");
+			me["Simple_L3"].setText("---.-/--.-");
+			me["Simple_L4"].setText("---.-/----");
+			me["Simple_L5"].setText("---.-/----");
+			me["Simple_L6"].setText("---.-/----");
+			me["Simple_L1S"].setText("TAXI");
+			me["Simple_L2S"].setText("TRIP/TIME");
+			me["Simple_L3S"].setText("RTE RSV/");
+			me["Simple_L4S"].setText("ALTN/TIME");
+			me["Simple_L5S"].setText("FINAL/TIME");
+			me["Simple_L6S"].setText("EXTRA/TIME");
+			me["Simple_R2"].setText(sprintf("%3.1f", getprop("/FMGC/internal/block")));
+			me["Simple_R4"].setText("---.-");
+			me["Simple_R5"].setText("---.-");
+			me["Simple_R1S"].setText("ZFWCG/  ZFW");
+			me["Simple_R2S"].setText("BLOCK");
+			me["Simple_R4S"].setText("TOW");
+			me["Simple_R5S"].setText("LW");
 		} else {
 			me["Simple"].hide();
 			me["ArrowLeft"].hide();
