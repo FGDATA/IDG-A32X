@@ -797,29 +797,31 @@
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</retard>
-	
+		
 		<apoff>
 			<name>apoff</name>
 			<path>/Aircraft/IDG-A32X/Sounds/apoff.wav</path>
 			<condition>
-				<property>/it-autoflight/sound/apoffsound</property>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>0</value>
+					</equals>
+					<or>
+						<property>/it-autoflight/sound/apoffsound</property>
+						<property>/it-autoflight/sound/apoffsound2</property>
+					</or>
+				</and>
 			</condition>
 			<volume>
 				<factor>40.0</factor>
 			</volume>
 		</apoff>
-  
-		<apoff>
-			<name>apoff2</name>
-			<path>/Aircraft/IDG-A32X/Sounds/apoff.wav</path>
-			<condition>
-				<property>/it-autoflight/sound/apoffsound2</property>
-			</condition>
-			<volume>
-				<factor>40.0</factor>
-			</volume>
-		</apoff>
-	
+		
 		<gear>
 			<name>gear0</name>
 			<mode>in-transit</mode>

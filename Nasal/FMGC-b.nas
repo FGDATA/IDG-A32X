@@ -105,7 +105,7 @@ setlistener("/it-autoflight/input/ap1", func {
 	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
 		setprop("/it-autoflight/output/ap1", 0);
-		if (getprop("/it-autoflight/sound/enableapoffsound") == 1) {
+		if (getprop("/it-autoflight/sound/enableapoffsound") == 1 and getprop("/it-autoflight/output/ap2") == 0) {
 			setprop("/it-autoflight/sound/apoffsound", 1);
 			setprop("/it-autoflight/sound/enableapoffsound", 0);	  
 		}
@@ -124,6 +124,9 @@ setlistener("/it-autoflight/input/ap1", func {
 				}
 			}
 			setprop("/it-autoflight/output/ap1", 1);
+			if (getprop("/it-autoflight/output/ap2") == 1 and (getprop("/it-autoflight/output/appr-armed") != 1 and getprop("/it-autoflight/output/lat") != 2 and getprop("/it-autoflight/output/lat") != 6)) {
+				setprop("/it-autoflight/input/ap2", 0);
+			}
 			setprop("/it-autoflight/sound/enableapoffsound", 1);
 			setprop("/it-autoflight/sound/apoffsound", 0);
 			fmabox();
@@ -138,7 +141,7 @@ setlistener("/it-autoflight/input/ap2", func {
 	var law = getprop("/it-fbw/law");
 	if (apmas == 0) {
 		setprop("/it-autoflight/output/ap2", 0);
-		if (getprop("/it-autoflight/sound/enableapoffsound2") == 1) {
+		if (getprop("/it-autoflight/sound/enableapoffsound2") == 1 and getprop("/it-autoflight/output/ap1") == 0) {
 			setprop("/it-autoflight/sound/apoffsound2", 1);	
 			setprop("/it-autoflight/sound/enableapoffsound2", 0);	  
 		}
@@ -157,6 +160,9 @@ setlistener("/it-autoflight/input/ap2", func {
 				}
 			}
 			setprop("/it-autoflight/output/ap2", 1);
+			if (getprop("/it-autoflight/output/ap1") == 1 and (getprop("/it-autoflight/output/appr-armed") != 1 and getprop("/it-autoflight/output/lat") != 2 and getprop("/it-autoflight/output/lat") != 6)) {
+				setprop("/it-autoflight/input/ap1", 0);
+			}
 			setprop("/it-autoflight/sound/enableapoffsound2", 1);
 			setprop("/it-autoflight/sound/apoffsound2", 0);
 			fmabox();
@@ -213,14 +219,18 @@ var fmabox = func {
 		setprop("/it-autoflight/output/fma-pwr", 0);
 	} else {
 		setprop("/it-autoflight/output/fma-pwr", 1);
-		setprop("/it-autoflight/input/lat", 3);
-		if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
-			setprop("/it-autoflight/input/vert", 1);
-		} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
-			setprop("/it-autoflight/input/vert", 5);
+		if (getprop("/it-autoflight/output/lat") == 9) {
+			setprop("/it-autoflight/input/lat", 3);
 		}
-		setprop("/it-autoflight/input/vs", math.round(getprop("/it-autoflight/internal/vert-speed-fpm"), 100));
-		setprop("/it-autoflight/input/fpa", math.round(getprop("/it-autoflight/internal/fpa"), 0.1));
+		if (getprop("/it-autoflight/output/vert") == 9) {
+			if (getprop("/it-autoflight/custom/trk-fpa") == 0) {
+				setprop("/it-autoflight/input/vert", 1);
+			} else if (getprop("/it-autoflight/custom/trk-fpa") == 1) {
+				setprop("/it-autoflight/input/vert", 5);
+			}
+			setprop("/it-autoflight/input/vs", math.round(getprop("/it-autoflight/internal/vert-speed-fpm"), 100));
+			setprop("/it-autoflight/input/fpa", math.round(getprop("/it-autoflight/internal/fpa"), 0.1));
+		}
 	}
 }
 
