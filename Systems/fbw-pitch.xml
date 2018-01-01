@@ -129,7 +129,7 @@
 			<value>0</value>
 		</reference>
 		<output>
-			<property>/it-fbw/g-elevator</property>
+			<property>/it-fbw/g-elevator-cmd</property>
 		</output>
 		<config>
 			<Kp>-1.5</Kp>
@@ -156,7 +156,33 @@
 			<max>0.0</max>
 		</config>
 	</pi-simple-controller>
- 
+	
+	<filter>
+		<name>IT-CONTROLLER: G ELEVATOR INVERT</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<and>
+					<less-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>90</value>
+					</less-than-equals>
+					<greater-than-equals>
+						<property>/orientation/roll-deg</property>
+						<value>-90</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<property>/it-fbw/g-elevator-cmd</property>
+		</input>
+		<input>
+			<property>/it-fbw/g-elevator-cmd</property>
+			<scale>-1.0</scale>
+		</input>
+		<output>/it-fbw/g-elevator</output>
+	</filter>
+	
 	<filter>
 	   <name>IT-CONTROLLER: PITCH RATE CMD</name>
 		<type>gain</type>
