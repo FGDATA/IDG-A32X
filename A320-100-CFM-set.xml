@@ -182,7 +182,6 @@
 		<EIS2 type="bool">0</EIS2>
 		<eng>CFM</eng>
 		<maxblock>52.3</maxblock>
-		<old-gpws type="bool">1</old-gpws>
 	</options>
 	
 	<sharklet type="bool">0</sharklet>
