@@ -226,6 +226,12 @@ var systemsLoop = maketimer(0.1, func {
 	} else {
 		setprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-override", 0);
 	}
+	
+	if (getprop("/instrumentation/mk-viii/inputs/discretes/gpws-inhibit") == 1) {
+		setprop("/instrumentation/mk-viii/speaker/volume", 0);
+	} else {
+		setprop("/instrumentation/mk-viii/speaker/volume", 2);
+	}
 });
 
 setlistener("/options/steep-ils", func {
