@@ -129,7 +129,7 @@
 					</equals>
 				</and>
 			</condition>
-			<value>1.25</value>
+			<value>1.0</value>
 		</max-rate-of-change>
 		<max-rate-of-change>5</max-rate-of-change>
 	</filter>
@@ -355,7 +355,7 @@
 					</equals>
 				</and>
 			</condition>
-			<value>1.25</value>
+			<value>1.0</value>
 		</max-rate-of-change>
 		<max-rate-of-change>5</max-rate-of-change>
 	</filter>
