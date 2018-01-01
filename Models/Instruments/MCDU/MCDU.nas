@@ -773,6 +773,8 @@ var canvas_MCDU_base = {
 			me["Simple_R5S"].setText("LW");
 		} else {
 			me["Simple"].hide();
+			me["INITA"].hide();
+			me["INITB"].hide();
 			me["ArrowLeft"].hide();
 			me["ArrowRight"].hide();
 		}
