@@ -10,7 +10,7 @@ var MCDU_2 = nil;
 var MCDU1_display = nil;
 var MCDU2_display = nil;
 var default = "BoeingCDU-Large.ttf";
-var bracket = "helvetica_medium.txf";
+var symbol = "helvetica_medium.txf";
 var normal = 70;
 var small = 56;
 var page = "";
@@ -70,6 +70,13 @@ var canvas_MCDU_base = {
 			}
 		}
 		
+		me["PERFTO_FE"].setFont(symbol);
+		me["PERFTO_SE"].setFont(symbol);
+		me["PERFTO_OE"].setFont(symbol);
+		me["PERFTO_FE"].setColor(0.8078,0.8039,0.8078);
+		me["PERFTO_SE"].setColor(0.8078,0.8039,0.8078);
+		me["PERFTO_OE"].setColor(0.8078,0.8039,0.8078);
+		
 		me.page = canvas_group;
 		
 		return me;
@@ -78,7 +85,8 @@ var canvas_MCDU_base = {
 		return ["Simple","Simple_Center","Scratchpad","Simple_Title","Simple_PageNum","ArrowLeft","ArrowRight","Simple_L1","Simple_L2","Simple_L3","Simple_L4","Simple_L5","Simple_L6","Simple_L1S","Simple_L2S","Simple_L3S","Simple_L4S","Simple_L5S","Simple_L6S",
 		"Simple_L1_Arrow","Simple_L2_Arrow","Simple_L3_Arrow","Simple_L4_Arrow","Simple_L5_Arrow","Simple_L6_Arrow","Simple_R1","Simple_R2","Simple_R3","Simple_R4","Simple_R5","Simple_R6","Simple_R1S","Simple_R2S","Simple_R3S","Simple_R4S","Simple_R5S",
 		"Simple_R6S","Simple_R1_Arrow","Simple_R2_Arrow","Simple_R3_Arrow","Simple_R4_Arrow","Simple_R5_Arrow","Simple_R6_Arrow","Simple_C1","Simple_C2","Simple_C3","Simple_C4","Simple_C5","Simple_C6","Simple_C1S","Simple_C2S","Simple_C3S","Simple_C4S",
-		"Simple_C5S","Simple_C6S","INITA","INITA_CoRoute","INITA_FltNbr","INITA_CostIndex","INITA_CruiseFLTemp","INITA_FromTo","INITA_InitRequest","INITA_AlignIRS","INITB","INITB_ZFWCGZFW","INITB_Block"];
+		"Simple_C5S","Simple_C6S","INITA","INITA_CoRoute","INITA_FltNbr","INITA_CostIndex","INITA_CruiseFLTemp","INITA_FromTo","INITA_InitRequest","INITA_AlignIRS","INITB","INITB_ZFWCGZFW","INITB_Block","PERFTO","PERFTO_V1","PERFTO_VR","PERFTO_V2","PERFTO_FE",
+		"PERFTO_SE","PERFTO_OE"];
 	},
 	update: func() {
 		if (getprop("/systems/electrical/bus/ac1") >= 110) {
@@ -101,7 +109,8 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
-			me["Simple_Title"].setText("  MCDU MENU");
+			me["PERFTO"].hide();
+			me["Simple_Title"].setText("MCDU MENU");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
 			me["ArrowLeft"].hide();
@@ -177,7 +186,8 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
-			me["Simple_Title"].setText(sprintf("%s", getprop("/MCDUC/type")));
+			me["PERFTO"].hide();
+			me["Simple_Title"].setText(sprintf("%s", "    " ~ getprop("/MCDUC/type")));
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
 			me["ArrowLeft"].hide();
@@ -220,7 +230,7 @@ var canvas_MCDU_base = {
 			me["Simple_R5_Arrow"].hide();
 			me["Simple_R6_Arrow"].show();
 			
-			me.fontLeft(default, default, default, default, bracket, default);
+			me.fontLeft(default, default, default, default, symbol, default);
 			me.fontLeftS(default, default, default, default, default, default);
 			me.fontRight(default, default, default, default, default, default);
 			me.fontRightS(default, default, default, default, default, default);
@@ -253,6 +263,7 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
+			me["PERFTO"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("1/2");
 			me["Simple_PageNum"].show();
@@ -327,6 +338,7 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
+			me["PERFTO"].hide();
 			me["Simple_Title"].setText("DATA INDEX");
 			me["Simple_PageNum"].setText("2/2");
 			me["Simple_PageNum"].show();
@@ -406,6 +418,7 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
+			me["PERFTO"].hide();
 			me["Simple_Title"].setText("RADIO NAV");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -451,7 +464,7 @@ var canvas_MCDU_base = {
 			
 			me.fontLeft(default, default, default, default, 0, default);
 			me.fontLeftS(default, default, default, default, default, default);
-			me.fontRight(default, default, bracket, bracket, 0, default);
+			me.fontRight(default, default, symbol, symbol, 0, default);
 			me.fontRightS(default, default, default, default, default, default);
 			
 			me.fontSizeLeft(0, 0, 0, 0, 0, normal);
@@ -495,7 +508,7 @@ var canvas_MCDU_base = {
 				me["Simple_L5"].setFontSize(normal); 
 				me["Simple_L5"].setText(sprintf("%3.0f", adf1));
 			} else {
-				me["Simple_L5"].setFont(bracket); 
+				me["Simple_L5"].setFont(symbol); 
 				me["Simple_L5"].setFontSize(small); 
 				me["Simple_L5"].setText("[    ]/[     . ]");
 			}
@@ -515,7 +528,7 @@ var canvas_MCDU_base = {
 				me["Simple_R5"].setFontSize(normal); 
 				me["Simple_R5"].setText(sprintf("%3.0f", adf2));
 			} else {
-				me["Simple_R5"].setFont(bracket); 
+				me["Simple_R5"].setFont(symbol); 
 				me["Simple_R5"].setFontSize(small); 
 				me["Simple_R5"].setText("[     . ]/[    ]");
 			}
@@ -543,6 +556,7 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].show();
 			me["INITB"].hide();
+			me["PERFTO"].hide();
 			me["Simple_Title"].setText("INIT");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -686,6 +700,7 @@ var canvas_MCDU_base = {
 			me["Simple_Center"].hide();
 			me["INITA"].hide();
 			me["INITB"].show();
+			me["PERFTO"].hide();
 			me["Simple_Title"].setText("INIT");
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
@@ -771,10 +786,164 @@ var canvas_MCDU_base = {
 			me["Simple_R2S"].setText("BLOCK");
 			me["Simple_R4S"].setText("TOW");
 			me["Simple_R5S"].setText("LW");
+		} else if (page == "TO") {
+			me["Simple"].show();
+			me["Simple_Center"].show();
+			me["INITA"].hide();
+			me["INITB"].hide();
+			me["PERFTO"].show();
+			me["Simple_Title"].setText("TAKE OFF");
+			me["Simple_PageNum"].setText("X/X");
+			me["Simple_PageNum"].hide();
+			me["ArrowLeft"].hide();
+			me["ArrowRight"].hide();
+			
+			me["Simple_L1"].show();
+			me["Simple_L2"].show();
+			me["Simple_L3"].show();
+			me["Simple_L4"].show();
+			me["Simple_L5"].show();
+			me["Simple_L6"].show();
+			me["Simple_L1S"].show();
+			me["Simple_L2S"].show();
+			me["Simple_L3S"].show();
+			me["Simple_L4S"].show();
+			me["Simple_L5S"].show();
+			me["Simple_L6S"].show();
+			me["Simple_L1_Arrow"].hide();
+			me["Simple_L2_Arrow"].hide();
+			me["Simple_L3_Arrow"].hide();
+			me["Simple_L4_Arrow"].hide();
+			me["Simple_L5_Arrow"].hide();
+			me["Simple_L6_Arrow"].show();
+			me["Simple_R1"].show();
+			me["Simple_R2"].show();
+			me["Simple_R3"].show();
+			me["Simple_R4"].show();
+			me["Simple_R5"].show();
+			me["Simple_R6"].show();
+			me["Simple_R1S"].show();
+			me["Simple_R2S"].show();
+			me["Simple_R3S"].show();
+			me["Simple_R4S"].show();
+			me["Simple_R5S"].show();
+			me["Simple_R6S"].show();
+			me["Simple_R1_Arrow"].hide();
+			me["Simple_R2_Arrow"].hide();
+			me["Simple_R3_Arrow"].hide();
+			me["Simple_R4_Arrow"].hide();
+			me["Simple_R5_Arrow"].hide();
+			me["Simple_R6_Arrow"].show();
+			me["Simple_C1"].hide();
+			me["Simple_C2"].hide();
+			me["Simple_C3"].hide();
+			me["Simple_C4"].hide();
+			me["Simple_C5"].hide();
+			me["Simple_C6"].hide();
+			me["Simple_C1S"].show();
+			me["Simple_C2S"].show();
+			me["Simple_C3S"].show();
+			me["Simple_C4S"].hide();
+			me["Simple_C5S"].hide();
+			me["Simple_C6S"].hide();
+			
+			me.fontLeft(default, default, default, default, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, symbol, 0, 0, default, default);
+			me.fontRightS(default, default, default, default, default, default);
+			
+			me.fontSizeLeft(normal, normal, normal, normal, 0, normal);
+			me.fontSizeRight(normal, small, 0, 0, 0, normal);
+			
+			me.colorLeft("blu", "blu", "blu", "blu", "blu", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("grn", "blu", "blu", "blu", "blu", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorCenter("grn", "grn", "grn", "wht", "wht", "wht");
+			me.colorCenterS("wht", "wht", "wht", "wht", "wht", "wht");
+			
+			if (getprop("/FMGC/internal/v1-set") == 1) {
+				me["PERFTO_V1"].hide();
+				me["Simple_L1"].show();
+			} else {
+				me["PERFTO_V1"].show();
+				me["Simple_L1"].hide();
+			}
+			if (getprop("/FMGC/internal/vr-set") == 1) {
+				me["PERFTO_VR"].hide();
+				me["Simple_L2"].show();
+			} else {
+				me["PERFTO_VR"].show();
+				me["Simple_L2"].hide();
+			}
+			if (getprop("/FMGC/internal/v2-set") == 1) {
+				me["PERFTO_V2"].hide();
+				me["Simple_L3"].show();
+			} else {
+				me["PERFTO_V2"].show();
+				me["Simple_L3"].hide();
+			}
+			if (getprop("/MCDUC/thracc-set") == 1) {
+				me["Simple_L5"].setFontSize(normal);
+			} else {
+				me["Simple_L5"].setFontSize(small);
+			}
+			if (getprop("/FMGC/internal/flap-ths-set") == 1) {
+				me["Simple_R3"].setFont(default); 
+				me["Simple_R3"].setFontSize(normal); 
+				me["Simple_R3"].setText(sprintf("%s", getprop("/FMGC/internal/to-flap") ~ "/UP" ~ getprop("/FMGC/internal/to-ths")));
+			} else {
+				me["Simple_R3"].setFont(symbol); 
+				me["Simple_R3"].setFontSize(small); 
+				me["Simple_R3"].setText("[  ]/[      ]");
+			}
+			if (getprop("/FMGC/internal/flex-set") == 1) {
+				me["Simple_R4"].setFont(default); 
+				me["Simple_R4"].setFontSize(normal); 
+				me["Simple_R4"].setText(sprintf("%3.0f", getprop("/FMGC/internal/flex")));
+			} else {
+				me["Simple_R4"].setFont(symbol); 
+				me["Simple_R4"].setFontSize(small); 
+				me["Simple_R4"].setText("[   ]");
+			}
+			if (getprop("/MCDUC/reducacc-set") == 1) {
+				me["Simple_R5"].setFontSize(normal);
+			} else {
+				me["Simple_R5"].setFontSize(small);
+			}
+			
+			me["Simple_L1"].setText(sprintf("%3.0f", getprop("/FMGC/internal/v1")));
+			me["Simple_L2"].setText(sprintf("%3.0f", getprop("/FMGC/internal/vr")));
+			me["Simple_L3"].setText(sprintf("%3.0f", getprop("/FMGC/internal/v2")));
+			me["Simple_L4"].setText(sprintf("%3.0f", getprop("/FMGC/internal/trans-alt")));
+			me["Simple_L5"].setText(sprintf("%s", getprop("/systems/thrust/clbreduc-ft") ~ "/" ~ getprop("/FMGC/internal/reduc-agl-ft")));
+			me["Simple_L6"].setText(" TO DATA");
+			me["Simple_L1S"].setText(" V1");
+			me["Simple_L2S"].setText(" VR");
+			me["Simple_L3S"].setText(" V2");
+			me["Simple_L4S"].setText("TRANS ALT");
+			me["Simple_L5S"].setText("THR RED/ACC");
+			me["Simple_L6S"].setText(" UPLINK");
+			me["Simple_R1"].setText("--- ");
+			me["Simple_R2"].setText("[    ]  ");
+			me["Simple_R5"].setText(sprintf("%3.0f", getprop("/FMGC/internal/eng-out-reduc")));
+			me["Simple_R6"].setText("PHASE ");
+			me["Simple_R1S"].setText("RWY ");
+			me["Simple_R2S"].setText("TO SHIFT ");
+			me["Simple_R3S"].setText("FLAPS/THS");
+			me["Simple_R4S"].setText("FLEX TO TEMP");
+			me["Simple_R5S"].setText("ENG OUT ACC");
+			me["Simple_R6S"].setText("NEXT ");
+			me["Simple_C1S"].setText("FLP RETR        ");
+			me["Simple_C2S"].setText("SLT RETR        ");
+			me["Simple_C3S"].setText("CLEAN      ");
 		} else {
 			me["Simple"].hide();
 			me["INITA"].hide();
 			me["INITB"].hide();
+			me["PERFTO"].hide();
 			me["ArrowLeft"].hide();
 			me["ArrowRight"].hide();
 		}
@@ -900,6 +1069,46 @@ var canvas_MCDU_base = {
 		}
 		if (f != "ack") {
 			me["Simple_R6_Arrow"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorCenter: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_C1"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_C2"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_C3"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_C4"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_C5"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_C6"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
+		}
+	},
+	colorCenterS: func(a, b, c, d, e, f) {
+		if (a != "ack") {
+			me["Simple_C1S"].setColor(getprop("/MCDUC/colors/" ~ a ~ "/r"), getprop("/MCDUC/colors/" ~ a ~ "/g"), getprop("/MCDUC/colors/" ~ a ~ "/b"));
+		}
+		if (b != "ack") {
+			me["Simple_C2S"].setColor(getprop("/MCDUC/colors/" ~ b ~ "/r"), getprop("/MCDUC/colors/" ~ b ~ "/g"), getprop("/MCDUC/colors/" ~ b ~ "/b"));
+		}
+		if (c != "ack") {
+			me["Simple_C3S"].setColor(getprop("/MCDUC/colors/" ~ c ~ "/r"), getprop("/MCDUC/colors/" ~ c ~ "/g"), getprop("/MCDUC/colors/" ~ c ~ "/b"));
+		}
+		if (d != "ack") {
+			me["Simple_C4S"].setColor(getprop("/MCDUC/colors/" ~ d ~ "/r"), getprop("/MCDUC/colors/" ~ d ~ "/g"), getprop("/MCDUC/colors/" ~ d ~ "/b"));
+		}
+		if (e != "ack") {
+			me["Simple_C5S"].setColor(getprop("/MCDUC/colors/" ~ e ~ "/r"), getprop("/MCDUC/colors/" ~ e ~ "/g"), getprop("/MCDUC/colors/" ~ e ~ "/b"));
+		}
+		if (f != "ack") {
+			me["Simple_C6S"].setColor(getprop("/MCDUC/colors/" ~ f ~ "/r"), getprop("/MCDUC/colors/" ~ f ~ "/g"), getprop("/MCDUC/colors/" ~ f ~ "/b"));
 		}
 	},
 	# 0 = ignore
