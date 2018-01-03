@@ -63,22 +63,22 @@
 	<!-- Overhead Panel -->
 	<!-- New OH not ready yet -->
 	<!--model>
-		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel/OHpanel.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel.new/OHpanel.xml</path>
 		<offsets>
-			<x-m>0.12844</x-m>
+			<x-m>0.128</x-m>
 			<y-m>0</y-m>
-			<z-m>1.01821</z-m>
-			<pitch-deg>69.552</pitch-deg>
+			<z-m>0.997</z-m>
+			<pitch-deg>69.547</pitch-deg>
 		</offsets>
 	</model-->
 	
 	<model>
 		<path>Aircraft/IDG-A32X/Models/Instruments/OHpanel/OHpanel.xml</path>
 		<offsets>
-			<x-m>0.12844</x-m>
+			<x-m>0.128</x-m>
 			<y-m>0</y-m>
-			<z-m>1.01821</z-m>
-			<pitch-deg>69.552</pitch-deg>
+			<z-m>0.997</z-m>
+			<pitch-deg>69.547</pitch-deg>
 		</offsets>
 	</model>
 	
@@ -91,10 +91,10 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>0.12844</x-m>
+			<x-m>0.128</x-m>
 			<y-m>0</y-m>
-			<z-m>1.01821</z-m>
-			<pitch-deg>69.552</pitch-deg>
+			<z-m>0.997</z-m>
+			<pitch-deg>69.547</pitch-deg>
 		</offsets>
 	</model>
 	
@@ -113,10 +113,10 @@
 			</and>
 		</condition>
 		<offsets>
-			<x-m>0.12844</x-m>
+			<x-m>0.128</x-m>
 			<y-m>0</y-m>
-			<z-m>1.01821</z-m>
-			<pitch-deg>69.552</pitch-deg>
+			<z-m>0.997</z-m>
+			<pitch-deg>69.547</pitch-deg>
 		</offsets>
 	</model>
 
