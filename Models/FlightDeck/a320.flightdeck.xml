@@ -4739,6 +4739,12 @@
 		<object-name>foot_warmer_fo_sw.mark</object-name>
 		<object-name>brightness_nd_2_fo.mark</object-name>
 		<object-name>brightness_nd_1_fo.mark</object-name>
+		<object-name>iesi_labels</object-name>
+		<object-name>iesi_btn_ls</object-name>
+		<object-name>iesi_btn_bugs</object-name>
+		<object-name>iesi_btn_plus</object-name>
+		<object-name>iesi_btn_minus</object-name>
+		<object-name>iesi_btn_rst</object-name>
 		<emission>
 			<red>1</red>
 			<green>0.725</green>
