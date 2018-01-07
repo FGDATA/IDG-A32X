@@ -858,7 +858,7 @@ var canvas_MCDU_base = {
 			me.colorLeft("blu", "blu", "blu", "blu", "blu", "wht");
 			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
 			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
-			me.colorRight("grn", "blu", "blu", "blu", "blu", "wht");
+			me.colorRight("wht", "blu", "blu", "blu", "blu", "wht");
 			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
 			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
 			me.colorCenter("grn", "grn", "grn", "wht", "wht", "wht");
@@ -939,6 +939,112 @@ var canvas_MCDU_base = {
 			me["Simple_C1S"].setText("FLP RETR        ");
 			me["Simple_C2S"].setText("SLT RETR        ");
 			me["Simple_C3S"].setText("CLEAN      ");
+		} else if (page == "CLB") {
+			me["Simple"].show();
+			me["Simple_Center"].show();
+			me["INITA"].hide();
+			me["INITB"].hide();
+			me["PERFTO"].hide();
+			me["Simple_Title"].setText("CLB");
+			me["Simple_PageNum"].setText("X/X");
+			me["Simple_PageNum"].hide();
+			me["ArrowLeft"].hide();
+			me["ArrowRight"].hide();
+			
+			me["Simple_L1"].show();
+			me["Simple_L2"].show();
+			me["Simple_L3"].show();
+			me["Simple_L4"].show();
+			me["Simple_L5"].hide();
+			me["Simple_L6"].show();
+			me["Simple_L1S"].show();
+			me["Simple_L2S"].show();
+			me["Simple_L3S"].show();
+			me["Simple_L4S"].show();
+			me["Simple_L5S"].hide();
+			me["Simple_L6S"].show();
+			me["Simple_L1_Arrow"].hide();
+			me["Simple_L2_Arrow"].hide();
+			me["Simple_L3_Arrow"].hide();
+			me["Simple_L4_Arrow"].hide();
+			me["Simple_L5_Arrow"].hide();
+			me["Simple_L6_Arrow"].show();
+			me["Simple_R1"].show();
+			me["Simple_R2"].hide();
+			me["Simple_R3"].hide();
+			me["Simple_R4"].hide();
+			me["Simple_R5"].hide();
+			me["Simple_R6"].show();
+			me["Simple_R1S"].show();
+			me["Simple_R2S"].hide();
+			me["Simple_R3S"].hide();
+			me["Simple_R4S"].hide();
+			me["Simple_R5S"].hide();
+			me["Simple_R6S"].show();
+			me["Simple_R1_Arrow"].hide();
+			me["Simple_R2_Arrow"].hide();
+			me["Simple_R3_Arrow"].hide();
+			me["Simple_R4_Arrow"].hide();
+			me["Simple_R5_Arrow"].hide();
+			me["Simple_R6_Arrow"].show();
+			me["Simple_C1"].show();
+			me["Simple_C2"].hide();
+			me["Simple_C3"].hide();
+			me["Simple_C4"].hide();
+			me["Simple_C5"].hide();
+			me["Simple_C6"].hide();
+			me["Simple_C1S"].show();
+			me["Simple_C2S"].hide();
+			me["Simple_C3S"].hide();
+			me["Simple_C4S"].hide();
+			me["Simple_C5S"].hide();
+			me["Simple_C6S"].hide();
+			
+			me.fontLeft(default, default, default, symbol, default, default);
+			me.fontLeftS(default, default, default, default, default, default);
+			me.fontRight(default, default, default, default, default, default);
+			me.fontRightS(default, default, default, default, default, default);
+			
+			me.fontSizeLeft(normal, normal, small, small, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
+			
+			me.colorLeft("grn", "ack", "grn", "blu", "wht", "wht");
+			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorLeftArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRight("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorCenter("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorCenterS("wht", "wht", "wht", "wht", "wht", "wht");
+			
+			if (getprop("/it-autoflight/input/spd-managed") == 1) {
+				me["Simple_L1"].setText("MANAGED");
+			} else {
+				me["Simple_L1"].setText("SELECTED");
+			}
+			
+			if (getprop("/FMGC/internal/cost-index-set") == 1) {
+				me["Simple_L2"].setColor(0.0901,0.6039,0.7176);
+				me["Simple_L2"].setText(sprintf("%s", getprop("/FMGC/internal/cost-index")));
+			} else {
+				me["Simple_L2"].setColor(1,1,1);
+				me["Simple_L2"].setText("---");
+			}
+			
+			me["Simple_L3"].setText("");
+			me["Simple_L4"].setText(" [     ]");
+			me["Simple_L6"].setText(" PHASE");
+			me["Simple_L1S"].setText("ACT MODE");
+			me["Simple_L2S"].setText(" CI");
+			me["Simple_L3S"].setText(" MANAGED");
+			me["Simple_L4S"].setText(" PRESEL");
+			me["Simple_L6S"].setText(" PREV");
+			me["Simple_R1"].setText("---");
+			me["Simple_R6"].setText("PHASE ");
+			me["Simple_R1S"].setText("DES EFOB");
+			me["Simple_R6S"].setText("NEXT ");
+			me["Simple_C1"].setText("---  ");
+			me["Simple_C1S"].setText("TIME  ");
 		} else {
 			me["Simple"].hide();
 			me["INITA"].hide();
