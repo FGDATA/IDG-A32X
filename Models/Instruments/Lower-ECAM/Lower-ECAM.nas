@@ -461,18 +461,18 @@ var canvas_lowerECAM_eng = {
 		# Oil Pressure
 		if (getprop("/engines/engine[0]/oil-psi-actual") >= 20) {
 			me["OilPSI1"].setColor(0.0509,0.7529,0.2941);
-			me["OilPSI1-needle"].setColorFill(0.0509,0.7529,0.2941);
+			me["OilPSI1-needle"].setColor(0.0509,0.7529,0.2941);
 		} else {
 			me["OilPSI1"].setColor(1,0,0);
-			me["OilPSI1-needle"].setColorFill(1,0,0);
+			me["OilPSI1-needle"].setColor(1,0,0);
 		}
 		
 		if (getprop("/engines/engine[1]/oil-psi-actual") >= 20) {
 			me["OilPSI2"].setColor(0.0509,0.7529,0.2941);
-			me["OilPSI2-needle"].setColorFill(0.0509,0.7529,0.2941);
+			me["OilPSI2-needle"].setColor(0.0509,0.7529,0.2941);
 		} else {
 			me["OilPSI2"].setColor(1,0,0);
-			me["OilPSI2-needle"].setColorFill(1,0,0);
+			me["OilPSI2-needle"].setColor(1,0,0);
 		}
 		
 		me["OilPSI1"].setText(sprintf("%s", math.round(getprop("/engines/engine[0]/oil-psi-actual"))));
