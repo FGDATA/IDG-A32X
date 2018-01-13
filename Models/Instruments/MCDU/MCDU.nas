@@ -939,13 +939,13 @@ var canvas_MCDU_base = {
 			me["Simple_C1S"].setText("FLP RETR        ");
 			me["Simple_C2S"].setText("SLT RETR        ");
 			me["Simple_C3S"].setText("CLEAN      ");
-		} else if (page == "CLB") {
+		} else if (page == "CLB" or page == "CRZ" or page == "DES") {
 			me["Simple"].show();
 			me["Simple_Center"].show();
 			me["INITA"].hide();
 			me["INITB"].hide();
 			me["PERFTO"].hide();
-			me["Simple_Title"].setText("CLB");
+			me["Simple_Title"].setText(sprintf("%s", page));
 			me["Simple_PageNum"].setText("X/X");
 			me["Simple_PageNum"].hide();
 			me["ArrowLeft"].hide();
@@ -954,13 +954,13 @@ var canvas_MCDU_base = {
 			me["Simple_L1"].show();
 			me["Simple_L2"].show();
 			me["Simple_L3"].show();
-			me["Simple_L4"].show();
+			me["Simple_L4"].hide();
 			me["Simple_L5"].hide();
 			me["Simple_L6"].show();
 			me["Simple_L1S"].show();
 			me["Simple_L2S"].show();
 			me["Simple_L3S"].show();
-			me["Simple_L4S"].show();
+			me["Simple_L4S"].hide();
 			me["Simple_L5S"].hide();
 			me["Simple_L6S"].show();
 			me["Simple_L1_Arrow"].hide();
@@ -973,13 +973,11 @@ var canvas_MCDU_base = {
 			me["Simple_R2"].hide();
 			me["Simple_R3"].hide();
 			me["Simple_R4"].hide();
-			me["Simple_R5"].hide();
 			me["Simple_R6"].show();
 			me["Simple_R1S"].show();
 			me["Simple_R2S"].hide();
 			me["Simple_R3S"].hide();
 			me["Simple_R4S"].hide();
-			me["Simple_R5S"].hide();
 			me["Simple_R6S"].show();
 			me["Simple_R1_Arrow"].hide();
 			me["Simple_R2_Arrow"].hide();
@@ -991,7 +989,6 @@ var canvas_MCDU_base = {
 			me["Simple_C2"].hide();
 			me["Simple_C3"].hide();
 			me["Simple_C4"].hide();
-			me["Simple_C5"].hide();
 			me["Simple_C6"].hide();
 			me["Simple_C1S"].show();
 			me["Simple_C2S"].hide();
@@ -1006,7 +1003,8 @@ var canvas_MCDU_base = {
 			me.fontRightS(default, default, default, default, default, default);
 			
 			me.fontSizeLeft(normal, normal, small, small, normal, normal);
-			me.fontSizeRight(normal, normal, normal, normal, normal, normal);
+			me.fontSizeRight(normal, normal, normal, normal, small, normal);
+			me.fontSizeCenter(normal, normal, normal, normal, small, normal);
 			
 			me.colorLeft("grn", "ack", "grn", "blu", "wht", "wht");
 			me.colorLeftS("wht", "wht", "wht", "wht", "wht", "wht");
@@ -1014,7 +1012,7 @@ var canvas_MCDU_base = {
 			me.colorRight("wht", "wht", "wht", "wht", "wht", "wht");
 			me.colorRightS("wht", "wht", "wht", "wht", "wht", "wht");
 			me.colorRightArrow("wht", "wht", "wht", "wht", "wht", "wht");
-			me.colorCenter("wht", "wht", "wht", "wht", "wht", "wht");
+			me.colorCenter("wht", "wht", "wht", "wht", "blu", "wht");
 			me.colorCenterS("wht", "wht", "wht", "wht", "wht", "wht");
 			
 			if (getprop("/it-autoflight/input/spd-managed") == 1) {
@@ -1031,8 +1029,18 @@ var canvas_MCDU_base = {
 				me["Simple_L2"].setText("---");
 			}
 			
+			if (page == "CRZ") {
+				me["Simple_R5"].show();
+				me["Simple_R5S"].show();
+				me["Simple_C5"].show();
+			} else {
+				me["Simple_R5"].hide();
+				me["Simple_R5S"].hide();
+				me["Simple_C5"].hide();
+			}
+			
 			me["Simple_L3"].setText("");
-			me["Simple_L4"].setText(" [     ]");
+			me["Simple_L4"].setText(" [    ]");
 			me["Simple_L6"].setText(" PHASE");
 			me["Simple_L1S"].setText("ACT MODE");
 			me["Simple_L2S"].setText(" CI");
@@ -1040,10 +1048,13 @@ var canvas_MCDU_base = {
 			me["Simple_L4S"].setText(" PRESEL");
 			me["Simple_L6S"].setText(" PREV");
 			me["Simple_R1"].setText("---");
+			me["Simple_R5"].setText("FT/MIN");
 			me["Simple_R6"].setText("PHASE ");
 			me["Simple_R1S"].setText("DES EFOB");
+			me["Simple_R5S"].setText("DES CABIN RATE");
 			me["Simple_R6S"].setText("NEXT ");
 			me["Simple_C1"].setText("---  ");
+			me["Simple_C5"].setText("             -350");
 			me["Simple_C1S"].setText("TIME  ");
 		} else {
 			me["Simple"].hide();
@@ -1336,6 +1347,26 @@ var canvas_MCDU_base = {
 		}
 		if (f != 0) {
 			me["Simple_R6"].setFontSize(f); 
+		}
+	},
+	fontSizeCenter: func (a, b, c, d, e, f) {
+		if (a != 0) {
+			me["Simple_C1"].setFontSize(a); 
+		}
+		if (b != 0) {
+			me["Simple_C2"].setFontSize(b); 
+		}
+		if (c != 0) {
+			me["Simple_C3"].setFontSize(c); 
+		}
+		if (d != 0) {
+			me["Simple_C4"].setFontSize(d); 
+		}
+		if (e != 0) {
+			me["Simple_C5"].setFontSize(e); 
+		}
+		if (f != 0) {
+			me["Simple_C6"].setFontSize(f); 
 		}
 	},
 };
