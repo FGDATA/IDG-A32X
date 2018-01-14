@@ -85,6 +85,15 @@ var ECAM = {
 		}
 	},
 	toConfig: func() {
+		stateL = getprop("/engines/engine[0]/state");
+		stateR = getprop("/engines/engine[1]/state");
+		wow = getprop("/gear/gear[1]/wow");
+		
+		if (wow == 1 and stateL == 3 and stateR == 3 and getprop("/ECAM/left-msg") != "TO-MEMO") {
+			setprop("/ECAM/to-memo-enable", 1);
+			setprop("/ECAM/engine-start-time", getprop("/ECAM/engine-start-time") - 120);
+		}
+		
 		if (getprop("/controls/autobrake/mode") == 3 and getprop("/controls/switches/no-smoking-sign") == 1 and getprop("/controls/switches/seatbelt-sign") == 1 and getprop("/controls/flight/speedbrake-arm") == 1 and getprop("/controls/flight/flap-pos") > 0 
 		and getprop("/controls/flight/flap-pos") < 5) {
 			setprop("/ECAM/to-config", 1);
