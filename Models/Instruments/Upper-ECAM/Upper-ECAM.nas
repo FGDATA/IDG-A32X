@@ -244,6 +244,7 @@ var canvas_upperECAM_base = {
 			}
 			
 			me["TO_Memo"].hide();
+			me["LDG_Memo"].hide();
 			me["ECAM_Left"].show();
 		} else if (getprop("/ECAM/left-msg") == "TO-MEMO") {
 			if (getprop("/controls/autobrake/mode") == 3) {
@@ -287,10 +288,59 @@ var canvas_upperECAM_base = {
 			}
 			
 			me["ECAM_Left"].hide();
+			me["LDG_Memo"].hide();
 			me["TO_Memo"].show();
+		} else if (getprop("/ECAM/left-msg") == "LDG-MEMO") {
+			if (getprop("/gear/gear[1]/position-norm") == 1) {
+				me["LDG_Gear"].setText("LDG GEAR DN");
+				me["LDG_Gear_B"].hide();
+			} else {
+				me["LDG_Gear"].setText("LDG GEAR");
+				me["LDG_Gear_B"].show();
+			}
+			
+			if (getprop("/controls/switches/no-smoking-sign") == 1 and getprop("/controls/switches/seatbelt-sign") == 1) {
+				me["LDG_Signs"].setText("SIGNS ON");
+				me["LDG_Signs_B"].hide();
+			} else {
+				me["LDG_Signs"].setText("SIGNS");
+				me["LDG_Signs_B"].show();
+			}
+			
+			if (getprop("/controls/flight/speedbrake-arm") == 1) {
+				me["LDG_Spoilers"].setText("SPLRS ARM");
+				me["LDG_Spoilers_B"].hide();
+			} else {
+				me["LDG_Spoilers"].setText("SPLRS");
+				me["LDG_Spoilers_B"].show();
+			}
+			
+			if (getprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override") != 1 and getprop("/controls/flight/flap-pos") == 5) {
+				me["LDG_Flaps"].setText("FLAPS FULL");
+				me["LDG_Flaps_B"].hide();
+				me["LDG_Flaps_B3"].hide();
+			} else if (getprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override") == 1 and getprop("/controls/flight/flap-pos") >= 4) {
+				me["LDG_Flaps"].setText("FLAPS 3");
+				me["LDG_Flaps_B"].hide();
+				me["LDG_Flaps_B3"].hide();
+			} else {
+				me["LDG_Flaps"].setText("FLAPS");
+				if (getprop("/instrumentation/mk-viii/inputs/discretes/momentary-flap-3-override") == 1) {
+					me["LDG_Flaps_B"].hide();
+					me["LDG_Flaps_B3"].show();
+				} else {
+					me["LDG_Flaps_B3"].hide();
+					me["LDG_Flaps_B"].show();
+				}
+			}
+			
+			me["ECAM_Left"].hide();
+			me["TO_Memo"].hide();
+			me["LDG_Memo"].show();
 		} else {
 			me["ECAM_Left"].hide();
 			me["TO_Memo"].hide();
+			me["LDG_Memo"].hide();
 		}
 	},
 };
@@ -307,7 +357,7 @@ var canvas_upperECAM_cfm_eis2 = {
 		"EGT1-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal","N12-box","N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N12-XX2","N12-XX-box","EGT2-needle","EGT2",
 		"EGT2-scale","EGT2-box","EGT2-scale2","EGT2-scaletick","EGT2-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","FlapTxt","FlapDots","N1Lim-mode","N1Lim","N1Lim-decpnt","N1Lim-decimal","N1Lim-percent","N1Lim-XX","N1Lim-XX2","REV1",
 		"REV1-box","REV2","REV2-box","ECAM_Left","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","TO_Memo","TO_Autobrake","TO_Signs","TO_Spoilers","TO_Flaps","TO_Config","TO_Autobrake_B","TO_Signs_B","TO_Spoilers_B","TO_Flaps_B",
-		"TO_Config_B"];
+		"TO_Config_B","LDG_Memo","LDG_Gear","LDG_Signs","LDG_Spoilers","LDG_Flaps","LDG_Gear_B","LDG_Signs_B","LDG_Spoilers_B","LDG_Flaps_B","LDG_Flaps_B3"];
 	},
 	update: func() {
 		# N1
@@ -533,7 +583,8 @@ var canvas_upperECAM_iae_eis2 = {
 		"N11-needle","N11-thr","N11-ylim","N11","N11-decpnt","N11-decimal","N11-scale","N11-scale2","N11-scaletick","N11-scalenum","N11-XX","N21","N21-decpnt","N21-decimal","N21-XX","FF1","FF1-XX","EPR2-needle","EPR2-thr","EPR2-ylim","EPR2","EPR2-decpnt",
 		"EPR2-decimal","EPR2-box","EPR2-scale","EPR2-scaletick","EPR2-scalenum","EPR2-XX","EPR2-XX2","EGT2-needle","EGT2","EGT2-scale","EGT2-scale2","EGT2-box","EGT2-scaletick","EGT2-XX","N12-needle","N12-thr","N12-ylim","N12","N12-decpnt","N12-decimal",
 		"N12-scale","N12-scale2","N12-scaletick","N12-scalenum","N12-XX","N22","N22-decpnt","N22-decimal","N22-XX","FF2","FF2-XX","FOB-LBS","FlapTxt","FlapDots","EPRLim-mode","EPRLim","EPRLim-decpnt","EPRLim-decimal","EPRLim-XX","EPRLim-XX2","REV1","REV1-box",
-		"REV2","REV2-box","ECAM_Left","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","TO_Memo","TO_Autobrake","TO_Signs","TO_Spoilers","TO_Flaps","TO_Config","TO_Autobrake_B","TO_Signs_B","TO_Spoilers_B","TO_Flaps_B","TO_Config_B"];
+		"REV2","REV2-box","ECAM_Left","ECAML1","ECAML2","ECAML3","ECAML4","ECAML5","ECAML6","ECAML7","ECAML8","TO_Memo","TO_Autobrake","TO_Signs","TO_Spoilers","TO_Flaps","TO_Config","TO_Autobrake_B","TO_Signs_B","TO_Spoilers_B","TO_Flaps_B","TO_Config_B",
+		"LDG_Memo","LDG_Gear","LDG_Signs","LDG_Spoilers","LDG_Flaps","LDG_Gear_B","LDG_Signs_B","LDG_Spoilers_B","LDG_Flaps_B","LDG_Flaps_B3"];
 	},
 	update: func() {
 		# EPR

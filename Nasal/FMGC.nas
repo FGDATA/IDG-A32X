@@ -216,13 +216,13 @@ var masterFMGC = maketimer(0.2, func {
 		setprop("/gear/gear[0]/wow-fmgc", getprop("/gear/gear[0]/wow"));
 	}
 	
-	if ((n1_left < 70 or n1_right < 70 or gs < 90) and mode == " " and gear0 == 1 and phase == 1) {
+	if ((n1_left < 70 or n1_right < 70) and gs < 90 and mode == " " and gear0 == 1 and phase == 1) {
 		setprop("/FMGC/status/phase", "0");
 		setprop("/systems/pressurization/mode", "GN");
 	}
 	
-	if (((n1_left >= 70 and n1_right >= 70) or gs >= 90) and (state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or (state2 == "MAN THR" and thr2 >= 0.83)))
-	and gear0 == 1 and phase == 0) {
+	if (gear0 == 1 and phase == 0 and ((n1_left >= 70 and n1_right >= 70) or gs >= 90) and (state1 == "TOGA" or state2 == "TOGA") or (flx == 1 and (state1 == "MCT" or state2 == "MCT")) or (flx == 1 and ((state1 == "MAN THR" and thr1 >= 0.83) or 
+	(state2 == "MAN THR" and thr2 >= 0.83)))) {
 		setprop("/FMGC/status/phase", "1");
 		setprop("/systems/pressurization/mode", "TO");
 	}

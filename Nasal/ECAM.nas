@@ -16,6 +16,7 @@ var ECAM = {
 		setprop("/ECAM/engine-start-time-switch", 0);
 		setprop("/ECAM/to-memo-enable", 1);
 		setprop("/ECAM/to-config", 0);
+		setprop("/ECAM/ldg-memo-enable", 0);
 		var stateL = getprop("/engines/engine[0]/state");
 		var stateR = getprop("/engines/engine[1]/state");
 		var thrustL = getprop("/systems/thrust/state1");
@@ -52,7 +53,7 @@ var ECAM = {
 		thrustR = getprop("/systems/thrust/state2");
 		elec = getprop("/systems/electrical/on");
 		speed = getprop("/velocities/airspeed-kt");
-		wow = getprop("/gear/gear[1]/wow");
+		wow = getprop("/gear/gear[0]/wow");
 		
 		if (stateL == 3 and stateR == 3 and wow == 1) {
 			if (getprop("/ECAM/engine-start-time-switch") != 1) {
@@ -71,8 +72,18 @@ var ECAM = {
 			setprop("/ECAM/to-memo-enable", 1);
 		}
 		
+		if (getprop("/position/gear-agl-ft") <= 2000 and (getprop("/FMGC/status/phase") == 3 or getprop("/FMGC/status/phase") == 4 or getprop("/FMGC/status/phase") == 5) and wow == 0) {
+			setprop("/ECAM/ldg-memo-enable", 1);
+		} else if (getprop("/ECAM/left-msg") == "LDG-MEMO" and getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") <= 80 and wow == 1) {
+			setprop("/ECAM/ldg-memo-enable", 0);
+		} else if (getprop("/ECAM/left-msg") != "LDG-MEMO") {
+			setprop("/ECAM/ldg-memo-enable", 0);
+		}
+		
 		if (getprop("/FMGC/status/phase") == 0 and stateL == 3 and stateR == 3 and getprop("/ECAM/engine-start-time") + 120 < getprop("/sim/time/elapsed-sec") and getprop("/ECAM/to-memo-enable") == 1 and wow == 1) {
 			setprop("/ECAM/left-msg", "TO-MEMO");
+		} else if (getprop("/ECAM/ldg-memo-enable") == 1) {
+			setprop("/ECAM/left-msg", "LDG-MEMO");
 		} else {
 			setprop("/ECAM/left-msg", "NONE");
 		}
@@ -87,7 +98,7 @@ var ECAM = {
 	toConfig: func() {
 		stateL = getprop("/engines/engine[0]/state");
 		stateR = getprop("/engines/engine[1]/state");
-		wow = getprop("/gear/gear[1]/wow");
+		wow = getprop("/gear/gear[0]/wow");
 		
 		if (wow == 1 and stateL == 3 and stateR == 3 and getprop("/ECAM/left-msg") != "TO-MEMO") {
 			setprop("/ECAM/to-memo-enable", 1);

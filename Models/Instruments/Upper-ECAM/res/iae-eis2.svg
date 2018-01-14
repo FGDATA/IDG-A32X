@@ -41,9 +41,9 @@
      inkscape:window-height="1030"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="1.5311059"
-     inkscape:cx="247.80484"
-     inkscape:cy="355.57872"
+     inkscape:zoom="2.1653108"
+     inkscape:cx="335.98162"
+     inkscape:cy="267.27567"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1959,6 +1959,262 @@
            x="383.02429"
            id="tspan4485"
            sodipodi:role="line">. . .</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="#g4517"
+     id="LDG_Memo">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="14.033532"
+       y="686.0564"
+       id="text4418"
+       inkscape:label="#text4314"
+       sodipodi:linespacing="0%"
+       transform="scale(0.92957935,1.0757554)"><tspan
+         sodipodi:role="line"
+         id="tspan4422"
+         x="14.033532"
+         y="686.0564"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1">LDG</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4424"
+       d="m 13.8216,741.99564 77.932201,0"
+       style="fill:none;stroke:#0dc04b;stroke-width:2.4000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       transform="scale(0.92957935,1.0757554)"
+       sodipodi:linespacing="0%"
+       inkscape:label="#text4314"
+       id="LDG_Gear"
+       y="686.0564"
+       x="104.6523"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1"
+         y="686.0564"
+         x="104.6523"
+         id="tspan4428"
+         sodipodi:role="line">LDG GEAR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="104.6523"
+       y="722.50458"
+       id="LDG_Signs"
+       inkscape:label="#text4314"
+       sodipodi:linespacing="0%"
+       transform="scale(0.92957935,1.0757554)"><tspan
+         sodipodi:role="line"
+         id="tspan4432"
+         x="104.6523"
+         y="722.50458"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1">SIGNS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="104.6523"
+       y="759.37872"
+       id="LDG_Cabin"
+       inkscape:label="#text4314"
+       sodipodi:linespacing="0%"
+       transform="scale(0.92957935,1.0757554)"><tspan
+         sodipodi:role="line"
+         id="tspan4455"
+         x="104.6523"
+         y="759.37872"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1">CABIN READY</tspan></text>
+    <text
+       transform="scale(0.92957935,1.0757554)"
+       sodipodi:linespacing="0%"
+       inkscape:label="#text4314"
+       id="LDG_Spoilers"
+       y="796.12726"
+       x="104.6523"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1"
+         y="796.12726"
+         x="104.6523"
+         id="tspan4438"
+         sodipodi:role="line">SPLRS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0dc04b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="104.6523"
+       y="833.30151"
+       id="LDG_Flaps"
+       inkscape:label="#text4314"
+       sodipodi:linespacing="0%"
+       transform="scale(0.92957935,1.0757554)"><tspan
+         sodipodi:role="line"
+         id="tspan4442"
+         x="104.6523"
+         y="833.30151"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:start;text-anchor:start;fill:#0dc04b;fill-opacity:1">FLAPS </tspan></text>
+    <g
+       id="LDG_Gear_B"
+       inkscape:label="#g4487">
+      <text
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text4451"
+         y="686.41925"
+         x="489.9281"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="686.41925"
+           x="489.9281"
+           id="tspan4453"
+           sodipodi:role="line">DN</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="424.27417"
+         y="686.41925"
+         id="text4455"
+         inkscape:label="#text4314"
+         sodipodi:linespacing="0%"
+         transform="scale(0.92957935,1.0757554)"><tspan
+           sodipodi:role="line"
+           id="tspan4457"
+           x="424.27417"
+           y="686.41925"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1">. . . . . .</tspan></text>
+    </g>
+    <g
+       id="LDG_Signs_B"
+       inkscape:label="#g4493">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="489.9281"
+         y="722.50458"
+         id="text4461"
+         inkscape:label="#text4314"
+         sodipodi:linespacing="0%"
+         transform="scale(0.92957935,1.0757554)"><tspan
+           sodipodi:role="line"
+           id="tspan4463"
+           x="489.9281"
+           y="722.50458"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"> ON</tspan></text>
+      <text
+         inkscape:transform-center-y="-46.367479"
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text4465"
+         y="722.86768"
+         x="424.27417"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="722.86768"
+           x="424.27417"
+           id="tspan4467"
+           sodipodi:role="line">. . . . . . . . . .</tspan></text>
+    </g>
+    <g
+       id="LDG_Spoilers_B"
+       inkscape:label="#g4499">
+      <text
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text4472"
+         y="796.49036"
+         x="489.9281"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="796.49036"
+           x="489.9281"
+           id="tspan4474"
+           sodipodi:role="line">ARM</tspan></text>
+      <text
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text4476"
+         y="796.49036"
+         x="403.6488"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="796.49036"
+           x="403.6488"
+           id="tspan4478"
+           sodipodi:role="line">. . . . . . . . .</tspan></text>
+    </g>
+    <g
+       id="LDG_Flaps_B"
+       inkscape:label="#g4505"
+       transform="translate(0,39.990378)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="489.9281"
+         y="796.12726"
+         id="text4482"
+         inkscape:label="#text4314"
+         sodipodi:linespacing="0%"
+         transform="scale(0.92957935,1.0757554)"><tspan
+           sodipodi:role="line"
+           id="tspan4484"
+           x="489.9281"
+           y="796.12726"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1">FULL</tspan></text>
+      <text
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text4486"
+         y="796.49036"
+         x="383.02411"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="796.49036"
+           x="383.02411"
+           id="tspan4488"
+           sodipodi:role="line">. . . . . . . .</tspan></text>
+    </g>
+    <g
+       inkscape:label="#g4505"
+       id="LDG_Flaps_B3">
+      <text
+         transform="scale(0.92957935,1.0757554)"
+         sodipodi:linespacing="0%"
+         inkscape:label="#text4314"
+         id="text5125"
+         y="833.30151"
+         x="489.9281"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1"
+           y="833.30151"
+           x="489.9281"
+           id="tspan5127"
+           sodipodi:role="line">3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:11.15495205px;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#179ab7;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="465.52426"
+         y="833.66461"
+         id="text5129"
+         inkscape:label="#text4314"
+         sodipodi:linespacing="0%"
+         transform="scale(0.92957935,1.0757554)"><tspan
+           sodipodi:role="line"
+           id="tspan5131"
+           x="465.52426"
+           y="833.66461"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.1831665px;line-height:1.25;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';text-align:end;text-anchor:end;fill:#179ab7;fill-opacity:1">. . . . . . . . . . . .</tspan></text>
     </g>
   </g>
 </svg>
