@@ -395,6 +395,8 @@ var pagebutton = func(btn) {
 			setprop("/MCDU[0]/page", "MCDU");
 		} else if (btn == "f-pln") {
 			setprop("/MCDU[0]/page", "F-PLNA");
+		} else if (btn == "fuel-pred") {
+			setprop("/MCDU[0]/page", "FUELPRED");
 		}
 	}
 }

@@ -232,6 +232,12 @@ var systemsLoop = maketimer(0.1, func {
 	} else {
 		setprop("/instrumentation/mk-viii/speaker/volume", 2);
 	}
+	
+	if (getprop("/engines/engine[0]/state") == 3 and getprop("/engines/engine[1]/state") == 3) {
+		setprop("/engines/ready", 1);
+	} else {
+		setprop("/engines/ready", 0);
+	}
 });
 
 setlistener("/options/steep-ils", func {

@@ -133,6 +133,25 @@
 	
 	<animation>
 		<type>pick</type>
+		<object-name>fuel-pred</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu1.pagebutton("fuel-pred");</script>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/ac1</property>
+						<value>110</value>
+					</greater-than-equals>
+				</condition>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>L1</object-name>
 		<action>
 			<button>0</button>
