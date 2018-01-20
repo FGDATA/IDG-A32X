@@ -4771,7 +4771,21 @@
 			<factor-prop>controls/lighting/fcu-panel-norm</factor-prop>
 		</emission>
 	</animation>
-	
+
+	<!-- Overhead Panel-2 lighting -->
+	<animation>
+		<name>Overhead Panel-2 lighting</name>
+		<type>material</type>
+		<object-name>ohpanel2_knob.mark</object-name>
+		<object-name>ohpanel2_illu</object-name>
+		<emission>
+			<red>1</red>
+			<green>0.824</green>
+			<blue>0.518</blue>
+			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
+		</emission>
+	</animation>
+
 	<!-- Pitch Trim -->
 	<animation>
 		<type>pick</type>
