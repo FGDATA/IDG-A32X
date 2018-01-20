@@ -92,7 +92,7 @@ var APinit = func {
 	setprop("/it-autoflight/mode/vert", " ");
 	setprop("/it-autoflight/input/spd-kts", 100);
 	setprop("/it-autoflight/input/spd-mach", 0.50);
-	setprop("/it-autoflight/custom/show-hdg", 0);
+	setprop("/it-autoflight/custom/show-hdg", 1);
 	trkfpa_off();
 	ap_varioust.start();
 	thrustmode();
