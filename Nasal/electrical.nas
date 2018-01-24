@@ -378,42 +378,31 @@ var ELEC = {
 		} else {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
-			if (getprop("/systems/electrical/bus/dc2") == 0) {
-				setprop("/systems/electrical/bus/dc-ess", 0);
-			}
+			setprop("/systems/electrical/bus/dc-ess", 0);
 		}
 		
 		# Right DC bus yes?
 		if (stateR == 3 and gen2_sw and !gen2_fail) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 		} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/dc2", 0);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
 		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/dc2", 0);
-			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
 		} else {
 			setprop("/systems/electrical/bus/dc2", 0);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
-			if (getprop("/systems/electrical/bus/dc1") == 0) {
-				setprop("/systems/electrical/bus/dc-ess", 0);
-			}
 		}
 		
 		# Left AC bus yes?
