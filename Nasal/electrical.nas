@@ -302,7 +302,7 @@ var ELEC = {
 			setprop("/systems/electrical/battery2-amps", 0);
 		}
 		
-		if (getprop("/systems/electrical/battery1-amps") > 120 or getprop("/systems/electrical/battery2-amps") > 120) {
+		if (getprop("/systems/electrical/dc1") > 25 or or getprop("/systems/electrical/dc2") > 25) {
 			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
 		} else {
 			setprop("/systems/electrical/bus/dcbat", 0);
@@ -367,6 +367,10 @@ var ELEC = {
 			setprop("/systems/electrical/bus/dc1", dc_volt_std);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+		} else if (dc2 > 25 and dcbat > 25) {
+			setprop("/systems/electrical/bus/dc1", dc_volt_std);
+			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
@@ -394,6 +398,10 @@ var ELEC = {
 		} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+		} else if (dc1 > 25 and dcbat > 25) {
+			setprop("/systems/electrical/bus/dc1", dc_volt_std);
+			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/dc2", 0);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
