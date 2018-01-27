@@ -362,10 +362,10 @@ var canvas_upperECAM_cfm_eis2 = {
 	update: func() {
 		# N1
 		me["N11"].setText(sprintf("%s", math.floor(getprop("/engines/engine[0]/n1-actual") + 0.05)));
-		me["N11-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[0]/n1-actual") + 0.05,1))));
+		me["N11-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[0]/n1-actual") + 0.05, 1))));
 		
 		me["N12"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n1-actual") + 0.05)));
-		me["N12-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05,1))));
+		me["N12-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05, 1))));
 		
 		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90) * D2R);
 		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90) * D2R);
@@ -492,9 +492,9 @@ var canvas_upperECAM_cfm_eis2 = {
 		
 		# N2
 		me["N21"].setText(sprintf("%s", math.floor(getprop("/engines/engine[0]/n2-actual") + 0.05)));
-		me["N21-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[0]/n2-actual") + 0.05,1))));
+		me["N21-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[0]/n2-actual") + 0.05, 1))));
 		me["N22"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n2-actual") + 0.05)));
-		me["N22-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n2-actual") + 0.05,1))));
+		me["N22-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[1]/n2-actual") + 0.05, 1))));
 		
 		if (getprop("/systems/fadec/eng1/n2") == 1) {
 			me["N21"].show();
@@ -543,7 +543,7 @@ var canvas_upperECAM_cfm_eis2 = {
 		# N1 Limit
 		me["N1Lim-mode"].setText(sprintf("%s", getprop("/controls/engines/thrust-limit")));
 		me["N1Lim"].setText(sprintf("%s", math.floor(getprop("/controls/engines/n1-limit") + 0.05)));
-		me["N1Lim-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/controls/engines/n1-limit") + 0.05,1))));
+		me["N1Lim-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/controls/engines/n1-limit") + 0.05, 1))));
 		
 		if (getprop("/systems/fadec/powered1") == 1 or getprop("/systems/fadec/powered2") == 1 or getprop("/systems/fadec/powerup")) {
 			me["N1Lim-mode"].show();
@@ -709,10 +709,10 @@ var canvas_upperECAM_iae_eis2 = {
 		
 		# N1
 		me["N11"].setText(sprintf("%s", math.floor(getprop("/engines/engine[0]/n1-actual") + 0.05)));
-		me["N11-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[0]/n1-actual") + 0.05,1))));
+		me["N11-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[0]/n1-actual") + 0.05, 1))));
 		
 		me["N12"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n1-actual") + 0.05)));
-		me["N12-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05,1))));
+		me["N12-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[1]/n1-actual") + 0.05, 1))));
 		
 		me["N11-needle"].setRotation((getprop("/ECAM/Upper/N1[0]") + 90) * D2R);
 		me["N11-thr"].setRotation((getprop("/ECAM/Upper/N1thr[0]") + 90) * D2R);
@@ -784,9 +784,9 @@ var canvas_upperECAM_iae_eis2 = {
 		
 		# N2
 		me["N21"].setText(sprintf("%s", math.floor(getprop("/engines/engine[0]/n2-actual") + 0.05)));
-		me["N21-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[0]/n2-actual") + 0.05,1))));
+		me["N21-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[0]/n2-actual") + 0.05, 1))));
 		me["N22"].setText(sprintf("%s", math.floor(getprop("/engines/engine[1]/n2-actual") + 0.05)));
-		me["N22-decimal"].setText(sprintf("%s", int(10*math.mod(getprop("/engines/engine[1]/n2-actual") + 0.05,1))));
+		me["N22-decimal"].setText(sprintf("%s", int(10 * math.mod(getprop("/engines/engine[1]/n2-actual") + 0.05, 1))));
 		
 		if (getprop("/systems/fadec/eng1/n2") == 1) {
 			me["N21"].show();
