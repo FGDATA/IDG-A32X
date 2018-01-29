@@ -8,13 +8,11 @@ setlistener("sim/signals/fdm-initialized", func {
 	setprop("/instrumentation/efis/nd/display-mode", "NAV");
 	setprop("/instrumentation/efis/mfd/pnl_mode-num", 2);
 	setprop("/instrumentation/efis/inputs/range-nm", 20);
-	setprop("/instrumentation/efis/inputs/tfc", 1);
+	setprop("/instrumentation/efis/inputs/tfc", 0);
 	setprop("/instrumentation/efis[1]/nd/display-mode", "NAV");
 	setprop("/instrumentation/efis[1]/mfd/pnl_mode-num", 2);
 	setprop("/instrumentation/efis[1]/inputs/range-nm", 20);
-	setprop("/instrumentation/efis[1]/inputs/tfc", 1);
-	setprop("/controls/lighting/ndl-norm", "1");
-	setprop("/controls/lighting/ndr-norm", "1");
+	setprop("/instrumentation/efis[1]/inputs/tfc", 0);
 });
 
 # Captain
