@@ -297,6 +297,9 @@
 
 		</offsets>
 	</model>
+        <model>
+                <path>Aircraft/Generic/marker.xml</path>
+        </model>
 
 
 

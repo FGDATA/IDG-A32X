@@ -311,6 +311,9 @@
 			<z-m>-1.4</z-m>
 		</offsets>
 	</model>
+        <model>
+                <path>Aircraft/Generic/marker.xml</path>
+        </model>
 
 	<!-- Other non-aircraft models -->
 	<model>
