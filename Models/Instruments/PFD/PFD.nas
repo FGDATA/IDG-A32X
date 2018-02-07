@@ -9,6 +9,8 @@ var PFD_1 = nil;
 var PFD_2 = nil;
 var PFD_1_test = nil;
 var PFD_2_test = nil;
+var PFD_1_mismatch = nil;
+var PFD_2_mismatch = nil;
 var PFD1_display = nil;
 var PFD2_display = nil;
 var elapsedtime = 0;
@@ -154,41 +156,54 @@ var canvas_PFD_base = {
 			setprop("/instrumentation/du/du6-test", 0);
 		}
 		
-		if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/controls/lighting/DU/du1") > 0) {
-			if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
-				PFD_1.page.hide();
-				PFD_1_test.page.show();
-				PFD_1_test.update();
-			} else if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
-				PFD_1.page.hide();
-				PFD_1_test.page.show();
-				PFD_1_test.update();
+		if (getprop("/systems/acconfig/mismatch-code") == "0x000") {
+			PFD_1_mismatch.page.hide();
+			PFD_2_mismatch.page.hide();
+			if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/controls/lighting/DU/du1") > 0) {
+				if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
+					PFD_1.page.hide();
+					PFD_1_test.page.show();
+					PFD_1_test.update();
+				} else if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
+					PFD_1.page.hide();
+					PFD_1_test.page.show();
+					PFD_1_test.update();
+				} else {
+					PFD_1_test.page.hide();
+					PFD_1.page.show();
+					PFD_1.update();
+				}
 			} else {
 				PFD_1_test.page.hide();
-				PFD_1.page.show();
-				PFD_1.update();
+				PFD_1.page.hide();
+			}
+			if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du6") > 0) {
+				if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
+					PFD_2.page.hide();
+					PFD_2_test.page.show();
+					PFD_2_test.update();
+				} else if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
+					PFD_2.page.hide();
+					PFD_2_test.page.show();
+					PFD_2_test.update();
+				} else {
+					PFD_2_test.page.hide();
+					PFD_2.page.show();
+					PFD_2.update();
+				}
+			} else {
+				PFD_2_test.page.hide();
+				PFD_2.page.hide();
 			}
 		} else {
 			PFD_1_test.page.hide();
 			PFD_1.page.hide();
-		}
-		if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du6") > 0) {
-			if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
-				PFD_2.page.hide();
-				PFD_2_test.page.show();
-				PFD_2_test.update();
-			} else if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
-				PFD_2.page.hide();
-				PFD_2_test.page.show();
-				PFD_2_test.update();
-			} else {
-				PFD_2_test.page.hide();
-				PFD_2.page.show();
-				PFD_2.update();
-			}
-		} else {
 			PFD_2_test.page.hide();
 			PFD_2.page.hide();
+			PFD_1_mismatch.page.show();
+			PFD_2_mismatch.page.show();
+			PFD_1_mismatch.update();
+			PFD_2_mismatch.update();
 		}
 	},
 	updateCommon: func () {
@@ -1071,6 +1086,68 @@ var canvas_PFD_2_test = {
 	},
 };
 
+var canvas_PFD_1_mismatch = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_PFD_1_mismatch]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["ERRCODE"];
+	},
+	update: func() {
+		me["ERRCODE"].setText(getprop("/systems/acconfig/mismatch-code"));
+	},
+};
+
+var canvas_PFD_2_mismatch = {
+	init: func(canvas_group, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+
+		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		
+		var svg_keys = me.getKeys();
+		foreach(var key; svg_keys) {
+			me[key] = canvas_group.getElementById(key);
+		}
+
+		me.page = canvas_group;
+
+		return me;
+	},
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_PFD_2_mismatch]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["ERRCODE"];
+	},
+	update: func() {
+		me["ERRCODE"].setText(getprop("/systems/acconfig/mismatch-code"));
+	},
+};
+
 setlistener("sim/signals/fdm-initialized", func {
 	PFD1_display = canvas.new({
 		"name": "PFD1",
@@ -1088,13 +1165,17 @@ setlistener("sim/signals/fdm-initialized", func {
 	PFD2_display.addPlacement({"node": "pfd2.screen"});
 	var group_pfd1 = PFD1_display.createGroup();
 	var group_pfd1_test = PFD1_display.createGroup();
+	var group_pfd1_mismatch = PFD1_display.createGroup();
 	var group_pfd2 = PFD2_display.createGroup();
 	var group_pfd2_test = PFD2_display.createGroup();
+	var group_pfd2_mismatch = PFD2_display.createGroup();
 
 	PFD_1 = canvas_PFD_1.new(group_pfd1, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
 	PFD_1_test = canvas_PFD_1_test.new(group_pfd1_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
+	PFD_1_mismatch = canvas_PFD_1_mismatch.new(group_pfd1_mismatch, "Aircraft/IDG-A32X/Models/Instruments/Common/res/mismatch.svg");
 	PFD_2 = canvas_PFD_2.new(group_pfd2, "Aircraft/IDG-A32X/Models/Instruments/PFD/res/pfd.svg");
 	PFD_2_test = canvas_PFD_2_test.new(group_pfd2_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
+	PFD_2_mismatch = canvas_PFD_2_mismatch.new(group_pfd2_mismatch, "Aircraft/IDG-A32X/Models/Instruments/Common/res/mismatch.svg");
 	
 	PFD_update.start();
 });

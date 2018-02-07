@@ -173,35 +173,11 @@
 			<z-m>0.22256</z-m>
 			<pitch-deg>-16.534</pitch-deg>
 		</offsets>
-		<condition>
-			<equals>
-				<property>systems/acconfig/mismatch-code</property>
-				<value>0x000</value>
-			</equals>
-		</condition>
-	</model>
-	
-	<model>
-		<name>Mismatch1</name>
-		<path>Aircraft/IDG-A32X/Models/Instruments/PFD/Mismatch.xml</path>
-		<offsets>
-			<x-m>-0.55415</x-m>
-			<y-m>-0.5526</y-m>
-			<z-m>0.22256</z-m>
-			<pitch-deg>-16.534</pitch-deg>
-		</offsets>
-		<condition>
-			<not-equals>
-				<property>systems/acconfig/mismatch-code</property>
-				<value>0x000</value>
-			</not-equals>
-		</condition>
 	</model>
 	
 	<animation>
 		<type>translate</type>
 		<object-name>PFD1</object-name>
-		<object-name>Mismatch1</object-name>
 		<property>modes/cpt-du-xfr</property>
 		<factor>0.20062</factor>
 		<axis>
@@ -220,35 +196,11 @@
 			<z-m>0.22256</z-m>
 			<pitch-deg>-16.534</pitch-deg>
 		</offsets>
-		<condition>
-			<equals>
-				<property>systems/acconfig/mismatch-code</property>
-				<value>0x000</value>
-			</equals>
-		</condition>
-	</model>
-	
-	<model>
-		<name>Mismatch2</name>
-		<path>Aircraft/IDG-A32X/Models/Instruments/PFD/Mismatch.xml</path>
-		<offsets>
-			<x-m>-0.55415</x-m>
-			<y-m>0.5526</y-m>
-			<z-m>0.22256</z-m>
-			<pitch-deg>-16.534</pitch-deg>
-		</offsets>
-		<condition>
-			<not-equals>
-				<property>systems/acconfig/mismatch-code</property>
-				<value>0x000</value>
-			</not-equals>
-		</condition>
 	</model>
 	
 	<animation>
 		<type>translate</type>
 		<object-name>PFD2</object-name>
-		<object-name>Mismatch2</object-name>
 		<property>modes/fo-du-xfr</property>
 		<factor>-0.20062</factor>
 		<axis>
