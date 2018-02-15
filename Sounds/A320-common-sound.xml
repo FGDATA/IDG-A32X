@@ -43,7 +43,25 @@
 				<offset>0</offset>
 			</pitch>
 		</apu>
-	
+		
+		<hyd-yellow>
+			<name>yellowHydPump</name>
+			<mode>looped</mode>
+			<path>yellowHydPump.wav</path>
+			<condition>
+				<and>
+					<equals>
+						<property>sim/current-view/internal</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>controls/hydraulic/elec-pump-yellow</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</hyd-yellow>
+		
 		<!-- Disabled until proper PTU system implemented, to not annoy people -->
 		<!--hyd>
 			<name>PTU</name>
