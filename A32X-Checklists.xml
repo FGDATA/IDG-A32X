@@ -139,7 +139,7 @@
 			</item>
 			<item>
 				<name>BARO REF</name>
-				<value>____SET (BOTH)</value>
+				<value>____SET(BOTH)</value>
                                 <marker>
                                         <x-m>4.5000</x-m>
                                         <y-m>-0.2592</y-m>
@@ -386,7 +386,7 @@
 				<value>CONFIRMED</value>
 			</item>
 			<item>
-				<name>FLAP SETTING</name>
+				<name>FLAPS SETTING</name>
 				<value>CONF__(BOTH)</value>
 				<condition>
 					<greater-than>
@@ -463,16 +463,6 @@
 				</binding>
 			</item>
 			<item>
-				<name>CABIN</name>
-				<value>READY</value>
-				<condition>
-						<equals>
-							<property>/aircraft/door/x-m</property>
-							<value>16.582</value>
-						</equals>
-				</condition>
-			</item>
-			<item>
 				<name>ECAM MEMO</name>
 				<value>TO NO BLUE</value>
 				<condition>
@@ -527,7 +517,7 @@
 		</item>
 		<item>
 			<name>ENG MODE SEL</name>
-			<value>AS RQRD/NORM</value>
+			<value>AS RQRD</value>
 			<condition>
 				<equals>
 					<property>controls/engines/engine-start-switch</property>
@@ -548,7 +538,7 @@
 		</item>
 		<item>
 			<name>PACKS</name>
-			<value>OFF/AS RQRD</value>
+			<value>AS RQRD</value>
 			<condition>
 				<and>
 					<equals>
@@ -682,7 +672,7 @@
 		</item>
 		<item>
 			<name>BARO REF</name>
-			<value>SET STD at Trans Alt</value>
+			<value>SET(BOTH)</value>
 			<condition>
 				<equals>
 					<property>modes/altimeter/std</property>
