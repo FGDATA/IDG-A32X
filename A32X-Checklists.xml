@@ -95,7 +95,7 @@
 			</item>
 			<item>
 				<name>FUEL QUANTITY</name>
-				<value>____KG</value>
+				<value>____KG/LB</value>
                                 <marker>
                                         <x-m>4.5067</x-m>
                                         <y-m>-0.1458</y-m>
@@ -695,7 +695,7 @@
 	<checklist>
 		<title>APPROACH</title>
 		<item>
-			<name>BRIEFINGS</name>
+			<name>BRIEFING</name>
 			<value>CONFIRMED</value>
 		</item>
 		<item>
@@ -936,7 +936,7 @@
 		</item>
 		<item>
 			<name>APU</name>
-			<value>START</value>
+			<value>AS RQRD</value>
 			<condition>
 				<equals>
 					<property>controls/APU/start</property>
@@ -963,6 +963,14 @@
 		<item>
 			<name>TCAS</name>
 			<value>OFF/STBY</value>
+		</item>
+		<item>
+			<name>RADAR</name>
+			<value>OFF</value>
+		</item>
+		<item>
+			<name>PREDICTIVE WINDSHEAR SYSTEM</name>
+			<value>OFF</value>
 		</item>
 	</checklist>
 	<checklist>
@@ -1252,7 +1260,7 @@
 			<value>OFF</value>
 		</item>
 		<item>
-			<name>NO SMOKING</name>
+			<name>SIGNS</name>
 			<value>OFF</value>
 			<condition>
 					<equals>
