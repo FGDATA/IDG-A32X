@@ -25,7 +25,7 @@
 		<pure_gain name="hydraulics/aileron-droop-neg">
 			<input>hydraulics/aileron-droop</input>
 			<gain>-1.0</gain>
-		</pure_gain>-
+		</pure_gain>
 		
 		<fcs_function name="hydraulics/elevator-droop">
 			<function>
