@@ -824,5 +824,25 @@
 		</actuator>
 	
 	</channel>
+	
+	<channel name="Brakes">
+		
+		<switch name="rubbish/left-brake-cmd-norm">
+			<default value="/controls/gear/brake-left"/>
+			<test value="/controls/autobrake/brake-left">
+				/controls/autobrake/active EQ 1
+			</test>
+			<output>fcs/left-brake-cmd-norm</output>
+		</switch>
+		
+		<switch name="rubbish/right-brake-cmd-norm">
+			<default value="/controls/gear/brake-right"/>
+			<test value="/controls/autobrake/brake-right">
+				/controls/autobrake/active EQ 1
+			</test>
+			<output>fcs/right-brake-cmd-norm</output>
+		</switch>
+	
+	</channel>
 
 </system>

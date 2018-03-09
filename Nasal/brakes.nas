@@ -21,13 +21,9 @@ var autobrake_init = func {
 	setprop("/controls/autobrake/mode", 0);
 }
 
-# Override FG's generic brake, so we can use toe brakes to disconnect autobrake
+# Override FG's generic brake
 controls.applyBrakes = func(v, which = 0) {
 	if (getprop("/systems/acconfig/autoconfig-running") != 1) {
-		wow0 = getprop("/gear/gear[0]/wow");
-		if (getprop("/controls/autobrake/mode") != 0 and wow0 == 1 and getprop("/controls/autobrake/active") == 1) {
-			arm_autobrake(0);
-		}
 		if (which <= 0) {
 			interpolate("/controls/gear/brake-left", v, 0.5);
 		}
@@ -64,7 +60,7 @@ var arm_autobrake = func(mode) {
 	}
 }
 
-# Autobrake enable if armed
+# Autobrake loop
 var absChk = maketimer(0.2, func {
 	thr1 = getprop("/controls/engines/engine[0]/throttle");
 	thr2 = getprop("/controls/engines/engine[1]/throttle");
@@ -80,6 +76,9 @@ var absChk = maketimer(0.2, func {
 		}
 	}
 	if (getprop("/controls/autobrake/mode") == 3 and getprop("/controls/gear/gear-down") == 0) {
+		arm_autobrake(0);
+	}
+	if (getprop("/controls/autobrake/mode") != 0 and wow0 == 1 and getprop("/controls/autobrake/active") == 1 and (getprop("/controls/gear/brake-left") > 0.05 or getprop("/controls/gear/brake-right") > 0.05)) {
 		arm_autobrake(0);
 	}
 });

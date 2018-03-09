@@ -494,6 +494,11 @@
 			<start type="bool">0</start>
 			<bleed type="bool">0</bleed>
 		</APU>
+		<autobrake>
+			<active type="bool">0</active>
+			<brake-left type="double">0</brake-left>
+			<brake-right type="double">0</brake-right>
+		</autobrake>
 		<electric>
 			<avionics-switch type="bool">true</avionics-switch>
 		</electric>
