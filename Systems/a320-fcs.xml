@@ -827,16 +827,34 @@
 	
 	<channel name="Brakes">
 		
+		<summer name="fcs/left-brake-summer">
+			<input>/controls/gear/brake-left</input>
+			<input>/controls/gear/brake-parking</input>
+			<clipto>
+				<min>-1</min>
+				<max>1</max>
+			</clipto>
+		</summer>
+		
 		<switch name="rubbish/left-brake-cmd-norm">
-			<default value="/controls/gear/brake-left"/>
+			<default value="fcs/left-brake-summer"/>
 			<test value="/controls/autobrake/brake-left">
 				/controls/autobrake/active EQ 1
 			</test>
 			<output>fcs/left-brake-cmd-norm</output>
 		</switch>
 		
+		<summer name="fcs/right-brake-summer">
+			<input>/controls/gear/brake-right</input>
+			<input>/controls/gear/brake-parking</input>
+			<clipto>
+				<min>-1</min>
+				<max>1</max>
+			</clipto>
+		</summer>
+		
 		<switch name="rubbish/right-brake-cmd-norm">
-			<default value="/controls/gear/brake-right"/>
+			<default value="fcs/right-brake-summer"/>
 			<test value="/controls/autobrake/brake-right">
 				/controls/autobrake/active EQ 1
 			</test>
