@@ -65,6 +65,16 @@ file, these values will be used (they are hardcoded).
 		<name>clock</name>
 		<number>0</number>
 	</clock>
+	
+	<comm-radio>
+		<name>comm</name>
+		<number>0</number>
+	</comm-radio>
+
+	<comm-radio>
+		<name>comm</name>
+		<number>1</number>
+	</comm-radio>
 
 	<dme>
 		<name>dme</name>
