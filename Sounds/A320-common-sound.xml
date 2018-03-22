@@ -1292,7 +1292,7 @@
 		<relay>
 			<name>RelayBatt1</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay-battery.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery1-amps</property>
@@ -1300,14 +1300,14 @@
 				</greater-than>
 			</condition>
 			<volume>
-				<factor>0.60</factor>
+				<factor>0.80</factor>
 			</volume>
 		</relay>
 		
 		<relay>
 			<name>RelayBatt2</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay2.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay-battery.wav</path>
 			<condition>
 				<greater-than>
 					<property>/systems/electrical/battery2-amps</property>
@@ -1315,7 +1315,7 @@
 				</greater-than>
 			</condition>
 			<volume>
-				<factor>0.60</factor>
+				<factor>0.80</factor>
 			</volume>
 		</relay>
 		
@@ -1343,7 +1343,7 @@
 		<relay>
 			<name>RelayAPU</name>
 			<mode>once</mode>
-			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay4.wav</path>
+			<path>Aircraft/IDG-A32X/Sounds/Cockpit/relay-apu.wav</path>
 			<condition>
 				<equals>
 					<property>/systems/electrical/gen-apu</property>

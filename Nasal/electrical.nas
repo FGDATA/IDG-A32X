@@ -187,6 +187,7 @@ var ELEC = {
 		setprop("/systems/electrical/idg2-fault", 0);
 		setprop("/controls/electrical/xtie/xtieL", 0);
 		setprop("/controls/electrical/xtie/xtieR", 0);
+		setprop("/systems/electrical/battery-available", 0);
 		# Below are standard FG Electrical stuff to keep things working when the plane is powered
 		setprop("/systems/electrical/outputs/adf", 0);
 		setprop("/systems/electrical/outputs/audio-panel", 0);
@@ -290,22 +291,14 @@ var ELEC = {
 		replay = getprop("/sim/replay/replay-state");
 		wow = getprop("/gear/gear[1]/wow");
 		
-		if (battery1_sw and !batt1_fail) {
-			setprop("/systems/electrical/battery1-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery1-amps", 0);
-		}
-		
-		if (battery2_sw and !batt2_fail) {
-			setprop("/systems/electrical/battery2-amps", dc_amps_std);
-		} else {
-			setprop("/systems/electrical/battery2-amps", 0);
-		}
-		
 		if (getprop("/systems/electrical/battery1-amps") > 120 or getprop("/systems/electrical/battery2-amps") > 120) {
 			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
 		} else {
 			setprop("/systems/electrical/bus/dcbat", 0);
+		}
+		
+		if (battery1_sw == 0 and battery2_sw == 0) {
+			setprop("/systems/electrical/battery-available", 0);
 		}
 		
 		dcbat = getprop("/systems/electrical/bus/dcbat");
@@ -731,3 +724,20 @@ var decharge2 = maketimer(69, func {
 	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });
+
+var batflash = func {
+	if (getprop("/systems/electrical/battery-available") == 0) {
+		setprop("/systems/failures/elac1", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/failures/fac1", 1);
+		setprop("/systems/electrical/battery-available", 1);
+		settimer(func(){
+			setprop("/systems/failures/elac1", 0);
+		},1.5);
+		settimer(func(){
+			setprop("/systems/failures/sec1", 0);
+			setprop("/systems/failures/fac1", 0);
+		},2);
+	}
+}
+

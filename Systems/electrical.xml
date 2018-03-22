@@ -1,0 +1,35 @@
+<!-- Airbus A320 Electrical -->
+
+<!--
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+-->
+
+<system name="A320: Electrical">
+	<property>/controls/electrical/switches/battery1</property>
+	<property>/systems/failures/elec-batt1</property>
+	<property>/controls/electrical/switches/battery2</property>
+	<property>/systems/failures/elec-batt2</property>
+	
+	<channel name="Battery">
+		<switch name="electrical/battery-1">
+			<test logic="AND" value="150">
+				/controls/electrical/switches/battery1 eq 1
+				/systems/failures/elec-batt1 eq 0
+			</test>
+			<delay type="time">0.85</delay>
+			<output>/systems/electrical/battery1-amps</output>
+		</switch>
+		
+		<switch name="electrical/battery-2">
+			<test logic="AND" value="150">
+				/controls/electrical/switches/battery2 eq 1
+				/systems/failures/elec-batt2 eq 0
+			</test>
+			<delay type="time">0.85</delay>
+			<output>/systems/electrical/battery2-amps</output>
+		</switch>
+	</channel>
+
+</system>
