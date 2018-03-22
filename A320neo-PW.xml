@@ -450,6 +450,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</propulsion>
 
 	<system file="pushback" />
+	<system file="electrical" />
 	<system file="fuel" />
 	<system file="glass-effect1" />
 	<system file="fmgc" />
