@@ -43,6 +43,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var ac1 = getprop("/systems/electrical/bus/ac1");
 	var ac2 = getprop("/systems/electrical/bus/ac2");
 	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var dc_ess_shed = getprop("/systems/electrical/bus/dc-ess-shed");
 	var ac_ess_shed = getprop("/systems/electrical/bus/ac-ess-shed");
 	var dc1 = getprop("/systems/electrical/bus/dc1");
 	var dc2 = getprop("/systems/electrical/bus/dc2");
@@ -163,6 +164,7 @@ var ELEC = {
 		setprop("/systems/electrical/bus/gen1-hz", 0);
 		setprop("/systems/electrical/bus/gen2-hz", 0);
 		setprop("/systems/electrical/bus/ac-ess", 0);
+		setprop("/systems/electrical/bus/dc-ess-shed", 0);
 		setprop("/systems/electrical/bus/ac-ess-shed", 0);
 		setprop("/systems/electrical/extra/ext-volts", 0);
 		setprop("/systems/electrical/extra/apu-volts", 0);
@@ -269,6 +271,7 @@ var ELEC = {
 		ac1 = getprop("/systems/electrical/bus/ac1");
 		ac2 = getprop("/systems/electrical/bus/ac2");
 		ac_ess = getprop("/systems/electrical/bus/ac-ess");
+		dc_ess_shed = getprop("/systems/electrical/bus/dc-ess-shed");
 		ac_ess_shed = getprop("/systems/electrical/bus/ac-ess-shed");
 		dc1 = getprop("/systems/electrical/bus/dc1");
 		dc2 = getprop("/systems/electrical/bus/dc2");
@@ -531,6 +534,12 @@ var ELEC = {
 			setprop("/controls/electrical/switches/emer-gen", 0);
 		}
 		
+		if (emergen == 0 and ac1 == 0 and ac2 == 0) { # as far as I know dc ess is only shed when batteries only
+			setprop("/systems/electrical/bus/dc-ess-shed", 0);
+		} else {
+			setprop("/systems/electrical/bus/dc-ess-shed", ac_volt_std);
+		}
+		
 		dc1 = getprop("/systems/electrical/bus/dc1");
 		dc2 = getprop("/systems/electrical/bus/dc2");
 		
@@ -688,6 +697,14 @@ var ELEC = {
 			setprop("/systems/electrical/gen2-fault", 0);
 		}
 		
+		# these two are here because they are on whenever the battery switch is on with no ac source connected (youtube)
+		
+		if ((battery1_sw or battery2_sw) and dc1 < 25 and ac1 < 110) {
+			setprop("/controls/ventilation/blowFail", 1);
+		} else {
+			setprop("/controls/ventilation/blowFail", 0);
+		}
+		
 		foreach(var screena; screens) { 
 			power_consumption = screena.power_consumption();
 			if (getprop(screena.elec_prop) != 0) {
@@ -725,19 +742,17 @@ var decharge2 = maketimer(69, func {
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });
 
-var batflash = func {
+var fctlpoweruptest = func {
 	if (getprop("/systems/electrical/battery-available") == 0) {
 		setprop("/systems/failures/elac1", 1);
 		setprop("/systems/failures/sec1", 1);
-		setprop("/systems/failures/fac1", 1);
 		setprop("/systems/electrical/battery-available", 1);
 		settimer(func(){
 			setprop("/systems/failures/elac1", 0);
-		},1.5);
+		},8);
 		settimer(func(){
 			setprop("/systems/failures/sec1", 0);
-			setprop("/systems/failures/fac1", 0);
-		},2);
+		},8.5);
 	}
 }
 

@@ -39,20 +39,28 @@ var fctlInit = func {
 var update_loop = func {
 	var elac1_sw = getprop("/controls/fctl/elac1");
 	var elac2_sw = getprop("/controls/fctl/elac2");
-	var sec1_sw = getprop("/controls/fctl/sec1");
-	var sec2_sw = getprop("/controls/fctl/sec2");
-	var sec3_sw = getprop("/controls/fctl/sec3");
-	var fac1_sw = getprop("/controls/fctl/fac1");
-	var fac2_sw = getprop("/controls/fctl/fac2");
+	var sec1_sw  = getprop("/controls/fctl/sec1");
+	var sec2_sw  = getprop("/controls/fctl/sec2");
+	var sec3_sw  = getprop("/controls/fctl/sec3");
+	var fac1_sw  = getprop("/controls/fctl/fac1");
+	var fac2_sw  = getprop("/controls/fctl/fac2");
 	
-	var elac1_fail = getprop("/systems/failures/elac1");
-	var elac2_fail = getprop("/systems/failures/elac2");
-	var sec1_fail = getprop("/systems/failures/sec1");
-	var sec2_fail = getprop("/systems/failures/sec2");
-	var sec3_fail = getprop("/systems/failures/sec3");
-	var fac1_fail = getprop("/systems/failures/fac1");
-	var fac2_fail = getprop("/systems/failures/fac2");
-	var ac_ess = getprop("/systems/electrical/bus/ac-ess");
+	var elac1_fail  = getprop("/systems/failures/elac1");
+	var elac2_fail  = getprop("/systems/failures/elac2");
+	var sec1_fail   = getprop("/systems/failures/sec1");
+	var sec2_fail   = getprop("/systems/failures/sec2");
+	var sec3_fail   = getprop("/systems/failures/sec3");
+	var fac1_fail   = getprop("/systems/failures/fac1");
+	var fac2_fail   = getprop("/systems/failures/fac2");
+	
+	var ac_ess      = getprop("/systems/electrical/bus/ac-ess");
+	var dc_ess_shed = getprop("/systems/electrical/bus/dc-ess-shed");
+	var ac1         = getprop("/systems/electrical/bus/ac1");
+	var ac2         = getprop("/systems/electrical/bus/ac2");
+	var dc1         = getprop("/systems/electrical/bus/dc1");
+	var dc2         = getprop("/systems/electrical/bus/dc2");
+	var battery1_sw = getprop("/controls/electrical/switches/battery1");
+	var battery2_sw = getprop("/controls/electrical/switches/battery2");
 	
 	if (elac1_sw and !elac1_fail and ac_ess >= 110) {
 		setprop("/systems/fctl/elac1", 1);
@@ -104,20 +112,36 @@ var update_loop = func {
 		setprop("/systems/failures/spoiler-r2", 1);
 	}
 	
-	if (fac1_sw and !fac1_fail and ac_ess >= 110) {
+	if (fac1_sw and !fac1_fail and (ac_ess >= 110 or dc_ess_shed >= 25)) {
 		setprop("/systems/fctl/fac1", 1);
 		setprop("/systems/failures/rudder", 0);
+		setprop("/systems/failures/fac1-fault", 0);
+	} else if (fac1_sw and (battery1_sw or battery2_sw) and (fac1_fail or ac_ess < 110 or dc_ess_shed < 25)) {
+		setprop("/systems/failures/fac1-fault", 1);
+		setprop("/systems/fctl/fac1", 0);
+		if (!fac2_sw or fac2_fail) {
+			setprop("/systems/failures/rudder", 1);
+		}
 	} else {
+		setprop("/systems/failures/fac1-fault", 0);
 		setprop("/systems/fctl/fac1", 0);
 		if (!fac2_sw or fac2_fail) {
 			setprop("/systems/failures/rudder", 1);
 		}
 	}
 	
-	if (fac2_sw and !fac2_fail and ac_ess >= 110) {
+	if (fac2_sw and !fac2_fail and (ac2 >= 110 or dc2 >= 25)) {
 		setprop("/systems/fctl/fac2", 1);
+		setprop("/systems/failures/fac2-fault", 0);
+	} else if (fac2_sw and (fac2_fail or ac2 < 110 or dc2 < 25)) {
+		setprop("/systems/failures/fac2-fault", 1);
+		setprop("/systems/fctl/fac2", 0);
+		if (!fac1_sw or fac1_fail) {
+			setprop("/systems/failures/rudder", 1);
+		}
 	} else {
 		setprop("/systems/fctl/fac2", 0);
+		setprop("/systems/failures/fac2-fault", 0);
 		if (!fac1_sw or fac1_fail) {
 			setprop("/systems/failures/rudder", 1);
 		}

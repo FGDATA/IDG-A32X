@@ -71,6 +71,7 @@
 		<object-name>RamAirBtn2O</object-name>
 		<object-name>SEC1Btn1F</object-name>
 		<object-name>SEC1Btn2O</object-name>
+		<object-name>VentBlowBtn1F</object-name>
 		<condition>
 			<or>
 				<greater-than-equals>
@@ -167,8 +168,6 @@
 		<object-name>SEC2Btn2O</object-name>
 		<object-name>SEC3Btn1F</object-name>
 		<object-name>SEC3Btn2O</object-name>
-		<object-name>VentBlowBtn1F</object-name>
-		<object-name>VentBlowBtn2O</object-name>
 		<object-name>VentExtractBtn1F</object-name>
 		<object-name>VentExtractBtn2O</object-name>
 		<object-name>WingAntiIceBtn1F</object-name>
@@ -210,7 +209,6 @@
 		<object-name>Gen1LineBtn1S</object-name>
 		<object-name>Gen1LineBtn2O</object-name>
 		<object-name>RcdrGndCtlBtn2O</object-name>
-		<object-name>VentBlowBtn1F</object-name>
 		<object-name>VentBlowBtn2O</object-name>
 		<object-name>VentExtractBtn1F</object-name>
 		<object-name>VentExtractBtn2O</object-name>
@@ -236,6 +234,24 @@
 			<green>1</green>
 			<blue>1</blue>
 		</diffuse>
+	</animation>
+	
+	<!-- Ventilation -->
+	<animation>
+		<type>select</type>
+		<object-name>VentBlowBtn1F</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>/controls/ventilation/blowFail</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<!-- Cargo Smoke -->
@@ -1132,7 +1148,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/fac1</property>
+						<property>systems/failures/fac1-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -1400,7 +1416,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/fac2</property>
+						<property>systems/failures/fac2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
@@ -2720,7 +2736,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>systems.batflash();</script>
+				<script>systems.fctlpoweruptest();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2785,7 +2801,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>systems.batflash();</script>
+				<script>systems.fctlpoweruptest();</script>
 			</binding>
 		</action>
 	</animation>
