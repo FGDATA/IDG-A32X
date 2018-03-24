@@ -54,6 +54,7 @@ var update_loop = func {
 	var fac2_fail   = getprop("/systems/failures/fac2");
 	
 	var ac_ess      = getprop("/systems/electrical/bus/ac-ess");
+	var dc_ess      = getprop("/systems/electrical/bus/dc-ess");
 	var dc_ess_shed = getprop("/systems/electrical/bus/dc-ess-shed");
 	var ac1         = getprop("/systems/electrical/bus/ac1");
 	var ac2         = getprop("/systems/electrical/bus/ac2");
@@ -61,17 +62,29 @@ var update_loop = func {
 	var dc2         = getprop("/systems/electrical/bus/dc2");
 	var battery1_sw = getprop("/controls/electrical/switches/battery1");
 	var battery2_sw = getprop("/controls/electrical/switches/battery2");
+	var elac1_test  = getprop("/systems/electrical/elac1-test");
+	var elac2_test  = getprop("/systems/electrical/elac2-test");
 	
-	if (elac1_sw and !elac1_fail and ac_ess >= 110) {
+	if (elac1_sw and !elac1_fail and (dc_ess >= 25 or battery1_sw) and !elac1_test) {
 		setprop("/systems/fctl/elac1", 1);
-	} else {
+		setprop("/systems/failures/elac1-fault", 0);
+	} else if (elac1_sw and (elac1_fail or (dc_ess < 25 and !battery1_sw)) and !elac1_test) {
+		setprop("/systems/failures/elac1-fault", 1);
 		setprop("/systems/fctl/elac1", 0);
+	} else if (!elac1_test) {
+		setprop("/systems/failures/elac1-fault", 0);
+		setprop("/systems/fctl/elac1", 1);
 	}
 	
-	if (elac2_sw and !elac2_fail and ac_ess >= 110) {
+	if (elac2_sw and !elac2_fail and (dc2 >= 25 or battery2_sw) and !elac2_test) {
 		setprop("/systems/fctl/elac2", 1);
-	} else {
+		setprop("/systems/failures/elac2-fault", 0);
+	} else if (elac2_sw and (elac2_fail or (dc2 < 25 and !battery2_sw)) and !elac2_test) {
+		setprop("/systems/failures/elac2-fault", 1);
 		setprop("/systems/fctl/elac2", 0);
+	} else if (!elac2_test) {
+		setprop("/systems/failures/elac2-fault", 0);
+		setprop("/systems/fctl/elac2", 1);
 	}
 	
 	if (sec1_sw and !sec1_fail and ac_ess >= 110) {

@@ -131,10 +131,44 @@ var light = {
 	}
 };
 
+var fctlpoweruptest = func {
+	if (getprop("/systems/electrical/battery-available") == 0 and (getprop("/controls/electrical/switches/battery1") == 1 or getprop("/controls/electrical/switches/battery2") == 1)) {
+		setprop("/systems/failures/elac1-fault", 1);
+		setprop("/systems/failures/sec1", 1);
+		setprop("/systems/electrical/battery-available", 1);
+		setprop("/systems/electrical/elac1-test", 1);
+		settimer(func(){
+			setprop("/systems/failures/elac1-fault", 0);
+			setprop("/systems/electrical/elac1-test", 0);
+		},8);
+		settimer(func(){
+			setprop("/systems/failures/sec1", 0);
+		},8.5);
+	}
+	
+	gen1_sw = getprop("/controls/electrical/switches/gen1");
+	gen2_sw = getprop("/controls/electrical/switches/gen2");
+	gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
+	gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
+	
+	if (getprop("/systems/electrical/dc2-available") == 0 and getprop("/systems/electrical/bus/dc2") > 25) {
+		setprop("/systems/failures/elac2-fault", 1);
+		setprop("/systems/electrical/dc2-available", 1);
+		setprop("/systems/electrical/elac2-test", 1);
+		settimer(func(){
+			setprop("/systems/failures/elac2-fault", 0);
+			setprop("/systems/electrical/elac2-test", 0);
+		},8);
+	}
+}
+
+
+
 # Main Elec System
 
 var ELEC = {
 	init: func() {
+		setprop("/systems/electrical/elac-test", 0);
 		setprop("/controls/switches/annun-test", 0);
 		setprop("/systems/electrical/nav-lights-power", 0);
 		setprop("/controls/electrical/switches/galley", 1);
@@ -190,6 +224,7 @@ var ELEC = {
 		setprop("/controls/electrical/xtie/xtieL", 0);
 		setprop("/controls/electrical/xtie/xtieR", 0);
 		setprop("/systems/electrical/battery-available", 0);
+		setprop("/systems/electrical/dc2-available", 0);
 		# Below are standard FG Electrical stuff to keep things working when the plane is powered
 		setprop("/systems/electrical/outputs/adf", 0);
 		setprop("/systems/electrical/outputs/audio-panel", 0);
@@ -304,10 +339,17 @@ var ELEC = {
 			setprop("/systems/electrical/battery-available", 0);
 		}
 		
+		if (dc2 >= 25) {
+			fctlpoweruptest();
+		} else {
+			setprop("/systems/electrical/dc2-available", 0);
+		}
+		
 		dcbat = getprop("/systems/electrical/bus/dcbat");
 		
 		if (extpwr_on and gen_ext_sw) {
 			setprop("/systems/electrical/gen-ext", 1);
+			
 		} else {
 			setprop("/systems/electrical/gen-ext", 0);
 		} 
@@ -741,18 +783,3 @@ var decharge2 = maketimer(69, func {
 	bat2_volts = getprop("/systems/electrical/battery2-volts");
 	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
 });
-
-var fctlpoweruptest = func {
-	if (getprop("/systems/electrical/battery-available") == 0) {
-		setprop("/systems/failures/elac1", 1);
-		setprop("/systems/failures/sec1", 1);
-		setprop("/systems/electrical/battery-available", 1);
-		settimer(func(){
-			setprop("/systems/failures/elac1", 0);
-		},8);
-		settimer(func(){
-			setprop("/systems/failures/sec1", 0);
-		},8.5);
-	}
-}
-

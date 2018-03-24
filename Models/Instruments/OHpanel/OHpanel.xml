@@ -1014,11 +1014,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elac1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>controls/fctl/elac1</property>
+						<property>/systems/failures/elac1-fault</property>
 						<value>1</value>
 					</equals>
 				</and>
@@ -1215,7 +1211,7 @@
 			<or>
 				<and>
 					<equals>
-						<property>systems/failures/elac2</property>
+						<property>systems/failures/elac2-fault</property>
 						<value>1</value>
 					</equals>
 					<equals>
