@@ -762,7 +762,7 @@ canvas.NDStyles["Airbus"] = {
 				is_true: func(nd) {
 					#var cur_wp = getprop("autopilot/route-manager/current-wp");
 					var deg = int(getprop("/autopilot/route-manager/wp/bearing-deg"));
-					nd.symbols.wpActiveCrs.setText(""~deg~"°");
+					nd.symbols.wpActiveCrs.setText((deg or "")~"°");
 					nd.symbols.wpActiveCrs.show();
 				},
 				is_false: func(nd) nd.symbols.wpActiveCrs.hide(),
