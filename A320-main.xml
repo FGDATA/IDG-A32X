@@ -28,10 +28,27 @@
 
 		<model>
 			<pushback>
-				<kp type="double">5000</kp>
-				<ki type="double">200</ki>
-				<kd type="double">500</kd>
-				<position-norm type="double">0</position-norm>
+				<enabled type="int"/>
+				<available type="int">1</available>
+				<yaw-deg alias="/fdm/jsbsim/fcs/steer-deg"/>
+				<target-speed-km_h type="float">0.0</target-speed-km_h>
+				<K_p type="float">5000.0</K_p>
+				<K_i type="float">200.0</K_i>
+				<F_i type="float">25000.0</F_i>
+				<K_d type="float">500.0</K_d>
+				<driver>
+					<tow-distance-m type="float">-60.0</tow-distance-m>
+					<face-heading-deg type="float">0.0</face-heading-deg>
+					<steer-cmd-norm alias="/controls/flight/rudder"/>
+					<K_V_push type="float">5.0</K_V_push>
+					<F_V_push type="float">5.0</F_V_push>
+					<S_min-m type="float">5.0</S_min-m>
+					<K_psi_push type="float">0.05</K_psi_push>
+					<K_V_turn type="float">1.4</K_V_turn>
+					<F_V_turn type="float">7.0</F_V_turn>
+					<K_psi_turn type="float">0.2</K_psi_turn>
+					<V_min type="float">2.5</V_min>
+				</driver>
 			</pushback>
 			<icing>
 				<iceable>
@@ -231,7 +248,7 @@
 						<label>Pushback</label>
 						<binding>
 							<command>dialog-show</command>
-							<dialog-name>pushback</dialog-name>
+							<dialog-name>autopush</dialog-name>
 						</binding>
 					</item>
 					<item>
@@ -1455,6 +1472,22 @@
 		<icing>
 			<file>Aircraft/IDG-A32X/Nasal/icing.nas</file>
 		</icing>
+		<autopush>
+			<file>Nasal/autopush.nas</file>
+		</autopush>
+		<autopush_driver>
+			<file>Nasal/autopush_driver.nas</file>
+		</autopush_driver>
 	</nasal>
-
+	<fdm>
+		<jsbsim>
+			<external_reactions>
+		        	<pushback>
+		        		<magnitude alias="/sim/model/pushback/force-lbf"/>
+			        	<x alias="/sim/model/pushback/force-x"/>
+			        	<y alias="/sim/model/pushback/force-y"/>
+			        </pushback>
+			</external_reactions>
+		</jsbsim>
+	</fdm>
 </PropertyList>

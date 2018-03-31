@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!--
+
+AUTOPUSH
+Pushback dialog.
+
+Copyright (c) 2018 Michael Danilov <mike.d.ft402 -eh- gmail.com>
+Original code (c) FlightGear
+Distribute under the terms of GPLv2.
+
+-->
+<PropertyList>
+
+ <name>autopush</name>
+ <layout>vbox</layout>
+
+ <group>
+  <layout>hbox</layout>
+  <text>
+   <label>Pushback</label>
+  </text>
+  <empty>
+   <stretch>true</stretch>
+  </empty>
+  <button>
+   <legend/>
+   <key>Esc</key>
+   <pref-width>16</pref-width>
+   <pref-height>16</pref-height>
+   <border>2</border>
+   <binding>
+    <command>dialog-close</command>
+   </binding>
+  </button>
+ </group>
+
+ <hrule/>
+
+ <group>
+  <stretch>true</stretch>
+  <layout>vbox</layout>
+  <halign>center</halign>
+  <valign>top</valign>
+
+  <checkbox>
+   <halign>left</halign>
+   <label>Connect</label>
+   <property>/sim/model/pushback/enabled</property>
+   <binding><command>dialog-apply</command></binding>
+   <binding>
+    <command>nasal</command>
+    <script>autopush.toggle();</script>
+   </binding>
+  </checkbox>
+
+  <group>
+   <layout>hbox</layout>
+   <text>
+    <label>Speed:</label>
+   </text>
+   <slider>
+    <row>0</row>
+    <col>2</col>
+    <min>-15</min>
+    <max>15</max>
+    <property>/sim/model/pushback/target-speed-km_h</property>
+    <live>true</live>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+   </slider>
+   <text>
+    <pref-width>16</pref-width>
+    <property>/sim/model/pushback/target-speed-km_h</property>
+    <format>%3.0f</format>
+    <live>true</live>
+   </text>
+   <text>
+    <label> km/h</label>
+   </text>
+  </group>
+
+  <hrule/>
+
+  <group>
+   <layout>hbox</layout>
+   <text>
+    <label>Distance:</label>
+   </text>
+   <slider>
+    <row>0</row>
+    <col>2</col>
+    <min>-100</min>
+    <max>100</max>
+    <property>/sim/model/pushback/driver/tow-distance-m</property>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+   </slider>
+   <text>
+    <pref-width>16</pref-width>
+    <property>/sim/model/pushback/driver/tow-distance-m</property>
+    <format>%4.0f</format>
+    <live>true</live>
+   </text>
+   <text>
+    <label> m</label>
+   </text>
+  </group>
+
+  <group>
+   <layout>hbox</layout>
+   <text>
+    <label>Facing:</label>
+   </text>
+   <slider>
+    <row>0</row>
+    <col>2</col>
+    <min>0</min>
+    <max>360</max>
+    <property>/sim/model/pushback/driver/face-heading-deg</property>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+   </slider>
+   <text>
+    <pref-width>16</pref-width>
+    <property>/sim/model/pushback/driver/face-heading-deg</property>
+    <format>%3.0f</format>
+    <live>true</live>
+   </text>
+  </group>
+
+  <group>
+   <layout>hbox</layout>
+   <button>
+    <legend>Tow / push back</legend>
+    <binding>
+     <command>nasal</command>
+     <script>
+      autopush_driver.start();
+     </script>
+    </binding>
+   </button>
+   <button>
+    <legend>Stop</legend>
+    <binding>
+     <command>nasal</command>
+     <script>
+      autopush_driver.stop();
+     </script>
+    </binding>
+   </button>
+  </group>
+
+  </group>
+
+</PropertyList>
