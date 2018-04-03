@@ -46,20 +46,24 @@ setlistener("/controls/engines/engine[0]/cutoff-switch", func {
 			}
 		}
 	} else if (getprop("/controls/engines/engine[0]/cutoff-switch") == 1) {
-		eng_one_auto_start.stop();
-		eng_one_man_start.stop();
-		eng_one_n2_check.stop();
-		setprop("/controls/engines/engine[0]/igniter-a", 0);
-		setprop("/controls/engines/engine[0]/igniter-b", 0);
-		setprop("/controls/engines/engine[0]/man-start", 0);
-		setprop("/systems/pneumatic/eng1-starter", 0);
-		setprop("/controls/engines/engine[0]/starter", 0);
-		setprop("/controls/engines/engine[0]/cutoff", 1);
-		setprop("/engines/engine[0]/state", 0);
-		interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
-		eng_one_n2_check.stop();
+		cutoff_one();
 	}
 });
+
+var cutoff_one = func {
+	eng_one_auto_start.stop();
+	eng_one_man_start.stop();
+	eng_one_n2_check.stop();
+	setprop("/controls/engines/engine[0]/igniter-a", 0);
+	setprop("/controls/engines/engine[0]/igniter-b", 0);
+	setprop("/controls/engines/engine[0]/man-start", 0);
+	setprop("/systems/pneumatic/eng1-starter", 0);
+	setprop("/controls/engines/engine[0]/starter", 0);
+	setprop("/controls/engines/engine[0]/cutoff", 1);
+	setprop("/engines/engine[0]/state", 0);
+	interpolate(engines[0].getNode("egt-actual"), 0, egt_shutdown_time);
+	eng_one_n2_check.stop();
+}
 
 var fast_start_one = func {
 	setprop("/controls/engines/engine[0]/cutoff", 0);
@@ -126,19 +130,23 @@ setlistener("/controls/engines/engine[1]/cutoff-switch", func {
 			}
 		}
 	} else if (getprop("/controls/engines/engine[1]/cutoff-switch") == 1) {
-		eng_two_auto_start.stop();
-		eng_two_man_start.stop();
-		eng_two_n2_check.stop();
-		setprop("/controls/engines/engine[1]/igniter-a", 0);
-		setprop("/controls/engines/engine[1]/igniter-b", 0);
-		setprop("/controls/engines/engine[1]/man-start", 0);
-		setprop("/systems/pneumatic/eng2-starter", 0);
-		setprop("/controls/engines/engine[1]/starter", 0);
-		setprop("/controls/engines/engine[1]/cutoff", 1);
-		setprop("/engines/engine[1]/state", 0);
-		interpolate(engines[1].getNode("egt-actual"), 0, egt_shutdown_time);
+		cutoff_two();
 	}
 });
+
+var cutoff_two = func {
+	eng_two_auto_start.stop();
+	eng_two_man_start.stop();
+	eng_two_n2_check.stop();
+	setprop("/controls/engines/engine[1]/igniter-a", 0);
+	setprop("/controls/engines/engine[1]/igniter-b", 0);
+	setprop("/controls/engines/engine[1]/man-start", 0);
+	setprop("/systems/pneumatic/eng2-starter", 0);
+	setprop("/controls/engines/engine[1]/starter", 0);
+	setprop("/controls/engines/engine[1]/cutoff", 1);
+	setprop("/engines/engine[1]/state", 0);
+	interpolate(engines[1].getNode("egt-actual"), 0, egt_shutdown_time);
+}
 
 var fast_start_two = func {
 	setprop("/controls/engines/engine[1]/cutoff", 0);
