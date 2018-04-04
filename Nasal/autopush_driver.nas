@@ -77,7 +77,7 @@ var start = func() {
 	}
 	towdist = getprop("/sim/model/pushback/driver/tow-distance-m");
 	_target = geo.aircraft_position();
-	_psi_parking = getprop("/orientation/heading-deg");
+	_psi_parking = getprop("/orientation/heading-magnetic-deg");
 	_target.apply_course_distance(_psi_parking, towdist);
 	_psi_turn = getprop("/sim/model/pushback/driver/face-heading-deg");
 	_sign = 1.0 - 2.0 * (towdist < 0.0);
