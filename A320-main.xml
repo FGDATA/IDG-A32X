@@ -46,8 +46,8 @@
 					<K_psi_push type="float">0.05</K_psi_push>
 					<K_V_turn type="float">1.4</K_V_turn>
 					<F_V_turn type="float">7.0</F_V_turn>
-					<K_psi_turn type="float">0.2</K_psi_turn>
-					<V_min type="float">2.5</V_min>
+					<K_psi_turn type="float">0.1</K_psi_turn>
+					<V_min type="float">1.5</V_min>
 				</driver>
 			</pushback>
 			<icing>
@@ -247,8 +247,10 @@
 					<item>
 						<label>Pushback</label>
 						<binding>
-							<command>dialog-show</command>
-							<dialog-name>autopush</dialog-name>
+							<command>nasal</command>
+							<script>
+							autopush.push_dlg.open();
+							</script>
 						</binding>
 					</item>
 					<item>
