@@ -8,12 +8,11 @@ var initInputB = func(key) {
 	var scratchpad = getprop("/MCDU[0]/scratchpad");
 	if (key == "R1") {
 		if (scratchpad == "CLR") {
-			setprop("/FMGC/internal/zfw", 0);
-			setprop("/FMGC/internal/zfwcg", 55.1); # 25KG default
-			setprop("/FMGC/internal/zfw-set", 0);
-			setprop("/FMGC/internal/zfwcg-set", 0);
-			setprop("/MCDU[0]/scratchpad-msg", "0");
-			setprop("/MCDU[0]/scratchpad", "");
+			if (getprop("/MCDU[0]/scratchpad") != "NOT ALLOWED") {
+				setprop("/MCDU[0]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
+			}
+			setprop("/MCDU[0]/scratchpad-msg", "1");
+			setprop("/MCDU[0]/scratchpad", "NOT ALLOWED");
 		} else {
 			var tfs = size(scratchpad);
 			if (tfs == 0) {
