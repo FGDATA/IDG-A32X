@@ -34,10 +34,14 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/vr", 0);
 	setprop("/FMGC/internal/v2", 0);
 	setprop("/FMGC/internal/block", 0.0);
+	setprop("/FMGC/internal/zfw", 0);
+	setprop("/FMGC/internal/zfwcg", 55.1); # 25KG default
 	setprop("/FMGC/internal/v1-set", 0);
 	setprop("/FMGC/internal/vr-set", 0);
 	setprop("/FMGC/internal/v2-set", 0);
 	setprop("/FMGC/internal/block-set", 0);
+	setprop("/FMGC/internal/zfw-set", 0);
+	setprop("/FMGC/internal/zfwcg-set", 0);
 	setprop("/FMGC/internal/to-flap", 0);
 	setprop("/FMGC/internal/to-ths", "0.0");
 	setprop("/FMGC/internal/tofrom-set", 0);
@@ -99,7 +103,7 @@ var lskbutton = func(btn) {
 			radnavInput("L1");
 		} else if (getprop("/MCDU[1]/page") == "DATA") {
 			dataInput("L1");
- 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC") {
+		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC") {
 			printInput("L1");
 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC2") {
 			printInput2("L1");
@@ -187,6 +191,8 @@ var lskbutton = func(btn) {
 			radnavInput("L5");
 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC") {
 			printInput("L5");
+		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC2") {
+			printInput2("L5");
 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
@@ -205,12 +211,6 @@ var lskbutton = func(btn) {
 			perfDESInput("L6");
 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC2") {
 			printInput2("L6");
-		} else if ((getprop("/MCDU[1]/page") == "DATA") or (getprop("/MCDU[1]/page") == "PRINTFUNC") or (getprop("/MCDU[1]/page") == "PRINTFUNC2")) {
-			if (getprop("/MCDU[1]/scratchpad") != "AOC DISABLED") {
-				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[0]/scratchpad"));
-			}
-			setprop("/MCDU[1]/scratchpad-msg", "1");
-			setprop("/MCDU[1]/scratchpad", "AOC DISABLED");
 		} else {
 			if (getprop("/MCDU[1]/scratchpad") != "NOT ALLOWED") {
 				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
@@ -229,6 +229,8 @@ var rskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[1]/page") == "INITA") {
 			initInputA("R1");
+		} else if (getprop("/MCDU[1]/page") == "INITB") {
+			initInputB("R1");
 		} else if (getprop("/MCDU[1]/page") == "RADNAV") {
 			radnavInput("R1");
 		} else if (getprop("/MCDU[1]/page") == "PRINTFUNC") {
@@ -309,6 +311,12 @@ var rskbutton = func(btn) {
 			perfCLBInput("R6");
 		} else if (getprop("/MCDU[1]/page") == "CRZ") {
 			perfCRZInput("R6");
+		} else if ((getprop("/MCDU[1]/page") == "DATA") or (getprop("/MCDU[1]/page") == "PRINTFUNC") or (getprop("/MCDU[1]/page") == "PRINTFUNC2")) {
+			if (getprop("/MCDU[1]/scratchpad") != "AOC DISABLED") {
+				setprop("/MCDU[1]/last-scratchpad", getprop("/MCDU[1]/scratchpad"));
+			}
+			setprop("/MCDU[1]/scratchpad-msg", "1");
+			setprop("/MCDU[1]/scratchpad", "AOC DISABLED");
 		} else if (getprop("/MCDU[1]/page") == "INITA") {
 			initInputA("R6");
 		} else {

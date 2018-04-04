@@ -34,10 +34,14 @@ var MCDU_reset = func {
 	setprop("/FMGC/internal/vr", 0);
 	setprop("/FMGC/internal/v2", 0);
 	setprop("/FMGC/internal/block", 0.0);
+	setprop("/FMGC/internal/zfw", 0);
+	setprop("/FMGC/internal/zfwcg", 55.1); # 25KG default
 	setprop("/FMGC/internal/v1-set", 0);
 	setprop("/FMGC/internal/vr-set", 0);
 	setprop("/FMGC/internal/v2-set", 0);
 	setprop("/FMGC/internal/block-set", 0);
+	setprop("/FMGC/internal/zfw-set", 0);
+	setprop("/FMGC/internal/zfwcg-set", 0);
 	setprop("/FMGC/internal/to-flap", 0);
 	setprop("/FMGC/internal/to-ths", "0.0");
 	setprop("/FMGC/internal/tofrom-set", 0);
@@ -225,6 +229,8 @@ var rskbutton = func(btn) {
 	if (btn == "1") {
 		if (getprop("/MCDU[0]/page") == "INITA") {
 			initInputA("R1");
+		} else if (getprop("/MCDU[0]/page") == "INITB") {
+			initInputB("R1");
 		} else if (getprop("/MCDU[0]/page") == "RADNAV") {
 			radnavInput("R1");
 		} else if (getprop("/MCDU[0]/page") == "PRINTFUNC") {

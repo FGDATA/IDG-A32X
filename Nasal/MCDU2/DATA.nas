@@ -54,10 +54,10 @@ var printInput2 = func(key) {
 		setprop("/FMGC/print/mcdu/page2/L4auto", 1);
 	}
 	if (key == "L6") { 
-		setprop("/MCDU[0]/page", "DATA");
+		setprop("/MCDU[1]/page", "DATA");
 	}
 	if (key == "R1") { 
-		setprop("/FMGC/print/mcdu/pag2e/R1req", 1);
+		setprop("/FMGC/print/mcdu/page2/R1req", 1);
 	}
 	if (key == "R2") { 
 		setprop("/FMGC/print/mcdu/page2/R2req", 1);

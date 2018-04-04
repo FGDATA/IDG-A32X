@@ -108,7 +108,7 @@ var initInputA = func(key) {
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs == 9) {
+			if (tfs == 9 and find("/", scratchpad) != -1) {
 				var fromto = split("/", scratchpad);
 				var froms = size(fromto[0]);
 				var tos = size(fromto[1]);

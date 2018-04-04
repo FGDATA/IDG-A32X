@@ -129,7 +129,7 @@ var perfTOInput = func(key) {
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs >= 7 and tfs <= 9) {
+			if (tfs >= 7 and tfs <= 9 and find("/", scratchpad) != -1) {
 				var thracc = split("/", scratchpad);
 				var thrred = size(thracc[0]);
 				var acc = size(thracc[1]);
@@ -162,7 +162,7 @@ var perfTOInput = func(key) {
 			setprop("/MCDU[0]/scratchpad", "");
 		} else {
 			var tfs = size(scratchpad);
-			if (tfs == 7) {
+			if (tfs == 7 and find("/", scratchpad) != -1) {
 				var flapths = split("/UP", scratchpad);
 				if ((flapths[0] >= 1 and flapths[0] <= 4) and (flapths[1] >= 0.0 and flapths[1] <= 2.5)) {
 					setprop("/FMGC/internal/to-flap", flapths[0]);
