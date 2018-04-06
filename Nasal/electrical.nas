@@ -758,7 +758,7 @@ var ELEC = {
 		
 		foreach(var lighta; lights) { 
 			power_consumption = lighta.power_consumption();
-			if (getprop(screena.elec_prop) != 0 and getprop(lighta.control_prop) != 0) {
+			if (getprop(lighta.elec_prop) != 0 and getprop(lighta.control_prop) != 0) {
 				setprop("/systems/electrical/light/" ~ lighta.name ~ "/watts", power_consumption);
 			} else {
 				setprop("/systems/electrical/light/" ~ lighta.name ~ "/watts", 0);
