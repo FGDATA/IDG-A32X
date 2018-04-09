@@ -340,7 +340,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					acconfig.saveSettings();
+					acconfig.writeSettings();
 					</script>
 				</binding>
 				<live>true</live>
@@ -360,7 +360,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-					acconfig.saveSettings();
+					acconfig.writeSettings();
 					</script>
 				</binding>
 				<live>true</live>

@@ -484,7 +484,7 @@
 				<fault type="bool">false</fault>
 			</ir>
 			<onbat type="bool">false</onbat>
-			<skip userarchive="y" type="bool">0</skip>
+			<skip type="bool">0</skip>
 		</adirs>
 		<APU>
 			<fire-btn type="bool">0</fire-btn>
@@ -631,7 +631,6 @@
 		<tray n="0">
 			<lefttrayext type="double">0</lefttrayext>
 			<righttrayext type="double">0</righttrayext>
-			<suprise userarchive="y" type="bool">0</suprise>
 		</tray>
 	</controls>
 	
@@ -729,7 +728,7 @@
 	
 	<options n="0">
 		<system n="0">
-			<keyboard-mode userarchive="y" type="bool">0</keyboard-mode>
+			<keyboard-mode type="bool">0</keyboard-mode>
 		</system>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
