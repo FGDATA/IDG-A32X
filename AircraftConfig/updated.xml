@@ -83,7 +83,9 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-				acconfig.welcome_dlg.open();
+				if (getprop("/systems/acconfig/options/welcome-skip") != 1) {
+					acconfig.welcome_dlg.open();
+				}
 				</script>
 			</binding>
 			<binding>
