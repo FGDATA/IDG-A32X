@@ -10,7 +10,7 @@
 
 <PropertyList>
 
-	<name>aircraft-config-update</name>
+	<name>aircraft-config-updated</name>
 	<layout>vbox</layout>
 	
 	<group>
