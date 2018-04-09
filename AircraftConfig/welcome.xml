@@ -54,7 +54,7 @@
 		</text>
 		<text>
 			<halign>center</halign>
-			<label>Please report bugs on the FlightGear forums! Enjoy!</label>
+			<label>Please report bugs on GitHub Issues! Enjoy!</label>
 		</text>
 		
 	</group>
