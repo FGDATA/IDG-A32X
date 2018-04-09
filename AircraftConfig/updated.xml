@@ -31,14 +31,7 @@
 		</button>
 	</group>
 	
-	<hrule>
-		<color>
-			<red>1.0</red>
-			<green>1.0</green>
-			<blue>1.0</blue>
-			<alpha>0.9</alpha>
-		</color>
-	</hrule>
+	<hrule/>
 	
 	<group>
 		<layout>vbox</layout>
