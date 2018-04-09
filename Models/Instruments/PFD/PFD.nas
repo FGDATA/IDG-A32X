@@ -13,6 +13,8 @@ var PFD_1_mismatch = nil;
 var PFD_2_mismatch = nil;
 var PFD1_display = nil;
 var PFD2_display = nil;
+var updateL = 0;
+var updateR = 0;
 var elapsedtime = 0;
 var ASI = 0;
 var ASItrgt = 0;
@@ -164,36 +166,44 @@ var canvas_PFD_base = {
 					PFD_1.page.hide();
 					PFD_1_test.page.show();
 					PFD_1_test.update();
+					updateL = 0;
 				} else if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
 					PFD_1.page.hide();
 					PFD_1_test.page.show();
 					PFD_1_test.update();
+					updateL = 0;
 				} else {
 					PFD_1_test.page.hide();
 					PFD_1.page.show();
-					PFD_1.update();
+					PFD_1.updateFast();
+					updateL = 1;
 				}
 			} else {
 				PFD_1_test.page.hide();
 				PFD_1.page.hide();
+				updateL = 0;
 			}
 			if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du6") > 0) {
 				if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
 					PFD_2.page.hide();
 					PFD_2_test.page.show();
 					PFD_2_test.update();
+					updateR = 0;
 				} else if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
 					PFD_2.page.hide();
 					PFD_2_test.page.show();
 					PFD_2_test.update();
+					updateR = 0;
 				} else {
 					PFD_2_test.page.hide();
 					PFD_2.page.show();
-					PFD_2.update();
+					PFD_2.updateFast();
+					updateR = 1;
 				}
 			} else {
 				PFD_2_test.page.hide();
 				PFD_2.page.hide();
+				updateR = 0;
 			}
 		} else {
 			PFD_1_test.page.hide();
@@ -204,6 +214,16 @@ var canvas_PFD_base = {
 			PFD_2_mismatch.page.show();
 			PFD_1_mismatch.update();
 			PFD_2_mismatch.update();
+			updateL = 0;
+			updateR = 0;
+		}
+	},
+	updateSlow: func() {
+		if (updateL) {
+			PFD_1.update();
+		}
+		if (updateR) {
+			PFD_2.update();
 		}
 	},
 	updateCommon: func () {
@@ -489,6 +509,27 @@ var canvas_PFD_base = {
 			me["FMA_athr_box"].hide();
 		}
 		
+		# QNH
+		if (getprop("/modes/altimeter/std") == 1) {
+			me["QNH"].hide();
+			me["QNH_setting"].hide();
+			me["QNH_std"].show();
+			me["QNH_box"].show();
+		} else if (getprop("/modes/altimeter/inhg") == 0) {
+			me["QNH_setting"].setText(sprintf("%4.0f", getprop("/instrumentation/altimeter/setting-hpa")));
+			me["QNH"].show();
+			me["QNH_setting"].show();
+			me["QNH_std"].hide();
+			me["QNH_box"].hide();
+		} else if (getprop("/modes/altimeter/inhg") == 1) {
+			me["QNH_setting"].setText(sprintf("%2.2f", getprop("/instrumentation/altimeter/setting-inhg")));
+			me["QNH"].show();
+			me["QNH_setting"].show();
+			me["QNH_std"].hide();
+			me["QNH_box"].hide();
+		}
+	},
+	updateCommonFast: func() {
 		# Airspeed
 		# Subtract 30, since the scale starts at 30, but don"t allow less than 0, or more than 420 situations
 		if (getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") <= 30) {
@@ -709,26 +750,6 @@ var canvas_PFD_base = {
 			me["ALT_target"].hide();
 		}
 		
-		# QNH
-		if (getprop("/modes/altimeter/std") == 1) {
-			me["QNH"].hide();
-			me["QNH_setting"].hide();
-			me["QNH_std"].show();
-			me["QNH_box"].show();
-		} else if (getprop("/modes/altimeter/inhg") == 0) {
-			me["QNH_setting"].setText(sprintf("%4.0f", getprop("/instrumentation/altimeter/setting-hpa")));
-			me["QNH"].show();
-			me["QNH_setting"].show();
-			me["QNH_std"].hide();
-			me["QNH_box"].hide();
-		} else if (getprop("/modes/altimeter/inhg") == 1) {
-			me["QNH_setting"].setText(sprintf("%2.2f", getprop("/instrumentation/altimeter/setting-inhg")));
-			me["QNH"].show();
-			me["QNH_setting"].show();
-			me["QNH_std"].hide();
-			me["QNH_box"].hide();
-		}
-		
 		# Vertical Speed
 		me["VS_pointer"].setRotation(getprop("/instrumentation/pfd/vs-needle") * D2R);
 		
@@ -911,6 +932,9 @@ var canvas_PFD_1 = {
 		
 		me.updateCommon();
 	},
+	updateFast: func() {
+		me.updateCommonFast();
+	},
 };
 
 var canvas_PFD_2 = {
@@ -1003,6 +1027,9 @@ var canvas_PFD_2 = {
 		}
 		
 		me.updateCommon();
+	},
+	updateFast: func() {
+		me.updateCommonFast();
 	},
 };
 
@@ -1178,9 +1205,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	PFD_2_mismatch = canvas_PFD_2_mismatch.new(group_pfd2_mismatch, "Aircraft/IDG-A32X/Models/Instruments/Common/res/mismatch.svg");
 	
 	PFD_update.start();
+	PFD_update_fast.start();
 });
 
-var PFD_update = maketimer(0.05, func {
+var PFD_update = maketimer(0.15, func {
+	canvas_PFD_base.updateSlow();
+});
+
+var PFD_update_fast = maketimer(0.05, func {
 	canvas_PFD_base.update();
 });
 
