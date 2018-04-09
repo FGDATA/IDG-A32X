@@ -1384,7 +1384,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_test = canvas_lowerECAM_test.new(group_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 	
 	lowerECAM_update.start();
+	if (getprop("/systems/acconfig/options/lecam-rate") > 1) {
+		l_rateApply();
+	}
 });
+
+var l_rateApply = func {
+	lowerECAM_update.restart(0.05 * getprop("/systems/acconfig/options/lecam-rate"));
+}
 
 var lowerECAM_update = maketimer(0.05, func {
 	canvas_lowerECAM_base.update();

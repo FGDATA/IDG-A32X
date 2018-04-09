@@ -1206,7 +1206,15 @@ setlistener("sim/signals/fdm-initialized", func {
 	
 	PFD_update.start();
 	PFD_update_fast.start();
+	if (getprop("/systems/acconfig/options/pfd-rate") > 1) {
+		rateApply();
+	}
 });
+
+var rateApply = func {
+	PFD_update.restart(0.15 * getprop("/systems/acconfig/options/pfd-rate"));
+	PFD_update_fast.restart(0.05 * getprop("/systems/acconfig/options/pfd-rate"));
+}
 
 var PFD_update = maketimer(0.15, func {
 	canvas_PFD_base.updateSlow();

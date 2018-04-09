@@ -295,7 +295,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	ND_2_test = canvas_ND_2_test.new(group_nd2_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 
 	nd_update.start();
+	if (getprop("/systems/acconfig/options/nd-rate") > 1) {
+		rateApply();
+	}
 });
+
+var rateApply = func {
+	nd_update.restart(0.05 * getprop("/systems/acconfig/options/nd-rate"));
+}
 
 var nd_update = maketimer(0.05, func {
 	canvas_nd_base.update();

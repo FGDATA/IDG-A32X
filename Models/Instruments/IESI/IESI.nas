@@ -182,7 +182,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	IESI = canvas_IESI.new(group_IESI, "Aircraft/IDG-A32X/Models/Instruments/IESI/res/iesi.svg");
 	
 	IESI_update.start();
+	if (getprop("/systems/acconfig/options/iesi-rate") > 1) {
+		rateApply();
+	}
 });
+
+var rateApply = func {
+	IESI_update.restart(0.07 * getprop("/systems/acconfig/options/iesi-rate"));
+}
 
 var IESI_update = maketimer(0.07, func {
 	canvas_IESI_base.update();

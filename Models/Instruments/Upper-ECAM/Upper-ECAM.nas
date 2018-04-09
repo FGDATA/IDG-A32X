@@ -915,7 +915,14 @@ setlistener("sim/signals/fdm-initialized", func {
 	upperECAM_test = canvas_upperECAM_test.new(group_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 	
 	upperECAM_update.start();
+	if (getprop("/systems/acconfig/options/uecam-rate") > 1) {
+		u_rateApply();
+	}
 });
+
+var u_rateApply = func {
+	upperECAM_update.restart(0.05 * getprop("/systems/acconfig/options/uecam-rate"));
+}
 
 var upperECAM_update = maketimer(0.05, func {
 	canvas_upperECAM_base.update();
