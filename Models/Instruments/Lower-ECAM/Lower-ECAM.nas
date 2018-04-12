@@ -6,13 +6,19 @@
 ##############################################
 
 var lowerECAM_apu = nil;
+var lowerECAM_bleed = nil;
+var lowerECAM_cond = nil;
+var lowerECAM_door = nil;
+var lowerECAM_elec = nil;
 var lowerECAM_eng = nil;
 var lowerECAM_fctl = nil;
+var lowerECAM_fuel = nil;
+var lowerECAM_hyd = nil;
+var lowerECAM_press = nil;
 var lowerECAM_wheel = nil;
-var lowerECAM_door = nil;
 var lowerECAM_test = nil;
 var lowerECAM_display = nil;
-var page = "eng";
+var page = "fctl";
 var oat = getprop("/environment/temperature-degc");
 var blue_psi = 0;
 var green_psi = 0;
@@ -29,6 +35,10 @@ var askidsw = 0;
 var brakemode = 0;
 var accum = 0;
 var elapsedtime = 0;
+var tr1_v = 0;
+var tr1_a = 0;
+var tr2_v = 0;
+var tr2_a = 0;
 setprop("/systems/electrical/extra/apu-load", 0);
 setprop("/systems/electrical/extra/apu-volts", 0);
 setprop("/systems/electrical/extra/apu-hz", 0);
@@ -106,10 +116,15 @@ var canvas_lowerECAM_base = {
 		if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du4") > 0) {
 			if (getprop("/instrumentation/du/du4-test-time") + getprop("/instrumentation/du/du4-test-amount") >= elapsedtime) {
 				lowerECAM_apu.page.hide();
+				lowerECAM_bleed.page.hide();
+				lowerECAM_cond.page.hide();
+				lowerECAM_door.page.hide();
+				lowerECAM_elec.page.hide();
 				lowerECAM_eng.page.hide();
 				lowerECAM_fctl.page.hide();
+				lowerECAM_fuel.page.hide();
+				lowerECAM_press.page.hide();
 				lowerECAM_wheel.page.hide();
-				lowerECAM_door.page.hide();
 				lowerECAM_test.page.show();
 				lowerECAM_test.update();
 			} else {
@@ -117,54 +132,174 @@ var canvas_lowerECAM_base = {
 				page = getprop("/ECAM/Lower/page");
 				if (page == "apu") {
 					lowerECAM_apu.page.show();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
-					lowerECAM_door.page.hide();
 					lowerECAM_apu.update();
+				} else if (page == "bleed") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.show();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_bleed.update();
+				} else if (page == "cond") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.show();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_cond.update();
+				} else if (page == "door") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.show();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_door.update();
+				} else if (page == "elec") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.show();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_elec.update();
 				} else if (page == "eng") {
 					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.show();
 					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
-					lowerECAM_door.page.hide();
 					lowerECAM_eng.update();
 				} else if (page == "fctl") {
 					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.show();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
-					lowerECAM_door.page.hide();
 					lowerECAM_fctl.update();
+				} else if (page == "fuel") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.show();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_fuel.update();
+				} else if (page == "press") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.show();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_press.update();
+				} else if (page == "hyd") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.show();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_hyd.update();
 				} else if (page == "wheel") {
 					lowerECAM_apu.page.hide();
-					lowerECAM_eng.page.hide();
-					lowerECAM_fctl.page.hide();
-					lowerECAM_wheel.page.show();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
 					lowerECAM_door.page.hide();
-					lowerECAM_wheel.update();
-				} else if (page == "door") {
-					lowerECAM_apu.page.hide();
+					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.hide();
-					lowerECAM_wheel.page.hide();
-					lowerECAM_door.page.show();
-					lowerECAM_door.update();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.show();
+					lowerECAM_wheel.update();
 				} else {
 					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
-					lowerECAM_door.page.hide();
 				}
 			}
 		} else {
 			lowerECAM_test.page.hide();
 			lowerECAM_apu.page.hide();
+			lowerECAM_bleed.page.hide();
+			lowerECAM_cond.page.hide();
+			lowerECAM_door.page.hide();
+			lowerECAM_elec.page.hide();
 			lowerECAM_eng.page.hide();
 			lowerECAM_fctl.page.hide();
+			lowerECAM_fuel.page.hide();
+			lowerECAM_press.page.hide();
+			lowerECAM_hyd.page.hide();
 			lowerECAM_wheel.page.hide();
-			lowerECAM_door.page.hide();
 		}
 	},
 	updateBottomStatus: func() {
@@ -297,6 +432,38 @@ var canvas_lowerECAM_apu = {
 	},
 };
 
+var canvas_lowerECAM_bleed = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_bleed, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm"];
+	},
+	update: func() {
+		
+		me.updateBottomStatus();
+	},
+};
+
+var canvas_lowerECAM_cond = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_cond, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm"];
+	},
+	update: func() {
+		
+		me.updateBottomStatus();
+	},
+};
+
 var canvas_lowerECAM_door = {
 	new: func(canvas_group, file) {
 		var m = {parents: [canvas_lowerECAM_door, canvas_lowerECAM_base]};
@@ -308,7 +475,7 @@ var canvas_lowerECAM_door = {
 		return["TAT","SAT","GW","UTCh","UTCm","Bulk","BulkLine","BulkLbl","Exit1L","Exit1R","Cabin1Left","Cabin1LeftLbl","Cabin1LeftLine","Cabin1LeftSlide","Cabin1Right","Cabin1RightLbl","Cabin1RightLine","Cabin1RightSlide","Cabin2Left","Cabin2LeftLbl",
 		"Cabin2LeftLine","Cabin2LeftSlide","Cabin2Right","Cabin2RightLbl","Cabin2RightLine","Cabin2RightSlide","Cabin3Left","Cabin3LeftLbl","Cabin3LeftLine","Cabin3LeftSlide","Cabin3Right","Cabin3RightLbl","Cabin3RightLine","Cabin3RightSlide","AvionicsLine1",
 		"AvionicsLbl1","AvionicsLine2","AvionicsLbl2","Cargo1Line","Cargo1Lbl","Cargo1Door","Cargo2Line","Cargo2Lbl","Cargo2Door","ExitLSlide","ExitLLine","ExitLLbl","ExitRSlide","ExitRLine","ExitRLbl","Cabin4Left","Cabin4LeftLbl","Cabin4LeftLine",
-		"Cabin4LeftSlide","Cabin4Right","Cabin4RightLbl","Cabin4RightLine","Cabin4RightSlide"];
+		"Cabin4LeftSlide","Cabin4Right","Cabin4RightLbl","Cabin4RightLine","Cabin4RightSlide","DOOROXY-REGUL-LO-PR"];
 	},
 	update: func() {
 		# If you make AirBerlin or Allegiant livery add below 
@@ -410,6 +577,7 @@ var canvas_lowerECAM_door = {
 		me["Cabin4LeftSlide"].hide();
 		me["Cabin4RightSlide"].hide();
 		
+		me["DOOROXY-REGUL-LO-PR"].hide();
 		me["AvionicsLine1"].hide();
 		me["AvionicsLine2"].hide();
 		me["AvionicsLbl1"].hide();
@@ -436,6 +604,559 @@ var canvas_lowerECAM_door = {
 		me["Cabin3Right"].hide();
 		me["Cabin3RightLine"].hide();
 		me["Cabin3RightLbl"].hide();
+		
+		me.updateBottomStatus();
+	},
+};
+
+var canvas_lowerECAM_elec = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_elec, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm","BAT1-label","Bat1Volt","Bat1Ampere","BAT2-label","Bat2Volt","Bat2Ampere","BAT1-charge","BAT1-discharge","ELEC-Line-BAT1-DCBAT","BAT2-charge","BAT2-discharge","ELEC-Line-BAT2-DCBAT","ELEC-Line-DC1-DCBAT",
+		"ELEC-Line-DC1-DCESS","ELEC-Line-DC2-DCBAT","ELEC-Line-DC1-DCESS_DCBAT","ELEC-Line-DC2-DCESS_DCBAT","ELEC-Line-TR1-DC1","ELEC-Line-TR2-DC2","Shed-label","ELEC-Line-ESSTR-DCESS","TR1-label","TR1Volt","TR1Ampere","TR2-label","TR2Volt","TR2Ampere",
+		"EMERGEN-Box-on","EmergenVolt","EmergenHz","ELEC-Line-Emergen-ESSTR","EMERGEN-Label-off","EMERGEN-out","ELEC-Line-ACESS-TRESS","ELEC-Line-AC1-TR1","ELEC-Line-AC2-TR2","ELEC-Line-AC1-ACESS","ELEC-Line-AC2-ACESS","ACESS-SHED","ACESS","AC1-in","AC2-in",
+		"ELEC-Line-GEN1-AC1","ELEC-Line-GEN2-AC2","ELEC-Line-APU-AC1","ELEC-Line-APU-EXT","ELEC-Line-EXT-AC2","APU-out","EXT-out","EXTPWR-group","ExtVolt","ExtHz","APU-content","APU-border","APUGentext","APUGenLoad","APUGenVolt","APUGenHz","APUGEN-off",
+		"GEN1-label","Gen1Load","Gen1Volt","Gen1Hz","GEN2-label","Gen2Load","GEN2-off","Gen2Volt","Gen2Hz","ELEC-IDG-1-label","ELEC-IDG-1-Temp","IDG1-LOPR","IDG1-DISC","IDG1-RISE-Value","IDG1-RISE-label","GalleyShed","ELEC-IDG-2-Temp","ELEC-IDG-2-label",
+		"IDG2-RISE-label","IDG2-RISE-Value","IDG2-LOPR","IDG2-DISC","ESSTR-group","ESSTR-Volt","ESSTR-Ampere","BAT1-content","BAT2-content","BAT1-OFF","BAT2-OFF","GEN1-content","GEN2-content","GEN-1-num-label","GEN-2-num-label","GEN1-off","GEN2-off",
+		"GEN1-num-label","GEN2-num-label","EXTPWR-label","ELEC-ACESS-SHED-label","ELEC-DCBAT-label","ELEC-DCESS-label","ELEC-DC2-label","ELEC-DC1-label","ELEC-AC1-label","ELEC-AC2-label","ELEC-ACESS-label"];
+	},
+	update: func() {
+
+		# BAT1
+		if (getprop("/controls/electrical/switches/battery1") == 0) {
+			me["BAT1-OFF"].show();
+			me["BAT1-content"].hide();
+			me["BAT1-discharge"].hide();
+			me["BAT1-charge"].hide();
+			me["ELEC-Line-BAT1-DCBAT"].hide();
+		} else {
+			me["BAT1-OFF"].hide();
+			me["BAT1-content"].show();
+			me["Bat1Ampere"].setText(sprintf("%s", math.round(getprop("/systems/electrical/battery1-amps"))));
+			me["Bat1Volt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/battery1-volts"))));
+
+			if (getprop("/systems/electrical/battery1-volts") >= 25) {
+				me["Bat1Volt"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["Bat1Volt"].setColor(0.7333,0.3803,0);
+			}
+
+			if (getprop("/systems/electrical/battery1-amps") > 5) {
+				me["Bat1Ampere"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Bat1Ampere"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			# TODO add correct charge/dischare behaviour
+			# this is only temporary
+			me["ELEC-Line-BAT1-DCBAT"].show();
+			me["BAT1-discharge"].hide();
+			me["BAT1-charge"].hide();
+		}
+
+		if (getprop("/systems/electrical/batt1-fault") == 1 or getprop("/systems/electrical/battery1-volts") < 25 or getprop("/systems/electrical/battery1-amps") > 5) {
+			me["BAT1-label"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BAT1-label"].setColor(0.8078,0.8039,0.8078);
+		}
+
+		# BAT2
+		if (getprop("/controls/electrical/switches/battery2") == 0) {
+			me["BAT2-OFF"].show();
+			me["BAT2-content"].hide();
+			me["BAT2-discharge"].hide();
+			me["BAT2-charge"].hide();
+			me["ELEC-Line-BAT2-DCBAT"].hide();
+		} else {
+			me["BAT2-OFF"].hide();
+			me["BAT2-content"].show();
+			me["Bat2Ampere"].setText(sprintf("%s", math.round(getprop("/systems/electrical/battery2-amps"))));
+			me["Bat2Volt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/battery2-volts"))));
+
+			if (getprop("/systems/electrical/battery2-volts") >= 25) {
+				me["Bat2Volt"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["Bat2Volt"].setColor(0.7333,0.3803,0);
+			}
+
+			if (getprop("/systems/electrical/battery2-amps") > 5) {
+				me["Bat2Ampere"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Bat2Ampere"].setColor(0.0509,0.7529,0.2941);
+			}
+			# TODO add correct charge/dischare behaviour
+			# this is only temporary
+			me["ELEC-Line-BAT2-DCBAT"].show();
+			me["BAT2-discharge"].hide();
+			me["BAT2-charge"].hide();
+		}
+
+		if (getprop("/systems/electrical/batt2-fault") == 1 or getprop("/systems/electrical/battery2-volts") < 25 or getprop("/systems/electrical/battery2-amps") > 5) {
+			me["BAT2-label"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BAT2-label"].setColor(0.8078,0.8039,0.8078);
+		}
+
+		# TR1
+		# is only powered when ac1 has power
+		tr1_v = getprop("/systems/electrical/extra/tr1-volts");
+		tr1_a = getprop("/systems/electrical/extra/tr1-amps");
+
+		me["TR1Volt"].setText(sprintf("%s", math.round(tr1_v)));
+		me["TR1Ampere"].setText(sprintf("%s", math.round(tr1_a)));
+
+		if (tr1_v < 25 or tr1_v > 31 or tr1_a <= 5) {
+			me["TR1-label"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR1-label"].setColor(0.8078,0.8039,0.8078);
+		}
+
+		if (tr1_v < 25 or tr1_v > 31) {
+			me["TR1Volt"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR1Volt"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		if (tr1_a <= 5) {
+			me["TR1Ampere"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR1Ampere"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# TR2
+		# is only powered when ac2 has power
+		tr2_v = getprop("/systems/electrical/extra/tr2-volts");
+		tr2_a = getprop("/systems/electrical/extra/tr2-amps");
+
+		me["TR2Volt"].setText(sprintf("%s", math.round(tr2_v)));
+		me["TR2Ampere"].setText(sprintf("%s", math.round(tr2_a)));
+
+		if (tr2_v < 25 or tr2_v > 31 or tr2_a <= 5) {
+			me["TR2-label"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR2-label"].setColor(0.8078,0.8039,0.8078);
+		}
+
+		if (tr2_v < 25 or tr2_v > 31) {
+			me["TR2Volt"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR2Volt"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		if (tr2_a <= 5) {
+			me["TR2Ampere"].setColor(0.7333,0.3803,0);
+		} else {
+			me["TR2Ampere"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# ESS TR
+		# TODO add amber title on under A.
+		# TODO add correct A
+		if (getprop("/systems/electrical/bus/dc1") < 25) {
+			me["ESSTR-group"].show();
+			me["ESSTR-Volt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/bus/dc-ess"))));
+
+			if (getprop("/systems/electrical/bus/dc-ess") < 25 or getprop("/systems/electrical/bus/dc-ess") > 31) {
+				me["ESSTR-Volt"].setColor(0.7333,0.3803,0);
+			} else {
+				me["ESSTR-Volt"].setColor(0.0509,0.7529,0.2941);
+			}
+		} else {
+			me["ESSTR-group"].hide();
+		}
+
+		# EMER GEN
+		# TODO add values and amber on over/under load
+		# TODO changes the prop to the one which indicates the use of the emergen and not of the man depoly
+		if (getprop("/controls/electrical/switches/emer-gen") == 0) {
+			me["EMERGEN-Box-on"].hide();
+			me["EMERGEN-Label-off"].show();
+		} else {
+			me["EMERGEN-Box-on"].show();
+			me["EMERGEN-Label-off"].hide();
+		}
+
+		# GEN1
+		if (getprop("/controls/electrical/switches/gen1") == 0) {
+			me["GEN1-content"].hide();
+			me["GEN1-off"].show();
+			me["GEN1-label"].setColor(0.7333,0.3803,0);
+
+			if (getprop("/engines/engine[0]/running") == 0) {
+				me["GEN1-num-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN1-num-label"].setColor(0.8078,0.8039,0.8078);
+			}
+		} else {
+			me["GEN1-content"].show();
+			me["GEN1-off"].hide();
+			me["Gen1Load"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/gen1-load"))));
+			me["Gen1Volt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/gen1-volts"))));
+
+			if (getprop("/systems/electrical/bus/gen1-hz") == 0) {
+				me["Gen1Hz"].setText(sprintf("XX"));
+			} else {
+				me["Gen1Hz"].setText(sprintf("%s", math.round(getprop("/systems/electrical/bus/gen1-hz"))));
+			}
+
+			if (getprop("/engines/engine[0]/running") == 0) {
+				me["GEN1-num-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN1-num-label"].setColor(0.8078,0.8039,0.8078);
+			}
+
+			if (getprop("/systems/electrical/extra/gen1-volts") > 120 or getprop("/systems/electrical/extra/gen1-volts") < 110 or getprop("/systems/electrical/bus/gen1-hz") > 410 or getprop("/systems/electrical/bus/gen1-hz") < 390 or getprop("/systems/electrical/extra/gen1-load") > 100) {
+				me["GEN1-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN1-label"].setColor(0.8078,0.8039,0.8078);
+			}
+
+			if (getprop("/systems/electrical/extra/gen1-load") > 100) {
+				me["Gen1Load"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen1Load"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			if (getprop("/systems/electrical/extra/gen1-volts") > 120 or getprop("/systems/electrical/extra/gen1-volts") < 110) {
+				me["Gen1Volt"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen1Volt"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			if (getprop("/systems/electrical/bus/gen1-hz") > 410 or getprop("/systems/electrical/bus/gen1-hz") < 390) {
+				me["Gen1Hz"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen1Hz"].setColor(0.0509,0.7529,0.2941);
+			}
+		}
+
+		# GEN2
+		if (getprop("/controls/electrical/switches/gen2") == 0) {
+			me["GEN2-content"].hide();
+			me["GEN2-off"].show();
+			me["GEN2-label"].setColor(0.7333,0.3803,0);
+
+			if (getprop("/engines/engine[1]/running") == 0) {
+				me["GEN2-num-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN2-num-label"].setColor(0.8078,0.8039,0.8078);
+			}
+		} else {
+			me["GEN2-content"].show();
+			me["GEN2-off"].hide();
+			me["Gen2Load"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/gen2-load"))));
+			me["Gen2Volt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/gen2-volts"))));
+			if (getprop("/systems/electrical/bus/gen2-hz") == 0) {
+				me["Gen2Hz"].setText(sprintf("XX"));
+			} else {
+				me["Gen2Hz"].setText(sprintf("%s", math.round(getprop("/systems/electrical/bus/gen2-hz"))));
+			}
+
+			if (getprop("/engines/engine[1]/running") == 0) {
+				me["GEN2-num-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN2-num-label"].setColor(0.8078,0.8039,0.8078);
+			}
+
+			if (getprop("/systems/electrical/extra/gen2-volts") > 120 or getprop("/systems/electrical/extra/gen2-volts") < 110 or getprop("/systems/electrical/bus/gen2-hz") > 410 or getprop("/systems/electrical/bus/gen2-hz") < 390 or getprop("/systems/electrical/extra/gen2-load") > 100) {
+				me["GEN2-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["GEN2-label"].setColor(0.8078,0.8039,0.8078);
+			}
+
+			if (getprop("/systems/electrical/extra/gen1-load") > 100) {
+				me["Gen1Load"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen1Load"].setColor(0.0509,0.7529,0.2941);
+			}
+
+
+			if (getprop("/systems/electrical/extra/gen2-volts") > 120 or getprop("/systems/electrical/extra/gen2-volts") < 110) {
+				me["Gen2Volt"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen2Volt"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			if (getprop("/systems/electrical/bus/gen2-hz") > 410 or getprop("/systems/electrical/bus/gen2-hz") < 390) {
+				me["Gen2Hz"].setColor(0.7333,0.3803,0);
+			} else {
+				me["Gen2Hz"].setColor(0.0509,0.7529,0.2941);
+			}
+		}
+
+		# APU
+		if (getprop("/controls/APU/master") == 0) {
+			me["APU-content"].hide();
+			me["APUGEN-off"].hide();
+			me["APU-border"].hide();
+			me["APUGentext"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["APU-border"].show();
+			if (getprop("/controls/electrical/switches/gen-apu") == 0) {
+				me["APU-content"].hide();
+				me["APUGEN-off"].show();
+				me["APUGentext"].setColor(0.7333,0.3803,0);
+			} else {
+				me["APU-content"].show();
+				me["APUGEN-off"].hide();
+				me["APUGenLoad"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-load"))));
+				me["APUGenVolt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-volts"))));
+
+				if (getprop("/systems/electrical/extra/apu-hz") == 0) {
+					me["APUGenHz"].setText(sprintf("XX"));
+				} else {
+					me["APUGenHz"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/apu-hz"))));
+				}
+
+				if (getprop("/systems/electrical/extra/apu-volts") > 120 or getprop("/systems/electrical/extra/apu-volts") < 110 or getprop("/systems/electrical/extra/apu-hz") > 410 or getprop("/systems/electrical/extra/apu-hz") < 390 or getprop("/systems/electrical/extra/apu-load") > 100) {
+					me["APUGentext"].setColor(0.7333,0.3803,0);
+				} else {
+					me["APUGentext"].setColor(0.8078,0.8039,0.8078);
+				}
+
+				if(getprop("/systems/electrical/extra/apu-load") > 100) {
+					me["APUGenLoad"].setColor(0.7333,0.3803,0);
+				} else {
+					me["APUGenLoad"].setColor(0.0509,0.7529,0.2941);
+				}
+
+				if (getprop("/systems/electrical/extra/apu-volts") > 120 or getprop("/systems/electrical/extra/apu-volts") < 110) {
+					me["APUGenVolt"].setColor(0.7333,0.3803,0);
+				} else {
+					me["APUGenVolt"].setColor(0.0509,0.7529,0.2941);
+				}
+
+				if (getprop("/systems/electrical/extra/apu-hz") > 410 or getprop("/systems/electrical/extra/apu-hz") < 390) {
+					me["APUGenHz"].setColor(0.7333,0.3803,0);
+				} else {
+					me["APUGenHz"].setColor(0.0509,0.7529,0.2941);
+				}
+			}
+		}
+
+		# EXT PWR
+		
+		if (getprop("/controls/switches/cart") == 0) {
+			me["EXTPWR-group"].hide();
+		} else {
+			me["EXTPWR-group"].show();
+			me["ExtVolt"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/ext-volts"))));
+			me["ExtHz"].setText(sprintf("%s", math.round(getprop("/systems/electrical/extra/ext-hz"))));
+
+			if (getprop("/systems/electrical/extra/ext-hz") > 410 or getprop("/systems/electrical/extra/ext-hz") < 390 or getprop("/systems/electrical/extra/ext-volts") > 120 or getprop("/systems/electrical/extra/ext-volts") < 110) {
+				me["EXTPWR-label"].setColor(0.7333,0.3803,0);
+			} else {
+				me["EXTPWR-label"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			if (getprop("/systems/electrical/extra/ext-hz") > 410 or getprop("/systems/electrical/extra/ext-hz") < 390) {
+				me["ExtHz"].setColor(0.7333,0.3803,0);
+			} else {
+				me["ExtHz"].setColor(0.0509,0.7529,0.2941);
+			}
+
+			if (getprop("/systems/electrical/extra/ext-volts") > 120 or getprop("/systems/electrical/extra/ext-volts") < 110) {
+				me["ExtVolt"].setColor(0.7333,0.3803,0);
+			} else {
+				me["ExtVolt"].setColor(0.0509,0.7529,0.2941);
+			}
+		}
+
+		# TODO add IDG warnings and rise part
+
+		if (getprop("/systems/electrical/extra/galleyshed") == 1 or (getprop("/controls/electrical/switches/galley") == 0)) {
+			me["GalleyShed"].show();
+		} else {
+			me["GalleyShed"].hide();
+		}
+
+		# Bus indicators
+		if (getprop("/systems/electrical/bus/dcbat") > 25) {
+			me["ELEC-DCBAT-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-DCBAT-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/dc1") > 25) {
+			me["ELEC-DC1-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-DC1-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/dc2") > 25) {
+			me["ELEC-DC2-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-DC2-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/dc-ess") > 25) {
+			me["ELEC-DCESS-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-DCESS-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/ac-ess") > 110) {
+			me["ELEC-ACESS-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-ACESS-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/ac-ess") > 110) {
+			me["ACESS-SHED"].hide();
+		} else {
+			me["ACESS-SHED"].show();
+		}
+
+		if (getprop("/systems/electrical/bus/ac1") > 110) {
+			me["ELEC-AC1-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-AC1-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/ac2") > 110) {
+			me["ELEC-AC2-label"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["ELEC-AC2-label"].setColor(0.7333,0.3803,0);
+		}
+
+
+		# Managment of the connecting lines between the components
+		if (getprop("/systems/electrical/ac1-src") == "APU" or getprop("/systems/electrical/ac2-src") == "APU") {
+			me["APU-out"].show();
+		} else {
+			me["APU-out"].hide();
+		}
+
+		if (getprop("/systems/electrical/ac1-src") == "EXT" or getprop("/systems/electrical/ac2-src") == "EXT") {
+			me["EXT-out"].show();
+		} else {
+			me["EXT-out"].hide();
+		}
+
+		if (getprop("/systems/electrical/extra/gen1-volts") >= 110) {
+			me["ELEC-Line-GEN1-AC1"].show();
+		} else {
+			me["ELEC-Line-GEN1-AC1"].hide();
+		}
+
+		if (getprop("/systems/electrical/extra/gen2-volts") >= 110) {
+			me["ELEC-Line-GEN2-AC2"].show();
+		} else {
+			me["ELEC-Line-GEN2-AC2"].hide();
+		}
+
+		if (getprop("/systems/electrical/bus/ac1") >= 110) {
+			me["AC1-in"].show();
+		} else {
+			me["AC1-in"].hide()
+		}
+
+		if (getprop("/systems/electrical/bus/ac2") >= 110) {
+			me["AC2-in"].show();
+		} else {
+			me["AC2-in"].hide()
+		}
+
+		if (getprop("/systems/electrical/ac1-src") == "APU" or getprop("/systems/electrical/ac1-src") == "EXT" or getprop("/systems/electrical/ac1-src") == "XTIE" or getprop("/systems/electrical/ac2-src") == "XTIE") {
+			me["ELEC-Line-APU-AC1"].show();
+		} else {
+			me["ELEC-Line-APU-AC1"].hide();
+		}
+
+		if (getprop("/systems/electrical/ac1-src") == "EXT" or getprop("/systems/electrical/ac2-src") == "APU" or getprop("/systems/electrical/ac1-src") == "XTIE" or getprop("/systems/electrical/ac2-src") == "XTIE") {
+			me["ELEC-Line-APU-EXT"].show();
+		} else {
+			me["ELEC-Line-APU-EXT"].hide();
+		}
+
+		if (getprop("/systems/electrical/ac2-src") == "APU" or getprop("/systems/electrical/ac2-src") == "EXT" or getprop("/systems/electrical/ac1-src") == "XTIE" or getprop("/systems/electrical/ac2-src") == "XTIE") {
+			me["ELEC-Line-EXT-AC2"].show();
+		} else {
+			me["ELEC-Line-EXT-AC2"].hide();
+		}
+
+		if (getprop("/controls/electrical/switches/ac-ess-feed") == 1) {
+			me["ELEC-Line-AC1-ACESS"].hide();
+			me["ELEC-Line-AC2-ACESS"].show();
+		} else {
+			me["ELEC-Line-AC1-ACESS"].show();
+			me["ELEC-Line-AC2-ACESS"].hide();
+		}
+
+		if (getprop("/systems/electrical/tr1-fault") == 0) {
+			if (getprop("/systems/electrical/bus/ac1") < 110) {
+				me["ELEC-Line-AC1-TR1"].setColorFill(0.7333,0.3803,0);
+			} else {
+				me["ELEC-Line-AC1-TR1"].setColorFill(0.0509,0.7529,0.2941);
+			}
+			me["ELEC-Line-AC1-TR1"].show();
+			me["ELEC-Line-TR1-DC1"].show();
+		} else {
+			me["ELEC-Line-AC1-TR1"].hide();
+			me["ELEC-Line-TR1-DC1"].hide();
+		}
+
+		if (getprop("/systems/electrical/tr2-fault") == 0) {
+			if (getprop("/systems/electrical/bus/ac2") < 110) {
+				me["ELEC-Line-AC2-TR2"].setColorFill(0.7333,0.3803,0);
+			} else {
+				me["ELEC-Line-AC2-TR2"].setColorFill(0.0509,0.7529,0.2941);
+			}
+			me["ELEC-Line-AC2-TR2"].show();
+			me["ELEC-Line-TR2-DC2"].show();
+		} else {
+			me["ELEC-Line-AC2-TR2"].hide();
+			me["ELEC-Line-TR2-DC2"].hide();
+		}
+
+		if (getprop("/systems/electrical/bus/ac1") < 110) {
+			me["ELEC-Line-DC1-DCESS"].hide();
+		} else {
+			me["ELEC-Line-DC1-DCESS"].show();
+		}
+
+		if (getprop("/systems/electrical/bus/dc1") < 25) {
+			me["ELEC-Line-DC1-DCESS_DCBAT"].hide();
+			me["ELEC-Line-DC1-DCBAT"].hide();
+		} else {
+			me["ELEC-Line-DC1-DCESS_DCBAT"].show();
+			me["ELEC-Line-DC1-DCBAT"].show();
+		}
+
+		if (getprop("/systems/electrical/bus/dc2") < 25 or getprop("/systems/electrical/bus/dc1") >= 25 and getprop("/systems/electrical/bus/ac1") >= 110) {
+			me["ELEC-Line-DC2-DCESS_DCBAT"].hide();
+			me["ELEC-Line-DC2-DCBAT"].hide();
+		} else {
+			me["ELEC-Line-DC2-DCESS_DCBAT"].show();
+			me["ELEC-Line-DC2-DCBAT"].show();
+		}
+
+		if (getprop("/controls/electrical/switches/emer-gen") == 1 and (getprop("/systems/electrical/bus/ac1") < 110 and getprop("/controls/electrical/switches/ac-ess-feed") == 0 or getprop("/systems/electrical/bus/ac2") < 110 and getprop("/controls/electrical/switches/ac-ess-feed") == 1)) {
+			me["EMERGEN-out"].show();
+		} else {
+			me["EMERGEN-out"].hide();
+		}
+
+		# TODO add connections from/to ESS TR
+
+		# hide not yet implemented items
+		me["IDG1-LOPR"].hide();
+		me["IDG2-LOPR"].hide();
+		me["IDG1-DISC"].hide();
+		me["IDG2-DISC"].hide();
+		me["Shed-label"].hide();
+		me["ELEC-Line-ACESS-TRESS"].hide();
+		me["ELEC-Line-Emergen-ESSTR"].hide();
+		me["IDG2-RISE-label"].hide();
+		me["IDG2-RISE-Value"].hide();
+		me["IDG1-RISE-label"].hide();
+		me["IDG1-RISE-Value"].hide();
+
 		me.updateBottomStatus();
 	},
 };
@@ -869,6 +1590,363 @@ var canvas_lowerECAM_fctl = {
 			me["PTyellow"].setColor(0.7333,0.3803,0);
 			me["spdbrkyellow"].setColor(0.7333,0.3803,0);
 		}
+		
+		me.updateBottomStatus();
+	},
+};
+
+var canvas_lowerECAM_fuel = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_fuel, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return["TAT","SAT","GW","UTCh","UTCm","FUEL-Pump-Left-1","FUEL-Pump-Left-2","FUEL-Pump-Center-1","FUEL-Pump-Center-2","FUEL-Pump-Right-1","FUEL-Pump-Right-2","FUEL-Left-blocked","FUEL-Right-blocked","FUEL-Center-blocked","FUEL-Left-Tranfser",
+		"FUEL-Right-Tranfse","FUEL-Left-Outer-Inacc","FUEL-Left-Inner-Inacc","FUEL-Center-Inacc","FUEL-Right-Inner-Inacc","FUEL-Right-Outer-Inacc","FUEL-Left-Outer-quantity","FUEL-Left-Inner-quantity","FUEL-Center-quantity","FUEL-Right-Inner-quantity",
+		"FUEL-Right-Outer-quantity","FUEL-On-Board","FUEL-Flow-per-min","FUEL-APU-arrow","FUEL-APU-label","FUEL-used-1","FUEL-used-both","FUEL-used-2","FUEL-ENG-Master-1","FUEL-ENG-Master-2","FUEL-XFEED","FUEL-XFEED-pipes","FUEL-Left-Outer-temp",
+		"FUEL-Left-Inner-temp","FUEL-Right-Inner-temp","FUEL-Right-Outer-temp","FUEL-Pump-Left-1-Closed","FUEL-Pump-Left-1-Open","FUEL-Pump-Left-2-Closed","FUEL-Pump-Left-2-Open","FUEL-Pump-Center-1-Open","FUEL-Pump-Center-1-Closed","FUEL-Pump-Center-2-Closed",
+		"FUEL-Pump-Center-2-Open","FUEL-Pump-Right-1-Closed","FUEL-Pump-Right-1-Open","FUEL-Pump-Right-2-Closed","FUEL-Pump-Right-2-Open","FUEL-ENG-1-label","FUEL-ENG-2-label","FUEL-ENG-1-pipe","FUEL-ENG-2-pipe","FUEL-Right-Tranfser","ENG1idFFlow","ENG2idFFlow"];
+	},
+	update: func() {
+		
+		# if (getprop("engines/engine[0]/n1-actual") < getprop("/controls/engines/idle-limit")) {
+		if (getprop("engines/engine[0]/n1-actual") < 19.7) {
+			me["ENG1idFFlow"].setColor(0.7333,0.3803,0);
+		} else {
+			me["ENG1idFFlow"].setColor(0.8078,0.8039,0.8078);
+		}
+		
+		# if (getprop("engines/engine[1]/n1-actual") < getprop("/controls/engines/idle-limit")) {
+		if (getprop("engines/engine[1]/n1-actual") < 19.7) {
+			me["ENG2idFFlow"].setColor(0.7333,0.3803,0);
+		} else {
+			me["ENG2idFFlow"].setColor(0.8078,0.8039,0.8078);
+		}
+		
+		# TODO add FOB half-boxed amber if some fuel is blocked
+		me["FUEL-On-Board"].setText(sprintf("%s", math.round(getprop("/consumables/fuel/total-fuel-lbs"), 10)));
+		
+		if (getprop("/systems/fadec/powered1") == 1 and getprop("/systems/fadec/powered2") == 1) {
+			me["FUEL-Flow-per-min"].setColor(0.0509,0.7529,0.2941);
+			me["FUEL-Flow-per-min"].setText(sprintf("%s", math.round((getprop("/engines/engine[0]/fuel-flow_actual") + getprop("/engines/engine[1]/fuel-flow_actual")) / 60, 1)));
+		} else {
+			me["FUEL-Flow-per-min"].setColor(0.7333,0.3803,0);
+			me["FUEL-Flow-per-min"].setText("XX");
+		}
+		
+		# this is now bound to the ENG master switch
+		# TODO use the valve prop and add amber if diffrence between eng master and valve
+		# TODO add transition state
+		# TODO fix amber/green at the same time when closed
+		if (getprop("/controls/engines/engine[0]/cutoff-switch") == 0) {
+			me["FUEL-ENG-Master-1"].setRotation(0);
+			me["FUEL-ENG-Master-1"].setColor(0.0509,0.7529,0.2941);
+			me["FUEL-ENG-1-pipe"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-ENG-Master-1"].setRotation(90 * D2R);
+			me["FUEL-ENG-Master-1"].setColor(0.7333,0.3803,0);
+			me["FUEL-ENG-1-pipe"].setColor(0.7333,0.3803,0);
+		}
+
+		# this is now bound to the ENG master switch
+		# TODO use the valve prop and add amber if diffrence between eng master and valve
+		# TODO add transition state
+		# TODO fix amber/green at the same time when closed
+		if (getprop("/controls/engines/engine[1]/cutoff-switch") == 0) {
+			me["FUEL-ENG-Master-2"].setRotation(0);
+			me["FUEL-ENG-Master-2"].setColor(0.0509,0.7529,0.2941);
+			me["FUEL-ENG-2-pipe"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-ENG-Master-2"].setRotation(90 * D2R);
+			me["FUEL-ENG-Master-2"].setColor(0.7333,0.3803,0);
+			me["FUEL-ENG-2-pipe"].setColor(0.7333,0.3803,0);
+		}
+
+		# this is now bound to the XFEED switch
+		# TODO use the valve prop
+		# TODO add amber when disagree between switch and btn
+		# TODO add transition state
+		if (getprop("/controls/fuel/x-feed") == 1) {
+			me["FUEL-XFEED"].setRotation(0);
+			me["FUEL-XFEED-pipes"].show();
+		} else {
+			me["FUEL-XFEED"].setRotation(90 * D2R);
+			me["FUEL-XFEED-pipes"].hide();
+		}
+
+		# TODO add LO indication
+		# TODO fix amber/green at the same time when closed
+		if (getprop("controls/fuel/tank0pump1") == 1) {
+			me["FUEL-Pump-Left-1-Open"].show();
+			me["FUEL-Pump-Left-1-Closed"].hide();
+			me["FUEL-Pump-Left-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Left-1-Open"].hide();
+			me["FUEL-Pump-Left-1-Closed"].show();
+			me["FUEL-Pump-Left-1"].setColor(0.7333,0.3803,0);		
+		}
+
+		# TODO add LO indication
+		# TODO fix amber/green at the same time when closed
+		if (getprop("controls/fuel/tank0pump2") == 1) {
+			me["FUEL-Pump-Left-2-Open"].show();
+			me["FUEL-Pump-Left-2-Closed"].hide();
+			me["FUEL-Pump-Left-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Left-2-Open"].hide();
+			me["FUEL-Pump-Left-2-Closed"].show();
+			me["FUEL-Pump-Left-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# TODO fix amber/green at the same time when closed
+		# TODO add functionality to match FCOM 1.28.20 "Amber: Transfer valve is open, whereas commanded closed in automatic or manual mode" 
+		if (getprop("controls/fuel/tank1pump1") == 1) {
+			me["FUEL-Pump-Center-1-Open"].show();
+			me["FUEL-Pump-Center-1-Closed"].hide();
+			me["FUEL-Pump-Center-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Center-1-Open"].hide();
+			me["FUEL-Pump-Center-1-Closed"].show();
+			me["FUEL-Pump-Center-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# TODO add LO indication
+		# TODO fix amber/green at the same time when closed
+		if (getprop("controls/fuel/tank1pump2") == 1) {
+			me["FUEL-Pump-Center-2-Open"].show();
+			me["FUEL-Pump-Center-2-Closed"].hide();
+			me["FUEL-Pump-Center-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Center-2-Open"].hide();
+			me["FUEL-Pump-Center-2-Closed"].show();
+			me["FUEL-Pump-Center-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# TODO add LO indication
+		# TODO fix amber/green at the same time when closed
+		if (getprop("controls/fuel/tank2pump1") == 1) {
+			me["FUEL-Pump-Right-1-Open"].show();
+			me["FUEL-Pump-Right-1-Closed"].hide();
+			me["FUEL-Pump-Right-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Right-1-Open"].hide();
+			me["FUEL-Pump-Right-1-Closed"].show();
+			me["FUEL-Pump-Right-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# TODO add LO indication
+		# TODO fix amber/green at the same time when closed
+		if (getprop("controls/fuel/tank2pump2") == 1) {
+			me["FUEL-Pump-Right-2-Open"].show();
+			me["FUEL-Pump-Right-2-Closed"].hide();
+			me["FUEL-Pump-Right-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["FUEL-Pump-Right-2-Open"].hide();
+			me["FUEL-Pump-Right-2-Closed"].show();
+			me["FUEL-Pump-Right-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# Hide not yet implemented features
+		# TODO add them
+		me["FUEL-Left-blocked"].hide();
+		me["FUEL-Right-blocked"].hide();
+		me["FUEL-Center-blocked"].hide();
+		me["FUEL-Left-Outer-Inacc"].hide();
+		me["FUEL-Left-Inner-Inacc"].hide();
+		me["FUEL-Right-Outer-Inacc"].hide();
+		me["FUEL-Right-Inner-Inacc"].hide();
+		me["FUEL-Center-Inacc"].hide();
+		me["FUEL-Left-Tranfser"].hide();
+		me["FUEL-Right-Tranfser"].hide();
+		me["FUEL-Left-Outer-temp"].hide();
+		me["FUEL-Left-Inner-temp"].hide();
+		me["FUEL-Right-Outer-temp"].hide();
+		me["FUEL-Right-Inner-temp"].hide();
+		
+		me.updateBottomStatus();
+	},
+};
+
+var canvas_lowerECAM_press = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_press, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm"];
+	},
+	update: func() {
+		
+		me.updateBottomStatus();
+	},
+};
+
+var canvas_lowerECAM_hyd = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_hyd, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm","Green-Indicator","Blue-Indicator","Yellow-Indicator","Press-Green","Press-Blue","Press-Yellow","Green-Line","Blue-Line","Yellow-Line","PTU-Supply-Line","PTU-supply-yellow","PTU-supply-green","PTU-connection",
+		"PTU-Auto-or-off","RAT-label","RAT-stowed","RAT-not-stowed","ELEC-Yellow-off","ELEC-Yellow-on","ELEC-Yellow-label","ELEC-OVTH-Yellow","ELEC-Blue-label","ELEC-OVHT-Blue","ELEC-OVHT-Yellow","Pump-Green-label","Pump-Yellow-label","Pump-Green",
+		"Pump-LOPR-Green","Pump-Green-off","Pump-Green-on","Pump-Yellow","Pump-LOPR-Yellow","Pump-Yellow-off","Pump-Yellow-on","Pump-Blue","Pump-LOPR-Blue","Pump-Blue-off","Pump-Blue-on","Fire-Valve-Green","Fire-Valve-Yellow","LO-AIR-PRESS-Green",
+		"LO-AIR-PRESS-Yellow","LO-AIR-PRESS-Blue","OVHT-Green","OVHT-Blue","OVHT-Yellow","Quantity-Indicator-Green","Quantity-Indicator-Blue","Quantity-Indicator-Yellow","Green-label","Blue-label","Yellow-label"];
+	},
+	update: func() {
+		blue_psi = getprop("/systems/hydraulic/blue-psi");
+		green_psi = getprop("/systems/hydraulic/green-psi");
+		yellow_psi = getprop("/systems/hydraulic/yellow-psi");
+
+		me["Press-Green"].setText(sprintf("%s", green_psi));
+		me["Press-Blue"].setText(sprintf("%s", blue_psi));
+		me["Press-Yellow"].setText(sprintf("%s", yellow_psi));
+
+		if (blue_psi >= 1500) {
+			me["Blue-Line"].setColor(0.0509,0.7529,0.2941);
+			me["Blue-Line"].setColorFill(0.0509,0.7529,0.2941);
+			me["Blue-Indicator"].setColor(0.0509,0.7529,0.2941);
+			me["Press-Blue"].setColor(0.0509,0.7529,0.2941);
+			me["Blue-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["Blue-Line"].setColor(0.7333,0.3803,0);
+			me["Blue-Line"].setColorFill(0.7333,0.3803,0);
+			me["Blue-Indicator"].setColor(0.7333,0.3803,0);
+			me["Press-Blue"].setColor(0.7333,0.3803,0);
+			me["Blue-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (yellow_psi >= 1500) {
+			me["Yellow-Line"].setColor(0.0509,0.7529,0.2941);
+			me["Yellow-Line"].setColorFill(0.0509,0.7529,0.2941);
+			me["Yellow-Indicator"].setColor(0.0509,0.7529,0.2941);
+			me["Press-Yellow"].setColor(0.0509,0.7529,0.2941);
+			me["Yellow-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["Yellow-Line"].setColor(0.7333,0.3803,0);
+			me["Yellow-Line"].setColorFill(0.7333,0.3803,0);
+			me["Yellow-Indicator"].setColor(0.7333,0.3803,0);
+			me["Press-Yellow"].setColor(0.7333,0.3803,0);
+			me["Yellow-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (green_psi >= 1500) {
+			me["Green-Line"].setColor(0.0509,0.7529,0.2941);
+			me["Green-Line"].setColorFill(0.0509,0.7529,0.2941);
+			me["Green-Indicator"].setColor(0.0509,0.7529,0.2941);
+			me["Press-Green"].setColor(0.0509,0.7529,0.2941);
+			me["Green-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["Green-Line"].setColor(0.7333,0.3803,0);
+			me["Green-Line"].setColorFill(0.7333,0.3803,0);
+			me["Green-Indicator"].setColor(0.7333,0.3803,0);
+			me["Press-Green"].setColor(0.7333,0.3803,0);
+			me["Green-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/controls/hydraulic/ptu") == 1 and getprop("/systems/hydraulic/ptu-fault") == 0) {
+			me["PTU-connection"].setColor(0.0509,0.7529,0.2941);
+			me["PTU-Auto-or-off"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["PTU-connection"].setColor(0.7333,0.3803,0);
+			me["PTU-Auto-or-off"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/engines/engine[0]/n2-actual") >= 59) {
+			me["Pump-Green-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["Pump-Green-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/engines/engine[1]/n2-actual") >= 59) {
+			me["Pump-Yellow-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["Pump-Yellow-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/controls/hydraulic/eng1-pump") == 1) {
+			me["Pump-Green-off"].hide();
+			if (yellow_psi >= 1500) {
+				me["Pump-Green-on"].show();
+				me["Pump-LOPR-Green"].hide();
+				me["Pump-Green"].setColor(0.0509,0.7529,0.2941);
+				me["Pump-Green"].setColorFill(0.0509,0.7529,0.2941);
+			} else {
+				me["Pump-Green-on"].hide();
+				me["Pump-LOPR-Green"].show();
+				me["Pump-Green"].setColor(0.7333,0.3803,0);
+				me["Pump-Green"].setColorFill(0.7333,0.3803,0);
+			}
+		} else {
+			me["Pump-Green-off"].show();
+			me["Pump-Green-on"].hide();
+			me["Pump-LOPR-Green"].hide();
+			me["Pump-Green"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/controls/hydraulic/eng2-pump") == 1) {
+			me["Pump-Yellow-off"].hide();
+			if (yellow_psi >= 1500) {
+				me["Pump-Yellow-on"].show();
+				me["Pump-LOPR-Yellow"].hide();
+				me["Pump-Yellow"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["Pump-Yellow-on"].hide();
+				me["Pump-LOPR-Yellow"].show();
+				me["Pump-Yellow"].setColor(0.7333,0.3803,0);
+			}
+		} else {
+			me["Pump-Yellow-off"].show();
+			me["Pump-Yellow-on"].hide();
+			me["Pump-LOPR-Yellow"].hide();
+			me["Pump-Yellow"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/controls/hydraulic/elec-pump-blue") == 1) {
+			me["Pump-Blue-off"].hide();
+			if (blue_psi >= 1500) {
+				me["Pump-Blue-on"].show();
+				me["Pump-LOPR-Blue"].hide();
+				me["Pump-Blue"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["Pump-LOPR-Blue"].show();
+				me["Pump-Blue-on"].hide();
+				me["Pump-Blue"].setColor(0.7333,0.3803,0);
+			}
+		} else {
+			me["Pump-Blue-off"].show();
+			me["Pump-Blue-on"].hide();
+			me["Pump-LOPR-Blue"].hide();
+			me["Pump-Blue"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/controls/hydraulic/elec-pump-yellow") == 0) {
+			me["ELEC-Yellow-on"].hide();
+			me["ELEC-Yellow-off"].show();
+		} else {
+			me["ELEC-Yellow-on"].show();
+			me["ELEC-Yellow-off"].hide();
+		}
+
+		# hiding elements which have no props in the tree yet and doesn't suite in in normal ops
+		# TODO add these when they are in the prop tree
+		me["LO-AIR-PRESS-Green"].hide();
+		me["LO-AIR-PRESS-Blue"].hide();
+		me["LO-AIR-PRESS-Yellow"].hide();
+		me["ELEC-OVHT-Yellow"].hide();
+		me["ELEC-OVHT-Blue"].hide();
+		me["RAT-not-stowed"].hide();
+		me["PTU-Supply-Line"].hide();
+		me["PTU-supply-yellow"].hide();
+		me["PTU-supply-green"].hide();
+		me["OVHT-Yellow"].hide();
+		me["OVHT-Green"].hide();
+		me["OVHT-Blue"].hide();
 		
 		me.updateBottomStatus();
 	},
@@ -1370,28 +2448,33 @@ setlistener("sim/signals/fdm-initialized", func {
 	});
 	lowerECAM_display.addPlacement({"node": "lecam.screen"});
 	var groupApu = lowerECAM_display.createGroup();
+	var groupBleed = lowerECAM_display.createGroup();
+	var groupCond = lowerECAM_display.createGroup();
 	var groupDoor = lowerECAM_display.createGroup();
+	var groupElec = lowerECAM_display.createGroup();
 	var groupEng = lowerECAM_display.createGroup();
 	var groupFctl = lowerECAM_display.createGroup();
+	var groupFuel = lowerECAM_display.createGroup();
+	var groupPress = lowerECAM_display.createGroup();
+	var groupHyd = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
 	var group_test = lowerECAM_display.createGroup();
 
 	lowerECAM_apu = canvas_lowerECAM_apu.new(groupApu, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/apu.svg");
+	lowerECAM_bleed = canvas_lowerECAM_bleed.new(groupBleed, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/bleed.svg");
+	lowerECAM_cond = canvas_lowerECAM_cond.new(groupCond, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/cond.svg");
 	lowerECAM_door = canvas_lowerECAM_door.new(groupDoor, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/door.svg");
-	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng-eis2.svg");
+	lowerECAM_elec = canvas_lowerECAM_elec.new(groupElec, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/elec.svg");
+	lowerECAM_eng = canvas_lowerECAM_eng.new(groupEng, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/eng.svg");
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
+	lowerECAM_fuel = canvas_lowerECAM_fuel.new(groupFuel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fuel.svg");
+	lowerECAM_press = canvas_lowerECAM_press.new(groupPress, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/press.svg");
+	lowerECAM_hyd = canvas_lowerECAM_hyd.new(groupHyd, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/hyd.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
 	lowerECAM_test = canvas_lowerECAM_test.new(group_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");
 	
 	lowerECAM_update.start();
-	if (getprop("/systems/acconfig/options/lecam-rate") > 1) {
-		l_rateApply();
-	}
 });
-
-var l_rateApply = func {
-	lowerECAM_update.restart(0.05 * getprop("/systems/acconfig/options/lecam-rate"));
-}
 
 var lowerECAM_update = maketimer(0.05, func {
 	canvas_lowerECAM_base.update();

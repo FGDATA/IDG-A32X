@@ -1,5 +1,6 @@
 # A3XX Electrical System
 # Joshua Davidson (it0uchpods) and Jonathan Redpath (legoboyvdlp)
+# Some parts are in JSBsim system!
 
 ##############################################
 # Copyright (c) Joshua Davidson (it0uchpods) #
@@ -137,13 +138,13 @@ var fctlpoweruptest = func {
 		setprop("/systems/failures/sec1", 1);
 		setprop("/systems/electrical/battery-available", 1);
 		setprop("/systems/electrical/elac1-test", 1);
-		settimer(func(){
+		settimer(func() {
 			setprop("/systems/failures/elac1-fault", 0);
 			setprop("/systems/electrical/elac1-test", 0);
-		},8);
-		settimer(func(){
+		}, 8);
+		settimer(func() {
 			setprop("/systems/failures/sec1", 0);
-		},8.5);
+		}, 8.5);
 	}
 	
 	gen1_sw = getprop("/controls/electrical/switches/gen1");
@@ -155,14 +156,12 @@ var fctlpoweruptest = func {
 		setprop("/systems/failures/elac2-fault", 1);
 		setprop("/systems/electrical/dc2-available", 1);
 		setprop("/systems/electrical/elac2-test", 1);
-		settimer(func(){
+		settimer(func() {
 			setprop("/systems/failures/elac2-fault", 0);
 			setprop("/systems/electrical/elac2-test", 0);
-		},8);
+		}, 8);
 	}
 }
-
-
 
 # Main Elec System
 
@@ -204,6 +203,12 @@ var ELEC = {
 		setprop("/systems/electrical/extra/apu-volts", 0);
 		setprop("/systems/electrical/extra/gen1-volts", 0);
 		setprop("/systems/electrical/extra/gen2-volts", 0);
+		setprop("/systems/electrical/extra/gen1-load", 0);
+		setprop("/systems/electrical/extra/gen2-load", 0);
+		setprop("/systems/electrical/extra/tr1-volts", 0);
+		setprop("/systems/electrical/extra/tr2-volts", 0);
+		setprop("/systems/electrical/extra/tr1-amps", 0);
+		setprop("/systems/electrical/extra/tr2-amps", 0);
 		setprop("/systems/electrical/extra/ext-hz", 0);
 		setprop("/systems/electrical/extra/apu-hz", 0);
 		setprop("/systems/electrical/extra/galleyshed", 0);
