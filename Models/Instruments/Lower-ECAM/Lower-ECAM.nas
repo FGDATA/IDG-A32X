@@ -617,13 +617,13 @@ var canvas_lowerECAM_elec = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","UTCh","UTCm","BAT1-label","Bat1Volt","Bat1Ampere","BAT2-label","Bat2Volt","Bat2Ampere","BAT1-charge","BAT1-discharge","ELEC-Line-BAT1-DCBAT","BAT2-charge","BAT2-discharge","ELEC-Line-BAT2-DCBAT","ELEC-Line-DC1-DCBAT",
-		"ELEC-Line-DC1-DCESS","ELEC-Line-DC2-DCBAT","ELEC-Line-DC1-DCESS_DCBAT","ELEC-Line-DC2-DCESS_DCBAT","ELEC-Line-TR1-DC1","ELEC-Line-TR2-DC2","Shed-label","ELEC-Line-ESSTR-DCESS","TR1-label","TR1Volt","TR1Ampere","TR2-label","TR2Volt","TR2Ampere",
-		"EMERGEN-Box-on","EmergenVolt","EmergenHz","ELEC-Line-Emergen-ESSTR","EMERGEN-Label-off","EMERGEN-out","ELEC-Line-ACESS-TRESS","ELEC-Line-AC1-TR1","ELEC-Line-AC2-TR2","ELEC-Line-AC1-ACESS","ELEC-Line-AC2-ACESS","ACESS-SHED","ACESS","AC1-in","AC2-in",
-		"ELEC-Line-GEN1-AC1","ELEC-Line-GEN2-AC2","ELEC-Line-APU-AC1","ELEC-Line-APU-EXT","ELEC-Line-EXT-AC2","APU-out","EXT-out","EXTPWR-group","ExtVolt","ExtHz","APU-content","APU-border","APUGentext","APUGenLoad","APUGenVolt","APUGenHz","APUGEN-off",
-		"GEN1-label","Gen1Load","Gen1Volt","Gen1Hz","GEN2-label","Gen2Load","GEN2-off","Gen2Volt","Gen2Hz","ELEC-IDG-1-label","ELEC-IDG-1-Temp","IDG1-LOPR","IDG1-DISC","IDG1-RISE-Value","IDG1-RISE-label","GalleyShed","ELEC-IDG-2-Temp","ELEC-IDG-2-label",
-		"IDG2-RISE-label","IDG2-RISE-Value","IDG2-LOPR","IDG2-DISC","ESSTR-group","ESSTR-Volt","ESSTR-Ampere","BAT1-content","BAT2-content","BAT1-OFF","BAT2-OFF","GEN1-content","GEN2-content","GEN-1-num-label","GEN-2-num-label","GEN1-off","GEN2-off",
-		"GEN1-num-label","GEN2-num-label","EXTPWR-label","ELEC-ACESS-SHED-label","ELEC-DCBAT-label","ELEC-DCESS-label","ELEC-DC2-label","ELEC-DC1-label","ELEC-AC1-label","ELEC-AC2-label","ELEC-ACESS-label"];
+		return ["TAT","SAT","GW","UTCh","UTCm","BAT1-label","Bat1Volt","Bat1Ampere","BAT2-label","Bat2Volt","Bat2Ampere","BAT1-charge","BAT1-discharge","BAT2-charge","BAT2-discharge","ELEC-Line-DC1-DCBAT","ELEC-Line-DC1-DCESS","ELEC-Line-DC2-DCBAT",
+		"ELEC-Line-DC1-DCESS_DCBAT","ELEC-Line-DC2-DCESS_DCBAT","ELEC-Line-TR1-DC1","ELEC-Line-TR2-DC2","Shed-label","ELEC-Line-ESSTR-DCESS","TR1-label","TR1Volt","TR1Ampere","TR2-label","TR2Volt","TR2Ampere","EMERGEN-Box-on","EmergenVolt","EmergenHz",
+		"ELEC-Line-Emergen-ESSTR","EMERGEN-Label-off","EMERGEN-out","ELEC-Line-ACESS-TRESS","ELEC-Line-AC1-TR1","ELEC-Line-AC2-TR2","ELEC-Line-AC1-ACESS","ELEC-Line-AC2-ACESS","ACESS-SHED","ACESS","AC1-in","AC2-in","ELEC-Line-GEN1-AC1","ELEC-Line-GEN2-AC2",
+		"ELEC-Line-APU-AC1","ELEC-Line-APU-EXT","ELEC-Line-EXT-AC2","APU-out","EXT-out","EXTPWR-group","ExtVolt","ExtHz","APU-content","APU-border","APUGentext","APUGenLoad","APUGenVolt","APUGenHz","APUGEN-off","GEN1-label","Gen1Load","Gen1Volt","Gen1Hz",
+		"GEN2-label","Gen2Load","GEN2-off","Gen2Volt","Gen2Hz","ELEC-IDG-1-label","ELEC-IDG-1-Temp","IDG1-LOPR","IDG1-DISC","IDG1-RISE-Value","IDG1-RISE-label","GalleyShed","ELEC-IDG-2-Temp","ELEC-IDG-2-label","IDG2-RISE-label","IDG2-RISE-Value","IDG2-LOPR",
+		"IDG2-DISC","ESSTR-group","ESSTR-Volt","ESSTR-Ampere","BAT1-content","BAT2-content","BAT1-OFF","BAT2-OFF","GEN1-content","GEN2-content","GEN-1-num-label","GEN-2-num-label","GEN1-off","GEN2-off","GEN1-num-label","GEN2-num-label","EXTPWR-label",
+		"ELEC-ACESS-SHED-label","ELEC-DCBAT-label","ELEC-DCESS-label","ELEC-DC2-label","ELEC-DC1-label","ELEC-AC1-label","ELEC-AC2-label","ELEC-ACESS-label"];
 	},
 	update: func() {
 
@@ -633,7 +633,6 @@ var canvas_lowerECAM_elec = {
 			me["BAT1-content"].hide();
 			me["BAT1-discharge"].hide();
 			me["BAT1-charge"].hide();
-			me["ELEC-Line-BAT1-DCBAT"].hide();
 		} else {
 			me["BAT1-OFF"].hide();
 			me["BAT1-content"].show();
@@ -654,7 +653,6 @@ var canvas_lowerECAM_elec = {
 
 			# TODO add correct charge/dischare behaviour
 			# this is only temporary
-			me["ELEC-Line-BAT1-DCBAT"].show();
 			me["BAT1-discharge"].hide();
 			me["BAT1-charge"].hide();
 		}
@@ -671,7 +669,6 @@ var canvas_lowerECAM_elec = {
 			me["BAT2-content"].hide();
 			me["BAT2-discharge"].hide();
 			me["BAT2-charge"].hide();
-			me["ELEC-Line-BAT2-DCBAT"].hide();
 		} else {
 			me["BAT2-OFF"].hide();
 			me["BAT2-content"].show();
@@ -691,7 +688,6 @@ var canvas_lowerECAM_elec = {
 			}
 			# TODO add correct charge/dischare behaviour
 			# this is only temporary
-			me["ELEC-Line-BAT2-DCBAT"].show();
 			me["BAT2-discharge"].hide();
 			me["BAT2-charge"].hide();
 		}
