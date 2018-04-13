@@ -1892,10 +1892,35 @@ var canvas_lowerECAM_hyd = {
 
 		if (getprop("/controls/hydraulic/ptu") == 1 and getprop("/systems/hydraulic/ptu-fault") == 0) {
 			me["PTU-connection"].setColor(0.0509,0.7529,0.2941);
-			me["PTU-Auto-or-off"].setColor(0.0509,0.7529,0.2941);
+
+			if (getprop("/systems/hydraulic/ptu-active") == 1) {
+				if (getprop("/systems/hydraulic/ptu-supplies") == "yellow") {
+					print("if");
+					me["PTU-Supply-Line"].show();
+					me["PTU-supply-yellow"].show();
+					me["PTU-supply-green"].hide();
+					me["PTU-Auto-or-off"].hide();
+				} else if (getprop("/systems/hydraulic/ptu-supplies") == "green") {
+					print("else if");
+					me["PTU-Supply-Line"].show();
+					me["PTU-supply-yellow"].hide();
+					me["PTU-supply-green"].show();
+					me["PTU-Auto-or-off"].hide();
+				}
+			} else {
+				me["PTU-Auto-or-off"].setColor(0.0509,0.7529,0.2941);
+				me["PTU-Supply-Line"].hide();
+				me["PTU-supply-yellow"].hide();
+				me["PTU-supply-green"].hide();
+				me["PTU-Auto-or-off"].show();
+			}
 		} else {
 			me["PTU-connection"].setColor(0.7333,0.3803,0);
 			me["PTU-Auto-or-off"].setColor(0.7333,0.3803,0);
+			me["PTU-Supply-Line"].hide();
+			me["PTU-supply-yellow"].hide();
+			me["PTU-supply-green"].hide();
+			me["PTU-Auto-or-off"].show();
 		}
 
 		if (getprop("/engines/engine[0]/n2-actual") >= 59) {
@@ -1972,22 +1997,96 @@ var canvas_lowerECAM_hyd = {
 		} else {
 			me["ELEC-Yellow-on"].show();
 			me["ELEC-Yellow-off"].hide();
+			if (getprop("/systems/hydraulic/yellow-psi") >= 1500) {
+				me["ELEC-Yellow-on"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["ELEC-Yellow-on"].setColor(0.7333,0.3803,0);
+			}
 		}
 
-		# hiding elements which have no props in the tree yet and doesn't suite in in normal ops
-		# TODO add these when they are in the prop tree
-		me["LO-AIR-PRESS-Green"].hide();
-		me["LO-AIR-PRESS-Blue"].hide();
-		me["LO-AIR-PRESS-Yellow"].hide();
-		me["ELEC-OVHT-Yellow"].hide();
-		me["ELEC-OVHT-Blue"].hide();
-		me["RAT-not-stowed"].hide();
-		me["PTU-Supply-Line"].hide();
-		me["PTU-supply-yellow"].hide();
-		me["PTU-supply-green"].hide();
-		me["OVHT-Yellow"].hide();
-		me["OVHT-Green"].hide();
-		me["OVHT-Blue"].hide();
+		if (getprop("/systems/hydraulic/yellow-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Yellow"].show();
+		} else {
+			me["LO-AIR-PRESS-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/blue-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Blue"].show();
+		} else {
+			me["LO-AIR-PRESS-Blue"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/green-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Green"].show();
+		} else {
+			me["LO-AIR-PRESS-Green"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/elec-pump-yellow-ovht") == 1) {
+			me["ELEC-OVHT-Yellow"].show();
+		} else {
+			me["ELEC-OVHT-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/elec-pump-blue-ovht") == 1) {
+			me["ELEC-OVHT-Blue"].show();
+		} else {
+			me["ELEC-OVHT-Blue"].hide();
+		}
+
+		if (getprop("/controls/hydraulic/rat-deployed") == 1) {
+			me["RAT-stowed"].hide();
+			me["RAT-not-stowed"].show();
+		} else {
+			me["RAT-stowed"].show();
+			me["RAT-not-stowed"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/yellow-resv-ovht") == 1) {
+			me["OVHT-Yellow"].show();
+		} else {
+			me["OVHT-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/blue-resv-ovht") == 1) {
+			me["OVHT-Green"].show();
+		} else {
+			me["OVHT-Green"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/green-resv-ovht") == 1) {
+			me["OVHT-Blue"].show();
+		} else {
+			me["OVHT-Blue"].hide();
+		}
+
+		if (getprop("/systems/electrical/bus/ac1") > 110) {
+			me["ELEC-Blue-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["ELEC-Blue-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/ac2") > 110) {
+			me["ELEC-Yellow-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["ELEC-Yellow-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/hydraulic/yellow-fire-valve") == 1) {
+			me["Fire-Valve-Yellow"].setColor(0.7333,0.3803,0);
+			me["Fire-Valve-Yellow"].setRotation(90 * D2R)
+		} else {
+			me["Fire-Valve-Yellow"].setColor(0.0509,0.7529,0.2941);
+			me["Fire-Valve-Yellow"].setRotation(0)
+		}
+		
+		if (getprop("/systems/hydraulic/green-fire-valve") == 1) {
+			me["Fire-Valve-Green"].setColor(0.7333,0.3803,0);
+			me["Fire-Valve-Green"].setRotation(90 * D2R)
+		} else {
+			me["Fire-Valve-Green"].setColor(0.0509,0.7529,0.2941);
+			me["Fire-Valve-Green"].setRotation(0)
+		}
 		
 		me.updateBottomStatus();
 	},
