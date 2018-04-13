@@ -11,6 +11,7 @@ var ac_volt_min = 110;
 var dc_volt_std = 28;
 var dc_volt_min = 25;
 var dc_amps_std = 150;
+var tr_amps_std = 55;
 var ac_hz_std = 400;
 var ac1_src = "XX";
 var ac2_src = "XX";
@@ -397,55 +398,85 @@ var ELEC = {
 		if (stateL == 3 and gen1_sw and !gen1_fail) {
 			setprop("/systems/electrical/bus/dc1", dc_volt_std);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr1-amps", tr_amps_std);
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc1", dc_volt_std);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr1-amps", tr_amps_std);
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc1", dc_volt_std);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr1-amps", tr_amps_std);
 		} else if (apu_ext_crosstie_sw == 1 and xtieL) {
 			setprop("/systems/electrical/bus/dc1", dc_volt_std);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc1-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr1-amps", tr_amps_std);
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", 0);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
+			setprop("/systems/electrical/extra/tr1-amps", 0);
 		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
+			setprop("/systems/electrical/extra/tr1-volts", 0);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
+			setprop("/systems/electrical/extra/tr1-amps", 0);
 		} else {
 			setprop("/systems/electrical/bus/dc1", 0);
+			setprop("/systems/electrical/extra/tr1-volts", 0);
 			setprop("/systems/electrical/bus/dc1-amps", 0); 
+			setprop("/systems/electrical/extra/tr1-amps", 0); 
 			setprop("/systems/electrical/bus/dc-ess", 0);
 		}
 		
 		# Right DC bus yes?
 		if (stateR == 3 and gen2_sw and !gen2_fail) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
+			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
+			
+			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
+			
+			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (apu_ext_crosstie_sw == 1  and xtieR) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
+			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
+			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (emergen) {
 			setprop("/systems/electrical/bus/dc2", 0);
+			setprop("/systems/electrical/extra/tr2-volts", 0);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
+			setprop("/systems/electrical/extra/tr2-amps", 0);
 		} else if (dcbat and ias >= 50) {
 			setprop("/systems/electrical/bus/dc2", 0);
+			setprop("/systems/electrical/extra/tr2-volts", 0);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
+			setprop("/systems/electrical/extra/tr2-amps", 0);
 		} else {
 			setprop("/systems/electrical/bus/dc2", 0);
+			setprop("/systems/electrical/extra/tr2-volts", 0);
 			setprop("/systems/electrical/bus/dc2-amps", 0); 
+			setprop("/systems/electrical/extra/tr2-amps", 0);
 		}
 		
 		# Left AC bus yes?
