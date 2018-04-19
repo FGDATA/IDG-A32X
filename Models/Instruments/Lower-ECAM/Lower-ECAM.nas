@@ -469,10 +469,267 @@ var canvas_lowerECAM_bleed = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","UTCh","UTCm"];
+		return ["TAT","SAT","GW","UTCh","UTCm", "BLEED-XFEED", "BLEED-Ram-Air", "BLEED-APU", "BLEED-HP-Valve-1",
+		"BLEED-ENG-1", "BLEED-HP-Valve-2", "BLEED-ENG-2", "BLEED-Precooler-1-Inlet-Press", "BLEED-Precooler-1-Outlet-Temp",
+		"BLEED-Precooler-2-Inlet-Press", "BLEED-Precooler-2-Outlet-Temp", "BLEED-ENG-1-label", "BLEED-ENG-2-label",
+		"BLEED-GND", "BLEED-Pack-1-Flow-Valve", "BLEED-Pack-2-Flow-Valve", "BLEED-Pack-1-Out-Temp",
+		"BLEED-Pack-1-Comp-Out-Temp", "BLEED-Pack-1-Packflow-needel", "BLEED-Pack-1-Bypass-needel", "BLEED-Pack-2-Out-Temp",
+		"BLEED-Pack-2-Bypass-needel", "BLEED-Pack-2-Comp-Out-Temp", "BLEED-Pack-2-Packflow-needel", "BLEED-Anti-Ice-Left",
+		"BLEED-Anti-Ice-Right", "BLEED-HP-2-connection", "BLEED-HP-1-connection", "BLEED-ANTI-ICE-ARROW-LEFT", "BLEED-ANTI-ICE-ARROW-RIGHT"];
 	},
 	update: func() {
-		
+		# X BLEED
+		if (getprop("/systems/pneumatic/xbleed-state") == "transit") {
+			me["BLEED-XFEED"].setColor(0.7333,0.3803,0);
+			me["BLEED-XFEED"].setRotation(45 * D2R);
+		} else {
+			if (getprop("/systems/pneumatic/xbleed-state") == "open") {
+				var xbleed_state = 1;
+			} else {
+				var xbleed_state = 0;
+			}
+
+			if (xbleed_state == 1) {
+				me["BLEED-XFEED"].setRotation(0);
+			} else {
+				me["BLEED-XFEED"].setRotation(90 * D2R);
+			}
+			if (xbleed_state == getprop("/systems/pneumatic/xbleed")) {
+				me["BLEED-XFEED"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["BLEED-XFEED"].setColor(0.7333,0.3803,0);
+			}
+		}
+
+		# HP valve 1
+		var hp_valve_state = getprop("/systems/pneumatic/hp-valve-1-state");
+
+		if (hp_valve_state == 1) {
+			me["BLEED-HP-Valve-1"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-HP-Valve-1"].setRotation(0);
+		}
+		if (hp_valve_state == getprop("/systems/pneumatic/hp-valve-1")) {
+			me["BLEED-HP-Valve-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-HP-Valve-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# HP valve 2
+		var hp_valve_state = getprop("/systems/pneumatic/hp-valve-2-state");
+
+		if (hp_valve_state == 1) {
+			me["BLEED-HP-Valve-2"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-HP-Valve-2"].setRotation(0);
+		}
+		if (hp_valve_state == getprop("/systems/pneumatic/hp-valve-2")) {
+			me["BLEED-HP-Valve-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-HP-Valve-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG BLEED valve 1
+		var eng_valve_state = getprop("/systems/pneumatic/eng-valve-1-state");
+
+		if (eng_valve_state == 1) {
+			me["BLEED-ENG-1"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-ENG-1"].setRotation(0);
+		}
+		if (eng_valve_state == getprop("/systems/pneumatic/eng-valve-1")) {
+			me["BLEED-ENG-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-ENG-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG BLEED valve 2
+		var eng_valve_state = getprop("/systems/pneumatic/eng-valve-2-state");
+
+		if (eng_valve_state == 1) {
+			me["BLEED-ENG-2"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-ENG-2"].setRotation(0);
+		}
+		if (eng_valve_state == getprop("/systems/pneumatic/eng-valve-2")) {
+			me["BLEED-ENG-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-ENG-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# Precooler inlet 1
+		var precooler_psi = getprop("/systems/pneumatic/precooler-1-psi");
+		me["BLEED-Precooler-1-Inlet-Press"].setText(sprintf("%s", math.round(precooler_psi)));
+		if (precooler_psi < 4 or precooler_psi > 57) {
+			me["BLEED-Precooler-1-Inlet-Press"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-1-Inlet-Press"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler inlet 2
+		var precooler_psi = getprop("/systems/pneumatic/precooler-2-psi");
+		me["BLEED-Precooler-2-Inlet-Press"].setText(sprintf("%s", math.round(precooler_psi)));
+		if (precooler_psi < 4 or precooler_psi > 57) {
+			me["BLEED-Precooler-2-Inlet-Press"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-2-Inlet-Press"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler outlet 1
+		var precooler_temp = getprop("/systems/pneumatic/precooler-1-temp");
+		me["BLEED-Precooler-1-Outlet-Temp"].setText(sprintf("%s", math.round(precooler_temp)));
+		if (precooler_temp < 150 or getprop("/systems/pneumatic/precooler-1-ovht")) {
+			me["BLEED-Precooler-1-Outlet-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-1-Outlet-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler outlet 2
+		var precooler_temp = getprop("/systems/pneumatic/precooler-2-temp");
+		me["BLEED-Precooler-2-Outlet-Temp"].setText(sprintf("%s", math.round(precooler_temp)));
+		if (precooler_temp < 150 or getprop("/systems/pneumatic/precooler-2-ovht") == 1) {
+			me["BLEED-Precooler-2-Outlet-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-2-Outlet-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# GND air
+		if (getprop("/velocities/groundspeed-kt") < 1) {
+			me["BLEED-GND"].show();
+		} else {
+			me["BLEED-GND"].hide();
+		}
+
+		# WING ANTI ICE
+		if (getprop("/controls/switches/wing") == 1) {
+			me["BLEED-Anti-Ice-Left"].show();
+			me["BLEED-Anti-Ice-Right"].show();
+			# TODO when seperated valves for left and right wing are implemented, do the following `if` and `else` clause for each wing.
+			if (getprop("/controls/deice/wing")) {
+				me["BLEED-ANTI-ICE-ARROW-LEFT"].show();
+				me["BLEED-ANTI-ICE-ARROW-RIGHT"].show();
+				if (getprop("/systems/pneumatic/total-psi") < 4 or getprop("/systems/pneumatic/total-psi") > 57) {
+					me["BLEED-ANTI-ICE-ARROW-LEFT"].setColor(0.7333,0.3803,0);
+					me["BLEED-ANTI-ICE-ARROW-RIGHT"].setColor(0.7333,0.3803,0);
+				} else {
+					me["BLEED-ANTI-ICE-ARROW-LEFT"].setColor(0.0509,0.7529,0.2941);
+					me["BLEED-ANTI-ICE-ARROW-RIGHT"].setColor(0.0509,0.7529,0.2941);
+				}
+			} else {
+				me["BLEED-ANTI-ICE-ARROW-LEFT"].hide();
+				me["BLEED-ANTI-ICE-ARROW-RIGHT"].hide();
+			}
+		} else {
+			me["BLEED-Anti-Ice-Left"].hide();
+			me["BLEED-Anti-Ice-Right"].hide();
+		}
+
+		# ENG 1 label
+		if (getprop("/engines/engine[0]/n2-actual") >= 59) {
+			me["BLEED-ENG-1-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["BLEED-ENG-1-label"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG 2 label
+		if (getprop("/engines/engine[1]/n2-actual") >= 59) {
+			me["BLEED-ENG-2-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["BLEED-ENG-2-label"].setColor(0.7333,0.3803,0);
+		}
+
+		# PACK 1 -----------------------------------------
+		me["BLEED-Pack-1-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-1-out-temp")));
+		me["BLEED-Pack-1-Comp-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-1-comp-out-temp")));
+
+		if (getprop("/systems/pressurization/pack-1-out-temp") > 90) {
+			me["BLEED-Pack-1-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var bypass_pos = getprop("/systems/pressurization/pack-1-bypass") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		bypass_pos = bypass_pos * D2R;
+		me["BLEED-Pack-1-Bypass-needel"].setRotation(bypass_pos);
+
+		if (getprop("/systems/pressurization/pack-1-comp-out-temp") > 230) {
+			me["BLEED-Pack-1-Comp-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Comp-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var flow_pos = getprop("/systems/pressurization/pack-1-flow") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		flow_pos = flow_pos * D2R;
+		me["BLEED-Pack-1-Packflow-needel"].setRotation(flow_pos);
+
+		if (getprop("/systems/pressurization/pack-1-valve") == 0) {
+			me["BLEED-Pack-1-Packflow-needel"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Packflow-needel"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		if (getprop("/systems/pressurization/pack-1-valve") == 1) {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		var pack_state = getprop("/systems/pressurization/pack-1-valve");
+		if (pack_state == 1) {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		if (pack_state == getprop("/controls/pneumatic/switches/pack1")) {
+			me["BLEED-Pack-1-Flow-Valve"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-Pack-1-Flow-Valve"].setColor(0.7333,0.3803,0);
+		}
+
+		# PACK 2 -----------------------------------------
+		me["BLEED-Pack-2-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-2-out-temp")));
+		me["BLEED-Pack-2-Comp-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-2-comp-out-temp")));
+
+		if (getprop("/systems/pressurization/pack-2-out-temp") > 90) {
+			me["BLEED-Pack-2-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var bypass_pos = getprop("/systems/pressurization/pack-2-bypass") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		bypass_pos = bypass_pos * D2R;
+		me["BLEED-Pack-2-Bypass-needel"].setRotation(bypass_pos);
+
+		if (getprop("/systems/pressurization/pack-2-comp-out-temp") > 230) {
+			me["BLEED-Pack-2-Comp-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Comp-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var flow_pos = getprop("/systems/pressurization/pack-2-flow") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		flow_pos = flow_pos * D2R;
+		me["BLEED-Pack-2-Packflow-needel"].setRotation(flow_pos);
+
+		if (getprop("/systems/pressurization/pack-2-valve") == 0) {
+			me["BLEED-Pack-2-Packflow-needel"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Packflow-needel"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var pack_state = getprop("/systems/pressurization/pack-2-valve");
+		if (pack_state == 1) {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		if (pack_state == getprop("/controls/pneumatic/switches/pack2")) {
+			me["BLEED-Pack-2-Flow-Valve"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setColor(0.7333,0.3803,0);
+		}
+
 		me.updateBottomStatus();
 	},
 };
