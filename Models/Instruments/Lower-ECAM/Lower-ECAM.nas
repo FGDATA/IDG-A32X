@@ -2093,7 +2093,7 @@ var canvas_lowerECAM_hyd = {
 	getKeys: func() {
 		return ["TAT","SAT","GW","UTCh","UTCm","Green-Indicator","Blue-Indicator","Yellow-Indicator","Press-Green","Press-Blue","Press-Yellow","Green-Line","Blue-Line","Yellow-Line","PTU-Supply-Line","PTU-supply-yellow","PTU-supply-green","PTU-connection",
 		"PTU-Auto-or-off","RAT-label","RAT-stowed","RAT-not-stowed","ELEC-Yellow-off","ELEC-Yellow-on","ELEC-Yellow-label","ELEC-OVTH-Yellow","ELEC-Blue-label","ELEC-OVHT-Blue","ELEC-OVHT-Yellow","Pump-Green-label","Pump-Yellow-label","Pump-Green",
-		"Pump-LOPR-Green","Pump-Green-off","Pump-Green-on","Pump-Yellow","Pump-LOPR-Yellow","Pump-Yellow-off","Pump-Yellow-on","Pump-Blue","Pump-LOPR-Blue","Pump-Blue-off","Pump-Blue-on","Fire-Valve-Green","Fire-Valve-Yellow","LO-AIR-PRESS-Green",
+		"Pump-LOPR-Green","Pump-Green-off","Pump-Green-on","Pump-Yellow","Pump-LOPR-Yellow","Pump-Yellow-off","Pump-Yellow-on","Pump-Blue", "Pump-Blue-off","Pump-Blue-on","Fire-Valve-Green","Fire-Valve-Yellow","LO-AIR-PRESS-Green",
 		"LO-AIR-PRESS-Yellow","LO-AIR-PRESS-Blue","OVHT-Green","OVHT-Blue","OVHT-Yellow","Quantity-Indicator-Green","Quantity-Indicator-Blue","Quantity-Indicator-Yellow","Green-label","Blue-label","Yellow-label"];
 	},
 	update: func() {
@@ -2194,7 +2194,7 @@ var canvas_lowerECAM_hyd = {
 
 		if (getprop("/controls/hydraulic/eng1-pump") == 1) {
 			me["Pump-Green-off"].hide();
-			if (yellow_psi >= 1500) {
+			if (green_psi >= 1500) {
 				me["Pump-Green-on"].show();
 				me["Pump-LOPR-Green"].hide();
 				me["Pump-Green"].setColor(0.0509,0.7529,0.2941);
@@ -2217,16 +2217,19 @@ var canvas_lowerECAM_hyd = {
 			if (yellow_psi >= 1500) {
 				me["Pump-Yellow-on"].show();
 				me["Pump-LOPR-Yellow"].hide();
+				me["Pump-Yellow"].setColorFill(0.0509,0.7529,0.2941);
 				me["Pump-Yellow"].setColor(0.0509,0.7529,0.2941);
 			} else {
 				me["Pump-Yellow-on"].hide();
 				me["Pump-LOPR-Yellow"].show();
+				me["Pump-Yellow"].setColorFill(0.7333,0.3803,0);
 				me["Pump-Yellow"].setColor(0.7333,0.3803,0);
 			}
 		} else {
 			me["Pump-Yellow-off"].show();
 			me["Pump-Yellow-on"].hide();
 			me["Pump-LOPR-Yellow"].hide();
+			me["Pump-Yellow"].setColorFill(0.7333,0.3803,0);
 			me["Pump-Yellow"].setColor(0.7333,0.3803,0);
 		}
 
@@ -2234,17 +2237,19 @@ var canvas_lowerECAM_hyd = {
 			me["Pump-Blue-off"].hide();
 			if (blue_psi >= 1500) {
 				me["Pump-Blue-on"].show();
-				me["Pump-LOPR-Blue"].hide();
+				me["Pump-Blue-off"].hide();
+				me["Pump-Blue"].setColorFill(0.0509,0.7529,0.2941);
 				me["Pump-Blue"].setColor(0.0509,0.7529,0.2941);
 			} else {
-				me["Pump-LOPR-Blue"].show();
+				me["Pump-Blue-off"].show();
 				me["Pump-Blue-on"].hide();
+				me["Pump-Blue"].setColorFill(0.7333,0.3803,0);
 				me["Pump-Blue"].setColor(0.7333,0.3803,0);
 			}
 		} else {
 			me["Pump-Blue-off"].show();
 			me["Pump-Blue-on"].hide();
-			me["Pump-LOPR-Blue"].hide();
+			me["Pump-Blue"].setColorFill(0.7333,0.3803,0);
 			me["Pump-Blue"].setColor(0.7333,0.3803,0);
 		}
 
