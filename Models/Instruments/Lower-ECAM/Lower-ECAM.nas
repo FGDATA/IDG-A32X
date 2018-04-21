@@ -2059,9 +2059,12 @@ var canvas_lowerECAM_press = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","UTCh","UTCm"];
+		return ["TAT","SAT","GW","UTCh","UTCm", "PRESS-Cab-VS", "PRESS-Cab-VS-neg", "PRESS-Cab-Alt"];
 	},
 	update: func() {
+		me["PRESS-Cab-VS"].setText(sprintf("%4.0f", getprop("/systems/pressurization/vs-norm")));
+		me["PRESS-Cab-Alt"].setText(sprintf("%4.0f", getprop("/systems/pressurization/cabinalt-norm")));
+		
 		
 		me.updateBottomStatus();
 	},
