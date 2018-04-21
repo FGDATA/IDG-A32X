@@ -78,6 +78,17 @@ var HYD = {
 		setprop("/systems/hydraulic/elec-pump-b-fault", 0);
 		setprop("/systems/hydraulic/elec-pump-y-fault", 0);
 		setprop("/systems/hydraulic/ptu-fault", 0);
+		setprop("/systems/hydraulic/ptu-supplies", "XX");
+		setprop("/systems/hydraulic/yellow-resv-lo-air-press", 0);
+		setprop("/systems/hydraulic/blue-resv-lo-air-press", 0);
+		setprop("/systems/hydraulic/green-resv-lo-air-press", 0);
+		setprop("/systems/hydraulic/yellow-resv-ovht", 0);
+		setprop("/systems/hydraulic/blue-resv-ovht", 0);
+		setprop("/systems/hydraulic/green-resv-ovht", 0);
+		setprop("/systems/hydraulic/elec-pump-yellow-ovht", 0);
+		setprop("/systems/hydraulic/elec-pump-blue-ovht", 0);
+		setprop("/systems/hydraulic/yellow-fire-valve", 0);
+		setprop("/systems/hydraulic/green-fire-valve", 0);
 	},
 	loop: func() {
 		eng1_pump_sw = getprop("/controls/hydraulic/eng1-pump");

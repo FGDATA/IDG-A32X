@@ -15,6 +15,7 @@ var lowerECAM_fctl = nil;
 var lowerECAM_fuel = nil;
 var lowerECAM_hyd = nil;
 var lowerECAM_press = nil;
+var lowerECAM_status = nil;
 var lowerECAM_wheel = nil;
 var lowerECAM_test = nil;
 var lowerECAM_display = nil;
@@ -124,6 +125,7 @@ var canvas_lowerECAM_base = {
 				lowerECAM_fctl.page.hide();
 				lowerECAM_fuel.page.hide();
 				lowerECAM_press.page.hide();
+				lowerECAM_status.page.hide();
 				lowerECAM_wheel.page.hide();
 				lowerECAM_test.page.show();
 				lowerECAM_test.update();
@@ -140,6 +142,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_apu.update();
@@ -153,6 +156,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_bleed.update();
@@ -166,6 +170,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_cond.update();
@@ -179,6 +184,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_door.update();
@@ -192,6 +198,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_elec.update();
@@ -205,6 +212,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_eng.update();
@@ -218,6 +226,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.show();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_fctl.update();
@@ -231,6 +240,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.show();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_fuel.update();
@@ -244,9 +254,24 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.show();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_press.update();
+				} else if (page == "sts") {
+					lowerECAM_apu.page.hide();
+					lowerECAM_bleed.page.hide();
+					lowerECAM_cond.page.hide();
+					lowerECAM_door.page.hide();
+					lowerECAM_elec.page.hide();
+					lowerECAM_eng.page.hide();
+					lowerECAM_fctl.page.hide();
+					lowerECAM_fuel.page.hide();
+					lowerECAM_press.page.hide();
+					lowerECAM_status.page.show();
+					lowerECAM_hyd.page.hide();
+					lowerECAM_wheel.page.hide();
+					lowerECAM_status.update();
 				} else if (page == "hyd") {
 					lowerECAM_apu.page.hide();
 					lowerECAM_bleed.page.hide();
@@ -257,6 +282,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.show();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_hyd.update();
@@ -270,6 +296,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.show();
 					lowerECAM_wheel.update();
@@ -283,6 +310,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
+					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
 				}
@@ -298,6 +326,7 @@ var canvas_lowerECAM_base = {
 			lowerECAM_fctl.page.hide();
 			lowerECAM_fuel.page.hide();
 			lowerECAM_press.page.hide();
+			lowerECAM_status.page.hide();
 			lowerECAM_hyd.page.hide();
 			lowerECAM_wheel.page.hide();
 		}
@@ -440,10 +469,267 @@ var canvas_lowerECAM_bleed = {
 		return m;
 	},
 	getKeys: func() {
-		return ["TAT","SAT","GW","UTCh","UTCm"];
+		return ["TAT","SAT","GW","UTCh","UTCm", "BLEED-XFEED", "BLEED-Ram-Air", "BLEED-APU", "BLEED-HP-Valve-1",
+		"BLEED-ENG-1", "BLEED-HP-Valve-2", "BLEED-ENG-2", "BLEED-Precooler-1-Inlet-Press", "BLEED-Precooler-1-Outlet-Temp",
+		"BLEED-Precooler-2-Inlet-Press", "BLEED-Precooler-2-Outlet-Temp", "BLEED-ENG-1-label", "BLEED-ENG-2-label",
+		"BLEED-GND", "BLEED-Pack-1-Flow-Valve", "BLEED-Pack-2-Flow-Valve", "BLEED-Pack-1-Out-Temp",
+		"BLEED-Pack-1-Comp-Out-Temp", "BLEED-Pack-1-Packflow-needel", "BLEED-Pack-1-Bypass-needel", "BLEED-Pack-2-Out-Temp",
+		"BLEED-Pack-2-Bypass-needel", "BLEED-Pack-2-Comp-Out-Temp", "BLEED-Pack-2-Packflow-needel", "BLEED-Anti-Ice-Left",
+		"BLEED-Anti-Ice-Right", "BLEED-HP-2-connection", "BLEED-HP-1-connection", "BLEED-ANTI-ICE-ARROW-LEFT", "BLEED-ANTI-ICE-ARROW-RIGHT"];
 	},
 	update: func() {
-		
+		# X BLEED
+		if (getprop("/systems/pneumatic/xbleed-state") == "transit") {
+			me["BLEED-XFEED"].setColor(0.7333,0.3803,0);
+			me["BLEED-XFEED"].setRotation(45 * D2R);
+		} else {
+			if (getprop("/systems/pneumatic/xbleed-state") == "open") {
+				var xbleed_state = 1;
+			} else {
+				var xbleed_state = 0;
+			}
+
+			if (xbleed_state == 1) {
+				me["BLEED-XFEED"].setRotation(0);
+			} else {
+				me["BLEED-XFEED"].setRotation(90 * D2R);
+			}
+			if (xbleed_state == getprop("/systems/pneumatic/xbleed")) {
+				me["BLEED-XFEED"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["BLEED-XFEED"].setColor(0.7333,0.3803,0);
+			}
+		}
+
+		# HP valve 1
+		var hp_valve_state = getprop("/systems/pneumatic/hp-valve-1-state");
+
+		if (hp_valve_state == 1) {
+			me["BLEED-HP-Valve-1"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-HP-Valve-1"].setRotation(0);
+		}
+		if (hp_valve_state == getprop("/systems/pneumatic/hp-valve-1")) {
+			me["BLEED-HP-Valve-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-HP-Valve-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# HP valve 2
+		var hp_valve_state = getprop("/systems/pneumatic/hp-valve-2-state");
+
+		if (hp_valve_state == 1) {
+			me["BLEED-HP-Valve-2"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-HP-Valve-2"].setRotation(0);
+		}
+		if (hp_valve_state == getprop("/systems/pneumatic/hp-valve-2")) {
+			me["BLEED-HP-Valve-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-HP-Valve-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG BLEED valve 1
+		var eng_valve_state = getprop("/systems/pneumatic/eng-valve-1-state");
+
+		if (eng_valve_state == 1) {
+			me["BLEED-ENG-1"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-ENG-1"].setRotation(0);
+		}
+		if (eng_valve_state == getprop("/systems/pneumatic/eng-valve-1")) {
+			me["BLEED-ENG-1"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-ENG-1"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG BLEED valve 2
+		var eng_valve_state = getprop("/systems/pneumatic/eng-valve-2-state");
+
+		if (eng_valve_state == 1) {
+			me["BLEED-ENG-2"].setRotation(90 * D2R);
+		} else {
+			me["BLEED-ENG-2"].setRotation(0);
+		}
+		if (eng_valve_state == getprop("/systems/pneumatic/eng-valve-2")) {
+			me["BLEED-ENG-2"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-ENG-2"].setColor(0.7333,0.3803,0);
+		}
+
+		# Precooler inlet 1
+		var precooler_psi = getprop("/systems/pneumatic/precooler-1-psi");
+		me["BLEED-Precooler-1-Inlet-Press"].setText(sprintf("%s", math.round(precooler_psi)));
+		if (precooler_psi < 4 or precooler_psi > 57) {
+			me["BLEED-Precooler-1-Inlet-Press"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-1-Inlet-Press"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler inlet 2
+		var precooler_psi = getprop("/systems/pneumatic/precooler-2-psi");
+		me["BLEED-Precooler-2-Inlet-Press"].setText(sprintf("%s", math.round(precooler_psi)));
+		if (precooler_psi < 4 or precooler_psi > 57) {
+			me["BLEED-Precooler-2-Inlet-Press"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-2-Inlet-Press"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler outlet 1
+		var precooler_temp = getprop("/systems/pneumatic/precooler-1-temp");
+		me["BLEED-Precooler-1-Outlet-Temp"].setText(sprintf("%s", math.round(precooler_temp)));
+		if (precooler_temp < 150 or getprop("/systems/pneumatic/precooler-1-ovht")) {
+			me["BLEED-Precooler-1-Outlet-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-1-Outlet-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# Precooler outlet 2
+		var precooler_temp = getprop("/systems/pneumatic/precooler-2-temp");
+		me["BLEED-Precooler-2-Outlet-Temp"].setText(sprintf("%s", math.round(precooler_temp)));
+		if (precooler_temp < 150 or getprop("/systems/pneumatic/precooler-2-ovht") == 1) {
+			me["BLEED-Precooler-2-Outlet-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Precooler-2-Outlet-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		# GND air
+		if (getprop("/velocities/groundspeed-kt") < 1) {
+			me["BLEED-GND"].show();
+		} else {
+			me["BLEED-GND"].hide();
+		}
+
+		# WING ANTI ICE
+		if (getprop("/controls/switches/wing") == 1) {
+			me["BLEED-Anti-Ice-Left"].show();
+			me["BLEED-Anti-Ice-Right"].show();
+			# TODO when seperated valves for left and right wing are implemented, do the following `if` and `else` clause for each wing.
+			if (getprop("/controls/deice/wing")) {
+				me["BLEED-ANTI-ICE-ARROW-LEFT"].show();
+				me["BLEED-ANTI-ICE-ARROW-RIGHT"].show();
+				if (getprop("/systems/pneumatic/total-psi") < 4 or getprop("/systems/pneumatic/total-psi") > 57) {
+					me["BLEED-ANTI-ICE-ARROW-LEFT"].setColor(0.7333,0.3803,0);
+					me["BLEED-ANTI-ICE-ARROW-RIGHT"].setColor(0.7333,0.3803,0);
+				} else {
+					me["BLEED-ANTI-ICE-ARROW-LEFT"].setColor(0.0509,0.7529,0.2941);
+					me["BLEED-ANTI-ICE-ARROW-RIGHT"].setColor(0.0509,0.7529,0.2941);
+				}
+			} else {
+				me["BLEED-ANTI-ICE-ARROW-LEFT"].hide();
+				me["BLEED-ANTI-ICE-ARROW-RIGHT"].hide();
+			}
+		} else {
+			me["BLEED-Anti-Ice-Left"].hide();
+			me["BLEED-Anti-Ice-Right"].hide();
+		}
+
+		# ENG 1 label
+		if (getprop("/engines/engine[0]/n2-actual") >= 59) {
+			me["BLEED-ENG-1-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["BLEED-ENG-1-label"].setColor(0.7333,0.3803,0);
+		}
+
+		# ENG 2 label
+		if (getprop("/engines/engine[1]/n2-actual") >= 59) {
+			me["BLEED-ENG-2-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["BLEED-ENG-2-label"].setColor(0.7333,0.3803,0);
+		}
+
+		# PACK 1 -----------------------------------------
+		me["BLEED-Pack-1-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-1-out-temp")));
+		me["BLEED-Pack-1-Comp-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-1-comp-out-temp")));
+
+		if (getprop("/systems/pressurization/pack-1-out-temp") > 90) {
+			me["BLEED-Pack-1-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var bypass_pos = getprop("/systems/pressurization/pack-1-bypass") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		bypass_pos = bypass_pos * D2R;
+		me["BLEED-Pack-1-Bypass-needel"].setRotation(bypass_pos);
+
+		if (getprop("/systems/pressurization/pack-1-comp-out-temp") > 230) {
+			me["BLEED-Pack-1-Comp-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Comp-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var flow_pos = getprop("/systems/pressurization/pack-1-flow") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		flow_pos = flow_pos * D2R;
+		me["BLEED-Pack-1-Packflow-needel"].setRotation(flow_pos);
+
+		if (getprop("/systems/pressurization/pack-1-valve") == 0) {
+			me["BLEED-Pack-1-Packflow-needel"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-1-Packflow-needel"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		if (getprop("/systems/pressurization/pack-1-valve") == 1) {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		var pack_state = getprop("/systems/pressurization/pack-1-valve");
+		if (pack_state == 1) {
+			me["BLEED-Pack-1-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		if (pack_state == getprop("/controls/pneumatic/switches/pack1")) {
+			me["BLEED-Pack-1-Flow-Valve"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-Pack-1-Flow-Valve"].setColor(0.7333,0.3803,0);
+		}
+
+		# PACK 2 -----------------------------------------
+		me["BLEED-Pack-2-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-2-out-temp")));
+		me["BLEED-Pack-2-Comp-Out-Temp"].setText(sprintf("%s", getprop("/systems/pressurization/pack-2-comp-out-temp")));
+
+		if (getprop("/systems/pressurization/pack-2-out-temp") > 90) {
+			me["BLEED-Pack-2-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var bypass_pos = getprop("/systems/pressurization/pack-2-bypass") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		bypass_pos = bypass_pos * D2R;
+		me["BLEED-Pack-2-Bypass-needel"].setRotation(bypass_pos);
+
+		if (getprop("/systems/pressurization/pack-2-comp-out-temp") > 230) {
+			me["BLEED-Pack-2-Comp-Out-Temp"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Comp-Out-Temp"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var flow_pos = getprop("/systems/pressurization/pack-2-flow") - 50; # `-50` cause the middel position from where we move the needel is at 50
+		flow_pos = flow_pos * D2R;
+		me["BLEED-Pack-2-Packflow-needel"].setRotation(flow_pos);
+
+		if (getprop("/systems/pressurization/pack-2-valve") == 0) {
+			me["BLEED-Pack-2-Packflow-needel"].setColor(0.7333,0.3803,0);
+		} else {
+			me["BLEED-Pack-2-Packflow-needel"].setColor(0.0509,0.7529,0.2941);
+		}
+
+		var pack_state = getprop("/systems/pressurization/pack-2-valve");
+		if (pack_state == 1) {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(0);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setRotation(90 * D2R);
+		}
+
+		if (pack_state == getprop("/controls/pneumatic/switches/pack2")) {
+			me["BLEED-Pack-2-Flow-Valve"].setColor(0.0509,0.7529,0.2941);
+		} else {
+			me["BLEED-Pack-2-Flow-Valve"].setColor(0.7333,0.3803,0);
+		}
+
 		me.updateBottomStatus();
 	},
 };
@@ -1781,6 +2067,22 @@ var canvas_lowerECAM_press = {
 	},
 };
 
+var canvas_lowerECAM_status = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvas_lowerECAM_status, canvas_lowerECAM_base]};
+		m.init(canvas_group, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["TAT","SAT","GW","UTCh","UTCm"];
+	},
+	update: func() {
+		
+		me.updateBottomStatus();
+	},
+};
+
 var canvas_lowerECAM_hyd = {
 	new: func(canvas_group, file) {
 		var m = {parents: [canvas_lowerECAM_hyd, canvas_lowerECAM_base]};
@@ -1847,10 +2149,35 @@ var canvas_lowerECAM_hyd = {
 
 		if (getprop("/controls/hydraulic/ptu") == 1 and getprop("/systems/hydraulic/ptu-fault") == 0) {
 			me["PTU-connection"].setColor(0.0509,0.7529,0.2941);
-			me["PTU-Auto-or-off"].setColor(0.0509,0.7529,0.2941);
+
+			if (getprop("/systems/hydraulic/ptu-active") == 1) {
+				if (getprop("/systems/hydraulic/ptu-supplies") == "yellow") {
+					print("if");
+					me["PTU-Supply-Line"].show();
+					me["PTU-supply-yellow"].show();
+					me["PTU-supply-green"].hide();
+					me["PTU-Auto-or-off"].hide();
+				} else if (getprop("/systems/hydraulic/ptu-supplies") == "green") {
+					print("else if");
+					me["PTU-Supply-Line"].show();
+					me["PTU-supply-yellow"].hide();
+					me["PTU-supply-green"].show();
+					me["PTU-Auto-or-off"].hide();
+				}
+			} else {
+				me["PTU-Auto-or-off"].setColor(0.0509,0.7529,0.2941);
+				me["PTU-Supply-Line"].hide();
+				me["PTU-supply-yellow"].hide();
+				me["PTU-supply-green"].hide();
+				me["PTU-Auto-or-off"].show();
+			}
 		} else {
 			me["PTU-connection"].setColor(0.7333,0.3803,0);
 			me["PTU-Auto-or-off"].setColor(0.7333,0.3803,0);
+			me["PTU-Supply-Line"].hide();
+			me["PTU-supply-yellow"].hide();
+			me["PTU-supply-green"].hide();
+			me["PTU-Auto-or-off"].show();
 		}
 
 		if (getprop("/engines/engine[0]/n2-actual") >= 59) {
@@ -1927,22 +2254,96 @@ var canvas_lowerECAM_hyd = {
 		} else {
 			me["ELEC-Yellow-on"].show();
 			me["ELEC-Yellow-off"].hide();
+			if (getprop("/systems/hydraulic/yellow-psi") >= 1500) {
+				me["ELEC-Yellow-on"].setColor(0.0509,0.7529,0.2941);
+			} else {
+				me["ELEC-Yellow-on"].setColor(0.7333,0.3803,0);
+			}
 		}
 
-		# hiding elements which have no props in the tree yet and doesn't suite in in normal ops
-		# TODO add these when they are in the prop tree
-		me["LO-AIR-PRESS-Green"].hide();
-		me["LO-AIR-PRESS-Blue"].hide();
-		me["LO-AIR-PRESS-Yellow"].hide();
-		me["ELEC-OVHT-Yellow"].hide();
-		me["ELEC-OVHT-Blue"].hide();
-		me["RAT-not-stowed"].hide();
-		me["PTU-Supply-Line"].hide();
-		me["PTU-supply-yellow"].hide();
-		me["PTU-supply-green"].hide();
-		me["OVHT-Yellow"].hide();
-		me["OVHT-Green"].hide();
-		me["OVHT-Blue"].hide();
+		if (getprop("/systems/hydraulic/yellow-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Yellow"].show();
+		} else {
+			me["LO-AIR-PRESS-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/blue-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Blue"].show();
+		} else {
+			me["LO-AIR-PRESS-Blue"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/green-resv-lo-air-press") == 1) {
+			me["LO-AIR-PRESS-Green"].show();
+		} else {
+			me["LO-AIR-PRESS-Green"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/elec-pump-yellow-ovht") == 1) {
+			me["ELEC-OVHT-Yellow"].show();
+		} else {
+			me["ELEC-OVHT-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/elec-pump-blue-ovht") == 1) {
+			me["ELEC-OVHT-Blue"].show();
+		} else {
+			me["ELEC-OVHT-Blue"].hide();
+		}
+
+		if (getprop("/controls/hydraulic/rat-deployed") == 1) {
+			me["RAT-stowed"].hide();
+			me["RAT-not-stowed"].show();
+		} else {
+			me["RAT-stowed"].show();
+			me["RAT-not-stowed"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/yellow-resv-ovht") == 1) {
+			me["OVHT-Yellow"].show();
+		} else {
+			me["OVHT-Yellow"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/blue-resv-ovht") == 1) {
+			me["OVHT-Green"].show();
+		} else {
+			me["OVHT-Green"].hide();
+		}
+
+		if (getprop("/systems/hydraulic/green-resv-ovht") == 1) {
+			me["OVHT-Blue"].show();
+		} else {
+			me["OVHT-Blue"].hide();
+		}
+
+		if (getprop("/systems/electrical/bus/ac1") > 110) {
+			me["ELEC-Blue-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["ELEC-Blue-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/electrical/bus/ac2") > 110) {
+			me["ELEC-Yellow-label"].setColor(0.8078,0.8039,0.8078);
+		} else {
+			me["ELEC-Yellow-label"].setColor(0.7333,0.3803,0);
+		}
+
+		if (getprop("/systems/hydraulic/yellow-fire-valve") == 1) {
+			me["Fire-Valve-Yellow"].setColor(0.7333,0.3803,0);
+			me["Fire-Valve-Yellow"].setRotation(90 * D2R)
+		} else {
+			me["Fire-Valve-Yellow"].setColor(0.0509,0.7529,0.2941);
+			me["Fire-Valve-Yellow"].setRotation(0)
+		}
+		
+		if (getprop("/systems/hydraulic/green-fire-valve") == 1) {
+			me["Fire-Valve-Green"].setColor(0.7333,0.3803,0);
+			me["Fire-Valve-Green"].setRotation(90 * D2R)
+		} else {
+			me["Fire-Valve-Green"].setColor(0.0509,0.7529,0.2941);
+			me["Fire-Valve-Green"].setRotation(0)
+		}
 		
 		me.updateBottomStatus();
 	},
@@ -2452,6 +2853,7 @@ setlistener("sim/signals/fdm-initialized", func {
 	var groupFctl = lowerECAM_display.createGroup();
 	var groupFuel = lowerECAM_display.createGroup();
 	var groupPress = lowerECAM_display.createGroup();
+	var groupStatus = lowerECAM_display.createGroup();
 	var groupHyd = lowerECAM_display.createGroup();
 	var groupWheel = lowerECAM_display.createGroup();
 	var group_test = lowerECAM_display.createGroup();
@@ -2465,6 +2867,7 @@ setlistener("sim/signals/fdm-initialized", func {
 	lowerECAM_fctl = canvas_lowerECAM_fctl.new(groupFctl, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fctl.svg");
 	lowerECAM_fuel = canvas_lowerECAM_fuel.new(groupFuel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/fuel.svg");
 	lowerECAM_press = canvas_lowerECAM_press.new(groupPress, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/press.svg");
+	lowerECAM_status = canvas_lowerECAM_status.new(groupStatus, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/status.svg");
 	lowerECAM_hyd = canvas_lowerECAM_hyd.new(groupHyd, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/hyd.svg");
 	lowerECAM_wheel = canvas_lowerECAM_wheel.new(groupWheel, "Aircraft/IDG-A32X/Models/Instruments/Lower-ECAM/res/wheel.svg");
 	lowerECAM_test = canvas_lowerECAM_test.new(group_test, "Aircraft/IDG-A32X/Models/Instruments/Common/res/du-test.svg");

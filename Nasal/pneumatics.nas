@@ -107,6 +107,7 @@ var PNEU = {
 		setprop("/systems/pneumatic/pack1-fault", 0);
 		setprop("/systems/pneumatic/pack2-fault", 0);
 		setprop("/systems/pneumatic/xbleed", 0);
+		setprop("/systems/pneumatic/xbleed-state", "closed");
 		setprop("/systems/pneumatic/starting", 0);
 		setprop("/FMGC/internal/dep-arpt", "");
 		altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
@@ -130,6 +131,16 @@ var PNEU = {
 		setprop("/systems/pressurization/ambientpsi", "0");
 		setprop("/systems/pressurization/cabinpsi", "0");
 		setprop("/systems/pressurization/manvs-cmd", "0");
+		setprop("/systems/pressurization/pack-1-out-temp", 0);
+		setprop("/systems/pressurization/pack-2-out-temp", 0);
+		setprop("/systems/pressurization/pack-1-bypass", 0);
+		setprop("/systems/pressurization/pack-2-bypass", 0);
+		setprop("/systems/pressurization/pack-1-flow", 0);
+		setprop("/systems/pressurization/pack-2-flow", 0);
+		setprop("/systems/pressurization/pack-1-comp-out-temp", 0);
+		setprop("/systems/pressurization/pack-2-comp-out-temp", 0);
+		setprop("/systems/pressurization/pack-1-valve", 0);
+		setprop("/systems/pressurization/pack-2-valve", 0);
 		setprop("/systems/ventilation/cabin/fans", 0); # aircon fans
 		setprop("/systems/ventilation/avionics/fan", 0);
 		setprop("/systems/ventilation/avionics/extractvalve", "0");
@@ -142,6 +153,20 @@ var PNEU = {
 		setprop("/controls/oxygen/masksDeployMan", 0);
 		setprop("/controls/oxygen/masksReset", 0); # this is the TMR RESET pb on the maintenance panel, needs 3D model
 		setprop("/controls/oxygen/masksSys", 0);
+		setprop("/systems/pneumatic/hp-valve-1-state", 0);
+		setprop("/systems/pneumatic/hp-valve-2-state", 0);
+		setprop("/systems/pneumatic/hp-valve-1", 0);
+		setprop("/systems/pneumatic/hp-valve-2", 0);
+		setprop("/systems/pneumatic/eng-valve-1-state", 0);
+		setprop("/systems/pneumatic/eng-valve-2-state", 0);
+		setprop("/systems/pneumatic/eng-valve-1", 0);
+		setprop("/systems/pneumatic/eng-valve-2", 0);
+		setprop("/systems/pneumatic/precooler-1-psi", 0);
+		setprop("/systems/pneumatic/precooler-2-psi", 0);
+		setprop("/systems/pneumatic/precooler-1-temp", 0);
+		setprop("/systems/pneumatic/precooler-2-temp", 0);
+		setprop("/systems/pneumatic/precooler-1-ovht", 0);
+		setprop("/systems/pneumatic/precooler-2-ovht", 0);
 	},
 	loop: func() {
 		bleed1_sw = getprop("/controls/pneumatic/switches/bleed1");

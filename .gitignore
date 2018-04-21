@@ -1,6 +1,9 @@
-#ignore generated backup files
+# ignore generated backup files
 *.*~
 .*~
 MyDevWIP
 SHS
 AKV.*
+# ignore swap files
+*.swp
+*.swo
