@@ -657,20 +657,6 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>0.15</gain>
-		<enable>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-		</enable>
 		<input>
 			<property>/orientation/pitch-deg</property>
 		</input>
@@ -678,7 +664,7 @@
 			<property>/it-autoflight/internal/target-pitch-deg</property>
 		</reference>
 		<output>
-			<property>/it-autoflight/internal/elevator-cmd</property> <!-- Inputs to the FBW Pitch Rate -->
+			<property>/fdm/jsbsim/fbw/fmgc/pitch-cmd</property> <!-- Inputs to the FBW Pitch Rate -->
 		</output>
 		<min>-0.3</min>
 		<max>0.3</max>
