@@ -1153,7 +1153,7 @@
 			</test>
 		</switch>
 		
-		<pid name="fbw/roll/tc-pid-v">
+		<pid name="fbw/yaw/tc-pid-v">
 			<input>fbw/yaw/slip-skid</input>
 			<kp>fbw/yaw/tc-p-gain</kp>
 			<ki>fbw/yaw/tc-i-gain</ki>
