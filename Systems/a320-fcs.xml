@@ -131,20 +131,6 @@
 			</function>
 		</fcs_function>
 		
-		<kinematic name="fbw/pitch/p-gain-k">
-			<input>fbw/pitch/p-gain</input>
-			<traverse>
-				<setting>
-					<position>0</position>
-					<time>0</time>
-				</setting>
-				<setting>
-					<position>50</position>
-					<time>1.5</time>
-				</setting>
-			</traverse>
-		</kinematic>
-		
 		<fcs_function name="fbw/pitch/i-gain">
 			<function>
 				<table>
@@ -752,7 +738,7 @@
 		</fcs_function>
 		
 		<switch name="fbw/pitch/a-n-IaN">
-			<default value="1"/>
+			<default value="0"/>
 			<test logic="AND" value="fbw/pitch/a-n">
 				fbw/pitch/a-n lt  30
 				fbw/pitch/a-n gt -30
@@ -943,7 +929,7 @@
 		
 		<pid name="fbw/pitch/pid-v">
 			<input>fbw/pitch/rate-error</input>
-			<kp>fbw/pitch/p-gain-k</kp>
+			<kp>fbw/pitch/p-gain</kp>
 			<ki>fbw/pitch/i-gain</ki>
 			<kd>fbw/pitch/d-gain</kd>
 			<trigger>fbw/pitch/trigger</trigger>

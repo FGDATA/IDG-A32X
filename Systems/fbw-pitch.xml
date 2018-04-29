@@ -15,26 +15,6 @@
 	<pi-simple-controller>
 		<name>FBW PITCH G PI</name>
 		<debug>false</debug>
-		<enable>
-			<condition>
-				<and>
-					<equals>
-						<property>/fdm/jsbsim/position/wow</property>
-						<value>0</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/it-fbw/law</property>
-							<value>1</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-		</enable>
 		<input>
 			<property>/fdm/jsbsim/fbw/pitch/g-error</property>
 		</input>
@@ -46,7 +26,28 @@
 		</output>
 		<config>
 			<Kp>-1.5</Kp>
-			<Ki>-1.5</Ki>
+			<Ki>
+				<condition>
+					<and>
+						<equals>
+							<property>/fdm/jsbsim/position/wow</property>
+							<value>0</value>
+						</equals>
+						<or>
+							<equals>
+								<property>/it-fbw/law</property>
+								<value>0</value>
+							</equals>
+							<equals>
+								<property>/it-fbw/law</property>
+								<value>1</value>
+							</equals>
+						</or>
+					</and>
+				</condition>
+				<value>-1.5</value>
+			</Ki>
+			<Ki>0.0</Ki>
 			<min>
 				<condition>
 					<less-than>
