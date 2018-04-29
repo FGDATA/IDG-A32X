@@ -165,9 +165,9 @@
 					<independentVar lookup="row">velocities/mach</independentVar>
 					<independentVar lookup="column">fbw/yaw/gain-switch</independentVar>
 					<tableData>
-						     0     1
-						0.2 -10.5  0.0
-						0.9  -2.5  0.0
+						     0    1
+						0.2 -7.5  0.0
+						0.9 -1.5  0.0
 					</tableData>
 				</table>
 			</function>
