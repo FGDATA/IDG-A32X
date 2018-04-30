@@ -4356,9 +4356,8 @@
 						</or>
 					</and>
 				</condition>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>systems/pressurization/ditchingpb</property>
-				<value>1</value>
 			</binding>
 			<binding>
 				<condition>
