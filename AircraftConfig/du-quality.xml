@@ -10,14 +10,14 @@
 
 <PropertyList>
 
-	<name>aircraft-config-du-framerate</name>
+	<name>aircraft-config-du-quality</name>
 	<layout>vbox</layout>
 	
 	<group>
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>DU Framerate</label>
+			<label>DU Quality</label>
 		</text>
 		<button>
 			<halign>right</halign>
@@ -49,7 +49,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>Here you can adjust the framerate of the Display Units. 1 = Best Quality, 5 = Best Performance</label>
+			<label>Here you can adjust the quality of the Display Units. 1 = Best Quality, 5 = Best Performance</label>
 		</text>
 		
 		<group>
