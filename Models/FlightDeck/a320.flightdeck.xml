@@ -4932,10 +4932,28 @@
 	</animation>
 
 	<animation>
+		<type>rotate</type>
+		<object-name>SpdBrk</object-name>
+		<property>controls/flight/speedbrake-lever</property>
+		<factor>-60</factor>
+		<offset-deg>28</offset-deg>
+		<center>
+			<x-m>0.103496</x-m>
+			<y-m>-0.080651</y-m>
+			<z-m>-0.143532</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>0.052</factor>
+		<factor>0.050</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -4947,11 +4965,23 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-arm</property>
-		<factor>-0.005</factor>
+		<factor>-0.00125</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>SpdBrk</object-name>
+		<property>controls/flight/speedbrake-arm</property>
+		<factor>0.006</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
 		</axis>
 	</animation>
 	

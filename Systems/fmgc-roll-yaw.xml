@@ -197,20 +197,6 @@
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>-0.1</gain>
-		<enable>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-		</enable>
 		<input>
 			<property>/orientation/roll-deg</property>
 		</input>
@@ -245,7 +231,7 @@
 			<value>0</value>
 		</reference>
 		<output>
-			<property>/it-autoflight/internal/aileron-cmd</property> <!-- Inputs to the FBW Roll Rate -->
+			<property>/fdm/jsbsim/fbw/fmgc/roll-cmd</property> <!-- Inputs to the FBW Roll Rate -->
 		</output>   	
 		<min>-0.32</min>
 		<max>0.32</max>
@@ -315,20 +301,6 @@
 		<debug>false</debug>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<enable>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-		</enable>
 		<input>
 			<condition>
 				<not-equals>
@@ -347,7 +319,7 @@
 			</condition>
 			<property>/it-autoflight/internal/rudder-cmd</property>
 		</input>
-		<output>/controls/flight/rudder</output>
+		<output>/fdm/jsbsim/fbw/fmgc/yaw-cmd</output>
 		<type>noise-spike</type>
 		<max-rate-of-change>0.6</max-rate-of-change>
 	</filter>

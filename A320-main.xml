@@ -112,43 +112,39 @@
 			<electrical>
 				<path></path>
 			</electrical>
+			<!-- 0 is FADEC -->
 			<autopilot n="1">
 				<path>Aircraft/IDG-A32X/Systems/hydraulics.xml</path>
 			</autopilot>
 			<autopilot n="2">
-				<path>Aircraft/IDG-A32X/Systems/fbw-drivers.xml</path>
-			</autopilot>
-			<autopilot n="3">
-				<path>Aircraft/IDG-A32X/Systems/fbw-roll-yaw.xml</path>
-			</autopilot>
-			<autopilot n="4">
 				<path>Aircraft/IDG-A32X/Systems/fbw-pitch.xml</path>
 			</autopilot>
-			<autopilot n="5">
+			<autopilot n="3">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-drivers.xml</path>
 			</autopilot>
-			<autopilot n="6">
+			<autopilot n="4">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-roll-yaw.xml</path>
 			</autopilot>
-			<autopilot n="7">
+			<autopilot n="5">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-pitch.xml</path>
 			</autopilot>
-			<autopilot n="8">
+			<autopilot n="6">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
 			</autopilot>
-			<autopilot n="9">
+			<autopilot n="7">
 				<path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
 			</autopilot>
-			<autopilot n="11">
+			<autopilot n="8">
 				<path>Aircraft/IDG-A32X/Systems/upper-ecam.xml</path>
 			</autopilot>
-			<autopilot n="12">
+			<autopilot n="9">
 				<path>Aircraft/IDG-A32X/Systems/lower-ecam.xml</path>
 			</autopilot>
-			<autopilot n="13">
+			<!-- 10 is sound -->
+			<autopilot n="11">
 				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
 			</autopilot>
-			<autopilot n="14">
+			<autopilot n="12">
 				<path>Aircraft/IDG-A32X/Systems/zoom-views.xml</path>
 			</autopilot>
 		</systems>
@@ -415,6 +411,8 @@
 		<output>
 			<ap1>0</ap1>
 			<ap2>0</ap2>
+			<lat>0</lat>
+			<vert>0</vert>
 		</output>
 		<custom>
 			<show-hdg>0</show-hdg>
@@ -429,6 +427,12 @@
 	<it-fbw n="0">
 		<alpha-hld type="bool">0</alpha-hld>
 		<law type="int">0</law>
+		<roll-lim type="double">33</roll-lim>
+		<roll-back type="bool">0</roll-back>
+		<protections n="0">
+			<overspeed type="bool">0</overspeed>
+			<overspeed-roll-back type="bool">0</overspeed-roll-back>
+		</protections>
 	</it-fbw>
 
 	<apu>
@@ -537,13 +541,11 @@
 			<aileron-left>0.5</aileron-left>
 			<aileron-right>-0.5</aileron-right>
 			<elevator-input>0</elevator-input>
-			<elevator-fbw>0</elevator-fbw>
 			<elevator-left>0.1</elevator-left>
 			<elevator-right>0.1</elevator-right>
 			<elevator-trim-fdm>0.0</elevator-trim-fdm>
 			<flap-pos type="int">0</flap-pos>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
-			<roll-fbw>0</roll-fbw>
 			<rudder-trim-fdm>0.0</rudder-trim-fdm>
 			<spoiler-l1>0.0</spoiler-l1>
 			<spoiler-l2>0.0</spoiler-l2>
@@ -729,6 +731,7 @@
 	<options n="0">
 		<system n="0">
 			<keyboard-mode type="bool">0</keyboard-mode>
+			<laptop-mode type="bool">0</laptop-mode>
 		</system>
 		<steep-ils type="bool">0</steep-ils>
 		<steep-ils-avail type="bool">0</steep-ils-avail>
