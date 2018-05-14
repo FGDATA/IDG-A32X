@@ -4953,7 +4953,7 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>0.050</factor>
+		<factor>0.045</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -4965,7 +4965,7 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-arm</property>
-		<factor>-0.00125</factor>
+		<factor>-0.00050</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
