@@ -4935,8 +4935,8 @@
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>-60</factor>
-		<offset-deg>28</offset-deg>
+		<factor>-35</factor>
+		<offset-deg>10</offset-deg>
 		<center>
 			<x-m>0.103496</x-m>
 			<y-m>-0.080651</y-m>
