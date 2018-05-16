@@ -4256,7 +4256,7 @@
 		<object-name>FlapsLever</object-name>
 		<property>controls/flight/flap-lever</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 1</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>17</dep></entry>
 			<entry><ind>2</ind><dep>32</dep></entry>
 			<entry><ind>3</ind><dep>47</dep></entry>
@@ -4268,7 +4268,9 @@
 			<z-m>-0.4056</z-m>
 		</center>
 		<axis>
-			<object-name>FlapsLever.axis</object-name>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
