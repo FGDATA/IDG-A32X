@@ -4268,9 +4268,7 @@
 			<z-m>-0.4056</z-m>
 		</center>
 		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
+			<object-name>FlapsLever.axis</object-name>
 		</axis>
 	</animation>
 	
