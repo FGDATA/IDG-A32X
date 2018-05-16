@@ -4256,7 +4256,7 @@
 		<object-name>FlapsLever</object-name>
 		<property>controls/flight/flap-lever</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 1</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>17</dep></entry>
 			<entry><ind>2</ind><dep>32</dep></entry>
 			<entry><ind>3</ind><dep>47</dep></entry>
@@ -4935,8 +4935,8 @@
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>-60</factor>
-		<offset-deg>28</offset-deg>
+		<factor>-35</factor>
+		<offset-deg>10</offset-deg>
 		<center>
 			<x-m>0.103496</x-m>
 			<y-m>-0.080651</y-m>
@@ -4953,7 +4953,7 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>0.050</factor>
+		<factor>0.045</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -4965,7 +4965,7 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-arm</property>
-		<factor>-0.00125</factor>
+		<factor>-0.00050</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
