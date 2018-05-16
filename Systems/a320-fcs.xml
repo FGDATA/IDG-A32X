@@ -1879,8 +1879,12 @@
 		
 		<switch name="hydraulics/tiller/switch">
 			<default value="/controls/flight/rudder"/>
-			<test value="/controls/flight/aileron">
+			<test logic="AND" value="/controls/flight/aileron">
+				fbw/fmgc/enabled eq 0
 				/controls/flight/aileron-drives-tiller eq 1
+			</test>
+			<test logic="AND" value="fbw/fmgc/yaw-cmd">
+				fbw/fmgc/enabled eq 1
 			</test>
 		</switch>
 		
