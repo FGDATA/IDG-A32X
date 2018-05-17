@@ -410,7 +410,7 @@ var ELEC = {
 			setprop("/systems/electrical/bus/dc1", 0);
 			setprop("/systems/electrical/bus/dc-ess", dc_volt_std);
 			setprop("/systems/electrical/extra/tr1-volts", 0);
-			setprop("/systems/electrical/bus/dc1-amps", 0); 
+			setprop("/systems/electrical/bus/dc1-amps", 0);
 			setprop("/systems/electrical/extra/tr1-amps", 0);
 		} else {
 			setprop("/systems/electrical/bus/dc1", 0);
