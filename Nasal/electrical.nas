@@ -634,7 +634,7 @@ var ELEC = {
 			setprop("/systems/electrical/battery1-time", getprop("/sim/time/elapsed-sec"));
 		}
 		
-		if (battery1_percent < 100 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
+		if (battery2_percent < 100 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 			if (getprop("/systems/electrical/battery2-time") + 30 < getprop("/sim/time/elapsed-sec")) {
 				battery2_percent_calc = battery2_percent + 4.5; # Roughly 90 percent every 10 mins
 				if (battery2_percent_calc > 100) {
