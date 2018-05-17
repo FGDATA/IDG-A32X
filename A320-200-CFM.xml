@@ -449,16 +449,14 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</tank>
 	</propulsion>
 	
-	<system file="pushback" />
-	<system file="fuel" />
-	<system file="electrical" />
-	<system file="glass-effect1" />
-	<system file="fmgc" />
-	<system file="a320-fcs" />
+	<system file="pushback"/>
+	<system file="fuel"/>
+	<system file="glass-effect1"/>
+	<system file="a320-fcs"/>
 	
 	<flight_control name="none"/>
 	
-	<aerodynamics file="Systems/a320-aerodynamics.xml" />
+	<aerodynamics file="Systems/a320-aerodynamics.xml"/>
 	
 	<external_reactions>
 		<force name="pushback" frame="BODY">

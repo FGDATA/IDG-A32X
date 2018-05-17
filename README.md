@@ -12,8 +12,3 @@ Present pack includes the following Airbus A320 Family variants:
 - A320-232
 - A320-251N
 - A320-271N
-
-
-Thank you to:
-Amanda Santos for the sound "botaodepressao", used for the overhead panel under the CC0 license:
-https://freesound.org/people/amandasantos/sounds/392148/

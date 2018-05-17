@@ -133,37 +133,6 @@ var light = {
 	}
 };
 
-var fctlpoweruptest = func {
-	if (getprop("/systems/electrical/battery-available") == 0 and (getprop("/controls/electrical/switches/battery1") == 1 or getprop("/controls/electrical/switches/battery2") == 1)) {
-		setprop("/systems/failures/elac1-fault", 1);
-		setprop("/systems/failures/sec1", 1);
-		setprop("/systems/electrical/battery-available", 1);
-		setprop("/systems/electrical/elac1-test", 1);
-		settimer(func() {
-			setprop("/systems/failures/elac1-fault", 0);
-			setprop("/systems/electrical/elac1-test", 0);
-		}, 8);
-		settimer(func() {
-			setprop("/systems/failures/sec1", 0);
-		}, 8.5);
-	}
-	
-	gen1_sw = getprop("/controls/electrical/switches/gen1");
-	gen2_sw = getprop("/controls/electrical/switches/gen2");
-	gen_apu_sw = getprop("/controls/electrical/switches/gen-apu");
-	gen_ext_sw = getprop("/controls/electrical/switches/gen-ext");
-	
-	if (getprop("/systems/electrical/dc2-available") == 0 and getprop("/systems/electrical/bus/dc2") > 25) {
-		setprop("/systems/failures/elac2-fault", 1);
-		setprop("/systems/electrical/dc2-available", 1);
-		setprop("/systems/electrical/elac2-test", 1);
-		settimer(func() {
-			setprop("/systems/failures/elac2-fault", 0);
-			setprop("/systems/electrical/elac2-test", 0);
-		}, 8);
-	}
-}
-
 # Main Elec System
 
 var ELEC = {
@@ -183,8 +152,8 @@ var ELEC = {
 		setprop("/controls/electrical/switches/ac-ess-feed", 0);
 		setprop("/controls/electrical/switches/battery1", 0);
 		setprop("/controls/electrical/switches/battery2", 0);
-		setprop("/systems/electrical/battery1-volts", 25.9);
-		setprop("/systems/electrical/battery2-volts", 25.9);
+		setprop("/systems/electrical/battery1-volts", 26.5);
+		setprop("/systems/electrical/battery2-volts", 26.5);
 		setprop("/systems/electrical/battery1-amps", 0);
 		setprop("/systems/electrical/battery2-amps", 0);
 		setprop("/systems/electrical/bus/dc1", 0);
@@ -335,6 +304,18 @@ var ELEC = {
 		replay = getprop("/sim/replay/replay-state");
 		wow = getprop("/gear/gear[1]/wow");
 		
+		if (battery1_sw and !batt1_fail) {
+			setprop("/systems/electrical/battery1-amps", dc_amps_std);
+		} else {
+			setprop("/systems/electrical/battery1-amps", 0);
+		}
+		
+		if (battery2_sw and !batt2_fail) {
+			setprop("/systems/electrical/battery2-amps", dc_amps_std);
+		} else {
+			setprop("/systems/electrical/battery2-amps", 0);
+		}
+		
 		if (getprop("/systems/electrical/battery1-amps") > 120 or getprop("/systems/electrical/battery2-amps") > 120) {
 			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
 		} else {
@@ -346,7 +327,7 @@ var ELEC = {
 		}
 		
 		if (dc2 >= 25) {
-			fctlpoweruptest();
+			setprop("/systems/electrical/dc2-available", 1);
 		} else {
 			setprop("/systems/electrical/dc2-available", 0);
 		}
@@ -622,33 +603,33 @@ var ELEC = {
 		dc2 = getprop("/systems/electrical/bus/dc2");
 		
 		if (battery1_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
-			decharge1.stop();
-			charge1.start();
-		} else if (battery1_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
-			charge1.stop();
-			decharge1.stop();
+			if (getprop("/systems/electrical/battery1-time") + 60 < getprop("/sim/time/elapsed-sec")) {
+				setprop("/systems/electrical/battery1-volts", battery1_volts + 0.02877666); # Roughly 15mins to 25.9
+				setprop("/systems/electrical/battery1-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else if (battery1_sw and !batt1_fail) {
-			charge1.stop();
-			decharge1.start();
+			if (getprop("/systems/electrical/battery1-time") + 60 < getprop("/sim/time/elapsed-sec")) {
+				setprop("/systems/electrical/battery1-volts", battery1_volts - 0.01438833); # Roughly 30mins from 25.9
+				setprop("/systems/electrical/battery1-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else {
-			decharge1.stop();
-			charge1.stop();
+			setprop("/systems/electrical/battery1-time", getprop("/sim/time/elapsed-sec"));
 		}
 		
 		if (battery2_volts < 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
-			decharge2.stop();
-			charge2.start();
-		} else if (battery2_volts == 27.9 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
-			charge2.stop();
-			decharge2.stop();
+			if (getprop("/systems/electrical/battery2-time") + 60 < getprop("/sim/time/elapsed-sec")) {
+				setprop("/systems/electrical/battery2-volts", battery2_volts + 0.02877666); # Roughly 15mins to 25.9
+				setprop("/systems/electrical/battery2-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else if (battery2_sw and !batt2_fail) {
-			charge2.stop();
-			decharge2.start();
+			if (getprop("/systems/electrical/battery2-time") + 60 < getprop("/sim/time/elapsed-sec")) {
+				setprop("/systems/electrical/battery2-volts", battery2_volts - 0.01438833); # Roughly 30mins from 25.9
+				setprop("/systems/electrical/battery2-time", getprop("/sim/time/elapsed-sec"));
+			}
 		} else {
-			decharge2.stop();
-			charge2.stop();
+			setprop("/systems/electrical/battery2-time", getprop("/sim/time/elapsed-sec"));
 		}
-			
+		
 		if (getprop("/systems/electrical/bus/ac-ess") < 110) {
 			if (getprop("/it-autoflight/output/ap1") == 1) {
 				setprop("/it-autoflight/input/ap1", 0);
@@ -802,20 +783,3 @@ var ELEC = {
 		}
 	},
 };
-
-var charge1 = maketimer(6, func {
-	bat1_volts = getprop("/systems/electrical/battery1-volts");
-	setprop("/systems/electrical/battery1-volts", bat1_volts + 0.1);
-});
-var charge2 = maketimer(6, func {
-	bat2_volts = getprop("/systems/electrical/battery2-volts");
-	setprop("/systems/electrical/battery2-volts", bat2_volts + 0.1);
-});
-var decharge1 = maketimer(69, func { # interval is at 69 seconds, to allow about 30 min from 25.9
-	bat1_volts = getprop("/systems/electrical/battery1-volts");
-	setprop("/systems/electrical/battery1-volts", bat1_volts - 0.1);
-});
-var decharge2 = maketimer(69, func {
-	bat2_volts = getprop("/systems/electrical/battery2-volts");
-	setprop("/systems/electrical/battery2-volts", bat2_volts - 0.1);
-});
