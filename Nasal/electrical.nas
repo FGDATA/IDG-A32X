@@ -428,13 +428,11 @@ var ELEC = {
 			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (extpwr_on and gen_ext_sw and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			
 			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
 		} else if (gen_apu and !genapu_fail and apu_ext_crosstie_sw) {
 			setprop("/systems/electrical/bus/dc2", dc_volt_std);
-			
 			setprop("/systems/electrical/extra/tr2-volts", dc_volt_std);
 			setprop("/systems/electrical/bus/dc2-amps", dc_amps_std); 
 			setprop("/systems/electrical/extra/tr2-amps", tr_amps_std);
