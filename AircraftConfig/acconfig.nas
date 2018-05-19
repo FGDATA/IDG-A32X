@@ -344,14 +344,14 @@ var taxi = func {
 	setprop("/controls/APU/master", 1);
 	setprop("/controls/APU/start", 1);
 	var apu_rpm_chk = setlistener("/systems/apu/rpm", func {
-		if (getprop("/systems/apu/rpm") >= 99) {
+		if (getprop("/systems/apu/rpm") >= 98) {
 			removelistener(apu_rpm_chk);
 			taxi_b();
 		}
 	});
 }
 var taxi_b = func {
-	# Continue with engine start prep, and start engine 2.
+	# Continue with engine start prep, and start engines.
 	setprop("/controls/fuel/tank0pump1", 1);
 	setprop("/controls/fuel/tank0pump2", 1);
 	setprop("/controls/fuel/tank1pump1", 1);
