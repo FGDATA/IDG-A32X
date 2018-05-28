@@ -180,8 +180,8 @@
 					<independentVar lookup="column">fbw/yaw/gain-switch</independentVar>
 					<tableData>
 						     0     1
-						0.2 -1.20  0.00
-						0.9 -0.07  0.00
+						0.2  5.01  0.00
+						0.9  1.05  0.00
 					</tableData>
 				</table>
 			</function>
@@ -194,8 +194,8 @@
 					<independentVar lookup="column">fbw/yaw/gain-switch</independentVar>
 					<tableData>
 						     0     1
-						0.2 -0.25  0.00
-						0.9 -0.19  0.00
+						0.2  1.03  0.00
+						0.9  0.79  0.00
 					</tableData>
 				</table>
 			</function>
@@ -1119,7 +1119,7 @@
 		</pure_gain>
 		
 		<switch name="fbw/yaw/slip-skid">
-			<default value="/instrumentation/slip-skid-ball/indicated-slip-skid"/>
+			<default value="aero/beta-rad"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
 				fbw/yaw/rudder-nul gt 0
