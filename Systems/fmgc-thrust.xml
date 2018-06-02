@@ -523,16 +523,7 @@
 			</condition>
 		</enable>
 		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/mode/thr</property>
-					<value>RETARD</value>
-				</equals>
-			</condition>
 			<value>0.0</value>
-		</input>
-		<input>
-			<property>/controls/engines/idle-limit</property>
 		</input>
 		<output>
 			<property>/controls/engines/throttle-cmd-pid</property>
@@ -643,7 +634,7 @@
 			</condition>
 		</enable>
 		<input>
-			<property>/controls/engines/throttle-pid-max</property>
+			<value>1.0</value>
 		</input>
 		<output>
 			<property>/controls/engines/throttle-cmd-pid</property>
@@ -750,36 +741,6 @@
 		<output>
 			<property>/controls/engines/throttle-cmd-pid</property>
 		</output>
-		<min>
-			<property>/controls/engines/idle-limit</property>
-		</min>
-		<max>
-			<property>/controls/engines/throttle-pid-max</property>
-		</max>
-	</filter>
-	
-	<!-- Engine 1 -->
-	<filter>
-		<name>Thrust Filter 1</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/controls/engines/throttle-cmd-pid</input>
-		<output>/controls/engines/engine[0]/throttle-cmd</output>
-		<max>
-			<property>/controls/engines/engine[0]/throttle-man</property>
-		</max>
-	</filter>
-	
-	<!-- Engine 2 -->
-	<filter>
-		<name>Thrust Filter 2</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/controls/engines/throttle-cmd-pid</input>
-		<output>/controls/engines/engine[1]/throttle-cmd</output>
-		<max>
-			<property>/controls/engines/engine[1]/throttle-man</property>
-		</max>
 	</filter>
 
 </PropertyList>

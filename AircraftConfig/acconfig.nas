@@ -126,9 +126,9 @@ setlistener("/systems/acconfig/new-revision", func {
 });
 
 var mismatch_chk = func {
-	if (num(string.replace(getprop("/sim/version/flightgear"),".","")) < 201730) {
+	if (num(string.replace(getprop("/sim/version/flightgear"),".","")) < 201810) {
 		setprop("/systems/acconfig/mismatch-code", "0x121");
-		setprop("/systems/acconfig/mismatch-reason", "FGFS version is too old! Please update FlightGear to at least 2017.3.0.");
+		setprop("/systems/acconfig/mismatch-reason", "FGFS version is too old! Please update FlightGear to at least 2018.1.0.");
 		if (getprop("/systems/acconfig/out-of-date") != 1) {
 			error_mismatch.open();
 		}
@@ -344,14 +344,14 @@ var taxi = func {
 	setprop("/controls/APU/master", 1);
 	setprop("/controls/APU/start", 1);
 	var apu_rpm_chk = setlistener("/systems/apu/rpm", func {
-		if (getprop("/systems/apu/rpm") >= 99) {
+		if (getprop("/systems/apu/rpm") >= 98) {
 			removelistener(apu_rpm_chk);
 			taxi_b();
 		}
 	});
 }
 var taxi_b = func {
-	# Continue with engine start prep, and start engine 2.
+	# Continue with engine start prep, and start engines.
 	setprop("/controls/fuel/tank0pump1", 1);
 	setprop("/controls/fuel/tank0pump2", 1);
 	setprop("/controls/fuel/tank1pump1", 1);
