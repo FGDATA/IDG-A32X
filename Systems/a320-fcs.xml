@@ -180,8 +180,8 @@
 					<independentVar lookup="column">fbw/yaw/gain-switch</independentVar>
 					<tableData>
 						     0     1
-						0.2 -1.20  0.00
-						0.9 -0.07  0.00
+						0.2  5.01  0.00
+						0.9  1.05  0.00
 					</tableData>
 				</table>
 			</function>
@@ -194,8 +194,8 @@
 					<independentVar lookup="column">fbw/yaw/gain-switch</independentVar>
 					<tableData>
 						     0     1
-						0.2 -0.25  0.00
-						0.9 -0.19  0.00
+						0.2  1.03  0.00
+						0.9  0.79  0.00
 					</tableData>
 				</table>
 			</function>
@@ -329,7 +329,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="fbw/roll/r-r-rb">
+		<fcs_function name="fbw/roll/r-r-rb-f">
 			<function>
 				<table>
 					<independentVar lookup="row">attitude/roll-rad</independentVar>
@@ -344,6 +344,18 @@
 				</table>
 			</function>
 		</fcs_function>
+		
+		<switch name="fbw/roll/r-r-rb">
+			<default value="fbw/roll/r-r-rb-f"/>
+			<test logic="AND" value="fbw/roll/r-r-33">
+				attitude/roll-rad lt 0
+				fbw/roll/r-r-33 ge fbw/roll/r-r-rb-f
+			</test>
+			<test logic="AND" value="fbw/roll/r-r-33">
+				attitude/roll-rad gt 0
+				fbw/roll/r-r-33 le fbw/roll/r-r-rb-f
+			</test>
+		</switch>
 		
 		<fcs_function name="fbw/roll/r-r-os-nrb">
 			<function>
@@ -1113,13 +1125,13 @@
 			<input>fbw/yaw/r-r_s-s</input>
 			<gain>fbw/yaw/yd-p-gain</gain>
 			<clipto>
-				<min>-0.2</min>
-				<max>0.2</max>
+				<min>-0.1</min>
+				<max>0.1</max>
 			</clipto>
 		</pure_gain>
 		
 		<switch name="fbw/yaw/slip-skid">
-			<default value="/instrumentation/slip-skid-ball/indicated-slip-skid"/>
+			<default value="aero/beta-rad"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
 				fbw/yaw/rudder-nul gt 0

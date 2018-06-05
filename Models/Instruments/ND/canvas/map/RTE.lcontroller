@@ -30,7 +30,7 @@ var new = func(layer) {
 	m.addVisibilityListener();
 	var driver = opt_member(m.layer.options, 'route_driver');
 	if(driver == nil){
-		driver = RouteDriver.new();
+		driver = A3XXRouteDriver.new();
 	}
 	var driver_listeners = driver.getListeners();
 	foreach(var listener; driver_listeners){

@@ -355,6 +355,8 @@
 			<z-offset-min-m type="float">30.0</z-offset-min-m>
 			<z-offset-max-m type="float">300.0</z-offset-max-m>
 		</current-view>
+		
+		 <minimum-fg-version>2018.1.0</minimum-fg-version>
 	</sim>
 
 	<consumables>
@@ -997,8 +999,20 @@
 			</mouse>
 		</mice>
 		<keyboard>
+			<key n="4">
+				<name>CTRL-d</name>
+				<desc>Autothrottle Disconnect</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/it-autoflight/output/athr") == 1) {
+							setprop("/it-autoflight/input/athr", 0);
+						}
+					</script>
+				</binding>
+			</key>
 			<key n="24">
-				<name>Ctrl-X</name>
+				<name>Ctrl-x</name>
 				<desc>Reset zoom to default</desc>
 				<binding>
 					<command>nasal</command>
@@ -1223,6 +1237,21 @@
 					<script>
 						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01);
 						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
+			<key n="68">
+				<name>D</name>
+				<desc>Autopilot Disconnect</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						if (getprop("/it-autoflight/output/ap1") == 1) {
+							setprop("/it-autoflight/input/ap1", 0);
+						}
+						if (getprop("/it-autoflight/output/ap2") == 1) {
+							setprop("/it-autoflight/input/ap2", 0);
+						}
 					</script>
 				</binding>
 			</key>
