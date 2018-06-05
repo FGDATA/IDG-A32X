@@ -226,7 +226,15 @@ var update_loop = func {
 var fbw_loop = func {
 	var ail = getprop("/controls/flight/aileron");
 	
-	if (ail > 0.4 or ail < -0.4) {
+	if (ail > 0.4 and getprop("/orientation/roll-deg") >= -33.5) {
+		setprop("/it-fbw/roll-lim", "67");
+		if (getprop("/it-fbw/roll-back") == 1 and getprop("/orientation/roll-deg") <= 33.5 and getprop("/orientation/roll-deg") >= -33.5) {
+			setprop("/it-fbw/roll-back", 0);
+		}
+		if (getprop("/it-fbw/roll-back") == 0 and (getprop("/orientation/roll-deg") > 33.5 or getprop("/orientation/roll-deg") < -33.5)) {
+			setprop("/it-fbw/roll-back", 1);
+		}
+	} else if (ail < -0.4 and getprop("/orientation/roll-deg") <= 33.5) {
 		setprop("/it-fbw/roll-lim", "67");
 		if (getprop("/it-fbw/roll-back") == 1 and getprop("/orientation/roll-deg") <= 33.5 and getprop("/orientation/roll-deg") >= -33.5) {
 			setprop("/it-fbw/roll-back", 0);
