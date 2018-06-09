@@ -9,6 +9,8 @@ print("-------------------------------------------------------------------------
 print("Copyright (c) 2017-2018 Joshua Davidson (it0uchpods)");
 print("-----------------------------------------------------------------------------");
 
+setprop("/sim/replay/was-active", 0);
+
 # Dimmers
 setprop("/controls/lighting/ndl-norm", 1);
 setprop("/controls/lighting/ndr-norm", 1);
@@ -205,7 +207,7 @@ var systemsLoop = maketimer(0.1, func {
 	systems.ADIRS.loop();
 	libraries.ECAM.loop();
 	fadec.fadecLoop();
-
+	
 	if ((getprop("/controls/pneumatic/switches/groundair") or getprop("/controls/switches/cart")) and ((getprop("/velocities/groundspeed-kt") > 2) or getprop("/controls/gear/brake-parking") == 0)) {
 		setprop("/controls/switches/cart", 0);
 		setprop("/controls/pneumatic/switches/groundair", 0);
@@ -244,6 +246,14 @@ var systemsLoop = maketimer(0.1, func {
 	}
 	if ((getprop("/engines/engine[1]/state") == 2 or getprop("/engines/engine[1]/state") == 3) and getprop("/fdm/jsbsim/propulsion/tank[4]/contents-lbs") < 1) {
 		systems.cutoff_two();
+	}
+	
+	if (getprop("/sim/replay/replay-state") == 1) {
+		setprop("/sim/replay/was-active", 1);
+	} else if (getprop("/sim/replay/replay-state") == 0 and getprop("/sim/replay/was-active") == 1) {
+		setprop("/sim/replay/was-active", 0);
+		acconfig.colddark();
+		gui.popupTip("Replay Ended: Setting Cold and Dark state...");
 	}
 });
 
