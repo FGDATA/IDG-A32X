@@ -476,7 +476,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>ResetRudderTrim</object-name>
+		<object-name>RudderTrimReset</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -498,9 +498,9 @@
 	<text>
 		<name>rudder-trim</name>
 		<offsets>
-			<x-m>0.12323</x-m>
+			<x-m>0.118</x-m>
 			<y-m>-0.01972</y-m>
-			<z-m>-0.137</z-m>
+			<z-m>-0.134</z-m>
 			<heading-deg>90</heading-deg>
 			<roll-deg>0</roll-deg>
 		</offsets>
@@ -4257,10 +4257,10 @@
 		<property>controls/flight/flap-lever</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>17</dep></entry>
-			<entry><ind>2</ind><dep>32</dep></entry>
-			<entry><ind>3</ind><dep>47</dep></entry>
-			<entry><ind>4</ind><dep>62</dep></entry>
+			<entry><ind>1</ind><dep>14</dep></entry>
+			<entry><ind>2</ind><dep>28</dep></entry>
+			<entry><ind>3</ind><dep>42</dep></entry>
+			<entry><ind>4</ind><dep>56</dep></entry>
 		</interpolation> 
 		<center>
 			<x-m>-0.0020</x-m>
@@ -4663,7 +4663,7 @@
 		<object-name>brightness_panel_left_glare</object-name>
 		<object-name>brightness_panel_right_glare</object-name>
 		<object-name>ped_labels_1</object-name>
-		<object-name>ped_labels_2</object-name>
+		<object-name>PedLoLabels</object-name>
 		<object-name>111VU_112VU_label</object-name>
 		<object-name>flaps_scale</object-name>
 		<object-name>gear_lever_label</object-name>
@@ -4672,6 +4672,7 @@
 		<object-name>integ_lt.mark</object-name>
 		<object-name>eng_mode.mark</object-name>
 		<object-name>RudderTrim.mark</object-name>
+		<object-name>CockpitDoorSwitch.mark</object-name>
 		<object-name>ecam_att_hdg_sw.mark</object-name>
 		<object-name>ecam_air_data_sw.mark</object-name>
 		<object-name>ecam_brt_upper.mark</object-name>
@@ -4935,29 +4936,10 @@
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>-35</factor>
-		<offset-deg>10</offset-deg>
-		<center>
-			<x-m>0.103496</x-m>
-			<y-m>-0.080651</y-m>
-			<z-m>-0.143532</z-m>
-		</center>
+		<factor>46</factor>
+		<!--offset-deg>10</offset-deg-->
 		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>translate</type>
-		<object-name>SpdBrk</object-name>
-		<property>controls/flight/speedbrake-lever</property>
-		<factor>0.045</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-			<z>0</z>
+			<object-name>SpdBrk.axis</object-name>
 		</axis>
 	</animation>
 
@@ -4965,7 +4947,7 @@
 		<type>translate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-arm</property>
-		<factor>-0.00050</factor>
+		<factor>-0.006</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
