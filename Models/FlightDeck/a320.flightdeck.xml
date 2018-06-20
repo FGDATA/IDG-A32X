@@ -499,7 +499,7 @@
 		<name>rudder-trim</name>
 		<offsets>
 			<x-m>0.118</x-m>
-			<y-m>-0.01972</y-m>
+			<y-m>-0.016</y-m>
 			<z-m>-0.134</z-m>
 			<heading-deg>90</heading-deg>
 			<roll-deg>0</roll-deg>
@@ -562,7 +562,7 @@
 		<type>rotate</type>
 		<object-name>ParkBrk</object-name>
 		<property>controls/gear/brake-parking</property>
-		<factor>-90</factor>
+		<factor>90</factor>
 		<axis>
 			<object-name>ParkBrk.axis</object-name>
 		</axis>
@@ -4936,7 +4936,7 @@
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
 		<property>controls/flight/speedbrake-lever</property>
-		<factor>46</factor>
+		<factor>45</factor>
 		<!--offset-deg>10</offset-deg-->
 		<axis>
 			<object-name>SpdBrk.axis</object-name>
