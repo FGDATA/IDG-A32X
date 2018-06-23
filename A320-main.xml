@@ -1011,6 +1011,16 @@
 					</script>
 				</binding>
 			</key>
+			<key n="6">
+				<name>CTRL-f</name>
+				<desc>MCT/FLX power</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					systems.doMCTThrust();
+					</script>
+				</binding>
+			</key>
 			<key n="24">
 				<name>Ctrl-x</name>
 				<desc>Reset zoom to default</desc>
@@ -1252,6 +1262,16 @@
 						if (getprop("/it-autoflight/output/ap2") == 1) {
 							setprop("/it-autoflight/input/ap2", 0);
 						}
+					</script>
+				</binding>
+			</key>
+			<key n="70">
+				<name>SHIFT-f</name>
+				<desc>CL power</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					systems.doCLThrust();
 					</script>
 				</binding>
 			</key>

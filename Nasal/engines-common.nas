@@ -70,6 +70,16 @@ var doIdleThrust = func {
 	setprop("/controls/engines/engine[1]/throttle", 0.0);
 }
 
+var doCLThrust = func {
+	setprop("/controls/engines/engine[0]/throttle", 0.63);
+	setprop("/controls/engines/engine[1]/throttle", 0.63);
+}
+
+var doMCTThrust = func {
+	setprop("/controls/engines/engine[0]/throttle", 0.8);
+	setprop("/controls/engines/engine[1]/throttle", 0.8);
+}
+
 var doTOGAThrust = func {
 	setprop("/controls/engines/engine[0]/throttle", 1.0);
 	setprop("/controls/engines/engine[1]/throttle", 1.0);
