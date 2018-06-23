@@ -344,23 +344,14 @@
 	<!-- Other non-aircraft models -->
 	<model>
 		<name>Pushback</name>
-		<path>Models/Goldhofert-autopush.xml</path>
+		<path>Aircraft/IDG-A32X/Models/Services/Pushback/Douglas.xml</path>
 		<offsets>
-			<x-m>5.55</x-m>
+			<x-m>6.0</x-m>
 			<y-m>0</y-m>
-			<z-m>-4.14</z-m>
-<!--			<x-m>7.55</x-m>
-			<y-m>0</y-m>
-			<z-m>-4.14</z-m> -->
-
+			<z-m>-4.24</z-m>
 		</offsets>
 	</model>
-        <model>
-                <path>Aircraft/Generic/marker.xml</path>
-        </model>
-
-
-
+	
 	<!-- LIVERY SELECT -->
 	<!-- Animation -->
 	<animation>
@@ -390,8 +381,8 @@
 		 livery_update.stop();
 		</unload>
 	</nasal>
-    
-    
+	
+	
 	<!-- Ground Services -->    
 	<model>
 		<name>ground_services</name>
