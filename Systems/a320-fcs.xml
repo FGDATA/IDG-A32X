@@ -713,61 +713,22 @@
 			</clipto>
 		</fcs_function>
 		
-		<fcs_function name="fbw/pitch/a-n">
-			<function>
-				<difference>
-					<quotient>
-						<sum>
-							<product>
-								<property>velocities/q-rad_sec</property>
-								<property>velocities/u-fps</property>
-							</product>
-							<product>
-								<value>-1</value>
-								<property>velocities/p-rad_sec</property>
-								<property>velocities/v-fps</property>
-							</product>
-							<product>
-								<value>32.174</value>
-								<cos>
-									<property>attitude/theta-rad</property>
-								</cos>
-								<cos>
-									<property>attitude/phi-rad</property>
-								</cos>
-							</product>
-							<product>
-								<value>-1</value>
-								<property>accelerations/wdot-ft_sec2</property>
-							</product>
-						</sum>
-						<value>32.174</value>
-					</quotient>
-					<value>1</value>
-				</difference>
-			</function>
-		</fcs_function>
-		
-		<switch name="fbw/pitch/a-n-IaN">
-			<default value="0"/>
-			<test logic="AND" value="fbw/pitch/a-n">
-				fbw/pitch/a-n lt  30
-				fbw/pitch/a-n gt -30
-				position/wow ne 1
-			</test>
-		</switch>
+		<pure_gain name="fbw/pitch/g-instrumented">
+			<input>/accelerations/pilot-g</input>
+			<gain>1.0</gain>
+		</pure_gain>
 		
 		<fcs_function name="fbw/pitch/g-computed">
 			<function>
 				<sum>
-					<property>fbw/pitch/a-n-IaN</property>
+					<property>fbw/pitch/g-instrumented</property>
 					<quotient>
 						<value>-1</value>
 						<cos>
 							<property>attitude/roll-rad</property>
 						</cos>
 					</quotient>
-					<value>2</value>
+					<value>1</value>
 				</sum>
 			</function>
 		</fcs_function>
