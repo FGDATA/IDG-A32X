@@ -60,7 +60,7 @@
 					<ice-inches>0.0</ice-inches>
 					<salvage-control>/controls/deice/windowprobeheat</salvage-control>
 					<sensitivity type="double">0.5</sensitivity>
-				<!-- not relevant for fdm, ignore output-property -->
+					<!-- not relevant for fdm, ignore output-property -->
 				</iceable>
 				<iceable>
 					<name>Fuselage</name>
@@ -323,7 +323,7 @@
 				<float n="6" alias="/fdm/jsbsim/hydraulics/aileron-l/final-deg" />
 				<float n="7" alias="/fdm/jsbsim/hydraulics/aileron-r/final-deg" />
 				<float n="8" alias="/fdm/jsbsim/hydraulics/rudder/final-deg" />
-				<float n="9" alias="/fdm/jsbsim/fcs/pitch-trim-pos-deg" />
+				<float n="9" alias="/fdm/jsbsim/hydraulics/elevator-trim/final-deg" />
 				<float n="11" alias="/fdm/jsbsim/fcs/slat-pos-norm" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
 				<int n="3" alias="/controls/lighting/landing-lights[1]" />
