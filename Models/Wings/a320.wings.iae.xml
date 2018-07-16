@@ -36,7 +36,7 @@
 		<type>rotate</type>
 		<object-name>AileronL</object-name>
 		<property>sim/multiplay/generic/float[6]</property>
-		<factor>50</factor>
+		<factor>1</factor>
 		<axis>
 			<x1-m>8.7295</x1-m>
 			<y1-m>-16.3231163</y1-m>
@@ -51,7 +51,7 @@
 		<type>rotate</type>
 		<object-name>AileronR</object-name>
 		<property>sim/multiplay/generic/float[7]</property>
-		<factor>-50</factor>
+		<factor>1</factor>
 		<axis>
 			<x1-m>7.6792</x1-m>
 			<y1-m>13.3967144</y1-m>
@@ -315,11 +315,8 @@
 		<name>Left spoiler 1</name>
 		<type>rotate</type>
 		<object-name>SpoilerL1</object-name>
-		<property>controls/flight/spoiler-l1</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-l1/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>4.879</x1-m>
 			<y1-m>-4.455</y1-m>
@@ -333,11 +330,8 @@
 		<name>Left spoiler 2</name>
 		<type>rotate</type>
 		<object-name>SpoilerL2</object-name>
-		<property>controls/flight/spoiler-l2</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-l2/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>5.084</x1-m>
 			<y1-m>-6.905</y1-m>
@@ -351,11 +345,8 @@
 		<name>Left spoiler 3</name>
 		<type>rotate</type>
 		<object-name>SpoilerL3</object-name>
-		<property>controls/flight/spoiler-l3</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-l3/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>5.685</x1-m>
 			<y1-m>-8.581</y1-m>
@@ -369,11 +360,8 @@
 		<name>Left spoiler 4</name>
 		<type>rotate</type>
 		<object-name>SpoilerL4</object-name>
-		<property>controls/flight/spoiler-l4</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-l4/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>6.253</x1-m>
 			<y1-m>-10.164</y1-m>
@@ -387,11 +375,8 @@
 		<name>Left spoiler 5</name>
 		<type>rotate</type>
 		<object-name>SpoilerL5</object-name>
-		<property>controls/flight/spoiler-l5</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-l5/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>6.776</x1-m>
 			<y1-m>-11.622</y1-m>
@@ -405,11 +390,8 @@
 		<name>Right spoiler 1</name>
 		<type>rotate</type>
 		<object-name>SpoilerR1</object-name>
-		<property>controls/flight/spoiler-r1</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-r1/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>4.879</x1-m>
 			<y1-m>6.201</y1-m>
@@ -423,11 +405,8 @@
 		<name>Right spoiler 2</name>
 		<type>rotate</type>
 		<object-name>SpoilerR2</object-name>
-		<property>controls/flight/spoiler-r2</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-r2/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>5.678</x1-m>
 			<y1-m>8.563</y1-m>
@@ -441,11 +420,8 @@
 		<name>Right spoiler 3</name>
 		<type>rotate</type>
 		<object-name>SpoilerR3</object-name>
-		<property>controls/flight/spoiler-r3</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-r3/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>6.246</x1-m>
 			<y1-m>10.145</y1-m>
@@ -459,11 +435,8 @@
 		<name>Right spoiler 4</name>
 		<type>rotate</type>
 		<object-name>SpoilerR4</object-name>
-		<property>controls/flight/spoiler-r4</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-r4/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>6.769</x1-m>
 			<y1-m>11.603</y1-m>
@@ -477,11 +450,8 @@
 		<name>Right spoiler 5</name>
 		<type>rotate</type>
 		<object-name>SpoilerR5</object-name>
-		<property>controls/flight/spoiler-r5</property>
-		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>35</dep></entry>
-		</interpolation>
+		<property>fdm/jsbsim/hydraulics/spoiler-r5/final-deg</property>
+		<factor>1</factor>
 		<axis>
 			<x1-m>7.292</x1-m>
 			<y1-m>13.06</y1-m>
@@ -491,7 +461,7 @@
 			<z2-m>0.949</z2-m>
 		</axis>
 	</animation>
-		<animation>
+	<animation>
 		<name>SlatsL</name>
 		<type>translate</type>
 		<object-name>SlatR1</object-name>

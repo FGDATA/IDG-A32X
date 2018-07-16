@@ -114,37 +114,34 @@
 			</electrical>
 			<!-- 0 is FADEC -->
 			<autopilot n="1">
-				<path>Aircraft/IDG-A32X/Systems/hydraulics.xml</path>
-			</autopilot>
-			<autopilot n="2">
 				<path>Aircraft/IDG-A32X/Systems/fbw-pitch.xml</path>
 			</autopilot>
-			<autopilot n="3">
+			<autopilot n="2">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-drivers.xml</path>
 			</autopilot>
-			<autopilot n="4">
+			<autopilot n="3">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-roll-yaw.xml</path>
 			</autopilot>
-			<autopilot n="5">
+			<autopilot n="4">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-pitch.xml</path>
 			</autopilot>
-			<autopilot n="6">
+			<autopilot n="5">
 				<path>Aircraft/IDG-A32X/Systems/fmgc-thrust.xml</path>
 			</autopilot>
-			<autopilot n="7">
+			<autopilot n="6">
 				<path>Aircraft/IDG-A32X/Systems/libraries.xml</path>
 			</autopilot>
-			<autopilot n="8">
+			<autopilot n="7">
 				<path>Aircraft/IDG-A32X/Systems/upper-ecam.xml</path>
 			</autopilot>
-			<autopilot n="9">
+			<autopilot n="8">
 				<path>Aircraft/IDG-A32X/Systems/lower-ecam.xml</path>
+			</autopilot>
+			<autopilot n="9">
+				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
 			</autopilot>
 			<!-- 10 is sound -->
 			<autopilot n="11">
-				<path>Aircraft/IDG-A32X/Systems/pfd.xml</path>
-			</autopilot>
-			<autopilot n="12">
 				<path>Aircraft/IDG-A32X/Systems/zoom-views.xml</path>
 			</autopilot>
 		</systems>
@@ -321,11 +318,11 @@
 				<float n="1" alias="/gear/gear[0]/steering-norm" />
 				<float n="2" alias="/engines/engine[0]/reverser-pos-norm" />
 				<float n="3" alias="/engines/engine[1]/reverser-pos-norm" />
-				<float n="4" alias="/controls/flight/elevator-left" />
-				<float n="5" alias="/controls/flight/elevator-right" />
-				<float n="6" alias="/controls/flight/aileron-left" />
-				<float n="7" alias="/controls/flight/aileron-right" />
-				<float n="8" alias="/controls/flight/rudder-fdm" />
+				<float n="4" alias="/fdm/jsbsim/hydraulics/elevator-l/final-deg" />
+				<float n="5" alias="/fdm/jsbsim/hydraulics/elevator-r/final-deg" />
+				<float n="6" alias="/fdm/jsbsim/hydraulics/aileron-l/final-deg" />
+				<float n="7" alias="/fdm/jsbsim/hydraulics/aileron-r/final-deg" />
+				<float n="8" alias="/fdm/jsbsim/hydraulics/rudder/final-deg" />
 				<float n="9" alias="/fdm/jsbsim/fcs/pitch-trim-pos-deg" />
 				<float n="11" alias="/fdm/jsbsim/fcs/slat-pos-norm" />
 				<int n="2" alias="/controls/lighting/landing-lights[0]" />
@@ -540,31 +537,12 @@
 		<flight>
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<aileron-input>0</aileron-input>
-			<aileron-left>0.5</aileron-left>
-			<aileron-right>-0.5</aileron-right>
 			<elevator-input>0</elevator-input>
-			<elevator-left>0.1</elevator-left>
-			<elevator-right>0.1</elevator-right>
 			<elevator-trim-fdm>0.0</elevator-trim-fdm>
 			<flap-pos type="int">0</flap-pos>
 			<ground-spoilers-armed type="bool">0</ground-spoilers-armed>
 			<rudder-trim-fdm>0.0</rudder-trim-fdm>
-			<spoiler-l1>0.0</spoiler-l1>
-			<spoiler-l2>0.0</spoiler-l2>
-			<spoiler-l3>0.0</spoiler-l3>
-			<spoiler-l4>0.0</spoiler-l4>
-			<spoiler-l5>0.0</spoiler-l5>
-			<spoiler-l-sum>0.0</spoiler-l-sum>
-			<spoiler-r1>0.0</spoiler-r1>
-			<spoiler-r2>0.0</spoiler-r2>
-			<spoiler-r3>0.0</spoiler-r3>
-			<spoiler-r4>0.0</spoiler-r4>
-			<spoiler-r5>0.0</spoiler-r5>
-			<spoiler-r-sum>0.0</spoiler-r-sum>
-			<speedbrake-output>0.0</speedbrake-output>
 			<speedbrake-arm>0</speedbrake-arm>
-			<speedbrake-lever type="double">0</speedbrake-lever>
-			<speedbrake-norm>0</speedbrake-norm>
 			<slats>0</slats>
 		</flight>
 		<gear>
@@ -1373,31 +1351,36 @@
 				<name>Ctrl-b</name>
 				<desc>Cycle speedbrake setting</desc>
 				<binding>
-					<command>property-assign</command>
-					<property>controls/flight/speedbrake-arm</property>
-					<value>0</value>
-				</binding>
-				<binding>
 					<condition>
-						<or>
-							<equals>
-								<property>/gear/gear[1]/wow</property>
+						<and>
+							<not-equals>
+								<property>/controls/flight/speedbrake-arm</property>
 								<value>1</value>
-							</equals>
-							<equals>
-								<property>/gear/gear[2]/wow</property>
-								<value>1</value>
-							</equals>
-						</or>
+							</not-equals>
+							<or>
+								<equals>
+									<property>/gear/gear[1]/wow</property>
+									<value>1</value>
+								</equals>
+								<equals>
+									<property>/gear/gear[2]/wow</property>
+									<value>1</value>
+								</equals>
+							</or>
+						</and>
 					</condition>
 					<command>property-cycle</command>
-					<property>controls/flight/speedbrake-lever</property>
-					<value>0</value>
-					<value>1</value>
+					<property>controls/flight/speedbrake</property>
+					<value>0.0</value>
+					<value>1.0</value>
 				</binding>
 				<binding>
 					<condition>
 						<and>
+							<not-equals>
+								<property>/controls/flight/speedbrake-arm</property>
+								<value>1</value>
+							</not-equals>
 							<equals>
 								<property>/gear/gear[1]/wow</property>
 								<value>0</value>
@@ -1409,10 +1392,15 @@
 						</and>
 					</condition>
 					<command>property-cycle</command>
-					<property>controls/flight/speedbrake-lever</property>
-					<value>0</value>
+					<property>controls/flight/speedbrake</property>
+					<value>0.0</value>
 					<value>0.5</value>
-					<value>1</value>
+					<value>1.0</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/speedbrake-arm</property>
+					<value>0</value>
 				</binding>
 			</key>
 		</keyboard>

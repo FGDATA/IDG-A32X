@@ -50,7 +50,7 @@ setprop("/ECAM/Lower/aileron-ind-right", 0);
 setprop("/ECAM/Lower/elevator-ind-left", 0);
 setprop("/ECAM/Lower/elevator-ind-right", 0);
 setprop("/ECAM/Lower/elevator-trim-deg", 0);
-setprop("/controls/flight/rudder-fdm", 0);
+setprop("/fdm/jsbsim/hydraulics/rudder/final-deg", 0);
 setprop("/environment/temperature-degc", 0);
 setprop("/FMGC/internal/gw", 0);
 setprop("/controls/flight/spoiler-l1-failed", 0);
@@ -526,8 +526,8 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		# Ailerons
-		me["ailL"].setTranslation(0,getprop("/ECAM/Lower/aileron-ind-left")*100);
-		me["ailR"].setTranslation(0,getprop("/ECAM/Lower/aileron-ind-right")*(-100));
+		me["ailL"].setTranslation(0, getprop("/ECAM/Lower/aileron-ind-left") * 100);
+		me["ailR"].setTranslation(0, getprop("/ECAM/Lower/aileron-ind-right") * (-100));
 			
 		if (blue_psi < 1500 and green_psi < 1500) {
 			me["ailL"].setColor(0.7333,0.3803,0);
@@ -538,8 +538,8 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		# Elevators
-		me["elevL"].setTranslation(0,getprop("/ECAM/Lower/elevator-ind-left")*100);
-		me["elevR"].setTranslation(0,getprop("/ECAM/Lower/elevator-ind-right")*100);
+		me["elevL"].setTranslation(0, getprop("/ECAM/Lower/elevator-ind-left") * 100);
+		me["elevR"].setTranslation(0, getprop("/ECAM/Lower/elevator-ind-right") * 100);
 
 		if (blue_psi < 1500 and green_psi < 1500) {
 			me["elevL"].setColor(0.7333,0.3803,0);
@@ -554,7 +554,7 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		# Rudder
-		me["rudder"].setRotation(getprop("/controls/flight/rudder-fdm")*(-0.6));
+		me["rudder"].setRotation(getprop("/fdm/jsbsim/hydraulics/rudder/final-deg") * -0.024);
 
 		if (blue_psi < 1500 and yellow_psi < 1500 and green_psi < 1500) {
 			me["rudder"].setColor(0.7333,0.3803,0);
@@ -563,7 +563,7 @@ var canvas_lowerECAM_fctl = {
 		}
 		
 		# Spoilers
-		if (getprop("/controls/flight/spoiler-l1") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-l1/final-deg") < 1.5) {
 			me["spoiler1Lex"].hide();
 			me["spoiler1Lrt"].show();
 		} else {
@@ -571,7 +571,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler1Lex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-l2") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-l2/final-deg") < 1.5) {
 			me["spoiler2Lex"].hide();
 			me["spoiler2Lrt"].show();
 		} else {
@@ -579,7 +579,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler2Lex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-l3") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-l3/final-deg") < 1.5) {
 			me["spoiler3Lex"].hide();
 			me["spoiler3Lrt"].show();
 		} else {
@@ -587,7 +587,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler3Lex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-l4") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-l4/final-deg") < 1.5) {
 			me["spoiler4Lex"].hide();
 			me["spoiler4Lrt"].show();
 		} else {
@@ -595,7 +595,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler4Lex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-l5") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-l5/final-deg") < 1.5) {
 			me["spoiler5Lex"].hide();
 			me["spoiler5Lrt"].show();
 		} else {
@@ -603,7 +603,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler5Lex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-r1") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-r1/final-deg") < 1.5) {
 			me["spoiler1Rex"].hide();
 			me["spoiler1Rrt"].show();
 		} else {
@@ -611,7 +611,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler1Rex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-r2") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-r2/final-deg") < 1.5) {
 			me["spoiler2Rex"].hide();
 			me["spoiler2Rrt"].show();
 		} else {
@@ -619,7 +619,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler2Rex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-r3") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-r3/final-deg") < 1.5) {
 			me["spoiler3Rex"].hide();
 			me["spoiler3Rrt"].show();
 		} else {
@@ -627,7 +627,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler3Rex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-r4") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-r4/final-deg") < 1.5) {
 			me["spoiler4Rex"].hide();
 			me["spoiler4Rrt"].show();
 		} else {
@@ -635,7 +635,7 @@ var canvas_lowerECAM_fctl = {
 			me["spoiler4Rex"].show();
 		}
 		
-		if (getprop("/controls/flight/spoiler-r5") < 0.033) {
+		if (getprop("/fdm/jsbsim/hydraulics/spoiler-r5/final-deg") < 1.5) {
 			me["spoiler5Rex"].hide();
 			me["spoiler5Rrt"].show();
 		} else {

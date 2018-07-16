@@ -508,7 +508,7 @@
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.1f</format>
-		<property>fdm/jsbsim/fcs/rudder-trim-cmd-deg</property>
+		<property>fdm/jsbsim/hydraulics/rudder/trim-cmd-deg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">led.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -4772,7 +4772,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>trim_2_lts</object-name>
-		<property>fdm/jsbsim/fcs/pitch-trim-cmd-deg</property>
+		<property>fdm/jsbsim/hydraulics/elevator-trim/cmd-deg</property>
 		<factor>-15.55</factor>
 		<offset-deg>-0.9</offset-deg>
 		<center>
@@ -4876,7 +4876,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/flight/speedbrake-lever</property>
+				<property>controls/flight/speedbrake</property>
 				<value>0</value>
 			</binding>
 			<binding>
@@ -4892,14 +4892,14 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					var spdBrk = getprop("/controls/flight/speedbrake-lever" );
+					var spdBrk = getprop("/controls/flight/speedbrake" );
 					if(spdBrk == 0){
 						setprop("/controls/flight/speedbrake-arm", 0);
-						setprop("/controls/flight/speedbrake-lever", 0.5);
+						setprop("/controls/flight/speedbrake", 0.5);
 					}
 					elsif(spdBrk == 0.5){
 						setprop("/controls/flight/speedbrake-arm", 0);
-						setprop("/controls/flight/speedbrake-lever", 1);
+						setprop("/controls/flight/speedbrake", 1);
 					}
 					elsif(spdBrk == 1){
 						setprop("/controls/flight/speedbrake-arm", 0);
@@ -4914,18 +4914,18 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					var spdBrk = getprop("/controls/flight/speedbrake-lever");
+					var spdBrk = getprop("/controls/flight/speedbrake");
 					if(spdBrk == 0){
 						setprop("/controls/flight/speedbrake-arm", 0);
 						# Do nothing because spoilers are fully down.
 					}
 					elsif(spdBrk == 0.5){
 						setprop("/controls/flight/speedbrake-arm", 0);
-						setprop("/controls/flight/speedbrake-lever", 0);
+						setprop("/controls/flight/speedbrake", 0);
 					}
 					elsif(spdBrk == 1){
 						setprop("/controls/flight/speedbrake-arm", 0);
-						setprop("/controls/flight/speedbrake-lever", 0.5);
+						setprop("/controls/flight/speedbrake", 0.5);
 					}
 				</script>
 			</binding>
@@ -4935,7 +4935,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
-		<property>controls/flight/speedbrake-lever</property>
+		<property>controls/flight/speedbrake</property>
 		<factor>45</factor>
 		<!--offset-deg>10</offset-deg-->
 		<axis>
