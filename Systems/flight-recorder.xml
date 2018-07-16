@@ -56,66 +56,6 @@
                 <type>double</type>
                 <property>engines/engine[1]/reverser-pos-norm</property>
             </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/elevator-left</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/elevator-right</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/aileron-left</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/aileron-right</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-l1</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-l2</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-l3</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-l4</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-l5</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-r1</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-r2</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-r3</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-r4</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/spoiler-r5</property>
-            </signal>
-            <signal>
-                <type>double</type>
-                <property>controls/flight/rudder-fdm</property>
-            </signal>
 			<signal>
 				<type>double</type>
 				<property>fdm/jsbsim/fcs/slat-pos-norm</property>
