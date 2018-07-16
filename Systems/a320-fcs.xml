@@ -1171,7 +1171,7 @@
 				<table>
 					<independentVar lookup="row">/velocities/airspeed-kt</independentVar>
 					<tableData>
-						 62  0.5
+						 62  1.0
 						116  0.0
 					</tableData>
 				</table>
@@ -1183,7 +1183,7 @@
 				<table>
 					<independentVar lookup="row">/velocities/airspeed-kt</independentVar>
 					<tableData>
-						 72  0.5
+						 72  1.0
 						121  0.0
 					</tableData>
 				</table>
