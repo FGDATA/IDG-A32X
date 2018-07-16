@@ -126,13 +126,23 @@
 			</product>
 		</function>
 		
-		<function name="aero/force/Lift_speedbrake">
-			<description>Delta Lift due to speedbrake</description>
+		<function name="aero/force/Lift_left_spoiler">
+			<description>Delta Lift due to left spoiler</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<property>fcs/speedbrake-pos-norm</property>
-				<value>-0.15</value>
+				<toradians><property>fcs/spoiler-left-deg</property></toradians>
+				<value>-0.0523599</value>
+			</product>
+		</function>
+		
+		<function name="aero/force/Lift_right_spoiler">
+			<description>Delta Lift due to right spoiler</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<toradians><property>fcs/spoiler-right-deg</property></toradians>
+				<value>-0.0523599</value>
 			</product>
 		</function>
 		
