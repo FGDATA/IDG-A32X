@@ -81,8 +81,8 @@
 			</product>
 		</function>
 		
-		<function name="aero/force/Lift_pitch_trim_control">
-			<description>Lift due to pitch trim control deflection</description>
+		<function name="aero/force/Lift_elevator_trim_control">
+			<description>Lift due to elevator trim control deflection</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
@@ -250,8 +250,8 @@
 			</product>
 		</function>
 		
-		<function name="aero/force/Drag_pitch_trim_control">
-			<description>Drag due to pitch trim control deflection</description>
+		<function name="aero/force/Drag_elevator_trim_control">
+			<description>Drag due to elevator trim control deflection</description>
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
