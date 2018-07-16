@@ -70,6 +70,16 @@ var doIdleThrust = func {
 	setprop("/controls/engines/engine[1]/throttle", 0.0);
 }
 
+var doCLThrust = func {
+	setprop("/controls/engines/engine[0]/throttle", 0.63);
+	setprop("/controls/engines/engine[1]/throttle", 0.63);
+}
+
+var doMCTThrust = func {
+	setprop("/controls/engines/engine[0]/throttle", 0.8);
+	setprop("/controls/engines/engine[1]/throttle", 0.8);
+}
+
 var doTOGAThrust = func {
 	setprop("/controls/engines/engine[0]/throttle", 1.0);
 	setprop("/controls/engines/engine[1]/throttle", 1.0);
@@ -104,10 +114,10 @@ var doRevThrust = func {
 	if (getprop("/controls/engines/engine[0]/reverser") == "1" and getprop("/controls/engines/engine[1]/reverser") == "1" and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
-		if (pos1 < 0.65) {
+		if (pos1 < 0.649) {
 			setprop("/controls/engines/engine[0]/throttle-rev", pos1 + 0.15);
 		}
-		if (pos2 < 0.65) {
+		if (pos2 < 0.649) {
 			setprop("/controls/engines/engine[1]/throttle-rev", pos2 + 0.15);
 		}
 	}
@@ -129,12 +139,12 @@ var unRevThrust = func {
 	if (getprop("/controls/engines/engine[0]/reverser") == "1" or getprop("/controls/engines/engine[1]/reverser") == "1") {
 		var pos1 = getprop("/controls/engines/engine[0]/throttle-rev");
 		var pos2 = getprop("/controls/engines/engine[1]/throttle-rev");
-		if (pos1 > 0.05) {
+		if (pos1 > 0.051) {
 			setprop("/controls/engines/engine[0]/throttle-rev", pos1 - 0.15);
 		} else {
 			unRevThrust_b();
 		}
-		if (pos2 > 0.05) {
+		if (pos2 > 0.051) {
 			setprop("/controls/engines/engine[1]/throttle-rev", pos2 - 0.15);
 		} else {
 			unRevThrust_b();

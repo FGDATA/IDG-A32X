@@ -38,8 +38,16 @@
 	<group>
 		<layout>hbox</layout>
 		<button>
+			<legend>A/THR</legend>
+			<pref-width>43</pref-width>
+			<binding>
+			<command>property-toggle</command>
+			<property>/it-autoflight/input/athr</property>
+			</binding>
+		</button>
+		<button>
 			<legend>AP1</legend>
-			<pref-width>55</pref-width>
+			<pref-width>43</pref-width>
 			<binding>
 			<command>property-toggle</command>
 			<property>/it-autoflight/input/ap1</property>
@@ -47,7 +55,7 @@
 		</button>
 		<button>
 			<legend>AP2</legend>
-			<pref-width>55</pref-width>
+			<pref-width>43</pref-width>
 			<binding>
 			<command>property-toggle</command>
 			<property>/it-autoflight/input/ap2</property>
@@ -55,7 +63,7 @@
 		</button>
 		<button>
 			<legend>FD1</legend>
-			<pref-width>55</pref-width>
+			<pref-width>43</pref-width>
 			<binding>
 			<command>property-toggle</command>
 			<property>/it-autoflight/input/fd1</property>
@@ -63,7 +71,7 @@
 		</button>
 		<button>
 			<legend>FD2</legend>
-			<pref-width>55</pref-width>
+			<pref-width>43</pref-width>
 			<binding>
 			<command>property-toggle</command>
 			<property>/it-autoflight/input/fd2</property>
