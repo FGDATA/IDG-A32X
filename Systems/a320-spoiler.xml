@@ -241,22 +241,7 @@
 	
 	<channel name="Spoiler L3">
 		
-		<fcs_function name="hydraulics/spoiler-l3/air-extended">
-			<function>
-				<sum>
-					<property>spoilers/main-cmd</property>
-					<table>
-						<independentVar lookup="row">fbw/roll/s-l</independentVar>
-						<tableData>
-							0.0  0.0
-							1.0 -0.5
-						</tableData>
-					</table>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="hydraulics/spoiler-l3/ground-extended">
+		<fcs_function name="hydraulics/spoiler-l3/extended">
 			<function>
 				<sum>
 					<property>spoilers/main-cmd</property>
@@ -289,15 +274,8 @@
 				/systems/hydraulic/blue-psi ge 1500
 				/systems/failures/spoiler-l3 eq 1
 			</test>
-			<test logic="AND" value="hydraulics/spoiler-l3/air-extended">
+			<test logic="AND" value="hydraulics/spoiler-l3/extended">
 				/systems/hydraulic/blue-psi ge 1500
-				spoilers/main-gear-and eq 0
-				/systems/failures/spoiler-l3 eq 0
-				spoilers/main-cmd gt 0
-			</test>
-			<test logic="AND" value="hydraulics/spoiler-l3/ground-extended">
-				/systems/hydraulic/blue-psi ge 1500
-				spoilers/main-gear-and eq 1
 				/systems/failures/spoiler-l3 eq 0
 				spoilers/main-cmd gt 0
 			</test>
@@ -331,22 +309,7 @@
 	
 	<channel name="Spoiler L4">
 		
-		<fcs_function name="hydraulics/spoiler-l4/air-extended">
-			<function>
-				<sum>
-					<property>spoilers/main-cmd</property>
-					<table>
-						<independentVar lookup="row">fbw/roll/s-l</independentVar>
-						<tableData>
-							0.0  0.0
-							1.0 -0.5
-						</tableData>
-					</table>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="hydraulics/spoiler-l4/ground-extended">
+		<fcs_function name="hydraulics/spoiler-l4/extended">
 			<function>
 				<sum>
 					<property>spoilers/main-cmd</property>
@@ -379,15 +342,8 @@
 				/systems/hydraulic/yellow-psi ge 1500
 				/systems/failures/spoiler-l4 eq 1
 			</test>
-			<test logic="AND" value="hydraulics/spoiler-l4/air-extended">
+			<test logic="AND" value="hydraulics/spoiler-l4/extended">
 				/systems/hydraulic/yellow-psi ge 1500
-				spoilers/main-gear-and eq 0
-				/systems/failures/spoiler-l4 eq 0
-				spoilers/main-cmd gt 0
-			</test>
-			<test logic="AND" value="hydraulics/spoiler-l4/ground-extended">
-				/systems/hydraulic/yellow-psi ge 1500
-				spoilers/main-gear-and eq 1
 				/systems/failures/spoiler-l4 eq 0
 				spoilers/main-cmd gt 0
 			</test>
@@ -636,22 +592,7 @@
 	
 	<channel name="Spoiler R3">
 		
-		<fcs_function name="hydraulics/spoiler-r3/air-extended">
-			<function>
-				<sum>
-					<property>spoilers/main-cmd</property>
-					<table>
-						<independentVar lookup="row">fbw/roll/s-l</independentVar>
-						<tableData>
-							-1.0 -0.5
-							 0.0  0.0
-						</tableData>
-					</table>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="hydraulics/spoiler-r3/ground-extended">
+		<fcs_function name="hydraulics/spoiler-r3/extended">
 			<function>
 				<sum>
 					<property>spoilers/main-cmd</property>
@@ -684,15 +625,8 @@
 				/systems/hydraulic/blue-psi ge 1500
 				/systems/failures/spoiler-r3 eq 1
 			</test>
-			<test logic="AND" value="hydraulics/spoiler-r3/air-extended">
+			<test logic="AND" value="hydraulics/spoiler-r3/extended">
 				/systems/hydraulic/blue-psi ge 1500
-				spoilers/main-gear-and eq 0
-				/systems/failures/spoiler-r3 eq 0
-				spoilers/main-cmd gt 0
-			</test>
-			<test logic="AND" value="hydraulics/spoiler-r3/ground-extended">
-				/systems/hydraulic/blue-psi ge 1500
-				spoilers/main-gear-and eq 1
 				/systems/failures/spoiler-r3 eq 0
 				spoilers/main-cmd gt 0
 			</test>
@@ -726,22 +660,7 @@
 	
 	<channel name="Spoiler R4">
 		
-		<fcs_function name="hydraulics/spoiler-r4/air-extended">
-			<function>
-				<sum>
-					<property>spoilers/main-cmd</property>
-					<table>
-						<independentVar lookup="row">fbw/roll/s-l</independentVar>
-						<tableData>
-							-1.0 -0.5
-							 0.0  0.0
-						</tableData>
-					</table>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="hydraulics/spoiler-r4/ground-extended">
+		<fcs_function name="hydraulics/spoiler-r4/extended">
 			<function>
 				<sum>
 					<property>spoilers/main-cmd</property>
@@ -774,15 +693,9 @@
 				/systems/hydraulic/yellow-psi ge 1500
 				/systems/failures/spoiler-r4 eq 1
 			</test>
-			<test logic="AND" value="hydraulics/spoiler-r4/air-extended">
+			<test logic="AND" value="hydraulics/spoiler-r4/extended">
 				/systems/hydraulic/yellow-psi ge 1500
 				spoilers/main-gear-and eq 0
-				/systems/failures/spoiler-r4 eq 0
-				spoilers/main-cmd gt 0
-			</test>
-			<test logic="AND" value="hydraulics/spoiler-r4/ground-extended">
-				/systems/hydraulic/yellow-psi ge 1500
-				spoilers/main-gear-and eq 1
 				/systems/failures/spoiler-r4 eq 0
 				spoilers/main-cmd gt 0
 			</test>
