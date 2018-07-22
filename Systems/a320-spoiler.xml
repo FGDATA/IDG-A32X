@@ -50,7 +50,14 @@
 				spoilers/throttle[1] ge 0.01
 				/controls/flight/speedbrake-arm ne 1
 			</test>
-			<test logic="AND" value="1"> <!-- Set -->
+			<test logic="AND" value="1"> <!-- EXT Set -->
+				spoilers/throttle[0] lt 0.01
+				spoilers/throttle[1] lt 0.01
+				/controls/flight/speedbrake-arm eq 1
+				spoilers/main-gear-and eq 1
+				/velocities/groundspeed-kt ge 72
+			</test>
+			<test logic="AND" value="0.25"> <!-- PLD Set -->
 				spoilers/throttle[0] lt 0.01
 				spoilers/throttle[1] lt 0.01
 				/controls/flight/speedbrake-arm eq 1
@@ -96,15 +103,7 @@
 	<channel name="Spoiler L1">
 		
 		<switch name="hydraulics/spoiler-l1/switch">
-			<default value="hydraulics/spoiler-l1/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				spoilers/main-gear-and eq 0
-			</test>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				/systems/failures/spoiler-l1 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="spoilers/main-cmd">
 				/systems/hydraulic/green-psi ge 1500
 				spoilers/main-gear-and eq 1
@@ -194,11 +193,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-l2/switch">
-			<default value="hydraulics/spoiler-l2/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/yellow-psi ge 1500
-				/systems/failures/spoiler-l2 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-l2/air-extended">
 				/systems/hydraulic/yellow-psi ge 1500
 				spoilers/main-gear-and eq 0
@@ -269,11 +264,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-l3/switch">
-			<default value="hydraulics/spoiler-l3/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/blue-psi ge 1500
-				/systems/failures/spoiler-l3 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-l3/extended">
 				/systems/hydraulic/blue-psi ge 1500
 				/systems/failures/spoiler-l3 eq 0
@@ -337,11 +328,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-l4/switch">
-			<default value="hydraulics/spoiler-l4/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/yellow-psi ge 1500
-				/systems/failures/spoiler-l4 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-l4/extended">
 				/systems/hydraulic/yellow-psi ge 1500
 				/systems/failures/spoiler-l4 eq 0
@@ -405,11 +392,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-l5/switch">
-			<default value="hydraulics/spoiler-l5/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				/systems/failures/spoiler-l5 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-l5/ground-extended">
 				/systems/hydraulic/green-psi ge 1500
 				spoilers/main-gear-and eq 1
@@ -447,15 +430,7 @@
 	<channel name="Spoiler R1">
 		
 		<switch name="hydraulics/spoiler-r1/switch">
-			<default value="hydraulics/spoiler-r1/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				spoilers/main-gear-and eq 0
-			</test>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				/systems/failures/spoiler-r1 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="spoilers/main-cmd">
 				/systems/hydraulic/green-psi ge 1500
 				spoilers/main-gear-and eq 1
@@ -545,11 +520,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-r2/switch">
-			<default value="hydraulics/spoiler-r2/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/yellow-psi ge 1500
-				/systems/failures/spoiler-r2 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-r2/air-extended">
 				/systems/hydraulic/yellow-psi ge 1500
 				spoilers/main-gear-and eq 0
@@ -620,11 +591,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-r3/switch">
-			<default value="hydraulics/spoiler-r3/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/blue-psi ge 1500
-				/systems/failures/spoiler-r3 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-r3/extended">
 				/systems/hydraulic/blue-psi ge 1500
 				/systems/failures/spoiler-r3 eq 0
@@ -688,11 +655,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-r4/switch">
-			<default value="hydraulics/spoiler-r4/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/yellow-psi ge 1500
-				/systems/failures/spoiler-r4 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-r4/extended">
 				/systems/hydraulic/yellow-psi ge 1500
 				spoilers/main-gear-and eq 0
@@ -757,11 +720,7 @@
 		</fcs_function>
 		
 		<switch name="hydraulics/spoiler-r5/switch">
-			<default value="hydraulics/spoiler-r5/switch"/>
-			<test logic="AND" value="0">
-				/systems/hydraulic/green-psi ge 1500
-				/systems/failures/spoiler-r5 eq 1
-			</test>
+			<default value="0"/>
 			<test logic="AND" value="hydraulics/spoiler-r5/ground-extended">
 				/systems/hydraulic/green-psi ge 1500
 				spoilers/main-gear-and eq 1
