@@ -50,7 +50,14 @@
 				spoilers/throttle[1] ge 0.01
 				/controls/flight/speedbrake-arm ne 1
 			</test>
-			<test logic="AND" value="1"> <!-- Set -->
+			<test logic="AND" value="1"> <!-- EXT Set -->
+				spoilers/throttle[0] lt 0.01
+				spoilers/throttle[1] lt 0.01
+				/controls/flight/speedbrake-arm eq 1
+				spoilers/main-gear-and eq 1
+				/velocities/groundspeed-kt ge 72
+			</test>
+			<test logic="AND" value="0.25"> <!-- PLD Set -->
 				spoilers/throttle[0] lt 0.01
 				spoilers/throttle[1] lt 0.01
 				/controls/flight/speedbrake-arm eq 1
