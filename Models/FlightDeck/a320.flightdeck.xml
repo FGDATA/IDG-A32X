@@ -4935,9 +4935,8 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpdBrk</object-name>
-		<property>controls/flight/speedbrake</property>
+		<property>fdm/jsbsim/spoilers/speedbrake-nul</property>
 		<factor>45</factor>
-		<!--offset-deg>10</offset-deg-->
 		<axis>
 			<object-name>SpdBrk.axis</object-name>
 		</axis>

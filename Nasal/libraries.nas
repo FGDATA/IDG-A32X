@@ -399,6 +399,31 @@ var flaptimer = maketimer(0.5, func {
 	}
 });
 
+controls.stepSpoilers = func(step) {
+	setprop("/controls/flight/speedbrake-arm", 0);
+	if (step == 1) {
+		deploySpeedbrake();
+	} else if (step == -1) {
+		retractSpeedbrake();
+	}
+}
+
+var deploySpeedbrake = func {
+	if (getprop("/controls/flight/speedbrake") < 0.5) {
+		setprop("/controls/flight/speedbrake", 0.5);
+	} else if (getprop("/controls/flight/speedbrake") < 1.0) {
+		setprop("/controls/flight/speedbrake", 1.0);
+	}
+}
+
+var retractSpeedbrake = func {
+	if (getprop("/controls/flight/speedbrake") > 0.5) {
+		setprop("/controls/flight/speedbrake", 0.5);
+	} else if (getprop("/controls/flight/speedbrake") > 0.0) {
+		setprop("/controls/flight/speedbrake", 0.0);
+	}
+}
+
 var slewProp = func(prop, delta) {
 	delta *= getprop("/sim/time/delta-realtime-sec");
 	setprop(prop, getprop(prop) + delta);
