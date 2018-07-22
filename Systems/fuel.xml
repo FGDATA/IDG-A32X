@@ -95,24 +95,24 @@
 		</summer>
 	</channel>
 
-    <channel name="Total PPS">
-        <summer name="fuel/tank0-flow-rate">
-            <input>-fuel/from-tank0-to-tank3</input>
-            <input>-fuel/from-tank0-to-tank4</input>
-            <output>propulsion/tank[0]/external-flow-rate-pps</output>
-        </summer>
+	<channel name="Total PPS">
+		<summer name="fuel/tank0-flow-rate">
+			<input>-fuel/from-tank0-to-tank3</input>
+			<input>-fuel/from-tank0-to-tank4</input>
+			<output>propulsion/tank[0]/external-flow-rate-pps</output>
+		</summer>
 
-        <summer name="fuel/tank1-flow-rate">
-            <input>-fuel/from-tank1-to-tank3</input>
-            <input>-fuel/from-tank1-to-tank4</input>
-            <output>propulsion/tank[1]/external-flow-rate-pps</output>
-        </summer>
+		<summer name="fuel/tank1-flow-rate">
+			<input>-fuel/from-tank1-to-tank3</input>
+			<input>-fuel/from-tank1-to-tank4</input>
+			<output>propulsion/tank[1]/external-flow-rate-pps</output>
+		</summer>
 
-        <summer name="fuel/tank2-flow-rate">
-            <input>-fuel/from-tank2-to-tank4</input>
-            <input>-fuel/from-tank2-to-tank3</input>
-            <output>propulsion/tank[2]/external-flow-rate-pps</output>
-        </summer>
-    </channel>
+		<summer name="fuel/tank2-flow-rate">
+			<input>-fuel/from-tank2-to-tank4</input>
+			<input>-fuel/from-tank2-to-tank3</input>
+			<output>propulsion/tank[2]/external-flow-rate-pps</output>
+		</summer>
+	</channel>
 
 </system>

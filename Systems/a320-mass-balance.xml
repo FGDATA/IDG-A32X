@@ -1,0 +1,61 @@
+<!-- Airbus A320 JSBsim -->
+<!-- Joshua Davidson (it0uchpods) -->
+
+<!--
+##############################################
+# Copyright (c) Joshua Davidson (it0uchpods) #
+##############################################
+-->
+
+<mass_balance>
+	<ixx unit="SLUG*FT2">  611903 </ixx>
+	<iyy unit="SLUG*FT2"> 1735389 </iyy>
+	<izz unit="SLUG*FT2"> 2301293 </izz>
+
+	<ixy unit="SLUG*FT2">       0 </ixy>
+	<ixz unit="SLUG*FT2">       0 </ixz>
+	<iyz unit="SLUG*FT2">       0 </iyz>
+	<emptywt unit="LBS" >   80431 </emptywt>
+	
+	<location name="CG" unit="M">
+		<x> 18.8231 </x>
+		<y> 0 </y>
+		<z> 0.19249 </z>
+	</location>
+	
+	<pointmass name="Crew">
+		<weight unit="LBS">380</weight>
+		<location name="POINTMASS" unit="M">
+			<x> 5.29845 </x>
+			<y> 0 </y>
+			<z> -0.66384 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="PAX">
+		<weight unit="LBS">23000</weight>
+		<location name="POINTMASS" unit="M">
+			<x> 18.8231 </x>
+			<y> 0 </y>
+			<z> 0.19249 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Fwd Cargo">
+		<weight unit="LBS">3000</weight>
+		<location name="POINTMASS" unit="M"> 
+			<x> 13.0849 </x>
+			<y> 0 </y>
+			<z> -1.18112 </z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Aft Cargo">
+		<weight unit="LBS">3000</weight>
+		<location name="POINTMASS" unit="M">
+			<x> 24.5565 </x>
+			<y> 0 </y>
+			<z> -1.18112 </z>
+		</location>
+	</pointmass>
+</mass_balance>
