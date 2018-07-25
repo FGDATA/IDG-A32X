@@ -751,8 +751,8 @@ var updateTimers = func {
 # Altitude Capture
 var altcapt = func {
 	vsnow = getprop("/it-autoflight/internal/vert-speed-fpm");
-	setprop("/it-autoflight/internal/captvs", math.round(vsnow / 5, 100));
-	setprop("/it-autoflight/internal/captvsneg", -1 * math.round(vsnow / 5, 100));
+	setprop("/it-autoflight/internal/captvs", math.round(abs(vsnow) / 5, 100));
+	setprop("/it-autoflight/internal/captvsneg", -1 * math.round(abs(vsnow) / 5, 100));
 	if ((getprop("/it-autoflight/output/fd1") == 1 or getprop("/it-autoflight/output/fd2") == 1 or getprop("/it-autoflight/output/ap1") == 1 or getprop("/it-autoflight/output/ap2") == 1) and getprop("/it-autoflight/output/vert") != 9) {
 		var calt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
 		var alt = getprop("/it-autoflight/internal/alt");
@@ -1171,8 +1171,8 @@ var mng_des_fpm = func {
 # Managed Capture
 var mng_altcapt = func {
 	vsnow = getprop("/it-autoflight/internal/vert-speed-fpm");
-	setprop("/it-autoflight/internal/captvs", math.round(vsnow / 5, 100));
-	setprop("/it-autoflight/internal/captvsneg", -1 * math.round(vsnow / 5, 100));
+	setprop("/it-autoflight/internal/captvs", math.round(abs(vsnow) / 5, 100));
+	setprop("/it-autoflight/internal/captvsneg", -1 * math.round(abs(vsnow) / 5, 100));
 	var MNGalt = getprop("/it-autoflight/internal/mng-alt");
 	var MCPalt = getprop("/it-autoflight/internal/alt");
 	var MNGdif = abs(MNGalt - MCPalt);
