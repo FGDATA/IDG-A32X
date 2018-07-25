@@ -133,22 +133,12 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<greater-than-equals>
+			<expression>
+				<max>
 					<property>/controls/engines/engine[0]/throttle-man</property>
 					<property>/controls/engines/engine[1]/throttle-man</property>
-				</greater-than-equals>
-			</condition>
-			<property>/controls/engines/engine[0]/throttle-man</property>
-		</input>
-		<input>
-			<condition>
-				<less-than>
-					<property>/controls/engines/engine[0]/throttle-man</property>
-					<property>/controls/engines/engine[1]/throttle-man</property>
-				</less-than>
-			</condition>
-			<property>/controls/engines/engine[1]/throttle-man</property>
+				</max>
+			</expression>
 		</input>
 		<output>/controls/engines/throttle-pid-max</output>
 	</filter>
