@@ -606,16 +606,46 @@
 		<gain>1.0</gain>
 		<enable>
 			<condition>
-				<and>
-					<not-equals>
-						<property>/it-autoflight/output/vert</property>
-						<value>4</value>
-					</not-equals>
-					<not-equals>
-						<property>/it-autoflight/output/vert</property>
-						<value>7</value>
-					</not-equals>
-				</and>
+				<not>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>4</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>7</value>
+						</equals>
+						<and>
+							<equals>
+								<property>/it-autoflight/output/vert</property>
+								<value>8</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/output/vert-mng</property>
+								<value>4</value>
+							</equals>
+						</and>
+					</or>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</not>
 			</condition>
 		</enable>
 		<input>/it-autoflight/internal/vert-speed-fpm</input>
@@ -629,10 +659,30 @@
 		<gain>1.0</gain>
 		<enable>
 			<condition>
-				<not-equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
-				</not-equals>
+				<not>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>5</value>
+					</equals>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</not>
 			</condition>
 		</enable>
 		<input>/it-autoflight/internal/vert-speed-fpm</input>
