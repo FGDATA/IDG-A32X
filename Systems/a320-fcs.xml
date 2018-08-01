@@ -1833,9 +1833,16 @@
 	
 	<channel name="Brakes">
 		
+		<pure_gain name="/services/chokes/nose-half">
+			<input>/services/chokes/nose</input>
+			<gain>0.5</gain>
+		</pure_gain>
+		
 		<summer name="fcs/left-brake-summer">
 			<input>/controls/gear/brake-left</input>
 			<input>/controls/gear/brake-parking</input>
+			<input>/services/chokes/nose-half</input>
+			<input>/services/chokes/left</input>
 			<clipto>
 				<min>0</min>
 				<max>1</max>
@@ -1853,6 +1860,8 @@
 		<summer name="fcs/right-brake-summer">
 			<input>/controls/gear/brake-right</input>
 			<input>/controls/gear/brake-parking</input>
+			<input>/services/chokes/nose-half</input>
+			<input>/services/chokes/right</input>
 			<clipto>
 				<min>0</min>
 				<max>1</max>

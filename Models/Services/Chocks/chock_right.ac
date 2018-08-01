@@ -4,7 +4,7 @@ OBJECT world
 kids 2
 OBJECT poly
 name "chock"
-loc 3.52186 -5.34978 -4.81643
+loc 3.47232 -5.34978 -4.81643
 texture "yellow.png"
 crease 45.000000
 numvert 16
@@ -126,7 +126,7 @@ refs 4
 kids 0
 OBJECT poly
 name "chock"
-loc 6.84041 -5.33333 -4.81643
+loc 4.74781 -5.34978 -4.81643
 texture "yellow.png"
 crease 45.000000
 numvert 16
