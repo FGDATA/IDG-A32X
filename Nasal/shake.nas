@@ -4,15 +4,15 @@
 # Copyright (c) Joshua Davidson (it0uchpods) #
 ##############################################
 
-var shakeEffectA3XX = props.globals.initNode("/systems/shake/effect",0,"BOOL");
-var shakeA3XX = props.globals.initNode("/systems/shake/shaking",0,"DOUBLE");
+var shakeEffectA3XX = props.globals.initNode("/systems/shake/effect", 0, "BOOL");
+var shakeA3XX = props.globals.initNode("/systems/shake/shaking", 0, "DOUBLE");
 var rSpeed = 0;
 var sf = 0;
 var n_g_c = 0;
 var n_g_l = 0;
 var n_g_r = 0;
 
-var theShakeEffect = func{
+var theShakeEffect = func {
 	n_g_c = getprop("/gear/gear[0]/compression-norm") or 0;
 	n_g_l = getprop("/gear/gear[1]/compression-norm") or 0;
 	n_g_r = getprop("/gear/gear[2]/compression-norm") or 0;
@@ -30,12 +30,12 @@ var theShakeEffect = func{
 		settimer(theShakeEffect, 0.09);	
 	} else {
 		setprop("/systems/shake/shaking", 0);
-		setprop("/systems/shake/effect",0);		
+		setprop("/systems/shake/effect", 0);		
 	}	    
 }
 
-setlistener("/systems/shake/effect", func(state){
-	if(state.getBoolValue()){
+setlistener("/systems/shake/effect", func(state) {
+	if(state.getBoolValue()) {
 		theShakeEffect();
 	}
 }, 1, 0);

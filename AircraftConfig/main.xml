@@ -227,39 +227,51 @@
 			<checkbox>
 				<label>Nose Gear Chock</label>
 				<halign>left</halign>
+				<enable>
+					<and>
+						<property>/gear/gear[0]/wow</property>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</and>
+				</enable>
 				<property>/services/chokes/nose</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
-				<enable> <!-- Doesn't really do anything yet -->
-					<property>/systems/acconfig/unused/unused</property>
-				</enable>
 				<live>true</live>
 			</checkbox>
 			
 			<checkbox>
 				<label>Main Left Gear Chock</label>
 				<halign>left</halign>
+				<enable>
+					<and>
+						<property>/gear/gear[0]/wow</property>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</and>
+				</enable>
 				<property>/services/chokes/left</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
-				<enable> <!-- Doesn't really do anything yet -->
-					<property>/systems/acconfig/unused/unused</property>
-				</enable>
 				<live>true</live>
 			</checkbox>
 			
 			<checkbox>
 				<label>Main Right Gear Chock</label>
 				<halign>left</halign>
+				<enable>
+					<and>
+						<property>/gear/gear[0]/wow</property>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</and>
+				</enable>
 				<property>/services/chokes/right</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
-				<enable> <!-- Doesn't really do anything yet -->
-					<property>/systems/acconfig/unused/unused</property>
-				</enable>
 				<live>true</live>
 			</checkbox>
 			

@@ -153,7 +153,7 @@
         </condition>
         <offsets>
             <x-m>15.5</x-m>
-            <y-m>1.18</y-m>
+            <y-m>1.05</y-m>
             <z-m>1.25</z-m>
         </offsets>
     </model>
@@ -169,7 +169,7 @@
         </condition>
         <offsets>
             <x-m>15.5</x-m>
-            <y-m>-1.18</y-m>
+            <y-m>-1.05</y-m>
             <z-m>1.25</z-m>
         </offsets>
     </model>
