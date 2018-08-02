@@ -95,20 +95,22 @@ var canvas_MCDU_base = {
 	},
 	update: func() {
 		if (getprop("/systems/electrical/bus/ac1") >= 110) {
-			MCDU_1.page.show();
 			MCDU_1.update();
+			MCDU_1.updateFast();
 			updateL = 1;
+			MCDU_1.page.show();
 		} else {
-			MCDU_1.page.hide();
 			updateL = 0;
+			MCDU_1.page.hide();
 		}
 		if (getprop("/systems/electrical/bus/ac2") >= 110) {
-			MCDU_2.page.show();
 			MCDU_2.update();
+			MCDU_2.updateFast();
 			updateR = 1;
+			MCDU_2.page.show();
 		} else {
-			MCDU_2.page.hide();
 			updateR = 0;
+			MCDU_2.page.hide();
 		}
 	},
 	updateFast: func() {
