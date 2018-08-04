@@ -80,9 +80,11 @@
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/mach</independentVar>
+					<independentVar lookup="column">fbw/roll/gain-switch</independentVar>
 					<tableData>
-						0.2 -26.2
-						0.9 -15.5
+						     0     1  
+						0.2 -26.2  0.0
+						0.9 -15.5  0.0
 					</tableData>
 				</table>
 			</function>
@@ -120,9 +122,11 @@
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/mach</independentVar>
+					<independentVar lookup="column">fbw/pitch/gain-switch</independentVar>
 					<tableData>
-						0.2  28
-						0.9  23
+						     0   1  
+						0.2  28  0
+						0.9  23  0
 					</tableData>
 				</table>
 			</function>
