@@ -521,13 +521,13 @@ var lightsLoop = maketimer(0.2, func {
 	landl = getprop("/controls/lighting/landing-lights[1]");
 	landr = getprop("/controls/lighting/landing-lights[2]");
 	
-	if (landl == 1) {
+	if (landl == 1 and getprop("sim/current-view/internal") == 1) {
 		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 1);
 	} else {
 		setprop("/sim/rendering/als-secondary-lights/use-landing-light", 0);
 	}
 	
-	if (landr == 1) {
+	if (landr == 1 and getprop("sim/current-view/internal") == 1) {
 		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
 	} else {
 		setprop("/sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
