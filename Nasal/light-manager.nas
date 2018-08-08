@@ -95,12 +95,12 @@ var light_manager = {
 		me.light4_zpos =  2.0;
  
 		# color values
-		me.light1_r = 0.5;
-		me.light1_g = 0.5;
-		me.light1_b = 0.5;
-		me.light2_r = 0.5;
-		me.light2_g = 0.5;
-		me.light2_b = 0.5;
+		me.light1_r = 0.7;
+		me.light1_g = 0.7;
+		me.light1_b = 0.7;
+		me.light2_r = 0.7;
+		me.light2_g = 0.7;
+		me.light2_b = 0.7;
 		me.light3_r = 0.5;
 		me.light3_g = 0.5;
 		me.light3_b = 0.5;
@@ -172,13 +172,13 @@ var light_manager = {
 			var sh = math.sin(heading);
 			var ch = math.cos(heading);
 			
-			if (ll1 == 1 and type_of_view == 0) {
+			if (ll1 == 1) {
 				me.light1_on();
 			} else {
 				me.light1_off();
 			}
 			
-			if (ll2 == 1 and type_of_view == 0) {
+			if (ll2 == 1) {
 				me.light2_on();
 			} else {
 				me.light2_off();
