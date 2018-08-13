@@ -47,7 +47,6 @@ var ADIRS = {
 		setprop("/controls/adirs/ir[1]/fault", 0);
 		setprop("/controls/adirs/ir[2]/fault", 0);
 		setprop("/controls/adirs/onbat", 0);
-		setprop("/controls/adirs/mcducbtn", 0);
 		setprop("/controls/adirs/mcdu/mode1", ""); # INVAL ALIGN NAV ATT or off (blank)
 		setprop("/controls/adirs/mcdu/mode2", "");
 		setprop("/controls/adirs/mcdu/mode3", "");

@@ -473,17 +473,17 @@
 			</display>
 			<ir n="0">
 				<align type="bool">false</align>
-				<knob type="int">1</knob>
+				<knob type="int">0</knob>
 				<fault type="bool">false</fault>
 			</ir>
 			<ir n="1">
 				<align type="bool">false</align>
-				<knob type="int">1</knob>
+				<knob type="int">0</knob>
 				<fault type="bool">false</fault>
 			</ir>
 			<ir n="2">
 				<align type="bool">false</align>
-				<knob type="int">1</knob>
+				<knob type="int">0</knob>
 				<fault type="bool">false</fault>
 			</ir>
 			<onbat type="bool">false</onbat>
@@ -1429,6 +1429,7 @@
 			<file>Aircraft/IDG-A32X/Nasal/efis.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/ECAM.nas</file>
 			<file>Aircraft/IDG-A32X/Nasal/shake.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/light-manager.nas</file>
 		</libraries>
 		<acconfig>
 			<file>Aircraft/IDG-A32X/AircraftConfig/acconfig.nas</file>

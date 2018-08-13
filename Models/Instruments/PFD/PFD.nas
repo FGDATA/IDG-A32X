@@ -163,59 +163,61 @@ var canvas_PFD_base = {
 			PFD_2_mismatch.page.hide();
 			if (getprop("/systems/electrical/bus/ac-ess") >= 110 and getprop("/controls/lighting/DU/du1") > 0) {
 				if (getprop("/instrumentation/du/du1-test-time") + getprop("/instrumentation/du/du1-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") != 1) {
-					PFD_1.page.hide();
-					PFD_1_test.page.show();
 					PFD_1_test.update();
 					updateL = 0;
+					PFD_1.page.hide();
+					PFD_1_test.page.show();
 				} else if (getprop("/instrumentation/du/du2-test-time") + getprop("/instrumentation/du/du2-test-amount") >= elapsedtime and getprop("/modes/cpt-du-xfr") == 1) {
-					PFD_1.page.hide();
-					PFD_1_test.page.show();
 					PFD_1_test.update();
 					updateL = 0;
+					PFD_1.page.hide();
+					PFD_1_test.page.show();
 				} else {
+					PFD_1.updateFast();
+					PFD_1.update();
+					updateL = 1;
 					PFD_1_test.page.hide();
 					PFD_1.page.show();
-					PFD_1.updateFast();
-					updateL = 1;
 				}
 			} else {
+				updateL = 0;
 				PFD_1_test.page.hide();
 				PFD_1.page.hide();
-				updateL = 0;
 			}
 			if (getprop("/systems/electrical/bus/ac2") >= 110 and getprop("/controls/lighting/DU/du6") > 0) {
 				if (getprop("/instrumentation/du/du6-test-time") + getprop("/instrumentation/du/du6-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") != 1) {
-					PFD_2.page.hide();
-					PFD_2_test.page.show();
 					PFD_2_test.update();
 					updateR = 0;
+					PFD_2.page.hide();
+					PFD_2_test.page.show();
 				} else if (getprop("/instrumentation/du/du5-test-time") + getprop("/instrumentation/du/du5-test-amount") >= elapsedtime and getprop("/modes/fo-du-xfr") == 1) {
-					PFD_2.page.hide();
-					PFD_2_test.page.show();
 					PFD_2_test.update();
 					updateR = 0;
+					PFD_2.page.hide();
+					PFD_2_test.page.show();
 				} else {
+					PFD_2.updateFast();
+					PFD_2.update();
+					updateR = 1;
 					PFD_2_test.page.hide();
 					PFD_2.page.show();
-					PFD_2.updateFast();
-					updateR = 1;
 				}
 			} else {
+				updateR = 0;
 				PFD_2_test.page.hide();
 				PFD_2.page.hide();
-				updateR = 0;
 			}
 		} else {
+			updateL = 0;
+			updateR = 0;
 			PFD_1_test.page.hide();
 			PFD_1.page.hide();
 			PFD_2_test.page.hide();
 			PFD_2.page.hide();
-			PFD_1_mismatch.page.show();
-			PFD_2_mismatch.page.show();
 			PFD_1_mismatch.update();
 			PFD_2_mismatch.update();
-			updateL = 0;
-			updateR = 0;
+			PFD_1_mismatch.page.show();
+			PFD_2_mismatch.page.show();
 		}
 	},
 	updateSlow: func() {
