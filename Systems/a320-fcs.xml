@@ -451,8 +451,10 @@
 		
 		<switch name="fbw/roll/trigger">
 			<default value="0"/>
-			<test logic="OR" value="1">
+			<test value="-1">
 				fbw/roll/gain-switch gt 0
+			</test>
+			<test logic="OR" value="1">
 				fbw/roll/pid le -0.999
 				fbw/roll/pid ge 0.999
 			</test>
@@ -560,6 +562,11 @@
 				/systems/failures/aileron-right eq 1
 			</test>
 		</switch>
+		
+		<lag_filter name="fbw/aileron-sidestick">
+			<input>/controls/flight/aileron</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	
@@ -891,8 +898,10 @@
 		
 		<switch name="fbw/pitch/trigger">
 			<default value="0"/>
-			<test logic="OR" value="1">
+			<test value="-1">
 				fbw/pitch/gain-switch gt 0
+			</test>
+			<test logic="OR" value="1">
 				fbw/pitch/pid le -0.999
 				fbw/pitch/pid ge 0.999
 			</test>
@@ -959,6 +968,11 @@
 				/it-fbw/law eq 3
 			</test>
 		</switch>
+		
+		<lag_filter name="fbw/elevator-sidestick">
+			<input>/controls/flight/elevator</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<switch name="fbw/pitch/autotrim-height">
 			<default value="50"/>
@@ -1101,12 +1115,14 @@
 		
 		<switch name="fbw/yaw/trigger">
 			<default value="0"/>
-			<test logic="OR" value="1">
+			<test logic="OR" value="-1">
 				fbw/yaw/gain-switch gt 0
-				fbw/yaw/tc-pid le -0.199
-				fbw/yaw/tc-pid ge 0.199
 				/position/gear-agl-ft lt 50
 				fbw/yaw/autoland-switch eq 1
+			</test>
+			<test logic="OR" value="1">
+				fbw/yaw/tc-pid le -0.199
+				fbw/yaw/tc-pid ge 0.199
 			</test>
 		</switch>
 		
@@ -1161,6 +1177,11 @@
 			</test>
 			<output>/controls/flight/rudder-fbw</output>
 		</switch>
+		
+		<lag_filter name="fbw/rudder-pedal">
+			<input>/controls/flight/rudder</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	
