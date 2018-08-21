@@ -121,15 +121,15 @@ var light_manager = {
 		me.light2_r = 0.6;
 		me.light2_g = 0.6;
 		me.light2_b = 0.6;
-		me.light3_r = 0.2;
+		me.light3_r = 0.4;
 		me.light3_g = 0.0;
 		me.light3_b = 0.0;
 		me.light4_r = 0.0;
-		me.light4_g = 0.2;
+		me.light4_g = 0.4;
 		me.light4_b = 0.0;
-		me.light5_r = 0.3;
-		me.light5_g = 0.3;
-		me.light5_b = 0.3;
+		me.light5_r = 0.4;
+		me.light5_g = 0.4;
+		me.light5_b = 0.4;
 
 		# spot size
 		me.light1_size = 12;
