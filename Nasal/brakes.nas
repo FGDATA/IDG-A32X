@@ -36,6 +36,7 @@ controls.applyBrakes = func(v, which = 0) {
 # Set autobrake mode
 var arm_autobrake = func(mode) {
 	wow0 = getprop("/gear/gear[0]/wow");
+	gnd_speed = getprop("/velocities/groundspeed-kt");
 	if (mode == 0) { # OFF
 		absChk.stop();
 		if (getprop("/controls/autobrake/active") == 1) {
@@ -53,7 +54,7 @@ var arm_autobrake = func(mode) {
 		setprop("/controls/autobrake/decel-rate", 3);
 		setprop("/controls/autobrake/mode", 2);
 		absChk.start();
-	} else if (mode == 3 and wow0 == 1) { # MAX
+	} else if (mode == 3 and wow0 == 1 and gnd_speed < 40) { # MAX
 		setprop("/controls/autobrake/decel-rate", 6);
 		setprop("/controls/autobrake/mode", 3);
 		absChk.start();

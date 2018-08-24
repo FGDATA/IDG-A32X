@@ -109,6 +109,7 @@ var updated_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/updated/dialog", "Air
 var error_mismatch = gui.Dialog.new("sim/gui/dialogs/acconfig/error/mismatch/dialog", "Aircraft/IDG-A32X/AircraftConfig/error-mismatch.xml");
 var groundservices_dlg = gui.Dialog.new("sim/gui/dialogs/acconfig/groundsrvc/dialog", "Aircraft/IDG-A32X/AircraftConfig/groundservices.xml");
 var du_quality = gui.Dialog.new("sim/gui/dialogs/acconfig/du-quality/dialog", "Aircraft/IDG-A32X/AircraftConfig/du-quality.xml");
+var autopush_dlg = gui.Dialog.new("sim/gui/dialogs/autopush/dialog", "Aircraft/IDG-A32X/AircraftConfig/autopush.xml");
 spinning.start();
 init_dlg.open();
 
@@ -162,7 +163,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	} 
 	mismatch_chk();
 	readSettings();
-	if (getprop("/systems/acconfig/options/revision") < current_revision and getprop("/systems/acconfig/mismatch-code") == "0x000") {
+	if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/options/revision") < current_revision and getprop("/systems/acconfig/mismatch-code") == "0x000") {
 		updated_dlg.open();
 	} else if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/mismatch-code") == "0x000" and getprop("/systems/acconfig/options/welcome-skip") != 1) {
 		welcome_dlg.open();

@@ -28,10 +28,31 @@
 
 		<model>
 			<pushback>
-				<kp type="double">5000</kp>
-				<ki type="double">200</ki>
-				<kd type="double">500</kd>
 				<position-norm type="double">0</position-norm>
+				<enabled type="int"/>
+				<available type="int">1</available>
+				<chocks alias="/controls/gear/wheel-chocks"/>
+				<steer-cmd-norm alias="/controls/flight/rudder"/>
+				<yaw alias="/gear/gear[0]/steering-norm"/>
+				<yaw-mult type="float">1.0</yaw-mult>
+				<target-speed-km_h type="float">0.0</target-speed-km_h>
+				<K_p type="float">1.0</K_p>
+				<F_p type="float">0.1</F_p>
+				<K_i type="float">0.01</K_i>
+				<F_i type="float">2.0</F_i>
+				<K_d type="float">0.0</K_d>
+				<F_d type="float">0.0</F_d>
+				<driver>
+					<K_V type="float">5.5</K_V>
+					<F_V type="float">5.5</F_V>
+					<D_min-m type="float">5.0</D_min-m>
+					<K_psi type="float">0.03</K_psi>
+					<debug type="bool">true</debug>
+				</driver>
+				<route>
+					<show type="bool"/>
+					<view type="string">Model View</view>
+				</route>
 			</pushback>
 			<icing>
 				<iceable>
@@ -221,8 +242,10 @@
 					<item>
 						<label>Pushback</label>
 						<binding>
-							<command>dialog-show</command>
-							<dialog-name>pushback</dialog-name>
+							<command>nasal</command>
+							<script>
+							acconfig.autopush_dlg.open();
+							</script>
 						</binding>
 					</item>
 					<item>
@@ -373,6 +396,18 @@
 			</tank>
 		</fuel>
 	</consumables>
+	
+	<fdm>
+		<jsbsim>
+			<external_reactions>
+				<tractor>
+					<magnitude alias="/sim/model/pushback/force-lbf"/>
+					<x alias="/sim/model/pushback/force-x"/>
+					<y alias="/sim/model/pushback/force-y"/>
+				</tractor>
+			</external_reactions>
+		</jsbsim>
+	</fdm>
 	
 	<payload>
 		<weight n="0">
@@ -1500,6 +1535,18 @@
 		<icing>
 			<file>Aircraft/IDG-A32X/Nasal/icing.nas</file>
 		</icing>
+		<autopush>
+			<file>Aircraft/IDG-A32X/Nasal/autopush.nas</file>
+		</autopush>
+		<autopush_driver>
+			<file>Aircraft/IDG-A32X/Nasal/autopush_driver.nas</file>
+		</autopush_driver>
+		<dynarr>
+			<file>Aircraft/IDG-A32X/Nasal/dynarr.nas</file>
+		</dynarr>
+		<autopush_route>
+			<file>Aircraft/IDG-A32X/Nasal/autopush_route.nas</file>
+		</autopush_route>
 	</nasal>
 
 </PropertyList>
