@@ -58,7 +58,7 @@ var canvas_IESI_base = {
 		return [];
 	},
 	update: func() {
-		if (getprop("/systems/electrical/battery1-amps") >= 120 or getprop("/systems/electrical/battery2-amps") >= 120 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
+		if (getprop("/systems/electrical/bus/dcbat") >= 25 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
 			if (getprop("/systems/acconfig/autoconfig-running") != 1 and getprop("/instrumentation/iesi/iesi-init") != 1) {
 				setprop("/instrumentation/iesi/iesi-init", 1);
 				setprop("/instrumentation/iesi/iesi-init-time", getprop("/sim/time/elapsed-sec"));
@@ -70,7 +70,7 @@ var canvas_IESI_base = {
 			setprop("/instrumentation/iesi/iesi-init", 0);
 		}
 		
-		if (getprop("/systems/electrical/battery1-amps") >= 120 or getprop("/systems/electrical/battery2-amps") >= 120 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
+		if (getprop("/systems/electrical/bus/dcbat") >= 25 or getprop("/systems/electrical/bus/dc1") >= 25 or getprop("/systems/electrical/bus/dc2") >= 25) {
 			IESI.page.show();
 			IESI.update();
 		} else {

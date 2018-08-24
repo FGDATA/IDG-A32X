@@ -75,12 +75,8 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>systems/electrical/battery1-amps</property>
-					<value>120</value>
-				</greater-than-equals>
-				<greater-than-equals>
-					<property>systems/electrical/battery2-amps</property>
-					<value>120</value>
+					<property>systems/electrical/bus/dcbat</property>
+					<value>25</value>
 				</greater-than-equals>
 				<greater-than-equals>
 					<property>systems/electrical/bus/dc-ess</property>
@@ -1793,12 +1789,8 @@
 						</equals>
 						<or>
 							<greater-than-equals>
-								<property>systems/electrical/battery1-amps</property>
-								<value>120</value>
-							</greater-than-equals>
-							<greater-than-equals>
-								<property>systems/electrical/battery2-amps</property>
-								<value>120</value>
+								<property>systems/electrical/bus/dcbat</property>
+								<value>25</value>
 							</greater-than-equals>
 							<greater-than-equals>
 								<property>systems/electrical/bus/dc-ess</property>
@@ -2887,12 +2879,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -2963,12 +2951,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3034,12 +3018,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3107,12 +3087,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3189,12 +3165,8 @@
 					</equals>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3242,12 +3214,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3627,12 +3595,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3771,12 +3735,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -3981,12 +3941,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -4061,12 +4017,8 @@
 						</equals>
 						<or>
 							<greater-than-equals>
-								<property>systems/electrical/battery1-amps</property>
-								<value>120</value>
-							</greater-than-equals>
-							<greater-than-equals>
-								<property>systems/electrical/battery2-amps</property>
-								<value>120</value>
+								<property>systems/electrical/bus/dcbat</property>
+								<value>25</value>
 							</greater-than-equals>
 							<greater-than-equals>
 								<property>systems/electrical/bus/dc-ess</property>
@@ -4334,12 +4286,8 @@
 						</equals>
 						<or>
 							<greater-than-equals>
-								<property>systems/electrical/battery1-amps</property>
-								<value>120</value>
-							</greater-than-equals>
-							<greater-than-equals>
-								<property>systems/electrical/battery2-amps</property>
-								<value>120</value>
+								<property>systems/electrical/bus/dcbat</property>
+								<value>25</value>
 							</greater-than-equals>
 							<greater-than-equals>
 								<property>systems/electrical/bus/dc-ess</property>
@@ -5114,12 +5062,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>
@@ -5185,12 +5129,8 @@
 				<condition>
 					<or>
 						<greater-than-equals>
-							<property>systems/electrical/battery1-amps</property>
-							<value>120</value>
-						</greater-than-equals>
-						<greater-than-equals>
-							<property>systems/electrical/battery2-amps</property>
-							<value>120</value>
+							<property>systems/electrical/bus/dcbat</property>
+							<value>25</value>
 						</greater-than-equals>
 						<greater-than-equals>
 							<property>systems/electrical/bus/dc-ess</property>

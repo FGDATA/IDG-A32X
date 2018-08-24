@@ -10,6 +10,7 @@ var ac_volt_min = 110;
 var dc_volt_std = 28;
 var dc_volt_min = 25;
 var dc_amps_std = 150;
+var batt_amps = 2;
 var tr_amps_std = 55;
 var ac_hz_std = 400;
 var ac1_src = "XX";
@@ -313,14 +314,16 @@ var ELEC = {
 		replay = getprop("/sim/replay/replay-state");
 		wow = getprop("/gear/gear[1]/wow");
 		
+		
+		
 		if (battery1_volts >= 20 and battery1_sw and !batt1_fail) {
-			setprop("/systems/electrical/battery1-amps", dc_amps_std);
+			setprop("/systems/electrical/battery1-amps", batt_amps);
 		} else {
 			setprop("/systems/electrical/battery1-amps", 0);
 		}
 		
 		if (battery2_volts >= 20 and battery2_sw and !batt2_fail) {
-			setprop("/systems/electrical/battery2-amps", dc_amps_std);
+			setprop("/systems/electrical/battery2-amps", batt_amps);
 		} else {
 			setprop("/systems/electrical/battery2-amps", 0);
 		}
@@ -328,7 +331,7 @@ var ELEC = {
 		battery1_amps = getprop("/systems/electrical/battery1-amps");
 		battery2_amps = getprop("/systems/electrical/battery2-amps");
 		
-		if (battery1_amps > 120 or battery2_amps > 120) {
+		if (battery1_amps > 0 or battery2_amps > 0) {
 			setprop("/systems/electrical/bus/dcbat", dc_volt_std);
 		} else {
 			setprop("/systems/electrical/bus/dcbat", 0);
@@ -623,7 +626,7 @@ var ELEC = {
 			}
 		} else if (battery1_percent == 100 and (dc1 > 25 or dc2 > 25) and battery1_sw and !batt1_fail) {
 			setprop("/systems/electrical/battery1-time", getprop("/sim/time/elapsed-sec"));
-		} else if (battery1_amps >= 120 and battery1_sw and !batt1_fail) {
+		} else if (battery1_amps > 0 and battery1_sw and !batt1_fail) {
 			if (getprop("/systems/electrical/battery1-time") + 5 < getprop("/sim/time/elapsed-sec")) {
 				battery1_percent_calc = battery1_percent - 0.25; # Roughly 90 percent every 30 mins
 				if (battery1_percent_calc < 0) {
@@ -647,7 +650,7 @@ var ELEC = {
 			}
 		} else if (battery2_percent == 100 and (dc1 > 25 or dc2 > 25) and battery2_sw and !batt2_fail) {
 			setprop("/systems/electrical/battery2-time", getprop("/sim/time/elapsed-sec"));
-		} else if (battery2_amps >= 120 and battery2_sw and !batt2_fail) {
+		} else if (battery2_amps > 0 and battery2_sw and !batt2_fail) {
 			if (getprop("/systems/electrical/battery2-time") + 5 < getprop("/sim/time/elapsed-sec")) {
 				battery2_percent_calc = battery2_percent - 0.25; # Roughly 90 percent every 30 mins
 				if (battery2_percent_calc < 0) {

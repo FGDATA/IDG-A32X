@@ -138,7 +138,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_apu.update();
 				} else if (page == "bleed") {
 					lowerECAM_apu.page.hide();
-					lowerECAM_bleed.page.show();
+#					lowerECAM_bleed.page.show();
 					lowerECAM_cond.page.hide();
 					lowerECAM_door.page.hide();
 					lowerECAM_elec.page.hide();
@@ -153,7 +153,7 @@ var canvas_lowerECAM_base = {
 				} else if (page == "cond") {
 					lowerECAM_apu.page.hide();
 					lowerECAM_bleed.page.hide();
-					lowerECAM_cond.page.show();
+#					lowerECAM_cond.page.show();
 					lowerECAM_door.page.hide();
 					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
@@ -228,7 +228,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_elec.page.hide();
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.hide();
-					lowerECAM_fuel.page.show();
+#					lowerECAM_fuel.page.show();
 					lowerECAM_press.page.hide();
 					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
@@ -243,7 +243,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_eng.page.hide();
 					lowerECAM_fctl.page.hide();
 					lowerECAM_fuel.page.hide();
-					lowerECAM_press.page.show();
+#					lowerECAM_press.page.show();
 					lowerECAM_status.page.hide();
 					lowerECAM_hyd.page.hide();
 					lowerECAM_wheel.page.hide();
@@ -273,7 +273,7 @@ var canvas_lowerECAM_base = {
 					lowerECAM_fuel.page.hide();
 					lowerECAM_press.page.hide();
 					lowerECAM_status.page.hide();
-					lowerECAM_hyd.page.show();
+#					lowerECAM_hyd.page.show();
 					lowerECAM_wheel.page.hide();
 					lowerECAM_hyd.update();
 				} else if (page == "wheel") {
@@ -894,12 +894,12 @@ var canvas_lowerECAM_elec = {
 	},
 	getKeys: func() {
 		return ["TAT","SAT","GW","UTCh","UTCm","BAT1-label","Bat1Volt","Bat1Ampere","BAT2-label","Bat2Volt","Bat2Ampere","BAT1-charge","BAT1-discharge","BAT2-charge","BAT2-discharge","ELEC-Line-DC1-DCBAT","ELEC-Line-DC1-DCESS","ELEC-Line-DC2-DCBAT",
-		"ELEC-Line-DC1-DCESS_DCBAT","ELEC-Line-DC2-DCESS_DCBAT","ELEC-Line-TR1-DC1","ELEC-Line-TR2-DC2","Shed-label","ELEC-Line-ESSTR-DCESS","TR1-label","TR1Volt","TR1Ampere","TR2-label","TR2Volt","TR2Ampere","EMERGEN-Box-on","EmergenVolt","EmergenHz",
+		"ELEC-Line-DC1-DCESS_DCBAT","ELEC-Line-DC2-DCESS_DCBAT","ELEC-Line-TR1-DC1","ELEC-Line-TR2-DC2","Shed-label","ELEC-Line-ESSTR-DCESS","TR1-label","TR1Volt","TR1Ampere","TR2-label","TR2Volt","TR2Ampere","EMERGEN-group","EmergenVolt","EmergenHz",
 		"ELEC-Line-Emergen-ESSTR","EMERGEN-Label-off","EMERGEN-out","ELEC-Line-ACESS-TRESS","ELEC-Line-AC1-TR1","ELEC-Line-AC2-TR2","ELEC-Line-AC1-ACESS","ELEC-Line-AC2-ACESS","ACESS-SHED","ACESS","AC1-in","AC2-in","ELEC-Line-GEN1-AC1","ELEC-Line-GEN2-AC2",
 		"ELEC-Line-APU-AC1","ELEC-Line-APU-EXT","ELEC-Line-EXT-AC2","APU-out","EXT-out","EXTPWR-group","ExtVolt","ExtHz","APU-content","APU-border","APUGentext","APUGenLoad","APUGenVolt","APUGenHz","APUGEN-off","GEN1-label","Gen1Load","Gen1Volt","Gen1Hz",
 		"GEN2-label","Gen2Load","GEN2-off","Gen2Volt","Gen2Hz","ELEC-IDG-1-label","ELEC-IDG-1-Temp","IDG1-LOPR","IDG1-DISC","IDG1-RISE-Value","IDG1-RISE-label","GalleyShed","ELEC-IDG-2-Temp","ELEC-IDG-2-label","IDG2-RISE-label","IDG2-RISE-Value","IDG2-LOPR",
 		"IDG2-DISC","ESSTR-group","ESSTR-Volt","ESSTR-Ampere","BAT1-content","BAT2-content","BAT1-OFF","BAT2-OFF","GEN1-content","GEN2-content","GEN-1-num-label","GEN-2-num-label","GEN1-off","GEN2-off","GEN1-num-label","GEN2-num-label","EXTPWR-label",
-		"ELEC-ACESS-SHED-label","ELEC-DCBAT-label","ELEC-DCESS-label","ELEC-DC2-label","ELEC-DC1-label","ELEC-AC1-label","ELEC-AC2-label","ELEC-ACESS-label"];
+		"ELEC-ACESS-SHED-label","ELEC-DCBAT-label","ELEC-DCESS-label","ELEC-DC2-label","ELEC-DC1-label","ELEC-AC1-label","ELEC-AC2-label","ELEC-ACESS-label","ELEC-Line-ESSTR-DCESS-off","ELEC-Line-Emergen-ESSTR-off"];
 	},
 	update: func() {
 
@@ -1046,10 +1046,12 @@ var canvas_lowerECAM_elec = {
 		# TODO add values and amber on over/under load
 		# TODO changes the prop to the one which indicates the use of the emergen and not of the man depoly
 		if (getprop("/controls/electrical/switches/emer-gen") == 0) {
-			me["EMERGEN-Box-on"].hide();
+			me["EMERGEN-group"].hide();
+			me["ELEC-Line-Emergen-ESSTR"].hide();
 			me["EMERGEN-Label-off"].show();
 		} else {
-			me["EMERGEN-Box-on"].show();
+			me["EMERGEN-group"].show();
+			me["ELEC-Line-Emergen-ESSTR"].show();
 			me["EMERGEN-Label-off"].hide();
 		}
 
@@ -1360,7 +1362,7 @@ var canvas_lowerECAM_elec = {
 			me["ELEC-Line-AC2-ACESS"].hide();
 		}
 
-		if (getprop("/systems/electrical/tr1-fault") == 0) {
+		if (getprop("/systems/electrical/tr1-fault") != 1) {
 			if (getprop("/systems/electrical/bus/ac1") < 110) {
 				me["ELEC-Line-AC1-TR1"].setColorFill(0.7333,0.3803,0);
 			} else {
@@ -1373,7 +1375,7 @@ var canvas_lowerECAM_elec = {
 			me["ELEC-Line-TR1-DC1"].hide();
 		}
 
-		if (getprop("/systems/electrical/tr2-fault") == 0) {
+		if (getprop("/systems/electrical/tr2-fault") != 1) {
 			if (getprop("/systems/electrical/bus/ac2") < 110) {
 				me["ELEC-Line-AC2-TR2"].setColorFill(0.7333,0.3803,0);
 			} else {
@@ -1422,8 +1424,8 @@ var canvas_lowerECAM_elec = {
 		me["IDG1-DISC"].hide();
 		me["IDG2-DISC"].hide();
 		me["Shed-label"].hide();
+		me["ELEC-Line-ESSTR-DCESS"].hide();
 		me["ELEC-Line-ACESS-TRESS"].hide();
-		me["ELEC-Line-Emergen-ESSTR"].hide();
 		me["IDG2-RISE-label"].hide();
 		me["IDG2-RISE-Value"].hide();
 		me["IDG1-RISE-label"].hide();

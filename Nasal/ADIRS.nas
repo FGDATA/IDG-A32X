@@ -14,8 +14,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	var gs = getprop("/velocities/groundspeed-kt");
 	var ac1 = 0;
 	var ac2 = 0;
-	var batt1_amps = 0;
-	var batt2_amps = 0;
+	var dcbat = 0;
 	var pwr_src = "XX";
 });
 
@@ -65,8 +64,7 @@ var ADIRS = {
 		gs = getprop("/velocities/groundspeed-kt");
 		ac1 = getprop("/systems/electrical/bus/ac1");
 		ac2 = getprop("/systems/electrical/bus/ac2");
-		batt1_amps = getprop("/systems/electrical/battery1-amps");
-		batt2_amps = getprop("/systems/electrical/battery2-amps");
+		dcbat = getprop("/systems/electrical/bus/dcbat");
 		
 		if (getprop("/controls/adirs/skip") == 1) {
 			if (getprop("/controls/adirs/align-time") != 5) {
@@ -78,7 +76,7 @@ var ADIRS = {
 			}
 		}
 		
-		if (gs > 5 or pitch > 5 or pitch < -5 or roll > 10 or roll < -10 or (ac1 < 110 and ac2 < 110 and batt1_amps < 120 and batt2_amps < 120)) {
+		if (gs > 5 or pitch > 5 or pitch < -5 or roll > 10 or roll < -10 or (ac1 < 110 and ac2 < 110 and dcbat < 25)) {
 			if (getprop("/controls/adirs/ir[0]/align") == 1) {
 				me.stopAlign(0,1);
 			}
@@ -92,7 +90,7 @@ var ADIRS = {
 		
 		if (ac1 >= 110 or ac2 >= 110) {
 			pwr_src = "AC";
-		} else if ((batt1_amps >= 120 or batt2_amps >= 120) and (getprop("/controls/adirs/ir[0]/knob") != 0 or getprop("/controls/adirs/ir[1]/knob") != 0 or getprop("/controls/adirs/ir[2]/knob") != 0)) {
+		} else if (dcbat >= 25 and (getprop("/controls/adirs/ir[0]/knob") != 0 or getprop("/controls/adirs/ir[1]/knob") != 0 or getprop("/controls/adirs/ir[2]/knob") != 0)) {
 			pwr_src = "BATT";
 		} else {
 			pwr_src = "XX";
@@ -119,10 +117,9 @@ var ADIRS = {
 	beginAlign: func(n) {
 		ac1 = getprop("/systems/electrical/bus/ac1");
 		ac2 = getprop("/systems/electrical/bus/ac2");
-		batt1_amps = getprop("/systems/electrical/battery1-amps");
-		batt2_amps = getprop("/systems/electrical/battery2-amps");
+		dcbat = getprop("/systems/electrical/bus/dcbat");
 		setprop("/instrumentation/adirs/adr[" ~ n ~ "]/active", 1);
-		if (getprop("/controls/adirs/ir[" ~ n ~ "]/align") != 1 and getprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned") != 1 and (ac1 >= 110 or ac2 >= 110 or batt1_amps >= 120 or batt2_amps >= 120)) {
+		if (getprop("/controls/adirs/ir[" ~ n ~ "]/align") != 1 and getprop("/instrumentation/adirs/ir[" ~ n ~ "]/aligned") != 1 and (ac1 >= 110 or ac2 >= 110 or dcbat >= 25)) {
 			setprop("/controls/adirs/ir[" ~ n ~ "]/time", getprop("/sim/time/elapsed-sec"));
 			setprop("/controls/adirs/ir[" ~ n ~ "]/align", 1);
 			setprop("/controls/adirs/ir[" ~ n ~ "]/fault", 0);
