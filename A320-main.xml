@@ -1536,16 +1536,16 @@
 			<file>Aircraft/IDG-A32X/Nasal/icing.nas</file>
 		</icing>
 		<autopush>
-			<file>Nasal/autopush.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/autopush.nas</file>
 		</autopush>
 		<autopush_driver>
-			<file>Nasal/autopush_driver.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/autopush_driver.nas</file>
 		</autopush_driver>
 		<dynarr>
-			<file>Nasal/dynarr.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/dynarr.nas</file>
 		</dynarr>
 		<autopush_route>
-			<file>Nasal/autopush_route.nas</file>
+			<file>Aircraft/IDG-A32X/Nasal/autopush_route.nas</file>
 		</autopush_route>
 	</nasal>
 
