@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
 
 <!--
-
-AUTOPUSH
-Pushback dialog.
-
-Copyright (c) 2018 Autopush authors:
+ AUTOPUSH
+Waypoint model.
+ Copyright (c) 2018 Autopush authors:
  Michael Danilov <mike.d.ft402 -eh- gmail.com>
  Joshua Davidson http://github.com/it0uchpods
- Merspieler http://gitlab.com/merspieler
-Original code (c) FlightGear
+ Merspieler http://github.com/merspieler
 Distribute under the terms of GPLv2.
-
--->
+ -->
 
 <PropertyList>
 
@@ -33,9 +29,9 @@ Distribute under the terms of GPLv2.
 
 		<button>
 			<halign>right</halign>
-			<pref-width>16</pref-width>
-			<pref-height>16</pref-height>
-			<legend/>
+			<pref-width>20</pref-width>
+			<pref-height>20</pref-height>
+			<legend>X</legend>
 			<key>Esc</key>
 			<binding>
 				<command>dialog-close</command>
@@ -284,7 +280,8 @@ Distribute under the terms of GPLv2.
 				<row>1</row>
 				<col>3</col>
 				<halign>left</halign>
-				<label>Show</label>
+				<label>Always Show</label>
+				<live>true</live>
 				<property>/sim/model/pushback/route/show</property>
 				<binding>
 					<command>dialog-apply</command>

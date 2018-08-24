@@ -28,7 +28,7 @@
 
 		<model>
 			<pushback>
-				<position-norm>0</position-norm>
+				<position-norm type="double">0</position-norm>
 				<enabled type="int"/>
 				<available type="int">1</available>
 				<chocks alias="/controls/gear/wheel-chocks"/>
@@ -244,8 +244,7 @@
 						<binding>
 							<command>nasal</command>
 							<script>
-							var autopush_dlg = gui.Dialog.new("sim/gui/dialogs/announce/dialog", "Aircraft/IDG-A32X/AircraftConfig/autopush.xml");
-							autopush_dlg.open();
+							acconfig.autopush_dlg.open();
 							</script>
 						</binding>
 					</item>
@@ -397,6 +396,18 @@
 			</tank>
 		</fuel>
 	</consumables>
+	
+	<fdm>
+		<jsbsim>
+			<external_reactions>
+				<tractor>
+					<magnitude alias="/sim/model/pushback/force-lbf"/>
+					<x alias="/sim/model/pushback/force-x"/>
+					<y alias="/sim/model/pushback/force-y"/>
+				</tractor>
+			</external_reactions>
+		</jsbsim>
+	</fdm>
 	
 	<payload>
 		<weight n="0">
@@ -1537,15 +1548,5 @@
 			<file>Nasal/autopush_route.nas</file>
 		</autopush_route>
 	</nasal>
-	<fdm>
-		<jsbsim>
-			<external_reactions>
-				<tractor>
-					<magnitude alias="/sim/model/pushback/force-lbf"/>
-					<x alias="/sim/model/pushback/force-x"/>
-					<y alias="/sim/model/pushback/force-y"/>
-				</tractor>
-			</external_reactions>
-		</jsbsim>
-	</fdm>
+
 </PropertyList>
