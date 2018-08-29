@@ -314,8 +314,6 @@ var ELEC = {
 		replay = getprop("/sim/replay/replay-state");
 		wow = getprop("/gear/gear[1]/wow");
 		
-		
-		
 		if (battery1_volts >= 20 and battery1_sw and !batt1_fail) {
 			setprop("/systems/electrical/battery1-amps", batt_amps);
 		} else {
